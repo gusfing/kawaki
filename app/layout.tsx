@@ -1,28 +1,23 @@
 import type { Metadata } from "next";
 import { MotionConfig } from "framer-motion";
-import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Barlow_Condensed, Host_Grotesk } from "next/font/google";
 import "./globals.css";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { organizationJsonLd } from "@/lib/seo";
+import { NewHeader } from "@/components/layout/NewHeader";
+import { NewFooter } from "@/components/layout/NewFooter";
 
-const archivo = Archivo({
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  weight: "variable",
-  axes: ["wdth"],
-  variable: "--font-archivo",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-barlow",
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
+const hostGrotesk = Host_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-sans",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-host-grotesk",
 });
 
 export const metadata: Metadata = {
@@ -38,15 +33,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+      className={`${barlowCondensed.variable} ${hostGrotesk.variable}`}
     >
-      <body className="flex flex-col min-h-[100dvh] bg-grid w-full overflow-x-hidden text-ink">
+      <head>
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+      </head>
+      <body className="flex flex-col min-h-[100dvh] bg-paper w-full overflow-x-hidden text-ink font-body">
         <SmoothScroll>
           <MotionConfig reducedMotion="user">
             <SkipLink />
+            <NewHeader />
             <main id="main-content" className="flex-grow">
               {children}
             </main>
+            <NewFooter />
           </MotionConfig>
         </SmoothScroll>
         <script

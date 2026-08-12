@@ -11,24 +11,24 @@
    */
 
   /* Surfaces — warm bone, not pure white */
-  --color-paper: #EDEAE3;      /* base page ground */
-  --color-field: #E3E0D7;      /* raised card / alt-section surface */
-  --color-ink-900: #0D0D0F;    /* deepest band — full-bleed dark sections, footer */
+  --color-paper: #f9f4eb;      /* base page ground (cream) */
+  --color-field: #f3efe6;      /* slightly darker cream */
+  --color-ink-900: #0a0a0a;    /* deepest band */
 
   /* Text */
-  --color-ink: #17161A;        /* primary text; also the near-black used on dark bands */
-  --color-slate: #63615A;      /* secondary text, captions, meta (AA on paper) */
-  --color-ink-inverse: #EDEAE3;/* text on ink-900 / accent */
+  --color-ink: #141414;        /* primary text (black) */
+  --color-slate: #555555;      /* secondary text */
+  --color-ink-inverse: #f9f4eb;/* text on ink-900 / accent */
 
   /* Lines */
-  --color-line: #D5D2C7;             /* hairlines on paper/field */
-  --color-line-inverse: #2A2A2E;     /* hairlines on ink-900 */
+  --color-line: rgba(20, 20, 20, 0.1);             /* hairlines on paper/field */
+  --color-line-inverse: rgba(249, 244, 235, 0.1);     /* hairlines on ink-900 */
 
-  /* Accent — the ONLY saturated color. Flat, never a gradient. */
-  --color-accent: #E8451D;     /* ignition — large text, ticks/dots, borders, dark-bg links */
-  --color-accent-strong: #B3300F; /* darker ignition for SMALL accent text on the light ground (AA 4.5:1) */
-  --color-accent-dim: #F6E3DB; /* tint surface on light */
-  --color-accent-ink: #FFF1EC; /* text on accent */
+  /* Accent */
+  --color-accent: #e85d45;     /* brand orange */
+  --color-accent-strong: #d04a33; 
+  --color-accent-dim: #fcece9; 
+  --color-accent-ink: #ffffff; 
 
   /* Back-compat aliases (untouched components still reference `signal`) */
   --color-signal: #E8451D;
@@ -38,9 +38,9 @@
   --color-build-dim: #F6E3DB;
 
   /* Typography */
-  --font-display: var(--font-archivo), 'Kanit', sans-serif;
-  --font-body: var(--font-plex-sans), sans-serif;
-  --font-mono: var(--font-plex-mono), monospace;
+  --font-display: var(--font-satoshi), sans-serif;
+  --font-body: var(--font-satoshi), sans-serif;
+  --font-mono: var(--font-host-grotesk), monospace;
   --font-kanit: 'Kanit', sans-serif;
 
   /* Space */
@@ -148,4 +148,62 @@
   }
   .animate-marquee { animation: none !important; }
   .reveal-line { transform: none !important; opacity: 1 !important; }
+}
+
+/* --- MEGA MENU CSS --- */
+.mega-menu-trigger {
+    position: relative;
+    display: inline-block;
+}
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateY(10px);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    padding: 2rem;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.mega-menu.wide {
+    grid-template-columns: repeat(3, 1fr);
+    width: 600px;
+}
+.mega-menu-trigger:hover .mega-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.mega-menu.align-right {
+    left: auto;
+    right: 0;
+}
+.mega-col h4 {
+    font-family: var(--font-display), sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    color: var(--color-slate);
+}
+.mega-col a {
+    display: block;
+    color: var(--color-ink);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: color 0.2s;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.mega-col a:hover {
+    color: var(--color-accent);
 }
