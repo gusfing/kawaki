@@ -427,145 +427,174 @@
             }
         }
 
-        /* Hero Section */
+        /* Premium Hero Section Redesign */
         .hero {
-            padding: 2.5rem 0;
-            margin-top: 100vh; /* Changed from 200vh to 100vh to remove the blank gap */
-            height: 100vh;
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
+            justify-content: flex-start;
+            padding-left: 5%;
+            overflow: hidden;
+            background: #f4f0e6;
+            margin-top: 100vh;
             z-index: 5;
-            pointer-events: none; /* Let clicks pass through if needed, though buttons need pointer-events */
         }
-        
-        .hero .intro-content {
-            pointer-events: all;
-        }
-        /* ---- END AWWWARDS NAV CSS ---- */
 
-        .card-top-bar {
+        .noise-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .premium-hero-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            color: #12100e;
-            font-weight: 700;
-            font-size: 0.95rem;
-            letter-spacing: -0.01em;
-            z-index: 10;
+            align-items: flex-end;
+            padding-bottom: 2rem;
+            padding-right: 5%;
         }
 
-        .brand-info {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .card-top-actions {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .card-cta {
-            color: #12100e;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: opacity 0.2s;
-        }
-
-        .card-cta:hover {
-            opacity: 0.75;
-        }
-
-        .card-menu-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
+        .hero-text-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            padding: 4px;
+            gap: 3rem;
+            pointer-events: auto;
         }
 
-        .card-menu-btn span {
-            width: 22px;
-            height: 2px;
-            background-color: #12100e;
-            display: block;
-            border-radius: 2px;
-        }
-
-        .intro-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 0;
-            gap: 0.5rem;
-            height: auto;
-            z-index: 10;
-        }
-
-        .intro-content h1 {
-            text-transform: uppercase;
+        .massive-text {
             font-family: "Barlow Condensed", sans-serif;
-            font-size: clamp(3rem, 5vw, 7rem);
+            font-size: clamp(6rem, 14vw, 18rem);
             font-weight: 900;
-            line-height: 0.8;
-            letter-spacing: normal;
+            line-height: 0.85;
+            text-transform: uppercase;
             color: var(--base-200);
-            width: 100%;
-            display: block;
+            display: flex;
+            flex-direction: column;
             margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .text-line {
             overflow: hidden;
+        }
+
+        .text-line span {
+            display: inline-block;
+            cursor: pointer;
+            transition: color 0.4s ease, transform 0.4s ease, -webkit-text-stroke 0.4s ease;
+        }
+
+        /* Hover effect: outline text for the siblings */
+        .massive-text.hover-words-container:hover .text-line span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--base-200);
+        }
+
+        .massive-text.hover-words-container .text-line span:hover {
+            color: var(--base-200);
+            transform: translateX(2vw);
         }
 
         .hero-ctas {
             display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
             opacity: 0;
             transform: translateY(20px);
         }
 
         .hero-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.8rem 2rem;
+            padding: 1.2rem 2.5rem;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 0.02em;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-transform: uppercase;
         }
 
         .hero-btn.primary {
-            background: #12100e;
+            background: var(--base-200);
             color: #fff;
-            border: 1px solid #12100e;
+            border: 1px solid var(--base-200);
         }
 
         .hero-btn.primary:hover {
             background: transparent;
-            color: #12100e;
+            color: var(--base-200);
         }
 
         .hero-btn.secondary {
             border: 1px solid rgba(20, 20, 20, 0.3);
-            color: #12100e;
+            color: var(--base-200);
             background: transparent;
         }
 
         .hero-btn.secondary:hover {
-            background: var(--base-200);
-            color: var(--base-100);
+            background: rgba(20, 20, 20, 0.05);
             border-color: var(--base-200);
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            pointer-events: none;
+        }
+
+        .premium-doodle-container {
+            width: 80px;
+            height: 80px;
+            stroke: var(--base-200);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .spin-doodle {
+            animation: spin 10s linear infinite;
+        }
+        .bounce-doodle {
+            animation: bounce 4s ease-in-out infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes bounce { 
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Upgrade the existing reveal */
+        .hover-image-reveal.premium-reveal {
+            width: 380px;
+            border-radius: 0;
+            aspect-ratio: 3/4;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+            transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(0.8) rotate(-4deg);
+        }
+        .hover-image-reveal.premium-reveal.active {
+            transform: scale(1) rotate(2deg);
+            opacity: 1;
+        }
+
+        @media (max-width: 900px) {
+            .premium-hero-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4rem;
+            }
+            .hero-badges {
+                flex-direction: row;
+            }
         }
 
 
@@ -1533,40 +1562,50 @@
     </div>
 
     <main>
-        <section class="hero">
-            <div class="intro intro-content">
-                <div class="doodle doodle-1">
-                    <!-- A hand-drawn star/sparkle -->
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50,10 C50,40 40,50 10,50 C40,50 50,60 50,90 C50,60 60,50 90,50 C60,50 50,40 50,10 Z" />
-                        <path d="M25,25 L35,35 M75,25 L65,35 M25,75 L35,65 M75,75 L65,65" />
-                    </svg>
+        <section class="hero premium-hero">
+            <div class="noise-overlay"></div>
+            
+            <div class="premium-hero-content">
+                <div class="hero-text-wrapper">
+                    <h1 class="massive-text hover-words-container">
+                        <div class="text-line">
+                            <span class="hover-word" data-image="/assets/method-1.png">DREAM</span>
+                        </div>
+                        <div class="text-line">
+                            <span class="hover-word" data-image="/assets/method-2.png">DESIGN</span>
+                        </div>
+                        <div class="text-line">
+                            <span class="hover-word" data-image="/assets/method-3.png">DELIVER</span>
+                        </div>
+                    </h1>
+                    
+                    <div class="hero-ctas">
+                        <a href="#contact" class="hero-btn primary">Start a project</a>
+                        <a href="#work" class="hero-btn secondary">View our work</a>
+                    </div>
                 </div>
                 
-                <h1 style="color: var(--base-200);" class="hover-words-container">
-                    <span class="hover-word" data-image="/assets/method-1.png">Dream</span> 
-                    <span class="serif-italic">&middot;</span> 
-                    <span class="hover-word" data-image="/assets/method-2.png">Design</span> 
-                    <span class="serif-italic">&middot;</span> 
-                    <span class="hover-word" data-image="/assets/method-3.png">Deliver</span>
-                </h1>
-                
-                <div class="hover-image-reveal">
-                    <img src="" alt="" />
+                <div class="hero-badges">
+                    <div class="premium-doodle-container spin-doodle">
+                        <!-- Sparkle SVG -->
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50,10 C50,40 40,50 10,50 C40,50 50,60 50,90 C50,60 60,50 90,50 C60,50 50,40 50,10 Z" />
+                            <path d="M25,25 L35,35 M75,25 L65,35 M25,75 L35,65 M75,75 L65,65" />
+                        </svg>
+                    </div>
+                    <div class="premium-doodle-container bounce-doodle">
+                        <!-- Arrow SVG -->
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20,20 Q60,10 80,80" />
+                            <path d="M55,75 L80,80 L85,55" />
+                        </svg>
+                    </div>
                 </div>
-                
-                <div class="hero-ctas">
-                    <a href="#contact" class="hero-btn primary">Start a project</a>
-                    <a href="#work" class="hero-btn secondary">View our work</a>
-                </div>
+            </div>
 
-                <div class="doodle doodle-2">
-                    <!-- A squiggly arrow pointing to the CTA -->
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20,20 Q60,10 80,80" />
-                        <path d="M55,75 L80,80 L85,55" />
-                    </svg>
-                </div>
+            <!-- The floating image reveal (mouse tracking via JS) -->
+            <div class="hover-image-reveal premium-reveal">
+                <img src="" alt="" />
             </div>
         </section>
 
