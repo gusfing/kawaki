@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-archivo), sans-serif;
+  --font-mono: var(--font-plex-mono), monospace;
+}
+
+.probe {
+  @apply font-display font-mono;
+}

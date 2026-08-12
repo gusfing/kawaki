@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node *)",
+      "Bash(npm run *)",
+      "WebFetch(domain:www.shopify.com)",
+      "Bash(curl -sL https://www.shopify.com/editions/winter2026 -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126.0 Safari/537.36' -o __TRACKED_VAR__/editions-winter.html)",
+      "Bash(curl -sL \"https://www.shopify.com/editions/winter2026\" -A \"Mozilla/5.0\")",
+      "Bash(mkdir -p /c/Users/ks209/AppData/Local/Temp/claude/C--Users-ks209-Documents-kunal-saas-kawaki-website-files/8bbc68cd-d8a0-45f6-95ef-857c4ab7a061/scratchpad)",
+      "Bash(curl -sL https://www.shopify.com/editions/winter2026 -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) Chrome/126.0' -o /c/Users/ks209/AppData/Local/Temp/claude/C--Users-ks209-Documents-kunal-saas-kawaki-website-files/8bbc68cd-d8a0-45f6-95ef-857c4ab7a061/scratchpad/winter2026.html)",
+      "Bash(curl -sL https://www.shopify.com/editions/spring2026 -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) Chrome/126.0' -o /c/Users/ks209/AppData/Local/Temp/claude/C--Users-ks209-Documents-kunal-saas-kawaki-website-files/8bbc68cd-d8a0-45f6-95ef-857c4ab7a061/scratchpad/spring2026.html)",
+      "Read(//c/Users/ks209/AppData/Local/Temp/claude/C--Users-ks209-Documents-kunal-saas-kawaki-website-files/8bbc68cd-d8a0-45f6-95ef-857c4ab7a061/scratchpad/**)",
+      "WebSearch",
+      "mcp__exa__web_fetch_exa"
+    ]
+  }
+}

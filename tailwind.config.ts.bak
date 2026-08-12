@@ -1,0 +1,51 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./content/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        paper: "var(--color-paper)",
+        field: "var(--color-field)",
+        "ink-900": "var(--color-ink-900)",
+        ink: "var(--color-ink)",
+        slate: "var(--color-slate)",
+        "ink-inverse": "var(--color-ink-inverse)",
+        line: "var(--color-line)",
+        "line-inverse": "var(--color-line-inverse)",
+        signal: "var(--color-signal)",
+        "signal-dim": "var(--color-signal-dim)",
+        "signal-ink": "var(--color-signal-ink)",
+      },
+      fontFamily: {
+        display: ["var(--font-display)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
+      spacing: {
+        1: "var(--space-1)",
+        2: "var(--space-2)",
+        3: "var(--space-3)",
+        4: "var(--space-4)",
+        5: "var(--space-5)",
+        6: "var(--space-6)",
+        7: "var(--space-7)",
+        8: "var(--space-8)",
+        9: "var(--space-9)",
+        10: "var(--space-10)",
+        11: "var(--space-11)",
+      },
+      borderRadius: {
+        DEFAULT: "2px",
+        none: "0px",
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;

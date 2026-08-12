@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Watch</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "SF Pro Display", "Helvetica Neue", sans-serif;
+      background: #fff;
+      color: #000;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    nav .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { text-decoration: none; color: #000; font-size: 0.875rem; opacity: 0.6; transition: opacity 0.2s; }
+    nav a:hover { opacity: 1; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 64px);
+      align-items: center;
+    }
+
+    .hero-text {
+      padding: 4rem 4rem 4rem 5rem;
+    }
+
+    .hero-text .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.4;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text p {
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      opacity: 0.55;
+      max-width: 38ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.75; }
+
+    .btn-outline {
+      background: transparent;
+      color: #000;
+      border: 1px solid #000;
+      margin-left: 1rem;
+    }
+
+    .hero-visual {
+      background: #f5f5f5;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+    }
+
+    /* SVG watch illustration */
+    .watch-svg {
+      width: 220px;
+      height: 280px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .stat {
+      padding: 3rem 2rem;
+      border-right: 1px solid #e0e0e0;
+      text-align: center;
+    }
+    .stat:last-child { border-right: none; }
+
+    .stat .num {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .stat .label {
+      font-size: 0.8125rem;
+      opacity: 0.45;
+      margin-top: 0.4rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-text { padding: 3rem 1.5rem; }
+      .hero-visual { display: none; }
+      .stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid #e0e0e0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">⌚</div>
+    <ul>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Models</a></li>
+      <li><a href="#">Health</a></li>
+      <li><a href="#">Compare</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Apple Watch Series 10</p>
+      <h1>The watch.<br>Reinvented.</h1>
+      <p>The most advanced health sensors in an Apple Watch ever. Thinner. Faster. More capable — all day long.</p>
+      <a href="#" class="btn">Shop Now</a>
+      <a href="#" class="btn btn-outline">Learn More</a>
+    </div>
+
+    <div class="hero-visual">
+      <svg class="watch-svg" viewBox="0 0 220 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Band top -->
+        <rect x="78" y="0" width="64" height="72" rx="12" fill="#1a1a1a"/>
+        <!-- Band bottom -->
+        <rect x="78" y="208" width="64" height="72" rx="12" fill="#1a1a1a"/>
+        <!-- Watch body -->
+        <rect x="20" y="60" width="180" height="160" rx="46" fill="#111"/>
+        <!-- Screen -->
+        <rect x="34" y="74" width="152" height="132" rx="36" fill="#fff"/>
+        <!-- Time -->
+        <text x="110" y="138" font-family="-apple-system,sans-serif" font-size="38" font-weight="700" fill="#111" text-anchor="middle" dominant-baseline="middle">9:41</text>
+        <!-- Date -->
+        <text x="110" y="168" font-family="-apple-system,sans-serif" font-size="12" fill="#555" text-anchor="middle">WED, JUN 18</text>
+        <!-- Crown -->
+        <rect x="200" y="98" width="8" height="28" rx="4" fill="#333"/>
+        <!-- Button -->
+        <rect x="200" y="140" width="8" height="16" rx="4" fill="#333"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="num">18h</div>
+      <div class="label">Battery Life</div>
+    </div>
+    <div class="stat">
+      <div class="num">S10</div>
+      <div class="label">Chip</div>
+    </div>
+    <div class="stat">
+      <div class="num">50m</div>
+      <div class="label">Water Resistance</div>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,732 @@
+{
+  "nodes": [
+    {
+      "id": "content_blog_example_blog_post",
+      "label": "Example Blog Post",
+      "file_type": "document",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\content\\blog\\example.mdx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-07-11",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "content_case_studies_example_case_study",
+      "label": "Example Case Study",
+      "file_type": "document",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\content\\case-studies\\example.mdx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-07-11",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "content_guides_example_guide",
+      "label": "Example Guide",
+      "file_type": "document",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\content\\guides\\example.mdx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-07-11",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_design_system",
+      "label": "Design System",
+      "file_type": "document",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_inspector_motif",
+      "label": "The Inspector — Corner-Bracket + Mono Meta Label Motif",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§0, §4.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_color_system",
+      "label": "Color System — CSS Custom Properties",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_signal_blue",
+      "label": "Signal Blue (#2E4BFF) — Sole Saturated Accent",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_type_system",
+      "label": "Type System — Space Grotesk / IBM Plex Sans / IBM Plex Mono",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§2",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_sentence_case_rule",
+      "label": "Sentence Case Headlines Rule",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§2, §8",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_space_grid",
+      "label": "Space & Grid System",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_corner_bracket_frame",
+      "label": "Corner-Bracket Frame (Inspector Frame) Component",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§4.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_hard_offset_shadow",
+      "label": "Hard-Offset Hover Shadow Component",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§4.2",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_section_eyebrow",
+      "label": "Section Eyebrow Component",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§4.3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_motion_system",
+      "label": "Motion System — Animation Rules",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§6",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_reduced_motion",
+      "label": "Reduced Motion / prefers-reduced-motion Support",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§6, §9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_accessibility_floor",
+      "label": "Accessibility Floor — WCAG AA Non-Negotiables",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_tech_stack",
+      "label": "Tech Stack — Next.js App Router + TypeScript + Tailwind CSS",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_mdx_content_pattern",
+      "label": "MDX Long-Form Content Pattern (blog, guides in content/*)",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_seo_pattern",
+      "label": "SEO Pattern — generateMetadata + JSON-LD via lib/seo.ts",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_framer_motion_lib",
+      "label": "Framer Motion — lib/motion.ts Shared Variants",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "design_voice_copy_rules",
+      "label": "Voice & Copy Rules",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§8",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_file_svg",
+      "label": "File Icon SVG (generic document icon, #666 fill)",
+      "file_type": "image",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\file.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_globe_svg",
+      "label": "Globe Icon SVG (web/world icon, #666 fill)",
+      "file_type": "image",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\globe.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_next_svg",
+      "label": "Next.js Wordmark SVG",
+      "file_type": "image",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\next.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_vercel_svg",
+      "label": "Vercel Logo SVG (white triangle on transparent)",
+      "file_type": "image",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\vercel.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_window_svg",
+      "label": "Window / Browser Icon SVG (#666 fill)",
+      "file_type": "image",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\window.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_images_case_study_1",
+      "label": "Case Study 1 Image Asset",
+      "file_type": "image",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\images\\case_study_1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_images_case_study_2",
+      "label": "Case Study 2 Image Asset",
+      "file_type": "image",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\images\\case_study_2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_images_case_study_3",
+      "label": "Case Study 3 Image Asset",
+      "file_type": "image",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\images\\case_study_3.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_images_hero_dashboard",
+      "label": "Hero Dashboard Screenshot Image Asset",
+      "file_type": "image",
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\images\\hero_dashboard.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "design_design_system",
+      "target": "design_inspector_motif",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§0",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_color_system",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§1",
+      "weight": 1.0
+    },
+    {
+      "source": "design_color_system",
+      "target": "design_signal_blue",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§1",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_type_system",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§2",
+      "weight": 1.0
+    },
+    {
+      "source": "design_type_system",
+      "target": "design_sentence_case_rule",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§2",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_space_grid",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§3",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_corner_bracket_frame",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§4.1",
+      "weight": 1.0
+    },
+    {
+      "source": "design_inspector_motif",
+      "target": "design_corner_bracket_frame",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§0, §4.1",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_hard_offset_shadow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§4.2",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_section_eyebrow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§4.3",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_motion_system",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§6",
+      "weight": 1.0
+    },
+    {
+      "source": "design_motion_system",
+      "target": "design_reduced_motion",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§6",
+      "weight": 1.0
+    },
+    {
+      "source": "design_accessibility_floor",
+      "target": "design_reduced_motion",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§9",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_accessibility_floor",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§9",
+      "weight": 1.0
+    },
+    {
+      "source": "design_color_system",
+      "target": "design_accessibility_floor",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§1, §9",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_tech_stack",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_mdx_content_pattern",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_seo_pattern",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_framer_motion_lib",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "weight": 1.0
+    },
+    {
+      "source": "design_motion_system",
+      "target": "design_framer_motion_lib",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "weight": 1.0
+    },
+    {
+      "source": "design_design_system",
+      "target": "design_voice_copy_rules",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§8",
+      "weight": 1.0
+    },
+    {
+      "source": "design_voice_copy_rules",
+      "target": "design_sentence_case_rule",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§8",
+      "weight": 1.0
+    },
+    {
+      "source": "design_mdx_content_pattern",
+      "target": "content_blog_example_blog_post",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "weight": 1.0
+    },
+    {
+      "source": "design_mdx_content_pattern",
+      "target": "content_guides_example_guide",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "weight": 1.0
+    },
+    {
+      "source": "design_mdx_content_pattern",
+      "target": "content_case_studies_example_case_study",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§10",
+      "weight": 1.0
+    },
+    {
+      "source": "public_images_case_study_1",
+      "target": "content_case_studies_example_case_study",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\images\\case_study_1.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_images_case_study_2",
+      "target": "content_case_studies_example_case_study",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\images\\case_study_2.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_images_case_study_3",
+      "target": "content_case_studies_example_case_study",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\images\\case_study_3.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_images_hero_dashboard",
+      "target": "design_corner_bracket_frame",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§4.1, §7",
+      "weight": 1.0
+    },
+    {
+      "source": "public_next_svg",
+      "target": "design_tech_stack",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\next.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_vercel_svg",
+      "target": "design_tech_stack",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\public\\vercel.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "design_corner_bracket_frame",
+      "target": "design_hard_offset_shadow",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§4.2",
+      "weight": 1.0
+    },
+    {
+      "source": "content_blog_example_blog_post",
+      "target": "content_guides_example_guide",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\content\\blog\\example.mdx",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "content_blog_example_blog_post",
+      "target": "content_case_studies_example_case_study",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\content\\blog\\example.mdx",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "design_inspector_motif",
+      "target": "design_space_grid",
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md",
+      "source_location": "§0, §3",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "inspector_signature_system",
+      "label": "Inspector Signature Visual System — Corner Brackets + Mono Labels + Hard Shadow",
+      "nodes": [
+        "design_inspector_motif",
+        "design_corner_bracket_frame",
+        "design_hard_offset_shadow",
+        "design_section_eyebrow"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md"
+    },
+    {
+      "id": "mdx_content_collection",
+      "label": "MDX Content Collection — Blog, Guides, Case Studies",
+      "nodes": [
+        "design_mdx_content_pattern",
+        "content_blog_example_blog_post",
+        "content_guides_example_guide",
+        "content_case_studies_example_case_study"
+      ],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md"
+    },
+    {
+      "id": "accessibility_motion_color_triad",
+      "label": "Accessibility Constraints Governing Motion + Color",
+      "nodes": [
+        "design_accessibility_floor",
+        "design_reduced_motion",
+        "design_color_system",
+        "design_motion_system"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "C:\\Users\\ks209\\Documents\\kunal saas\\kawaki website\\files\\design.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

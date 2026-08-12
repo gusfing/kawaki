@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap');
+@import "./atelier-zero.css";
+@import "tailwindcss";
+
+@theme {
+  /*
+   * Kawaki v3 — "Editorial Engineering".
+   * Swiss monochrome ground, one warm ignition accent, sharp corners.
+   * Token names from earlier versions are preserved (and `signal` is aliased
+   * to the accent) so components not yet migrated keep resolving.
+   */
+
+  /* Surfaces — warm bone, not pure white */
+  --color-paper: #EDEAE3;      /* base page ground */
+  --color-field: #E3E0D7;      /* raised card / alt-section surface */
+  --color-ink-900: #0D0D0F;    /* deepest band — full-bleed dark sections, footer */
+
+  /* Text */
+  --color-ink: #17161A;        /* primary text; also the near-black used on dark bands */
+  --color-slate: #63615A;      /* secondary text, captions, meta (AA on paper) */
+  --color-ink-inverse: #EDEAE3;/* text on ink-900 / accent */
+
+  /* Lines */
+  --color-line: #D5D2C7;             /* hairlines on paper/field */
+  --color-line-inverse: #2A2A2E;     /* hairlines on ink-900 */
+
+  /* Accent — the ONLY saturated color. Flat, never a gradient. */
+  --color-accent: #E8451D;     /* ignition — large text, ticks/dots, borders, dark-bg links */
+  --color-accent-strong: #B3300F; /* darker ignition for SMALL accent text on the light ground (AA 4.5:1) */
+  --color-accent-dim: #F6E3DB; /* tint surface on light */
+  --color-accent-ink: #FFF1EC; /* text on accent */
+
+  /* Back-compat aliases (untouched components still reference `signal`) */
+  --color-signal: #E8451D;
+  --color-signal-dim: #F6E3DB;
+  --color-signal-ink: #B3300F;
+  --color-build: #E8451D;
+  --color-build-dim: #F6E3DB;
+
+  /* Typography */
+  --font-display: var(--font-archivo), 'Kanit', sans-serif;
+  --font-body: var(--font-plex-sans), sans-serif;
+  --font-mono: var(--font-plex-mono), monospace;
+  --font-kanit: 'Kanit', sans-serif;
+
+  /* Space */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.5rem;
+  --spacing-6: 2rem;
+  --spacing-7: 3rem;
+  --spacing-8: 4rem;
+  --spacing-9: 6rem;
+  --spacing-10: 8rem;
+  --spacing-11: 10rem;
+
+  /* Motion — one language everywhere (shared by GSAP + Framer Motion). */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-glide: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    position: relative;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+}
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.font-kanit {
+  font-family: 'Kanit', sans-serif;
+}
+
+/* Full-bleed near-black section (dark rhythm bands, footer, final CTA) */
+.dark-section {
+  background-color: var(--color-ink-900);
+  color: var(--color-ink-inverse);
+}
+.hero-panel {
+  background-color: var(--color-ink-900);
+  color: var(--color-ink-inverse);
+}
+
+/* Faint engineering grid — kept extremely subtle on the light ground */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(23, 22, 26, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 22, 26, 0.028) 1px, transparent 1px);
+  background-size: 88px 88px;
+  background-position: center top;
+}
+.bg-grid-inverse {
+  background-image:
+    linear-gradient(to right, rgba(237, 234, 227, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(237, 234, 227, 0.04) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+/* Seamless marquee track (client / tech strip). Duplicate content in markup. */
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Status pulse dot */
+@keyframes data-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.25); }
+}
+.animate-data-pulse { animation: data-pulse 2.4s infinite ease-in-out; }
+
+.reveal-mask { overflow: hidden; display: block; }
+.reveal-line { display: block; line-height: 1.1; margin: -0.06em 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-marquee { animation: none !important; }
+  .reveal-line { transform: none !important; opacity: 1 !important; }
+}

@@ -1,0 +1,16 @@
+---
+title: "Next.js Static Generation vs Server Components"
+date: "2026-04-10"
+author: "Kunal Sharma"
+topic: "Performance"
+relatedServices: ["frontend-development"]
+excerpt: "A deep dive into caching strategies, build optimizations, and layouts for lightning-fast modern React applications."
+---
+
+Next.js offers multiple rendering techniques: Static Site Generation (SSG), Incremental Static Regeneration (ISR), and React Server Components (RSC). Understanding when to use which is vital for performance.
+
+Static Site Generation builds pages at compile time. It is highly performant and secure, making it ideal for marketing pages, service detail pages, and blogs where data changes infrequently.
+
+React Server Components render on the server on demand, reducing the bundle size sent to the browser. This is perfect for dynamic client dashboards, roles-based layouts, and search-heavy analytics blocks.
+
+By pairing SSG for public pages and server components with caching for user dashboards, we achieve absolute speed optimization without sacrificing dynamic data reactivity.
