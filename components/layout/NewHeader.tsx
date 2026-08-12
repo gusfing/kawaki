@@ -36,8 +36,8 @@ export function NewHeader() {
       </div>
 
       <div className="flex-1 text-center">
-        <Link href="/" className="font-display font-bold text-2xl tracking-tighter hover:text-accent transition-colors">
-          Kawaki Studios
+        <Link href="/" className="font-display font-extrabold text-[1.5rem] leading-[1.1] tracking-[-0.04em] hover:text-accent transition-colors inline-block">
+          Kawaki<br />Studios
         </Link>
       </div>
 

@@ -1,17 +1,30 @@
 import type { Metadata } from "next";
 import { MotionConfig } from "framer-motion";
-import { Barlow_Condensed, Host_Grotesk } from "next/font/google";
+import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono, Host_Grotesk } from "next/font/google";
 import "./globals.css";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { organizationJsonLd } from "@/lib/seo";
-import { NewHeader } from "@/components/layout/NewHeader";
-import { NewFooter } from "@/components/layout/NewFooter";
+import { ModernHeader } from "@/components/layout/ModernHeader";
+import { ModernFooter } from "@/components/layout/ModernFooter";
 
-const barlowCondensed = Barlow_Condensed({
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-barlow",
+  weight: "variable",
+  axes: ["wdth"],
+  variable: "--font-archivo",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-sans",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
 });
 
 const hostGrotesk = Host_Grotesk({
@@ -33,20 +46,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${barlowCondensed.variable} ${hostGrotesk.variable}`}
+      className={`${archivo.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} ${hostGrotesk.variable}`}
     >
       <head>
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
       </head>
-      <body className="flex flex-col min-h-[100dvh] bg-paper w-full overflow-x-hidden text-ink font-body">
+      <body className="flex flex-col min-h-[100dvh] bg-grid w-full overflow-x-hidden text-ink">
         <SmoothScroll>
           <MotionConfig reducedMotion="user">
             <SkipLink />
-            <NewHeader />
+            <ModernHeader />
             <main id="main-content" className="flex-grow">
               {children}
             </main>
-            <NewFooter />
+            <ModernFooter />
           </MotionConfig>
         </SmoothScroll>
         <script
