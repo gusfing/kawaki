@@ -150,6 +150,11 @@
   .reveal-line { transform: none !important; opacity: 1 !important; }
 }
 
+/* --- OVERRIDES --- */
+.bg-ink-900 {
+  --color-slate: rgba(249, 244, 235, 0.7); /* make slate text legible on dark hero sections */
+}
+
 /* --- MEGA MENU CSS --- */
 .mega-menu-trigger {
     position: relative;

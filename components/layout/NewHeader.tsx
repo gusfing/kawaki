@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function NewHeader() {
   return (
-    <header className="w-full px-6 py-8 flex items-center justify-between z-50 relative text-ink border-b border-line">
+    <header className="absolute top-0 left-0 w-full px-6 py-8 flex items-center justify-between z-50 text-ink-inverse border-b border-line-inverse">
       <div className="flex gap-10 items-center flex-1">
         <Link href="/" className="font-mono text-lg hover:text-accent transition-colors">Home</Link>
         <div className="mega-menu-trigger">
