@@ -15,28 +15,28 @@ export function ModernFooter() {
           <div className='foot-col'>
             <h5>Studio</h5>
             <ul>
-                <li><Link href='/about'>About</Link></li>
-                <li><Link href='/process'>Process</Link></li>
-                <li><Link href='/case-studies'>Selected work</Link></li>
-                <li><Link href='/contact'>Contact</Link></li>
+                <li><a href='#about'>About</a></li>
+                <li><a href='#method'>Process</a></li>
+                <li><a href='#work'>Selected work</a></li>
+                <li><a href='#contact'>Contact</a></li>
             </ul>
           </div>
           <div className='foot-col'>
             <h5>Services</h5>
             <ul>
-                <li><Link href='/services/web-development'>Web Development</Link></li>
-                <li><Link href='/services/ecommerce-development'>Ecommerce Development</Link></li>
-                <li><Link href='/services/web-app-development'>Web App Development</Link></li>
-                <li><Link href='/services/frontend-development'>Frontend Engineering</Link></li>
+                <li><a href='#capabilities'>Web Development</a></li>
+                <li><a href='#capabilities'>Ecommerce Development</a></li>
+                <li><a href='#capabilities'>Web App Development</a></li>
+                <li><a href='#capabilities'>Frontend Engineering</a></li>
             </ul>
           </div>
           <div className='foot-col'>
             <h5>Industries</h5>
             <ul>
-                <li><Link href='/industries/retail'>Retail & E-commerce</Link></li>
-                <li><Link href='/industries/healthcare'>Healthcare</Link></li>
-                <li><Link href='/industries/saas'>SaaS & Technology</Link></li>
-                <li><Link href='/industries/finance'>Financial Services</Link></li>
+                <li><a href='#capabilities'>Retail & E-commerce</a></li>
+                <li><a href='#capabilities'>Healthcare</a></li>
+                <li><a href='#capabilities'>SaaS & Technology</a></li>
+                <li><a href='#capabilities'>Financial Services</a></li>
             </ul>
           </div>
           <div className='foot-col'>
@@ -44,8 +44,8 @@ export function ModernFooter() {
             <ul>
                 <li><a href='mailto:hello@kawaki.studio' target='_blank' rel='noreferrer noopener'>Email</a></li>
                 <li><a href='https://github.com' target='_blank' rel='noreferrer noopener'>GitHub</a></li>
-                <li><Link href='/contact'>LinkedIn</Link></li>
-                <li><Link href='/contact'>Instagram</Link></li>
+                <li><a href='#contact'>LinkedIn</a></li>
+                <li><a href='#contact'>Instagram</a></li>
             </ul>
           </div>
         </div>
