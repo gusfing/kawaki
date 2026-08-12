@@ -1,4 +1,3 @@
-
 'use client';
 import { useEffect } from 'react';
 
@@ -14,13 +13,13 @@ export function AtelierZeroScripts() {
         var elements = document.querySelectorAll('[data-reveal]:not([data-revealed])');
         if (!elements.length) return;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          for (var i = 0; i < elements.length; i++) elements[i].dataset.revealed = 'true';
+          for (var i = 0; i < elements.length; i++) (elements[i] as HTMLElement).dataset.revealed = 'true';
           return;
         }
         var observer = new IntersectionObserver(function (entries) {
           for (var i = 0; i < entries.length; i++) {
             if (!entries[i].isIntersecting) continue;
-            entries[i].target.dataset.revealed = 'true';
+            (entries[i].target as HTMLElement).dataset.revealed = 'true';
             observer.unobserve(entries[i].target);
           }
         }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
@@ -39,6 +38,7 @@ export function AtelierZeroScripts() {
         var DELTA = 6;
         var lastY = window.scrollY || 0;
         function onScroll() {
+          if (!nav) return;
           var y = window.scrollY || 0;
           var d = y - lastY;
           if (y <= SHOW_TOP) {
