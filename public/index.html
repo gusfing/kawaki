@@ -1369,8 +1369,8 @@
         .mega-menu {
             position: absolute;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
+            left: 0;
+            transform: translateY(10px);
             background: var(--base-100);
             color: var(--base-200);
             padding: 2rem;
@@ -1392,7 +1392,11 @@
         .mega-menu-trigger:hover .mega-menu {
             opacity: 1;
             pointer-events: auto;
-            transform: translateX(-50%) translateY(0);
+            transform: translateY(0);
+        }
+        .mega-menu.align-right {
+            left: auto;
+            right: 0;
         }
         .mega-col h4 {
             font-family: "Barlow Condensed", sans-serif;
