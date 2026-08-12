@@ -1360,6 +1360,106 @@
                 display: none;
             }
         }
+
+        /* --- MEGA MENU CSS --- */
+        .mega-menu-trigger {
+            position: relative;
+            display: inline-block;
+        }
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--base-100);
+            color: var(--base-200);
+            padding: 2rem;
+            border-radius: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        .mega-menu.wide {
+            grid-template-columns: repeat(3, 1fr);
+            width: 600px;
+        }
+        .mega-menu-trigger:hover .mega-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+        .mega-col h4 {
+            font-family: "Barlow Condensed", sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        .mega-col a {
+            display: block;
+            color: var(--base-200) !important;
+            text-decoration: none;
+            font-size: 0.9rem !important;
+            font-family: "Satoshi", sans-serif !important;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            font-weight: 500 !important;
+        }
+        .mega-col a:hover {
+            opacity: 1 !important;
+            text-decoration: underline !important;
+        }
+
+        /* --- FOOTER CSS --- */
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin: 4rem 0;
+            width: 100%;
+        }
+        .footer-col h4 {
+            font-family: "Barlow Condensed", sans-serif;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            color: var(--base-100);
+        }
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-links-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            .mega-menu {
+                display: none !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -1378,11 +1478,47 @@
         
         <div class="navbar-links">
             <a href="/">Home</a>
+            <div class="mega-menu-trigger">
+                <a href="/services">Services ▾</a>
+                <div class="mega-menu wide">
+                    <div class="mega-col">
+                        <h4>Services</h4>
+                        <a href="/services/web-development">Web Development</a>
+                        <a href="/services/ecommerce-development">Ecommerce</a>
+                        <a href="/services/shopify-development">Shopify</a>
+                        <a href="/services/wordpress-development">WordPress</a>
+                    </div>
+                    <div class="mega-col">
+                        <h4>&nbsp;</h4>
+                        <a href="/services/web-app-development">Web Apps</a>
+                        <a href="/services/frontend-development">Frontend</a>
+                        <a href="/services/backend-development">Backend</a>
+                        <a href="/services/maintenance-support">Maintenance</a>
+                    </div>
+                    <div class="mega-col">
+                        <h4>Industries</h4>
+                        <a href="/industries/retail">Retail</a>
+                        <a href="/industries/healthcare">Healthcare</a>
+                        <a href="/industries/saas">SaaS</a>
+                        <a href="/industries/finance">Finance</a>
+                        <a href="/industries/architecture">Architecture</a>
+                    </div>
+                </div>
+            </div>
             <a href="/about">About</a>
-            <a href="/services">Services</a>
         </div>
         <div class="navbar-links">
-            <a href="/case-studies">Work</a>
+            <div class="mega-menu-trigger">
+                <a href="/case-studies">Work ▾</a>
+                <div class="mega-menu" style="grid-template-columns: 1fr; width: 250px;">
+                    <div class="mega-col">
+                        <h4>Selected Work</h4>
+                        <a href="/case-studies/acme-headless-ecommerce">Acme E-commerce</a>
+                        <a href="/case-studies/curology-brand-refresh">Curology Refresh</a>
+                        <a href="/case-studies/fintech-roi-calculator">Fintech ROI Calculator</a>
+                    </div>
+                </div>
+            </div>
             <a href="/blog">Blog</a>
             <a href="/contact">Contact</a>
         </div>
@@ -1669,21 +1805,44 @@
                 <h2>Ready to start a project?</h2>
                 <a href="/contact" class="footer-cta">Get in touch &nearr;</a>
             </div>
-            <div style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
-                <a href="/services" style="color: var(--base-500); text-decoration: none;">Services</a>
-                <a href="/industries" style="color: var(--base-500); text-decoration: none;">Industries</a>
-                <a href="/process" style="color: var(--base-500); text-decoration: none;">Process</a>
-                <a href="/faqs" style="color: var(--base-500); text-decoration: none;">FAQs</a>
-                <a href="/guides" style="color: var(--base-500); text-decoration: none;">Guides</a>
-                <a href="/about" style="color: var(--base-500); text-decoration: none;">About</a>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="/about">About</a>
+                    <a href="/process">Process</a>
+                    <a href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/web-development">Web Development</a>
+                    <a href="/services/ecommerce-development">Ecommerce</a>
+                    <a href="/services/shopify-development">Shopify</a>
+                    <a href="/services/wordpress-development">WordPress</a>
+                    <a href="/services/web-app-development">Web Apps</a>
+                    <a href="/services/frontend-development">Frontend</a>
+                    <a href="/services/backend-development">Backend</a>
+                    <a href="/services/maintenance-support">Maintenance</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <a href="/industries/retail">Retail</a>
+                    <a href="/industries/healthcare">Healthcare</a>
+                    <a href="/industries/saas">SaaS</a>
+                    <a href="/industries/finance">Finance</a>
+                    <a href="/industries/architecture">Architecture</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Insights & Socials</h4>
+                    <a href="/blog">Blog</a>
+                    <a href="/faqs">FAQs</a>
+                    <a href="/guides">Guides</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
             </div>
             <div class="footer-bottom">
                 <span>&copy; 2026 Kawaki Studios. All rights reserved.</span>
-                <div class="socials">
-                    <a href="#">Instagram</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">LinkedIn</a>
-                </div>
             </div>
         </footer>
     </main>
