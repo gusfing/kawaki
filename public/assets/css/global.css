@@ -2211,7 +2211,7 @@
 /* --- Featured Case Study --- */
 .cs-featured {
     background-color: var(--base-200);
-    padding: 6rem 2rem;
+    padding: 8rem 2rem;
     color: var(--base-100);
 }
 .cs-featured-inner {
@@ -2223,69 +2223,109 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.4);
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.cs-featured-label::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
 }
 .cs-featured-body {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
     align-items: center;
 }
 .cs-featured-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 400;
-    line-height: 1.05;
-    margin-bottom: 1.5rem;
+    line-height: 1;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
 }
 .cs-featured-title em {
     font-style: italic;
+    color: rgba(255,255,255,0.7);
 }
 .cs-featured-tags {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 .cs-featured-tags span {
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 100px;
-    padding: 0.3rem 0.9rem;
-    font-size: 0.8rem;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: rgba(255,255,255,0.6);
 }
 .cs-featured-desc {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 3rem;
     max-width: 420px;
 }
 .cs-featured-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--base-100);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 0.95rem;
     border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 2px;
-    transition: border-color 0.2s;
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
-.cs-featured-link:hover { border-color: var(--base-100); }
+.cs-featured-link:hover {
+    border-color: var(--base-100);
+    gap: 0.8rem;
+}
+.cs-featured-right {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.cs-featured-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+    border-radius: 1rem;
+    pointer-events: none;
+}
 .cs-featured-img {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4/3.5;
     object-fit: cover;
-    border-radius: 0.75rem;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cs-featured-right:hover .cs-featured-img {
+    transform: scale(1.05);
 }
 
 /* --- Stats Bar --- */
 .cs-stats {
-    background-color: var(--base-100);
-    padding: 5rem 2rem;
-    border-top: 1px solid rgba(0,0,0,0.06);
+    background-color: var(--base-200);
+    padding: 6rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .cs-stats-inner {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -2296,127 +2336,152 @@
 .cs-stat {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.5rem;
 }
 .cs-stat-num {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(3rem, 5vw, 4.5rem);
     font-weight: 400;
-    color: var(--base-200);
+    color: var(--base-100);
     line-height: 1;
 }
 .cs-stat-num em {
     font-style: italic;
     font-size: 0.7em;
+    color: rgba(255,255,255,0.5);
 }
 .cs-stat-label {
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(0,0,0,0.45);
+    color: rgba(255,255,255,0.4);
 }
 .cs-stat-divider {
     width: 1px;
-    height: 4rem;
-    background: rgba(0,0,0,0.12);
+    height: 5rem;
+    background: rgba(255,255,255,0.08);
 }
 
 /* --- Card Grid --- */
 .cs-grid-section {
-    background-color: var(--base-100);
-    padding: 6rem 2rem;
+    background-color: var(--base-200);
+    padding: 8rem 2rem;
 }
 .cs-grid-header {
     max-width: 1200px;
-    margin: 0 auto 3.5rem;
+    margin: 0 auto 5rem;
 }
 .cs-grid-eyebrow {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(0,0,0,0.4);
-    margin-bottom: 1rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 2rem;
+}
+.cs-grid-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
 }
 .cs-grid-heading {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 400;
-    color: var(--base-200);
-    line-height: 1.1;
+    color: var(--base-100);
+    line-height: 1;
+    letter-spacing: -0.02em;
 }
-.cs-grid-heading em { font-style: italic; }
+.cs-grid-heading em { 
+    font-style: italic; 
+    color: rgba(255,255,255,0.6);
+}
 .cs-grid {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 .cs-card {
-    background: var(--base-200);
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
     border-radius: 1rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, border-color 0.4s ease;
 }
-.cs-card:hover { transform: translateY(-4px); }
+.cs-card:hover { 
+    transform: translateY(-8px); 
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.15);
+}
 .cs-card--large {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.6fr 1fr;
 }
 .cs-card--large .cs-card-img-wrap {
-    height: auto;
+    height: 100%;
 }
 .cs-card-img-wrap {
-    height: 260px;
+    height: 320px;
     overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .cs-card-img-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.cs-card:hover .cs-card-img-wrap img { transform: scale(1.04); }
+.cs-card:hover .cs-card-img-wrap img { 
+    transform: scale(1.05); 
+}
 .cs-card-meta {
-    padding: 1.5rem 1.75rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
     flex: 1;
 }
 .cs-card-info h3 {
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 400;
     color: var(--base-100);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
 }
 .cs-card-info p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: rgba(255,255,255,0.5);
     line-height: 1.6;
 }
 .cs-card-tags {
     display: flex;
-    gap: 0.4rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
 }
 .cs-card-tags span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 100px;
-    padding: 0.2rem 0.7rem;
-    color: rgba(255,255,255,0.45);
+    padding: 0.3rem 0.9rem;
+    color: rgba(255,255,255,0.5);
 }
 
 /* --- Testimonials --- */
 .cs-testimonials {
     background-color: var(--base-200);
-    padding: 6rem 2rem;
+    padding: 8rem 2rem;
     color: var(--base-100);
 }
 .cs-testimonials-inner {
@@ -2424,40 +2489,55 @@
     margin: 0 auto;
 }
 .cs-testimonials-eyebrow {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.4);
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+}
+.cs-testimonials-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
 }
 .cs-testimonial-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: 3rem;
 }
 .cs-testimonial {
     border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 2rem;
+    padding-top: 2.5rem;
     margin: 0;
+    transition: border-color 0.3s ease;
+}
+.cs-testimonial:hover {
+    border-color: rgba(255,255,255,0.4);
 }
 .cs-testimonial-quote {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-style: italic;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2.5rem;
 }
 .cs-testimonial-author {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.3rem;
 }
 .cs-testimonial-name {
-    font-weight: 500;
-    font-size: 0.9rem;
+    font-weight: 400;
+    font-size: 0.95rem;
     color: var(--base-100);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 .cs-testimonial-role {
     font-size: 0.8rem;
@@ -2466,47 +2546,59 @@
 
 /* --- CTA Banner --- */
 .cs-cta-banner {
-    background-color: var(--base-100);
-    padding: 8rem 2rem;
+    background-color: var(--base-200);
+    padding: 10rem 2rem;
     text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 .cs-cta-inner {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
 }
 .cs-cta-banner h2 {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(3rem, 7vw, 6rem);
+    font-size: clamp(3.5rem, 8vw, 7rem);
     font-weight: 400;
-    color: var(--base-200);
-    line-height: 1.05;
-    margin-bottom: 2.5rem;
-}
-.cs-cta-banner h2 em { font-style: italic; }
-.cs-cta-btn {
-    display: inline-block;
-    background-color: var(--base-200);
     color: var(--base-100);
+    line-height: 1;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+.cs-cta-banner h2 em { 
+    font-style: italic; 
+    color: rgba(255,255,255,0.6);
+}
+.cs-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: var(--base-100);
+    color: var(--base-200);
     text-decoration: none;
-    padding: 1rem 2.5rem;
+    padding: 1.2rem 3rem;
     border-radius: 100px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, opacity 0.2s ease;
 }
 .cs-cta-btn:hover {
-    transform: scale(1.04);
-    background-color: #111;
+    transform: scale(1.05);
+    background-color: #ffffff;
+    opacity: 0.9;
 }
 
 /* Responsive: case studies */
-@media (max-width: 768px) {
-    .cs-featured-body { grid-template-columns: 1fr; }
-    .cs-stats-inner { flex-direction: column; gap: 2.5rem; }
-    .cs-stat-divider { width: 4rem; height: 1px; }
+@media (max-width: 900px) {
+    .cs-featured-body { grid-template-columns: 1fr; gap: 3rem; }
     .cs-grid { grid-template-columns: 1fr; }
     .cs-card--large { grid-template-columns: 1fr; }
-    .cs-testimonial-list { grid-template-columns: 1fr; }
+    .cs-testimonial-list { grid-template-columns: 1fr; gap: 4rem; }
+}
+@media (max-width: 600px) {
+    .cs-stats-inner { flex-direction: column; align-items: flex-start; gap: 3rem; }
+    .cs-stat-divider { width: 100%; height: 1px; }
 }
 
 /* --- PILL NAVBAR REDESIGN --- */
