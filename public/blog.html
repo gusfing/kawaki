@@ -2,270 +2,787 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us — Kawaki Studios</title>
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <title>Blogs &amp; Insights — Kawaki Studios</title>
+    <!-- Premium Fonts matching extracted design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css" />
     <style>
-        .inner-hero {
-            padding: 12rem 4rem 6rem;
-            background: #f4efea; /* Base 100 */
+        :root {
+            --color-text-secondary: #ffffff;
+            --color-text-primary: #1a1a1a;
+            --color-text-muted: #6b7280;
+            --color-accent: #FC4625;
+            --font-primary: "Plus Jakarta Sans", "Host Grotesk", sans-serif;
+            --font-serif: "Instrument Serif", serif;
+            --padding-btn: 12px 24px;
+            --border-radius-pill: 50px;
+            --border-radius-m: 12px;
+            --border-radius-l: 24px;
+            --font-size-btn: 1rem;
+            --nav-width: 88vw;
+            --section-width: 80vw;
+            --section-padding-y: 80px;
+            --heading-font-size: clamp(2.6rem, 8vw, 4.5rem);
+            --gap-standard: 20px;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.6s ease;
+            --fixed-text-dark: #0a0a0a;
         }
-        
-        .inner-hero-content h1 {
-            font-size: clamp(4rem, 12vw, 8rem);
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            line-height: 0.9;
-            color: var(--base-200);
-            margin-bottom: 2rem;
-            letter-spacing: 0.02em;
+
+        body {
+            background-color: var(--color-text-secondary);
+            color: var(--color-text-primary);
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        em {
+            font-style: italic;
+            font-family: var(--font-serif);
+        }
+
+        /* BUTTONS */
+        .rlvnt-btn {
+            position: relative;
+            display: inline-flex;
+            gap: 8px;
+            border: 1px solid var(--color-text-primary);
+            align-items: center;
+            justify-content: center;
+            padding: var(--padding-btn);
+            border-radius: var(--border-radius-pill);
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-style: italic;
+            background: transparent;
+            color: var(--color-text-primary);
+            font-size: var(--font-size-btn);
+            overflow: hidden;
+            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .rlvnt-btn.max-content {
+            width: max-content;
+            height: max-content;
+            font-size: 20px;
+            padding: 8px 16px;
+        }
+
+        .rlvnt-btn svg {
+            transform: rotate(0deg);
+            transition: transform 0.3s, fill 0.3s;
+            will-change: transform;
+            transform-origin: center center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .rlvnt-btn:hover svg {
+            transform: rotate(45deg);
+        }
+
+        .rlvnt-btn:hover {
+            background-color: var(--color-text-primary);
+            color: #ffffff;
+        }
+
+        /* BLOG CONTAINER */
+        .container {
+            max-width: 80vw;
+            margin: 0 auto;
+            padding-bottom: 6rem;
+        }
+
+        @media (min-width: 1920px) {
+            .container {
+                max-width: 1600px;
+            }
         }
 
         @media (max-width: 768px) {
-            .inner-hero {
-                padding: 10rem 1.5rem 4rem;
+            .container {
+                max-width: 90vw;
+            }
+        }
+
+        /* BLOG HERO */
+        .blog-hero {
+            padding: 10rem 0 3.5rem;
+            text-align: center;
+        }
+
+        .blog-hero-title {
+            font-size: var(--heading-font-size);
+            margin: 0 auto;
+            font-family: var(--font-primary);
+            max-width: 950px;
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
+        }
+
+        .blog-hero-title em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: #FC4625;
+        }
+
+        /* CATEGORY FILTERS */
+        .category-filters-wrapper {
+            margin-bottom: 4rem;
+        }
+
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-filters a {
+            padding: 8px 18px;
+            font-size: 15px !important;
+            font-family: var(--font-primary);
+            font-style: normal;
+            border-radius: 50px;
+            border: 1px solid rgba(26, 26, 26, 0.2);
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-filters a:hover {
+            border-color: var(--color-text-primary);
+            background-color: rgba(26, 26, 26, 0.05);
+        }
+
+        .category-filters a.active {
+            color: #ffffff;
+            background-color: var(--color-text-primary);
+            border-color: var(--color-text-primary);
+        }
+
+        /* BLOG GRID */
+        .blog-grid-section {
+            width: 100%;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            column-gap: var(--gap-standard);
+            row-gap: 64px;
+            align-items: stretch;
+        }
+
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+            text-decoration: none;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-card.span-4 {
+            grid-column: span 4;
+        }
+
+        @media (max-width: 1024px) {
+            .blog-card.span-4 {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-card.span-4 {
+                grid-column: span 12;
+            }
+        }
+
+        .card-meta-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            font-family: var(--font-primary);
+            font-weight: 500;
+            margin-bottom: 0.85rem;
+        }
+
+        .meta-separator {
+            width: 4px;
+            height: 4px;
+            background: #cbd5e1;
+            border-radius: 50%;
+        }
+
+        .meta-category {
+            color: #FC4625;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-text-primary);
+            font-weight: 600;
+            margin-left: auto;
+            opacity: 0.75;
+            transition: opacity var(--transition-medium), transform var(--transition-medium);
+        }
+
+        .read-more svg {
+            width: 12px;
+            height: 12px;
+            margin-left: 4px;
+            transition: transform var(--transition-medium);
+        }
+
+        .blog-card:hover .read-more {
+            opacity: 1;
+            color: #FC4625;
+        }
+
+        .blog-card:hover .read-more svg {
+            transform: translateX(4px);
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: var(--border-radius-m);
+            overflow: hidden;
+            background-color: #f3f4f6;
+            height: 38vh;
+            min-height: 280px;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .card-image-wrapper {
+                height: 240px;
+                min-height: 240px;
+            }
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: transform;
+        }
+
+        .blog-card:hover .card-image-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .card-title {
+            font-family: var(--font-primary);
+            font-weight: 500;
+            font-size: 1.35rem;
+            line-height: 1.3;
+            color: var(--color-text-primary);
+            margin: 0;
+            letter-spacing: -0.02em;
+            transition: color var(--transition-medium);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .blog-card:hover .card-title {
+            color: #FC4625;
+        }
+
+        /* FLOATING CIRCULAR CTA */
+        .fixed-cta-bar {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 100;
+        }
+
+        .circular-cta {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform var(--transition-medium);
+        }
+
+        .circular-cta:hover {
+            transform: scale(1.08);
+        }
+
+        .cta-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 2;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-text-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: 16s linear 0s infinite normal none running rotate-text;
+            z-index: 1;
+        }
+
+        .cta-text-svg path {
+            fill: transparent;
+        }
+
+        .cta-text-svg text {
+            font-family: var(--font-primary);
+            font-size: 11.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.6px;
+            fill: var(--color-text-primary);
+        }
+
+        @keyframes rotate-text {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .fixed-cta-bar {
+                display: none;
             }
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar-inner-page">
-    <div class="navbar-left">
-        <div class="mobile-hamburger" onclick="toggleMobileMenu()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </div>
-        <div class="navbar-links desktop-only">
-            <a href="/index.html">Home</a>
-            <div class="mega-menu-trigger">
-                <a href="/services.html">Services ▾</a>
-                <div class="mega-menu wide">
-                    <div class="mega-col">
-                        <h4>Services</h4>
-                        <a href="#">Web Development</a>
-                        <a href="#">Ecommerce</a>
-                        <a href="#">Shopify</a>
-                        <a href="#">WordPress</a>
+
+    <!-- SVG LIQUID LENS FILTER -->
+    <svg class="svg-defs" style="position: absolute; width: 0; height: 0; pointer-events: none; overflow: hidden;" aria-hidden="true">
+        <defs>
+            <filter id="liquid-lens">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.03" numOctaves="1" result="turbulence"></feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" xChannelSelector="R" yChannelSelector="G" result="displacement"></feDisplacementMap>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- UNIVERSAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper scrolled" id="globalNav">
+        <nav>
+            <a href="/index.html" class="nav-left">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
+            <div class="nav-right" id="menuToggleBtn">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- FULLSCREEN NAVIGATION OVERLAY -->
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links">
+                        <ul>
+                            <li data-img="/assets/images/project_1_1787254271240.jpg" data-tag="Home — Studio Overview">
+                                <a href="/index.html">
+                                    <span class="menu-idx">01</span>
+                                    <span class="menu-text">Home <em>Index</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/project_2_1787254282785.jpg" data-tag="About Us — Editorial Manifesto">
+                                <a href="/about.html">
+                                    <span class="menu-idx">02</span>
+                                    <span class="menu-text">About <em>Kawaki Studios</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/project_3_1787254295127.jpg" data-tag="Capabilities &amp; Architecture">
+                                <a href="/services.html">
+                                    <span class="menu-idx">03</span>
+                                    <span class="menu-text">Explore <em>Our Services</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Client Case Studies">
+                                <a href="/case-studies.html">
+                                    <span class="menu-idx">04</span>
+                                    <span class="menu-text">Selected <em>Work &amp; Results</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/team_placeholder.jpg" data-tag="Engineering &amp; Design Notes">
+                                <a href="/blog.html">
+                                    <span class="menu-idx">05</span>
+                                    <span class="menu-text">Blogs &amp; <em>Insights</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about-studio.jpg" data-tag="15-Min Strategy Session">
+                                <a href="/contact.html">
+                                    <span class="menu-idx">06</span>
+                                    <span class="menu-text">Discovery <em>Call</em></span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="mega-col">
-                        <h4>&nbsp;</h4>
-                        <a href="#">Web Apps</a>
-                        <a href="#">Frontend</a>
-                        <a href="#">Backend</a>
-                        <a href="#">Maintenance</a>
+                </div>
+                <div class="menu-col menu-col-right">
+                    <!-- Interactive Preview Card -->
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/project_2_1787254282785.jpg" alt="Preview" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">About Us — Editorial Manifesto</span>
+                            <span class="menu-preview-desc">Editorial Engineering &amp; Design</span>
+                        </div>
                     </div>
-                    <div class="mega-col">
-                        <h4>Industries</h4>
-                        <a href="#">Retail</a>
-                        <a href="#">Healthcare</a>
-                        <a href="#">SaaS</a>
-                        <a href="#">Finance</a>
-                        <a href="#">Architecture</a>
+
+                    <!-- Info Block -->
+                    <div class="menu-info-block">
+                        <div class="menu-status-pill">
+                            <span class="status-dot"></span>
+                            <span>Available for Q3/Q4 Projects</span>
+                        </div>
+                        <a href="/contact.html" class="menu-cta-button">
+                            <span>Schedule a Call</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" fill="#FC4625"></circle>
+                                <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <div class="social-tags">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="mega-menu-trigger">
-                <a href="/case-studies.html">Work ▾</a>
-                <div class="mega-menu" style="grid-template-columns: 1fr; width: 250px;">
-                    <div class="mega-col">
-                        <h4>Selected Work</h4>
-                        <a href="#">Acme E-commerce</a>
-                        <a href="#">Curology Refresh</a>
-                        <a href="#">Fintech ROI Calculator</a>
-                    </div>
-                </div>
-            </div>
-            <a href="/about.html">About</a>
-            <a href="/blog.html">Blog</a>
         </div>
     </div>
-    
-    <div class="navbar-logo">
-        <a href="/index.html" class="logo">Kawaki Studios</a>
-    </div>
-
-    <div class="navbar-right">
-        <a href="/contact.html" class="nav-btn secondary desktop-only">Contact</a>
-        <a href="/contact.html" class="nav-btn primary">Start a project</a>
-    </div>
-</nav>
-
-<div class="mobile-menu-overlay" id="mobileMenu">
-    <div class="mobile-menu-close" onclick="toggleMobileMenu()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    </div>
-    <div class="mobile-menu-links">
-        <a href="/index.html">Home</a>
-        <a href="/services.html">Services</a>
-        <a href="/case-studies.html">Work</a>
-        <a href="/about.html">About</a>
-        <a href="/blog.html">Blog</a>
-        <a href="/contact.html">Contact</a>
-    </div>
-</div>
-
-<script>
-    function toggleMobileMenu() {
-        const menu = document.getElementById('mobileMenu');
-        if (menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        } else {
-            menu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    }
-</script>
-
-    <main>
-    <section class="about-immersive-hero">
-        <div class="about-hero-content">
-            <h1>Our <span class="serif-italic" style="text-transform:lowercase; font-weight:normal;">Blog</span></h1>
-            <p style="margin-top: 1.5rem; font-size: 1.25rem;">Insights on editorial engineering, design, and branding.</p>
-        </div>
-    </section>
-    
-    <section class="about-split-section" style="min-height: 40vh;">
-        <div style="text-align: center; width: 100%;">
-            <p>Coming soon...</p>
-        </div>
-    </section>
-
-    <!-- Standard Footer -->
-
-    <!-- Standard Footer -->
-        <section class="marquee-section">
-            <div class="marquee-container">
-                <div class="marquee-content marquee-left">
-                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
-                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
-                </div>
-                <div class="marquee-content marquee-left" aria-hidden="true">
-                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
-                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
                 </div>
             </div>
-            <div class="marquee-container">
-                <div class="marquee-content marquee-right">
-                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
-                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
-                </div>
-                <div class="marquee-content marquee-right" aria-hidden="true">
-                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
-                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
-                </div>
-            </div>
+        </div>
+    </div>
+
+    <!-- MAIN BLOG CONTAINER -->
+    <main class="container">
+        <section class="blog-hero">
+            <h1 class="blog-hero-title">Stories &amp; ideas about <em>design, business</em> and <em>tech.</em></h1>
         </section>
 
-        <footer class="site-footer">
-            <div class="footer-content">
-                <h2>Ready to start a project?</h2>
-                <a href="/contact" class="footer-cta">Get in touch &nearr;</a>
+        <!-- CATEGORY FILTERS -->
+        <div class="category-filters-wrapper">
+            <ul class="category-filters" id="categoryFilters">
+                <li><a href="#" class="active" data-category="all">All</a></li>
+                <li><a href="#" data-category="Web Design and Dev">Web Design and Dev</a></li>
+                <li><a href="#" data-category="Brand Strategy">Brand Strategy</a></li>
+                <li><a href="#" data-category="Startup Growth">Startup Growth</a></li>
+                <li><a href="#" data-category="Product Design">Product Design</a></li>
+                <li><a href="#" data-category="AI Visualisation">AI Visualisation</a></li>
+                <li><a href="#" data-category="Business Growth">Business Growth</a></li>
+            </ul>
+        </div>
+
+        <!-- BLOG GRID SECTION -->
+        <section class="blog-grid-section">
+            <div class="blog-grid" id="blogGrid">
+                
+                <!-- CARD 1 -->
+                <a href="/case-studies/acme-headless-ecommerce.html" class="blog-card span-4" data-category="Web Design and Dev">
+                    <div class="card-meta-row">
+                        <span class="meta-date">15 Feb 2026</span>
+                        <span class="meta-separator"></span>
+                        <span class="meta-category">Web Design and Dev</span>
+                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="https://therlvntstudios.com/assets/graphics/blogcover32.png" alt="Free Website Development | The Cost You Never See" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80';">
+                    </div>
+                    <h3 class="card-title">Free Website Development | The Cost You Never See</h3>
+                </a>
+
+                <!-- CARD 2 -->
+                <a href="/case-studies/acme-headless-ecommerce.html" class="blog-card span-4" data-category="Web Design and Dev">
+                    <div class="card-meta-row">
+                        <span class="meta-date">15 Feb 2026</span>
+                        <span class="meta-separator"></span>
+                        <span class="meta-category">Web Design and Dev</span>
+                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="https://ik.imagekit.io/rlvntstudios/therlvntwebsite/blogcover33.png" alt="Dealing With a Freelance Web Developer" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80';">
+                    </div>
+                    <h3 class="card-title">Dealing With a Freelance Web Developer: What Founders Must Know</h3>
+                </a>
+
+                <!-- CARD 3 -->
+                <a href="/case-studies/acme-headless-ecommerce.html" class="blog-card span-4" data-category="Startup Growth">
+                    <div class="card-meta-row">
+                        <span class="meta-date">15 Feb 2026</span>
+                        <span class="meta-separator"></span>
+                        <span class="meta-category">Startup Growth</span>
+                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="https://ik.imagekit.io/rlvntstudios/therlvntwebsite/blogcover34.png" alt="Creating a Mobile-Friendly Website for Your Startup" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80';">
+                    </div>
+                    <h3 class="card-title">Creating a Mobile-Friendly Website for Your High-Growth Startup</h3>
+                </a>
+
+                <!-- CARD 4 -->
+                <a href="/case-studies/acme-headless-ecommerce.html" class="blog-card span-4" data-category="Startup Growth">
+                    <div class="card-meta-row">
+                        <span class="meta-date">15 Feb 2026</span>
+                        <span class="meta-separator"></span>
+                        <span class="meta-category">Startup Growth</span>
+                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="https://ik.imagekit.io/rlvntstudios/therlvntwebsite/blogcover35.png" alt="Top 5 Must-Have Features for Every Startup Website" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80';">
+                    </div>
+                    <h3 class="card-title">Top 5 Must-Have Features for Every Seed-Funded Startup Website</h3>
+                </a>
+
+                <!-- CARD 5 -->
+                <a href="/case-studies/acme-headless-ecommerce.html" class="blog-card span-4" data-category="Product Design">
+                    <div class="card-meta-row">
+                        <span class="meta-date">15 Feb 2026</span>
+                        <span class="meta-separator"></span>
+                        <span class="meta-category">Product Design</span>
+                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="https://ik.imagekit.io/rlvntstudios/therlvntwebsite/blogcover36.png" alt="User Experience (UX) Design Matters Especially for You" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80';">
+                    </div>
+                    <h3 class="card-title">User Experience (UX) Design Matters Especially for You</h3>
+                </a>
+
+                <!-- CARD 6 -->
+                <a href="/case-studies/acme-headless-ecommerce.html" class="blog-card span-4" data-category="Brand Strategy">
+                    <div class="card-meta-row">
+                        <span class="meta-date">10 Feb 2026</span>
+                        <span class="meta-separator"></span>
+                        <span class="meta-category">Brand Strategy</span>
+                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" alt="The Psychology of Brand Positioning" loading="lazy">
+                    </div>
+                    <h3 class="card-title">The Psychology of Brand Positioning in Saturated Global Markets</h3>
+                </a>
+
+                <!-- CARD 7 -->
+                <a href="/case-studies/acme-headless-ecommerce.html" class="blog-card span-4" data-category="Web Design and Dev">
+                    <div class="card-meta-row">
+                        <span class="meta-date">08 Feb 2026</span>
+                        <span class="meta-separator"></span>
+                        <span class="meta-category">Web Design and Dev</span>
+                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Why SaaS Companies Migrate to Headless Next.js" loading="lazy">
+                    </div>
+                    <h3 class="card-title">Why Modern SaaS Companies are Migrating to Headless Next.js</h3>
+                </a>
+
+                <!-- CARD 8 -->
+                <a href="/case-studies/acme-headless-ecommerce.html" class="blog-card span-4" data-category="AI Visualisation">
+                    <div class="card-meta-row">
+                        <span class="meta-date">04 Feb 2026</span>
+                        <span class="meta-separator"></span>
+                        <span class="meta-category">AI Visualisation</span>
+                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Harnessing Generative AI & Visual Agents" loading="lazy">
+                    </div>
+                    <h3 class="card-title">Harnessing Generative AI &amp; Visual Agents in Studio Brand Systems</h3>
+                </a>
+
+                <!-- CARD 9 -->
+                <a href="/case-studies/acme-headless-ecommerce.html" class="blog-card span-4" data-category="Business Growth">
+                    <div class="card-meta-row">
+                        <span class="meta-date">01 Feb 2026</span>
+                        <span class="meta-separator"></span>
+                        <span class="meta-category">Business Growth</span>
+                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31727223ec?auto=format&fit=crop&w=800&q=80" alt="The Zero-to-One Brand Playbook" loading="lazy">
+                    </div>
+                    <h3 class="card-title">The Zero-to-One Brand Playbook: How to Silence Noise in 2026</h3>
+                </a>
+
             </div>
-            <div class="footer-links-grid">
-                <div class="footer-col">
-                    <h4>Studio</h4>
-                    <a href="/about">About</a>
-                    <a href="/process">Process</a>
-                    <a href="/contact">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <a href="/services/web-development">Web Development</a>
-                    <a href="/services/ecommerce-development">Ecommerce</a>
-                    <a href="/services/shopify-development">Shopify</a>
-                    <a href="/services/wordpress-development">WordPress</a>
-                    <a href="/services/web-app-development">Web Apps</a>
-                    <a href="/services/frontend-development">Frontend</a>
-                    <a href="/services/backend-development">Backend</a>
-                    <a href="/services/maintenance-support">Maintenance</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Industries</h4>
-                    <a href="/industries/retail">Retail</a>
-                    <a href="/industries/healthcare">Healthcare</a>
-                    <a href="/industries/saas">SaaS</a>
-                    <a href="/industries/finance">Finance</a>
-                    <a href="/industries/architecture">Architecture</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Insights & Socials</h4>
-                    <a href="/blog">Blog</a>
-                    <a href="/faqs">FAQs</a>
-                    <a href="/guides">Guides</a>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Instagram</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Kawaki Studios. All rights reserved.</span>
-            </div>
-        </footer>
+        </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <!-- FLOATING ROTATING CIRCULAR CTA -->
+    <div class="fixed-cta-bar">
+        <a href="mailto:hello@kawakistudios.com" class="circular-cta" aria-label="Contact Kawaki Studios">
+            <img src="/assets/images/Hello.png" alt="Contact Us" class="cta-image" onerror="this.src='https://therlvntstudios.com/assets/graphics/contact-img.png';">
+            <svg class="cta-text-svg" viewBox="0 0 140 140">
+                <path id="circlePath" d="M 70, 70 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"></path>
+                <text>
+                    <textPath xlink:href="#circlePath"> let's craft relevance * tap to send email *</textPath>
+                </text>
+            </svg>
+        </a>
+    </div>
+
+    <!-- UNIVERSAL GLOBAL FOOTER -->
+    <footer class="sections global-site-footer">
+        <div class="services-header-2">
+            <h3 class="left services-title-2">Ready to talk?</h3>
+            <div class="svg-container"> 
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQIAAAECBAMAAADnYcRjAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAJ1BMVEVHcEz///////////////////////////////////////////////8NopmKAAAADHRSTlMA27yY7xBAIIFbcDD5NSv2AAAVXUlEQVR4Ac1dza9k11G/DvPeZD4W7UBwEL3oEAccdBdtxsRRdBeDUIRl96LHtiIvvOjEgJB1Fz2xBbLyFk9mM4FetBNI7KQXLSKEFHrxkGBBNIt540cSoP8oflXn456qW/frvX5AS9P3VJ2qX9U5p07VubenX2dZ++uDjx/9cN4ucq29xy/t8Tr/6rUaaQN/a0YO4PVbbVLX2Hd7xub/71w4yqMD+/3L1zjSRuiHiQP782Ui9+6Lzz77wo8SxvU078xSD/avRSsuPBEcy8i6noaYgv3+4sybOc6DZ19YXo9lj3pzzIYuvnTveWfxOddxVDiS3q93i/waG3plAbvvcPOp80BMzR863vW8b8jsp3MGf49d2FL7eMZt/ybik0UP+DaGkYuFB/w7svgNIjbUql5+abzYQS+3yEqMf94Xn8LAzVllnVrn84NaTcGeIfx15JRELrLMRcHT7/3VX/5gRqz9NIocurEBOg3avzguR1lWgL1/uiDurTG1/4ua1/LKgZ4s8tEY9K8yXpuLtbPI8XkxvxbzAJ3B4jYBL0FfLHltomMr8K5tGe4Q+DLx4DPEmGzwdhHZnyXeLxKhQzaPge1TkIPlTfCLHOz/rOwUIM8r8qAtGl4SiMBekTX8S6f9AdGnBzUcwSj2k8GCzyFAFpdRKKOZ2v9JRXe2jn+26JTxAnUP2BoMipnJwRCL1YFf7PdfmXfIJB6oGIM2vQT3feIs+kFCikP302Uv+TeALFche5Os7fdPUn2G/HzKaW27leznAq2CmO8su80O7EfCxhjMXwlOG3HXQfRygczpBc5ZfyJMlMQ7E6wW4gYj9DvZUNzphFuy/lRYoLnaTwSrheBFI42XW4R819EMclspx9bSdIBulutfnQqg0ut8IaEtKofcSHawNc3cQU5PllRLqeMPIU6vHrGzM8Q24O3vp4hZxvViKnlt1AdjAhGZtUGc9l5Vg5wQWxP5IMu4hCleA6Rj+8P+03mrFDo5aCZS6iY5r+dvBd6g6uRONvsvS+w6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" alt="Hello" class="hello-image wave-hover" /> 
+            </div>
+            <h3 class="right services-title-2"><em>let's connect</em></h3>
+        </div>
+        <div class="footer-content">
+            <div class="new-options">
+                <a href="mailto:hello@kawakistudios.com">hello@kawakistudios.com 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg>
+                </a>
+                <a href="/contact.html">connect on a call with founder 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg> 
+                </a>
+                <a href="/about.html">curious? find us 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg> 
+                </a>
+            </div>
+            <a href="/contact.html" style="text-decoration:none;">
+                <button class="rlvnt-btn max-content">
+                    <span>connect now</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg>
+                </button>
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <div class="links">
+                <button id="backToTop" aria-label="Go to top" class="btn-top" title="Go to top">↑ Top</button>
+                <a href="/about.html">Privacy Policy</a>
+                <div class="socials-trigger-rlvnt">
+                    <span class="socials-label-rlvnt">Socials</span>
+                    <div class="socials-row-rlvnt">
+                        <a href="https://linkedin.com" target="_blank" class="social-icon-rlvnt" title="LinkedIn">Lin.</a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon-rlvnt" title="Twitter">Twi.</a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon-rlvnt" title="Instagram">Ins.</a>
+                        <a href="https://behance.net" target="_blank" class="social-icon-rlvnt" title="Behance">Beh.</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2026 Kawaki Studios. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
     <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lenis Smooth Scroll
             const lenis = new Lenis();
-            lenis.on("scroll", ScrollTrigger.update);
+            lenis.on('scroll', ScrollTrigger.update);
             gsap.ticker.add((t) => lenis.raf(t * 1000));
             gsap.ticker.lagSmoothing(0);
 
-            // Intro Tagline Reveal for inner hero
-            const introH1 = document.querySelector(".inner-hero-content h1, .about-hero-content h1");
-            if (introH1) {
-                gsap.fromTo(introH1, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" });
-            }
+            // Category Filtering
+            const filterContainer = document.getElementById('categoryFilters');
+            const blogCards = document.querySelectorAll('.blog-card');
 
-            // Navbar transparency toggle on scroll
-            const navbar = document.querySelector('.navbar-inner-page');
-            window.addEventListener('scroll', () => {
-                if(window.scrollY > 50) {
-                    navbar.classList.remove('transparent');
-                } else {
-                    navbar.classList.add('transparent');
-                }
-            });
+            if (filterContainer) {
+                filterContainer.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'A') return;
+                    e.preventDefault();
 
-            // FAQ Accordion Logic
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
+                    const selectedCategory = e.target.getAttribute('data-category');
                     
-                    // Close all
-                    faqItems.forEach(faq => {
-                        faq.classList.remove('active');
-                        faq.querySelector('.faq-answer').style.maxHeight = null;
+                    filterContainer.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                    e.target.classList.add('active');
+
+                    blogCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                            card.style.display = 'flex';
+                            gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+                        } else {
+                            card.style.display = 'none';
+                        }
                     });
-                    
-                    // If it wasn't active, open it
-                    if(!isActive) {
-                        item.classList.add('active');
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                    }
                 });
-            });
+            }
         });
     </script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>

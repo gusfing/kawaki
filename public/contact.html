@@ -4,340 +4,1599 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — Kawaki Studios</title>
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <title>Schedule a Discovery Call — Kawaki Studios</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="/assets/css/global.css" />
+
     <style>
-        .contact-section {
-            padding: 12rem 4rem 6rem;
-            background: #f4efea; /* Base 100 */
-            min-height: 100vh;
+        :root {
+            --color-text-primary: #1a1a1a;
+            --color-text-secondary: #ffffff;
+            --color-text-muted: #6b7280;
+            --color-accent: #FC4625;
+            --rlvnt-orange: #FC4625;
+            --font-primary: "Plus Jakarta Sans", "Host Grotesk", sans-serif;
+            --font-serif: "Instrument Serif", serif;
+            --col-1-width: 360px;
+            --col-2-width: 520px;
+            --col-3-width: 440px;
+            --animation-duration: 0.65s;
+            --animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1);
+            --local-border-color: rgba(26, 26, 26, 0.1);
+            --local-text-disabled: #a3a3a3;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            max-width: 1480px;
+        body {
+            background-color: #fbf9f6;
+            color: var(--color-text-primary);
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        em {
+            font-style: italic;
+            font-family: var(--font-serif);
+        }
+
+        /* ── HERO BANNER ── */
+        .contact-page-hero {
+            padding: 10rem 2rem 3.5rem;
+            text-align: center;
+            background: #ffffff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-hero-container {
+            max-width: 900px;
             margin: 0 auto;
-        }
-
-        .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 3rem;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .contact-info h1 {
-            font-size: clamp(4rem, 9vw, 8rem);
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            line-height: 0.85;
-            color: var(--base-200);
-            letter-spacing: 0.02em;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            font-family: 'Satoshi', sans-serif;
-        }
-
-        .contact-detail-item h4 {
-            font-family: 'Host Grotesk', sans-serif;
-            font-size: 1.25rem;
+        .contact-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1.2rem;
+            border-radius: 50px;
+            background: rgba(252, 70, 37, 0.08);
+            border: 1px solid rgba(252, 70, 37, 0.2);
+            color: #FC4625;
+            font-size: 0.8rem;
             font-weight: 700;
-            color: var(--base-200);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .contact-hero-badge .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: #FC4625;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #FC4625;
+        }
+
+        .contact-hero-title {
+            font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+            font-weight: 500;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: #12100e;
+            margin: 0;
+        }
+
+        .contact-hero-title em {
+            font-family: var(--font-serif);
+            color: #FC4625;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .contact-hero-desc {
+            font-size: 1.15rem;
+            color: #555555;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.55;
+        }
+
+        /* ── 3-PANE BOOKING SECTION ── */
+        .booking-main-section {
+            padding: 4rem 1.5rem 8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 75vh;
+            background: #fbf9f6;
+            overflow: hidden;
+        }
+
+        .booking-viewport {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid rgba(26, 26, 26, 0.08);
+            border-radius: 28px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.04);
+            padding: 3rem 2rem;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .grid-wrapper {
+            display: grid;
+            width: 100%;
+            grid-template-columns: var(--col-1-width) var(--col-2-width) var(--col-3-width);
+            transform: translateX(calc(var(--col-3-width) / 2));
+            transition: transform var(--animation-duration) var(--animation-timing);
+            align-items: start;
+        }
+
+        .booking-viewport.form-visible .grid-wrapper {
+            transform: translateX(0);
+        }
+
+        /* PANES */
+        .info-pane,
+        .middle-pane-wrapper,
+        .form-pane,
+        .booking-success-message {
+            display: flex;
+            flex-direction: column;
+            padding: 0 2rem;
+            box-sizing: border-box;
+        }
+
+        .info-pane {
+            border-right: 1px solid var(--local-border-color);
+            gap: 1.75rem;
+        }
+
+        .info-pane .logo-cc {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            background: #111111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-pane .logo-cc img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .info-pane .company-name {
+            font-size: 1.15rem;
+            color: #FC4625;
+            font-weight: 500;
+            font-family: var(--font-serif);
+            font-style: italic;
+            margin: 0;
+        }
+
+        .info-pane .event-title {
+            font-family: var(--font-primary);
+            font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+            font-weight: 600;
+            margin: 0;
+            color: var(--color-text-primary);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .info-pane .event-title em {
+            color: #FC4625;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .event-detail svg {
+            width: 18px;
+            height: 18px;
+            color: #FC4625;
+            flex-shrink: 0;
+        }
+
+        .info-pane .description {
+            line-height: 1.55;
+            font-size: 0.95rem;
+            color: #4a4a4a;
+            margin: 0;
+        }
+
+        .info-pane .step-guide {
+            padding: 1rem 1.25rem;
+            background: #f8f6f2;
+            border-radius: 16px;
+            border-left: 3px solid #FC4625;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .info-pane .step-guide b {
+            color: #FC4625;
+        }
+
+        /* MIDDLE PANE (CALENDAR & TIME SLOTS) */
+        .middle-pane-wrapper {
+            border-right: 1px solid var(--local-border-color);
+            gap: 2rem;
+        }
+
+        .calendar-pane {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .month-display {
+            font-weight: 500;
+            font-size: 1.5rem;
+            letter-spacing: -0.01em;
+            font-family: var(--font-serif);
+            color: #111111;
+            margin: 0;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .nav-buttons button {
+            background: #f4f2ee;
+            border: none;
+            cursor: pointer;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+            color: var(--color-text-primary);
+        }
+
+        .nav-buttons button:hover:not(.disabled-nav) {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        .nav-buttons button.disabled-nav {
+            opacity: 0.35;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.35rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .calendar-grid.weekdays {
+            font-weight: 700;
+            color: #888888;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             margin-bottom: 0.5rem;
         }
 
-        .contact-detail-item p, .contact-detail-item a {
-            font-size: 1.1rem;
-            color: #555;
-            text-decoration: none;
-            line-height: 1.5;
+        .calendar-grid.dates {
+            grid-template-rows: repeat(auto-fit, 38px);
         }
 
-        .contact-detail-item a:hover {
-            color: var(--accent-1);
+        .calendar-grid .date-cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 38px;
+            width: 38px;
+            margin: 0 auto;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1.5px solid transparent;
+            background: transparent;
+            color: var(--color-text-primary);
+            transition: all 0.2s ease;
         }
 
-        /* Form Styles */
-        .contact-form-container {
-            background: #fff;
-            padding: 4rem;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(18, 20, 28, 0.05);
+        .date-cell:hover:not(.disabled) {
+            background: #f0ebe4;
+            border-color: #ded7ce;
         }
 
-        .contact-form {
+        .date-cell.disabled {
+            color: var(--local-text-disabled);
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.35;
+        }
+
+        .date-cell.selected {
+            background: #111111 !important;
+            color: #ffffff !important;
+            font-weight: 700;
+            border-color: #111111 !important;
+        }
+
+        .date-cell.selected em {
+            font-style: normal;
+        }
+
+        /* TIME SLOTS */
+        .time-selector-pane {
+            margin-top: 0.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .time-selector-pane.locked {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        .time-selector-pane h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-family: var(--font-serif);
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #no-slots-msg {
+            display: none;
+            color: var(--rlvnt-orange);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        #no-slots-msg.visible {
+            display: inline-block;
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+            gap: 0.6rem;
+        }
+
+        .time-slot {
+            padding: 0.6rem 0.5rem;
+            border: 1.5px solid rgba(26, 26, 26, 0.15);
+            border-radius: 50px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            background: #ffffff;
+            color: var(--color-text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .time-slot:hover:not(.disabled) {
+            border-color: #FC4625;
+            color: #FC4625;
+            background: rgba(252, 70, 37, 0.04);
+        }
+
+        .time-slot.selected {
+            color: #ffffff !important;
+            border-color: #FC4625 !important;
+            background: #FC4625 !important;
+            font-weight: 700;
+        }
+
+        .time-slot.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .timezone-feedback {
+            margin-top: 1.25rem;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            color: #333333;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            padding-top: 1rem;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .timezone-feedback.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timezone-feedback b {
+            color: var(--rlvnt-orange);
+            font-weight: 700;
+        }
+
+        .timezone-feedback small {
+            display: block;
+            margin-top: 3px;
+            opacity: 0.7;
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+
+        /* FORM PANE */
+        .form-pane {
+            opacity: 0;
+            transition: opacity 0.4s 0.25s;
+            justify-content: flex-start;
+            gap: 1.5rem;
+        }
+
+        .booking-viewport.form-visible .form-pane {
+            opacity: 1;
+        }
+
+        .form-pane h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            font-family: var(--font-serif);
+            margin: 0 0 1rem;
+            color: #111111;
+        }
+
+        .the-form {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.25rem;
+        }
+
+        .split-blocks {
+            display: flex;
+            gap: 1rem;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.35rem;
+            flex: 1;
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+        .form-group label {
+            font-size: 0.95rem;
+            font-family: var(--font-serif);
+            font-weight: 500;
+            color: var(--color-text-primary);
         }
 
-        .form-label {
-            font-family: 'Host Grotesk', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--base-200);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .form-group label .required {
+            color: var(--color-accent);
         }
 
-        .form-input, .form-textarea {
+        .form-group input:not([type="range"]),
+        .form-group textarea {
             width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid rgba(18, 20, 28, 0.1);
-            padding: 1rem 0;
-            font-family: 'Satoshi', sans-serif;
-            font-size: 1.1rem;
-            color: var(--base-200);
-            transition: border-color 0.3s ease;
-        }
-
-        .form-input:focus, .form-textarea:focus {
+            padding: 8px 4px;
             outline: none;
-            border-bottom-color: var(--base-200);
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background: var(--base-200);
-            color: #fff;
+            background-color: transparent;
+            font-size: 0.95rem;
+            font-family: var(--font-primary);
+            color: var(--color-text-primary);
             border: none;
-            padding: 1.25rem 2rem;
-            border-radius: 50px;
-            font-family: 'Satoshi', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
+            border-bottom: 1.5px solid rgba(53, 53, 53, 0.2);
+            transition: border-bottom-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-bottom-color: #FC4625;
+        }
+
+        .form-group textarea {
+            min-height: 55px;
+            resize: vertical;
+        }
+
+        /* CUSTOM SELECT */
+        .custom-select-wrapper {
+            position: relative;
+            width: 100%;
+            user-select: none;
+        }
+
+        .custom-select-trigger {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 8px 4px;
+            font-size: 0.95rem;
+            color: var(--color-text-primary);
+            background: transparent;
+            border-bottom: 1.5px solid rgba(53, 53, 53, 0.2);
             cursor: pointer;
-            transition: transform 0.3s ease, background 0.3s ease;
-            margin-top: 1rem;
+            transition: border-bottom-color 0.3s;
+        }
+
+        .custom-select-wrapper.open .custom-select-trigger {
+            border-bottom-color: #FC4625;
+        }
+
+        .custom-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border: 1px solid rgba(53, 53, 53, 0.15);
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            z-index: 100;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .custom-select-wrapper.open .custom-options {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .custom-option {
+            display: block;
+            padding: 10px 14px;
+            font-size: 0.9rem;
+            color: var(--color-text-primary);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .custom-option:hover,
+        .custom-option.selected {
+            background: rgba(252, 70, 37, 0.08);
+            color: #FC4625;
+            font-weight: 600;
+        }
+
+        /* RANGE SLIDER */
+        .slider-group {
+            position: relative;
+            width: 100%;
+            padding: 8px 0;
+        }
+
+        .slider-track-visuals {
+            position: absolute;
+            top: 19px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .track-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            background: rgba(0, 0, 0, 0.12);
+            border-radius: 50px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FC4625;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(252, 70, 37, 0.4);
+            transition: transform 0.15s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .slider-labels {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            position: relative;
+            height: 20px;
+        }
+
+        .slider-labels span {
+            position: absolute;
+            top: 0;
+            font-family: var(--font-serif);
+            white-space: nowrap;
+            transition: color 0.3s, font-weight 0.3s;
+        }
+
+        .slider-labels span:nth-child(1) { left: 0%; transform: translateX(0%); }
+        .slider-labels span:nth-child(2) { left: 20%; transform: translateX(-50%); }
+        .slider-labels span:nth-child(3) { left: 40%; transform: translateX(-50%); }
+        .slider-labels span:nth-child(4) { left: 60%; transform: translateX(-50%); }
+        .slider-labels span:nth-child(5) { left: 80%; transform: translateX(-50%); }
+        .slider-labels span:nth-child(6) { left: 100%; transform: translateX(-100%); }
+
+        .slider-labels span.active {
+            color: #FC4625;
+            font-weight: 700;
+        }
+
+        /* BUTTONS */
+        .form-footer-main {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .rlvnt-btn {
             display: inline-flex;
+            gap: 8px;
+            border: 1px solid #111111;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: var(--font-primary);
+            font-weight: 600;
+            background: #111111;
+            color: #ffffff;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
-        .submit-btn:hover {
+        .rlvnt-btn:hover:not(:disabled) {
+            background: #FC4625;
+            border-color: #FC4625;
             transform: translateY(-2px);
-            background: #000;
+            box-shadow: 0 8px 20px rgba(252, 70, 37, 0.25);
         }
 
-        @media (max-width: 900px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 4rem;
+        .rlvnt-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .rlvnt-btn.telegram-btn {
+            background: transparent;
+            color: #111111;
+            border-color: rgba(26, 26, 26, 0.25);
+        }
+
+        .rlvnt-btn.telegram-btn:hover {
+            background: #229ED9;
+            border-color: #229ED9;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(34, 158, 217, 0.25);
+        }
+
+        /* SUCCESS MESSAGE */
+        .booking-success-message {
+            grid-column: 2 / span 2;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 3rem;
+            opacity: 0;
+            transition: opacity 0.5s;
+            height: 100%;
+        }
+
+        .booking-success-message.visible {
+            display: flex;
+            opacity: 1;
+        }
+
+        .success-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 480px;
+        }
+
+        .success-icon {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: rgba(252, 70, 37, 0.1);
+            color: #FC4625;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .success-message h2 {
+            font-size: 2.2rem;
+            font-family: var(--font-serif);
+            margin: 0 0 0.5rem;
+            color: #111111;
+        }
+
+        .success-message p {
+            font-size: 1.05rem;
+            color: #555555;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* TOAST NOTIFICATION */
+        #toast-container {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .rlvnt-toast {
+            background: #111111;
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 14px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            pointer-events: auto;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 3px solid #FC4625;
+        }
+
+        .rlvnt-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .booking-viewport {
+                max-width: 100%;
+                border-radius: 0;
+                border: none;
+                padding: 1.5rem 0.5rem;
             }
-            .contact-section {
-                padding: 10rem 1.5rem 4rem;
+
+            .grid-wrapper {
+                display: flex;
+                flex-direction: column;
+                transform: none !important;
+                gap: 2.5rem;
             }
-            .contact-form-container {
-                padding: 2.5rem 1.5rem;
+
+            .info-pane,
+            .middle-pane-wrapper,
+            .form-pane {
+                border-right: none;
+                border-bottom: 1px solid var(--local-border-color);
+                padding: 0 1rem 2.5rem;
             }
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+
+            .form-pane {
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+                padding: 0 1rem;
+                border-bottom: none;
+                transition: max-height 0.6s var(--animation-timing), opacity 0.4s ease-in-out, padding 0.6s var(--animation-timing);
+            }
+
+            .booking-viewport.form-visible .form-pane {
+                opacity: 1;
+                max-height: 1200px;
+                padding: 1rem 1rem 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .split-blocks {
+                flex-direction: column;
+            }
+
+            .time-slots {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="pill-nav-container">
-    <div class="pill-nav">
-        <span class="pill-nav-logo">Kawaki</span>
-        <div class="pill-nav-hamburger" onclick="togglePillMenu()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="4" y1="12" x2="20" y2="12"></line>
-                <line x1="4" y1="6" x2="20" y2="6"></line>
-                <line x1="4" y1="18" x2="20" y2="18"></line>
-            </svg>
-        </div>
+    <!-- LIQUID GLASS CAPSULE HEADER -->
+    <div class="nav-wrapper">
+        <nav>
+            <a href="/index.html" class="nav-left">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">
+                <span>hello@kawakistudios.com</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path>
+                </svg>
+            </a>
+            <div class="nav-right" id="menuToggleBtn">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
+            </div>
+        </nav>
     </div>
-    <div class="pill-popover" id="pillPopover">
-        <a href="/index.html" class="active">Home</a>
-        <a href="/case-studies.html">Work</a>
-        <a href="/about.html">About Us</a>
-        <a href="/contact.html">Contact Us</a>
-    </div>
-</div>
 
-<script>
-    function togglePillMenu() {
-        const popover = document.getElementById('pillPopover');
-        popover.classList.toggle('active');
-    }
-    
-    // Close when clicking outside
-    document.addEventListener('click', (e) => {
-        const container = document.querySelector('.pill-nav-container');
-        if (container && !container.contains(e.target)) {
-            document.getElementById('pillPopover').classList.remove('active');
-        }
-    });
-</script>
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links">
+                        <ul>
+                            <li data-img="/assets/images/project_1_1787254271240.jpg" data-tag="Home — Studio Overview">
+                                <a href="/index.html">
+                                    <span class="menu-idx">01</span>
+                                    <span class="menu-text">Home <em>Index</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/project_2_1787254282785.jpg" data-tag="About Us — Editorial Manifesto">
+                                <a href="/about.html">
+                                    <span class="menu-idx">02</span>
+                                    <span class="menu-text">About <em>Kawaki Studios</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/project_3_1787254295127.jpg" data-tag="Capabilities &amp; Architecture">
+                                <a href="/services.html">
+                                    <span class="menu-idx">03</span>
+                                    <span class="menu-text">Explore <em>Our Services</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Client Case Studies">
+                                <a href="/case-studies.html">
+                                    <span class="menu-idx">04</span>
+                                    <span class="menu-text">Selected <em>Work &amp; Results</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/team_placeholder.jpg" data-tag="Engineering &amp; Design Notes">
+                                <a href="/blog.html">
+                                    <span class="menu-idx">05</span>
+                                    <span class="menu-text">Blogs &amp; <em>Insights</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about-studio.jpg" data-tag="15-Min Strategy Session">
+                                <a href="/contact.html">
+                                    <span class="menu-idx">06</span>
+                                    <span class="menu-text">Discovery <em>Call</em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-col menu-col-right">
+                    <!-- Interactive Preview Card -->
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/project_2_1787254282785.jpg" alt="Preview" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">About Us — Editorial Manifesto</span>
+                            <span class="menu-preview-desc">Editorial Engineering &amp; Design</span>
+                        </div>
+                    </div>
 
-    <main>
-        <section class="contact-section">
-            <div class="contact-grid">
-                
-                <!-- Left Side: Massive Typography & Info -->
-                <div class="contact-info">
-                    <h1>Let's build<br><span class="serif-italic">something</span><br>lasting.</h1>
-                    
-                    <div class="contact-details">
-                        <div class="contact-detail-item">
-                            <h4>General Inquiries</h4>
-                            <a href="mailto:hello@kawakistudios.com">hello@kawakistudios.com</a>
+                    <!-- Info Block -->
+                    <div class="menu-info-block">
+                        <div class="menu-status-pill">
+                            <span class="status-dot"></span>
+                            <span>Available for Q3/Q4 Projects</span>
                         </div>
-                        <div class="contact-detail-item">
-                            <h4>New Business</h4>
-                            <a href="mailto:kunal@kawakistudios.com">kunal@kawakistudios.com</a>
-                        </div>
-                        <div class="contact-detail-item">
-                            <h4>Location</h4>
-                            <p>New Delhi, India<br>Operating globally via remote</p>
+                        <a href="/contact.html" class="menu-cta-button">
+                            <span>Schedule a Call</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" fill="#FC4625"></circle>
+                                <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <div class="social-tags">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <!-- Right Side: Form -->
-                <div class="contact-form-container">
-                    <form class="contact-form" action="#" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" id="firstName" name="firstName" class="form-input" required placeholder="Jane">
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" id="lastName" name="lastName" class="form-input" required placeholder="Doe">
-                            </div>
-                        </div>
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container"></div>
 
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-input" required placeholder="jane@example.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="company" class="form-label">Company / Organization</label>
-                            <input type="text" id="company" name="company" class="form-input" placeholder="Optional">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="project" class="form-label">Project Details</label>
-                            <textarea id="project" name="project" class="form-textarea" required placeholder="Tell us about your timeline, budget, and what you're looking to achieve..."></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">
-                            Send Inquiry
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                            </svg>
-                        </button>
-                    </form>
+    <main>
+        <!-- HERO BANNER -->
+        <section class="contact-page-hero">
+            <div class="contact-hero-container">
+                <div class="contact-hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>15-Minute Discovery Session</span>
                 </div>
-
+                <h1 class="contact-hero-title">
+                    Let's build something <br><em>that actually lasts.</em>
+                </h1>
+                <p class="contact-hero-desc">
+                    Pick a date and time that suits your schedule. We'll explore your technical goals, share architecture recommendations, and see if there's a strong fit.
+                </p>
             </div>
         </section>
 
-        <!-- Standard Footer -->
-        <footer class="site-footer">
-            <div class="footer-content">
-                <h2>Join the newsletter.</h2>
-                <a href="#" class="footer-cta">Subscribe &nearr;</a>
+        <!-- 3-PANE INTERACTIVE BOOKING CONSOLE -->
+        <section class="booking-main-section">
+            <div class="booking-viewport" id="bookingViewport">
+                <div class="grid-wrapper" id="gridWrapper">
+                    
+                    <!-- 1. LEFT PANE (INFO) -->
+                    <div class="info-pane">
+                        <div class="logo-cc">
+                            <img src="/assets/images/kawaki-logo-white.png" alt="Kawaki Studios" />
+                        </div>
+
+                        <div>
+                            <p class="company-name">Kawaki Studios</p>
+                            <h2 class="event-title">Intro &amp; Technical <em>Discovery Call</em></h2>
+                        </div>
+
+                        <div class="event-meta">
+                            <div class="event-detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>15-minute 1-on-1 strategy call</span>
+                            </div>
+                            <div class="event-detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                                    <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9A2.25 2.25 0 0013.5 5.25h-9A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75z"></path>
+                                </svg>
+                                <span>Google Meet link sent via email</span>
+                            </div>
+                        </div>
+
+                        <p class="description">
+                            A focused session to unpack your project constraints, target audience, performance requirements, and timelines.
+                        </p>
+
+                        <div class="step-guide">
+                            <div><b>Step 1:</b> Select an available date on the calendar.</div>
+                            <div style="margin-top: 4px;"><b>Step 2:</b> Pick a time slot. We'll automatically convert it to your local time zone.</div>
+                        </div>
+                    </div>
+
+                    <!-- 2. MIDDLE PANE (CALENDAR & TIME SLOTS) -->
+                    <div class="middle-pane-wrapper" id="middlePane">
+                        <div class="calendar-pane">
+                            <div class="calendar-header">
+                                <h3 id="month-display" class="month-display">August 2026</h3>
+                                <div class="nav-buttons">
+                                    <button id="prev-month-btn" aria-label="Previous month" class="disabled-nav">
+                                        <svg fill="currentColor" width="16" height="16" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+                                        </svg>
+                                    </button>
+                                    <button id="next-month-btn" aria-label="Next month">
+                                        <svg fill="currentColor" width="16" height="16" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="calendar-grid weekdays">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div id="calendar-dates" class="calendar-grid dates"></div>
+                        </div>
+
+                        <div class="time-selector-pane locked" id="timePane">
+                            <h3>
+                                <span>Select Time (IST · UTC+5:30)</span>
+                                <span id="no-slots-msg">No slots available</span>
+                            </h3>
+                            <div class="time-slots">
+                                <div class="time-slot">11:00 AM</div>
+                                <div class="time-slot">12:00 PM</div>
+                                <div class="time-slot">01:00 PM</div>
+                                <div class="time-slot">02:00 PM</div>
+                                <div class="time-slot">03:00 PM</div>
+                                <div class="time-slot">04:00 PM</div>
+                                <div class="time-slot">05:00 PM</div>
+                                <div class="time-slot">06:00 PM</div>
+                                <div class="time-slot">07:00 PM</div>
+                                <div class="time-slot">08:00 PM</div>
+                            </div>
+
+                            <div id="timezone-feedback" class="timezone-feedback"></div>
+                        </div>
+                    </div>
+
+                    <!-- 3. RIGHT PANE (ENTER DETAILS) -->
+                    <div class="form-pane" id="formPane">
+                        <div>
+                            <h2>Enter Details</h2>
+                            <form id="bookingForm" class="the-form">
+                                <div class="split-blocks">
+                                    <div class="form-group">
+                                        <label for="name">Your Name <span class="required">*</span></label>
+                                        <input type="text" id="name" name="name" placeholder="E.g., Kunal Sharma" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Work Email <span class="required">*</span></label>
+                                        <input type="email" id="email" name="email" placeholder="name@company.com" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Current Growth Stage</label>
+                                    <div class="custom-select-wrapper" id="customSelectWrapper">
+                                        <div class="custom-select-trigger" id="customSelectTrigger">
+                                            <span>Select your stage</span>
+                                            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+                                        </div>
+                                        <div class="custom-options">
+                                            <span class="custom-option" data-value="seedling">Seedling (Early Stage / MVP)</span>
+                                            <span class="custom-option" data-value="sapling">Sapling (Growth Stage / Scale)</span>
+                                            <span class="custom-option" data-value="established">Established (Enterprise Expansion)</span>
+                                            <span class="custom-option" data-value="other">Other / Custom Requirement</span>
+                                        </div>
+                                    </div>
+                                    <select id="package-select" name="package" style="display:none;">
+                                        <option value="" disabled selected>Select your stage</option>
+                                        <option value="seedling">Seedling (Early Stage / MVP)</option>
+                                        <option value="sapling">Sapling (Growth Stage / Scale)</option>
+                                        <option value="established">Established (Enterprise Expansion)</option>
+                                        <option value="other">Other / Custom Requirement</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="notes">Tell us about your project <span class="required">*</span></label>
+                                    <textarea id="notes" name="notes" placeholder="Briefly describe what you're looking to build, migrate, or optimize..." required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="budget-slider">Target Investment Range</label>
+                                    <div class="slider-group">
+                                        <div class="slider-track-visuals">
+                                            <span class="track-dot"></span>
+                                            <span class="track-dot"></span>
+                                            <span class="track-dot"></span>
+                                            <span class="track-dot"></span>
+                                            <span class="track-dot"></span>
+                                            <span class="track-dot"></span>
+                                        </div>
+                                        <input type="range" id="budget-slider" name="budget" min="0" max="100" value="20" step="20" />
+                                        <div class="slider-labels">
+                                            <span>$2k</span>
+                                            <span class="active">$5k</span>
+                                            <span>$10k</span>
+                                            <span>$15k</span>
+                                            <span>$20k</span>
+                                            <span>Beyond</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact">Telegram / WhatsApp / Phone <span class="required">*</span></label>
+                                    <input type="text" id="contact" name="contact" placeholder="@handle or phone number" required />
+                                </div>
+
+                                <div class="form-footer-main">
+                                    <button type="submit" class="rlvnt-btn" id="submit-btn">
+                                        <span>Confirm Discovery Call</span>
+                                        <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
+                                            <circle cx="8" cy="8" r="8" fill="#FC4625"></circle>
+                                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                                        </svg>
+                                    </button>
+                                    <a href="https://t.me/kawakistudios" target="_blank" rel="noopener noreferrer" class="rlvnt-btn telegram-btn">
+                                        <span>Direct Telegram</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- 4. SUCCESS VIEW -->
+                    <div id="booking-success" class="booking-success-message">
+                        <div class="success-content-wrapper">
+                            <div class="success-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.882l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.035 2.036a.75.75 0 001.082-.02L15.59 11.286z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="success-message">
+                                <h2>Session Booked!</h2>
+                                <p id="success-desc">Thank you. Your intro session has been reserved.</p>
+                            </div>
+                            <button onclick="window.location.reload();" class="rlvnt-btn">
+                                <span>Schedule Another Meeting</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="footer-links-grid">
-                <div class="footer-col">
-                    <h4>Studio</h4>
-                    <a href="/about">About</a>
-                    <a href="/process">Process</a>
-                    <a href="/contact">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <a href="/services/web-development">Web Development</a>
-                    <a href="/services/ecommerce-development">Ecommerce</a>
-                    <a href="/services/shopify-development">Shopify</a>
-                    <a href="/services/wordpress-development">WordPress</a>
-                    <a href="/services/web-app-development">Web Apps</a>
-                    <a href="/services/frontend-development">Frontend</a>
-                    <a href="/services/backend-development">Backend</a>
-                    <a href="/services/maintenance-support">Maintenance</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Industries</h4>
-                    <a href="/industries/retail">Retail</a>
-                    <a href="/industries/healthcare">Healthcare</a>
-                    <a href="/industries/saas">SaaS</a>
-                    <a href="/industries/finance">Finance</a>
-                    <a href="/industries/architecture">Architecture</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Insights & Socials</h4>
-                    <a href="/blog">Blog</a>
-                    <a href="/faqs">FAQs</a>
-                    <a href="/guides">Guides</a>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Instagram</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Kawaki Studios. All rights reserved.</span>
-            </div>
-        </footer>
+        </section>
     </main>
 
+    <!-- UNIVERSAL GLOBAL FOOTER -->
+    <footer class="sections global-site-footer">
+        <div class="services-header-2">
+            <h3 class="left services-title-2">Ready to talk?</h3>
+            <div class="svg-container"> 
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQIAAAECBAMAAADnYcRjAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAJ1BMVEVHcEz///////////////////////////////////////////////8NopmKAAAADHRSTlMA27yY7xBAIIFbcDD5NSv2AAAVXUlEQVR4Ac1dza9k11G/DvPeZD4W7UBwEL3oEAccdBdtxsRRdBeDUIRl96LHtiIvvOjEgJB1Fz2xBbLyFk9mM4FetBNI7KQXLSKEFHrxkGBBNIt540cSoP8oflXn456qW/frvX5AS9P3VJ2qX9U5p07VubenX2dZ++uDjx/9cN4ucq29xy/t8Tr/6rUaaQN/a0YO4PVbbVLX2Hd7xub/71w4yqMD+/3L1zjSRuiHiQP782Ui9+6Lzz77wo8SxvU078xSD/avRSsuPBEcy8i6noaYgv3+4sybOc6DZ19YXo9lj3pzzIYuvnTveWfxOddxVDiS3q93i/waG3plAbvvcPOp80BMzR863vW8b8jsp3MGf49d2FL7eMZt/ybik0UP+DaGkYuFB/w7svgNIjbUql5+abzYQS+3yEqMf94Xn8LAzVllnVrn84NaTcGeIfx15JRELrLMRcHT7/3VX/5gRqz9NIocurEBOg3avzguR1lWgL1/uiDurTG1/4ua1/LKgZ4s8tEY9K8yXpuLtbPI8XkxvxbzAJ3B4jYBL0FfLHltomMr8K5tGe4Q+DLx4DPEmGzwdhHZnyXeLxKhQzaPge1TkIPlTfCLHOz/rOwUIM8r8qAtGl4SiMBekTX8S6f9AdGnBzUcwSj2k8GCzyFAFpdRKKOZ2v9JRXe2jn+26JTxAnUP2BoMipnJwRCL1YFf7PdfmXfIJB6oGIM2vQT3feIs+kFCikP302Uv+TeALFche5Os7fdPUn2G/HzKaW27leznAq2CmO8su80O7EfCxhjMXwlOG3HXQfRygczpBc5ZfyJMlMQ7E6wW4gYj9DvZUNzphFuy/lRYoLnaTwSrheBFI42XW4R819EMclspx9bSdIBulutfnQqg0ut8IaEtKofcSHawNc3cQU5PllRLqeMPIU6vHrGzM8Q24O3vp4hZxvViKnlt1AdjAhGZtUGc9l5Vg5wQWxP5IMu4hCleA6Rj+8P+03mrFDo5aCZS6iY5r+dvBd6g6uRONvsvS+w6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" alt="Hello" class="hello-image wave-hover" /> 
+            </div>
+            <h3 class="right services-title-2"><em>let's connect</em></h3>
+        </div>
+        <div class="footer-content">
+            <div class="new-options">
+                <a href="mailto:hello@kawakistudios.com">hello@kawakistudios.com 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg>
+                </a>
+                <a href="/contact.html">connect on a call with founder 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg> 
+                </a>
+                <a href="/about.html">curious? find us 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg> 
+                </a>
+            </div>
+            <a href="/contact.html" style="text-decoration:none;">
+                <button class="rlvnt-btn max-content">
+                    <span>connect now</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg>
+                </button>
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <div class="links">
+                <button id="backToTop" aria-label="Go to top" class="btn-top" title="Go to top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Top</button>
+                <a href="/about.html">Privacy Policy</a>
+                <div class="socials-trigger-rlvnt">
+                    <span class="socials-label-rlvnt">Socials</span>
+                    <div class="socials-row-rlvnt">
+                        <a href="https://linkedin.com" target="_blank" class="social-icon-rlvnt" title="LinkedIn">Lin.</a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon-rlvnt" title="Twitter">Twi.</a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon-rlvnt" title="Instagram">Ins.</a>
+                        <a href="https://behance.net" target="_blank" class="social-icon-rlvnt" title="Behance">Beh.</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2026 Kawaki Studios. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+
     <script>
-        gsap.registerPlugin(ScrollTrigger);
+        document.addEventListener('DOMContentLoaded', function () {
+            const bookingViewport = document.getElementById('bookingViewport');
+            const middlePane = document.getElementById('middlePane');
+            const formPane = document.getElementById('formPane');
+            const bookingSuccess = document.getElementById('booking-success');
+            const submitButton = document.getElementById('submit-btn');
+            const monthDisplay = document.getElementById('month-display');
+            const calendarDates = document.getElementById('calendar-dates');
+            const prevMonthBtn = document.getElementById('prev-month-btn');
+            const nextMonthBtn = document.getElementById('next-month-btn');
+            const timePane = document.getElementById('timePane');
+            const timeSlots = document.querySelectorAll('.time-slot');
+            const bookingForm = document.getElementById('bookingForm');
+            const noSlotsMsg = document.getElementById('no-slots-msg');
+            const timezoneFeedback = document.getElementById('timezone-feedback');
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const lenis = new Lenis();
-            lenis.on("scroll", ScrollTrigger.update);
-            gsap.ticker.add((t) => lenis.raf(t * 1000));
-            gsap.ticker.lagSmoothing(0);
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const contactInput = document.getElementById('contact');
+            const budgetSlider = document.getElementById('budget-slider');
+            const notesInput = document.getElementById('notes');
+            const packageSelect = document.getElementById('package-select');
+            const sliderLabels = document.querySelectorAll('.slider-labels span');
+            const toastContainer = document.getElementById('toast-container');
 
-            // Intro Tagline Reveal for inner hero
-            const introH1 = document.querySelector(".contact-info h1");
-            if (introH1) {
-                gsap.fromTo(introH1, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" });
+            // --- TOAST NOTIFICATIONS ---
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.className = 'rlvnt-toast';
+                toast.innerHTML = `<svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>${message}</span>`;
+                toastContainer.appendChild(toast);
+                requestAnimationFrame(() => toast.classList.add('show'));
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 400);
+                }, 4500);
+                toast.addEventListener('click', () => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 400);
+                });
             }
 
-            // Form reveal
-            const formContainer = document.querySelector(".contact-form-container");
-            if (formContainer) {
-                gsap.fromTo(formContainer, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.2, ease: "power3.out" });
+            // --- CUSTOM SELECT ---
+            const customSelectWrapper = document.getElementById('customSelectWrapper');
+            const customSelectTrigger = document.querySelector('#customSelectTrigger span');
+            const customOptions = document.querySelectorAll('.custom-option');
+
+            if (customSelectWrapper) {
+                customSelectWrapper.addEventListener('click', function (e) {
+                    this.classList.toggle('open');
+                });
+
+                customOptions.forEach(option => {
+                    option.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        customSelectTrigger.textContent = this.textContent;
+                        customOptions.forEach(opt => opt.classList.remove('selected'));
+                        this.classList.add('selected');
+                        if (packageSelect) packageSelect.value = this.getAttribute('data-value');
+                        customSelectWrapper.classList.remove('open');
+                    });
+                });
+
+                window.addEventListener('click', function (e) {
+                    if (!customSelectWrapper.contains(e.target)) customSelectWrapper.classList.remove('open');
+                });
             }
+
+            // --- CALENDAR STATE ---
+            const currentDate = new Date();
+            const today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+            const limitDate = new Date();
+            limitDate.setDate(currentDate.getDate() + 45);
+            limitDate.setHours(0, 0, 0, 0);
+
+            let currentMonth = today.getMonth();
+            let currentYear = today.getFullYear();
+            const initialMonth = currentMonth;
+            const initialYear = currentYear;
+
+            let selectedDate = null;
+            let selectedTime = null;
+            let selectedFullDate = null;
+
+            // --- SLIDER HELPER ---
+            function getBudgetDisplay(value) {
+                const labels = ['$2k', '$5k', '$10k', '$15k', '$20k', 'Beyond'];
+                return labels[parseInt(value) / 20] || labels[1];
+            }
+
+            function updateSliderVisuals() {
+                const value = parseInt(budgetSlider.value);
+                const activeIndex = value / 20;
+                sliderLabels.forEach((label, index) => label.classList.toggle('active', index === activeIndex));
+            }
+
+            function updateNavigationButtons() {
+                const nextMonthStart = new Date(currentYear, currentMonth + 1, 1);
+                prevMonthBtn.classList.toggle('disabled-nav', currentMonth === initialMonth && currentYear === initialYear);
+                nextMonthBtn.classList.toggle('disabled-nav', nextMonthStart > limitDate);
+            }
+
+            function getISTDate() {
+                const istString = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+                return new Date(istString);
+            }
+
+            function parseSlotHour(text) {
+                let [time, modifier] = text.trim().split(' ');
+                let [h, m] = time.split(':');
+                let hour = parseInt(h);
+                if (hour === 12 && modifier === 'AM') hour = 0;
+                if (modifier === 'PM' && hour !== 12) hour += 12;
+                return hour;
+            }
+
+            function updateAvailableTimeSlots(selectedDateObj) {
+                const istNow = getISTDate();
+                let availableCount = 0;
+                const cutoffHour = istNow.getHours() + 1;
+                const isSameDate = selectedDateObj.getDate() === istNow.getDate() &&
+                    selectedDateObj.getMonth() === istNow.getMonth() &&
+                    selectedDateObj.getFullYear() === istNow.getFullYear();
+
+                timeSlots.forEach(slot => {
+                    slot.classList.remove('disabled', 'selected');
+                    if (isSameDate) {
+                        const slotHour = parseSlotHour(slot.textContent);
+                        if (slotHour <= cutoffHour) slot.classList.add('disabled');
+                        else availableCount++;
+                    } else {
+                        availableCount++;
+                    }
+                });
+
+                noSlotsMsg.classList.toggle('visible', availableCount === 0);
+            }
+
+            // --- TIMEZONE FEEDBACK ---
+            function updateTimezoneFeedback(slotText) {
+                if (!selectedFullDate || !slotText) {
+                    timezoneFeedback.innerHTML = '';
+                    timezoneFeedback.classList.remove('visible');
+                    return;
+                }
+                const year = selectedFullDate.getFullYear();
+                const month = String(selectedFullDate.getMonth() + 1).padStart(2, '0');
+                const day = String(selectedFullDate.getDate()).padStart(2, '0');
+                const hour = String(parseSlotHour(slotText)).padStart(2, '0');
+                const istISO = `${year}-${month}-${day}T${hour}:00:00+05:30`;
+
+                const localDate = new Date(istISO);
+                const userTime = localDate.toLocaleTimeString([], {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    timeZoneName: 'short'
+                });
+
+                timezoneFeedback.innerHTML = `
+                    <div>Selected slot in your local time is <b>${userTime}</b></div>
+                    <small>Auto-converted to your local browser timezone.</small>
+                `;
+                timezoneFeedback.classList.add('visible');
+            }
+
+            function renderCalendar(month, year) {
+                calendarDates.innerHTML = '';
+                const firstDayOfMonth = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                monthDisplay.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+
+                for (let i = 0; i < firstDayOfMonth; i++) {
+                    calendarDates.insertAdjacentHTML('beforeend', '<div></div>');
+                }
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dateCell = document.createElement('div');
+                    dateCell.classList.add('date-cell');
+                    dateCell.innerHTML = `<em>${day}</em>`;
+                    const cellDate = new Date(year, month, day);
+                    cellDate.setHours(0, 0, 0, 0);
+
+                    if (cellDate < today || cellDate > limitDate) {
+                        dateCell.classList.add('disabled');
+                    } else {
+                        dateCell.addEventListener('click', handleDateClick);
+                    }
+                    calendarDates.appendChild(dateCell);
+                }
+                updateNavigationButtons();
+            }
+
+            function handleDateClick(event) {
+                const clickedCell = event.target.closest('.date-cell');
+                if (!clickedCell || clickedCell.classList.contains('disabled')) return;
+
+                document.querySelectorAll('.date-cell.selected').forEach(s => s.classList.remove('selected'));
+                clickedCell.classList.add('selected');
+
+                const day = parseInt(clickedCell.textContent);
+                selectedFullDate = new Date(currentYear, currentMonth, day);
+                selectedDate = selectedFullDate.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    month: 'short',
+                    day: 'numeric'
+                });
+
+                timePane.classList.remove('locked');
+                updateAvailableTimeSlots(selectedFullDate);
+                selectedTime = null;
+                timezoneFeedback.classList.remove('visible');
+                bookingViewport.classList.remove('form-visible');
+            }
+
+            function handleTimeClick(event) {
+                const clickedSlot = event.target.closest('.time-slot');
+                if (!clickedSlot || clickedSlot.classList.contains('disabled')) return;
+
+                document.querySelectorAll('.time-slot.selected').forEach(s => s.classList.remove('selected'));
+                clickedSlot.classList.add('selected');
+                selectedTime = clickedSlot.textContent.trim();
+
+                updateTimezoneFeedback(selectedTime);
+                bookingViewport.classList.add('form-visible');
+
+                if (window.innerWidth <= 1200) {
+                    setTimeout(() => {
+                        formPane.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 200);
+                }
+            }
+
+            // Init listeners
+            timeSlots.forEach(slot => slot.addEventListener('click', handleTimeClick));
+            renderCalendar(currentMonth, currentYear);
+
+            if (budgetSlider) {
+                budgetSlider.addEventListener('input', updateSliderVisuals);
+                updateSliderVisuals();
+            }
+
+            prevMonthBtn.addEventListener('click', () => {
+                if (currentMonth > initialMonth || currentYear > initialYear) {
+                    currentMonth--;
+                    if (currentMonth < 0) {
+                        currentMonth = 11;
+                        currentYear--;
+                    }
+                    renderCalendar(currentMonth, currentYear);
+                }
+            });
+
+            nextMonthBtn.addEventListener('click', () => {
+                const nextMonthStart = new Date(currentYear, currentMonth + 1, 1);
+                if (nextMonthStart <= limitDate) {
+                    currentMonth++;
+                    if (currentMonth > 11) {
+                        currentMonth = 0;
+                        currentYear++;
+                    }
+                    renderCalendar(currentMonth, currentYear);
+                }
+            });
+
+            // Form Submit
+            bookingForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (!selectedDate || !selectedTime) {
+                    showToast('Please select both a date and a time slot first.');
+                    return;
+                }
+                if (!nameInput.value.trim() || !emailInput.value.trim() || !contactInput.value.trim()) {
+                    showToast('Please fill in all required fields.');
+                    return;
+                }
+
+                submitButton.disabled = true;
+                submitButton.querySelector('span').textContent = 'Confirming...';
+
+                setTimeout(() => {
+                    middlePane.style.display = 'none';
+                    formPane.style.display = 'none';
+                    bookingViewport.classList.remove('form-visible');
+
+                    const desc = document.getElementById('success-desc');
+                    desc.innerHTML = `Thank you, <b>${nameInput.value.trim()}</b>! Your 15-minute discovery call is confirmed for <b>${selectedDate} at ${selectedTime} (IST)</b>.<br>A meeting invite has been sent to <b>${emailInput.value.trim()}</b>.`;
+
+                    bookingSuccess.classList.add('visible');
+                }, 900);
+            });
         });
     </script>
 </body>
+
 </html>

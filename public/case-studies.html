@@ -2,80 +2,144 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Work — Kawaki Studios</title>
+    <title>Selected Work & Case Studies — Kawaki Studios</title>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css" />
-    <style>
-        /* Specific override for this dark-themed page navbar */
-        .navbar-inner-page {
-            background-color: var(--base-200);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .navbar-inner-page a, 
-        .navbar-inner-page .mega-menu-trigger > a,
-        .navbar-inner-page .logo {
-            color: var(--base-100);
-        }
-    </style>
 </head>
 
-<body style="background-color: var(--base-200);">
-    <nav class="navbar-inner-page">
-        <div class="navbar-left">
-            <div class="mobile-hamburger" onclick="toggleMobileMenu()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
+<body style="background-color: #ffffff; color: #111111;">
+
+    <!-- SVG LIQUID LENS FILTER -->
+    <svg class="svg-defs" style="position: absolute; width: 0; height: 0; pointer-events: none; overflow: hidden;" aria-hidden="true">
+        <defs>
+            <filter id="liquid-lens">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.03" numOctaves="1" result="turbulence"></feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" xChannelSelector="R" yChannelSelector="G" result="displacement"></feDisplacementMap>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- UNIVERSAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper scrolled" id="globalNav">
+        <nav>
+            <a href="/index.html" class="nav-left">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
+            <div class="nav-right" id="menuToggleBtn">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
             </div>
-            <div class="navbar-links desktop-only">
-                <a href="/index.html">Home</a>
-                <a href="/case-studies.html">Work</a>
-                <a href="/about.html">About</a>
-            </div>
-        </div>
-
-        <div class="navbar-logo">
-            <a href="/index.html" class="logo">Kawaki Studios</a>
-        </div>
-
-        <div class="navbar-right">
-            <a href="/contact.html" class="nav-btn secondary desktop-only">Contact</a>
-            <a href="/contact.html" class="nav-btn primary">Start a project</a>
-        </div>
-    </nav>
-
-    <div class="mobile-menu-overlay" id="mobileMenu">
-        <div class="mobile-menu-close" onclick="toggleMobileMenu()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
-        <div class="mobile-menu-links">
-            <a href="/index.html">Home</a>
-            <a href="/case-studies.html">Work</a>
-            <a href="/about.html">About</a>
-            <a href="/contact.html">Contact</a>
-        </div>
+        </nav>
     </div>
 
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            if (menu.classList.contains('active')) {
-                menu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            } else {
-                menu.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-    </script>
+    <!-- FULLSCREEN NAVIGATION OVERLAY -->
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links">
+                        <ul>
+                            <li data-img="/assets/images/project_1_1787254271240.jpg" data-tag="Home — Studio Overview">
+                                <a href="/index.html">
+                                    <span class="menu-idx">01</span>
+                                    <span class="menu-text">Home <em>Index</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/project_2_1787254282785.jpg" data-tag="About Us — Editorial Manifesto">
+                                <a href="/about.html">
+                                    <span class="menu-idx">02</span>
+                                    <span class="menu-text">About <em>Kawaki Studios</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/project_3_1787254295127.jpg" data-tag="Capabilities &amp; Architecture">
+                                <a href="/services.html">
+                                    <span class="menu-idx">03</span>
+                                    <span class="menu-text">Explore <em>Our Services</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Client Case Studies">
+                                <a href="/case-studies.html">
+                                    <span class="menu-idx">04</span>
+                                    <span class="menu-text">Selected <em>Work &amp; Results</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/team_placeholder.jpg" data-tag="Engineering &amp; Design Notes">
+                                <a href="/blog.html">
+                                    <span class="menu-idx">05</span>
+                                    <span class="menu-text">Blogs &amp; <em>Insights</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about-studio.jpg" data-tag="15-Min Strategy Session">
+                                <a href="/contact.html">
+                                    <span class="menu-idx">06</span>
+                                    <span class="menu-text">Discovery <em>Call</em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-col menu-col-right">
+                    <!-- Interactive Preview Card -->
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/project_2_1787254282785.jpg" alt="Preview" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">About Us — Editorial Manifesto</span>
+                            <span class="menu-preview-desc">Editorial Engineering &amp; Design</span>
+                        </div>
+                    </div>
+
+                    <!-- Info Block -->
+                    <div class="menu-info-block">
+                        <div class="menu-status-pill">
+                            <span class="status-dot"></span>
+                            <span>Available for Q3/Q4 Projects</span>
+                        </div>
+                        <a href="/contact.html" class="menu-cta-button">
+                            <span>Schedule a Call</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" fill="#FC4625"></circle>
+                                <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <div class="social-tags">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main>
         <!-- Interactive Spotlight Scroll Section -->
@@ -211,10 +275,10 @@
                         <div class="cs-card-meta">
                             <div class="cs-card-info">
                                 <h3>SaaS Analytics Dashboard</h3>
-                                <p>Custom data visualisation dashboard for a B2B SaaS platform.</p>
+                                <p>High-density data platform designed for sub-second query feedback and clear reporting.</p>
                             </div>
                             <div class="cs-card-tags">
-                                <span>Next.js</span><span>D3.js</span>
+                                <span>UI/UX</span><span>Tailwind</span>
                             </div>
                         </div>
                     </a>
@@ -225,24 +289,24 @@
         <!-- Testimonials -->
         <section class="cs-testimonials">
             <div class="cs-testimonials-inner">
-                <span class="cs-testimonials-eyebrow">What clients say</span>
+                <div class="cs-testimonials-eyebrow">Client Feedback</div>
                 <div class="cs-testimonial-list">
                     <blockquote class="cs-testimonial">
-                        <p class="cs-testimonial-quote">"Kawaki didn't just build a website — they rebuilt how we think about our digital presence. The speed gains alone paid for the project in two months."</p>
+                        <p class="cs-testimonial-quote">&ldquo;Kawaki rebuilt our entire storefront in 6 weeks. Our conversion rate jumped 34% in month one.&rdquo;</p>
                         <footer class="cs-testimonial-author">
-                            <span class="cs-testimonial-name">Arjun Mehta</span>
-                            <span class="cs-testimonial-role">CEO, Acme Direct</span>
+                            <span class="cs-testimonial-name">Sarah Chen</span>
+                            <span class="cs-testimonial-role">Head of Growth, Acme D2C</span>
                         </footer>
                     </blockquote>
                     <blockquote class="cs-testimonial">
-                        <p class="cs-testimonial-quote">"The team understood our positioning before we even had to explain it. The end result was exactly what we needed to stand out."</p>
+                        <p class="cs-testimonial-quote">&ldquo;They don't just build websites — they understand how design drives business metrics.&rdquo;</p>
                         <footer class="cs-testimonial-author">
-                            <span class="cs-testimonial-name">Priya Sharma</span>
-                            <span class="cs-testimonial-role">Founder, Curology IN</span>
+                            <span class="cs-testimonial-name">Marcus Vance</span>
+                            <span class="cs-testimonial-role">Founder, Studio Vance</span>
                         </footer>
                     </blockquote>
                     <blockquote class="cs-testimonial">
-                        <p class="cs-testimonial-quote">"Delivered on time, no handholding needed, and the codebase is genuinely maintainable. That last part is rare."</p>
+                        <p class="cs-testimonial-quote">&ldquo;The fastest, most communicative agency team we've ever worked with. The code is spotless.&rdquo;</p>
                         <footer class="cs-testimonial-author">
                             <span class="cs-testimonial-name">Rohan Kapoor</span>
                             <span class="cs-testimonial-role">CTO, FinStack</span>
@@ -252,81 +316,61 @@
             </div>
         </section>
 
-        <!-- CTA Banner -->
-        <section class="cs-cta-banner">
-            <div class="cs-cta-inner">
-                <h2>Have a project in<br><em>mind?</em></h2>
-                <a href="/contact.html" class="cs-cta-btn">Let's talk &nearr;</a>
+        <!-- UNIVERSAL GLOBAL FOOTER -->
+        <footer class="sections global-site-footer">
+            <div class="services-header-2">
+                <h3 class="left services-title-2">Ready to talk?</h3>
+                <div class="svg-container"> 
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQIAAAECBAMAAADnYcRjAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAJ1BMVEVHcEz///////////////////////////////////////////////8NopmKAAAADHRSTlMA27yY7xBAIIFbcDD5NSv2AAAVXUlEQVR4Ac1dza9k11G/DvPeZD4W7UBwEL3oEAccdBdtxsRRdBeDUIRl96LHtiIvvOjEgJB1Fz2xBbLyFk9mM4FetBNI7KQXLSKEFHrxkGBBNIt540cSoP8oflXn456qW/frvX5AS9P3VJ2qX9U5p07VubenX2dZ++uDjx/9cN4ucq29xy/t8Tr/6rUaaQN/a0YO4PVbbVLX2Hd7xub/71w4yqMD+/3L1zjSRuiHiQP782Ui9+6Lzz77wo8SxvU078xSD/avRSsuPBEcy8i6noaYgv3+4sybOc6DZ19YXo9lj3pzzIYuvnTveWfxOddxVDiS3q93i/waG3plAbvvcPOp80BMzR863vW8b8jsp3MGf49d2FL7eMZt/ybik0UP+DaGkYuFB/w7svgNIjbUql5+abzYQS+3yEqMf94Xn8LAzVllnVrn84NaTcGeIfx15JRELrLMRcHT7/3VX/5gRqz9NIocurEBOg3avzguR1lWgL1/uiDurTG1/4ua1/LKgZ4s8tEY9K8yXpuLtbPI8XkxvxbzAJ3B4jYBL0FfLHltomMr8K5tGe4Q+DLx4DPEmGzwdhHZnyXeLxKhQzaPge1TkIPlTfCLHOz/rOwUIM8r8qAtGl4SiMBekTX8S6f9AdGnBzUcwSj2k8GCzyFAFpdRKKOZ2v9JRXe2jn+26JTxAnUP2BoMipnJwRCL1YFf7PdfmXfIJB6oGIM2vQT3feIs+kFCikP302Uv+TeALFche5Os7fdPUn2G/HzKaW27leznAq2CmO8su80O7EfCxhjMXwlOG3HXQfRygczpBc5ZfyJMlMQ7E6wW4gYj9DvZUNzphFuy/lRYoLnaTwSrheBFI42XW4R819EMclspx9bSdIBulutfnQqg0ut8IaEtKofcSHawNc3cQU5PllRLqeMPIU6vHrGzM8Q24O3vp4hZxvViKnlt1AdjAhGZtUGc9l5Vg5wQWxP5IMu4hCleA6Rj+8P+03mrFDo5aCZS6iY5r+dvBd6g6uRONvsvS+w6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" alt="Hello" class="hello-image wave-hover" /> 
+                </div>
+                <h3 class="right services-title-2"><em>let's connect</em></h3>
             </div>
-        </section>
-
-        <!-- Standard Footer -->
-        <section class="marquee-section marquee-dark">
-            <div class="marquee-container">
-                <div class="marquee-content marquee-left">
-                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
-                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
-                </div>
-                <div class="marquee-content marquee-left" aria-hidden="true">
-                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
-                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
-                </div>
-            </div>
-            <div class="marquee-container">
-                <div class="marquee-content marquee-right">
-                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
-                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
-                </div>
-                <div class="marquee-content marquee-right" aria-hidden="true">
-                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
-                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
-                </div>
-            </div>
-        </section>
-
-        <footer class="site-footer" style="background-color: var(--base-200); border-top: 1px solid rgba(255,255,255,0.05);">
             <div class="footer-content">
-                <h2 style="color: var(--base-100);">Ready to start a project?</h2>
-                <a href="/contact.html" class="footer-cta" style="color: var(--base-100);">Get in touch &nearr;</a>
-            </div>
-            <div class="footer-links-grid">
-                <div class="footer-col">
-                    <h4 style="color: rgba(255,255,255,0.5);">Studio</h4>
-                    <a href="/about.html" style="color: var(--base-100);">About</a>
-                    <a href="#" style="color: var(--base-100);">Process</a>
-                    <a href="/contact.html" style="color: var(--base-100);">Contact</a>
+                <div class="new-options">
+                    <a href="mailto:hello@kawakistudios.com">hello@kawakistudios.com 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                            <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                        </svg>
+                    </a>
+                    <a href="/contact.html">connect on a call with founder 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                            <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                        </svg> 
+                    </a>
+                    <a href="/about.html">curious? find us 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                            <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                        </svg> 
+                    </a>
                 </div>
-                <div class="footer-col">
-                    <h4 style="color: rgba(255,255,255,0.5);">Services</h4>
-                    <a href="/services.html" style="color: var(--base-100);">Web Development</a>
-                    <a href="#" style="color: var(--base-100);">Ecommerce</a>
-                    <a href="#" style="color: var(--base-100);">Shopify</a>
-                    <a href="#" style="color: var(--base-100);">WordPress</a>
-                    <a href="#" style="color: var(--base-100);">Web Apps</a>
-                    <a href="#" style="color: var(--base-100);">Frontend</a>
-                    <a href="#" style="color: var(--base-100);">Backend</a>
-                    <a href="#" style="color: var(--base-100);">Maintenance</a>
-                </div>
-                <div class="footer-col">
-                    <h4 style="color: rgba(255,255,255,0.5);">Industries</h4>
-                    <a href="#" style="color: var(--base-100);">Retail</a>
-                    <a href="#" style="color: var(--base-100);">Healthcare</a>
-                    <a href="#" style="color: var(--base-100);">SaaS</a>
-                    <a href="#" style="color: var(--base-100);">Finance</a>
-                    <a href="#" style="color: var(--base-100);">Architecture</a>
-                </div>
-                <div class="footer-col">
-                    <h4 style="color: rgba(255,255,255,0.5);">Insights & Socials</h4>
-                    <a href="#" style="color: var(--base-100);">Blog</a>
-                    <a href="#" style="color: var(--base-100);">FAQs</a>
-                    <a href="#" style="color: var(--base-100);">Guides</a>
-                    <a href="#" style="color: var(--base-100);">LinkedIn</a>
-                    <a href="#" style="color: var(--base-100);">Twitter</a>
-                    <a href="#" style="color: var(--base-100);">Instagram</a>
-                </div>
+                <a href="/contact.html" style="text-decoration:none;">
+                    <button class="rlvnt-btn max-content">
+                        <span>connect now</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                            <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                        </svg>
+                    </button>
+                </a>
             </div>
             <div class="footer-bottom">
-                <span style="color: rgba(255,255,255,0.3);">&copy; 2026 Kawaki Studios. All rights reserved.</span>
+                <div class="links">
+                    <button id="backToTop" aria-label="Go to top" class="btn-top" title="Go to top">↑ Top</button>
+                    <a href="/about.html">Privacy Policy</a>
+                    <div class="socials-trigger-rlvnt">
+                        <span class="socials-label-rlvnt">Socials</span>
+                        <div class="socials-row-rlvnt">
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-rlvnt" title="LinkedIn">Lin.</a>
+                            <a href="https://twitter.com" target="_blank" class="social-icon-rlvnt" title="Twitter">Twi.</a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-rlvnt" title="Instagram">Ins.</a>
+                            <a href="https://behance.net" target="_blank" class="social-icon-rlvnt" title="Behance">Beh.</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">&copy; 2026 Kawaki Studios. All rights reserved.</div>
             </div>
         </footer>
     </main>
@@ -334,26 +378,23 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
-    
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
         document.addEventListener("DOMContentLoaded", () => {
-            // 1. Initialize Lenis for smooth scrolling
             const lenis = new Lenis();
             lenis.on("scroll", ScrollTrigger.update);
-            gsap.ticker.add((time) => {
-                lenis.raf(time * 1000);
-            });
+            gsap.ticker.add((t) => lenis.raf(t * 1000));
             gsap.ticker.lagSmoothing(0);
 
-            // 2. Spotlight Scroll Logic
+            // Spotlight Scroll Effect
             const spotlightSection = document.querySelector(".spotlight");
             const projectIndex = document.querySelector(".project-index h1");
             const projectImgs = document.querySelectorAll(".project-img");
             const projectImagesContainer = document.querySelector(".project-images");
             const projectNames = document.querySelectorAll(".project-names p");
             const projectNamesContainer = document.querySelector(".project-names");
+            if (!spotlightSection || !projectIndex || !projectNamesContainer || !projectImagesContainer) return;
             const totalProjectCount = projectNames.length;
 
             const spotlightSectionHeight = spotlightSection.offsetHeight;
@@ -372,7 +413,6 @@
             ScrollTrigger.create({
                 trigger: ".spotlight",
                 start: "top top",
-                // Multiply the duration of the pin to make the scroll last longer
                 end: `+=${window.innerHeight * 5}px`, 
                 pin: true,
                 pinSpacing: true,
@@ -384,20 +424,16 @@
                         totalProjectCount
                     );
 
-                    // Update index text (e.g., 01/05)
                     projectIndex.textContent = `${String(currentIndex).padStart(2, "0")}/${String(totalProjectCount).padStart(2, "0")}`;
 
-                    // Move index vertically down
                     gsap.set(projectIndex, {
                         y: progress * moveDistanceIndex,
                     });
 
-                    // Move images vertically up
                     gsap.set(projectImagesContainer, {
                         y: progress * moveDistanceImages,
                     });
 
-                    // Update opacity of active image in center
                     projectImgs.forEach((img) => {
                         const imgRect = img.getBoundingClientRect();
                         const imgTop = imgRect.top;
@@ -406,16 +442,14 @@
                         if (imgTop <= imgActivationThreshold && imgBottom >= imgActivationThreshold) {
                             gsap.set(img, { opacity: 1 });
                         } else {
-                            gsap.set(img, { opacity: 0.3 });
+                            gsap.set(img, { opacity: 0.25 });
                         }
                     });
 
-                    // Move the entire names container vertically up
                     gsap.set(projectNamesContainer, {
                         y: -progress * moveDistanceNames,
                     });
 
-                    // Update color and size of individual names
                     projectNames.forEach((p, index) => {
                         const startProgress = index / totalProjectCount;
                         const endProgress = (index + 1) / totalProjectCount;
@@ -425,14 +459,15 @@
                         );
 
                         if (projectProgress > 0 && projectProgress < 1) {
-                            gsap.set(p, { color: "var(--base-100)", fontSize: "clamp(2rem, 4vw, 3rem)" }); // Active color & size
+                            gsap.set(p, { color: "#ffffff", fontSize: "clamp(2rem, 3.8vw, 3.2rem)", fontWeight: "800", opacity: 1 });
                         } else {
-                            gsap.set(p, { color: "rgba(255, 255, 255, 0.3)", fontSize: "clamp(1rem, 2vw, 1.5rem)" }); // Inactive color & size
+                            gsap.set(p, { color: "#ffffff", fontSize: "clamp(1rem, 1.8vw, 1.4rem)", fontWeight: "700", opacity: 0.35 });
                         }
                     });
                 },
             });
         });
     </script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
