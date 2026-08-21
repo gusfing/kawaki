@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "npx serve public -p 3001",
-    "build": "next build",
-    "start": "next start",
+    "build": "echo 'Static Site - No Build Needed'",
+    "start": "npx serve public -p 3001",
     "lint": "eslint"
   },
   "dependencies": {
