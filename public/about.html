@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — Kawaki Studios</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <style>
+        .inner-hero {
+            padding: 12rem 4rem 6rem;
+            background: #f4efea; /* Base 100 */
+        }
+        
+        .inner-hero-content h1 {
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            color: var(--base-200);
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .inner-hero {
+                padding: 10rem 1.5rem 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar-inner-page">
+        <div class="navbar-left">
+            <div class="mobile-hamburger" onclick="toggleMobileMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+            <div class="navbar-links desktop-only">
+                <a href="/index.html">Home</a>
+                <a href="/case-studies.html">Work</a>
+                <a href="/about.html">About</a>
+            </div>
+        </div>
+        <div class="navbar-logo">
+            <a href="/index.html" class="logo">Kawaki Studios</a>
+        </div>
+        <div class="navbar-right">
+            <a href="/contact.html" class="nav-btn secondary desktop-only">Contact</a>
+            <a href="/contact.html" class="nav-btn primary">Start a project</a>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-close" onclick="toggleMobileMenu()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="/index.html">Home</a>
+            <a href="/case-studies.html">Work</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            } else {
+                menu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+    </script>
+
+    <main>
+    <section class="about-immersive-hero">
+        <div class="about-hero-content">
+            <h1>We are Kawaki <span class="serif-italic" style="text-transform:lowercase; font-weight:normal;">Studios</span></h1>
+        </div>
+    </section>
+
+    <section class="about-split-section">
+        <div class="split-grid">
+            <div class="split-left">
+                <h2>Becoming<br><span class="serif-italic" style="text-transform:lowercase; font-weight:normal; color:#e85d45;">Digital-Crafters</span></h2>
+            </div>
+            <div class="split-right">
+                <p class="about-text">
+                    Kawaki is a development studio in Delhi. We don't use page templates &mdash; every site is designed from your positioning, built on modern frameworks, and handed over with a codebase your own team can actually maintain.
+                </p>
+                <p class="about-text">
+                    Our approach bridges the gap between high-end editorial design and rigorous software engineering. We believe that a website should not only look stunning but perform flawlessly across all devices and network conditions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-services-section">
+        <div class="services-grid-3">
+            <div class="service-card-clean">
+                <div class="service-card-top">
+                    <span class="service-num">01</span>
+                    <div class="service-icon">&nearr;</div>
+                </div>
+                <h3>Brand<br>Strategy</h3>
+                <div class="service-tags">
+                    <span>Positioning</span>
+                    <span>Identity</span>
+                </div>
+            </div>
+            <div class="service-card-clean">
+                <div class="service-card-top">
+                    <span class="service-num">02</span>
+                    <div class="service-icon">&nearr;</div>
+                </div>
+                <h3>Web<br>Development</h3>
+                <div class="service-tags">
+                    <span>Engineering</span>
+                    <span>Performance</span>
+                </div>
+            </div>
+            <div class="service-card-clean">
+                <div class="service-card-top">
+                    <span class="service-num">03</span>
+                    <div class="service-icon">&nearr;</div>
+                </div>
+                <h3>Digital<br>Products</h3>
+                <div class="service-tags">
+                    <span>SaaS</span>
+                    <span>E-Commerce</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2 style="font-size: clamp(3rem, 6vw, 5rem); font-family: 'Barlow Condensed'; font-weight:800; text-transform:uppercase; text-align:center; color: var(--base-200);">Core <span class="serif-italic" style="text-transform:lowercase; font-weight:normal;">Team</span></h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="/assets/images/team_placeholder.jpg" alt="Team Member">
+                <h4>Kunal Sharma</h4>
+                <p>Founder & Technical Lead</p>
+            </div>
+            <div class="team-member">
+                <img src="/assets/images/team_placeholder.jpg" alt="Team Member">
+                <h4>Jane Doe</h4>
+                <p>Design Director</p>
+            </div>
+            <div class="team-member">
+                <img src="/assets/images/team_placeholder.jpg" alt="Team Member">
+                <h4>John Smith</h4>
+                <p>Senior Engineer</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 style="font-size: clamp(3rem, 6vw, 5rem); font-family: 'Barlow Condensed'; font-weight:800; text-transform:uppercase; margin-bottom: 3rem;">Frequently <span class="serif-italic" style="text-transform:lowercase; font-weight:normal; color:#e85d45;">Asked</span></h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you work with startups?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. We love partnering with early-stage founders to build scalable MVPs and striking landing pages that convert.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What technologies do you use?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>We specialize in modern web stacks including React, Next.js, Node, GSAP for animations, and headless CMS solutions to give you full control.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long does a typical project take?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Depending on the scope, most of our web development projects range from 4 to 12 weeks from strategy to deployment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pre-footer-cta">
+        <h2>Crafting Relevance<br><span class="serif-italic" style="text-transform:lowercase; font-weight:normal; color:#e85d45;">One Brand At A Time</span></h2>
+        <a href="/contact" class="oval-btn">Start a project &nearr;</a>
+    </section>
+
+    <!-- Standard Footer -->
+
+    <!-- Standard Footer -->
+        <section class="marquee-section">
+            <div class="marquee-container">
+                <div class="marquee-content marquee-left">
+                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
+                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
+                </div>
+                <div class="marquee-content marquee-left" aria-hidden="true">
+                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
+                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
+                </div>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-content marquee-right">
+                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
+                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
+                </div>
+                <div class="marquee-content marquee-right" aria-hidden="true">
+                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
+                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <h2>Ready to start a project?</h2>
+                <a href="/contact" class="footer-cta">Get in touch &nearr;</a>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="/about">About</a>
+                    <a href="/process">Process</a>
+                    <a href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/web-development">Web Development</a>
+                    <a href="/services/ecommerce-development">Ecommerce</a>
+                    <a href="/services/shopify-development">Shopify</a>
+                    <a href="/services/wordpress-development">WordPress</a>
+                    <a href="/services/web-app-development">Web Apps</a>
+                    <a href="/services/frontend-development">Frontend</a>
+                    <a href="/services/backend-development">Backend</a>
+                    <a href="/services/maintenance-support">Maintenance</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <a href="/industries/retail">Retail</a>
+                    <a href="/industries/healthcare">Healthcare</a>
+                    <a href="/industries/saas">SaaS</a>
+                    <a href="/industries/finance">Finance</a>
+                    <a href="/industries/architecture">Architecture</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Insights & Socials</h4>
+                    <a href="/blog">Blog</a>
+                    <a href="/faqs">FAQs</a>
+                    <a href="/guides">Guides</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kawaki Studios. All rights reserved.</span>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const lenis = new Lenis();
+            lenis.on("scroll", ScrollTrigger.update);
+            gsap.ticker.add((t) => lenis.raf(t * 1000));
+            gsap.ticker.lagSmoothing(0);
+
+            // Intro Tagline Reveal for inner hero
+            const introH1 = document.querySelector(".inner-hero-content h1, .about-hero-content h1");
+            if (introH1) {
+                gsap.fromTo(introH1, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" });
+            }
+
+            // Navbar transparency toggle on scroll
+            const navbar = document.querySelector('.navbar-inner-page');
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 50) {
+                    navbar.classList.remove('transparent');
+                } else {
+                    navbar.classList.add('transparent');
+                }
+            });
+
+            // FAQ Accordion Logic
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all
+                    faqItems.forEach(faq => {
+                        faq.classList.remove('active');
+                        faq.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    
+                    // If it wasn't active, open it
+                    if(!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

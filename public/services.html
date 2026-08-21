@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services — Kawaki Studios</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <style>
+        .inner-hero {
+            padding: 12rem 4rem 6rem;
+            background: #f4efea; /* Base 100 */
+        }
+        
+        .inner-hero-content h1 {
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            color: var(--base-200);
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .services-detail-section {
+            padding: 8rem 4rem;
+            background: #f4efea;
+        }
+
+        .services-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1480px;
+            margin: 0 auto;
+        }
+
+        .service-card-large {
+            padding: 4rem;
+            background: #fff;
+            border: 1px solid rgba(18, 20, 28, 0.05);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .service-card-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .service-card-large .service-num {
+            font-size: 1rem;
+            color: #e85d45;
+        }
+
+        .service-card-large h3 {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--base-200);
+            line-height: 1.1;
+        }
+
+        .service-card-large p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .service-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .service-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(18, 20, 28, 0.1);
+            border-radius: 50px;
+            color: #444;
+        }
+
+        @media (max-width: 900px) {
+            .services-detail-grid {
+                grid-template-columns: 1fr;
+            }
+            .inner-hero {
+                padding: 10rem 1.5rem 4rem;
+            }
+            .services-detail-section {
+                padding: 4rem 1.5rem;
+            }
+            .service-card-large {
+                padding: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pill-nav-container">
+    <div class="pill-nav">
+        <span class="pill-nav-logo">Kawaki</span>
+        <div class="pill-nav-hamburger" onclick="togglePillMenu()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+        </div>
+    </div>
+    <div class="pill-popover" id="pillPopover">
+        <a href="/index.html" class="active">Home</a>
+        <a href="/case-studies.html">Work</a>
+        <a href="/about.html">About Us</a>
+        <a href="/contact.html">Contact Us</a>
+    </div>
+</div>
+
+<script>
+    function togglePillMenu() {
+        const popover = document.getElementById('pillPopover');
+        popover.classList.toggle('active');
+    }
+    
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        const container = document.querySelector('.pill-nav-container');
+        if (container && !container.contains(e.target)) {
+            document.getElementById('pillPopover').classList.remove('active');
+        }
+    });
+</script>
+
+    <main>
+        <section class="inner-hero">
+            <div class="inner-hero-content">
+                <h1>Our<br><span class="serif-italic">Services</span></h1>
+            </div>
+        </section>
+
+        <!-- Services Detailed Grid -->
+        <section class="services-detail-section">
+            <div class="services-detail-grid">
+                
+                <div class="service-card-large">
+                    <span class="service-num">01</span>
+                    <h3>Web Development</h3>
+                    <p>Custom marketing sites and corporate builds using modern frameworks like Next.js and Nuxt. We focus on blazing fast performance, flawless Core Web Vitals, and accessibility from the ground up.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Next.js</span>
+                        <span class="service-tag">Static Build</span>
+                        <span class="service-tag">GSAP</span>
+                    </div>
+                </div>
+
+                <div class="service-card-large">
+                    <span class="service-num">02</span>
+                    <h3>Ecommerce & Shopify</h3>
+                    <p>Custom themes on Shopify Plus and entirely headless ecommerce builds using Hydrogen. We optimize for conversion rate, checkout flow, and backend CRM integrations.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Shopify Plus</span>
+                        <span class="service-tag">Hydrogen</span>
+                        <span class="service-tag">Liquid</span>
+                    </div>
+                </div>
+
+                <div class="service-card-large">
+                    <span class="service-num">03</span>
+                    <h3>Web App Development</h3>
+                    <p>Full-stack web applications, internal tools, dashboards, and portals. Built robustly with complex state management, data visualization, and secure authentication flows.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">React</span>
+                        <span class="service-tag">Supabase</span>
+                        <span class="service-tag">Tailwind</span>
+                    </div>
+                </div>
+
+                <div class="service-card-large">
+                    <span class="service-num">04</span>
+                    <h3>WordPress Development</h3>
+                    <p>Custom Gutenberg block editors, headless WordPress implementations with Next.js frontends, and complex plugin architectures designed for high-traffic publishers.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Gutenberg</span>
+                        <span class="service-tag">Headless WP</span>
+                        <span class="service-tag">PHP</span>
+                    </div>
+                </div>
+
+                <div class="service-card-large">
+                    <span class="service-num">05</span>
+                    <h3>Frontend Engineering</h3>
+                    <p>Pixel-perfect UI translation from Figma to code. We ensure that every interaction, hover state, and micro-animation is smooth, responsive, and meets WCAG 2.2 AA standards.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">UI/UX</span>
+                        <span class="service-tag">A11y</span>
+                        <span class="service-tag">CSS Architecture</span>
+                    </div>
+                </div>
+
+                <div class="service-card-large">
+                    <span class="service-num">06</span>
+                    <h3>Backend Development</h3>
+                    <p>Scalable REST & GraphQL APIs, database modeling, background workers, and secure cloud infrastructure designed to handle peak loads without breaking a sweat.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Node.js</span>
+                        <span class="service-tag">PostgreSQL</span>
+                        <span class="service-tag">AWS</span>
+                    </div>
+                </div>
+
+                <div class="service-card-large">
+                    <span class="service-num">07</span>
+                    <h3>Maintenance & Support</h3>
+                    <p>Ongoing monitoring, security patches, SLA-backed response times, and continuous optimization of your digital infrastructure to ensure zero downtime.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">SLA</span>
+                        <span class="service-tag">Security</span>
+                        <span class="service-tag">DevOps</span>
+                    </div>
+                </div>
+
+                <div class="service-card-large" style="background: #141414; color: #fff;">
+                    <span class="service-num" style="color: #e85d45;">08</span>
+                    <h3 style="color: #fff;">Need something else?</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Our team brings deep expertise across multiple stacks. Let's discuss your custom technical requirements.</p>
+                    <a href="/contact" class="hero-btn primary" style="align-self: flex-start; margin-top: 1rem; border-color: rgba(255,255,255,0.3); color: #fff;">Talk to our engineers</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Standard Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <h2>Ready to start a project?</h2>
+                <a href="/contact" class="footer-cta">Get in touch &nearr;</a>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="/about">About</a>
+                    <a href="/process">Process</a>
+                    <a href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/web-development">Web Development</a>
+                    <a href="/services/ecommerce-development">Ecommerce</a>
+                    <a href="/services/shopify-development">Shopify</a>
+                    <a href="/services/wordpress-development">WordPress</a>
+                    <a href="/services/web-app-development">Web Apps</a>
+                    <a href="/services/frontend-development">Frontend</a>
+                    <a href="/services/backend-development">Backend</a>
+                    <a href="/services/maintenance-support">Maintenance</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <a href="/industries/retail">Retail</a>
+                    <a href="/industries/healthcare">Healthcare</a>
+                    <a href="/industries/saas">SaaS</a>
+                    <a href="/industries/finance">Finance</a>
+                    <a href="/industries/architecture">Architecture</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Insights & Socials</h4>
+                    <a href="/blog">Blog</a>
+                    <a href="/faqs">FAQs</a>
+                    <a href="/guides">Guides</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kawaki Studios. All rights reserved.</span>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const lenis = new Lenis();
+            lenis.on("scroll", ScrollTrigger.update);
+            gsap.ticker.add((t) => lenis.raf(t * 1000));
+            gsap.ticker.lagSmoothing(0);
+
+            // Intro Tagline Reveal for inner hero
+            const introH1 = document.querySelector(".inner-hero-content h1");
+            if (introH1) {
+                gsap.fromTo(introH1, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" });
+            }
+
+            // Stagger reveal service cards
+            const cards = document.querySelectorAll(".service-card-large");
+            if (cards.length > 0) {
+                gsap.fromTo(cards, 
+                    { y: 50, opacity: 0 }, 
+                    { 
+                        y: 0, 
+                        opacity: 1, 
+                        duration: 0.8, 
+                        stagger: 0.1, 
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: ".services-detail-grid",
+                            start: "top 80%",
+                        }
+                    }
+                );
+            }
+        });
+    </script>
+</body>
+</html>

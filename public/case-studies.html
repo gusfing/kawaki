@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work — Kawaki Studios</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <style>
+        /* Specific override for this dark-themed page navbar */
+        .navbar-inner-page {
+            background-color: var(--base-200);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .navbar-inner-page a, 
+        .navbar-inner-page .mega-menu-trigger > a,
+        .navbar-inner-page .logo {
+            color: var(--base-100);
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--base-200);">
+    <nav class="navbar-inner-page">
+        <div class="navbar-left">
+            <div class="mobile-hamburger" onclick="toggleMobileMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+            <div class="navbar-links desktop-only">
+                <a href="/index.html">Home</a>
+                <a href="/case-studies.html">Work</a>
+                <a href="/about.html">About</a>
+            </div>
+        </div>
+
+        <div class="navbar-logo">
+            <a href="/index.html" class="logo">Kawaki Studios</a>
+        </div>
+
+        <div class="navbar-right">
+            <a href="/contact.html" class="nav-btn secondary desktop-only">Contact</a>
+            <a href="/contact.html" class="nav-btn primary">Start a project</a>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-close" onclick="toggleMobileMenu()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="/index.html">Home</a>
+            <a href="/case-studies.html">Work</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            } else {
+                menu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+    </script>
+
+    <main>
+        <!-- Interactive Spotlight Scroll Section -->
+        <section class="spotlight">
+            <div class="project-index">
+                <h1>01/05</h1>
+            </div>
+
+            <div class="project-images">
+                <div class="project-img"><img src="/assets/images/project_1_1787254271240.jpg" alt="Acme E-commerce" /></div>
+                <div class="project-img"><img src="/assets/images/project_2_1787254282785.jpg" alt="Curology Refresh" /></div>
+                <div class="project-img"><img src="/assets/images/project_3_1787254295127.jpg" alt="Fintech ROI Calculator" /></div>
+                <div class="project-img"><img src="/assets/images/project_1_1787254271240.jpg" alt="Global Architecture Portfolio" /></div>
+                <div class="project-img"><img src="/assets/images/project_2_1787254282785.jpg" alt="SaaS Dashboard Design" /></div>
+            </div>
+
+            <div class="project-names">
+                <p>Acme E-commerce</p>
+                <p>Curology Refresh</p>
+                <p>Fintech ROI Calc</p>
+                <p>Global Architecture</p>
+                <p>SaaS Dashboard</p>
+            </div>
+        </section>
+
+        <!-- Featured Case Study Breakdown -->
+        <section class="cs-featured">
+            <div class="cs-featured-inner">
+                <div class="cs-featured-label">Featured Project &nbsp;&middot;&nbsp; 01</div>
+                <div class="cs-featured-body">
+                    <div class="cs-featured-left">
+                        <h2 class="cs-featured-title">Acme <em>Headless</em><br>E-commerce</h2>
+                        <div class="cs-featured-tags">
+                            <span>Next.js</span>
+                            <span>Shopify</span>
+                            <span>Headless</span>
+                        </div>
+                        <p class="cs-featured-desc">A full headless rebuild of a D2C brand's storefront — cutting page load from 5.8s to under 1s, and increasing conversion rate by 34% within the first quarter of launch.</p>
+                        <a href="/case-studies/acme-headless-ecommerce.html" class="cs-featured-link">Read the case study &nearr;</a>
+                    </div>
+                    <div class="cs-featured-right">
+                        <img src="/assets/images/project_1_1787254271240.jpg" alt="Acme E-commerce" class="cs-featured-img" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="cs-stats">
+            <div class="cs-stats-inner">
+                <div class="cs-stat">
+                    <span class="cs-stat-num">34<em>%</em></span>
+                    <span class="cs-stat-label">Avg. conversion lift</span>
+                </div>
+                <div class="cs-stat-divider"></div>
+                <div class="cs-stat">
+                    <span class="cs-stat-num">18<em>+</em></span>
+                    <span class="cs-stat-label">Projects shipped</span>
+                </div>
+                <div class="cs-stat-divider"></div>
+                <div class="cs-stat">
+                    <span class="cs-stat-num">&lt;1<em>s</em></span>
+                    <span class="cs-stat-label">Avg. page load time</span>
+                </div>
+                <div class="cs-stat-divider"></div>
+                <div class="cs-stat">
+                    <span class="cs-stat-num">100<em>%</em></span>
+                    <span class="cs-stat-label">Client retention</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Card Grid -->
+        <section class="cs-grid-section">
+            <div class="cs-grid-header">
+                <span class="cs-grid-eyebrow">All Work &nbsp;&middot;&nbsp; Selected Projects</span>
+                <h2 class="cs-grid-heading">Built to <em>perform.</em></h2>
+            </div>
+            <div class="cs-grid">
+                <article class="cs-card cs-card--large">
+                    <div class="cs-card-img-wrap">
+                        <img src="/assets/images/project_2_1787254282785.jpg" alt="Curology Brand Refresh" />
+                    </div>
+                    <div class="cs-card-meta">
+                        <div class="cs-card-info">
+                            <h3>Curology Brand Refresh</h3>
+                            <p>Brand identity &amp; web design for a skincare startup entering a crowded market.</p>
+                        </div>
+                        <div class="cs-card-tags">
+                            <span>Branding</span><span>Webflow</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="cs-card">
+                    <div class="cs-card-img-wrap">
+                        <img src="/assets/images/project_3_1787254295127.jpg" alt="Fintech ROI Calculator" />
+                    </div>
+                    <div class="cs-card-meta">
+                        <div class="cs-card-info">
+                            <h3>Fintech ROI Calculator</h3>
+                            <p>Interactive financial tool built with React &amp; real-time data APIs.</p>
+                        </div>
+                        <div class="cs-card-tags">
+                            <span>React</span><span>Node.js</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="cs-card">
+                    <div class="cs-card-img-wrap">
+                        <img src="/assets/images/project_1_1787254271240.jpg" alt="Architecture Portfolio" />
+                    </div>
+                    <div class="cs-card-meta">
+                        <div class="cs-card-info">
+                            <h3>Global Architecture Portfolio</h3>
+                            <p>Scroll-driven editorial site for an international architecture firm.</p>
+                        </div>
+                        <div class="cs-card-tags">
+                            <span>GSAP</span><span>Vite</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="cs-card">
+                    <div class="cs-card-img-wrap">
+                        <img src="/assets/images/project_2_1787254282785.jpg" alt="SaaS Dashboard" />
+                    </div>
+                    <div class="cs-card-meta">
+                        <div class="cs-card-info">
+                            <h3>SaaS Analytics Dashboard</h3>
+                            <p>Custom data visualisation dashboard for a B2B SaaS platform.</p>
+                        </div>
+                        <div class="cs-card-tags">
+                            <span>Next.js</span><span>D3.js</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="cs-testimonials">
+            <div class="cs-testimonials-inner">
+                <span class="cs-testimonials-eyebrow">What clients say</span>
+                <div class="cs-testimonial-list">
+                    <blockquote class="cs-testimonial">
+                        <p class="cs-testimonial-quote">"Kawaki didn't just build a website — they rebuilt how we think about our digital presence. The speed gains alone paid for the project in two months."</p>
+                        <footer class="cs-testimonial-author">
+                            <span class="cs-testimonial-name">Arjun Mehta</span>
+                            <span class="cs-testimonial-role">CEO, Acme Direct</span>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="cs-testimonial">
+                        <p class="cs-testimonial-quote">"The team understood our positioning before we even had to explain it. The end result was exactly what we needed to stand out."</p>
+                        <footer class="cs-testimonial-author">
+                            <span class="cs-testimonial-name">Priya Sharma</span>
+                            <span class="cs-testimonial-role">Founder, Curology IN</span>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="cs-testimonial">
+                        <p class="cs-testimonial-quote">"Delivered on time, no handholding needed, and the codebase is genuinely maintainable. That last part is rare."</p>
+                        <footer class="cs-testimonial-author">
+                            <span class="cs-testimonial-name">Rohan Kapoor</span>
+                            <span class="cs-testimonial-role">CTO, FinStack</span>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cs-cta-banner">
+            <div class="cs-cta-inner">
+                <h2>Have a project in<br><em>mind?</em></h2>
+                <a href="/contact.html" class="cs-cta-btn">Let's talk &nearr;</a>
+            </div>
+        </section>
+
+        <!-- Standard Footer -->
+        <section class="marquee-section marquee-dark">
+            <div class="marquee-container">
+                <div class="marquee-content marquee-left">
+                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
+                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
+                </div>
+                <div class="marquee-content marquee-left" aria-hidden="true">
+                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
+                    <span>we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot; we make brands <em>timeless</em> &middot;</span>
+                </div>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-content marquee-right">
+                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
+                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
+                </div>
+                <div class="marquee-content marquee-right" aria-hidden="true">
+                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
+                    <span>become <em>distinct</em> &middot; become <em>rlvnt</em> &middot; become <em>distinct</em> &middot; become <em>rlvnt</em> &middot;</span>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer" style="background-color: var(--base-200); border-top: 1px solid rgba(255,255,255,0.05);">
+            <div class="footer-content">
+                <h2 style="color: var(--base-100);">Ready to start a project?</h2>
+                <a href="/contact.html" class="footer-cta" style="color: var(--base-100);">Get in touch &nearr;</a>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4 style="color: rgba(255,255,255,0.5);">Studio</h4>
+                    <a href="/about.html" style="color: var(--base-100);">About</a>
+                    <a href="#" style="color: var(--base-100);">Process</a>
+                    <a href="/contact.html" style="color: var(--base-100);">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: rgba(255,255,255,0.5);">Services</h4>
+                    <a href="/services.html" style="color: var(--base-100);">Web Development</a>
+                    <a href="#" style="color: var(--base-100);">Ecommerce</a>
+                    <a href="#" style="color: var(--base-100);">Shopify</a>
+                    <a href="#" style="color: var(--base-100);">WordPress</a>
+                    <a href="#" style="color: var(--base-100);">Web Apps</a>
+                    <a href="#" style="color: var(--base-100);">Frontend</a>
+                    <a href="#" style="color: var(--base-100);">Backend</a>
+                    <a href="#" style="color: var(--base-100);">Maintenance</a>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: rgba(255,255,255,0.5);">Industries</h4>
+                    <a href="#" style="color: var(--base-100);">Retail</a>
+                    <a href="#" style="color: var(--base-100);">Healthcare</a>
+                    <a href="#" style="color: var(--base-100);">SaaS</a>
+                    <a href="#" style="color: var(--base-100);">Finance</a>
+                    <a href="#" style="color: var(--base-100);">Architecture</a>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: rgba(255,255,255,0.5);">Insights & Socials</h4>
+                    <a href="#" style="color: var(--base-100);">Blog</a>
+                    <a href="#" style="color: var(--base-100);">FAQs</a>
+                    <a href="#" style="color: var(--base-100);">Guides</a>
+                    <a href="#" style="color: var(--base-100);">LinkedIn</a>
+                    <a href="#" style="color: var(--base-100);">Twitter</a>
+                    <a href="#" style="color: var(--base-100);">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span style="color: rgba(255,255,255,0.3);">&copy; 2026 Kawaki Studios. All rights reserved.</span>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+    
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Initialize Lenis for smooth scrolling
+            const lenis = new Lenis();
+            lenis.on("scroll", ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+
+            // 2. Spotlight Scroll Logic
+            const spotlightSection = document.querySelector(".spotlight");
+            const projectIndex = document.querySelector(".project-index h1");
+            const projectImgs = document.querySelectorAll(".project-img");
+            const projectImagesContainer = document.querySelector(".project-images");
+            const projectNames = document.querySelectorAll(".project-names p");
+            const projectNamesContainer = document.querySelector(".project-names");
+            const totalProjectCount = projectNames.length;
+
+            const spotlightSectionHeight = spotlightSection.offsetHeight;
+            const spotlightSectionPadding = parseFloat(getComputedStyle(spotlightSection).padding);
+            const projectIndexHeight = projectIndex.offsetHeight;
+            const containerHeight = projectNamesContainer.offsetHeight;
+            const imagesHeight = projectImagesContainer.offsetHeight;
+
+            // Account for top 8rem (128px) and bottom 2rem (32px) padding so it doesn't go off screen
+            const moveDistanceIndex = spotlightSectionHeight - 160 - projectIndexHeight;
+            const moveDistanceNames = spotlightSectionHeight - spotlightSectionPadding * 2 - containerHeight;
+            const moveDistanceImages = window.innerHeight - imagesHeight;
+
+            const imgActivationThreshold = window.innerHeight / 2;
+
+            ScrollTrigger.create({
+                trigger: ".spotlight",
+                start: "top top",
+                // Multiply the duration of the pin to make the scroll last longer
+                end: `+=${window.innerHeight * 5}px`, 
+                pin: true,
+                pinSpacing: true,
+                scrub: 1,
+                onUpdate: (self) => {
+                    const progress = self.progress;
+                    const currentIndex = Math.min(
+                        Math.floor(progress * totalProjectCount) + 1,
+                        totalProjectCount
+                    );
+
+                    // Update index text (e.g., 01/05)
+                    projectIndex.textContent = `${String(currentIndex).padStart(2, "0")}/${String(totalProjectCount).padStart(2, "0")}`;
+
+                    // Move index vertically down
+                    gsap.set(projectIndex, {
+                        y: progress * moveDistanceIndex,
+                    });
+
+                    // Move images vertically up
+                    gsap.set(projectImagesContainer, {
+                        y: progress * moveDistanceImages,
+                    });
+
+                    // Update opacity of active image in center
+                    projectImgs.forEach((img) => {
+                        const imgRect = img.getBoundingClientRect();
+                        const imgTop = imgRect.top;
+                        const imgBottom = imgRect.bottom;
+
+                        if (imgTop <= imgActivationThreshold && imgBottom >= imgActivationThreshold) {
+                            gsap.set(img, { opacity: 1 });
+                        } else {
+                            gsap.set(img, { opacity: 0.3 });
+                        }
+                    });
+
+                    // Move the entire names container vertically up
+                    gsap.set(projectNamesContainer, {
+                        y: -progress * moveDistanceNames,
+                    });
+
+                    // Update color and size of individual names
+                    projectNames.forEach((p, index) => {
+                        const startProgress = index / totalProjectCount;
+                        const endProgress = (index + 1) / totalProjectCount;
+                        const projectProgress = Math.max(
+                            0,
+                            Math.min(1, (progress - startProgress) / (endProgress - startProgress))
+                        );
+
+                        if (projectProgress > 0 && projectProgress < 1) {
+                            gsap.set(p, { color: "var(--base-100)", fontSize: "clamp(2rem, 4vw, 3rem)" }); // Active color & size
+                        } else {
+                            gsap.set(p, { color: "rgba(255, 255, 255, 0.3)", fontSize: "clamp(1rem, 2vw, 1.5rem)" }); // Inactive color & size
+                        }
+                    });
+                },
+            });
+        });
+    </script>
+</body>
+</html>

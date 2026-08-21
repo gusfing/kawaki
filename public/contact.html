@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Kawaki Studios</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <style>
+        .contact-section {
+            padding: 12rem 4rem 6rem;
+            background: #f4efea; /* Base 100 */
+            min-height: 100vh;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            max-width: 1480px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .contact-info h1 {
+            font-size: clamp(4rem, 9vw, 8rem);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.85;
+            color: var(--base-200);
+            letter-spacing: 0.02em;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        .contact-detail-item h4 {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--base-200);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-detail-item p, .contact-detail-item a {
+            font-size: 1.1rem;
+            color: #555;
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        .contact-detail-item a:hover {
+            color: var(--accent-1);
+        }
+
+        /* Form Styles */
+        .contact-form-container {
+            background: #fff;
+            padding: 4rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(18, 20, 28, 0.05);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .form-label {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--base-200);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(18, 20, 28, 0.1);
+            padding: 1rem 0;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            color: var(--base-200);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-bottom-color: var(--base-200);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--base-200);
+            color: #fff;
+            border: none;
+            padding: 1.25rem 2rem;
+            border-radius: 50px;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            background: #000;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            .contact-section {
+                padding: 10rem 1.5rem 4rem;
+            }
+            .contact-form-container {
+                padding: 2.5rem 1.5rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pill-nav-container">
+    <div class="pill-nav">
+        <span class="pill-nav-logo">Kawaki</span>
+        <div class="pill-nav-hamburger" onclick="togglePillMenu()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+        </div>
+    </div>
+    <div class="pill-popover" id="pillPopover">
+        <a href="/index.html" class="active">Home</a>
+        <a href="/case-studies.html">Work</a>
+        <a href="/about.html">About Us</a>
+        <a href="/contact.html">Contact Us</a>
+    </div>
+</div>
+
+<script>
+    function togglePillMenu() {
+        const popover = document.getElementById('pillPopover');
+        popover.classList.toggle('active');
+    }
+    
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        const container = document.querySelector('.pill-nav-container');
+        if (container && !container.contains(e.target)) {
+            document.getElementById('pillPopover').classList.remove('active');
+        }
+    });
+</script>
+
+    <main>
+        <section class="contact-section">
+            <div class="contact-grid">
+                
+                <!-- Left Side: Massive Typography & Info -->
+                <div class="contact-info">
+                    <h1>Let's build<br><span class="serif-italic">something</span><br>lasting.</h1>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <h4>General Inquiries</h4>
+                            <a href="mailto:hello@kawakistudios.com">hello@kawakistudios.com</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <h4>New Business</h4>
+                            <a href="mailto:kunal@kawakistudios.com">kunal@kawakistudios.com</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <h4>Location</h4>
+                            <p>New Delhi, India<br>Operating globally via remote</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Form -->
+                <div class="contact-form-container">
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required placeholder="Jane">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required placeholder="Doe">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="jane@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company / Organization</label>
+                            <input type="text" id="company" name="company" class="form-input" placeholder="Optional">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project" class="form-label">Project Details</label>
+                            <textarea id="project" name="project" class="form-textarea" required placeholder="Tell us about your timeline, budget, and what you're looking to achieve..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            Send Inquiry
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Standard Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <h2>Join the newsletter.</h2>
+                <a href="#" class="footer-cta">Subscribe &nearr;</a>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="/about">About</a>
+                    <a href="/process">Process</a>
+                    <a href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="/services/web-development">Web Development</a>
+                    <a href="/services/ecommerce-development">Ecommerce</a>
+                    <a href="/services/shopify-development">Shopify</a>
+                    <a href="/services/wordpress-development">WordPress</a>
+                    <a href="/services/web-app-development">Web Apps</a>
+                    <a href="/services/frontend-development">Frontend</a>
+                    <a href="/services/backend-development">Backend</a>
+                    <a href="/services/maintenance-support">Maintenance</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <a href="/industries/retail">Retail</a>
+                    <a href="/industries/healthcare">Healthcare</a>
+                    <a href="/industries/saas">SaaS</a>
+                    <a href="/industries/finance">Finance</a>
+                    <a href="/industries/architecture">Architecture</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Insights & Socials</h4>
+                    <a href="/blog">Blog</a>
+                    <a href="/faqs">FAQs</a>
+                    <a href="/guides">Guides</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kawaki Studios. All rights reserved.</span>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const lenis = new Lenis();
+            lenis.on("scroll", ScrollTrigger.update);
+            gsap.ticker.add((t) => lenis.raf(t * 1000));
+            gsap.ticker.lagSmoothing(0);
+
+            // Intro Tagline Reveal for inner hero
+            const introH1 = document.querySelector(".contact-info h1");
+            if (introH1) {
+                gsap.fromTo(introH1, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" });
+            }
+
+            // Form reveal
+            const formContainer = document.querySelector(".contact-form-container");
+            if (formContainer) {
+                gsap.fromTo(formContainer, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.2, ease: "power3.out" });
+            }
+        });
+    </script>
+</body>
+</html>
