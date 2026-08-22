@@ -60,50 +60,50 @@
         }
 
         .ink {
-            --bg: #12100e;
-            --fg: #fff4e8;
-            --fg-soft: rgba(255, 244, 232, 0.6);
-            --line: rgba(255, 244, 232, 0.25);
+            --bg: #ffffff;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }
 
-        /* Blue portrait — warm white so royal blue pops */
+        /* Clean White section */
         .porcelain {
-            --bg: #f3efe6;
-            --fg: #12141c;
-            --fg-soft: rgba(18, 20, 28, 0.58);
-            --line: rgba(18, 20, 28, 0.18);
+            --bg: #ffffff;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }
 
-        /* Moody cat — soft blush matching its pastel field */
+        /* Subtle off-white for smooth skew dimension */
         .forest {
-            --bg: #e8d4c8;
-            --fg: #1a1412;
-            --fg-soft: rgba(26, 20, 18, 0.58);
-            --line: rgba(26, 20, 18, 0.18);
+            --bg: #f6f7f9;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }
 
-        /* Samurai art — cream field so the red stays in the image only */
+        /* Crisp white section */
         .ember {
-            --bg: #f2ebe2;
-            --fg: #16120f;
-            --fg-soft: rgba(22, 18, 15, 0.58);
-            --line: rgba(22, 18, 15, 0.18);
+            --bg: #ffffff;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }
 
-        /* Grain silhouette — pure black to melt into the art */
+        /* Crisp light section */
         .steel {
-            --bg: #000000;
-            --fg: #f2f2f2;
-            --fg-soft: rgba(242, 242, 242, 0.58);
-            --line: rgba(242, 242, 242, 0.2);
+            --bg: #f6f7f9;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }

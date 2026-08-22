@@ -15,8 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
     <style>
         :root {
-            --base-100: #f9f4eb;
-            --base-200: #141414;
+            --base-100: #ffffff;
+            --base-200: #111111;
         }
 
         * {
@@ -27,8 +27,8 @@
 
         body {
             font-family: "Satoshi", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background: #000;
-            color: #fff;
+            background: #ffffff;
+            color: #111111;
             line-height: 1.45;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
@@ -73,50 +73,50 @@
         }
 
         .ink {
-            --bg: #12100e;
-            --fg: #fff4e8;
-            --fg-soft: rgba(255, 244, 232, 0.6);
-            --line: rgba(255, 244, 232, 0.25);
+            --bg: #ffffff;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }
 
-        /* Blue portrait — warm white so royal blue pops */
+        /* Clean White section */
         .porcelain {
-            --bg: #f3efe6;
-            --fg: #12141c;
-            --fg-soft: rgba(18, 20, 28, 0.58);
-            --line: rgba(18, 20, 28, 0.18);
+            --bg: #ffffff;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }
 
-        /* Moody cat — soft blush matching its pastel field */
+        /* Subtle off-white for smooth skew dimension */
         .forest {
-            --bg: #e8d4c8;
-            --fg: #1a1412;
-            --fg-soft: rgba(26, 20, 18, 0.58);
-            --line: rgba(26, 20, 18, 0.18);
+            --bg: #f6f7f9;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }
 
-        /* Samurai art — cream field so the red stays in the image only */
+        /* Crisp white section */
         .ember {
-            --bg: #f2ebe2;
-            --fg: #16120f;
-            --fg-soft: rgba(22, 18, 15, 0.58);
-            --line: rgba(22, 18, 15, 0.18);
+            --bg: #ffffff;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }
 
-        /* Grain silhouette — pure black to melt into the art */
+        /* Crisp light section */
         .steel {
-            --bg: #000000;
-            --fg: #f2f2f2;
-            --fg-soft: rgba(242, 242, 242, 0.58);
-            --line: rgba(242, 242, 242, 0.2);
+            --bg: #f6f7f9;
+            --fg: #111111;
+            --fg-soft: rgba(17, 17, 17, 0.6);
+            --line: rgba(17, 17, 17, 0.12);
             background: var(--bg);
             color: var(--fg);
         }
@@ -523,7 +523,7 @@
             justify-content: center;
             position: relative;
             z-index: 5;
-            background-color: var(--base-100, #f9f4eb);
+            background-color: var(--base-100, #ffffff);
             overflow: hidden;
             box-sizing: border-box;
         }
@@ -702,8 +702,8 @@
         .about-statement {
             position: relative;
             width: 100%;
-            background-color: #e6e2d6; /* The cream color from the design */
-            color: #12100e;
+            background-color: #ffffff;
+            color: #111111;
             padding: 10rem 4rem 10rem;
             display: flex;
             flex-direction: column;
@@ -711,8 +711,8 @@
             overflow: hidden;
             box-sizing: border-box;
             background-image: 
-                linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+                linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
             background-size: 4rem 4rem;
         }
         
@@ -1329,9 +1329,10 @@
         /* ── WORK LIST HOVER ────────────────────────────────── */
         .works-section {
             position: relative;
-            background: #080808;
+            background: #ffffff;
             padding: 10rem 4rem 6rem;
             overflow: hidden;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .works-header {
@@ -1344,7 +1345,7 @@
         .works-title {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 900;
-            color: #f4efea;
+            color: #111111;
             letter-spacing: -0.03em;
             line-height: 1.1;
         }
@@ -1360,9 +1361,9 @@
             align-items: center;
             gap: 0.6rem;
             padding: 0.9rem 2rem;
-            border: 1px solid rgba(244, 239, 234, 0.25);
+            border: 1px solid rgba(17, 17, 17, 0.2);
             border-radius: 50px;
-            color: #f4efea;
+            color: #111111;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
@@ -1372,18 +1373,18 @@
         }
 
         .all-works-btn:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(244, 239, 234, 0.6);
+            background: rgba(0, 0, 0, 0.05);
+            border-color: #111111;
         }
 
         .work-list {
             list-style: none;
-            border-top: 1px solid rgba(244, 239, 234, 0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .work-item {
             position: relative;
-            border-bottom: 1px solid rgba(244, 239, 234, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .work-item-link {
@@ -1392,12 +1393,12 @@
             justify-content: space-between;
             padding: 2.25rem 0;
             text-decoration: none;
-            color: #f4efea;
+            color: #111111;
             transition: color 0.3s ease;
         }
 
         .work-item:hover .work-item-link {
-            color: rgba(244, 239, 234, 0.5);
+            color: #FC4625;
         }
 
         .work-item-left {
@@ -1419,6 +1420,7 @@
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1;
+            color: #111111;
         }
 
         .work-tag {
@@ -1426,8 +1428,8 @@
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(244, 239, 234, 0.4);
-            border: 1px solid rgba(244, 239, 234, 0.15);
+            color: rgba(17, 17, 17, 0.6);
+            border: 1px solid rgba(17, 17, 17, 0.15);
             border-radius: 20px;
             padding: 0.3rem 0.85rem;
         }
@@ -1436,11 +1438,13 @@
             font-size: 1.25rem;
             transition: transform 0.3s ease;
             opacity: 0.4;
+            color: #111111;
         }
 
         .work-item:hover .work-arrow {
             transform: translate(3px, -3px);
             opacity: 1;
+            color: #FC4625;
         }
 
         /* Floating hover image */
