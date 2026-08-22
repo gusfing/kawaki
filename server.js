@@ -102,8 +102,15 @@ const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
   let reqPath = decodeURIComponent(parsedUrl.pathname);
 
-  // Serve root as index.html
-  if (reqPath === '/' || reqPath === '/index' || reqPath === '/index.html') {
+  // Redirect root / or /editions to /editions/winter2026 for Remix route matching
+  if (reqPath === '/' || reqPath === '/editions' || reqPath === '/editions/') {
+    res.writeHead(302, { 'Location': '/editions/winter2026' });
+    res.end();
+    return;
+  }
+
+  // Serve index.html on /editions/winter2026
+  if (reqPath === '/editions/winter2026' || reqPath === '/editions/winter2026/' || reqPath.startsWith('/editions/winter2026')) {
     const indexPath = path.join(ROOT, 'index.html');
     if (fs.existsSync(indexPath)) {
       serveLocalFile(indexPath, res);
