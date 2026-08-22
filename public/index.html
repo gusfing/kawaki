@@ -1963,51 +1963,7 @@
             </button>
         </div>
 
-        <!-- Nav links bar inside card -->
-        <nav class="card-nav-bar">
-            <a href="/index.html" class="active">Home <span class="active-dot"></span></a>
-            <div class="mega-menu-trigger">
-                <a href="/services.html">Services ▾</a>
-                <div class="mega-menu wide">
-                    <div class="mega-col">
-                        <h4>Services</h4>
-                        <a href="/services.html">Web Development</a>
-                        <a href="/services.html">Ecommerce</a>
-                        <a href="/services.html">Shopify</a>
-                        <a href="/services.html">WordPress</a>
-                    </div>
-                    <div class="mega-col">
-                        <h4>&nbsp;</h4>
-                        <a href="/services.html">Web Apps</a>
-                        <a href="/services.html">Frontend</a>
-                        <a href="/services.html">Backend</a>
-                        <a href="/services.html">Maintenance</a>
-                    </div>
-                    <div class="mega-col">
-                        <h4>Industries</h4>
-                        <a href="/services.html">Retail</a>
-                        <a href="/services.html">Healthcare</a>
-                        <a href="/services.html">SaaS</a>
-                        <a href="/services.html">Finance</a>
-                        <a href="/services.html">Architecture</a>
-                    </div>
-                </div>
-            </div>
-            <div class="mega-menu-trigger">
-                <a href="/case-studies.html">Work ▾</a>
-                <div class="mega-menu" style="grid-template-columns: 1fr; width: 250px;">
-                    <div class="mega-col">
-                        <h4>Selected Work</h4>
-                        <a href="/case-studies/acme-headless-ecommerce.html">Acme E-commerce</a>
-                        <a href="/case-studies.html">Curology Refresh</a>
-                        <a href="/case-studies.html">Fintech ROI Calculator</a>
-                    </div>
-                </div>
-            </div>
-            <a href="/about.html">About</a>
-            <a href="/blog.html">Blog</a>
-            <a href="/contact.html">Contact</a>
-        </nav>
+
 
         <!-- Center Hero Content inside card -->
         <div class="card-hero-content">
@@ -2411,7 +2367,6 @@
             const navbarBg = document.querySelector(".navbar-background");
             const navbarItems = document.querySelector(".navbar-items");
             const cardHeroContent = document.querySelector(".card-hero-content");
-            const cardNavBar = document.querySelector(".card-nav-bar");
             const cardBottomBar = document.querySelector(".card-bottom-bar");
             const heroContent = document.querySelector(".hero .intro-content");
             const navbarBackdrop = document.querySelector(".navbar-backdrop");
@@ -2456,11 +2411,6 @@
                             gsap.set(cardHeroContent, {
                                 opacity: contentAlpha,
                                 y: -p * 50,
-                            });
-                        }
-                        if (cardNavBar) {
-                            gsap.set(cardNavBar, {
-                                opacity: contentAlpha,
                             });
                         }
                         if (cardBottomBar) {
