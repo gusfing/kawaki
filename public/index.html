@@ -1862,6 +1862,22 @@
 </head>
 
 <body>
+    <!-- GLOBAL FLOATING PILL NAVBAR (APPEARS ON SCROLL) -->
+    <div class="nav-wrapper" id="globalNav" style="opacity: 0; pointer-events: none; transform: translateY(-30px); transition: opacity 0.35s ease, transform 0.35s ease; z-index: 995;">
+        <nav>
+            <a href="/index.html" class="nav-left">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
+            </a>
+            <div class="nav-right" id="menuToggleBtn">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
     <div class="navbar-backdrop">
         <div class="navbar-img">
             <img src="/assets/images/project_1_1787254271240.jpg" alt="" />
@@ -2369,6 +2385,7 @@
             const cardHeroContent = document.querySelector(".card-hero-content");
             const cardBottomBar = document.querySelector(".card-bottom-bar");
             const heroContent = document.querySelector(".hero .intro-content");
+            const globalNav = document.getElementById("globalNav");
             const navbarBackdrop = document.querySelector(".navbar-backdrop");
 
             function initNavbarAnimations() {
@@ -2380,11 +2397,6 @@
                 const viewportHeight = window.innerHeight;
                 const initialWidth = navbarBg.offsetWidth;
                 const initialHeight = navbarBg.offsetHeight;
-
-                // Initially keep hero content hidden while card is in center unexpanded state
-                if (heroContent) {
-                    gsap.set(heroContent, { opacity: 0, y: 50, pointerEvents: "none" });
-                }
 
                 ScrollTrigger.create({
                     trigger: ".navbar-backdrop",
@@ -2419,19 +2431,12 @@
                             });
                         }
 
-                        // Seamlessly transition in Dream · Design · Deliver ONLY as the card reaches full coverage
-                        if (heroContent) {
-                            if (p < 0.65) {
-                                gsap.set(heroContent, { opacity: 0, y: 50, pointerEvents: "none" });
-                            } else if (p <= 1.0) {
-                                const heroP = (p - 0.65) / 0.35;
-                                gsap.set(heroContent, {
-                                    opacity: heroP,
-                                    y: (1 - heroP) * 35,
-                                    pointerEvents: heroP > 0.8 ? "all" : "none"
-                                });
+                        // Reveal the global floating header smoothly when scrolled
+                        if (globalNav) {
+                            if (p >= 0.65) {
+                                gsap.to(globalNav, { opacity: 1, y: 0, pointerEvents: "auto", duration: 0.35, overwrite: "auto" });
                             } else {
-                                gsap.set(heroContent, { opacity: 1, y: 0, pointerEvents: "all" });
+                                gsap.to(globalNav, { opacity: 0, y: -30, pointerEvents: "none", duration: 0.35, overwrite: "auto" });
                             }
                         }
                     },
