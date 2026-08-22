@@ -153,13 +153,15 @@
             width: 50%;
             min-width: 720px;
             aspect-ratio: 16/9;
-            will-change: width, height;
+            will-change: width, height, border-radius;
+            border-radius: 24px;
         }
 
         .navbar-background {
             background-color: var(--base-100);
             pointer-events: none;
             z-index: -1;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.14);
         }
 
         .navbar-items {
@@ -174,7 +176,8 @@
             width: 50%;
             min-width: 720px;
             aspect-ratio: 16/9;
-            will-change: width, height;
+            will-change: width, height, border-radius;
+            border-radius: 24px;
         }
 
         .navbar-center-text {
@@ -278,6 +281,7 @@
                 min-width: unset;
                 width: 90%;
                 aspect-ratio: 4/5;
+                border-radius: 20px;
             }
 
             .navbar-items {
@@ -2204,9 +2208,12 @@
 
                         // Expand the card background and items smoothly
                         const expandP = Math.min(1, p * 1.15);
+                        const initialRadius = isDesktop ? 24 : 20;
+                        const currentRadius = gsap.utils.interpolate(initialRadius, 0, Math.min(1, p * 1.3));
                         gsap.set([navbarBg, navbarItems], {
                             width: gsap.utils.interpolate(initialWidth, viewportWidth, expandP),
                             height: gsap.utils.interpolate(initialHeight, viewportHeight, expandP),
+                            borderRadius: currentRadius + "px",
                         });
 
                         // Fade out the center text smoothly during the first 35% of scroll
