@@ -144,200 +144,320 @@
             object-fit: cover;
         }
 
+        /* ---- HERO CARD STYLES (MATCHING SCREENSHOT) ---- */
         .navbar-background,
         .navbar-items {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 50%;
-            min-width: 720px;
-            aspect-ratio: 16/9;
+            width: min(92vw, 840px);
+            height: min(88vh, 680px);
             will-change: width, height, border-radius;
-            border-radius: 24px;
+            border-radius: 36px;
+            box-sizing: border-box;
         }
 
         .navbar-background {
-            background-color: var(--base-100);
+            background-color: #ffffff;
             pointer-events: none;
             z-index: -1;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.14);
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.22);
         }
 
         .navbar-items {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: stretch;
+            padding: 2.25rem 2.5rem;
             z-index: 4;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50%;
-            min-width: 720px;
-            aspect-ratio: 16/9;
-            will-change: width, height, border-radius;
-            border-radius: 24px;
+            background: transparent;
+            overflow: hidden;
         }
 
-        .navbar-center-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+        /* Top header inside card */
+        .card-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
-            pointer-events: none;
-            color: var(--base-200);
+            z-index: 10;
+        }
+
+        .card-brand-logo {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .card-brand-logo img {
+            height: 28px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .card-hamburger-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: #ffffff;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            gap: 4.5px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            padding: 0;
         }
 
-        .navbar-center-text h2 {
+        .card-hamburger-btn:hover {
+            border-color: rgba(0, 0, 0, 0.3);
+            background: #f8f8f8;
+            transform: scale(1.05);
+        }
+
+        .card-hamburger-btn .bar {
+            width: 18px;
+            height: 1.8px;
+            background: #111111;
+            border-radius: 1px;
+            display: block;
+        }
+
+        /* Nav links bar inside card */
+        .card-nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2.5rem;
+            width: 100%;
+            padding: 0.85rem 0 1.25rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            z-index: 10;
+        }
+
+        .card-nav-bar a {
+            text-decoration: none;
+            color: #222222;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .card-nav-bar a:hover {
+            color: #ea4325;
+        }
+
+        .card-nav-bar a.active {
+            color: #ea4325;
+            font-weight: 600;
+        }
+
+        .card-nav-bar a.active .active-dot {
+            width: 4px;
+            height: 4px;
+            background: #ea4325;
+            border-radius: 50%;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* Center content */
+        .card-hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            width: 100%;
+            margin: auto 0;
+            padding: 1rem 0;
+            z-index: 5;
+        }
+
+        .card-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: #ea4325;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-eyebrow .eyebrow-dot {
+            width: 7px;
+            height: 7px;
+            background: #ea4325;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .card-headline {
             font-family: "Plus Jakarta Sans", "Host Grotesk", sans-serif;
-            font-size: clamp(1.4rem, 2.5vw, 2.4rem);
-            font-weight: 400;
-            line-height: 1.2;
-            letter-spacing: -0.025em;
-            margin: 0 auto;
-            max-width: 580px;
-            color: var(--base-200, #141414);
+            font-size: clamp(2rem, 3.8vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: #111111;
+            margin: 0;
         }
 
-        .navbar-center-text h2 em {
+        .card-headline em {
             font-family: "Instrument Serif", serif;
             font-style: italic;
             font-weight: 400;
-            color: #FC4625;
-            letter-spacing: 0.01em;
+            color: #ea4325;
+            letter-spacing: normal;
         }
 
-        .navbar-center-text p {
-            display: none; /* Hide the subheadline to keep it clean */
+        .card-accent-line {
+            width: 44px;
+            height: 3px;
+            background: #ea4325;
+            border-radius: 2px;
+            margin: 1.25rem 0 1rem;
         }
 
-        .navbar-logo {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            padding: 2.5rem;
-            pointer-events: all;
-            z-index: 5;
-            text-align: center;
+        .card-subtitle {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #555555;
+            max-width: 520px;
+            margin: 0 0 1.75rem;
+            font-weight: 400;
         }
 
-        .navbar-logo a {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            text-decoration: none;
-            color: var(--base-200);
-        }
-
-        .navbar-logo.navbar-logo-pinned {
-            bottom: unset;
-            top: 0;
-        }
-
-        .navbar-links {
-            position: relative;
-            width: 50%;
+        .card-actions-row {
             display: flex;
-            gap: 2.5rem; /* Space between links */
+            align-items: center;
+            gap: 1.75rem;
+            flex-wrap: wrap;
         }
-        
-        .navbar-links a {
+
+        .btn-card-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #ea4325;
+            color: #ffffff;
+            padding: 0.85rem 1.6rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
             text-decoration: none;
-            color: var(--base-200);
-            font-family: "Host Grotesk", sans-serif;
-            font-size: 1.125rem;
-            font-weight: 450;
-            line-height: 0.9;
-            transition: opacity 0.2s;
-        }
-        
-        .navbar-links a:hover {
-            opacity: 0.7;
+            box-shadow: 0 8px 25px rgba(234, 67, 37, 0.28);
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
         }
 
-        /* Cluster left links to the far left */
-        .navbar-links:nth-child(2) {
-            justify-content: flex-start;
-            padding: 2.5rem 2.5rem 0 2.5rem;
+        .btn-card-primary:hover {
+            background: #d43b1f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(234, 67, 37, 0.35);
         }
 
-        /* Cluster right links to the far right */
-        .navbar-links:nth-child(3) {
-            justify-content: flex-end;
-            padding: 2.5rem 2.5rem 0 2.5rem;
+        .btn-card-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #111111;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
         }
 
-        @media (max-width: 720px) {
+        .btn-card-secondary:hover {
+            color: #ea4325;
+        }
+
+        /* Bottom footer strip inside card */
+        .card-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            z-index: 10;
+        }
+
+        .card-dot-matrix {
+            display: grid;
+            grid-template-columns: repeat(9, 6px);
+            gap: 6px;
+        }
+
+        .card-dot-matrix span {
+            width: 3px;
+            height: 3px;
+            background: rgba(234, 67, 37, 0.45);
+            border-radius: 50%;
+            display: block;
+        }
+
+        .card-footer-tagline {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            color: #222222;
+            text-transform: uppercase;
+        }
+
+        .card-footer-tagline svg {
+            color: #ea4325;
+        }
+
+        @media (max-width: 768px) {
             .navbar-background,
             .navbar-items {
-                min-width: unset;
-                width: 90%;
-                aspect-ratio: 4/5;
-                border-radius: 20px;
+                width: 92vw;
+                height: auto;
+                min-height: 84vh;
+                border-radius: 28px;
+                padding: 1.75rem 1.5rem;
             }
 
-            .navbar-items {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-                padding: 1.5rem;
+            .card-nav-bar {
+                gap: 1.2rem;
+                overflow-x: auto;
+                padding-bottom: 0.75rem;
+                scrollbar-width: none;
             }
 
-            .navbar-links {
+            .card-nav-bar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .card-headline {
+                font-size: clamp(1.85rem, 8vw, 2.6rem);
+            }
+
+            .card-actions-row {
+                gap: 1.25rem;
+            }
+
+            .btn-card-primary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .card-bottom-bar {
                 flex-direction: column;
-                gap: 0.5rem;
-                width: auto;
-                padding: 0 !important;
-            }
-
-            .navbar-links:nth-child(2) {
+                gap: 1rem;
                 align-items: flex-start;
-            }
-
-            .navbar-links:nth-child(3) {
-                align-items: flex-end;
-            }
-
-            .navbar-logo,
-            .navbar-logo.navbar-logo-pinned {
-                left: 50%;
-                transform: translateX(-50%);
-                text-align: center;
-                padding: 1.5rem 0;
-                width: 100%;
-            }
-
-            .navbar-logo a {
-                font-size: 1.25rem;
-            }
-            
-            .hero {
-                /* Kept 200vh gap on mobile so animation can play */
-                height: 100svh;
-            }
-
-            .intro-content h1 {
-                font-size: clamp(2.5rem, 12vw, 4rem) !important;
-                padding: 0 1rem;
-                color: var(--base-200);
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                width: 100%;
-                padding: 0 1.5rem;
-            }
-
-            .hero-btn {
-                width: 100%;
             }
         }
         
@@ -1747,13 +1867,103 @@
         <div class="navbar-background"></div>
     </div>
     
-    <div class="navbar-items">
-        <div class="navbar-center-text">
-            <h2>Web platforms built <em>like they'll<br>actually need to last.</em></h2>
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links">
+                        <ul>
+                            <li data-img="/assets/images/project_1_1787254271240.jpg" data-tag="Home — Studio Overview">
+                                <a href="/index.html">
+                                    <span class="menu-idx">01</span>
+                                    <span class="menu-text">Home <em>Index</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/project_2_1787254282785.jpg" data-tag="About Us — Editorial Manifesto">
+                                <a href="/about.html">
+                                    <span class="menu-idx">02</span>
+                                    <span class="menu-text">About <em>Kawaki Studios</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/project_3_1787254295127.jpg" data-tag="Capabilities &amp; Architecture">
+                                <a href="/services.html">
+                                    <span class="menu-idx">03</span>
+                                    <span class="menu-text">Explore <em>Our Services</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Client Case Studies">
+                                <a href="/case-studies.html">
+                                    <span class="menu-idx">04</span>
+                                    <span class="menu-text">Selected <em>Work &amp; Results</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/team_placeholder.jpg" data-tag="Engineering &amp; Design Notes">
+                                <a href="/blog.html">
+                                    <span class="menu-idx">05</span>
+                                    <span class="menu-text">Blogs &amp; <em>Insights</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about-studio.jpg" data-tag="15-Min Strategy Session">
+                                <a href="/contact.html">
+                                    <span class="menu-idx">06</span>
+                                    <span class="menu-text">Discovery <em>Call</em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-col menu-col-right">
+                    <!-- Interactive Preview Card -->
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/project_2_1787254282785.jpg" alt="Preview" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">About Us — Editorial Manifesto</span>
+                            <span class="menu-preview-desc">Editorial Engineering &amp; Design</span>
+                        </div>
+                    </div>
+
+                    <!-- Info Block -->
+                    <div class="menu-info-block">
+                        <div class="menu-status-pill">
+                            <span class="status-dot"></span>
+                            <span>Available for Q3/Q4 Projects</span>
+                        </div>
+                        <a href="/contact.html" class="menu-cta-button">
+                            <span>Schedule a Call</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" fill="#FC4625"></circle>
+                                <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="navbar-links">
-            <a href="/index.html">Home</a>
+    </div>
+
+    <div class="navbar-items">
+        <!-- Top bar inside card -->
+        <div class="card-top-bar">
+            <a href="/index.html" class="card-brand-logo">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" />
+            </a>
+            <button class="card-hamburger-btn" id="menuToggleBtn" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+
+        <!-- Nav links bar inside card -->
+        <nav class="card-nav-bar">
+            <a href="/index.html" class="active">Home <span class="active-dot"></span></a>
             <div class="mega-menu-trigger">
                 <a href="/services.html">Services ▾</a>
                 <div class="mega-menu wide">
@@ -1781,9 +1991,6 @@
                     </div>
                 </div>
             </div>
-            <a href="/about.html">About</a>
-        </div>
-        <div class="navbar-links">
             <div class="mega-menu-trigger">
                 <a href="/case-studies.html">Work ▾</a>
                 <div class="mega-menu" style="grid-template-columns: 1fr; width: 250px;">
@@ -1795,14 +2002,43 @@
                     </div>
                 </div>
             </div>
+            <a href="/about.html">About</a>
             <a href="/blog.html">Blog</a>
             <a href="/contact.html">Contact</a>
+        </nav>
+
+        <!-- Center Hero Content inside card -->
+        <div class="card-hero-content">
+            <div class="card-eyebrow">
+                <span class="eyebrow-dot"></span> DIGITAL. STRATEGY. EXPERIENCE.
+            </div>
+            <h1 class="card-headline">Web platforms built <em>like they'll<br>actually need to last.</em></h1>
+            <div class="card-accent-line"></div>
+            <p class="card-subtitle">We design and develop reliable, scalable web experiences for brands that want to grow and last.</p>
+            
+            <div class="card-actions-row">
+                <a href="/contact.html" class="btn-card-primary">
+                    <span>Let's build something</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+                <a href="/case-studies.html" class="btn-card-secondary">
+                    <span>View our work</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
         </div>
-        
-        <div class="navbar-logo">
-            <a href="/index.html" class="logo">
-                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" style="height: 32px; width: auto; object-fit: contain; display: inline-block;" />
-            </a>
+
+        <!-- Bottom strip inside card -->
+        <div class="card-bottom-bar">
+            <div class="card-dot-matrix">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="card-footer-tagline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea4325" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+                <span>BUILT FOR TODAY. DESIGNED FOR TOMORROW.</span>
+            </div>
         </div>
     </div>
 
@@ -2172,26 +2408,21 @@
             // Awwwards Navbar GSAP Script
             const navbarBg = document.querySelector(".navbar-background");
             const navbarItems = document.querySelector(".navbar-items");
-            const navbarLinks = document.querySelectorAll(".navbar-links");
-            const navbarLogo = document.querySelector(".navbar-logo");
+            const cardHeroContent = document.querySelector(".card-hero-content");
+            const cardNavBar = document.querySelector(".card-nav-bar");
+            const cardBottomBar = document.querySelector(".card-bottom-bar");
             const heroContent = document.querySelector(".hero .intro-content");
             const navbarBackdrop = document.querySelector(".navbar-backdrop");
 
             function initNavbarAnimations() {
-                if (!navbarBg || !navbarItems || !navbarLogo) return;
+                if (!navbarBg || !navbarItems) return;
                 
-                const isDesktop = window.innerWidth >= 720;
+                const isDesktop = window.innerWidth >= 768;
 
                 const viewportWidth = window.innerWidth;
                 const viewportHeight = window.innerHeight;
                 const initialWidth = navbarBg.offsetWidth;
                 const initialHeight = navbarBg.offsetHeight;
-
-                const state = Flip.getState(navbarLogo);
-                navbarLogo.classList.add("navbar-logo-pinned");
-                gsap.set(navbarLogo, { width: isDesktop ? 250 : viewportWidth - 48 });
-                
-                const flip = Flip.from(state, { duration: 1, ease: "none", paused: true });
 
                 // Initially keep hero content hidden while card is in center unexpanded state
                 if (heroContent) {
@@ -2206,23 +2437,33 @@
                     onUpdate: (self) => {
                         const p = self.progress;
 
-                        // Expand the card background and items smoothly
+                        // Expand the card background and items smoothly to full viewport
                         const expandP = Math.min(1, p * 1.15);
-                        const initialRadius = isDesktop ? 24 : 20;
+                        const initialRadius = isDesktop ? 36 : 28;
                         const currentRadius = gsap.utils.interpolate(initialRadius, 0, Math.min(1, p * 1.3));
+                        
                         gsap.set([navbarBg, navbarItems], {
                             width: gsap.utils.interpolate(initialWidth, viewportWidth, expandP),
                             height: gsap.utils.interpolate(initialHeight, viewportHeight, expandP),
                             borderRadius: currentRadius + "px",
                         });
 
-                        // Fade out the center text smoothly during the first 35% of scroll
-                        const centerText = document.querySelector(".navbar-center-text");
-                        if (centerText) {
-                            const textAlpha = Math.max(0, 1 - p * 2.8);
-                            gsap.set(centerText, {
-                                opacity: textAlpha,
-                                y: -p * 40,
+                        // Fade out the inner card content (headline, subtitle, buttons, bottom strip)
+                        const contentAlpha = Math.max(0, 1 - p * 2.5);
+                        if (cardHeroContent) {
+                            gsap.set(cardHeroContent, {
+                                opacity: contentAlpha,
+                                y: -p * 50,
+                            });
+                        }
+                        if (cardNavBar) {
+                            gsap.set(cardNavBar, {
+                                opacity: contentAlpha,
+                            });
+                        }
+                        if (cardBottomBar) {
+                            gsap.set(cardBottomBar, {
+                                opacity: contentAlpha,
                             });
                         }
 
@@ -2241,8 +2482,6 @@
                                 gsap.set(heroContent, { opacity: 1, y: 0, pointerEvents: "all" });
                             }
                         }
-
-                        flip.progress(Math.min(1, p * 1.1));
                     },
                 });
             }
@@ -2256,11 +2495,10 @@
                 resizeTimer = setTimeout(() => {
                     ScrollTrigger.getAll().forEach((t) => t.kill());
 
-                    if (navbarBg && navbarItems && navbarLogo) {
-                        gsap.set([navbarBg, navbarItems, navbarLogo, ...navbarLinks], {
+                    if (navbarBg && navbarItems) {
+                        gsap.set([navbarBg, navbarItems], {
                             clearProps: "all",
                         });
-                        navbarLogo.classList.remove("navbar-logo-pinned");
                     }
                     
                     initNavbarAnimations();
@@ -2372,6 +2610,12 @@
                 });
             });
         })();
+    </script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+        if (typeof initGlobalNav === 'function') {
+            initGlobalNav();
+        }
     </script>
 </body>
 
