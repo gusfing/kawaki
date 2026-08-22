@@ -1,0 +1,2 @@
+import{t as e}from"./screens-BCBZadYA.js";function t(e){let t={min:{},max:{}};for(let n in e){let r=n,i=parseInt(e[r],10);t.min[r]=`(min-width: ${i}px)`,t.max[r]=`(max-width: ${i-1}px)`}return t}var n=t(e);export{n as t};
+//# sourceMappingURL=mediaQueryStrings-BJvp08d_.js.map

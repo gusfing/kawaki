@@ -1,0 +1,2 @@
+import{t as e}from"./jsx-runtime-Z54z_WYn.js";import{t}from"./useAriaLabel-DnGoelwt.js";var n=e();function r({componentName:e,...r}){let i=t({external:!!(r.href&&(r.href.startsWith(`http://`)||r.href.startsWith(`https://`))),children:r.children,ariaLabel:r[`aria-label`],target:r.target});return(0,n.jsx)(`a`,{...r,...e?{"data-component-name":e}:{},"aria-label":i})}export{r as t};
+//# sourceMappingURL=Anchor-DgJBBJ2J.js.map

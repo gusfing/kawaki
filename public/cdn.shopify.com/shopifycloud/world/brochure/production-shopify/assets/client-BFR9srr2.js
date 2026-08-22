@@ -1,0 +1,2 @@
+import{K as e}from"./chunk-62JRHF6Z-CEnKNFNw.js";import{t}from"./react-dom-BeCQu_aQ.js";var n=e((e=>{var n=t();e.createRoot=n.createRoot,e.hydrateRoot=n.hydrateRoot}));export{n as t};
+//# sourceMappingURL=client-BFR9srr2.js.map

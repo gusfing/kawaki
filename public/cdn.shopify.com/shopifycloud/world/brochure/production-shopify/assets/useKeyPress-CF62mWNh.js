@@ -1,0 +1,2 @@
+import{G as e,J as t}from"./chunk-62JRHF6Z-CEnKNFNw.js";var n=t(e(),1),r=(e,t)=>{(0,n.useEffect)(()=>{let n=n=>{n.key===e&&t(n)};return document.addEventListener(`keydown`,n),()=>{document.removeEventListener(`keydown`,n)}},[e,t])};export{r as t};
+//# sourceMappingURL=useKeyPress-CF62mWNh.js.map

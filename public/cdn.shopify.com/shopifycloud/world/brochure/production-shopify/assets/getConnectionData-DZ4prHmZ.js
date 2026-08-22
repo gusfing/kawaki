@@ -1,0 +1,2 @@
+function e(){let e={},t=navigator.connection;return t?(t.effectiveType!==void 0&&(e.clientEct=t.effectiveType),t.rtt!==void 0&&(e.clientRtt=String(t.rtt)),t.downlink!==void 0&&(e.clientDownlink=String(t.downlink)),t.saveData!==void 0&&(e.clientSaveData=String(t.saveData)),e):e}export{e as t};
+//# sourceMappingURL=getConnectionData-DZ4prHmZ.js.map

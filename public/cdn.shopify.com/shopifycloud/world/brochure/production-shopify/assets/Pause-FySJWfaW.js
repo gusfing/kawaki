@@ -1,0 +1,2 @@
+import{q as e}from"./chunk-62JRHF6Z-CEnKNFNw.js";import{t}from"./jsx-runtime-Z54z_WYn.js";var n=e({default:()=>i}),r=t();function i(e){return(0,r.jsx)(`svg`,{fill:`none`,viewBox:`0 0 20 20`,"aria-hidden":`true`,...e,children:(0,r.jsx)(`path`,{stroke:`currentColor`,strokeLinecap:`round`,d:`M6.5 3.5v13M13.5 3.5v13`})})}export{n,i as t};
+//# sourceMappingURL=Pause-FySJWfaW.js.map

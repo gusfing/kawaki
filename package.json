@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx serve public -p 3001",
-    "build": "echo 'Static Site - No Build Needed'",
-    "start": "npx serve public -p 3001",
+    "dev": "node server.js",
+    "build": "echo 'Static Site - Ready'",
+    "start": "node server.js",
     "lint": "eslint"
   },
   "dependencies": {
