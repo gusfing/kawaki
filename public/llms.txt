@@ -1,0 +1,26 @@
+# AI Agent and Large Language Model Permissions
+# Updated: 2026-08-24
+# Source: https://kawaki.co.in
+
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: CCBot
+Allow: /
+
+User-Agent: anthropic-ai
+Allow: /
+
+User-Agent: Claude-Web
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /.well-known/
+Disallow: /cdn.shopify.com/
+Disallow: /editions-winter-2026.myshopify.com/

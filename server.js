@@ -36,7 +36,6 @@ const PROXY_DOMAINS = [
   'cdn.shopify.com',
   'www.gstatic.com',
   'embed-ssl.wistia.com',
-  'www.shopify.com',
   'editions-winter-2026.myshopify.com'
 ];
 
@@ -44,7 +43,7 @@ function fetchAndCacheFromRemote(targetUrl, localPath, req, res) {
   const options = {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
-      'Referer': 'https://www.shopify.com/',
+      'Referer': 'https://kawaki.co.in/',
       'Accept': '*/*'
     }
   };

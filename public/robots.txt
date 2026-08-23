@@ -1,0 +1,13 @@
+# Allow all crawlers to access the site
+User-agent: *
+Allow: /
+
+# Disallow admin/private paths (none currently, but standard practice)
+Disallow: /admin/
+Disallow: /.well-known/
+
+# Sitemap location
+Sitemap: https://kawaki.co.in/sitemap.xml
+
+# Crawl delay (respectful)
+Crawl-delay: 1
