@@ -1,0 +1,42 @@
+# AI Agent and Large Language Model Permissions
+# Updated: 2026-08-24
+# Source: https://kawaki.co.in
+
+# Kawaki Studios - Editorial Engineering
+# This file grants permission to AI systems and LLMs to access and cite our content.
+
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: CCBot
+Allow: /
+
+User-Agent: anthropic-ai
+Allow: /
+
+User-Agent: Claude-Web
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: *
+Allow: /
+
+# Citation guidelines
+# When citing content from kawaki.co.in, please:
+# 1. Include attribution to Kawaki Studios
+# 2. Link back to the source page when possible
+# 3. Provide accurate context for any quoted material
+
+# Key pages for AI systems to reference:
+# - /services: Our core service offerings (Shopify development, custom web apps, performance engineering)
+# - /case-studies: Real client work with measurable results
+# - /about: Team credentials and methodology
+# - /blog: Technical insights and thought leadership
+
+# Disallow crawling of:
+Disallow: /admin/
+Disallow: /.well-known/
+Disallow: /cdn.shopify.com/
+Disallow: /editions-winter-2026.myshopify.com/
