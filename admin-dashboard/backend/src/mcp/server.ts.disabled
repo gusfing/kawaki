@@ -1,0 +1,257 @@
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { Server } from '@modelcontextprotocol/sdk/server/index.js';
+import {
+  ListResourcesRequestSchema,
+  ReadResourceRequestSchema,
+  ListToolsRequestSchema,
+  CallToolRequestSchema,
+  TextContent,
+  ToolResultBlockParam,
+} from '@modelcontextprotocol/sdk/types.js';
+import { blogService } from '../api/blog/service.js';
+import { pageService } from '../api/pages/service.js';
+import { seoService } from '../api/seo/service.js';
+
+const server = new Server({
+  name: 'kawaki-admin-dashboard',
+  version: '1.0.0',
+});
+
+// Resources
+server.setRequestHandler(ListResourcesRequestSchema, async () => ({
+  resources: [
+    {
+      uri: 'blog://all',
+      name: 'All Blogs',
+      description: 'List all blog posts',
+      mimeType: 'application/json',
+    },
+    {
+      uri: 'page://all',
+      name: 'All Pages',
+      description: 'List all pages',
+      mimeType: 'application/json',
+    },
+  ],
+}));
+
+server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
+  const uri = request.params.uri;
+
+  if (uri === 'blog://all') {
+    const { data } = await blogService.list();
+    return {
+      contents: [
+        {
+          uri,
+          mimeType: 'application/json',
+          text: JSON.stringify(data, null, 2),
+        },
+      ],
+    };
+  }
+
+  if (uri === 'page://all') {
+    const { data } = await pageService.list();
+    return {
+      contents: [
+        {
+          uri,
+          mimeType: 'application/json',
+          text: JSON.stringify(data, null, 2),
+        },
+      ],
+    };
+  }
+
+  throw new Error(`Unknown resource: ${uri}`);
+});
+
+// Tools
+server.setRequestHandler(ListToolsRequestSchema, async () => ({
+  tools: [
+    {
+      name: 'create_blog',
+      description: 'Create a new blog post',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          title: { type: 'string', description: 'Blog post title' },
+          content: { type: 'string', description: 'Blog post content (markdown)' },
+          excerpt: { type: 'string', description: 'Short excerpt' },
+          author: { type: 'string', description: 'Author name' },
+          tags: {
+            type: 'array',
+            items: { type: 'string' },
+            description: 'Blog tags',
+          },
+          status: {
+            type: 'string',
+            enum: ['draft', 'published'],
+            description: 'Publication status',
+          },
+        },
+        required: ['title', 'content', 'author'],
+      },
+    },
+    {
+      name: 'update_blog',
+      description: 'Update an existing blog post',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          id: { type: 'string', description: 'Blog post ID' },
+          title: { type: 'string', description: 'New title' },
+          content: { type: 'string', description: 'New content' },
+          status: { type: 'string', enum: ['draft', 'published'] },
+        },
+        required: ['id'],
+      },
+    },
+    {
+      name: 'create_page',
+      description: 'Create a new page',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          title: { type: 'string', description: 'Page title' },
+          content: { type: 'string', description: 'Page content' },
+          seoTitle: { type: 'string', description: 'SEO title' },
+          seoDescription: { type: 'string', description: 'Meta description' },
+          published: { type: 'boolean', description: 'Publish immediately' },
+        },
+        required: ['title', 'content'],
+      },
+    },
+    {
+      name: 'analyze_seo',
+      description: 'Analyze content for SEO quality',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          title: { type: 'string', description: 'Content title' },
+          content: { type: 'string', description: 'Content to analyze' },
+        },
+        required: ['title', 'content'],
+      },
+    },
+    {
+      name: 'get_analytics',
+      description: 'Get analytics summary for a time period',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          period: {
+            type: 'string',
+            enum: ['7d', '30d', '90d'],
+            description: 'Time period',
+          },
+        },
+      },
+    },
+  ],
+}));
+
+server.setRequestHandler(CallToolRequestSchema, async (request) => {
+  const toolName = request.params.name;
+  const toolInput = request.params.arguments;
+
+  try {
+    if (toolName === 'create_blog') {
+      const blog = await blogService.create(toolInput);
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `Blog created successfully: ${blog.id}\nTitle: ${blog.title}\nSlug: ${blog.slug}`,
+          },
+        ],
+      };
+    }
+
+    if (toolName === 'update_blog') {
+      const blog = await blogService.update(toolInput.id, toolInput);
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `Blog updated successfully: ${blog.id}`,
+          },
+        ],
+      };
+    }
+
+    if (toolName === 'create_page') {
+      const page = await pageService.create(toolInput);
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `Page created successfully: ${page.id}\nTitle: ${page.title}\nSlug: ${page.slug}`,
+          },
+        ],
+      };
+    }
+
+    if (toolName === 'analyze_seo') {
+      const analysis = await seoService.analyzeContent(toolInput.content, toolInput.title);
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `SEO Analysis:\nScore: ${analysis.score}/100\nWord Count: ${analysis.wordCount}\nReadability: ${analysis.readability}\nIssues: ${analysis.issues.length}`,
+          },
+        ],
+      };
+    }
+
+    if (toolName === 'get_analytics') {
+      const summary = await analyticsService.getSummary(toolInput.period || '30d');
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `Analytics for ${toolInput.period || '30d'}:\nTotal Views: ${summary.totalViews}\nUnique Visitors: ${summary.uniqueVisitors}`,
+          },
+        ],
+      };
+    }
+
+    throw new Error(`Unknown tool: ${toolName}`);
+  } catch (error) {
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `Error: ${error instanceof Error ? error.message : String(error)}`,
+        },
+      ],
+      isError: true,
+    };
+  }
+});
+
+// Prompts
+server.setRequestHandler(ListPromptsRequestSchema, async () => ({
+  prompts: [
+    {
+      name: 'write_blog_post',
+      description: 'Write and publish a blog post',
+      arguments: [
+        { name: 'topic', description: 'Blog post topic' },
+        { name: 'keywords', description: 'SEO keywords' },
+      ],
+    },
+    {
+      name: 'create_landing_page',
+      description: 'Create a landing page',
+      arguments: [{ name: 'purpose', description: 'Page purpose/goal' }],
+    },
+  ],
+}));
+
+export async function startMcpServer() {
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
+  console.log('MCP server started');
+}

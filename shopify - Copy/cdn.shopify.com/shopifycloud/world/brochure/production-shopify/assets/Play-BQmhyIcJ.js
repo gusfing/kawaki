@@ -1,0 +1,2 @@
+import{q as e}from"./chunk-62JRHF6Z-CEnKNFNw.js";import{t}from"./jsx-runtime-Z54z_WYn.js";var n=e({default:()=>i}),r=t();function i(e){return(0,r.jsx)(`svg`,{fill:`none`,viewBox:`0 0 20 20`,"aria-hidden":`true`,...e,children:(0,r.jsx)(`path`,{stroke:`currentColor`,strokeLinecap:`round`,strokeLinejoin:`round`,d:`M4.5 15.53V4.47a2 2 0 0 1 3-1.73l9.52 5.53a2 2 0 0 1 0 3.46L7.5 17.26a2 2 0 0 1-3-1.73Z`})})}export{n,i as t};
+//# sourceMappingURL=Play-BQmhyIcJ.js.map

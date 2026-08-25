@@ -1,0 +1,2 @@
+import{t as e}from"./jsx-runtime-Z54z_WYn.js";import{n as t,t as n}from"./Grid-DbYzPFck.js";import{t as r}from"./HeadingGroup-InZ2A_w_.js";var i=e();function a(e){return(0,i.jsx)(n,{"data-component-name":`section-header`,children:(0,i.jsx)(t,{center:e.center,span:{xs:4,sm:8,md:10,lg:8,xl:8},children:(0,i.jsx)(r,{...e})})})}export{a as t};
+//# sourceMappingURL=SectionHeader-n8sZ594k.js.map

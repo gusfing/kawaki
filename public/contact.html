@@ -898,17 +898,12 @@
 
 <body>
     <!-- LIQUID GLASS CAPSULE HEADER -->
-    <div class="nav-wrapper">
+    <div class="nav-wrapper scrolled" id="globalNav">
         <nav>
             <a href="/index.html" class="nav-left">
                 <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
             </a>
-            <a class="nav-center" href="mailto:hello@kawakistudios.com">
-                <span>hello@kawakistudios.com</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path>
-                </svg>
-            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
             <div class="nav-right" id="menuToggleBtn">
                 <span id="menu-toggle-text">MENU</span>
                 <div id="menu-toggle-icon">
@@ -924,6 +919,10 @@
         <div class="menu-overlay-layer"></div>
         <div class="menu-overlay-layer"></div>
         <div class="menu-content-wrapper">
+            <button id="menuCloseBtn" class="menu-close-btn" aria-label="Close menu" style="position: absolute; top: 1.5rem; right: 2rem; z-index: 100; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.25rem; border-radius: 50px; background: #ffffff; border: 1px solid rgba(0,0,0,0.12); cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600; color: #12100e; box-shadow: 0 4px 15px rgba(0,0,0,0.06);">
+                <span>CLOSE</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
             <span class="span-menu"><em>kawaki</em></span>
             <div class="menu-layout">
                 <div class="menu-col menu-col-left">

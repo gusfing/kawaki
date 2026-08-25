@@ -1,0 +1,32 @@
+{
+  "name": "admin-dashboard-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "migrate": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "hono": "^4.3.0",
+    "drizzle-orm": "^0.28.0",
+    "drizzle-kit": "^0.20.0",
+    "better-sqlite3": "^9.2.0",
+    "marked": "^12.0.0",
+    "zod": "^3.22.0",
+    "node-cron": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0",
+    "eslint": "^8.0.0"
+  }
+}

@@ -1,0 +1,2 @@
+import{G as e,J as t}from"./chunk-62JRHF6Z-CEnKNFNw.js";import{r as n}from"./Wrapper-CL8Yd_IV.js";var r=t(e(),1),i=e=>/^((?!chrome|android).)*safari/i.test(e),a=()=>{let[e,t]=(0,r.useState)(!1);return(0,r.useEffect)(()=>{t(i(n()))},[t]),e},o=()=>{let e=window.navigator,t=!!(e.mediaCapabilities&&e.mediaCapabilities.decodingInfo);return i(n())&&t};export{a as n,o as t};
+//# sourceMappingURL=useBrowserDetection-DfsQB988.js.map

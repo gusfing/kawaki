@@ -1,0 +1,2 @@
+import{H as e,P as t,s as n}from"./chunk-62JRHF6Z-CEnKNFNw.js";import{s as r,x as i}from"./enums-BIiw3b-o.js";import{t as a}from"./jsx-runtime-Z54z_WYn.js";import{t as o}from"./Provider-BmxBT2ql.js";var s=a(),c=()=>[{tagName:`link`,rel:`preload`,as:`font`,crossOrigin:`anonymous`,type:`font/woff2`,href:r.InterVariable}],l={theme:i.BrochureV2,enableGtm:!0},u=e(function(){let e=t(),r={};for(let t of e)t.data&&(r={...r,...t.data});return(0,s.jsx)(o,{data:r,children:(0,s.jsx)(n,{})})});export{u as default,l as handle,c as meta};
+//# sourceMappingURL=layout-CLBkmXIm.js.map

@@ -1,0 +1,2 @@
+import{G as e,J as t}from"./chunk-62JRHF6Z-CEnKNFNw.js";var n=t(e(),1),r=()=>{let[e,t]=(0,n.useState)(!1);return{isOpen:e,openMenu:e=>{e.preventDefault(),(0,n.startTransition)(()=>{t(!0)})},closeMenu:()=>{t(!1)}}};export{r as t};
+//# sourceMappingURL=useRightClickSaveMenu-CFMHMJRB.js.map

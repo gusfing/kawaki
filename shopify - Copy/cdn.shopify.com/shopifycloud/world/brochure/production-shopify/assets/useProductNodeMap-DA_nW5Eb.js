@@ -1,0 +1,2 @@
+import{G as e,J as t}from"./chunk-62JRHF6Z-CEnKNFNw.js";var n=t(e(),1),r=(0,n.createContext)(null);function i(){let e=(0,n.useContext)(r);if(!e)throw Error(`No ProductNodeMap Context available`);let{isProductNodeMapOpen:t,setIsProductNodeMapOpen:i,currentProductNode:a,setCurrentProductNode:o}=e;return{isProductNodeMapOpen:t,setIsProductNodeMapOpen:i,currentProductNode:a,setCurrentProductNode:o}}export{r as n,i as t};
+//# sourceMappingURL=useProductNodeMap-DA_nW5Eb.js.map

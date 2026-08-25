@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="pageTitle">Story — Kawaki Studios</title>
+    <meta name="description" id="pageDescription" content="Editorial engineering and studio insights from Kawaki." />
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css" />
+
+    <style>
+        :root {
+            --color-bg: #FFFFFF;
+            --color-text: #12100E;
+            --color-muted: #6B7280;
+            --color-accent: #FC4625;
+            --font-sans: "Plus Jakarta Sans", sans-serif;
+            --font-serif: "Instrument Serif", serif;
+            --font-mono: "JetBrains Mono", monospace;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            font-size: 17px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        em {
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+
+        .article-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 130px 24px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-muted);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .article-meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .article-header-title {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin: 0 0 1.5rem;
+            color: #111111;
+        }
+
+        .article-info-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 1.25rem 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .author-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #111111;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .article-hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+        }
+
+        .article-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #2D2A26;
+        }
+
+        .article-content h1, 
+        .article-content h2, 
+        .article-content h3 {
+            color: #111111;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 2.5rem 0 1rem;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+        .article-content h3 {
+            font-size: 1.35rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content pre {
+            background: #111116;
+            color: #F4F4F5;
+            padding: 1.25rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            margin: 1.5rem 0;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1.25rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #4A4640;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: rgba(0,0,0,0.05);
+            font-size: 12px;
+            font-weight: 600;
+            color: #4A4640;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- UNIVERSAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper scrolled" id="globalNav">
+        <nav>
+            <a href="/index.html" class="nav-left">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
+            <div class="nav-right" id="menuToggleBtn">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <button id="menuCloseBtn" class="menu-close-btn" aria-label="Close menu" style="position: absolute; top: 1.5rem; right: 2rem; z-index: 100; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.25rem; border-radius: 50px; background: #ffffff; border: 1px solid rgba(0,0,0,0.12); cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600; color: #12100e; box-shadow: 0 4px 15px rgba(0,0,0,0.06);">
+                <span>CLOSE</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links">
+                        <ul>
+                            <li data-img="/assets/images/project_1_1787254271240.jpg" data-tag="Home — Studio Overview">
+                                <a href="/index.html"><span class="menu-idx">01</span><span class="menu-text">Home <em>Index</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/project_2_1787254282785.jpg" data-tag="About Us — Editorial Manifesto">
+                                <a href="/about.html"><span class="menu-idx">02</span><span class="menu-text">About <em>Us</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/project_3_1787254291125.jpg" data-tag="Services — Creative Engineering">
+                                <a href="/services.html"><span class="menu-idx">03</span><span class="menu-text">Services <em>Capabilities</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/project_4_1787254299946.jpg" data-tag="Case Studies — Delivered Work">
+                                <a href="/case-studies.html"><span class="menu-idx">04</span><span class="menu-text">Case <em>Studies</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/project_5_1787254308560.jpg" data-tag="Insights — Studio Editorial">
+                                <a href="/blog.html"><span class="menu-idx">05</span><span class="menu-text">Insights <em>Blog</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/project_6_1787254316139.jpg" data-tag="Contact — Start a Project">
+                                <a href="/contact.html"><span class="menu-idx">06</span><span class="menu-text">Contact <em>Direct</em></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN ARTICLE BODY -->
+    <main class="article-container">
+        <a href="/blog.html" class="back-link">
+            ← Back to all stories
+        </a>
+
+        <div id="articleLoading" style="text-align: center; padding: 4rem 0; color: #6b7280; font-family: var(--font-mono); font-size: 14px;">
+            Synchronizing story from Kawaki Engine...
+        </div>
+
+        <article id="articleWrapper" style="display: none;">
+            <div class="article-meta-badge" id="articleCategory">
+                ● Kawaki Editorial
+            </div>
+            
+            <h1 class="article-header-title" id="articleTitle">
+                Loading title...
+            </h1>
+
+            <div class="article-info-bar">
+                <div class="author-box">
+                    <div class="author-avatar" id="authorInitial">KS</div>
+                    <div>
+                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
+                        <div style="font-size: 12px;" id="articleDate">25 Feb 2026</div>
+                    </div>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
+                    0 reads
+                </div>
+            </div>
+
+            <img id="articleImage" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Article Cover" class="article-hero-image" />
+
+            <div class="article-content" id="articleContent">
+                <!-- Formatted body renders here -->
+            </div>
+
+            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                <!-- Tag pills render here -->
+            </div>
+
+            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
+                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
+                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.5rem;">Let's build high-performance digital experiences together.</p>
+                <a href="/contact.html" class="rlvnt-btn max-content" style="margin: 0 auto;">
+                    <span>Start a Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="svg-container">
+                <img src="/assets/images/waving-hand.png" alt="Kawaki Hand Greeting" class="hello-image" />
+            </div>
+            <h3 class="right services-title-2"><em>let's connect</em></h3>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">&copy; 2026 Kawaki Studios. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const slug = params.get('slug');
+
+            if (!slug) {
+                document.getElementById('articleLoading').innerText = 'No story slug specified. Redirecting to blogs...';
+                setTimeout(() => window.location.href = '/blog.html', 1500);
+                return;
+            }
+
+            try {
+                const res = await fetch(`http://localhost:3000/api/blogs/${slug}`);
+                if (!res.ok) throw new Error('Story not found');
+                const json = await res.json();
+                const blog = json.data;
+
+                if (!blog) throw new Error('Empty story payload');
+
+                document.title = `${blog.title} — Kawaki Studios`;
+                document.getElementById('pageTitle').innerText = `${blog.title} — Kawaki Studios`;
+                if (blog.seoDescription) {
+                    document.getElementById('pageDescription').setAttribute('content', blog.seoDescription);
+                }
+
+                document.getElementById('articleTitle').innerText = blog.title;
+                document.getElementById('authorName').innerText = blog.author || 'Kunal Sharma';
+                document.getElementById('authorInitial').innerText = (blog.author || 'KS').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+                document.getElementById('articleDate').innerText = blog.createdAt ? new Date(blog.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '25 Feb 2026';
+                document.getElementById('articleViews').innerText = `${blog.views || 1} reads`;
+
+                if (blog.featuredImage) {
+                    document.getElementById('articleImage').src = blog.featuredImage;
+                }
+
+                // Render Markdown to HTML simply & safely
+                const contentEl = document.getElementById('articleContent');
+                let raw = blog.content || '';
+                
+                // Format basic markdown headers, bold, code blocks, lists
+                let html = raw
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                    .replace(/^# (.*$)/gim, '<h2>$1</h2>')
+                    .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+                    .replace(/\*(.*)\*/gim, '<em>$1</em>')
+                    .replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>')
+                    .replace(/`([^`]+)`/gim, '<code style="background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 4px; font-family: monospace;">$1</code>')
+                    .replace(/\n\n/gim, '</p><p>');
+
+                contentEl.innerHTML = `<p>${html}</p>`;
+
+                // Render tags
+                const tagsEl = document.getElementById('articleTags');
+                if (blog.tags && Array.isArray(blog.tags) && blog.tags.length > 0) {
+                    tagsEl.innerHTML = blog.tags.map(t => `<span class="tag-pill">#${t}</span>`).join('');
+                } else {
+                    tagsEl.style.display = 'none';
+                }
+
+                document.getElementById('articleLoading').style.display = 'none';
+                document.getElementById('articleWrapper').style.display = 'block';
+            } catch (err) {
+                document.getElementById('articleLoading').innerHTML = `
+                    <p style="color: #ef4444; font-weight: bold;">Could not load story.</p>
+                    <p style="font-size: 12px; margin-top: 8px;">${err.message}</p>
+                    <a href="/blog.html" style="color: #FC4625; font-size: 14px; margin-top: 12px; display: inline-block;">← Return to Insights</a>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

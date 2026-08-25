@@ -169,13 +169,25 @@ function serveLocalFile(filePath, res) {
 
   const stream = fs.createReadStream(filePath);
   stream.on('open', () => {
-    res.writeHead(200, {
+    // Determine cache headers: HTML gets no-cache, static assets get long-term caching
+    const isHTML = filePath.endsWith('.html');
+    const cacheControl = isHTML
+      ? 'no-cache, no-store, must-revalidate'
+      : 'public, max-age=31536000, immutable';
+
+    const headers = {
       'Content-Type': contentType,
       'Access-Control-Allow-Origin': '*',
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0'
-    });
+      'Cache-Control': cacheControl
+    };
+
+    // Add Pragma/Expires only for HTML
+    if (isHTML) {
+      headers['Pragma'] = 'no-cache';
+      headers['Expires'] = '0';
+    }
+
+    res.writeHead(200, headers);
     stream.pipe(res);
   });
 

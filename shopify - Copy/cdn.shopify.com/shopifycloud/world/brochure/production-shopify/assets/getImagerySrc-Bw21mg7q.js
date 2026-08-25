@@ -1,0 +1,2 @@
+import{d as e}from"./enums-BIiw3b-o.js";function t(t=``,n={}){return`${t}${Object.entries(n).filter(([t,n])=>n!==void 0&&!(t===`crop`&&n===e.None)).reduce((e,[n,r],i)=>`${e}${i===0&&!t.includes(`?`)?`?`:`&`}${n}=${r}`,``)}`}export{t};
+//# sourceMappingURL=getImagerySrc-Bw21mg7q.js.map

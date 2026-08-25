@@ -1,0 +1,2 @@
+function e(e,t,n){return e===`loaded`?t?{status:e,enhancedUserData:{...t,shops:n??[]}}:{status:e,enhancedUserData:null}:{status:e}}function t(e){return e.status===`loading`}function n(e){return e.status===`loaded`?e.enhancedUserData:null}function r(e){return e.status===`loaded`?e.enhancedUserData?.shops??[]:null}export{t as i,r as n,n as r,e as t};
+//# sourceMappingURL=userResult-DAVATH3_.js.map

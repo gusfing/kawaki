@@ -1,0 +1,2 @@
+import{H as e}from"./chunk-62JRHF6Z-CEnKNFNw.js";import{n as t,r as n,t as r}from"./route-links-AO81bWhE.js";var i={...t,shareImage:`/cdn.shopify.com/static/editions/summer-2022/share-image.jpg`},a=e(n);export{a as default,i as handle,r as links};
+//# sourceMappingURL=route-Bo_L2vzU2.js.map
