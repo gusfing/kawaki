@@ -88,9 +88,18 @@ function fetchAndCacheFromRemote(targetUrl, localPath, req, res) {
 }
 
 const server = http.createServer((req, res) => {
+  // CORS Headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', '*');
+
+  // Security Headers
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
@@ -101,15 +110,17 @@ const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
   let reqPath = decodeURIComponent(parsedUrl.pathname);
 
-  // Redirect root / or /editions to /editions/winter2026 for Remix route matching
-  if (reqPath === '/' || reqPath === '/editions' || reqPath === '/editions/') {
-    res.writeHead(302, { 'Location': '/editions/winter2026' });
-    res.end();
-    return;
+  // Serve shopify page on /shopify or /editions
+  if (reqPath.startsWith('/editions') || reqPath === '/shopify' || reqPath === '/shopify.html') {
+    const shopifyPath = path.join(ROOT, 'shopify.html');
+    if (fs.existsSync(shopifyPath)) {
+      serveLocalFile(shopifyPath, res);
+      return;
+    }
   }
 
-  // Serve index.html on /editions/winter2026
-  if (reqPath === '/editions/winter2026' || reqPath === '/editions/winter2026/' || reqPath.startsWith('/editions/winter2026')) {
+  // Root request / maps directly to index.html
+  if (reqPath === '/') {
     const indexPath = path.join(ROOT, 'index.html');
     if (fs.existsSync(indexPath)) {
       serveLocalFile(indexPath, res);
