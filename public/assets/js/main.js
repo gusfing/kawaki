@@ -1,7 +1,8 @@
 function initGlobalNav() {
-    const toggleBtns = document.querySelectorAll('#menuToggleBtn, .card-hamburger-btn, .nav-right, #menuCloseBtn, .menu-close-btn');
+    const toggleBtns = document.querySelectorAll('#menuToggleBtn, #compactMenuLink, .card-hamburger-btn, .nav-right, #menuCloseBtn, .menu-close-btn, #lamaMenuBtn, #lamaMenuTextBtn, #uclayMenuTrigger');
     const menu = document.getElementById('fullscreenMenu');
     const navWrapper = document.querySelector('.nav-wrapper');
+    const lamaTopRight = document.getElementById('lamaTopRight');
     const body = document.body;
     
     let isMenuOpen = false;
@@ -21,19 +22,19 @@ function initGlobalNav() {
                 gsap.set('.menu-overlay-layer', { scaleY: 0, transformOrigin: 'top center' });
                 gsap.to('.menu-overlay-layer', {
                     scaleY: 1,
-                    duration: 0.65,
-                    stagger: 0.08,
-                    ease: 'power3.inOut'
+                    duration: 0.75,
+                    stagger: 0.09,
+                    ease: 'power4.inOut'
                 });
                 
                 gsap.fromTo('.menu-content-wrapper', 
-                    { opacity: 0, y: 25 },
-                    { opacity: 1, y: 0, duration: 0.45, delay: 0.3, ease: 'power2.out' }
+                    { opacity: 0, y: 20 },
+                    { opacity: 1, y: 0, duration: 0.6, delay: 0.35, ease: 'power3.out' }
                 );
                 
                 gsap.fromTo('.main-menu-links ul li', 
-                    { y: 30, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.55, stagger: 0.05, delay: 0.35, ease: 'power3.out' }
+                    { y: 35, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.65, stagger: 0.06, delay: 0.4, ease: 'power3.out' }
                 );
             }
             
@@ -108,19 +109,83 @@ function initGlobalNav() {
         });
     }
 
-    // Scroll listener for nav-wrapper (non-homepage)
-    if (navWrapper) {
-        const isHomePage = document.querySelector('.hero-card-section, .card-hero-content') !== null;
-        if (!isHomePage) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navWrapper.classList.add('scrolled');
-                } else {
-                    navWrapper.classList.remove('scrolled');
-                }
-            });
+    // Smooth scroll listener for global floating nav-wrapper
+    let isTicking = false;
+    function handleHeaderScroll() {
+        const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+        if (navWrapper) {
+            if (scrollY > 30) {
+                navWrapper.classList.add('scrolled');
+            } else {
+                navWrapper.classList.remove('scrolled');
+            }
         }
+        isTicking = false;
     }
+
+    window.addEventListener('scroll', () => {
+        if (!isTicking) {
+            window.requestAnimationFrame(handleHeaderScroll);
+            isTicking = true;
+        }
+    }, { passive: true });
+
+    handleHeaderScroll(); // Run initially
+
+    // Smooth Editorial Entrance Animation for Hero
+    if (typeof gsap !== 'undefined' && document.querySelector('.hero-lamalama-section')) {
+        const heroTl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+        heroTl.fromTo('.hero-lama-bg-img', 
+            { scale: 1.08, opacity: 0.7 },
+            { scale: 1.02, opacity: 1, duration: 2.2, ease: 'power3.out' },
+            0
+        );
+
+        heroTl.fromTo('.nav-wrapper nav',
+            { y: -30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.1, ease: 'power4.out' },
+            0.2
+        );
+
+        heroTl.fromTo('.hero-lama-eyebrow',
+            { y: 25, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
+            0.4
+        );
+
+        heroTl.fromTo('.hero-lama-title',
+            { y: 45, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power4.out' },
+            0.5
+        );
+
+        heroTl.fromTo('.hero-lama-desc-box',
+            { y: 35, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' },
+            0.65
+        );
+
+        heroTl.fromTo('.hero-lama-bottom-bar',
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.0, ease: 'power3.out' },
+            0.8
+        );
+    }
+
+    // Live Digital Studio Clock
+    function updateStudioClock() {
+        const clockEl = document.getElementById('heroLiveClock');
+        if (!clockEl) return;
+        const now = new Date();
+        const hrs = String(now.getHours()).padStart(2, '0');
+        const mins = String(now.getMinutes()).padStart(2, '0');
+        const secs = String(now.getSeconds()).padStart(2, '0');
+        clockEl.textContent = `${hrs} : ${mins} : ${secs}`;
+    }
+
+    updateStudioClock();
+    setInterval(updateStudioClock, 1000);
 
     // Back to top button listener
     const backToTopBtn = document.getElementById('backToTop');

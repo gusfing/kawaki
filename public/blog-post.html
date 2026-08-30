@@ -22,7 +22,7 @@
             --color-bg: #FFFFFF;
             --color-text: #12100E;
             --color-muted: #6B7280;
-            --color-accent: #FC4625;
+            --color-accent: #C6FF00;
             --font-sans: "Plus Jakarta Sans", sans-serif;
             --font-serif: "Instrument Serif", serif;
             --font-mono: "JetBrains Mono", monospace;
@@ -188,14 +188,14 @@
 </head>
 
 <body>
-    <!-- UNIVERSAL FLOATING PILL NAVBAR -->
-    <div class="nav-wrapper scrolled" id="globalNav">
+    <!-- GLOBAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper" id="globalNav">
         <nav>
-            <a href="/index.html" class="nav-left">
+            <a href="/index.html" class="nav-left" aria-label="Kawaki Studios">
                 <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
             </a>
             <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
-            <div class="nav-right" id="menuToggleBtn">
+            <div class="nav-right" id="menuToggleBtn" aria-label="Open Menu">
                 <span id="menu-toggle-text">MENU</span>
                 <div id="menu-toggle-icon">
                     <div class="bar bar-top"></div>
@@ -292,7 +292,7 @@
                 <a href="/contact.html" class="rlvnt-btn max-content" style="margin: 0 auto;">
                     <span>Start a Project</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#FC4625"></circle> 
+                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
                         <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
                     </svg>
                 </a>
@@ -380,7 +380,7 @@
                 document.getElementById('articleLoading').innerHTML = `
                     <p style="color: #ef4444; font-weight: bold;">Could not load story.</p>
                     <p style="font-size: 12px; margin-top: 8px;">${err.message}</p>
-                    <a href="/blog.html" style="color: #FC4625; font-size: 14px; margin-top: 12px; display: inline-block;">← Return to Insights</a>
+                    <a href="/blog.html" style="color: #C6FF00; font-size: 14px; margin-top: 12px; display: inline-block;">← Return to Insights</a>
                 `;
             }
         });
