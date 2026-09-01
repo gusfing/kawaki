@@ -33,7 +33,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/assets/css/global.css?v=20260831_neon" />
+    <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
     <style>
         :root {
             --base-100: #ffffff;
@@ -142,11 +143,18 @@
             color: var(--fg);
         }
 
-        /* Global Floating Navbar (Always visible across entire page including hero) */
+        /* Global Floating Navbar */
         .nav-wrapper {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-            pointer-events: auto !important;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-wrapper.nav-hidden {
+            opacity: 0 !important;
+            transform: translateY(-28px) !important;
+            pointer-events: none !important;
         }
 
         /* ---- DOODLES ---- */
@@ -453,26 +461,36 @@
             height: 100%;
             z-index: 1;
             overflow: hidden;
+            background: #0A0807;
         }
 
+        .hero-lama-bg-video,
         .hero-lama-bg-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
             width: 100%;
             height: 100%;
+            transform: translate(-50%, -50%) scale(1.02);
             object-fit: cover;
             object-position: center;
-            transform: scale(1.02);
+            z-index: 1;
             transition: transform 12s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        .hero-lamalama-section:hover .hero-lama-bg-video,
         .hero-lamalama-section:hover .hero-lama-bg-img {
-            transform: scale(1.05);
+            transform: translate(-50%, -50%) scale(1.06);
         }
 
         .hero-lama-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(12, 10, 8, 0.45) 0%, rgba(12, 10, 8, 0.15) 30%, rgba(10, 8, 7, 0.6) 75%, rgba(8, 6, 5, 0.9) 100%);
+            background: linear-gradient(180deg, rgba(12, 10, 8, 0.5) 0%, rgba(12, 10, 8, 0.25) 35%, rgba(10, 8, 7, 0.65) 75%, rgba(8, 6, 5, 0.92) 100%);
             z-index: 2;
+            pointer-events: none;
         }
 
         /* Main Grid Area */
@@ -2203,16 +2221,6 @@
         .infs-marquee-container {
             position: relative;
             z-index: 5;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #111111;
-            padding: 4.5rem 0;
-            width: 100% !important;
-        .infs-marquee-container {
-            position: relative;
-            z-index: 5;
             padding: 4.5rem 0;
             overflow: hidden;
             background: #ffffff;
@@ -2221,6 +2229,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            width: 100% !important;
         }
         .infs-scroll-wrapper {
             white-space: nowrap;
@@ -2822,11 +2831,793 @@
             max-height: 400px;
             padding: 0.5rem 0 2rem;
         }
-        .content-faq {
-            line-height: 1.7;
-            font-size: 1.05rem;
+
+        /* ==========================================================================
+           CORE CAPABILITIES SECTION (MATCHING SITE DESIGN LANGUAGE)
+           ========================================================================== */
+        .capabilities-sec {
+            position: relative;
+            z-index: 5;
+            padding: 8rem 2rem 7rem !important;
+            background: #ffffff;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .capabilities-sec .services-header.oth {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 3rem;
+            max-width: 1340px;
+            margin: 0 auto 3.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .capabilities-header-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.85rem;
+            max-width: 720px;
+        }
+        .capabilities-header-left .sec-eyebrow {
+            font-family: "Space Mono", monospace;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            color: #111111;
+            background: #C6FF00;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .capabilities-sec .header-title {
+            font-family: "Plus Jakarta Sans", "Host Grotesk", sans-serif;
+            font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: #111111;
+            margin: 0;
+            text-align: left;
+        }
+        .capabilities-sec .header-title .bs-serif-text {
+            font-family: 'Playfair Display', Georgia, serif !important;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .capabilities-sec .another-span {
+            max-width: 440px;
+            font-size: 1.02rem;
+            line-height: 1.6;
+            color: #666666;
+            margin: 0 0 0.5rem 0;
+            text-align: left;
+        }
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.75rem;
+            max-width: 1340px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .capability-card {
+            background: #FAFAFA;
+            border-radius: 16px;
+            padding: 2.25rem 1.75rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #C6FF00;
+            opacity: 0;
+            transform: scaleX(0.4);
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: left;
+        }
+        .capability-card:hover {
+            transform: translateY(-6px);
+            background: #FFFFFF;
+            box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.16);
+        }
+        .capability-card:hover::before {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+        .cap-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        .cap-num {
+            font-family: "Space Mono", monospace;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #888888;
+        }
+        .cap-chip {
+            font-family: "Space Mono", monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #111111;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+        .cap-title {
+            font-family: "Plus Jakarta Sans", "Host Grotesk", sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: #111111;
+            margin: 0 0 1rem 0;
+            letter-spacing: -0.02em;
+        }
+        .cap-title em {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .cap-desc {
+            font-size: 0.92rem;
+            line-height: 1.6;
             color: #555555;
-            max-width: 950px;
+            margin: 0 0 1.5rem 0;
+            flex-grow: 1;
+        }
+        .cap-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 1.5rem;
+        }
+        .cap-tag {
+            font-family: "Space Mono", monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: #666666;
+            background: #EEEEEE;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .cap-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .cap-metric-val {
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #111111;
+        }
+        .cap-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+        .cap-link:hover {
+            color: #000000;
+            transform: translateX(2px);
+        }
+        /* ==========================================================================
+           SYSTEMS SHOWCASE SECTION (MATCHING SITE DESIGN LANGUAGE)
+           ========================================================================== */
+        .systems-showcase-sec {
+            position: relative;
+            z-index: 5;
+            padding: 8rem 2rem 7rem !important;
+            background: #FAFAFA;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .systems-showcase-sec .services-header.oth {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 3rem;
+            max-width: 1340px;
+            margin: 0 auto 3.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .systems-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1340px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .showcase-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+        }
+        .showcase-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.12);
+            border-color: rgba(0, 0, 0, 0.16);
+        }
+        .showcase-card-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: #EFEFEA;
+        }
+        .showcase-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .showcase-card:hover .showcase-card-img-wrap img {
+            transform: scale(1.05);
+        }
+        .showcase-floating-badge {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            background: rgba(17, 17, 17, 0.88);
+            backdrop-filter: blur(8px);
+            color: #C6FF00;
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+        }
+        .showcase-card-body {
+            padding: 2.25rem 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+        .showcase-meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        .showcase-role-tag {
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .showcase-year-tag {
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            background: #111111;
+            color: #C6FF00;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .showcase-title {
+            font-family: "Plus Jakarta Sans", "Host Grotesk", sans-serif;
+            font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: #111111;
+            margin: 0 0 1rem 0;
+        }
+        .showcase-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555555;
+            margin: 0 0 1.75rem 0;
+            flex-grow: 1;
+        }
+        .showcase-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+        .showcase-link-btn:hover {
+            color: #000000;
+            transform: translateX(3px);
+        }
+
+        /* ==========================================================================
+           STUDIO PHILOSOPHY & PRINCIPLES SECTION
+           ========================================================================== */
+        .philosophy-sec {
+            position: relative;
+            z-index: 5;
+            padding: 8rem 2rem 7rem !important;
+            background: #FFFFFF;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .philosophy-sec .services-header.oth {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 3rem;
+            max-width: 1340px;
+            margin: 0 auto 3.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1.3fr;
+            gap: 4rem;
+            max-width: 1340px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+            align-items: start;
+        }
+        .philosophy-manifesto-card {
+            background: #FAFAFA;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: sticky;
+            top: 6rem;
+        }
+        .philosophy-quote {
+            font-family: "Plus Jakarta Sans", "Host Grotesk", sans-serif;
+            font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+            font-weight: 700;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+            color: #111111;
+            margin: 0;
+        }
+        .philosophy-quote em {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #111111;
+        }
+        .philosophy-coords {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #777777;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .philosophy-coords-bullet {
+            color: #C6FF00;
+            background: #111111;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .philosophy-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .philosophy-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.85rem 1.75rem;
+            background: #111111;
+            color: #FFFFFF;
+            border-radius: 100px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .philosophy-btn-primary:hover {
+            background: #C6FF00;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+        .philosophy-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.85rem 1.75rem;
+            background: transparent;
+            color: #111111;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 100px;
+            font-family: "Space Mono", monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .philosophy-btn-secondary:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
+        }
+        .philosophy-pillars-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        .philosophy-pillar-card {
+            background: #FAFAFA;
+            border-radius: 14px;
+            padding: 1.75rem 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+        }
+        .philosophy-pillar-card:hover {
+            transform: translateY(-4px);
+            background: #FFFFFF;
+            border-color: rgba(0, 0, 0, 0.14);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        .pillar-idx {
+            font-family: "Space Mono", monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #888888;
+        }
+        .pillar-name {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #111111;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+        .pillar-desc {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #666666;
+            margin: 0;
+        }
+        @media (max-width: 1024px) {
+            .systems-showcase-sec,
+            .philosophy-sec {
+                padding: 5rem 1.25rem 5rem !important;
+            }
+            .systems-showcase-sec .services-header.oth,
+            .philosophy-sec .services-header.oth {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.25rem;
+            }
+            .systems-showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .philosophy-manifesto-card {
+                position: static;
+                padding: 2rem 1.5rem;
+            }
+            .philosophy-pillars-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==========================================================================
+           KAWAKI DREAM DESIGN DELIVER PRELOADER (BOLD FULLSCREEN)
+           ========================================================================== */
+        .kawaki-dream-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #080808;
+            color: #FFFFFF;
+            user-select: none;
+        }
+
+        /* Dual Split Shutters for cinematic curtain reveal */
+        .preloader-shutter {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50.5%;
+            background: #080808;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .preloader-shutter-top {
+            top: 0;
+            transform-origin: top center;
+            border-bottom: 1px solid rgba(198, 255, 0, 0.12);
+        }
+
+        .preloader-shutter-bottom {
+            bottom: 0;
+            transform-origin: bottom center;
+            border-top: 1px solid rgba(198, 255, 0, 0.12);
+        }
+
+        /* Ambient glows & blueprint grid */
+        .preloader-aura {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.16;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .preloader-aura-lime {
+            background: #C6FF00;
+            top: -150px;
+            right: -100px;
+            animation: auraFloat 6s ease-in-out infinite alternate;
+        }
+
+        .preloader-aura-cyan {
+            background: #00E5FF;
+            bottom: -150px;
+            left: -100px;
+            animation: auraFloat 8s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes auraFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-40px, 30px) scale(1.15); }
+        }
+
+        .preloader-grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.7;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .preloader-content-wrap {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            padding: clamp(2rem, 5vh, 4rem) clamp(2rem, 5vw, 6rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        /* Top Telemetry */
+        .preloader-telemetry-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-family: "Space Mono", monospace, sans-serif;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            color: #888888;
+            text-transform: uppercase;
+        }
+
+        .preloader-tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #FFFFFF;
+        }
+
+        .preloader-live-dot {
+            width: 8px;
+            height: 8px;
+            background: #C6FF00;
+            border-radius: 50%;
+            box-shadow: 0 0 14px #C6FF00;
+            animation: pulseDot 1.2s infinite ease-in-out;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 20px #C6FF00; }
+        }
+
+        /* Central Stage */
+        .preloader-stage {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 380px;
+        }
+
+        .preloader-massive-counter {
+            position: absolute;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(8rem, 24vw, 24rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 0.8;
+            color: rgba(255, 255, 255, 0.035);
+            text-transform: uppercase;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        .preloader-word-track {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+        }
+
+        .preloader-word-slide {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(35px) scale(0.92);
+            filter: blur(10px);
+            transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+            pointer-events: none;
+            width: 100%;
+        }
+
+        .preloader-word-slide.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+            pointer-events: auto;
+        }
+
+        .preloader-word-slide.exit {
+            opacity: 0;
+            transform: translateY(-35px) scale(1.05);
+            filter: blur(10px);
+        }
+
+        .p-eyebrow {
+            font-family: "Space Mono", monospace, sans-serif;
+            font-size: clamp(0.72rem, 1vw, 0.88rem);
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            color: #888888;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+
+        .p-big-word {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(4.5rem, 12vw, 13rem);
+            font-weight: 900;
+            line-height: 0.88;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .p-big-word em {
+            font-family: "Playfair Display", Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .p-accent-lime em {
+            color: #C6FF00;
+            text-shadow: 0 0 50px rgba(198, 255, 0, 0.5);
+        }
+
+        .p-brand-word {
+            font-size: clamp(3rem, 7.5vw, 8rem);
+            line-height: 0.92;
+        }
+
+        .p-brand-word span {
+            color: #C6FF00;
+            text-shadow: 0 0 35px rgba(198, 255, 0, 0.35);
+        }
+
+        /* Bottom Progress Rail */
+        .preloader-footer-rail {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .preloader-bar-wrap {
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .preloader-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: #C6FF00;
+            box-shadow: 0 0 16px #C6FF00, 0 0 30px rgba(198, 255, 0, 0.6);
+            border-radius: 100px;
+            transition: width 0.08s linear;
         }
 
         .hidden {
@@ -2910,6 +3701,58 @@
 </head>
 
 <body>
+    <!-- ==========================================================================
+         KAWAKI STUDIOS — DREAM DESIGN DELIVER BOLD FULLSCREEN PRELOADER
+         ========================================================================== -->
+    <div class="kawaki-dream-preloader" id="dreamPreloader" aria-hidden="true">
+        <!-- Dual Split Shutter Curtains (for cinematic reveal) -->
+        <div class="preloader-shutter preloader-shutter-top" id="pShutterTop"></div>
+        <div class="preloader-shutter preloader-shutter-bottom" id="pShutterBottom"></div>
+
+        <!-- Ambient Lighting Glows & Blueprint Overlay -->
+        <div class="preloader-aura preloader-aura-lime"></div>
+        <div class="preloader-aura preloader-aura-cyan"></div>
+        <div class="preloader-grid-overlay"></div>
+
+        <div class="preloader-content-wrap" id="pContentWrap">
+            <!-- Top Spacer -->
+            <div></div>
+
+            <!-- Central Bold Typographic Stage -->
+            <div class="preloader-stage">
+                <!-- Massive Precision Percentage Counter in background -->
+                <div class="preloader-massive-counter" id="preloaderCounter">00%</div>
+
+                <!-- Word Stage (DREAM -> DESIGN -> DELIVER -> KAWAKI) -->
+                <div class="preloader-word-track" id="preloaderWordTrack">
+                    <div class="preloader-word-slide active" data-word="0">
+                        <span class="p-eyebrow">&mdash; 01 // VISION</span>
+                        <h1 class="p-big-word"><em>DREAM</em></h1>
+                    </div>
+                    <div class="preloader-word-slide" data-word="1">
+                        <span class="p-eyebrow">&mdash; 02 // ARCHITECTURE</span>
+                        <h1 class="p-big-word"><em>DESIGN</em></h1>
+                    </div>
+                    <div class="preloader-word-slide" data-word="2">
+                        <span class="p-eyebrow">&mdash; 03 // EXECUTION</span>
+                        <h1 class="p-big-word p-accent-lime"><em>DELIVER</em></h1>
+                    </div>
+                    <div class="preloader-word-slide" data-word="3">
+                        <span class="p-eyebrow">&mdash; KAWAKI STUDIOS</span>
+                        <h1 class="p-big-word"><em>KAWAKI</em></h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Progress Rail -->
+            <div class="preloader-footer-rail">
+                <div class="preloader-bar-wrap">
+                    <div class="preloader-bar-fill" id="preloaderBarFill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- SVG LIQUID LENS FILTER -->
     <svg class="svg-defs" style="position: absolute; width: 0; height: 0; pointer-events: none; overflow: hidden;" aria-hidden="true">
         <defs>
@@ -3023,9 +3866,12 @@
              KAWAKI STUDIOS — CINEMATIC AGENCY HERO (LAMA LAMA STYLE)
              ========================================================================== -->
         <section class="hero-lamalama-section" id="heroLamaSection">
-            <!-- Background Layer -->
+            <!-- Background Layer with Ambient ASMR Video -->
             <div class="hero-lama-bg-wrap">
-                <img src="/assets/images/hero_lama_bg.jpg?v=editorial_studio_2026" alt="Kawaki Studios — Creative Digital Agency" class="hero-lama-bg-img" />
+                <video class="hero-lama-bg-video" autoplay loop muted playsinline poster="/assets/images/hero_lama_bg.jpg">
+                    <source src="/assets/videos/hero-bg-v2.mp4?v=20260901_1618" type="video/mp4">
+                    <source src="/assets/videos/hero-bg.mp4" type="video/mp4">
+                </video>
                 <div class="hero-lama-overlay"></div>
             </div>
 
@@ -3321,144 +4167,240 @@
 
 
 
-        <section class="section porcelain">
-            <div class="skew-bg">
-                <div class="bg porcelain"></div>
+        <!-- ============================ -->
+        <!-- Core Capabilities Section -->
+        <!-- ============================ -->
+        <section class="capabilities-sec sections" id="capabilities" data-section="Core Capabilities">
+            <div class="services-header oth">
+                <div class="capabilities-header-left">
+                    <div class="sec-eyebrow">[ CORE CAPABILITIES &amp; DISCIPLINES ]</div>
+                    <h2 class="header-title">Engineered for <br><span class="bs-serif-text">Velocity &amp; Scale</span><span class="about-dot"></span></h2>
+                </div>
+                <span class="another-span">From tokenized design systems and headless commerce gateways to sub-second edge architectures, we build platforms that command industry authority.</span>
             </div>
-            <div class="container">
-                <h2 class="heading">
-                    Eight <span class="serif-italic">services,</span> one <span class="serif-italic">team</span><span class="about-dot"></span>
-                </h2>
-                <div class="content">
-                    <div class="media">
-                        <img src="/assets/images/project_1_1787254271240.jpg?v=magic1" alt="Capabilities" />
+
+            <div class="capabilities-grid">
+                <!-- Capability Card 1: Design Systems -->
+                <div class="capability-card">
+                    <div class="cap-card-top">
+                        <span class="cap-num">01</span>
+                        <span class="cap-chip">Design &amp; Motion</span>
                     </div>
-                    <div class="services-grid">
-                        <div class="service-item">
-                            <span class="service-num">01</span>
-                            <span class="service-name">Web Development</span>
-                            <span class="service-desc">Custom marketing sites and corporate builds on Next.js.</span>
-                        </div>
-                        <div class="service-item">
-                            <span class="service-num">02</span>
-                            <span class="service-name">Ecommerce Development</span>
-                            <span class="service-desc">Headless Shopify, Stripe, and checkout optimization.</span>
-                        </div>
-                        <div class="service-item">
-                            <span class="service-num">03</span>
-                            <span class="service-name">Shopify Development</span>
-                            <span class="service-desc">Custom themes on Shopify Plus without app bloat.</span>
-                        </div>
-                        <div class="service-item">
-                            <span class="service-num">04</span>
-                            <span class="service-name">WordPress Development</span>
-                            <span class="service-desc">Gutenberg block editors and headless WordPress.</span>
-                        </div>
-                        <div class="service-item">
-                            <span class="service-num">05</span>
-                            <span class="service-name">Web App Development</span>
-                            <span class="service-desc">Dashboards, portals, and internal tools, full-stack.</span>
-                        </div>
-                        <div class="service-item">
-                            <span class="service-num">06</span>
-                            <span class="service-name">Frontend Engineering</span>
-                            <span class="service-desc">Pixel-perfect UI built to WCAG 2.2 AA standards.</span>
-                        </div>
-                        <div class="service-item">
-                            <span class="service-num">07</span>
-                            <span class="service-name">Backend Development</span>
-                            <span class="service-desc">REST &amp; GraphQL APIs, database modeling, cloud infra.</span>
-                        </div>
-                        <div class="service-item">
-                            <span class="service-num">08</span>
-                            <span class="service-name">Maintenance &amp; Support</span>
-                            <span class="service-desc">Ongoing monitoring, security updates, SLA-backed.</span>
-                        </div>
+                    <h3 class="cap-title"><em>design systems</em> &amp; UI engineering</h3>
+                    <p class="cap-desc">Bespoke typographic hierarchy, tokenized design systems in Figma, and fluid kinetic micro-interactions built with obsessive attention to craft.</p>
+                    <div class="cap-tags">
+                        <span class="cap-tag">Figma Tokens</span>
+                        <span class="cap-tag">Design Systems</span>
+                        <span class="cap-tag">Kinetic WebGL</span>
+                    </div>
+                    <div class="cap-footer">
+                        <span class="cap-metric-val">100% Custom Tokens</span>
+                        <a href="/services.html" class="cap-link" aria-label="Explore Design Systems">
+                            <span>Explore</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Capability Card 2: Headless Commerce -->
+                <div class="capability-card">
+                    <div class="cap-card-top">
+                        <span class="cap-num">02</span>
+                        <span class="cap-chip">High-Conversion</span>
+                    </div>
+                    <h3 class="cap-title"><em>headless commerce</em> &amp; gateway</h3>
+                    <p class="cap-desc">Custom Shopify Hydrogen and modern commerce backends with instant edge rendering, custom checkout flows, and documented +340% conversion lifts.</p>
+                    <div class="cap-tags">
+                        <span class="cap-tag">Shopify Hydrogen</span>
+                        <span class="cap-tag">Custom Cart API</span>
+                        <span class="cap-tag">+340% Lift</span>
+                    </div>
+                    <div class="cap-footer">
+                        <span class="cap-metric-val">Sub-200ms TTFB</span>
+                        <a href="/case-studies/acme-headless-ecommerce.html" class="cap-link" aria-label="Explore Headless Commerce">
+                            <span>Case Study</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Capability Card 3: Edge Infrastructure -->
+                <div class="capability-card">
+                    <div class="cap-card-top">
+                        <span class="cap-num">03</span>
+                        <span class="cap-chip">Sub-Second Speed</span>
+                    </div>
+                    <h3 class="cap-title"><em>edge infrastructure</em> &amp; APIs</h3>
+                    <p class="cap-desc">Serverless and edge orchestration with distributed Redis, high-concurrency database pooling, and 99.8% Google Core Web Vitals performance scores.</p>
+                    <div class="cap-tags">
+                        <span class="cap-tag">Next.js Edge</span>
+                        <span class="cap-tag">Distributed Redis</span>
+                        <span class="cap-tag">99.8% Perf</span>
+                    </div>
+                    <div class="cap-footer">
+                        <span class="cap-metric-val">0.18s Global TTFB</span>
+                        <a href="/services.html" class="cap-link" aria-label="Explore Edge Infrastructure">
+                            <span>Explore</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Capability Card 4: Web Applications -->
+                <div class="capability-card">
+                    <div class="cap-card-top">
+                        <span class="cap-num">04</span>
+                        <span class="cap-chip">Enterprise Scalability</span>
+                    </div>
+                    <h3 class="cap-title"><em>bespoke web applications</em> &amp; SaaS</h3>
+                    <p class="cap-desc">Custom publishing platforms, real-time analytics dashboards, and secure multi-tenant architectures built with clean maintainable code.</p>
+                    <div class="cap-tags">
+                        <span class="cap-tag">TypeScript Strict</span>
+                        <span class="cap-tag">WCAG 2.2 A11y</span>
+                        <span class="cap-tag">SLA Guarantees</span>
+                    </div>
+                    <div class="cap-footer">
+                        <span class="cap-metric-val">SF · TYO · DELHI</span>
+                        <a href="/contact.html" class="cap-link" aria-label="Start Full-Stack Project">
+                            <span>Start Project</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section forest">
-            <div class="skew-bg">
-                <div class="bg forest"></div>
+        <!-- ============================ -->
+        <!-- 2. Featured Systems Showcase Section -->
+        <!-- ============================ -->
+        <section class="systems-showcase-sec sections" id="systems-showcase" data-section="Featured Systems">
+            <div class="services-header oth">
+                <div class="capabilities-header-left">
+                    <div class="sec-eyebrow">[ ARCHITECTURAL SHOWCASE ]</div>
+                    <h2 class="header-title">Featured Systems <br><span class="bs-serif-text">Shipped to Production</span><span class="about-dot"></span></h2>
+                </div>
+                <span class="another-span">High-velocity production architectures engineered for sub-second page transitions, global edge caching, and scalable transactions.</span>
             </div>
-            <div class="container">
-                <h2 class="heading">
-                    A process that <span class="serif-italic">doesn't surprise</span> you<span class="about-dot"></span>
-                </h2>
-                <div class="content">
-                    <div class="media">
-                        <img src="/assets/images/project_2_1787254282785.jpg?v=magic1" alt="Method" />
+
+            <div class="systems-showcase-grid">
+                <!-- Showcase Card 1: Headless Commerce Gateway -->
+                <div class="showcase-card">
+                    <div class="showcase-card-img-wrap">
+                        <img src="/assets/images/station_work_ecomm.jpg?v=20260901" alt="Headless Commerce System Architecture" />
+                        <div class="showcase-floating-badge">99.8% Perf Score &bull; +340% Conversions</div>
                     </div>
-                    <div class="details">
-                        <div class="row">
-                            <span class="row-num">01</span>
-                            <div class="row-text">
-                                <h4>Discover & Scope</h4>
-                                <p>Scoping business goals and technical constraints. We map user actions, security scopes, and caching limits.</p>
+                    <div class="showcase-card-body">
+                        <div>
+                            <div class="showcase-meta-row">
+                                <span class="showcase-role-tag">Fullstack &middot; Shopify Hydrogen</span>
+                                <span class="showcase-year-tag">2026</span>
                             </div>
+                            <h3 class="showcase-title">Headless Commerce Gateway</h3>
+                            <p class="showcase-desc">Next-generation headless commerce platform engineered with Shopify Hydrogen, custom edge checkout pipelines, and sub-second page transitions.</p>
                         </div>
-                        <div class="row">
-                            <span class="row-num">02</span>
-                            <div class="row-text">
-                                <h4>Design & Architecture</h4>
-                                <p>Custom responsive layouts in Figma, backed by database schemas, API endpoints, and caching rules designed in parallel.</p>
+                        <a href="/case-studies/acme-headless-ecommerce.html" class="showcase-link-btn" aria-label="Read Headless Commerce Case Study">
+                            <span>Read Case Study</span>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 2: Spatial Architecture & Real-Time Engine -->
+                <div class="showcase-card">
+                    <div class="showcase-card-img-wrap">
+                        <img src="/assets/images/station_work_spatial.jpg?v=20260901" alt="Spatial Architecture & Real-Time Engine" />
+                        <div class="showcase-floating-badge">0.18s Edge TTFB &bull; Global Mesh</div>
+                    </div>
+                    <div class="showcase-card-body">
+                        <div>
+                            <div class="showcase-meta-row">
+                                <span class="showcase-role-tag">WebGL &middot; Distributed Edge</span>
+                                <span class="showcase-year-tag">2026</span>
                             </div>
+                            <h3 class="showcase-title">Spatial Architecture Platform</h3>
+                            <p class="showcase-desc">Interactive 3D visualization and real-time data engine built for high-throughput edge analytics, distributed Redis sync, and sub-100ms API orchestration.</p>
                         </div>
-                        <div class="row">
-                            <span class="row-num">03</span>
-                            <div class="row-text">
-                                <h4>Build & Validate</h4>
-                                <p>Figma mockups become clean Next.js codebases &mdash; static build optimization, semantic HTML, and robust validation.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <span class="row-num">04</span>
-                            <div class="row-text">
-                                <h4>Launch & Support</h4>
-                                <p>Core Web Vitals above 90, secure headers, DNS transition &mdash; then a handoff your team can maintain under SLA.</p>
-                            </div>
-                        </div>
+                        <a href="/case-studies.html" class="showcase-link-btn" aria-label="Explore Spatial Architecture System">
+                            <span>Explore System</span>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section ember">
-            <div class="skew-bg">
-                <div class="bg ember"></div>
+        <!-- ============================ -->
+        <!-- 3. Studio Philosophy & Engineering Standards -->
+        <!-- ============================ -->
+        <section class="philosophy-sec sections" id="philosophy" data-section="Studio Philosophy">
+            <div class="services-header oth">
+                <div class="capabilities-header-left">
+                    <div class="sec-eyebrow">[ STUDIO PHILOSOPHY ]</div>
+                    <h2 class="header-title">Crafting Solutions to <br><span class="bs-serif-text">Complex Systems</span><span class="about-dot"></span></h2>
+                </div>
+                <span class="another-span">We reject bloated templates and transient hype. Every platform we build is engineered with strict type safety, sub-second latency, and architectural durability.</span>
             </div>
-            <div class="container">
-                <h2 class="heading">
-                    A working archive of <span class="serif-italic">experiments</span> and internal <span class="serif-italic">tools</span><span class="about-dot"></span>
-                </h2>
-                <div class="content">
-                    <div class="media">
-                        <img src="/assets/images/project_3_1787254295127.jpg?v=magic1" alt="Experiments" />
+
+            <div class="philosophy-grid">
+                <!-- Left: Manifesto Card -->
+                <div class="philosophy-manifesto-card">
+                    <p class="philosophy-quote">
+                        &ldquo;From Tokyo to San Francisco, we partner with ambitious founders to engineer web platforms that combine <em>editorial elegance</em> with <em>mission-critical performance</em>.&rdquo;
+                    </p>
+                    
+                    <div class="philosophy-coords">
+                        <span class="philosophy-coords-bullet">&bull;</span>
+                        <span>SF 37.77&deg; N / TYO 35.67&deg; N &bull; EST. 2026</span>
                     </div>
-                    <div class="details">
-                        <div class="row">
-                            <span class="row-num">01</span>
-                            <div class="row-text">
-                                <h4>Editorial Engineering</h4>
-                                <p>The Kawaki design system: near-monochrome Swiss editorial, one ignition accent, and hard-offset shadows.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <span class="row-num">02</span>
-                            <div class="row-text">
-                                <h4>Performance & A11y Audit</h4>
-                                <p>WCAG 2.2 AA and Core Web Vitals as a deliverable. A reusable audit kit we run before every launch.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <span class="row-num">03</span>
-                            <div class="row-text">
-                                <h4>SLA Support Loop</h4>
-                                <p>Monitoring, security patches, and a real point of contact with a 4-hour response for critical blockages.</p>
-                            </div>
-                        </div>
+
+                    <div class="philosophy-actions">
+                        <a href="/contact.html" class="philosophy-btn-primary">
+                            <span>Start Project</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                        <a href="/about.html" class="philosophy-btn-secondary">
+                            <span>Read Process</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: 6 Engineering Pillars -->
+                <div class="philosophy-pillars-list">
+                    <div class="philosophy-pillar-card">
+                        <span class="pillar-idx">01 / KERNEL</span>
+                        <h4 class="pillar-name">Zero-Bloat Foundation</h4>
+                        <p class="pillar-desc">Lightweight semantic markup, zero unnecessary runtime dependencies, and minimal payload size.</p>
+                    </div>
+
+                    <div class="philosophy-pillar-card">
+                        <span class="pillar-idx">02 / ARCHITECTURE</span>
+                        <h4 class="pillar-name">Modular Domain Design</h4>
+                        <p class="pillar-desc">Decoupled data layer, edge caching boundaries, and strict type-safe contracts across all services.</p>
+                    </div>
+
+                    <div class="philosophy-pillar-card">
+                        <span class="pillar-idx">03 / WEBGL &amp; MOTION</span>
+                        <h4 class="pillar-name">60fps Kinetic Craft</h4>
+                        <p class="pillar-desc">Hardware-accelerated shaders, spring physics, and fluid micro-interactions with zero layout thrashing.</p>
+                    </div>
+
+                    <div class="philosophy-pillar-card">
+                        <span class="pillar-idx">04 / ACCESSIBILITY</span>
+                        <h4 class="pillar-name">WCAG 2.2 AA Standard</h4>
+                        <p class="pillar-desc">Keyboard navigable, screen-reader optimized, and high-contrast accessibility guaranteed across devices.</p>
+                    </div>
+
+                    <div class="philosophy-pillar-card">
+                        <span class="pillar-idx">05 / KINETIC UI</span>
+                        <h4 class="pillar-name">Tactile State Physics</h4>
+                        <p class="pillar-desc">Fluid gesture handling, responsive feedback loops, and intuitive navigation ergonomics.</p>
+                    </div>
+
+                    <div class="philosophy-pillar-card">
+                        <span class="pillar-idx">06 / INTELLIGENCE</span>
+                        <h4 class="pillar-name">Edge AI Integration</h4>
+                        <p class="pillar-desc">Streaming AI assistants, semantic search indexing, and real-time inference orchestration.</p>
                     </div>
                 </div>
             </div>
@@ -3473,7 +4415,7 @@
 
             <ul class="work-list">
                 <li class="work-item"
-                    data-img="/assets/images/project_1_1787254271240.jpg">
+                    data-img="/assets/images/kw-project-web.jpg?v=20260901">
                     <a href="/case-studies/acme-headless-ecommerce.html" class="work-item-link">
                         <div class="work-item-left">
                             <span class="work-num">01</span>
@@ -3484,7 +4426,7 @@
                     </a>
                 </li>
                 <li class="work-item"
-                    data-img="/assets/images/project_2_1787254282785.jpg">
+                    data-img="/assets/images/kw-project-ecomm.jpg?v=20260901">
                     <a href="/case-studies.html" class="work-item-link">
                         <div class="work-item-left">
                             <span class="work-num">02</span>
@@ -3495,7 +4437,7 @@
                     </a>
                 </li>
                 <li class="work-item"
-                    data-img="/assets/images/project_3_1787254295127.jpg">
+                    data-img="/assets/images/kw-project-brand.jpg?v=20260901">
                     <a href="/case-studies.html" class="work-item-link">
                         <div class="work-item-left">
                             <span class="work-num">03</span>
@@ -3855,56 +4797,128 @@
 
 
         <footer class="sections global-site-footer">
-            <div class="services-header-2">
-                <h3 class="left services-title-2">Ready to talk?</h3>
-                <h3 class="right services-title-2"><em>let's connect</em></h3>
-            </div>
-            <div class="footer-content">
-                <div class="new-options">
-                    <a href="mailto:hello@kawakistudios.com">hello@kawakistudios.com 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                            <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                        </svg>
-                    </a>
-                    <a href="/contact.html">connect on a call with founder 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                            <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                        </svg> 
-                    </a>
-                    <a href="/about.html">curious? find us 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                            <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                        </svg> 
-                    </a>
+            <!-- Top Availability Pill -->
+            <div class="footer-top-strip">
+                <div class="footer-status-pill">
+                    <span class="footer-status-dot"></span>
+                    <span>Available for Q3 / Q4 Projects — Worldwide</span>
                 </div>
-                <a href="/contact.html" style="text-decoration:none;">
-                    <button class="rlvnt-btn max-content">
-                        <span>connect now</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                            <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                        </svg>
-                    </button>
+            </div>
+
+            <!-- Big Impact Headline & Magnetic CTA -->
+            <div class="services-header-2">
+                <div class="footer-headline-group">
+                    <h3 class="services-title-2">Ready to talk?</h3>
+                    <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+                </div>
+                <a href="/contact.html" class="footer-cta-card-btn">
+                    <span>Schedule Intro Call</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                        <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                    </svg>
                 </a>
             </div>
-            <div class="footer-bottom">
-                <div class="links">
-                    <button id="backToTop" aria-label="Go to top" class="btn-top" title="Go to top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Top</button>
-                    <a href="/about.html">Privacy Policy</a>
-                    <div class="socials-trigger-rlvnt">
-                        <span class="socials-label-rlvnt">Socials</span>
-                        <div class="socials-row-rlvnt">
-                            <a href="https://linkedin.com" target="_blank" class="social-icon-rlvnt" title="LinkedIn">Lin.</a>
-                            <a href="https://twitter.com" target="_blank" class="social-icon-rlvnt" title="Twitter">Twi.</a>
-                            <a href="https://instagram.com" target="_blank" class="social-icon-rlvnt" title="Instagram">Ins.</a>
-                            <a href="https://behance.net" target="_blank" class="social-icon-rlvnt" title="Behance">Beh.</a>
+
+            <!-- 4-Column Directory Grid -->
+            <div class="footer-grid-directory">
+                <!-- Column 1: Navigation -->
+                <div class="footer-col">
+                    <div class="footer-col-header">// DIRECTORY</div>
+                    <ul class="footer-links-list">
+                        <li><a href="/index.html"><span>Home</span> <span class="nav-idx">01</span></a></li>
+                        <li><a href="/about.html"><span>About Studio</span> <span class="nav-idx">02</span></a></li>
+                        <li><a href="/services.html"><span>Services & Systems</span> <span class="nav-idx">03</span></a></li>
+                        <li><a href="/case-studies.html"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
+                        <li><a href="/blog.html"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
+                        <li><a href="/contact.html"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Direct Contact -->
+                <div class="footer-col">
+                    <div class="footer-col-header">// DIRECT CHANNELS</div>
+                    <div class="footer-contact-item">
+                        <span class="footer-contact-label">New Business & Inquiries</span>
+                        <a href="mailto:hello@kawakistudios.com" class="footer-contact-val">
+                            hello@kawakistudios.com
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </div>
+                    <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                        <span class="footer-contact-label">Partnerships & Co-Ventures</span>
+                        <a href="mailto:partners@kawakistudios.com" class="footer-contact-val">
+                            partners@kawakistudios.com
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </div>
+                    <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                        <span class="footer-contact-label">Direct Founder Calendar</span>
+                        <a href="/contact.html" class="footer-contact-val" style="color: #111111; font-weight: 600;">
+                            Book 15-Min Briefing ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 3: Global Time Zones -->
+                <div class="footer-col">
+                    <div class="footer-col-header">// STUDIOS & LOCAL TIME</div>
+                    <div class="footer-time-badge">
+                        <div class="footer-time-city">
+                            <span>New Delhi (HQ)</span>
+                            <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
+                        </div>
+                    </div>
+                    <div class="footer-time-badge">
+                        <div class="footer-time-city">
+                            <span>Tokyo</span>
+                            <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
+                        </div>
+                    </div>
+                    <div class="footer-time-badge">
+                        <div class="footer-time-city">
+                            <span>London</span>
+                            <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
+                        </div>
+                    </div>
+                    <div class="footer-time-badge">
+                        <div class="footer-time-city">
+                            <span>New York</span>
+                            <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
                         </div>
                     </div>
                 </div>
-                <div class="copyright">&copy; 2026 Kawaki Studios. All rights reserved.</div>
+
+                <!-- Column 4: Social Index -->
+                <div class="footer-col">
+                    <div class="footer-col-header">// SOCIAL INDEX</div>
+                    <ul class="footer-links-list">
+                        <li><a href="https://instagram.com" target="_blank" rel="noopener"><span>Instagram</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                        <li><a href="https://twitter.com" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                        <li><a href="https://linkedin.com" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                        <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Giant Architectural Watermark -->
+            <div class="footer-giant-watermark">
+                <span>KAWAKI</span>
+            </div>
+
+            <!-- Bottom Metadata & Legal Bar -->
+            <div class="footer-bottom">
+                <div class="copyright">© 2026 Kawaki Studios Ltd. All rights reserved. — Editorial Engineering & Spatial Commerce.</div>
+                <ul class="footer-bottom-links">
+                    <li><a href="/about.html">Privacy Policy</a></li>
+                    <li><a href="/about.html">Terms of Service</a></li>
+                    <li><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; color: #555;"><span style="width:6px; height:6px; border-radius:50%; background:#C6FF00; display:inline-block;"></span> Systems Nominal</span></li>
+                </ul>
+                <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
+                    <span>Back to Top</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                </button>
             </div>
         </footer>
     </main>
@@ -4078,12 +5092,161 @@
         })();
     </script>
 
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/main.js?v=20260902_luxury_v6"></script>
+    <!-- ==========================================================================
+         KAWAKI STUDIOS — DREAM DESIGN DELIVER PRELOADER ANIMATION ENGINE
+         ========================================================================== -->
     <script>
-        if (typeof initGlobalNav === 'function') {
-            initGlobalNav();
-        }
+        (function () {
+            const preloader = document.getElementById('dreamPreloader');
+            if (!preloader) return;
+
+            // Lock body scroll during preloader
+            document.body.style.overflow = 'hidden';
+
+            const counterEl = document.getElementById('preloaderCounter');
+            const barFill = document.getElementById('preloaderBarFill');
+            const statusMsg = document.getElementById('preloaderStatusMsg');
+            const wordSlides = document.querySelectorAll('.preloader-word-slide');
+            const contentWrap = document.getElementById('pContentWrap');
+            const shutterTop = document.getElementById('pShutterTop');
+            const shutterBottom = document.getElementById('pShutterBottom');
+
+            const statusStages = [
+                "INITIALIZING EDITORIAL KERNEL...",
+                "CALIBRATING KINETIC SHADERS...",
+                "SYNCHRONIZING HIGH-VELOCITY PLATFORMS...",
+                "SYSTEM OPERATIONAL."
+            ];
+
+            let activeWordIdx = 0;
+
+            function setWord(targetIdx) {
+                if (targetIdx === activeWordIdx || !wordSlides[targetIdx]) return;
+                
+                if (wordSlides[activeWordIdx]) {
+                    wordSlides[activeWordIdx].classList.remove('active');
+                    wordSlides[activeWordIdx].classList.add('exit');
+                }
+                
+                wordSlides[targetIdx].classList.remove('exit');
+                wordSlides[targetIdx].classList.add('active');
+                
+                if (statusMsg && statusStages[targetIdx]) {
+                    statusMsg.textContent = statusStages[targetIdx];
+                }
+                activeWordIdx = targetIdx;
+            }
+
+            // Animate progress 0 -> 100
+            const progressObj = { value: 0 };
+            
+            // Check if GSAP is available
+            function startLoader() {
+                if (window.gsap) {
+                    gsap.to(progressObj, {
+                        value: 100,
+                        duration: 1.9,
+                        ease: "power2.inOut",
+                        onUpdate: () => {
+                            const current = Math.floor(progressObj.value);
+                            const formatted = current < 10 ? `0${current}%` : `${current}%`;
+                            
+                            if (counterEl) counterEl.textContent = formatted;
+                            if (barFill) barFill.style.width = `${current}%`;
+
+                            if (current >= 80) {
+                                setWord(3); // KAWAKI STUDIOS
+                            } else if (current >= 54) {
+                                setWord(2); // DELIVER
+                            } else if (current >= 26) {
+                                setWord(1); // DESIGN
+                            } else {
+                                setWord(0); // DREAM
+                            }
+                        },
+                        onComplete: () => {
+                            finishLoader();
+                        }
+                    });
+                } else {
+                    // Fallback interval
+                    let p = 0;
+                    const interval = setInterval(() => {
+                        p += 2;
+                        if (counterEl) counterEl.textContent = `${p}%`;
+                        if (barFill) barFill.style.width = `${p}%`;
+                        if (p >= 80) setWord(3);
+                        else if (p >= 54) setWord(2);
+                        else if (p >= 26) setWord(1);
+                        else setWord(0);
+
+                        if (p >= 100) {
+                            clearInterval(interval);
+                            finishLoader();
+                        }
+                    }, 20);
+                }
+            }
+
+            function finishLoader() {
+                setTimeout(() => {
+                    if (window.gsap) {
+                        const tl = gsap.timeline({
+                            onComplete: () => {
+                                preloader.style.display = 'none';
+                                preloader.style.pointerEvents = 'none';
+                                document.body.style.overflow = '';
+                                if (window.ScrollTrigger) ScrollTrigger.refresh();
+                            }
+                        });
+
+                        tl.to(contentWrap, {
+                            opacity: 0,
+                            y: -24,
+                            duration: 0.35,
+                            ease: "power2.in"
+                        })
+                        .to(shutterTop, {
+                            yPercent: -102,
+                            duration: 0.85,
+                            ease: "power4.inOut"
+                        }, "-=0.1")
+                        .to(shutterBottom, {
+                            yPercent: 102,
+                            duration: 0.85,
+                            ease: "power4.inOut"
+                        }, "<")
+                        .fromTo(".hero-lamalama-section", {
+                            scale: 1.04,
+                            opacity: 0.85
+                        }, {
+                            scale: 1,
+                            opacity: 1,
+                            duration: 1,
+                            ease: "power3.out"
+                        }, "-=0.7");
+                    } else {
+                        preloader.style.opacity = '0';
+                        preloader.style.transition = 'opacity 0.6s ease';
+                        setTimeout(() => {
+                            preloader.style.display = 'none';
+                            document.body.style.overflow = '';
+                        }, 600);
+                    }
+                }, 180);
+            }
+
+            // Start loader once DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', startLoader);
+            } else {
+                startLoader();
+            }
+        })();
     </script>
+    <script src="/assets/js/main.js?v=20260902_luxury_v6"></script>
+    <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
 </body>
 
 </html>

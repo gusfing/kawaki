@@ -12,6 +12,7 @@ function initGlobalNav() {
         isMenuOpen = !isMenuOpen;
         
         if (isMenuOpen) {
+            body.classList.add('menu-is-open');
             menu.classList.add('open');
             menu.style.display = 'flex';
             menu.style.opacity = '1';
@@ -41,6 +42,7 @@ function initGlobalNav() {
             const textEl = document.getElementById('menu-toggle-text');
             if (textEl) textEl.innerText = 'CLOSE';
         } else {
+            body.classList.remove('menu-is-open');
             body.style.overflow = '';
             
             if (typeof gsap !== 'undefined') {
@@ -81,6 +83,23 @@ function initGlobalNav() {
                 e.preventDefault();
                 e.stopPropagation();
                 toggleMenuState();
+            });
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMenuOpen) {
+            toggleMenuState();
+        }
+    });
+
+    // Close on link click
+    if (menu) {
+        const menuLinks = menu.querySelectorAll('.main-menu-links a, .menu-cta-button');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) toggleMenuState();
             });
         });
     }
@@ -187,32 +206,56 @@ function initGlobalNav() {
     updateStudioClock();
     setInterval(updateStudioClock, 1000);
 
+    // World Clocks Updater for Footer
+    function updateWorldClocks() {
+        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
+        
+        const delhiEl = document.getElementById('footerTimeDelhi');
+        if (delhiEl) {
+            delhiEl.textContent = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'Asia/Kolkata' }).format(new Date()) + ' IST';
+        }
+
+        const tokyoEl = document.getElementById('footerTimeTokyo');
+        if (tokyoEl) {
+            tokyoEl.textContent = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'Asia/Tokyo' }).format(new Date()) + ' JST';
+        }
+
+        const londonEl = document.getElementById('footerTimeLondon');
+        if (londonEl) {
+            londonEl.textContent = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'Europe/London' }).format(new Date()) + ' GMT';
+        }
+
+        const nyEl = document.getElementById('footerTimeNY');
+        if (nyEl) {
+            nyEl.textContent = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'America/New_York' }).format(new Date()) + ' EST';
+        }
+    }
+
+    updateWorldClocks();
+    setInterval(updateWorldClocks, 1000);
+
     // Back to top button listener
-    const backToTopBtn = document.getElementById('backToTop');
-    if (backToTopBtn) {
-        backToTopBtn.addEventListener('click', (e) => {
+    document.querySelectorAll('#backToTop, .footer-back-to-top').forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    }
-
-    // Magnetic button hover effect
-    const magneticButtons = document.querySelectorAll('.rlvnt-btn');
-    magneticButtons.forEach((btn) => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - (rect.left + rect.width / 2);
-            const y = e.clientY - (rect.top + rect.height / 2);
-            if (typeof gsap !== 'undefined') {
-                gsap.to(btn, { x: x * 0.25, y: y * 0.25, duration: 0.3, ease: 'power2.out' });
-            }
-        });
-        btn.addEventListener('mouseleave', () => {
-            if (typeof gsap !== 'undefined') {
-                gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
-            }
-        });
     });
+
+    // Process timeline step hover interaction
+    const processCols = document.querySelectorAll('.hwb-step-col');
+    if (processCols.length > 0) {
+        processCols.forEach((col) => {
+            col.addEventListener('mouseenter', () => {
+                processCols.forEach((c) => c.classList.remove('active'));
+                col.classList.add('active');
+            });
+        });
+    }
 }
 
-document.addEventListener('DOMContentLoaded', initGlobalNav);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGlobalNav);
+} else {
+    initGlobalNav();
+}

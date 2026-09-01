@@ -14,14 +14,17 @@
     <meta property="og:title" content="Services — Kawaki Studios" />
     <meta property="og:description" content="Editorial Engineering, Commerce Platforms, Performance Optimization." />
     <meta property="og:url" content="https://kawakistudios.com/services.html" />
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 </head>
 <body style="background-color: #ffffff; color: #111111;">
 
     <!-- SVG LIQUID LENS FILTER -->
-    <svg class="svg-defs" style="position: absolute; width: 0; height: 0; pointer-events: none; overflow: hidden;" aria-hidden="true">
+    <!-- SVG LIQUID LENS FILTER -->
+    <svg style="display: none;">
         <defs>
             <filter id="liquid-lens">
                 <feTurbulence type="fractalNoise" baseFrequency="0.01 0.03" numOctaves="1" result="turbulence"></feTurbulence>
@@ -30,50 +33,46 @@
         </defs>
     </svg>
 
-<!-- GLOBAL FLOATING PILL NAVBAR -->
-<div class="nav-wrapper" id="globalNav">
-    <nav>
-        <a href="/index.html" class="nav-left" aria-label="Kawaki Studios">
-            <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
-        </a>
-        <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
-        <div class="nav-right" id="menuToggleBtn" aria-label="Open Menu">
-            <span id="menu-toggle-text">MENU</span>
-            <div id="menu-toggle-icon">
-                <div class="bar bar-top"></div>
-                <div class="bar bar-bottom"></div>
+    <!-- GLOBAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper" id="globalNav">
+        <nav>
+            <a href="/index.html" class="nav-left" aria-label="Kawaki Studios">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
+            <div class="nav-right" id="menuToggleBtn" aria-label="Open Menu">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
             </div>
-        </div>
-    </nav>
-</div>
+        </nav>
+    </div>
 
-<!-- FULLSCREEN OVERLAY MENU -->
-    <div class="fullscreen-menu" id="fullscreenMenu">
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
         <div class="menu-overlay-layer"></div>
         <div class="menu-overlay-layer"></div>
         <div class="menu-content-wrapper">
-            <button id="menuCloseBtn" class="menu-close-btn" aria-label="Close menu" style="position: absolute; top: 1.5rem; right: 2rem; z-index: 100; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.25rem; border-radius: 50px; background: #ffffff; border: 1px solid rgba(0,0,0,0.12); cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600; color: #12100e; box-shadow: 0 4px 15px rgba(0,0,0,0.06);">
-                <span>CLOSE</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
             <span class="span-menu"><em>kawaki</em></span>
             <div class="menu-layout">
                 <div class="menu-col menu-col-left">
                     <div class="main-menu-links">
                         <ul>
-                            <li data-img="/assets/images/project_1_1787254271240.jpg" data-tag="Home — Studio Overview">
+                            <li data-img="/assets/images/hero_slide_1_clean.jpg" data-tag="Home — Studio Overview">
                                 <a href="/index.html">
                                     <span class="menu-idx">01</span>
                                     <span class="menu-text">Home <em>Index</em></span>
                                 </a>
                             </li>
-                            <li data-img="/assets/images/project_2_1787254282785.jpg" data-tag="About Us — Editorial Manifesto">
+                            <li data-img="/assets/images/hero_slide_2_clean.jpg" data-tag="About Us — Editorial Manifesto">
                                 <a href="/about.html">
                                     <span class="menu-idx">02</span>
                                     <span class="menu-text">About <em>Kawaki Studios</em></span>
                                 </a>
                             </li>
-                            <li data-img="/assets/images/project_3_1787254295127.jpg" data-tag="Capabilities &amp; Architecture">
+                            <li data-img="/assets/images/hero_slide_3_clean.jpg" data-tag="Capabilities &amp; Architecture">
                                 <a href="/services.html">
                                     <span class="menu-idx">03</span>
                                     <span class="menu-text">Explore <em>Our Services</em></span>
@@ -85,7 +84,7 @@
                                     <span class="menu-text">Selected <em>Work &amp; Results</em></span>
                                 </a>
                             </li>
-                            <li data-img="/assets/images/team_placeholder.jpg" data-tag="Engineering &amp; Design Notes">
+                            <li data-img="/assets/images/station_drag_prism.jpg" data-tag="Engineering &amp; Design Notes">
                                 <a href="/blog.html">
                                     <span class="menu-idx">05</span>
                                     <span class="menu-text">Blogs &amp; <em>Insights</em></span>
@@ -104,10 +103,10 @@
                     <!-- Interactive Preview Card -->
                     <div class="menu-preview-card" id="menuPreviewCard">
                         <div class="menu-preview-img-box">
-                            <img id="menuPreviewImg" src="/assets/images/project_2_1787254282785.jpg" alt="Preview" />
+                            <img id="menuPreviewImg" src="/assets/images/hero_slide_3_clean.jpg" alt="Preview" />
                         </div>
                         <div class="menu-preview-meta">
-                            <span class="menu-preview-badge" id="menuPreviewTag">About Us — Editorial Manifesto</span>
+                            <span class="menu-preview-badge" id="menuPreviewTag">Capabilities &amp; Architecture</span>
                             <span class="menu-preview-desc">Editorial Engineering &amp; Design</span>
                         </div>
                     </div>
@@ -142,10 +141,6 @@
             </div>
         </div>
     </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <main class="services-page-wrapper">
     <section class="section hero">
@@ -587,63 +582,135 @@
 
 <!-- UNIVERSAL GLOBAL FOOTER -->
 <footer class="sections global-site-footer">
-        <div class="services-header-2">
-            <h3 class="left services-title-2">Ready to talk?</h3>
-            <h3 class="right services-title-2"><em>let's connect</em></h3>
+    <!-- Top Availability Pill -->
+    <div class="footer-top-strip">
+        <div class="footer-status-pill">
+            <span class="footer-status-dot"></span>
+            <span>Available for Q3 / Q4 Projects — Worldwide</span>
         </div>
-        <div class="footer-content">
-            <div class="new-options">
-                <a href="mailto:hello@kawakistudios.com">hello@kawakistudios.com 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg>
-                </a>
-                <a href="/contact.html">connect on a call with founder 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg> 
-                </a>
-                <a href="/about.html">curious? find us 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg> 
+    </div>
+
+    <!-- Big Impact Headline & Magnetic CTA -->
+    <div class="services-header-2">
+        <div class="footer-headline-group">
+            <h3 class="services-title-2">Ready to talk?</h3>
+            <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+        </div>
+        <a href="/contact.html" class="footer-cta-card-btn">
+            <span>Schedule Intro Call</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+            </svg>
+        </a>
+    </div>
+
+    <!-- 4-Column Directory Grid -->
+    <div class="footer-grid-directory">
+        <!-- Column 1: Navigation -->
+        <div class="footer-col">
+            <div class="footer-col-header">// DIRECTORY</div>
+            <ul class="footer-links-list">
+                <li><a href="/index.html"><span>Home</span> <span class="nav-idx">01</span></a></li>
+                <li><a href="/about.html"><span>About Studio</span> <span class="nav-idx">02</span></a></li>
+                <li><a href="/services.html"><span>Services & Systems</span> <span class="nav-idx">03</span></a></li>
+                <li><a href="/case-studies.html"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
+                <li><a href="/blog.html"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
+                <li><a href="/contact.html"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+            </ul>
+        </div>
+
+        <!-- Column 2: Direct Contact -->
+        <div class="footer-col">
+            <div class="footer-col-header">// DIRECT CHANNELS</div>
+            <div class="footer-contact-item">
+                <span class="footer-contact-label">New Business & Inquiries</span>
+                <a href="mailto:hello@kawakistudios.com" class="footer-contact-val">
+                    hello@kawakistudios.com
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
             </div>
-            <a href="/contact.html" style="text-decoration:none;">
-                <button class="rlvnt-btn max-content">
-                    <span>connect now</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg>
-                </button>
-            </a>
+            <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                <span class="footer-contact-label">Partnerships & Co-Ventures</span>
+                <a href="mailto:partners@kawakistudios.com" class="footer-contact-val">
+                    partners@kawakistudios.com
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+            </div>
+            <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                <span class="footer-contact-label">Direct Founder Calendar</span>
+                <a href="/contact.html" class="footer-contact-val" style="color: #111111; font-weight: 600;">
+                    Book 15-Min Briefing ↗
+                </a>
+            </div>
         </div>
-        <div class="footer-bottom">
-            <div class="links">
-                <button id="backToTop" aria-label="Go to top" class="btn-top" title="Go to top">↑ Top</button>
-                <a href="/about.html">Privacy Policy</a>
-                <div class="socials-trigger-rlvnt">
-                    <span class="socials-label-rlvnt">Socials</span>
-                    <div class="socials-row-rlvnt">
-                        <a href="https://linkedin.com" target="_blank" class="social-icon-rlvnt" title="LinkedIn">Lin.</a>
-                        <a href="https://twitter.com" target="_blank" class="social-icon-rlvnt" title="Twitter">Twi.</a>
-                        <a href="https://instagram.com" target="_blank" class="social-icon-rlvnt" title="Instagram">Ins.</a>
-                        <a href="https://behance.net" target="_blank" class="social-icon-rlvnt" title="Behance">Beh.</a>
-                    </div>
+
+        <!-- Column 3: Global Time Zones -->
+        <div class="footer-col">
+            <div class="footer-col-header">// STUDIOS & LOCAL TIME</div>
+            <div class="footer-time-badge">
+                <div class="footer-time-city">
+                    <span>New Delhi (HQ)</span>
+                    <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
                 </div>
             </div>
-            <div class="copyright">&copy; 2026 Kawaki Studios. All rights reserved.</div>
+            <div class="footer-time-badge">
+                <div class="footer-time-city">
+                    <span>Tokyo</span>
+                    <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
+                </div>
+            </div>
+            <div class="footer-time-badge">
+                <div class="footer-time-city">
+                    <span>London</span>
+                    <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
+                </div>
+            </div>
+            <div class="footer-time-badge">
+                <div class="footer-time-city">
+                    <span>New York</span>
+                    <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
+                </div>
+            </div>
         </div>
-    </footer>
+
+        <!-- Column 4: Social Index -->
+        <div class="footer-col">
+            <div class="footer-col-header">// SOCIAL INDEX</div>
+            <ul class="footer-links-list">
+                <li><a href="https://instagram.com" target="_blank" rel="noopener"><span>Instagram</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                <li><a href="https://twitter.com" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                <li><a href="https://linkedin.com" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                <li><a href="https://github.com" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Giant Architectural Watermark -->
+    <div class="footer-giant-watermark">
+        <span>KAWAKI</span>
+    </div>
+
+    <!-- Bottom Metadata & Legal Bar -->
+    <div class="footer-bottom">
+        <div class="copyright">© 2026 Kawaki Studios Ltd. All rights reserved. — Editorial Engineering & Spatial Commerce.</div>
+        <ul class="footer-bottom-links">
+            <li><a href="/about.html">Privacy Policy</a></li>
+            <li><a href="/about.html">Terms of Service</a></li>
+            <li><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; color: #555;"><span style="width:6px; height:6px; border-radius:50%; background:#C6FF00; display:inline-block;"></span> Systems Nominal</span></li>
+        </ul>
+        <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
+            <span>Back to Top</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
-<script src="/assets/js/main.js"></script>
+<script src="/assets/js/main.js?v=20260902_luxury_v6"></script>
 <script>
     gsap.registerPlugin(ScrollTrigger);
     document.addEventListener("DOMContentLoaded", () => {
@@ -668,6 +735,7 @@
         }
     });
 </script>
+<script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
 </body>
 </html>
 
