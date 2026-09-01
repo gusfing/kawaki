@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+**/node_modules
+.pnp
+.pnp.js
+
+# Cache & Build artifacts
+.next
+.git
+.claude
+.gemini
+dist
+**/dist
+build
+.cache
+coverage
+.turbo
+*.tsbuildinfo
+
+# Screenshots & Temp previews
+*.png
+*.jpg
+!public/**
+!admin-dashboard/frontend/public/**
+
+# Environment files
+.env.local
+.env.*.local

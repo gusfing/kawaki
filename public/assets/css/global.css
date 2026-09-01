@@ -6846,5 +6846,80 @@ footer.global-site-footer,
   }
 }
 
+/* ==========================================================================
+   GLOBAL RESPONSIVE FAQ & CORE CAPABILITIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .capabilities-sec {
+    padding: 5rem 1.5rem 5rem !important;
+  }
+  .capabilities-sec .services-header.oth {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.25rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
 
-
+@media (max-width: 768px) {
+  .capabilities-sec {
+    padding: 4.5rem 1.25rem 4rem !important;
+  }
+  .capabilities-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .capability-card {
+    padding: 1.75rem 1.35rem !important;
+    border-radius: 14px !important;
+  }
+  .cap-title {
+    font-size: 1.25rem !important;
+  }
+  .cap-desc {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  
+  .container-faq {
+    padding: 5rem 1.25rem 4rem !important;
+  }
+  .container-faq .services-header.oth {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+  .container-faq .services-header.oth .rlvnt-btn {
+    align-self: flex-start !important;
+  }
+  .question-faq {
+    gap: 1rem !important;
+    padding: 1.4rem 0 !important;
+  }
+  .text-faq {
+    font-size: 1.25rem !important;
+    line-height: 1.35 !important;
+  }
+  .text-faq p {
+    font-size: 0.88rem !important;
+    margin-top: 5px !important;
+  }
+  .arrow-faq {
+    width: 38px !important;
+    height: 38px !important;
+    margin-top: 2px !important;
+  }
+  .arrow-faq svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .content-faq {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+}

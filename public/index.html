@@ -2758,68 +2758,103 @@
         .container-faq {
             position: relative;
             z-index: 5;
-            padding: 7rem 4rem !important;
+            padding: 8rem 2rem 7rem !important;
             background: #ffffff;
             border-top: 1px solid rgba(0, 0, 0, 0.06);
+            width: 100%;
+            box-sizing: border-box;
         }
         .container-faq .services-header.oth {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 3.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .container-faq .header-title {
+            font-family: "Plus Jakarta Sans", "Host Grotesk", sans-serif;
+            font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: #111111;
+            margin: 0;
+            text-align: left;
+        }
+        .container-faq .header-title .bs-serif-text {
+            font-family: 'Playfair Display', Georgia, serif !important;
+            font-style: italic;
+            font-weight: 400;
         }
         .list-faq {
             list-style: none;
             padding: 0;
             margin: 0 auto;
             max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box;
         }
         .item-faq {
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 8px 0;
+            padding: 0;
         }
         .question-faq {
             display: flex;
-            gap: 20px;
-            align-items: center;
+            gap: 1.5rem;
+            align-items: flex-start;
             justify-content: space-between;
-            padding: 22px 0;
+            padding: 2rem 0;
             background: transparent;
             border: none;
             width: 100%;
             text-align: left;
             cursor: pointer;
             color: #111111;
+            box-sizing: border-box;
         }
         .text-faq {
-            flex: 1;
-            font-size: clamp(1.25rem, 2vw, 1.85rem);
-            font-weight: 500;
+            flex: 1 1 auto;
+            min-width: 0;
+            font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+            font-weight: 600;
             color: #111111;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            margin: 0;
+            padding: 0;
         }
         .text-faq em {
             font-family: 'Playfair Display', Georgia, serif;
             font-style: italic;
+            font-weight: 400;
         }
         .text-faq p {
             font-size: 0.95rem;
-            margin-top: 5px;
+            margin-top: 8px;
             color: #777777;
             font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: normal;
         }
         .arrow-faq {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             background: #111111;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ffffff;
-            transition: transform 0.35s ease, background-color 0.35s ease;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, color 0.35s ease;
             flex-shrink: 0;
+            margin-top: 4px;
         }
         .question-faq.active-faq .arrow-faq {
             background: #C6FF00;
+            color: #111111;
             transform: rotate(90deg);
         }
         .answer-faq {
@@ -2828,8 +2863,54 @@
             transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
         }
         .answer-faq.open-faq {
-            max-height: 400px;
-            padding: 0.5rem 0 2rem;
+            max-height: 500px;
+            padding: 0 0 2rem;
+        }
+        .content-faq {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #444444;
+            max-width: 960px;
+        }
+
+        @media (max-width: 768px) {
+            .container-faq {
+                padding: 5rem 1.25rem 4rem !important;
+            }
+            .container-faq .services-header.oth {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+                margin-bottom: 2.5rem;
+            }
+            .container-faq .services-header.oth .rlvnt-btn {
+                align-self: flex-start;
+            }
+            .question-faq {
+                gap: 1rem;
+                padding: 1.4rem 0;
+            }
+            .text-faq {
+                font-size: 1.25rem;
+                line-height: 1.35;
+            }
+            .text-faq p {
+                font-size: 0.88rem;
+                margin-top: 5px;
+            }
+            .arrow-faq {
+                width: 38px;
+                height: 38px;
+                margin-top: 2px;
+            }
+            .arrow-faq svg {
+                width: 16px;
+                height: 16px;
+            }
+            .content-faq {
+                font-size: 0.95rem;
+                line-height: 1.65;
+            }
         }
 
         /* ==========================================================================
@@ -2842,6 +2923,8 @@
             background: #ffffff;
             border-top: 1px solid rgba(0, 0, 0, 0.06);
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            width: 100%;
+            box-sizing: border-box;
         }
         .capabilities-sec .services-header.oth {
             display: flex;
@@ -3029,6 +3112,43 @@
         .cap-link:hover {
             color: #000000;
             transform: translateX(2px);
+        }
+
+        @media (max-width: 1024px) {
+            .capabilities-sec {
+                padding: 5rem 1.5rem 5rem !important;
+            }
+            .capabilities-sec .services-header.oth {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.25rem;
+                margin-bottom: 2.5rem;
+            }
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .capabilities-sec {
+                padding: 4.5rem 1.25rem 4rem !important;
+            }
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .capability-card {
+                padding: 1.75rem 1.35rem;
+                border-radius: 14px;
+            }
+            .cap-title {
+                font-size: 1.25rem;
+            }
+            .cap-desc {
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+            }
         }
         /* ==========================================================================
            SYSTEMS SHOWCASE SECTION (MATCHING SITE DESIGN LANGUAGE)
