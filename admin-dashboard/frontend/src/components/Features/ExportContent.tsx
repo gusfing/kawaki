@@ -26,6 +26,7 @@ export function ExportContent({ ids, contentType, exportAll }: ExportContentProp
       };
 
       const blob = await exportContent(payload);
+      if (!blob) throw new Error('No content returned for export');
 
       // Create download link
       const url = window.URL.createObjectURL(blob);

@@ -157,7 +157,7 @@ export function BlogEditorEnhanced({ blog, onSave, onBack }: BlogEditorEnhancedP
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Status
               </label>
-              <select value={status} onChange={(e) => setStatus(e.target.value)} className="input">
+              <select value={status} onChange={(e) => setStatus(e.target.value as "draft" | "published" | "archived")} className="input">
                 <option value="draft">Draft</option>
                 <option value="published">Published</option>
                 <option value="archived">Archived</option>

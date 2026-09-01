@@ -4,7 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3001;
+const BACKEND_PORT = process.env.BACKEND_PORT || 3000;
 const ROOT = path.resolve(__dirname, 'public');
+const ADMIN_ROOT = path.resolve(__dirname, 'admin-dashboard', 'frontend', 'dist');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -39,6 +41,38 @@ const PROXY_DOMAINS = [
   'editions-winter-2026.myshopify.com'
 ];
 
+function proxyToBackend(req, res) {
+  const options = {
+    hostname: '127.0.0.1',
+    port: BACKEND_PORT,
+    path: req.url,
+    method: req.method,
+    headers: {
+      ...req.headers,
+      host: `127.0.0.1:${BACKEND_PORT}`
+    }
+  };
+
+  const proxyReq = http.request(options, (proxyRes) => {
+    res.writeHead(proxyRes.statusCode, proxyRes.headers);
+    proxyRes.pipe(res);
+  });
+
+  proxyReq.on('error', (err) => {
+    console.error(`[API PROXY ERROR] Backend not reachable at port ${BACKEND_PORT}:`, err.message);
+    if (!res.headersSent) {
+      res.writeHead(503, { 'Content-Type': 'application/json' });
+    }
+    res.end(JSON.stringify({
+      success: false,
+      error: 'Backend API Service Temporarily Unavailable',
+      details: err.message
+    }));
+  });
+
+  req.pipe(proxyReq);
+}
+
 function fetchAndCacheFromRemote(targetUrl, localPath, req, res) {
   const options = {
     headers: {
@@ -49,7 +83,6 @@ function fetchAndCacheFromRemote(targetUrl, localPath, req, res) {
   };
 
   https.get(targetUrl, options, (remoteRes) => {
-    // Handle redirects
     if (remoteRes.statusCode >= 300 && remoteRes.statusCode < 400 && remoteRes.headers.location) {
       return fetchAndCacheFromRemote(remoteRes.headers.location, localPath, req, res);
     }
@@ -67,7 +100,6 @@ function fetchAndCacheFromRemote(targetUrl, localPath, req, res) {
       'Cache-Control': 'public, max-age=31536000'
     });
 
-    // Ensure directory exists before saving
     const dir = path.dirname(localPath);
     fs.mkdir(dir, { recursive: true }, (mkdirErr) => {
       if (!mkdirErr) {
@@ -90,16 +122,8 @@ function fetchAndCacheFromRemote(targetUrl, localPath, req, res) {
 const server = http.createServer((req, res) => {
   // CORS Headers
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD');
   res.setHeader('Access-Control-Allow-Headers', '*');
-
-  // Security Headers
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
-  res.setHeader('X-XSS-Protection', '1; mode=block');
-  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
@@ -110,7 +134,41 @@ const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
   let reqPath = decodeURIComponent(parsedUrl.pathname);
 
-  // Serve shopify page on /shopify or /editions
+  // 1. Forward all /api/ requests to the Hono Backend
+  if (reqPath.startsWith('/api/') || reqPath === '/api') {
+    proxyToBackend(req, res);
+    return;
+  }
+
+  // Security Headers for frontend assets
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+  // 2. Serve Admin Panel at /admin or /admin/*
+  if (reqPath === '/admin' || reqPath.startsWith('/admin/')) {
+    let subPath = reqPath.slice('/admin'.length);
+    if (!subPath || subPath === '/') {
+      subPath = '/index.html';
+    }
+
+    let adminFilePath = path.join(ADMIN_ROOT, subPath);
+
+    if (fs.existsSync(adminFilePath) && fs.statSync(adminFilePath).isFile()) {
+      serveLocalFile(adminFilePath, res);
+      return;
+    }
+
+    // SPA Fallback for client-side routing
+    const adminIndex = path.join(ADMIN_ROOT, 'index.html');
+    if (fs.existsSync(adminIndex)) {
+      serveLocalFile(adminIndex, res);
+      return;
+    }
+  }
+
+  // 3. Serve Shopify page on /shopify or /editions
   if (reqPath.startsWith('/editions') || reqPath === '/shopify' || reqPath === '/shopify.html') {
     const shopifyPath = path.join(ROOT, 'shopify.html');
     if (fs.existsSync(shopifyPath)) {
@@ -119,7 +177,7 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // Root request / maps directly to index.html
+  // 4. Root request / maps to index.html
   if (reqPath === '/') {
     const indexPath = path.join(ROOT, 'index.html');
     if (fs.existsSync(indexPath)) {
@@ -139,7 +197,6 @@ const server = http.createServer((req, res) => {
 
   fs.stat(filePath, (err, stats) => {
     if (!err && stats.isFile()) {
-      // File found locally
       serveLocalFile(filePath, res);
       return;
     }
@@ -180,7 +237,6 @@ function serveLocalFile(filePath, res) {
 
   const stream = fs.createReadStream(filePath);
   stream.on('open', () => {
-    // Determine cache headers: HTML gets no-cache, static assets get long-term caching
     const isHTML = filePath.endsWith('.html');
     const cacheControl = isHTML
       ? 'no-cache, no-store, must-revalidate'
@@ -192,7 +248,6 @@ function serveLocalFile(filePath, res) {
       'Cache-Control': cacheControl
     };
 
-    // Add Pragma/Expires only for HTML
     if (isHTML) {
       headers['Pragma'] = 'no-cache';
       headers['Expires'] = '0';
@@ -211,5 +266,8 @@ function serveLocalFile(filePath, res) {
 }
 
 server.listen(PORT, () => {
-  console.log(`Kawaki Studios app server running at http://localhost:${PORT}`);
+  console.log(`🚀 Kawaki Studios Web & Admin Gateway running at http://localhost:${PORT}`);
+  console.log(`   - Website: http://localhost:${PORT}/`);
+  console.log(`   - Admin Panel: http://localhost:${PORT}/admin/`);
+  console.log(`   - Backend API Proxy: http://localhost:${PORT}/api/ -> http://127.0.0.1:${BACKEND_PORT}/api/`);
 });

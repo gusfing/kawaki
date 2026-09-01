@@ -389,7 +389,7 @@
             }
 
             try {
-                const res = await fetch(`http://localhost:3000/api/blogs/${slug}`);
+                const res = await fetch(`/api/blogs/${slug}`);
                 if (!res.ok) throw new Error('Story not found');
                 const json = await res.json();
                 const blog = json.data;

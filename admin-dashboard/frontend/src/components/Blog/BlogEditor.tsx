@@ -151,7 +151,7 @@ export function BlogEditor({ blog, onSave, onBack }: BlogEditorProps) {
               </label>
               <select
                 value={status}
-                onChange={(e) => setStatus(e.target.value)}
+                onChange={(e) => setStatus(e.target.value as "draft" | "published" | "archived")}
                 className="input font-medium"
               >
                 <option value="draft" className="bg-[#13131A] text-yellow-400">Draft</option>

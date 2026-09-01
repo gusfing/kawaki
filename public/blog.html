@@ -635,7 +635,7 @@
 
             // 1. Fetch Dynamic Blogs from Kawaki Backend API
             try {
-                const res = await fetch('http://localhost:3000/api/blogs?status=published&limit=50');
+                const res = await fetch('/api/blogs?status=published&limit=50');
                 if (res.ok) {
                     const json = await res.json();
                     const dynamicBlogs = json.data || [];

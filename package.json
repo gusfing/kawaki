@@ -4,8 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "node server.js",
-    "build": "echo 'Static Site - Ready'",
-    "start": "node server.js",
+    "dev:all": "node scripts/start-all.js",
+    "start": "node scripts/start-all.js",
+    "backend": "cd admin-dashboard/backend && npx tsx src/index.ts",
+    "build:admin": "cd admin-dashboard/frontend && npm run build",
+    "build": "node scripts/build-for-vercel.js",
+    "vercel-build": "node scripts/build-for-vercel.js",
     "lint": "eslint"
   },
   "dependencies": {
