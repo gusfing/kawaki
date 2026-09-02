@@ -2,7 +2,6 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "buildCommand": "node scripts/build-for-vercel.js",
   "outputDirectory": "public",
   "rewrites": [
     {

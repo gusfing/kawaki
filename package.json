@@ -8,8 +8,8 @@
     "start": "node scripts/start-all.js",
     "backend": "cd admin-dashboard/backend && npx tsx src/index.ts",
     "build:admin": "cd admin-dashboard/frontend && npm run build",
-    "build": "node scripts/build-for-vercel.js",
-    "vercel-build": "node scripts/build-for-vercel.js",
+    "build": "echo 'Ready'",
+    "vercel-build": "echo 'Ready'",
     "lint": "eslint"
   },
   "dependencies": {
