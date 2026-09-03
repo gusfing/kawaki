@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3001;
 const BACKEND_PORT = process.env.BACKEND_PORT || 3000;
 const ROOT = path.resolve(__dirname, 'public');
 const ADMIN_ROOT = path.resolve(__dirname, 'admin-dashboard', 'frontend', 'dist');
+const { handleApiRequest } = require('./lib/db-api-handler.js');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -41,36 +42,46 @@ const PROXY_DOMAINS = [
   'editions-winter-2026.myshopify.com'
 ];
 
-function proxyToBackend(req, res) {
-  const options = {
-    hostname: '127.0.0.1',
-    port: BACKEND_PORT,
-    path: req.url,
-    method: req.method,
-    headers: {
-      ...req.headers,
-      host: `127.0.0.1:${BACKEND_PORT}`
+function handleApiProxyOrDirect(req, res, parsedUrl) {
+  let bodyChunks = [];
+  req.on('data', chunk => bodyChunks.push(chunk));
+  req.on('end', () => {
+    const rawBody = Buffer.concat(bodyChunks);
+    let jsonBody = null;
+    if (rawBody.length > 0) {
+      try {
+        jsonBody = JSON.parse(rawBody.toString('utf-8'));
+      } catch (e) {
+        jsonBody = null;
+      }
     }
-  };
 
-  const proxyReq = http.request(options, (proxyRes) => {
-    res.writeHead(proxyRes.statusCode, proxyRes.headers);
-    proxyRes.pipe(res);
-  });
+    const options = {
+      hostname: '127.0.0.1',
+      port: BACKEND_PORT,
+      path: req.url,
+      method: req.method,
+      headers: {
+        ...req.headers,
+        host: `127.0.0.1:${BACKEND_PORT}`
+      }
+    };
 
-  proxyReq.on('error', (err) => {
-    console.error(`[API PROXY ERROR] Backend not reachable at port ${BACKEND_PORT}:`, err.message);
-    if (!res.headersSent) {
-      res.writeHead(503, { 'Content-Type': 'application/json' });
+    const proxyReq = http.request(options, (proxyRes) => {
+      res.writeHead(proxyRes.statusCode, proxyRes.headers);
+      proxyRes.pipe(res);
+    });
+
+    proxyReq.on('error', (err) => {
+      // Backend not running -> Seamlessly fallback to direct database handler!
+      handleApiRequest(req, res, parsedUrl, jsonBody);
+    });
+
+    if (rawBody.length > 0) {
+      proxyReq.write(rawBody);
     }
-    res.end(JSON.stringify({
-      success: false,
-      error: 'Backend API Service Temporarily Unavailable',
-      details: err.message
-    }));
+    proxyReq.end();
   });
-
-  req.pipe(proxyReq);
 }
 
 function fetchAndCacheFromRemote(targetUrl, localPath, req, res) {
@@ -134,9 +145,9 @@ const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
   let reqPath = decodeURIComponent(parsedUrl.pathname);
 
-  // 1. Forward all /api/ requests to the Hono Backend
+  // 1. Forward all /api/ requests to the Hono Backend (with SQLite database fallback)
   if (reqPath.startsWith('/api/') || reqPath === '/api') {
-    proxyToBackend(req, res);
+    handleApiProxyOrDirect(req, res, parsedUrl);
     return;
   }
 
@@ -148,9 +159,9 @@ const server = http.createServer((req, res) => {
 
   // 2. Serve Admin Panel at /admin or /admin/*
   if (reqPath === '/admin' || reqPath.startsWith('/admin/')) {
-    let subPath = reqPath.slice('/admin'.length);
-    if (!subPath || subPath === '/') {
-      subPath = '/index.html';
+    let subPath = reqPath.slice('/admin'.length).replace(/^[/\\]+/, '');
+    if (!subPath) {
+      subPath = 'index.html';
     }
 
     let adminFilePath = path.join(ADMIN_ROOT, subPath);
@@ -164,6 +175,15 @@ const server = http.createServer((req, res) => {
     const adminIndex = path.join(ADMIN_ROOT, 'index.html');
     if (fs.existsSync(adminIndex)) {
       serveLocalFile(adminIndex, res);
+      return;
+    }
+  }
+
+  // Safety: Serve admin assets if requested directly at /assets/index-*
+  if (reqPath.startsWith('/assets/index-')) {
+    const adminAsset = path.join(ADMIN_ROOT, reqPath.replace(/^[/\\]+/, ''));
+    if (fs.existsSync(adminAsset) && fs.statSync(adminAsset).isFile()) {
+      serveLocalFile(adminAsset, res);
       return;
     }
   }

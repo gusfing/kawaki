@@ -5,7 +5,11 @@
   "outputDirectory": "public",
   "rewrites": [
     {
-      "source": "/admin/:match*",
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/((?!assets/|.*\\..*).*)",
       "destination": "/admin/index.html"
     },
     {
