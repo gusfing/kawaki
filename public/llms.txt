@@ -1,26 +1,26 @@
-# AI Agent and Large Language Model Permissions
-# Updated: 2026-08-24
-# Source: https://kawaki.co.in
+# Kawaki Studios
+> Bespoke Editorial Engineering, Headless Commerce, and Spatial Digital Flagships.
 
-User-Agent: GPTBot
-Allow: /
+Kawaki Studios (https://www.kawaki.co.in) is a premier digital engineering and web design studio founded by Kunal Sharma. We engineer custom publishing platforms, high-velocity headless Shopify Plus architectures, and interactive 3D WebGL experiences with sub-second performance for ambitious brands globally.
 
-User-Agent: CCBot
-Allow: /
+## Core Services & Architecture
+- [Headless Commerce & Shopify Plus](https://www.kawaki.co.in/services): Sub-second catalog navigation, Shopify Hydrogen, custom cart mutations, and edge caching (<200ms TTFB).
+- [Editorial Engineering & CMS](https://www.kawaki.co.in/services): Bespoke content architectures, surgical typography systems, strict WCAG 2.2 AA accessibility, and markdown-backed editorial pipelines.
+- [3D & Spatial Digital Experiences](https://www.kawaki.co.in/services): WebGL, Three.js, GPU-accelerated micro-physics, interactive 3D product visualizers, and kinetic brand identities.
 
-User-Agent: anthropic-ai
-Allow: /
+## Primary Pages & Documentation
+- [Home](https://www.kawaki.co.in/): Studio flagship manifesto and capabilities overview.
+- [About Studio](https://www.kawaki.co.in/about): Studio philosophy, founder credentials, international artisan collective, and engineering principles.
+- [Services & Engagement Tiers](https://www.kawaki.co.in/services): Seedling ($10k+), Sapling ($25k+), and Established ($50k+) project scopes and architectural deliverables.
+- [Case Studies](https://www.kawaki.co.in/case-studies): Selected client portfolio and live engineering benchmarks.
+- [Acme Headless Commerce Case Study](https://www.kawaki.co.in/case-studies/acme-headless-ecommerce.html): In-depth case study on Shopify Hydrogen transformation and conversion rate lift.
+- [Insights & Blog](https://www.kawaki.co.in/blog): Essays on digital luxury, typography, web performance, and edge architecture.
+- [Contact & Discovery Call](https://www.kawaki.co.in/contact): Direct 15-minute briefing scheduler and technical project inquiries.
 
-User-Agent: Claude-Web
-Allow: /
-
-User-Agent: PerplexityBot
-Allow: /
-
-User-Agent: *
-Allow: /
-
-Disallow: /admin/
-Disallow: /.well-known/
-Disallow: /cdn.shopify.com/
-Disallow: /editions-winter-2026.myshopify.com/
+## Studio Details
+- **Founder & Creative Director**: Kunal Sharma
+- **Primary Domain**: https://www.kawaki.co.in
+- **Inquiries**: hello@kawakistudios.com / partners@kawakistudios.com
+- **Headquarters**: New Delhi, India (Operating internationally across North America, Europe, and Asia-Pacific).
+- **Sitemap**: https://www.kawaki.co.in/sitemap.xml
+- **Full LLM Context**: https://www.kawaki.co.in/llms-full.txt

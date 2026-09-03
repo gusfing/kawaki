@@ -1,13 +1,29 @@
-# Allow all crawlers to access the site
+# Kawaki Studios Robots Configuration
+# https://www.kawaki.co.in
+
 User-agent: *
 Allow: /
-
-# Disallow admin/private paths (none currently, but standard practice)
 Disallow: /admin/
-Disallow: /.well-known/
+Disallow: /api/
 
-# Sitemap location
-Sitemap: https://kawaki.co.in/sitemap.xml
+# Explicit permissions for AI & LLM Search Crawlers
+User-agent: GPTBot
+Allow: /
 
-# Crawl delay (respectful)
-Crawl-delay: 1
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Canonical Sitemap & LLM manifest
+Sitemap: https://www.kawaki.co.in/sitemap.xml

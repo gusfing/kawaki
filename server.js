@@ -32,6 +32,7 @@ const MIME_TYPES = {
   '.glb': 'model/gltf-binary',
   '.usdz': 'model/vnd.usdz+zip',
   '.ktx2': 'image/ktx2',
+  '.xml': 'application/xml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8'
 };
 
@@ -148,6 +149,12 @@ const server = http.createServer((req, res) => {
   // 1. Forward all /api/ requests to the Hono Backend (with SQLite database fallback)
   if (reqPath.startsWith('/api/') || reqPath === '/api') {
     handleApiProxyOrDirect(req, res, parsedUrl);
+    return;
+  }
+
+  // Dynamic Sitemap
+  if (reqPath === '/sitemap.xml') {
+    handleApiRequest(req, res, new URL('http://localhost/api/sitemap'));
     return;
   }
 

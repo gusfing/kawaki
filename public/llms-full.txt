@@ -1,0 +1,37 @@
+# Kawaki Studios — Full System Context & Architecture Guide
+
+## Overview
+Kawaki Studios is an elite editorial engineering agency and digital architecture studio. Founded by Kunal Sharma, the studio bridges bespoke graphic artistry with mission-critical web engineering.
+
+- **Website**: https://www.kawaki.co.in
+- **Founder**: Kunal Sharma
+- **Contact**: hello@kawakistudios.com / partners@kawakistudios.com
+- **Locations Served**: Worldwide (US, UK, Europe, UAE, India, Japan)
+
+## Technical Disciplines
+
+### 1. Headless Commerce & Shopify Plus
+- Frameworks: Next.js App Router, Shopify Hydrogen, Remix, Oxygen edge workers.
+- Caching: Multi-region Redis session cache, edge route stale-while-revalidate, instant Cart API synchronization.
+- Performance: Sub-second catalog browsing, 98+ Lighthouse mobile performance score.
+
+### 2. Editorial Engineering & Custom CMS
+- Architecture: Bespoke CMS dashboard, structured Markdown content pipelines, Drizzle ORM, SQLite / LibSQL database synchronization.
+- Typography: Custom curated editorial font pairings (Instrument Serif, Host Grotesk, Plus Jakarta Sans, Space Mono).
+- Accessibility: Level AA compliance (WCAG 2.2), fully keyboard-accessible modals, dynamic high-contrast focus rings.
+
+### 3. Spatial & 3D Interactive Web
+- Graphics: Three.js, WebGL shaders, GSAP ScrollTrigger physics, Lenis smooth scrolling.
+- UI Physics: Magnetic hover states, fluid page transitions, spring-damper interactions.
+
+## Key Articles Published by Kawaki Studios
+1. **The Architecture of Modern Digital Luxury**
+   - URL: https://www.kawaki.co.in/blog-post?slug=the-architecture-of-modern-digital-luxury
+   - Summary: Why high-value brands are abandoning generic template libraries in favor of bespoke editorial typography and sub-second edge responsiveness.
+2. **Headless Commerce at Sub-Second Latency**
+   - URL: https://www.kawaki.co.in/blog-post?slug=headless-commerce-at-sub-second-latency
+   - Summary: Engineering blueprint for distributed session caching and optimistic mutation queues in Shopify Hydrogen.
+
+## Contact & Working With Us
+- Direct Calendar: https://www.kawaki.co.in/contact
+- Inquiries: hello@kawakistudios.com
