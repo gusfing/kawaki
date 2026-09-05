@@ -8,8 +8,23 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title id="pageTitle">Story — Kawaki Studios</title>
-    <meta name="description" id="pageDescription" content="Editorial engineering and studio insights from Kawaki." />
+        <title id="pageTitle">Story — Kawaki Studios</title>
+    <meta name="description" id="pageDescription" content="Editorial engineering, headless commerce architecture, and studio insights from Kawaki Studios." />
+    <link rel="canonical" id="canonicalLink" href="https://www.kawaki.co.in/blog" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" id="ogUrl" content="https://www.kawaki.co.in/blog" />
+    <meta property="og:title" id="ogTitle" content="Editorial Story — Kawaki Studios" />
+    <meta property="og:description" id="ogDesc" content="Editorial engineering, headless commerce architecture, and studio insights from Kawaki Studios." />
+    <meta property="og:image" content="https://www.kawaki.co.in/assets/images/about_hero_bg.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" id="twTitle" content="Editorial Story — Kawaki Studios" />
+    <meta name="twitter:description" id="twDesc" content="Editorial engineering, headless commerce architecture, and studio insights from Kawaki Studios." />
+    <meta name="twitter:image" content="https://www.kawaki.co.in/assets/images/about_hero_bg.jpg" />
 
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -515,6 +530,44 @@
                 if (!blog) throw new Error('Empty story payload');
 
                 document.title = `${blog.title} — Kawaki Studios`;
+                const canonEl = document.getElementById('canonicalLink');
+                if (canonEl) canonEl.href = `https://www.kawaki.co.in/blog-post?slug=${blog.slug}`;
+                
+                const metaDescEl = document.getElementById('pageDescription');
+                if (metaDescEl) metaDescEl.content = blog.excerpt || blog.seoDescription || `Read ${blog.title} by Kawaki Studios.`;
+
+                const ogTitleEl = document.getElementById('ogTitle');
+                if (ogTitleEl) ogTitleEl.content = blog.title;
+                const ogDescEl = document.getElementById('ogDesc');
+                if (ogDescEl) ogDescEl.content = blog.excerpt || blog.seoDescription || `Read ${blog.title} by Kawaki Studios.`;
+                const ogUrlEl = document.getElementById('ogUrl');
+                if (ogUrlEl) ogUrlEl.content = `https://www.kawaki.co.in/blog-post?slug=${blog.slug}`;
+
+                // Dynamic BlogPosting Schema Injection
+                const existingSchema = document.getElementById('dynamicBlogSchema');
+                if (existingSchema) existingSchema.remove();
+                const schemaScript = document.createElement('script');
+                schemaScript.id = 'dynamicBlogSchema';
+                schemaScript.type = 'application/ld+json';
+                schemaScript.textContent = JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": blog.title,
+                    "description": blog.excerpt || blog.seoDescription || blog.title,
+                    "url": `https://www.kawaki.co.in/blog-post?slug=${blog.slug}`,
+                    "datePublished": blog.createdAt || new Date().toISOString(),
+                    "author": {
+                        "@type": "Person",
+                        "name": blog.author || "Kunal Sharma"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Kawaki Studios",
+                        "url": "https://www.kawaki.co.in",
+                        "logo": "https://www.kawaki.co.in/assets/images/kawaki-logo.png"
+                    }
+                });
+                document.head.appendChild(schemaScript);
                 document.getElementById('pageTitle').innerText = `${blog.title} — Kawaki Studios`;
                 if (blog.seoDescription) {
                     document.getElementById('pageDescription').setAttribute('content', blog.seoDescription);
