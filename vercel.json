@@ -19,10 +19,6 @@
     {
       "source": "/shopify",
       "destination": "/shopify.html"
-    },
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/[...path]?match=$1"
     }
   ],
   "headers": [
