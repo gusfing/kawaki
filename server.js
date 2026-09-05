@@ -204,7 +204,20 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // 4. Root request / maps to index.html
+  // 4. Clean URL redirects (matching Vercel cleanUrls: true)
+  if (reqPath === '/index.html') {
+    res.writeHead(301, { Location: '/' + (parsedUrl.search || '') });
+    res.end();
+    return;
+  }
+  if (reqPath.endsWith('.html')) {
+    const cleanPath = reqPath.slice(0, -5);
+    res.writeHead(301, { Location: cleanPath + (parsedUrl.search || '') });
+    res.end();
+    return;
+  }
+
+  // 5. Root request / maps to index.html
   if (reqPath === '/') {
     const indexPath = path.join(ROOT, 'index.html');
     if (fs.existsSync(indexPath)) {

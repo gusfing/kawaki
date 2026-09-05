@@ -326,11 +326,11 @@
     }
     // Schedule Call / Contact
     else if (lower.includes('call') || lower.includes('schedule') || lower.includes('book') || lower.includes('meeting') || lower.includes('contact')) {
-      reply = "You can book a 15-minute intro call directly with our technical partners on our [Contact Page](/contact.html)! Or feel free to drop your email here and we'll reach out directly.";
+      reply = "You can book a 15-minute intro call directly with our technical partners on our [Contact Page](/contact)! Or feel free to drop your email here and we'll reach out directly.";
     }
     // Case Studies / Work / Portfolio
     else if (lower.includes('case stud') || lower.includes('work') || lower.includes('portfolio') || lower.includes('project')) {
-      reply = "You can review our featured client work in our [Case Studies Section](/case-studies.html), including Acme Headless E-commerce, Spatial 3D Web platforms, and editorial publishing engines.";
+      reply = "You can review our featured client work in our [Case Studies Section](/case-studies), including Acme Headless E-commerce, Spatial 3D Web platforms, and editorial publishing engines.";
     }
     // Location / Team
     else if (lower.includes('where are you') || lower.includes('location') || lower.includes('team') || lower.includes('based')) {
