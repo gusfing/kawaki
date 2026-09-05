@@ -1,7 +1,7 @@
 # Kawaki Studios — Full System Context & Architecture Guide
 
 ## Overview
-Kawaki Studios is an elite editorial engineering agency and digital architecture studio. Founded by Kunal Sharma, the studio bridges bespoke graphic artistry with mission-critical web engineering.
+Kawaki Studios is a premium web engineering and custom digital design studio. Founded by Kunal Sharma, the studio bridges bespoke design artistry with modern, high-performance web engineering.
 
 - **Website**: https://www.kawaki.co.in
 - **Founder**: Kunal Sharma
@@ -10,17 +10,18 @@ Kawaki Studios is an elite editorial engineering agency and digital architecture
 
 ## Technical Disciplines
 
-### 1. Headless Commerce & Shopify Plus
-- Frameworks: Next.js App Router, Shopify Hydrogen, Remix, Oxygen edge workers.
+### 1. Custom Web Development & Next.js Architecture
+- Full-stack custom web applications, Next.js App Router, SSR/SSG hybrid rendering.
+- Architecture: Bespoke CMS dashboards, structured Markdown content pipelines, SQLite / LibSQL database synchronization.
+- Typography: Curated font pairings (Instrument Serif, Host Grotesk, Plus Jakarta Sans, JetBrains Mono).
+- Accessibility: Level AA compliance (WCAG 2.2), fully keyboard-accessible navigation and modals.
+
+### 2. Shopify Store Development & Headless Commerce
+- Frameworks: Shopify Plus, Hydrogen, Remix, Oxygen edge workers, Liquid custom themes.
 - Caching: Multi-region Redis session cache, edge route stale-while-revalidate, instant Cart API synchronization.
-- Performance: Sub-second catalog browsing, 98+ Lighthouse mobile performance score.
+- Performance: Sub-second catalog browsing, 98+ Lighthouse mobile performance score, high-conversion checkout flows.
 
-### 2. Editorial Engineering & Custom CMS
-- Architecture: Bespoke CMS dashboard, structured Markdown content pipelines, SQLite / LibSQL database synchronization.
-- Typography: Custom curated editorial font pairings (Instrument Serif, Host Grotesk, Plus Jakarta Sans, JetBrains Mono).
-- Accessibility: Level AA compliance (WCAG 2.2), fully keyboard-accessible modals, dynamic high-contrast focus rings.
-
-### 3. Spatial & 3D Interactive Web
+### 3. Interactive Web Experiences & WebGL
 - Graphics: Three.js, WebGL shaders, GSAP ScrollTrigger physics, Lenis smooth scrolling.
 - UI Physics: Magnetic hover states, fluid page transitions, spring-damper interactions.
 
