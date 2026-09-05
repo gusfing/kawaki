@@ -21,12 +21,8 @@
       "destination": "/shopify.html"
     },
     {
-      "source": "/sitemap.xml",
-      "destination": "/api/[...path]"
-    },
-    {
-      "source": "/api/:match*",
-      "destination": "/api/[...path]"
+      "source": "/api/(.*)",
+      "destination": "/api/[...path]?match=$1"
     }
   ],
   "headers": [
