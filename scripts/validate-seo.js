@@ -8,6 +8,7 @@ const pages = [
   { name: 'Services', file: 'services.html', path: '/services' },
   { name: 'Case Studies', file: 'case-studies.html', path: '/case-studies' },
   { name: 'Acme Case Study', file: 'case-studies/acme-headless-ecommerce.html', path: '/case-studies/acme-headless-ecommerce' },
+  { name: 'Fintech Case Study', file: 'case-studies/fintech-roi-calculator.html', path: '/case-studies/fintech-roi-calculator' },
   { name: 'Blog Index', file: 'blog.html', path: '/blog' },
   { name: 'Blog Post Template', file: 'blog-post.html', path: '/blog-post' },
   { name: 'Contact', file: 'contact.html', path: '/contact' },
@@ -126,7 +127,7 @@ for (const p of pages) {
 
 console.log(`\n========================================`);
 if (totalIssues === 0) {
-  console.log(`🏆 ALL 9 PAGES PASSED FULL SEO VALIDATION WITH 0 ISSUES!`);
+  console.log(`🏆 ALL ${pages.length} PAGES PASSED FULL SEO VALIDATION WITH 0 ISSUES!`);
 } else {
   console.error(`⚠️ Found ${totalIssues} SEO issue(s). Please review above.`);
 }
