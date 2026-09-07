@@ -5,6 +5,8 @@ const pages = [
   '/about',
   '/services',
   '/case-studies',
+  '/case-studies/acme-headless-ecommerce',
+  '/case-studies/fintech-roi-calculator',
   '/blog',
   '/contact'
 ];
