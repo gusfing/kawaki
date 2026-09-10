@@ -143,55 +143,6 @@
             max-width: 540px;
         }
 
-        .rotating-modes-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 0.6rem;
-        }
-
-        .rotating-modes-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: rgba(255, 255, 255, 0.45);
-        }
-
-        .rotating-modes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 4px;
-            border-radius: 100px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .mode-btn {
-            background: transparent;
-            border: none;
-            color: rgba(255, 255, 255, 0.65);
-            font-family: 'Host Grotesk', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 600;
-            padding: 7px 15px;
-            border-radius: 100px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .mode-btn:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .mode-btn.active {
-            background: #C6FF00;
-            color: #0c0d10;
-            font-weight: 700;
-            box-shadow: 0 4px 14px rgba(198, 255, 0, 0.25);
-        }
 
         /* Sticky Background Marquee */
         .rotating-marquee {
@@ -350,9 +301,7 @@
                 align-items: flex-start;
                 gap: 1.5rem;
             }
-            .rotating-modes-wrap {
-                align-items: flex-start;
-            }
+
             .gallery__item-wrap {
                 max-width: 90vw;
                 margin-bottom: -2rem;
@@ -498,15 +447,7 @@
                     <h1 class="rotating-title">Selected Case Studies <em>&amp; Engineering Flagships</em></h1>
                     <p class="rotating-desc">Scroll through bespoke client flagships moving dynamically through 3D perspective space with real-time responsive kinematics.</p>
                 </div>
-                <div class="rotating-modes-wrap">
-                    <span class="rotating-modes-label">// Kinematics Physics</span>
-                    <div class="rotating-modes" role="tablist" aria-label="3D Kinematics Variations">
-                        <button class="mode-btn active" data-variation="1">3D Orbit</button>
-                        <button class="mode-btn" data-variation="2">Somersault</button>
-                        <button class="mode-btn" data-variation="3">Axial Flip</button>
-                        <button class="mode-btn" data-variation="4">Center Hold</button>
-                    </div>
-                </div>
+
             </div>
 
             <!-- Sticky Background Editorial Typography Marquee -->
@@ -956,7 +897,7 @@
             gsap.ticker.lagSmoothing(0);
 
             // ----------------------------------------------------
-            // 3D ROTATING ON-SCROLL ANIMATIONS (CODROPS KINEMATICS)
+            // 3D ROTATING ON-SCROLL ANIMATIONS (3D ORBIT)
             // ----------------------------------------------------
             function initRotatingGallery() {
                 const gallery = document.querySelector('.rotating-gallery');
@@ -965,7 +906,6 @@
                 const items = gsap.utils.toArray('.rotating-gallery .gallery__item');
                 const wraps = gsap.utils.toArray('.rotating-gallery .gallery__item-wrap');
                 const marqueeInner = document.querySelector('.rotating-marquee-inner');
-                let scrollTriggers = [];
 
                 function positionGalleryItems() {
                     const amplitude = Math.min(window.innerWidth * 0.18, 220);
@@ -977,145 +917,38 @@
                     });
                 }
 
-                function holdAtMiddle(progress, hold = 0.25) {
-                    const half = hold * 0.5;
-                    if (progress < 0.5 - half) {
-                        return gsap.utils.mapRange(0, 0.5 - half, 0, 0.5, progress);
-                    }
-                    if (progress > 0.5 + half) {
-                        return gsap.utils.mapRange(0.5 + half, 1, 0.5, 1, progress);
-                    }
-                    return 0.5;
-                }
+                // 3D Orbit & Flow across cards
+                items.forEach((item) => {
+                    const rotX = gsap.utils.random(55, 95);
+                    const rotY = gsap.utils.random(-18, 18);
+                    const rotZ = gsap.utils.random(-15, 15);
+                    const setZ = gsap.quickSetter(item, 'z', 'px');
 
-                function killTriggers() {
-                    scrollTriggers.forEach(st => st.kill());
-                    scrollTriggers = [];
-                    items.forEach(item => {
-                        gsap.set(item, { clearProps: 'transform,filter,rotationX,rotationY,rotationZ,z' });
-                    });
-                }
-
-                function applyVariation(variation) {
-                    killTriggers();
-
-                    items.forEach((item) => {
-                        let st;
-                        if (variation === 1) {
-                            // Variation 1: 3D Orbit & Flow
-                            const rotX = gsap.utils.random(55, 95);
-                            const rotY = gsap.utils.random(-18, 18);
-                            const rotZ = gsap.utils.random(-15, 15);
-                            const setZ = gsap.quickSetter(item, 'z', 'px');
-
-                            const tween = gsap.fromTo(item,
-                                { rotationX: rotX, rotationY: rotY, rotationZ: rotZ },
-                                {
-                                    rotationX: -rotX,
-                                    rotationY: -rotY,
-                                    rotationZ: -rotZ,
-                                    ease: 'none',
-                                    scrollTrigger: {
-                                        trigger: item,
-                                        start: 'top bottom+=20%',
-                                        end: 'bottom top-=20%',
-                                        scrub: true,
-                                        invalidateOnRefresh: true,
-                                        onUpdate(self) {
-                                            const z = Math.sin(self.progress * Math.PI) * -65;
-                                            setZ(z);
-                                        }
-                                    }
-                                }
-                            );
-                            if (tween.scrollTrigger) scrollTriggers.push(tween.scrollTrigger);
-
-                        } else if (variation === 2) {
-                            // Variation 2: Somersault Pitch
-                            const rotX = gsap.utils.random(220, 270);
-                            const rotY = gsap.utils.random(-16, 16);
-                            const rotZ = gsap.utils.random(-35, 35);
-                            const setZ = gsap.quickSetter(item, 'z', 'px');
-
-                            const tween = gsap.fromTo(item,
-                                { rotationX: rotX, rotationY: rotY, rotationZ: rotZ },
-                                {
-                                    rotationX: -rotX,
-                                    rotationY: -rotY,
-                                    rotationZ: -rotZ,
-                                    ease: 'none',
-                                    scrollTrigger: {
-                                        trigger: item,
-                                        start: 'top bottom+=20%',
-                                        end: 'bottom top-=20%',
-                                        scrub: true,
-                                        invalidateOnRefresh: true,
-                                        onUpdate(self) {
-                                            const z = Math.pow(Math.sin(self.progress * Math.PI), 4) * -240;
-                                            setZ(z);
-                                        }
-                                    }
-                                }
-                            );
-                            if (tween.scrollTrigger) scrollTriggers.push(tween.scrollTrigger);
-
-                        } else if (variation === 3) {
-                            // Variation 3: Axial Book Flip
-                            const rotX = gsap.utils.random(-8, 8);
-                            const rotY = gsap.utils.random(180, 240);
-                            const rotZ = gsap.utils.random(-8, 8);
-                            const setTransform = gsap.quickSetter(item, 'css');
-
-                            st = ScrollTrigger.create({
-                                trigger: item,
-                                start: 'top bottom+=20%',
-                                end: 'bottom top-=20%',
-                                scrub: true,
-                                onUpdate(self) {
-                                    const p = self.progress;
-                                    const z = Math.sin(p * Math.PI) * -120;
-                                    setTransform({
-                                        rotationX: gsap.utils.interpolate(rotX, -rotX, p),
-                                        rotationY: gsap.utils.interpolate(rotY, -rotY, p),
-                                        rotationZ: gsap.utils.interpolate(rotZ, -rotZ, p),
-                                        z: z
-                                    });
-                                }
-                            });
-                            scrollTriggers.push(st);
-
-                        } else if (variation === 4) {
-                            // Variation 4: Center Focus & Hold
-                            const rotX = gsap.utils.random(110, 160);
-                            const rotZ = -35;
-                            const setTransform = gsap.quickSetter(item, 'css');
-
-                            st = ScrollTrigger.create({
+                    gsap.fromTo(item,
+                        { rotationX: rotX, rotationY: rotY, rotationZ: rotZ },
+                        {
+                            rotationX: -rotX,
+                            rotationY: -rotY,
+                            rotationZ: -rotZ,
+                            ease: 'none',
+                            scrollTrigger: {
                                 trigger: item,
                                 start: 'top bottom+=20%',
                                 end: 'bottom top-=20%',
                                 scrub: true,
                                 invalidateOnRefresh: true,
                                 onUpdate(self) {
-                                    const t = holdAtMiddle(self.progress, 0.28);
-                                    const rX = gsap.utils.interpolate(-rotX, rotX, t);
-                                    const rZ = gsap.utils.interpolate(-rotZ, rotZ, t);
-                                    const z = Math.sin(self.progress * Math.PI) * -80;
-                                    setTransform({
-                                        rotationX: rX,
-                                        rotationZ: rZ,
-                                        z: z
-                                    });
+                                    const z = Math.sin(self.progress * Math.PI) * -65;
+                                    setZ(z);
                                 }
-                            });
-                            scrollTriggers.push(st);
+                            }
                         }
-                    });
-                }
+                    );
+                });
 
                 // Scroll-driven marquee movement
                 if (marqueeInner) {
-                    const mt = gsap.timeline({
+                    gsap.timeline({
                         scrollTrigger: {
                             trigger: gallery,
                             start: 'top bottom',
@@ -1123,23 +956,9 @@
                             scrub: 1
                         }
                     }).fromTo(marqueeInner, { x: '25vw' }, { x: '-110%', ease: 'none' });
-                    if (mt.scrollTrigger) scrollTriggers.push(mt.scrollTrigger);
                 }
 
                 positionGalleryItems();
-                applyVariation(1);
-
-                // Mode switcher
-                const modeBtns = document.querySelectorAll('.mode-btn');
-                modeBtns.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        modeBtns.forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        const v = parseInt(btn.getAttribute('data-variation'), 10) || 1;
-                        applyVariation(v);
-                    });
-                });
 
                 window.addEventListener('resize', () => {
                     positionGalleryItems();
