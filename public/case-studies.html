@@ -67,182 +67,303 @@
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
     <style>
-        /* SPOTLIGHT SECTION HIGH-CONTRAST & MOBILE OVERRIDES */
-        .spotlight {
+        /* ---------------------------------------------------- */
+        /* 3D ROTATING ON-SCROLL ANIMATIONS (CODROPS INVENTIVE) */
+        /* ---------------------------------------------------- */
+        .rotating-showcase {
             position: relative;
-            width: 100%;
-            height: 100svh;
-            padding: 2rem;
-            overflow: hidden;
-            background-color: #ffffff !important;
-            color: #111111 !important;
+            background-color: #0c0d10;
+            color: #ffffff;
+            padding-top: 9rem;
+            padding-bottom: 9rem;
+            overflow: clip;
+            perspective: 1200px;
         }
 
-        .project-index {
-            position: absolute;
-            left: 3.5rem;
-            top: 7.5rem;
-            z-index: 20;
-            pointer-events: none;
-            mix-blend-mode: normal !important;
-        }
-
-        .project-index h1, .project-index .project-index-num {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: clamp(4.5rem, 9.5vw, 10.5rem);
-            font-weight: 900;
-            color: #111111 !important;
-            line-height: 0.9;
-            margin: 0;
-            letter-spacing: -0.03em;
-            text-shadow: none !important;
-            mix-blend-mode: normal !important;
-            opacity: 1 !important;
-        }
-
-        .project-images {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 44%;
-            max-width: 580px;
-            padding: 50svh 0;
+        .rotating-header {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem 2rem;
             display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            z-index: 5;
-            pointer-events: none;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2rem;
+            position: relative;
+            z-index: 10;
         }
 
-        .project-img {
-            width: 100%;
-            aspect-ratio: 16/9;
-            opacity: 0.35;
-            transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
-            overflow: hidden;
-            border-radius: 18px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            background: #f0f0f0;
+        .rotating-header-left {
+            max-width: 680px;
         }
 
-        .project-img.active {
-            opacity: 1 !important;
-            transform: scale(1.03);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16), 0 0 30px rgba(198, 255, 0, 0.25);
-            border-color: rgba(198, 255, 0, 0.4);
+        .rotating-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #C6FF00;
+            margin-bottom: 1rem;
+            font-weight: 700;
         }
 
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .rotating-eyebrow::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #C6FF00;
+            box-shadow: 0 0 10px #C6FF00;
         }
 
-        .project-names {
-            position: absolute;
-            right: 3.5rem;
-            bottom: 3.5rem;
+        .rotating-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin: 0 0 1rem 0;
+            color: #ffffff;
+        }
+
+        .rotating-title em {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #C6FF00;
+        }
+
+        .rotating-desc {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.65);
+            margin: 0;
+            max-width: 540px;
+        }
+
+        .rotating-modes-wrap {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            z-index: 20;
-            pointer-events: none;
-            mix-blend-mode: normal !important;
+            gap: 0.6rem;
         }
 
-        .project-names p {
-            color: #888888 !important;
-            opacity: 0.55 !important;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            font-size: clamp(1rem, 1.8vw, 1.4rem);
+        .rotating-modes-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
             text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .rotating-modes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mode-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.65);
             font-family: 'Host Grotesk', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 7px 15px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .mode-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .mode-btn.active {
+            background: #C6FF00;
+            color: #0c0d10;
             font-weight: 700;
-            margin: 0 0 0.5rem 0;
-            letter-spacing: -0.01em;
-            line-height: 1.1;
-            mix-blend-mode: normal !important;
+            box-shadow: 0 4px 14px rgba(198, 255, 0, 0.25);
         }
 
-        .project-names p.active {
-            color: #111111 !important;
-            opacity: 1 !important;
-            font-size: clamp(1.8rem, 3.2vw, 2.8rem) !important;
-            font-weight: 800;
-            transform: translateX(-6px);
+        /* Sticky Background Marquee */
+        .rotating-marquee {
+            position: sticky;
+            top: 48vh;
+            transform: translateY(-50%);
+            width: 100vw;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            opacity: 0.85;
         }
 
-        .project-names p.active::before {
-            content: '● ';
+        .rotating-marquee-inner {
+            display: flex;
+            gap: 4rem;
+            width: max-content;
+            position: relative;
+            will-change: transform;
+        }
+
+        .rotating-marquee-inner span {
+            white-space: nowrap;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.06);
+            font-size: clamp(4rem, 16vw, 10.5rem);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .rotating-marquee-inner span.accent {
+            color: rgba(198, 255, 0, 0.12);
+        }
+
+        /* 3D Gallery */
+        .rotating-gallery {
+            position: relative;
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5vh;
+            margin-bottom: 8vh;
+            width: 100%;
+        }
+
+        .gallery__item-wrap {
+            width: 100%;
+            max-width: 660px;
+            perspective: 1100px;
+            margin-bottom: -4rem;
+            position: relative;
+            z-index: 4;
+        }
+
+        .gallery__item {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform-style: preserve-3d;
+            will-change: transform, filter;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.75), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            transition: border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .gallery__item:hover {
+            border-color: rgba(198, 255, 0, 0.6);
+            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.9), 0 0 35px rgba(198, 255, 0, 0.25);
+        }
+
+        .gallery__item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(12, 13, 16, 0.05) 20%, rgba(12, 13, 16, 0.9) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.2rem;
+            color: #ffffff;
+            border-radius: 20px;
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+        }
+
+        .gallery__item-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             color: #C6FF00;
-            font-size: 0.65em;
-            vertical-align: middle;
-            margin-right: 4px;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        /* MOBILE SPECIFIC REFINEMENT */
-        @media (max-width: 768px) {
-            .spotlight {
-                padding: 1rem;
-                height: 100svh;
-            }
+        .gallery__item-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: clamp(1.35rem, 2.6vw, 2rem);
+            font-weight: 800;
+            margin: 0 0 0.4rem 0;
+            line-height: 1.15;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
 
-            .project-index {
-                left: 1.25rem;
-                top: 5.5rem;
-                z-index: 25;
-            }
+        .gallery__item-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.25rem;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.75);
+        }
 
-            .project-index h1, .project-index .project-index-num {
-                font-size: 4.2rem !important;
-                color: #111111 !important;
-                opacity: 1 !important;
-            }
+        .gallery__item-stat span {
+            color: #ffffff;
+            font-weight: 700;
+        }
 
-            .project-images {
-                width: 90%;
-                max-width: 350px;
-                padding: 36svh 0;
+        .gallery__item-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 5px 12px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            transition: all 0.2s ease;
+        }
+
+        .gallery__item:hover .gallery__item-btn {
+            background: #C6FF00;
+            color: #0c0d10;
+        }
+
+        @media (max-width: 900px) {
+            .rotating-header {
+                flex-direction: column;
+                align-items: flex-start;
                 gap: 1.5rem;
-                z-index: 5;
             }
-
-            .project-img {
-                border-radius: 14px;
+            .rotating-modes-wrap {
+                align-items: flex-start;
             }
-
-            .project-names {
-                right: 1.25rem;
-                bottom: 2.2rem;
-                z-index: 25;
-                background: rgba(18, 18, 18, 0.94);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                padding: 10px 16px;
-                border-radius: 14px;
-                border: 1px solid rgba(255, 255, 255, 0.12);
-                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+            .gallery__item-wrap {
+                max-width: 90vw;
+                margin-bottom: -2rem;
+                perspective: 750px;
             }
-
-            .project-names p {
-                color: rgba(255, 255, 255, 0.55) !important;
-                opacity: 1 !important;
-                font-size: 0.82rem !important;
-                margin-bottom: 0.2rem !important;
-            }
-
-            .project-names p.active {
-                color: #ffffff !important;
-                opacity: 1 !important;
-                font-size: 1.05rem !important;
-                font-weight: 800;
-                transform: none;
+            .gallery__item-overlay {
+                padding: 1.4rem;
             }
         }
-    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    
+        .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 </style>
 </head>
 
@@ -368,27 +489,174 @@
     </div>
 
     <main>
-        <!-- Interactive Spotlight Scroll Section -->
-        <section class="spotlight">
-            <div class="project-index">
-                <h1 class="visually-hidden">Selected Case Studies &amp; Engineering Flagships — Kawaki Studios</h1>
-                <span class="project-index-num">01/05</span>
+        <!-- 3D Rotating On-Scroll Spatial Showcase -->
+        <section class="rotating-showcase" id="selected-work-3d">
+            <!-- Header with Title & Kinematics Switcher -->
+            <div class="rotating-header">
+                <div class="rotating-header-left">
+                    <div class="rotating-eyebrow">3D Spatial Architecture &middot; Selected Work</div>
+                    <h1 class="rotating-title">Selected Case Studies <em>&amp; Engineering Flagships</em></h1>
+                    <p class="rotating-desc">Scroll through bespoke client flagships moving dynamically through 3D perspective space with real-time responsive kinematics.</p>
+                </div>
+                <div class="rotating-modes-wrap">
+                    <span class="rotating-modes-label">// Kinematics Physics</span>
+                    <div class="rotating-modes" role="tablist" aria-label="3D Kinematics Variations">
+                        <button class="mode-btn active" data-variation="1">3D Orbit</button>
+                        <button class="mode-btn" data-variation="2">Somersault</button>
+                        <button class="mode-btn" data-variation="3">Axial Flip</button>
+                        <button class="mode-btn" data-variation="4">Center Hold</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="project-images">
-                <div class="project-img active"><img src="/assets/images/project_1_1787254271240.jpg" alt="Acme E-commerce" /></div>
-                <div class="project-img"><img src="/assets/images/project_2_1787254282785.jpg" alt="Curology Refresh" /></div>
-                <div class="project-img"><img src="/assets/images/project_3_1787254295127.jpg" alt="Fintech ROI Calculator" /></div>
-                <div class="project-img"><img src="/assets/images/kw-project-web.jpg" alt="Global Architecture Portfolio" /></div>
-                <div class="project-img"><img src="/assets/images/kw-project-ecomm.jpg" alt="SaaS Dashboard Design" /></div>
+            <!-- Sticky Background Editorial Typography Marquee -->
+            <div class="rotating-marquee" aria-hidden="true">
+                <div class="rotating-marquee-inner">
+                    <span>SELECTED WORK</span>
+                    <span class="accent">&bull;</span>
+                    <span>ARCHITECTURAL ENGINEERING</span>
+                    <span class="accent">&bull;</span>
+                    <span>BESPOKE DIGITAL</span>
+                    <span class="accent">&bull;</span>
+                    <span>HIGH PERFORMANCE</span>
+                    <span class="accent">&bull;</span>
+                    <span>SUB-SECOND SPEED</span>
+                    <span class="accent">&bull;</span>
+                    <span>KAWAKI STUDIOS</span>
+                    <span class="accent">&bull;</span>
+                    <span>PROVEN METRICS</span>
+                    <span class="accent">&bull;</span>
+                    <span>SELECTED WORK</span>
+                </div>
             </div>
 
-            <div class="project-names">
-                <p class="active">Acme E-commerce</p>
-                <p>Curology Refresh</p>
-                <p>Fintech ROI Calc</p>
-                <p>Global Architecture</p>
-                <p>SaaS Dashboard</p>
+            <!-- 3D Floating Gallery Items -->
+            <div class="rotating-gallery">
+                <!-- 01: Acme Headless E-commerce -->
+                <div class="gallery__item-wrap">
+                    <a href="/case-studies/acme-headless-ecommerce" class="gallery__item" style="background-image: url('/assets/images/project_1_1787254271240.jpg');" aria-label="Acme Headless E-commerce Case Study">
+                        <div class="gallery__item-overlay">
+                            <div class="gallery__item-tag">Next.js &middot; Shopify Hydrogen</div>
+                            <h3 class="gallery__item-title">Acme Headless E-commerce</h3>
+                            <div class="gallery__item-bottom">
+                                <div class="gallery__item-stat"><span>+34%</span> Conversion Lift &middot; 0.8s LCP</div>
+                                <span class="gallery__item-btn">Case Study &nearr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 02: Fintech ROI Calculator -->
+                <div class="gallery__item-wrap">
+                    <a href="/case-studies/fintech-roi-calculator" class="gallery__item" style="background-image: url('/assets/images/project_3_1787254295127.jpg');" aria-label="Fintech Interactive ROI Calculator Case Study">
+                        <div class="gallery__item-overlay">
+                            <div class="gallery__item-tag">React &middot; Real-time APIs</div>
+                            <h3 class="gallery__item-title">Fintech Interactive ROI Engine</h3>
+                            <div class="gallery__item-bottom">
+                                <div class="gallery__item-stat"><span>+180%</span> Enterprise Leads &middot; &lt;80ms</div>
+                                <span class="gallery__item-btn">Case Study &nearr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 03: Curology Brand Refresh -->
+                <div class="gallery__item-wrap">
+                    <a href="/case-studies" class="gallery__item" style="background-image: url('/assets/images/project_2_1787254282785.jpg');" aria-label="Curology Brand Refresh">
+                        <div class="gallery__item-overlay">
+                            <div class="gallery__item-tag">Design System &middot; Webflow</div>
+                            <h3 class="gallery__item-title">Curology Brand Refresh</h3>
+                            <div class="gallery__item-bottom">
+                                <div class="gallery__item-stat"><span>3.2M+</span> Monthly Reach &middot; D2C</div>
+                                <span class="gallery__item-btn">Selected Work &nearr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 04: Global Architecture Spatial Portfolio -->
+                <div class="gallery__item-wrap">
+                    <a href="/case-studies" class="gallery__item" style="background-image: url('/assets/images/kw-project-web.jpg');" aria-label="Global Architecture Spatial Portfolio">
+                        <div class="gallery__item-overlay">
+                            <div class="gallery__item-tag">GSAP &middot; Spatial Web</div>
+                            <h3 class="gallery__item-title">Global Architecture Portfolio</h3>
+                            <div class="gallery__item-bottom">
+                                <div class="gallery__item-stat"><span>60fps</span> Kinetic Scroll &middot; Spatial UI</div>
+                                <span class="gallery__item-btn">Selected Work &nearr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 05: SaaS Analytics Platform -->
+                <div class="gallery__item-wrap">
+                    <a href="/case-studies" class="gallery__item" style="background-image: url('/assets/images/kw-project-ecomm.jpg');" aria-label="SaaS Analytics Platform">
+                        <div class="gallery__item-overlay">
+                            <div class="gallery__item-tag">TypeScript &middot; Tailwind</div>
+                            <h3 class="gallery__item-title">SaaS Analytics Platform</h3>
+                            <div class="gallery__item-bottom">
+                                <div class="gallery__item-stat"><span>&lt;200ms</span> Query Latency &middot; Sub-Second</div>
+                                <span class="gallery__item-btn">Selected Work &nearr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 06: The Renaissance Storefront -->
+                <div class="gallery__item-wrap">
+                    <a href="/shopify" class="gallery__item" style="background-image: url('/assets/rotating/landscape/03.webp');" aria-label="Shopify Editions Luxury Storefront">
+                        <div class="gallery__item-overlay">
+                            <div class="gallery__item-tag">Shopify Editions &middot; Winter '26</div>
+                            <h3 class="gallery__item-title">The Renaissance Storefront</h3>
+                            <div class="gallery__item-bottom">
+                                <div class="gallery__item-stat"><span>Bespoke</span> Luxury Checkout &middot; Sub-Second</div>
+                                <span class="gallery__item-btn">Explore Shopify &nearr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 07: Atelier Editorial Manifesto -->
+                <div class="gallery__item-wrap">
+                    <a href="/about" class="gallery__item" style="background-image: url('/assets/rotating/landscape/07.webp');" aria-label="Atelier Editorial Manifesto">
+                        <div class="gallery__item-overlay">
+                            <div class="gallery__item-tag">Digital Luxury &middot; Micro-Typography</div>
+                            <h3 class="gallery__item-title">Atelier Editorial Manifesto</h3>
+                            <div class="gallery__item-bottom">
+                                <div class="gallery__item-stat"><span>100%</span> Custom Craft &middot; Zero Templates</div>
+                                <span class="gallery__item-btn">About Studio &nearr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 08: Distributed Edge Cloud -->
+                <div class="gallery__item-wrap">
+                    <a href="/services" class="gallery__item" style="background-image: url('/assets/rotating/landscape/11.webp');" aria-label="Distributed Edge Architecture">
+                        <div class="gallery__item-overlay">
+                            <div class="gallery__item-tag">Edge Architecture &middot; Serverless</div>
+                            <h3 class="gallery__item-title">Next-Gen Distributed Cloud</h3>
+                            <div class="gallery__item-bottom">
+                                <div class="gallery__item-stat"><span>99.99%</span> Edge Uptime &middot; Global Edge</div>
+                                <span class="gallery__item-btn">Our Services &nearr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 09: Partner Flagship CTA -->
+                <div class="gallery__item-wrap">
+                    <a href="/contact" class="gallery__item" style="background-image: url('/assets/rotating/landscape/19.webp');" aria-label="Partner with Kawaki Studios">
+                        <div class="gallery__item-overlay" style="background: linear-gradient(180deg, rgba(12, 13, 16, 0.2) 10%, rgba(12, 13, 16, 0.95) 100%);">
+                            <div class="gallery__item-tag">Kawaki Studio &middot; Inquire</div>
+                            <h3 class="gallery__item-title">Your Next Flagship Build</h3>
+                            <div class="gallery__item-bottom">
+                                <div class="gallery__item-stat"><span>Available for Q3/Q4</span> Worldwide</div>
+                                <span class="gallery__item-btn" style="background: #C6FF00; color: #0c0d10;">Schedule Call &rarr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -674,6 +942,7 @@
         </footer>
     </main>
 
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
@@ -686,82 +955,199 @@
             gsap.ticker.add((t) => lenis.raf(t * 1000));
             gsap.ticker.lagSmoothing(0);
 
-            // Spotlight Scroll Effect
-            const spotlightSection = document.querySelector(".spotlight");
-            const projectIndex = document.querySelector(".project-index .project-index-num, .project-index h1");
-            const projectImgs = document.querySelectorAll(".project-img");
-            const projectImagesContainer = document.querySelector(".project-images");
-            const projectNames = document.querySelectorAll(".project-names p");
-            const projectNamesContainer = document.querySelector(".project-names");
-            if (!spotlightSection || !projectIndex || !projectNamesContainer || !projectImagesContainer) return;
-            const totalProjectCount = projectNames.length;
+            // ----------------------------------------------------
+            // 3D ROTATING ON-SCROLL ANIMATIONS (CODROPS KINEMATICS)
+            // ----------------------------------------------------
+            function initRotatingGallery() {
+                const gallery = document.querySelector('.rotating-gallery');
+                if (!gallery) return;
 
-            const spotlightSectionHeight = spotlightSection.offsetHeight;
-            const spotlightSectionPadding = parseFloat(getComputedStyle(spotlightSection).padding);
-            const projectIndexHeight = projectIndex.offsetHeight;
-            const containerHeight = projectNamesContainer.offsetHeight;
-            const imagesHeight = projectImagesContainer.offsetHeight;
+                const items = gsap.utils.toArray('.rotating-gallery .gallery__item');
+                const wraps = gsap.utils.toArray('.rotating-gallery .gallery__item-wrap');
+                const marqueeInner = document.querySelector('.rotating-marquee-inner');
+                let scrollTriggers = [];
 
-            // Account for top 8rem (128px) and bottom 2rem (32px) padding so it doesn't go off screen
-            const moveDistanceIndex = spotlightSectionHeight - 160 - projectIndexHeight;
-            const moveDistanceNames = spotlightSectionHeight - spotlightSectionPadding * 2 - containerHeight;
-            const moveDistanceImages = window.innerHeight - imagesHeight;
-
-            const imgActivationThreshold = window.innerHeight / 2;
-
-            ScrollTrigger.create({
-                trigger: ".spotlight",
-                start: "top top",
-                end: `+=${window.innerHeight * 5}px`, 
-                pin: true,
-                pinSpacing: true,
-                scrub: 1,
-                onUpdate: (self) => {
-                    const progress = self.progress;
-                    const currentIndex = Math.min(
-                        Math.floor(progress * totalProjectCount) + 1,
-                        totalProjectCount
-                    );
-
-                    projectIndex.textContent = `${String(currentIndex).padStart(2, "0")}/${String(totalProjectCount).padStart(2, "0")}`;
-
-                    const isMobile = window.innerWidth <= 768;
-
-                    if (!isMobile) {
-                        gsap.set(projectIndex, {
-                            y: progress * moveDistanceIndex,
+                function positionGalleryItems() {
+                    const amplitude = Math.min(window.innerWidth * 0.18, 220);
+                    wraps.forEach((wrap, i) => {
+                        const angle = i * 0.52;
+                        gsap.set(wrap, {
+                            x: Math.sin(angle) * amplitude
                         });
-                        gsap.set(projectNamesContainer, {
-                            y: -progress * moveDistanceNames,
-                        });
-                    } else {
-                        gsap.set(projectIndex, { y: 0 });
-                        gsap.set(projectNamesContainer, { y: 0 });
+                    });
+                }
+
+                function holdAtMiddle(progress, hold = 0.25) {
+                    const half = hold * 0.5;
+                    if (progress < 0.5 - half) {
+                        return gsap.utils.mapRange(0, 0.5 - half, 0, 0.5, progress);
                     }
+                    if (progress > 0.5 + half) {
+                        return gsap.utils.mapRange(0.5 + half, 1, 0.5, 1, progress);
+                    }
+                    return 0.5;
+                }
 
-                    gsap.set(projectImagesContainer, {
-                        y: progress * moveDistanceImages,
+                function killTriggers() {
+                    scrollTriggers.forEach(st => st.kill());
+                    scrollTriggers = [];
+                    items.forEach(item => {
+                        gsap.set(item, { clearProps: 'transform,filter,rotationX,rotationY,rotationZ,z' });
                     });
+                }
 
-                    const activeIdx = Math.min(totalProjectCount - 1, Math.max(0, currentIndex - 1));
+                function applyVariation(variation) {
+                    killTriggers();
 
-                    projectImgs.forEach((img, idx) => {
-                        if (idx === activeIdx) {
-                            img.classList.add("active");
-                        } else {
-                            img.classList.remove("active");
+                    items.forEach((item) => {
+                        let st;
+                        if (variation === 1) {
+                            // Variation 1: 3D Orbit & Flow
+                            const rotX = gsap.utils.random(55, 95);
+                            const rotY = gsap.utils.random(-18, 18);
+                            const rotZ = gsap.utils.random(-15, 15);
+                            const setZ = gsap.quickSetter(item, 'z', 'px');
+
+                            const tween = gsap.fromTo(item,
+                                { rotationX: rotX, rotationY: rotY, rotationZ: rotZ },
+                                {
+                                    rotationX: -rotX,
+                                    rotationY: -rotY,
+                                    rotationZ: -rotZ,
+                                    ease: 'none',
+                                    scrollTrigger: {
+                                        trigger: item,
+                                        start: 'top bottom+=20%',
+                                        end: 'bottom top-=20%',
+                                        scrub: true,
+                                        invalidateOnRefresh: true,
+                                        onUpdate(self) {
+                                            const z = Math.sin(self.progress * Math.PI) * -65;
+                                            setZ(z);
+                                        }
+                                    }
+                                }
+                            );
+                            if (tween.scrollTrigger) scrollTriggers.push(tween.scrollTrigger);
+
+                        } else if (variation === 2) {
+                            // Variation 2: Somersault Pitch
+                            const rotX = gsap.utils.random(220, 270);
+                            const rotY = gsap.utils.random(-16, 16);
+                            const rotZ = gsap.utils.random(-35, 35);
+                            const setZ = gsap.quickSetter(item, 'z', 'px');
+
+                            const tween = gsap.fromTo(item,
+                                { rotationX: rotX, rotationY: rotY, rotationZ: rotZ },
+                                {
+                                    rotationX: -rotX,
+                                    rotationY: -rotY,
+                                    rotationZ: -rotZ,
+                                    ease: 'none',
+                                    scrollTrigger: {
+                                        trigger: item,
+                                        start: 'top bottom+=20%',
+                                        end: 'bottom top-=20%',
+                                        scrub: true,
+                                        invalidateOnRefresh: true,
+                                        onUpdate(self) {
+                                            const z = Math.pow(Math.sin(self.progress * Math.PI), 4) * -240;
+                                            setZ(z);
+                                        }
+                                    }
+                                }
+                            );
+                            if (tween.scrollTrigger) scrollTriggers.push(tween.scrollTrigger);
+
+                        } else if (variation === 3) {
+                            // Variation 3: Axial Book Flip
+                            const rotX = gsap.utils.random(-8, 8);
+                            const rotY = gsap.utils.random(180, 240);
+                            const rotZ = gsap.utils.random(-8, 8);
+                            const setTransform = gsap.quickSetter(item, 'css');
+
+                            st = ScrollTrigger.create({
+                                trigger: item,
+                                start: 'top bottom+=20%',
+                                end: 'bottom top-=20%',
+                                scrub: true,
+                                onUpdate(self) {
+                                    const p = self.progress;
+                                    const z = Math.sin(p * Math.PI) * -120;
+                                    setTransform({
+                                        rotationX: gsap.utils.interpolate(rotX, -rotX, p),
+                                        rotationY: gsap.utils.interpolate(rotY, -rotY, p),
+                                        rotationZ: gsap.utils.interpolate(rotZ, -rotZ, p),
+                                        z: z
+                                    });
+                                }
+                            });
+                            scrollTriggers.push(st);
+
+                        } else if (variation === 4) {
+                            // Variation 4: Center Focus & Hold
+                            const rotX = gsap.utils.random(110, 160);
+                            const rotZ = -35;
+                            const setTransform = gsap.quickSetter(item, 'css');
+
+                            st = ScrollTrigger.create({
+                                trigger: item,
+                                start: 'top bottom+=20%',
+                                end: 'bottom top-=20%',
+                                scrub: true,
+                                invalidateOnRefresh: true,
+                                onUpdate(self) {
+                                    const t = holdAtMiddle(self.progress, 0.28);
+                                    const rX = gsap.utils.interpolate(-rotX, rotX, t);
+                                    const rZ = gsap.utils.interpolate(-rotZ, rotZ, t);
+                                    const z = Math.sin(self.progress * Math.PI) * -80;
+                                    setTransform({
+                                        rotationX: rX,
+                                        rotationZ: rZ,
+                                        z: z
+                                    });
+                                }
+                            });
+                            scrollTriggers.push(st);
                         }
                     });
+                }
 
-                    projectNames.forEach((p, idx) => {
-                        if (idx === activeIdx) {
-                            p.classList.add("active");
-                        } else {
-                            p.classList.remove("active");
+                // Scroll-driven marquee movement
+                if (marqueeInner) {
+                    const mt = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: gallery,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 1
                         }
+                    }).fromTo(marqueeInner, { x: '25vw' }, { x: '-110%', ease: 'none' });
+                    if (mt.scrollTrigger) scrollTriggers.push(mt.scrollTrigger);
+                }
+
+                positionGalleryItems();
+                applyVariation(1);
+
+                // Mode switcher
+                const modeBtns = document.querySelectorAll('.mode-btn');
+                modeBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        modeBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const v = parseInt(btn.getAttribute('data-variation'), 10) || 1;
+                        applyVariation(v);
                     });
-                },
-            });
+                });
+
+                window.addEventListener('resize', () => {
+                    positionGalleryItems();
+                    ScrollTrigger.refresh();
+                });
+            }
+
+            initRotatingGallery();
         });
     </script>
     <script src="/assets/js/main.js?v=20260902_luxury_v6"></script>
