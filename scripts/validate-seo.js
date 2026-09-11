@@ -7,6 +7,7 @@ const pages = [
   { name: 'About', file: 'about.html', path: '/about' },
   { name: 'Services', file: 'services.html', path: '/services' },
   { name: 'Custom Web Dev', file: 'services/custom-web-development.html', path: '/services/custom-web-development' },
+  { name: 'AI Automation', file: 'services/ai-automation.html', path: '/services/ai-automation' },
   { name: 'Case Studies', file: 'case-studies.html', path: '/case-studies' },
   { name: 'Acme Case Study', file: 'case-studies/acme-headless-ecommerce.html', path: '/case-studies/acme-headless-ecommerce' },
   { name: 'Fintech Case Study', file: 'case-studies/fintech-roi-calculator.html', path: '/case-studies/fintech-roi-calculator' },
