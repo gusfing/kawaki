@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Engineered digital flagships and custom web applications. Built with Next.js, clean architecture, responsive layouts, and disciplined frontend performance." />
+    <link rel="canonical" href="https://www.kawaki.co.in/services/custom-web-development" />
+    <title>Custom Web Development &amp; Modern Web Applications | Kawaki</title>
+
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.kawaki.co.in/services/custom-web-development" />
+    <meta property="og:title" content="Custom Web Development &amp; Modern Web Applications | Kawaki" />
+    <meta property="og:description" content="Bespoke websites and interactive web applications engineered for maintainability, speed, and distinct visual identity." />
+    <meta property="og:image" content="https://www.kawaki.co.in/assets/images/about_hero_bg.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" content="Custom Web Development &amp; Modern Web Applications | Kawaki" />
+    <meta name="twitter:description" content="Engineered digital flagships and custom web applications. Built with Next.js, clean architecture, responsive layouts, and disciplined frontend performance." />
+    <meta name="twitter:image" content="https://www.kawaki.co.in/assets/images/about_hero_bg.jpg" />
+
+    <!-- Schema.org JSON-LD (Strictly Visible On-Page Alignment) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://www.kawaki.co.in/services/custom-web-development#service",
+          "name": "Custom Web Development & Modern Web Applications",
+          "url": "https://www.kawaki.co.in/services/custom-web-development",
+          "description": "Bespoke digital platforms and custom web applications engineered with Next.js, clean architecture, responsive layouts, and disciplined frontend performance.",
+          "provider": {
+            "@type": "Organization",
+            "@id": "https://www.kawaki.co.in/#organization",
+            "name": "Kawaki",
+            "url": "https://www.kawaki.co.in"
+          },
+          "serviceType": "Custom Web Development and Web Application Engineering",
+          "termsOfService": "https://www.kawaki.co.in/contact"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.kawaki.co.in/services/custom-web-development#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.kawaki.co.in"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://www.kawaki.co.in/services"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Custom Web Development",
+              "item": "https://www.kawaki.co.in/services/custom-web-development"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Typography & Studio CSS Tokens -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
+
+    <style>
+        .service-detail-hero { padding: 160px 4vw 80px; max-width: 1300px; margin: 0 auto; }
+        .service-breadcrumb { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; color: #888; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; }
+        .service-breadcrumb a { color: #888; text-decoration: none; }
+        .service-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; color: #111; margin-bottom: 1.5rem; }
+        .service-hero-lead { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.6; color: #444; max-width: 820px; margin-bottom: 2.5rem; }
+        .service-hero-actions { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; margin-bottom: 3.5rem; }
+        .service-tag-strip { display: flex; flex-wrap: wrap; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(0, 0, 0, 0.08); }
+        .service-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 14px; border-radius: 999px; background: #f4f4f4; color: #333; }
+        .content-section { padding: 80px 4vw; max-width: 1300px; margin: 0 auto; border-top: 1px solid rgba(0, 0, 0, 0.08); }
+        .section-eyebrow { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.9rem; color: #666; margin-bottom: 1rem; display: block; }
+        .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 500; line-height: 1.2; color: #111; margin-bottom: 2.5rem; }
+        .two-track-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 2rem; }
+        .track-card { background: #fafafa; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 12px; padding: 2.5rem 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+        .track-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 1rem; color: #111; }
+        .track-card p { font-size: 1rem; line-height: 1.65; color: #555; margin-bottom: 1.5rem; }
+        .principles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .principle-item { padding: 1.5rem; background: #fff; border-left: 2px solid #111; }
+        .principle-item h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; color: #111; }
+        .principle-item p { font-size: 0.95rem; line-height: 1.6; color: #666; }
+        .proof-block { background: #111; color: #fff; border-radius: 16px; padding: 3rem 2.5rem; margin-top: 2rem; }
+        .proof-block h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; margin-bottom: 1rem; }
+        .proof-block p { color: #aaa; font-size: 1.05rem; line-height: 1.65; max-width: 800px; margin-bottom: 1.5rem; }
+        .faq-accordion { margin-top: 2rem; }
+        .faq-row { border-bottom: 1px solid rgba(0, 0, 0, 0.08); padding: 1.5rem 0; }
+        .faq-question { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 600; color: #111; margin-bottom: 0.75rem; }
+        .faq-answer { font-size: 1rem; line-height: 1.65; color: #555; max-width: 900px; }
+        .cta-box { background: #fafafa; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; padding: 4rem 3rem; text-align: center; margin: 40px auto 100px; max-width: 1100px; }
+    </style>
+</head>
+<body style="background-color: #ffffff; color: #111111;">
+
+    <!-- GLOBAL NAVBAR -->
+    <div class="nav-wrapper" id="globalNav">
+        <nav>
+            <a href="/" class="nav-left" aria-label="Kawaki Studios">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" />
+            </a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/services" class="active">Services</a>
+                <a href="/case-studies">Case Studies</a>
+                <a href="/blog">Writing</a>
+            </div>
+            <a href="/contact" class="nav-right-cta">
+                <span>Start a Project</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="service-detail-hero">
+        <nav class="service-breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/services">Services</a>
+            <span>/</span>
+            <span style="color: #111;">Custom Web Development</span>
+        </nav>
+
+        <h1 class="service-hero-title">Custom Web Development &amp; Modern Web Applications</h1>
+        <p class="service-hero-lead">
+            We engineer bespoke digital platforms, editorial websites, and client-facing web applications when standard platforms no longer fit the product, experience, or technical requirements. Clean architecture, modern frameworks, and deliberate visual design.
+        </p>
+
+        <div class="service-hero-actions">
+            <a href="/contact?service=custom-web-dev" class="nav-right-cta" style="padding: 14px 28px; font-size: 0.95rem;">
+                <span>Discuss Your Project</span>
+            </a>
+            <a href="#how-we-build" style="color: #666; font-size: 0.95rem; text-decoration: none; font-weight: 500;">
+                Explore How We Build &darr;
+            </a>
+        </div>
+
+        <div class="service-tag-strip" aria-label="Core Technical Capabilities">
+            <span class="service-tag">Next.js</span>
+            <span class="service-tag">TypeScript</span>
+            <span class="service-tag">Modular CSS</span>
+            <span class="service-tag">Headless Architecture</span>
+            <span class="service-tag">Semantic HTML &amp; Accessibility</span>
+        </div>
+    </header>
+
+    <!-- SECTION 1: When Standard Platforms Reach Their Limit -->
+    <section class="content-section">
+        <span class="section-eyebrow">// 01 &mdash; Technical Context</span>
+        <h2 class="section-heading">When Standard Platforms and Site Builders Reach Their Limit</h2>
+        
+        <p style="font-size: 1.1rem; line-height: 1.7; color: #444; max-width: 900px; margin-bottom: 2rem;">
+            Off-the-shelf site builders and monolithic theme templates serve an essential role for standard marketing pages. However, as an organization expands, specialized operational needs often reveal friction points where template architectures become restrictive:
+        </p>
+
+        <div class="two-track-grid">
+            <div class="track-card">
+                <div>
+                    <h3>Performance Bottlenecks</h3>
+                    <p>
+                        Relying on dozens of conflicting plugins and heavyweight page-builder scripts creates bloated JavaScript payloads, excessive render-blocking resources, and slow interaction on mobile connections.
+                    </p>
+                </div>
+            </div>
+            <div class="track-card">
+                <div>
+                    <h3>Rigid Product &amp; Data Logic</h3>
+                    <p>
+                        Standard platforms struggle to support custom calculators, multi-step customer portals, or proprietary database integrations without brittle third-party workarounds that break during updates.
+                    </p>
+                </div>
+            </div>
+            <div class="track-card">
+                <div>
+                    <h3>Brand Differentiation</h3>
+                    <p>
+                        Generic templates constrain typography, fluid layout transitions, and micro-interactions, resulting in digital presences that look indistinguishable from category competitors.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Engineering Tracks -->
+    <section class="content-section">
+        <span class="section-eyebrow">// 02 &mdash; Engineering Tracks</span>
+        <h2 class="section-heading">Our Web Engineering Capabilities</h2>
+
+        <div class="two-track-grid">
+            <div class="track-card" style="border-top: 3px solid #111;">
+                <div>
+                    <span style="font-family: 'Barlow Condensed'; font-size: 0.85rem; letter-spacing: 0.1em; color: #888; text-transform: uppercase;">Track A &bull; Editorial &amp; Brand</span>
+                    <h3 style="margin-top: 0.5rem;">Bespoke Marketing Websites &amp; Editorial Platforms</h3>
+                    <p>
+                        Engineered from clean markup with deliberate typography, responsive layouts, and purposeful micro-animations. Designed for marketing teams that need modular content authoring without compromising frontend code quality.
+                    </p>
+                </div>
+                <ul style="padding-left: 1.25rem; font-size: 0.95rem; color: #555; line-height: 1.6;">
+                    <li>Headless CMS integration (Sanity, Strapi, Contentful)</li>
+                    <li>Design system token architecture</li>
+                    <li>Fluid responsive typography &amp; layout systems</li>
+                </ul>
+            </div>
+
+            <div class="track-card" style="border-top: 3px solid #111;">
+                <div>
+                    <span style="font-family: 'Barlow Condensed'; font-size: 0.85rem; letter-spacing: 0.1em; color: #888; text-transform: uppercase;">Track B &bull; Software &amp; Applications</span>
+                    <h3 style="margin-top: 0.5rem;">Custom Web Applications &amp; Workflow Portals</h3>
+                    <p>
+                        For businesses requiring operational depth: authenticated client portals, internal dashboards, SaaS minimum viable products, and interactive data tools. Built with type-safe APIs, robust state management, and reliable validation.
+                    </p>
+                </div>
+                <ul style="padding-left: 1.25rem; font-size: 0.95rem; color: #555; line-height: 1.6;">
+                    <li>Secure authentication &amp; role-based access</li>
+                    <li>Interactive calculators &amp; real-time estimators</li>
+                    <li>REST &amp; GraphQL API synchronization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Architectural Principles -->
+    <section class="content-section">
+        <span class="section-eyebrow">// 03 &mdash; Engineering Principles</span>
+        <h2 class="section-heading">How We Approach Performance, Architecture &amp; Maintainability</h2>
+
+        <div class="principles-grid">
+            <div class="principle-item">
+                <h4>Component-Driven Architecture</h4>
+                <p>Code is structured into modular, isolated elements with explicit data boundaries, ensuring codebases remain readable, maintainable, and refactorable over years rather than months.</p>
+            </div>
+            <div class="principle-item">
+                <h4>Disciplined Asset Budgeting</h4>
+                <p>We prioritize minimal third-party scripts, self-hosted web fonts, and modern image formats (AVIF/WebP) to maintain intentional network payloads and smooth client-side execution.</p>
+            </div>
+            <div class="principle-item">
+                <h4>Semantic HTML &amp; Accessibility Best Practices</h4>
+                <p>Logical document structure, accessible navigational patterns, compliant form fields, and screen-reader traits are engineered as baseline standards from day one.</p>
+            </div>
+            <div class="principle-item">
+                <h4>Pragmatic Framework Selection</h4>
+                <p>We leverage Next.js and React where server rendering, dynamic routing, and complex client state are required; we write vanilla CSS and native web APIs to avoid unnecessary library dependencies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Selected Engineering Work & How We Build -->
+    <section class="content-section" id="how-we-build">
+        <span class="section-eyebrow">// 04 &mdash; Evidence &amp; Methodology</span>
+        <h2 class="section-heading">Selected Engineering Work &amp; How We Build</h2>
+
+        <div class="proof-block">
+            <span style="font-family: 'Barlow Condensed'; font-size: 0.85rem; letter-spacing: 0.15em; color: #C6FF00; text-transform: uppercase;">Infrastructure In Practice</span>
+            <h3 style="margin-top: 0.5rem;">The Kawaki Studio Platform</h3>
+            <p>
+                Our own web property serves as our living testbed for frontend hygiene. Engineered without heavy CMS layers or bulky UI frameworks, it utilizes static and edge-rendered architectures, automated schema graph verification, and custom typography to demonstrate our approach to performance and design.
+            </p>
+            <div style="margin-top: 1.5rem;">
+                <a href="/case-studies" style="color: #fff; text-decoration: underline; font-size: 0.95rem;">
+                    View Technical Case Studies &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Development Workflow -->
+    <section class="content-section">
+        <span class="section-eyebrow">// 05 &mdash; Delivery Process</span>
+        <h2 class="section-heading">From Technical Scoping to Production Deployment</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+            <div style="padding: 1.5rem; background: #fafafa; border-radius: 8px;">
+                <span style="font-family: 'Barlow Condensed'; font-size: 1.2rem; font-weight: 700; color: #888;">01</span>
+                <h4 style="font-size: 1.05rem; font-weight: 600; margin: 0.5rem 0; color: #111;">Discovery &amp; Scoping</h4>
+                <p style="font-size: 0.9rem; color: #666; line-height: 1.5;">Defining functional requirements, data models, integration boundaries, and technical constraints.</p>
+            </div>
+            <div style="padding: 1.5rem; background: #fafafa; border-radius: 8px;">
+                <span style="font-family: 'Barlow Condensed'; font-size: 1.2rem; font-weight: 700; color: #888;">02</span>
+                <h4 style="font-size: 1.05rem; font-weight: 600; margin: 0.5rem 0; color: #111;">Design Tokens &amp; UI</h4>
+                <p style="font-size: 0.9rem; color: #666; line-height: 1.5;">Translating brand identity into fluid typography, layout grids, and interactive states.</p>
+            </div>
+            <div style="padding: 1.5rem; background: #fafafa; border-radius: 8px;">
+                <span style="font-family: 'Barlow Condensed'; font-size: 1.2rem; font-weight: 700; color: #888;">03</span>
+                <h4 style="font-size: 1.05rem; font-weight: 600; margin: 0.5rem 0; color: #111;">Frontend &amp; API Build</h4>
+                <p style="font-size: 0.9rem; color: #666; line-height: 1.5;">Writing modular components, connecting CMS or database layers, and establishing automated test checks.</p>
+            </div>
+            <div style="padding: 1.5rem; background: #fafafa; border-radius: 8px;">
+                <span style="font-family: 'Barlow Condensed'; font-size: 1.2rem; font-weight: 700; color: #888;">04</span>
+                <h4 style="font-size: 1.05rem; font-weight: 600; margin: 0.5rem 0; color: #111;">Quality &amp; Performance Audit</h4>
+                <p style="font-size: 0.9rem; color: #666; line-height: 1.5;">Cross-browser testing, accessibility validation, mobile viewport checks, and payload optimizations.</p>
+            </div>
+            <div style="padding: 1.5rem; background: #fafafa; border-radius: 8px;">
+                <span style="font-family: 'Barlow Condensed'; font-size: 1.2rem; font-weight: 700; color: #888;">05</span>
+                <h4 style="font-size: 1.05rem; font-weight: 600; margin: 0.5rem 0; color: #111;">Launch &amp; Documentation</h4>
+                <p style="font-size: 0.9rem; color: #666; line-height: 1.5;">Edge deployment, URL redirect validation, repository handoff, and technical architecture notes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: FAQs -->
+    <section class="content-section">
+        <span class="section-eyebrow">// 06 &mdash; Transparency</span>
+        <h2 class="section-heading">Frequently Asked Questions</h2>
+
+        <div class="faq-accordion">
+            <div class="faq-row">
+                <h3 class="faq-question">When should a business choose custom development over a platform like Webflow or WordPress?</h3>
+                <p class="faq-answer">
+                    If your platform requires custom business logic, integration with proprietary databases, authenticated client portals, or brand-specific interactivity that standard platforms cannot deliver without dozens of brittle plugins, custom engineering is the right long-term investment. If your requirements are standard marketing pages with basic forms, an established CMS may be more cost-effective.
+                </p>
+            </div>
+            <div class="faq-row">
+                <h3 class="faq-question">How much does custom web development cost?</h3>
+                <p class="faq-answer">
+                    The cost depends on the scope, integrations, content model, application logic, and design requirements. We scope projects around the actual technical requirements rather than selling fixed packages. After an initial discussion, we can outline the recommended architecture and project scope.
+                </p>
+            </div>
+            <div class="faq-row">
+                <h3 class="faq-question">Which technology stack do you primarily use?</h3>
+                <p class="faq-answer">
+                    For marketing platforms and web applications, our primary stack includes Next.js, TypeScript, and modern CSS, paired with headless CMS options (such as Sanity, Strapi, or Contentful) or custom Node.js/PostgreSQL backends when bespoke data models are needed.
+                </p>
+            </div>
+            <div class="faq-row">
+                <h3 class="faq-question">How do you handle maintenance and updates after launch?</h3>
+                <p class="faq-answer">
+                    We write clean, documented code and maintain standard dependencies so that your internal team can manage the codebase. We also offer ongoing retainer support for infrastructure updates, feature enhancements, and performance monitoring.
+                </p>
+            </div>
+            <div class="faq-row">
+                <h3 class="faq-question">Can you audit or rebuild an existing slow website?</h3>
+                <p class="faq-answer">
+                    We can audit legacy platforms to identify database bloat, script bottlenecks, and template limitations. When rebuilding, we execute migrations with a carefully planned URL and 301 redirect strategy designed to preserve existing search visibility.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Conversion Box -->
+    <div class="cta-box">
+        <span class="section-eyebrow" style="color: #666;">// Next Steps</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.6rem); margin-bottom: 1rem; color: #111;">
+            Ready to Engineer a Platform That Scales?
+        </h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; color: #555; max-width: 650px; margin: 0 auto 2rem;">
+            Whether you are architecting a new web application or replacing a legacy system that no longer fits your technical requirements, we can help define the path forward.
+        </p>
+        <a href="/contact?service=custom-web-dev" class="nav-right-cta" style="padding: 16px 36px; font-size: 1rem; display: inline-block;">
+            <span>Schedule an Engineering Consultation</span>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-top-strip">
+            <div class="footer-strip-left">
+                <span class="footer-tagline">// EDITORIAL ENGINEERING &bull; CRAFT &bull; SPEED</span>
+            </div>
+            <div class="footer-strip-right">
+                <span class="footer-strip-item"><span class="status-dot"></span> Available for Select Q3/Q4 Commissions</span>
+            </div>
+        </div>
+
+        <div class="footer-main-grid">
+            <div class="footer-col footer-col-brand">
+                <div class="footer-brand-header">
+                    <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios Logo" class="footer-logo-img" />
+                    <span class="footer-brand-name">KAWAKI</span>
+                </div>
+                <p class="footer-brand-desc">
+                    A boutique digital studio blending editorial typography, luxury aesthetic discipline, and performance-focused full-stack engineering.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// NAVIGATION</div>
+                <ul class="footer-links-list">
+                    <li><a href="/about">About Studio</a></li>
+                    <li><a href="/services">Services &amp; Capabilities</a></li>
+                    <li><a href="/case-studies">Selected Work</a></li>
+                    <li><a href="/blog">Editorial &amp; Insights</a></li>
+                    <li><a href="/contact">Initiate Project</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// TIMEZONES</div>
+                <div class="footer-locations-list">
+                    <div class="footer-loc-row">
+                        <span>New Delhi</span>
+                        <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
+                    </div>
+                    <div class="footer-loc-row">
+                        <span>London</span>
+                        <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
+                    </div>
+                    <div class="footer-loc-row">
+                        <span>New York</span>
+                        <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// CONNECT</div>
+                <ul class="footer-links-list">
+                    <li><a href="https://twitter.com" target="_blank" rel="noopener"><span>X / Twitter</span> &nearr;</a></li>
+                    <li><a href="https://linkedin.com" target="_blank" rel="noopener"><span>LinkedIn</span> &nearr;</a></li>
+                    <li><a href="https://github.com" target="_blank" rel="noopener"><span>GitHub</span> &nearr;</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">&copy; 2026 Kawaki Studios Ltd. All rights reserved. &mdash; Custom Web Development &amp; Web Applications.</div>
+            <ul class="footer-bottom-links">
+                <li><a href="/sitemap.xml">Sitemap</a></li>
+                <li><a href="/robots.txt">Robots.txt</a></li>
+                <li><a href="/llms.txt">LLMs.txt</a></li>
+            </ul>
+            <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
+                <span>Back to Top &uarr;</span>
+            </button>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script src="/assets/js/main.js?v=20260902_luxury_v6"></script>
+    <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
+</body>
+</html>
