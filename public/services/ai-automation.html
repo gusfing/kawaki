@@ -83,10 +83,42 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "What is AI automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI automation combines deterministic workflow engineering (APIs, webhooks, databases) with bounded artificial intelligence models (LLMs, vision models, semantic parsers) to execute operational processes that require both rigid reliability and contextual decision-making."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should a business use AI instead of normal automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Normal rule-based automation handles predictable, structured triggers (such as creating a database row when a form is submitted). AI is necessary when inputs are unstructured, variable, or conversational—such as interpreting incoming emails, categorizing customer tickets, parsing non-standard PDF invoices, or drafting context-aware responses."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What is the difference between simple automation and an AI agent?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Simple automation executes deterministic, rule-based workflows (if X happens, perform Y). An AI agent handles probabilistic tasks involving unstructured input, semantic understanding, or decision-making before passing results to deterministic steps or human review."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you connect AI automation to our CRM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We engineer bi-directional integrations across HubSpot, Salesforce, Pipedrive, Close, Zoho, and custom PostgreSQL or GraphQL backends—handling record synchronization, lead enrichment, deduplication, and automated pipeline triggers with full state verification."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI automation work with existing software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We integrate with your existing tech stack via REST APIs, webhooks, direct database connections, and secure enterprise connectors in n8n or Make. There is no requirement to replace your existing ERP, CRM, or billing software."
           }
         },
         {
@@ -110,7 +142,15 @@
           "name": "How long does a typical AI automation project take to deploy?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Targeted workflow automations typically deploy within 2 to 4 weeks. Multi-agent operational systems involving custom integrations, data parsing pipelines, and security sandboxing generally require 4 to 8 weeks."
+            "text": "Deployment timelines depend on workflow complexity, integrations, data requirements, and testing. A focused workflow may be substantially simpler than a multi-system automation platform requiring custom integrations and extensive testing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does AI automation cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Investment depends on system scope, number of integrated platforms, data validation requirements, and whether workflows require self-hosted private infrastructure or cloud orchestration. We assess operational requirements during discovery and provide transparent, milestone-scoped proposals."
           }
         }
       ]
@@ -161,6 +201,29 @@
             background: #f8f9fa;
             color: #444;
             letter-spacing: 0.04em;
+        }
+        .workflow-flow-strip {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            color: #111;
+            margin: 0.5rem 0 0.4rem 0;
+            padding: 6px 12px;
+            background: #f6f7f9;
+            border-radius: 6px;
+            border: 1px solid rgba(17, 17, 17, 0.06);
+            width: fit-content;
+        }
+        .workflow-flow-strip span {
+            font-weight: 600;
+            color: #111;
+        }
+        .workflow-flow-strip .flow-arrow {
+            color: #888;
+            font-weight: 400;
         }
 
         /* Editorial Architecture Blueprint */
@@ -576,8 +639,8 @@
                 </aside>
                 <div class="flex-col-right service-items">
                     <div class="service-row" style="cursor: default;">
-                        <span class="service-name">1. Determinism First</span>
-                        <span class="service-desc">We never use an LLM where deterministic code or native APIs suffice. Deterministic logic is faster, cheaper, and cannot hallucinate. AI is reserved strictly for tasks requiring semantic understanding.</span>
+                        <span class="service-name">1. Determinism First — Not Every Workflow Needs an AI Model</span>
+                        <span class="service-desc">We'll first determine whether you need AI at all. We never use an LLM where deterministic code, native APIs, or traditional database triggers suffice. Deterministic logic is often faster, cheaper, and avoids model-generated hallucinations. AI is reserved strictly for tasks requiring semantic understanding.</span>
                     </div>
                     <div class="service-row" style="cursor: default;">
                         <span class="service-name">2. Guardrails &amp; Human-in-the-Loop</span>
@@ -589,42 +652,151 @@
                     </div>
                     <div class="service-row" style="cursor: default;">
                         <span class="service-name">4. Data Sovereignty &amp; Privacy</span>
-                        <span class="service-desc">We configure private self-hosted n8n instances when client requirements prohibit third-party cloud data transit, ensuring complete adherence to privacy and enterprise compliance policies.</span>
+                        <span class="service-desc">We configure private self-hosted n8n instances when client requirements prohibit third-party cloud data transit, supporting privacy-sensitive deployments and giving clients greater control over where workflow data is processed.</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 05: Frequently Asked Questions -->
+        <!-- SECTION 05: What Can We Automate? -->
+        <section class="section" id="what-we-automate">
+            <div class="border-top"></div>
+            <div class="flex-split">
+                <aside class="flex-col-left group-header">
+                    <span class="group-title">(05) — Workflow Blueprints</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: #111; margin-top: 1rem; line-height: 1.15;">
+                        What Can We<br><em>Automate?</em>
+                    </h2>
+                    <p style="font-size: 0.9rem; color: #777; line-height: 1.6; margin-top: 1rem; max-width: 280px;">
+                        Concrete end-to-end workflows engineered across your operational stack. Clear stage handoffs without manual friction.
+                    </p>
+                </aside>
+                <div class="flex-col-right service-items">
+                    <div class="service-row" style="cursor: default;">
+                        <span class="service-name">Lead Operations</span>
+                        <div class="workflow-flow-strip">
+                            <span>Capture</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Qualify</span> <span class="flow-arrow">&rarr;</span>
+                            <span>CRM</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Notification</span>
+                        </div>
+                        <span class="service-desc">Instant inbound webhook capture, automated lead scoring and enrichment, seamless sync to HubSpot or Salesforce, and prioritized team alerts in Slack or Teams.</span>
+                    </div>
+                    <div class="service-row" style="cursor: default;">
+                        <span class="service-name">Document Processing</span>
+                        <div class="workflow-flow-strip">
+                            <span>PDF / Email</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Extraction</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Validation</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Approval</span>
+                        </div>
+                        <span class="service-desc">Automated ingestion of vendor invoices, receipts, and client contracts via OCR and multimodal LLMs, structural JSON schema validation, and ERP routing with human checkpoints.</span>
+                    </div>
+                    <div class="service-row" style="cursor: default;">
+                        <span class="service-name">Customer Support</span>
+                        <div class="workflow-flow-strip">
+                            <span>Ticket</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Classification</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Context</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Draft</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Human Review</span>
+                        </div>
+                        <span class="service-desc">Multi-channel ticket intake, sentiment and urgency classification, automated knowledge-base retrieval, context-aware reply drafting, and one-click agent approval before dispatch.</span>
+                    </div>
+                    <div class="service-row" style="cursor: default;">
+                        <span class="service-name">Reporting</span>
+                        <div class="workflow-flow-strip">
+                            <span>Data Sources</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Normalization</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Summary</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Delivery</span>
+                        </div>
+                        <span class="service-desc">Scheduled cross-platform data ingestion from ad channels, payment gateways, and databases, automated metric normalization, executive briefing generation, and scheduled delivery.</span>
+                    </div>
+                    <div class="service-row" style="cursor: default;">
+                        <span class="service-name">CRM Operations</span>
+                        <div class="workflow-flow-strip">
+                            <span>Record Changes</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Synchronization</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Enrichment</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Notification</span>
+                        </div>
+                        <span class="service-desc">Real-time triggers on deal stage modifications, bi-directional cross-platform synchronization, firmographic enrichment, and automated internal status updates.</span>
+                    </div>
+                    <div class="service-row" style="cursor: default;">
+                        <span class="service-name">Internal Operations</span>
+                        <div class="workflow-flow-strip">
+                            <span>Request</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Workflow</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Approval</span> <span class="flow-arrow">&rarr;</span>
+                            <span>Execution</span>
+                        </div>
+                        <span class="service-desc">Standardized intake for hardware requests, employee onboarding, access permissions, and spend approvals with multi-tier authorization and programmatic execution across company tooling.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 06: Frequently Asked Questions -->
         <section class="section" id="faq">
             <div class="border-top"></div>
             <div class="flex-split">
                 <aside class="flex-col-left group-header">
-                    <span class="group-title">(05) — Inquiries &amp; FAQ</span>
+                    <span class="group-title">(06) — Inquiries &amp; FAQ</span>
                 </aside>
                 <div class="flex-col-right">
                     <div class="editorial-faq-item">
-                        <div class="editorial-faq-q"><span>// 01</span> What is the difference between simple automation and an AI agent?</div>
+                        <div class="editorial-faq-q"><span>// 01</span> What is AI automation?</div>
+                        <div class="editorial-faq-a">
+                            AI automation combines deterministic workflow engineering (APIs, webhooks, databases) with bounded artificial intelligence models (LLMs, vision models, semantic parsers) to execute operational processes that require both rigid reliability and contextual decision-making.
+                        </div>
+                    </div>
+                    <div class="editorial-faq-item">
+                        <div class="editorial-faq-q"><span>// 02</span> When should a business use AI instead of normal automation?</div>
+                        <div class="editorial-faq-a">
+                            Normal rule-based automation handles predictable, structured triggers (such as creating a database row when a form is submitted). AI is necessary when inputs are unstructured, variable, or conversational—such as interpreting incoming emails, categorizing customer tickets, parsing non-standard PDF invoices, or drafting context-aware responses.
+                        </div>
+                    </div>
+                    <div class="editorial-faq-item">
+                        <div class="editorial-faq-q"><span>// 03</span> What is the difference between simple automation and an AI agent?</div>
                         <div class="editorial-faq-a">
                             Simple automation executes deterministic, rule-based workflows (if X happens, perform Y). An AI agent handles probabilistic tasks involving unstructured input, semantic understanding, or decision-making before passing results to deterministic steps or human review.
                         </div>
                     </div>
                     <div class="editorial-faq-item">
-                        <div class="editorial-faq-q"><span>// 02</span> Do you use n8n or Make for workflow automation?</div>
+                        <div class="editorial-faq-q"><span>// 04</span> Can you connect AI automation to our CRM?</div>
+                        <div class="editorial-faq-a">
+                            Yes. We engineer bi-directional integrations across HubSpot, Salesforce, Pipedrive, Close, Zoho, and custom PostgreSQL or GraphQL backends—handling record synchronization, lead enrichment, deduplication, and automated pipeline triggers with full state verification.
+                        </div>
+                    </div>
+                    <div class="editorial-faq-item">
+                        <div class="editorial-faq-q"><span>// 05</span> Can AI automation work with existing software?</div>
+                        <div class="editorial-faq-a">
+                            Yes. We integrate with your existing tech stack via REST APIs, webhooks, direct database connections, and secure enterprise connectors in n8n or Make. There is no requirement to replace your existing ERP, CRM, or billing software.
+                        </div>
+                    </div>
+                    <div class="editorial-faq-item">
+                        <div class="editorial-faq-q"><span>// 06</span> Do you use n8n or Make for workflow automation?</div>
                         <div class="editorial-faq-a">
                             We engineer with both platforms depending on requirements. For clients requiring self-hosted data privacy, open-source architecture, and on-premises control, we deploy n8n. For teams seeking managed cloud integrations and visual orchestration, Make is an ideal solution.
                         </div>
                     </div>
                     <div class="editorial-faq-item">
-                        <div class="editorial-faq-q"><span>// 03</span> How do you prevent AI hallucinations in business automation?</div>
+                        <div class="editorial-faq-q"><span>// 07</span> How do you prevent AI hallucinations in business automation?</div>
                         <div class="editorial-faq-a">
                             We enforce bounded scopes, strict output schema parsing (such as JSON validation), confidence thresholds, and human-in-the-loop review gates for high-risk decisions. AI models are never allowed to execute irreversible write actions without explicit structural checks.
                         </div>
                     </div>
                     <div class="editorial-faq-item">
-                        <div class="editorial-faq-q"><span>// 04</span> How long does a typical AI automation project take to deploy?</div>
+                        <div class="editorial-faq-q"><span>// 08</span> How long does a typical AI automation project take to deploy?</div>
                         <div class="editorial-faq-a">
-                            Targeted workflow automations typically deploy within 2 to 4 weeks. Multi-agent operational systems involving custom integrations, data parsing pipelines, and security sandboxing generally require 4 to 8 weeks.
+                            Deployment timelines depend on workflow complexity, integrations, data requirements, and testing. A focused workflow may be substantially simpler than a multi-system automation platform requiring custom integrations and extensive testing.
+                        </div>
+                    </div>
+                    <div class="editorial-faq-item">
+                        <div class="editorial-faq-q"><span>// 09</span> How much does AI automation cost?</div>
+                        <div class="editorial-faq-a">
+                            Investment depends on system scope, number of integrated platforms, data validation requirements, and whether workflows require self-hosted private infrastructure or cloud orchestration. We assess operational requirements during discovery and provide transparent, milestone-scoped proposals.
                         </div>
                     </div>
                 </div>
