@@ -10,11 +10,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title id="pageTitle">Blog — Kawaki Studios</title>
     <meta name="description" id="pageDescription" content="Custom web development, Shopify stores, and digital engineering insights from Kawaki Studios." />
-    <link rel="canonical" id="canonicalLink" href="https://www.kawaki.co.in/blog" />
+    <link rel="canonical" id="canonicalLink" href="https://www.kawaki.co.in/blog-post" />
+    <script>
+        (function() {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                var s = params.get('slug');
+                if (s) {
+                    var u = 'https://www.kawaki.co.in/blog-post?slug=' + encodeURIComponent(s);
+                    var c = document.getElementById('canonicalLink');
+                    if (c) c.href = u;
+                    var og = document.getElementById('ogUrl');
+                    if (og) og.content = u;
+                }
+            } catch(e) {}
+        })();
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" id="ogUrl" content="https://www.kawaki.co.in/blog" />
+    <meta property="og:url" id="ogUrl" content="https://www.kawaki.co.in/blog-post" />
     <meta property="og:title" id="ogTitle" content="Blog — Kawaki Studios" />
     <meta property="og:description" id="ogDesc" content="Custom web development, Shopify stores, and digital engineering insights from Kawaki Studios." />
     <meta property="og:image" content="https://www.kawaki.co.in/assets/images/about_hero_bg.jpg" />

@@ -168,6 +168,12 @@ if (fs.existsSync(sitemapPath)) {
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.kawaki.co.in/case-studies/fintech-roi-calculator</loc>
+    <lastmod>${dateStr}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.kawaki.co.in/blog</loc>
     <lastmod>${dateStr}</lastmod>
     <changefreq>daily</changefreq>
