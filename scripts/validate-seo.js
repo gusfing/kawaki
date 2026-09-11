@@ -11,8 +11,7 @@ const pages = [
   { name: 'Fintech Case Study', file: 'case-studies/fintech-roi-calculator.html', path: '/case-studies/fintech-roi-calculator' },
   { name: 'Blog Index', file: 'blog.html', path: '/blog' },
   { name: 'Blog Post Template', file: 'blog-post.html', path: '/blog-post' },
-  { name: 'Contact', file: 'contact.html', path: '/contact' },
-  { name: 'Shopify Editions', file: 'shopify.html', path: '/shopify' }
+  { name: 'Contact', file: 'contact.html', path: '/contact' }
 ];
 
 function extractAttr(html, tagRegex, attrName) {

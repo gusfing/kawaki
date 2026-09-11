@@ -195,13 +195,11 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // 3. Serve Shopify page on /shopify or /editions
+  // 3. Redirect Shopify/Editions to /services
   if (reqPath.startsWith('/editions') || reqPath === '/shopify' || reqPath === '/shopify.html') {
-    const shopifyPath = path.join(ROOT, 'shopify.html');
-    if (fs.existsSync(shopifyPath)) {
-      serveLocalFile(shopifyPath, res);
-      return;
-    }
+    res.writeHead(301, { Location: '/services' });
+    res.end();
+    return;
   }
 
   // 4. Clean URL redirects (matching Vercel cleanUrls: true)

@@ -1,7 +1,7 @@
 # Kawaki Studios — Full System Context & Architecture Guide
 
 ## Overview
-Kawaki Studios is a premium web engineering and custom digital design studio. Founded by Kunal Sharma, the studio bridges bespoke design artistry with modern, high-performance web engineering.
+Kawaki Studios is an elite editorial engineering agency and digital architecture studio. Founded by Kunal Sharma, the studio bridges bespoke graphic artistry with mission-critical web engineering.
 
 - **Website**: https://www.kawaki.co.in
 - **Founder**: Kunal Sharma
@@ -10,18 +10,17 @@ Kawaki Studios is a premium web engineering and custom digital design studio. Fo
 
 ## Technical Disciplines
 
-### 1. Custom Web Development & Next.js Architecture
-- Full-stack custom web applications, Next.js App Router, SSR/SSG hybrid rendering.
-- Architecture: Bespoke CMS dashboards, structured Markdown content pipelines, SQLite / LibSQL database synchronization.
-- Typography: Curated font pairings (Instrument Serif, Host Grotesk, Plus Jakarta Sans, JetBrains Mono).
-- Accessibility: Level AA compliance (WCAG 2.2), fully keyboard-accessible navigation and modals.
-
-### 2. Shopify Store Development & Headless Commerce
-- Frameworks: Shopify Plus, Hydrogen, Remix, Oxygen edge workers, Liquid custom themes.
+### 1. Headless Commerce & Shopify Plus
+- Frameworks: Next.js App Router, Shopify Hydrogen, Remix, Oxygen edge workers.
 - Caching: Multi-region Redis session cache, edge route stale-while-revalidate, instant Cart API synchronization.
-- Performance: Sub-second catalog browsing, 98+ Lighthouse mobile performance score, high-conversion checkout flows.
+- Performance: Sub-second catalog browsing, 98+ Lighthouse mobile performance score.
 
-### 3. Interactive Web Experiences & WebGL
+### 2. Editorial Engineering & Custom CMS
+- Architecture: Bespoke CMS dashboard, structured Markdown content pipelines, SQLite / LibSQL database synchronization.
+- Typography: Custom curated editorial font pairings (Instrument Serif, Host Grotesk, Plus Jakarta Sans, JetBrains Mono).
+- Accessibility: Level AA compliance (WCAG 2.2), fully keyboard-accessible modals, dynamic high-contrast focus rings.
+
+### 3. Spatial & 3D Interactive Web
 - Graphics: Three.js, WebGL shaders, GSAP ScrollTrigger physics, Lenis smooth scrolling.
 - UI Physics: Magnetic hover states, fluid page transitions, spring-damper interactions.
 
@@ -49,15 +48,6 @@ Kawaki Studios is a premium web engineering and custom digital design studio. Fo
 6. **Headless Commerce at Sub-Second Latency**
    - URL: https://www.kawaki.co.in/blog-post?slug=headless-commerce-at-sub-second-latency
    - Summary: Engineering blueprint for distributed session caching and optimistic mutation queues in Shopify Hydrogen.
-
-## Flagship Case Studies & Engineering Benchmarks
-1. **Acme Headless E-commerce Platform**
-   - URL: https://www.kawaki.co.in/case-studies/acme-headless-ecommerce
-   - Highlights: Sub-second headless Shopify Plus architecture, reducing LCP to 0.8s and lifting mobile conversions by 42%.
-
-2. **Fintech Interactive ROI Calculator**
-   - URL: https://www.kawaki.co.in/case-studies/fintech-roi-calculator
-   - Highlights: Client-side parametric mathematical modeling engine in Next.js/TypeScript with <80ms calculation latency and +180% qualified enterprise lead conversion lift.
 
 ## Contact & Working With Us
 - Direct Calendar: https://www.kawaki.co.in/contact

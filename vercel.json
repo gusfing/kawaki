@@ -11,14 +11,18 @@
     {
       "source": "/admin/((?!assets/|.*\\..*).*)",
       "destination": "/admin/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/shopify",
+      "destination": "/services",
+      "permanent": true
     },
     {
       "source": "/editions",
-      "destination": "/shopify.html"
-    },
-    {
-      "source": "/shopify",
-      "destination": "/shopify.html"
+      "destination": "/services",
+      "permanent": true
     }
   ],
   "headers": [

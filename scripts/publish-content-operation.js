@@ -179,12 +179,6 @@ if (fs.existsSync(sitemapPath)) {
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://www.kawaki.co.in/shopify</loc>
-    <lastmod>${dateStr}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <!-- Published High-Authority Articles -->
 ${allArticles.map(a => `  <url>
