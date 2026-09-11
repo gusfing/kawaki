@@ -4450,83 +4450,6 @@ body.menu-is-open #menu-toggle-icon .bar-bottom,
   justify-content: flex-end;
 }
 
-/* =============================================
-   UNIVERSAL GLOBAL FOOTER
-   ============================================= */
-footer.sections.global-site-footer,
-footer.global-site-footer,
-.global-site-footer {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0px auto !important;
-  position: relative !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  padding: 6rem 4rem 4rem !important;
-  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
-  background-color: #ffffff !important;
-  color: #111111 !important;
-  box-sizing: border-box !important;
-}
-.services-header-2 {
-  display: flex !important;
-  flex-direction: column !important;
-  margin-bottom: 40px !important;
-  position: relative !important;
-  width: 100% !important;
-}
-.services-title-2 {
-  font-size: clamp(2.8rem, 8vw, 7.5rem) !important;
-  font-weight: 400 !important;
-  margin: 0px !important;
-  color: #111111 !important;
-  font-family: 'Playfair Display', Georgia, serif !important;
-  line-height: 1 !important;
-  letter-spacing: -0.02em !important;
-}
-.services-header-2 .left { 
-  justify-content: flex-start !important; 
-  display: flex !important; 
-  align-items: center !important; 
-  text-align: left !important;
-}
-.services-header-2 .right { 
-  justify-content: flex-end !important; 
-  display: flex !important; 
-  align-items: center !important; 
-  text-align: right !important;
-}
-.services-header-2 em {
-  font-style: italic !important;
-  font-family: "Instrument Serif", serif !important;
-}
-.svg-container {
-  display: flex !important;
-  width: 100% !important;
-  margin: -25px auto !important;
-  align-items: center !important;
-  justify-content: center !important;
-  pointer-events: auto !important;
-  z-index: 5 !important;
-  position: relative !important;
-}
-.svg-container img.hello-image {
-  width: 110px !important;
-  height: 110px !important;
-  object-fit: contain !important;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-  cursor: pointer !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  margin: 0 auto !important;
-  filter: brightness(0) !important;
-}
-.svg-container img.hello-image:hover {
-  transform: rotate(20deg) scale(1.15) !important;
-}
-
 /* ==========================================================================
    GLOBAL FOOTER — ULTRA PREMIUM EDITORIAL DESIGN
    ========================================================================== */
@@ -4581,12 +4504,14 @@ footer.global-site-footer,
 }
 
 .services-header-2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 4rem;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  margin-bottom: 4rem !important;
+  flex-wrap: wrap !important;
+  gap: 2rem !important;
+  width: 100% !important;
 }
 
 .footer-headline-group {
