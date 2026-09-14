@@ -77,6 +77,83 @@ function initGlobalNav() {
         }
     }
 
+    // Services Submenu Controller
+    let isServicesOpen = false;
+    const mainMenuPrimary = menu ? menu.querySelector('#mainMenuPrimary') : null;
+    const mainMenuServices = menu ? menu.querySelector('#mainMenuServices') : null;
+    const servicesTrigger = menu ? menu.querySelector('#menuServicesTrigger') : null;
+    const servicesBackBtn = menu ? menu.querySelector('#menuServicesBackBtn') : null;
+
+    function openServicesMenu() {
+        if (!mainMenuPrimary || !mainMenuServices) return;
+        isServicesOpen = true;
+
+        if (typeof gsap !== 'undefined') {
+            gsap.to(mainMenuPrimary, {
+                opacity: 0,
+                x: -20,
+                duration: 0.25,
+                ease: 'power2.in',
+                onComplete: () => {
+                    mainMenuPrimary.style.display = 'none';
+                    mainMenuServices.style.display = 'block';
+                    gsap.fromTo(mainMenuServices, 
+                        { opacity: 0, x: 20 },
+                        { opacity: 1, x: 0, duration: 0.35, ease: 'power3.out' }
+                    );
+                    gsap.fromTo('.menu-services-group',
+                        { y: 15, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'power3.out' }
+                    );
+                }
+            });
+        } else {
+            mainMenuPrimary.style.display = 'none';
+            mainMenuServices.style.display = 'block';
+            mainMenuServices.style.opacity = '1';
+        }
+    }
+
+    function closeServicesMenu() {
+        if (!mainMenuPrimary || !mainMenuServices) return;
+        isServicesOpen = false;
+
+        if (typeof gsap !== 'undefined') {
+            gsap.to(mainMenuServices, {
+                opacity: 0,
+                x: 20,
+                duration: 0.2,
+                ease: 'power2.in',
+                onComplete: () => {
+                    mainMenuServices.style.display = 'none';
+                    mainMenuPrimary.style.display = 'block';
+                    gsap.fromTo(mainMenuPrimary, 
+                        { opacity: 0, x: -15 },
+                        { opacity: 1, x: 0, duration: 0.3, ease: 'power3.out' }
+                    );
+                }
+            });
+        } else {
+            mainMenuServices.style.display = 'none';
+            mainMenuPrimary.style.display = 'block';
+            mainMenuPrimary.style.opacity = '1';
+        }
+    }
+
+    if (servicesTrigger) {
+        servicesTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openServicesMenu();
+        });
+    }
+
+    if (servicesBackBtn) {
+        servicesBackBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeServicesMenu();
+        });
+    }
+
     if (toggleBtns.length > 0 && menu) {
         toggleBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -90,30 +167,44 @@ function initGlobalNav() {
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && isMenuOpen) {
-            toggleMenuState();
+            if (isServicesOpen) {
+                closeServicesMenu();
+            } else {
+                toggleMenuState();
+            }
         }
     });
 
-    // Close on link click
+    // Close on link click (exclude submenu trigger)
     if (menu) {
-        const menuLinks = menu.querySelectorAll('.main-menu-links a, .menu-cta-button');
+        const menuLinks = menu.querySelectorAll('.main-menu-links a:not(#menuServicesTrigger), .menu-services-list a, .menu-cta-button, .menu-services-hub-link');
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
-                if (isMenuOpen) toggleMenuState();
+                if (isMenuOpen) {
+                    toggleMenuState();
+                    if (isServicesOpen) {
+                        mainMenuServices.style.display = 'none';
+                        mainMenuPrimary.style.display = 'block';
+                        mainMenuPrimary.style.opacity = '1';
+                        isServicesOpen = false;
+                    }
+                }
             });
         });
     }
 
     // Hover image preview updates
     if (menu) {
-        const menuItems = menu.querySelectorAll('.main-menu-links li');
+        const menuItems = menu.querySelectorAll('.main-menu-links li, .menu-services-list li');
         const previewImg = document.getElementById('menuPreviewImg');
         const previewTag = document.getElementById('menuPreviewTag');
+        const previewDesc = document.getElementById('menuPreviewDesc');
 
         menuItems.forEach(item => {
             item.addEventListener('mouseenter', () => {
                 const img = item.dataset.img;
                 const tag = item.dataset.tag;
+                const desc = item.dataset.desc;
                 if (previewImg && img) {
                     previewImg.style.opacity = '0';
                     setTimeout(() => {
@@ -123,6 +214,9 @@ function initGlobalNav() {
                 }
                 if (previewTag && tag) {
                     previewTag.textContent = tag;
+                }
+                if (previewDesc && desc) {
+                    previewDesc.textContent = desc;
                 }
             });
         });
