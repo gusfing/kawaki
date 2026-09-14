@@ -7,6 +7,7 @@ const pages = [
   { name: 'About', file: 'about.html', path: '/about' },
   { name: 'Services', file: 'services.html', path: '/services' },
   { name: 'Custom Web Dev', file: 'services/custom-web-development.html', path: '/services/custom-web-development' },
+  { name: 'Shopify Development', file: 'services/shopify-development.html', path: '/services/shopify-development' },
   { name: 'AI Automation', file: 'services/ai-automation.html', path: '/services/ai-automation' },
   { name: 'WordPress Malware Removal', file: 'services/wordpress-malware-removal.html', path: '/services/wordpress-malware-removal' },
   { name: 'Case Studies', file: 'case-studies.html', path: '/case-studies' },
