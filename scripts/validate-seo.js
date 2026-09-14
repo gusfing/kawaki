@@ -9,6 +9,7 @@ const pages = [
   { name: 'Custom Web Dev', file: 'services/custom-web-development.html', path: '/services/custom-web-development' },
   { name: 'Shopify Development', file: 'services/shopify-development.html', path: '/services/shopify-development' },
   { name: 'AI Automation', file: 'services/ai-automation.html', path: '/services/ai-automation' },
+  { name: 'AI Search Optimization', file: 'services/ai-search-optimization.html', path: '/services/ai-search-optimization' },
   { name: 'WordPress Malware Removal', file: 'services/wordpress-malware-removal.html', path: '/services/wordpress-malware-removal' },
   { name: 'Case Studies', file: 'case-studies.html', path: '/case-studies' },
   { name: 'Acme Case Study', file: 'case-studies/acme-headless-ecommerce.html', path: '/case-studies/acme-headless-ecommerce' },
