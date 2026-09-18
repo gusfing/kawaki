@@ -1800,12 +1800,13 @@
         </footer>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Smooth scroll Lenis
+                if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") gsap.registerPlugin(ScrollTrigger);
+                // Smooth scroll Lenis
             const lenis = new Lenis();
             lenis.on("scroll", ScrollTrigger.update);
             gsap.ticker.add((t) => lenis.raf(t * 1000));
@@ -1848,7 +1849,7 @@
             }
         });
     </script>
-    <script src="/assets/js/main.js?v=20260902_luxury_v6"></script>
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
 </body>
 </html>

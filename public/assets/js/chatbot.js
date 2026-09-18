@@ -19,11 +19,19 @@
   let recognition = null;
   let isListening = false;
 
-  // Initialize on DOM Ready
+  // Initialize non-blocking after main thread is idle
+  function scheduleInitChatbot() {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(initChatbot, { timeout: 2500 });
+    } else {
+      setTimeout(initChatbot, 150);
+    }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initChatbot);
+    document.addEventListener('DOMContentLoaded', scheduleInitChatbot);
   } else {
-    initChatbot();
+    scheduleInitChatbot();
   }
 
   function initChatbot() {
