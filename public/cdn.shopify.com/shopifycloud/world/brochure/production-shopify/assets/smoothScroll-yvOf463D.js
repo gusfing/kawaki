@@ -1,2 +1,0 @@
-var e=(e,t)=>{e&&(e.preventDefault(),t?(document.querySelector(t)?.scrollIntoView({behavior:`smooth`}),window.history.replaceState(null,``,t)):window.scrollTo({top:0,behavior:`smooth`}))};export{e as t};
-//# sourceMappingURL=smoothScroll-yvOf463D.js.map

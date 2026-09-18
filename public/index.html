@@ -3963,7 +3963,6 @@
             <!-- Background Layer with Ambient ASMR Video -->
             <div class="hero-lama-bg-wrap">
                 <video class="hero-lama-bg-video" autoplay loop muted playsinline poster="/assets/images/hero_lama_bg.jpg">
-                    <source src="/assets/videos/hero-bg-v2.mp4?v=20260901_1618" type="video/mp4">
                     <source src="/assets/videos/hero-bg.mp4" type="video/mp4">
                 </video>
                 <div class="hero-lama-overlay"></div>
@@ -5127,10 +5126,11 @@
             // Create a single floating image element
             const floater = document.createElement('div');
             floater.className = 'work-hover-img';
-            floater.innerHTML = '<img src="" alt="" />';
+            const floaterImg = document.createElement('img');
+            floaterImg.alt = 'Selected work preview';
+            floater.appendChild(floaterImg);
             document.body.appendChild(floater);
 
-            const floaterImg = floater.querySelector('img');
             let mouseX = 0, mouseY = 0;
 
             document.addEventListener('mousemove', (e) => {
@@ -5183,7 +5183,6 @@
         })();
     </script>
 
-    <script src="/assets/js/main.js?v=20260902_luxury_v6"></script>
     <!-- ==========================================================================
          KAWAKI STUDIOS — DREAM DESIGN DELIVER PRELOADER ANIMATION ENGINE
          ========================================================================== -->
