@@ -3442,7 +3442,13 @@
 
         .preloader-massive-counter {
             position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             font-family: "Plus Jakarta Sans", sans-serif;
+            font-variant-numeric: tabular-nums;
+            -webkit-font-feature-settings: "tnum";
+            font-feature-settings: "tnum";
             font-size: clamp(8rem, 24vw, 24rem);
             font-weight: 900;
             letter-spacing: -0.06em;
@@ -3453,6 +3459,7 @@
             user-select: none;
             z-index: 1;
             white-space: nowrap;
+            contain: layout paint;
         }
 
         .preloader-word-track {
@@ -3477,6 +3484,15 @@
             transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
             pointer-events: none;
             width: 100%;
+            will-change: transform, opacity;
+            contain: layout;
+        }
+
+        @media (max-width: 768px) {
+            .preloader-word-slide,
+            .preloader-word-slide.exit {
+                filter: none;
+            }
         }
 
         .preloader-word-slide.active {
@@ -3555,11 +3571,13 @@
 
         .preloader-bar-fill {
             height: 100%;
-            width: 0%;
+            width: 100%;
             background: #C6FF00;
             box-shadow: 0 0 16px #C6FF00, 0 0 30px rgba(198, 255, 0, 0.6);
             border-radius: 100px;
-            transition: width 0.08s linear;
+            transform-origin: left center;
+            transform: scaleX(0);
+            will-change: transform;
         }
 
         .hidden {
@@ -3962,7 +3980,7 @@
         <section class="hero-lamalama-section" id="heroLamaSection">
             <!-- Background Layer with Ambient ASMR Video -->
             <div class="hero-lama-bg-wrap">
-                <video class="hero-lama-bg-video" autoplay loop muted playsinline preload="metadata" poster="/assets/images/hero_lama_bg.webp">
+                <video class="hero-lama-bg-video" autoplay loop muted playsinline preload="metadata" poster="/assets/images/hero_lama_bg.webp?v=20260918">
                     <source src="/assets/videos/hero-bg.mp4" type="video/mp4">
                 </video>
                 <div class="hero-lama-overlay"></div>
@@ -5018,104 +5036,91 @@
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-
             gsap.registerPlugin(ScrollTrigger);
-            // Smooth scroll ↔ ScrollTrigger
-            const lenis = new Lenis();
-            lenis.on("scroll", ScrollTrigger.update);
-            gsap.ticker.add((t) => lenis.raf(t * 1000));
-            gsap.ticker.lagSmoothing(0);
 
-            // Split text fallback (since SplitText premium is not available locally)
-            function splitAndHide(el) {
-                if (!el) return [];
-                gsap.set(el, { visibility: "visible", overflow: "hidden" });
-                // We'll just animate the element itself instead of splitting it
-                gsap.set(el, { y: 50, opacity: 0 });
-                return [el];
-            }
+            function initDeferredScroll() {
+                if (window.__kawakiScrollInit) return;
+                window.__kawakiScrollInit = true;
 
-            function revealLines(lines) {
-                return gsap.to(lines, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.4,
-                    ease: "power4.out",
-                    stagger: 0.08,
-                });
-            }
-
-
-
-            // Hover Image Reveal Logic
-            const hoverWords = document.querySelectorAll(".hover-word");
-            const revealContainer = document.querySelector(".hover-image-reveal");
-            const revealImg = revealContainer?.querySelector("img");
-            
-            if (revealContainer && revealImg) {
-                gsap.set(revealContainer, { xPercent: -50, yPercent: -50 });
-                
-                const xTo = gsap.quickTo(revealContainer, "x", {duration: 0.6, ease: "power3"}),
-                      yTo = gsap.quickTo(revealContainer, "y", {duration: 0.6, ease: "power3"});
-                
-                window.addEventListener("mousemove", (e) => {
-                    xTo(e.clientX);
-                    yTo(e.clientY);
-                });
-
-                hoverWords.forEach(word => {
-                    word.addEventListener("mouseenter", () => {
-                        const imgSrc = word.getAttribute("data-image");
-                        if(imgSrc) {
-                            revealImg.src = imgSrc;
-                        }
-                        revealContainer.classList.add("active");
-                    });
-                    
-                    word.addEventListener("mouseleave", () => {
-                        revealContainer.classList.remove("active");
-                    });
-                });
-            }
-
-            document.querySelectorAll(".section").forEach((section) => {
-                const h2 = section.querySelector("h2");
-                const lines = h2 ? splitAndHide(h2) : [];
-                
-                const isMobile = window.innerWidth <= 768;
-
-                if (!isMobile) {
-                    const bg = section.querySelector(".bg");
-                    if (bg) {
-                        gsap.to(bg, {
-                            y: -200,
-                            skewY: -7,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: section,
-                                start: "top 95%",
-                                end: "top 35%",
-                                scrub: 0.6,
-                            },
-                        });
-                    }
+                // Smooth scroll ↔ ScrollTrigger
+                if (typeof Lenis !== 'undefined') {
+                    const lenis = new Lenis();
+                    lenis.on("scroll", ScrollTrigger.update);
+                    gsap.ticker.add((t) => lenis.raf(t * 1000));
                 }
 
-                ScrollTrigger.create({
-                    trigger: section,
-                    start: "top 82%",
-                    once: true,
-                    onEnter: () => lines.length && revealLines(lines),
-                });
-            });
+                // Split text fallback (since SplitText premium is not available locally)
+                function splitAndHide(el) {
+                    if (!el) return [];
+                    gsap.set(el, { visibility: "visible", overflow: "hidden" });
+                    // We'll just animate the element itself instead of splitting it
+                    gsap.set(el, { y: 50, opacity: 0 });
+                    return [el];
+                }
 
-            // Doodle floating animations
-            gsap.to(".doodle-1", { y: -15, rotation: -10, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" });
-            gsap.to(".doodle-2", { x: 10, y: 10, rotation: 30, duration: 3, repeat: -1, yoyo: true, ease: "sine.inOut" });
-            gsap.to(".doodle-3", { rotation: 15, duration: 5, repeat: -1, yoyo: true, ease: "sine.inOut" });
-            gsap.to(".doodle-4", { rotation: 45, scale: 1.1, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut" });
-            gsap.to(".doodle-5", { x: -15, y: 5, rotation: -15, duration: 4.5, repeat: -1, yoyo: true, ease: "sine.inOut" });
-            gsap.to(".doodle-6", { rotation: 90, duration: 8, repeat: -1, ease: "linear" });
+                function revealLines(lines) {
+                    return gsap.to(lines, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1.4,
+                        ease: "power4.out",
+                        stagger: 0.08,
+                    });
+                }
+
+                document.querySelectorAll(".section").forEach((section) => {
+                    const h2 = section.querySelector("h2");
+                    const lines = h2 ? splitAndHide(h2) : [];
+                    
+                    const isMobile = window.innerWidth <= 768;
+
+                    if (!isMobile) {
+                        const bg = section.querySelector(".bg");
+                        if (bg) {
+                            gsap.to(bg, {
+                                y: -200,
+                                skewY: -7,
+                                ease: "none",
+                                scrollTrigger: {
+                                    trigger: section,
+                                    start: "top 95%",
+                                    end: "top 35%",
+                                    scrub: 0.6,
+                                },
+                            });
+                        }
+                    }
+
+                    ScrollTrigger.create({
+                        trigger: section,
+                        start: "top 82%",
+                        once: true,
+                        onEnter: () => lines.length && revealLines(lines),
+                    });
+                });
+
+                // Doodle floating animations (only if present in DOM)
+                if (document.querySelector(".doodle-1")) {
+                    gsap.to(".doodle-1", { y: -15, rotation: -10, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" });
+                    gsap.to(".doodle-2", { x: 10, y: 10, rotation: 30, duration: 3, repeat: -1, yoyo: true, ease: "sine.inOut" });
+                    gsap.to(".doodle-3", { rotation: 15, duration: 5, repeat: -1, yoyo: true, ease: "sine.inOut" });
+                    gsap.to(".doodle-4", { rotation: 45, scale: 1.1, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut" });
+                    gsap.to(".doodle-5", { x: -15, y: 5, rotation: -15, duration: 4.5, repeat: -1, yoyo: true, ease: "sine.inOut" });
+                    gsap.to(".doodle-6", { rotation: 90, duration: 8, repeat: -1, ease: "linear" });
+                }
+
+                ScrollTrigger.refresh();
+            }
+
+            // Hook to preloader completion lifecycle event:
+            const preloader = document.getElementById('dreamPreloader');
+            if (preloader && getComputedStyle(preloader).display !== 'none') {
+                window.addEventListener('kawaki:preloaderDone', initDeferredScroll, { once: true });
+                // Safety fallback to guarantee execution if preloader is skipped
+                setTimeout(initDeferredScroll, 3500);
+            } else {
+                initDeferredScroll();
+            }
         });
     </script>
 
@@ -5242,7 +5247,7 @@
                             const formatted = current < 10 ? `0${current}%` : `${current}%`;
                             
                             if (counterEl) counterEl.textContent = formatted;
-                            if (barFill) barFill.style.width = `${current}%`;
+                            if (barFill) barFill.style.transform = `scaleX(${progressObj.value / 100})`;
 
                             if (current >= 80) {
                                 setWord(3); // KAWAKI STUDIOS
@@ -5264,7 +5269,7 @@
                     const interval = setInterval(() => {
                         p += 2;
                         if (counterEl) counterEl.textContent = `${p}%`;
-                        if (barFill) barFill.style.width = `${p}%`;
+                        if (barFill) barFill.style.transform = `scaleX(${p / 100})`;
                         if (p >= 80) setWord(3);
                         else if (p >= 54) setWord(2);
                         else if (p >= 26) setWord(1);
@@ -5287,6 +5292,7 @@
                                 preloader.style.pointerEvents = 'none';
                                 document.body.style.overflow = '';
                                 if (window.ScrollTrigger) ScrollTrigger.refresh();
+                                window.dispatchEvent(new CustomEvent('kawaki:preloaderDone'));
                             }
                         });
 
@@ -5321,6 +5327,7 @@
                         setTimeout(() => {
                             preloader.style.display = 'none';
                             document.body.style.overflow = '';
+                            window.dispatchEvent(new CustomEvent('kawaki:preloaderDone'));
                         }, 600);
                     }
                 }, 180);
@@ -5334,7 +5341,7 @@
             }
         })();
     </script>
-    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script src="/assets/js/main.js?v=20260919_v1" defer></script>
     <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
 </body>
 

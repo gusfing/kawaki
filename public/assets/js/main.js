@@ -249,41 +249,53 @@ function initGlobalNav() {
     if (typeof gsap !== 'undefined' && document.querySelector('.hero-lamalama-section')) {
         const heroTl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-        heroTl.fromTo('.hero-lama-bg-img', 
-            { scale: 1.08, opacity: 0.7 },
-            { scale: 1.02, opacity: 1, duration: 2.2, ease: 'power3.out' },
-            0
-        );
+        if (document.querySelector('.hero-lama-bg-img')) {
+            heroTl.fromTo('.hero-lama-bg-img',
+                { scale: 1.08, opacity: 0.7 },
+                { scale: 1.02, opacity: 1, duration: 2.2, ease: 'power3.out' },
+                0
+            );
+        }
 
-        heroTl.fromTo('.nav-wrapper nav',
-            { y: -30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.1, ease: 'power4.out' },
-            0.2
-        );
+        if (document.querySelector('.nav-wrapper nav')) {
+            heroTl.fromTo('.nav-wrapper nav',
+                { y: -30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.1, ease: 'power4.out' },
+                0.2
+            );
+        }
 
-        heroTl.fromTo('.hero-lama-eyebrow',
-            { y: 25, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
-            0.4
-        );
+        if (document.querySelector('.hero-lama-eyebrow')) {
+            heroTl.fromTo('.hero-lama-eyebrow',
+                { y: 25, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
+                0.4
+            );
+        }
 
-        heroTl.fromTo('.hero-lama-title',
-            { y: 45, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.2, ease: 'power4.out' },
-            0.5
-        );
+        if (document.querySelector('.hero-lama-title')) {
+            heroTl.fromTo('.hero-lama-title',
+                { y: 45, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.2, ease: 'power4.out' },
+                0.5
+            );
+        }
 
-        heroTl.fromTo('.hero-lama-desc-box',
-            { y: 35, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' },
-            0.65
-        );
+        if (document.querySelector('.hero-lama-desc-box')) {
+            heroTl.fromTo('.hero-lama-desc-box',
+                { y: 35, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' },
+                0.65
+            );
+        }
 
-        heroTl.fromTo('.hero-lama-bottom-bar',
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.0, ease: 'power3.out' },
-            0.8
-        );
+        if (document.querySelector('.hero-lama-bottom-bar')) {
+            heroTl.fromTo('.hero-lama-bottom-bar',
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.0, ease: 'power3.out' },
+                0.8
+            );
+        }
     }
 
     // Live Digital Studio Clock
