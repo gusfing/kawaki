@@ -202,6 +202,13 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 3b. Legacy /blog-post redirect to clean /blog/:slug (Phase 3.3D)
+  if (reqPath === '/blog-post' || reqPath === '/blog-post/' || reqPath === '/blog-post.html') {
+    const legacyRedirectHandler = require('./api/legacy-blog-redirect.js');
+    legacyRedirectHandler(req, res);
+    return;
+  }
+
   // 4. Clean URL redirects (matching Vercel cleanUrls: true)
   if (reqPath === '/index.html') {
     res.writeHead(301, { Location: '/' + (parsedUrl.search || '') });

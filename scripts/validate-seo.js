@@ -19,7 +19,6 @@ const pages = [
   { name: 'Acme Case Study', file: 'case-studies/acme-headless-ecommerce.html', path: '/case-studies/acme-headless-ecommerce' },
   { name: 'Fintech Case Study', file: 'case-studies/fintech-roi-calculator.html', path: '/case-studies/fintech-roi-calculator' },
   { name: 'Blog Index', file: 'blog.html', path: '/blog' },
-  { name: 'Legacy Blog Post Shim', file: 'blog-post.html', path: '/blog-post', isRedirectShim: true },
   { name: 'Contact', file: 'contact.html', path: '/contact' }
 ];
 
@@ -94,7 +93,85 @@ if (sitemapContent.includes('<loc>https://www.kawaki.co.in/blog-post</loc>')) {
   console.log(`[PASS] Legacy /blog-post root excluded from sitemap.`);
 }
 
-// 2. Validate pages
+// 2. Phase 3.3D Legacy Redirect Routing Audit
+console.log(`\n========================================`);
+console.log(`PHASE 3.3D LEGACY REDIRECT ROUTING AUDIT`);
+console.log(`========================================`);
+
+// Check that public/blog-post.html does not exist (so static files don't shadow the edge redirect)
+const legacyHtmlShim = path.join(publicDir, 'blog-post.html');
+if (fs.existsSync(legacyHtmlShim)) {
+  console.error(`[FAIL] public/blog-post.html exists! It will shadow the Vercel rewrite.`);
+  totalIssues++;
+} else {
+  console.log(`[PASS] public/blog-post.html does not exist (no static route shadowing).`);
+}
+
+// Check api/legacy-blog-redirect.js exists
+const redirectHandlerPath = path.join(__dirname, '..', 'api', 'legacy-blog-redirect.js');
+if (!fs.existsSync(redirectHandlerPath)) {
+  console.error(`[FAIL] Missing api/legacy-blog-redirect.js!`);
+  totalIssues++;
+} else {
+  console.log(`[PASS] api/legacy-blog-redirect.js exists.`);
+}
+
+// Check vercel.json configuration
+const vercelJsonPath = path.join(__dirname, '..', 'vercel.json');
+try {
+  const vercelConfig = JSON.parse(fs.readFileSync(vercelJsonPath, 'utf8'));
+  const hasRewrite = (vercelConfig.rewrites || []).some(
+    r => r.source === '/blog-post' && r.destination === '/api/legacy-blog-redirect'
+  );
+  if (!hasRewrite) {
+    console.error(`[FAIL] vercel.json missing /blog-post -> /api/legacy-blog-redirect rewrite!`);
+    totalIssues++;
+  } else {
+    console.log(`[PASS] vercel.json rewrite verified: /blog-post -> /api/legacy-blog-redirect.`);
+  }
+} catch (err) {
+  console.error(`[FAIL] Could not parse vercel.json:`, err.message);
+  totalIssues++;
+}
+
+// Test redirect handler programmatic outputs
+try {
+  const redirectHandler = require(redirectHandlerPath);
+  function testRedirect(url) {
+    let statusCode = null;
+    let headers = {};
+    const req = { url, headers: { host: 'www.kawaki.co.in' } };
+    const res = {
+      writeHead: (code, h) => { statusCode = code; headers = h; },
+      end: () => {}
+    };
+    redirectHandler(req, res);
+    return { statusCode, location: headers['Location'] };
+  }
+
+  const cases = [
+    { in: '/blog-post?slug=what-is-editorial-engineering', out: '/blog/what-is-editorial-engineering' },
+    { in: '/blog-post?slug=headless-shopify-development-guide', out: '/blog/headless-shopify-development-guide' },
+    { in: '/blog-post?slug=webflow-vs-custom-development&utm_source=test', out: '/blog/webflow-vs-custom-development?utm_source=test' },
+    { in: '/blog-post?slug=does-not-exist', out: '/blog/does-not-exist' },
+    { in: '/blog-post', out: '/blog' }
+  ];
+
+  for (const c of cases) {
+    const res = testRedirect(c.in);
+    if (res.statusCode !== 308 || res.location !== c.out) {
+      console.error(`[FAIL] Redirect test failed for ${c.in}: expected 308 -> "${c.out}", got ${res.statusCode} -> "${res.location}"`);
+      totalIssues++;
+    } else {
+      console.log(`[PASS] ${c.in} => ${res.statusCode} ${res.location}`);
+    }
+  }
+} catch (testErr) {
+  console.error(`[FAIL] Error executing redirect handler test:`, testErr.message);
+  totalIssues++;
+}
+
+// 3. Validate pages
 for (const p of pages) {
   const filePath = path.join(publicDir, p.file);
   if (!fs.existsSync(filePath)) {
@@ -107,25 +184,6 @@ for (const p of pages) {
   console.log(`\n========================================`);
   console.log(`PAGE: ${p.name} (${p.path})`);
   console.log(`========================================`);
-
-  // Redirect shim check
-  if (p.isRedirectShim) {
-    const robots = extractAttr(html, /<meta[^>]*name=["']robots["'][^>]*>/i, 'content');
-    const canon = extractAttr(html, /<link[^>]*rel=["']canonical["'][^>]*>/i, 'href');
-    if (!robots || !robots.includes('noindex')) {
-      console.error(`[FAIL] Redirect shim missing noindex: ${robots}`);
-      totalIssues++;
-    } else {
-      console.log(`[PASS] Redirect shim has noindex: "${robots}"`);
-    }
-    if (canon !== 'https://www.kawaki.co.in/blog') {
-      console.error(`[FAIL] Redirect shim canonical invalid: ${canon}`);
-      totalIssues++;
-    } else {
-      console.log(`[PASS] Redirect shim canonical points to /blog: ${canon}`);
-    }
-    continue;
-  }
 
   // 1. Title
   const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);

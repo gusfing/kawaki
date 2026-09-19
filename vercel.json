@@ -11,6 +11,10 @@
     {
       "source": "/admin/((?!assets/|.*\\..*).*)",
       "destination": "/admin/index.html"
+    },
+    {
+      "source": "/blog-post",
+      "destination": "/api/legacy-blog-redirect"
     }
   ],
   "redirects": [
@@ -22,23 +26,6 @@
     {
       "source": "/editions",
       "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/blog-post",
-      "has": [
-        {
-          "type": "query",
-          "key": "slug",
-          "value": "(?<slug>[^&]+)"
-        }
-      ],
-      "destination": "/blog/:slug",
-      "permanent": true
-    },
-    {
-      "source": "/blog-post",
-      "destination": "/blog",
       "permanent": true
     }
   ],
