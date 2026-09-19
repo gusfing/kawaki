@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Strengthen WordPress after a compromise with attack-surface reduction, access controls, configuration hardening, and practical security safeguards by Kawaki." />
+    <link rel="canonical" href="https://www.kawaki.co.in/services/website-security-hardening" />
+    <title>WordPress Security Hardening &amp; Post-Cleanup Protection — Kawaki Studios</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.kawaki.co.in/services/website-security-hardening" />
+    <meta property="og:title" content="WordPress Security Hardening &amp; Post-Cleanup Protection — Kawaki Studios" />
+    <meta property="og:description" content="Strengthen WordPress after a compromise with attack-surface reduction, access controls, configuration hardening, and practical security safeguards by Kawaki." />
+    <meta property="og:image" content="https://www.kawaki.co.in/assets/images/about_hero_bg.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" content="WordPress Security Hardening &amp; Post-Cleanup Protection — Kawaki Studios" />
+    <meta name="twitter:description" content="Strengthen WordPress after a compromise with attack-surface reduction, access controls, configuration hardening, and practical security safeguards by Kawaki." />
+    <meta name="twitter:image" content="https://www.kawaki.co.in/assets/images/about_hero_bg.jpg" />
+
+    <!-- Schema.org Service & Breadcrumbs & FAQ Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://www.kawaki.co.in/services/website-security-hardening#service",
+          "name": "WordPress Security Hardening & Post-Cleanup Protection",
+          "serviceType": "WordPress Security Hardening & Defense Engineering",
+          "provider": {
+            "@type": "Organization",
+            "@id": "https://www.kawaki.co.in/#organization",
+            "name": "Kawaki Studios",
+            "url": "https://www.kawaki.co.in",
+            "logo": "https://www.kawaki.co.in/assets/images/kawaki-logo.png"
+          },
+          "url": "https://www.kawaki.co.in/services/website-security-hardening",
+          "description": "Engineering-led WordPress security hardening, post-incident defense implementation, attack surface reduction, and access control lockdown.",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "WordPress Security Hardening Capabilities",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Configuration Hardening & Editor Lockdown",
+                  "description": "Hardening wp-config.php with DISALLOW_FILE_EDIT, secure database prefixes, and rotating cryptographic authentication salts."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Uploads Directory PHP Execution Restriction",
+                  "description": "Implementing server-level Nginx and .htaccess rules preventing direct execution of PHP scripts inside media and upload directories."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Authentication & Brute-Force Defense",
+                  "description": "Deploying two-factor authentication (2FA), login rate limiting, XML-RPC disablement, and session token controls."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Filesystem Permission & Least Privilege Audit",
+                  "description": "Enforcing 755 directory and 644 file permission standards, securing sensitive configuration files, and auditing user privilege roles."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.kawaki.co.in/services/website-security-hardening#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.kawaki.co.in"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://www.kawaki.co.in/services"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "WordPress Malware Removal",
+              "item": "https://www.kawaki.co.in/services/wordpress-malware-removal"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Security Hardening",
+              "item": "https://www.kawaki.co.in/services/website-security-hardening"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.kawaki.co.in/services/website-security-hardening#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can security hardening make a WordPress site 100% unhackable?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. In information security, no system connected to the internet can be considered 100% invulnerable or permanently protected. New zero-day vulnerabilities in plugins, hosting infrastructure changes, and human credential compromise are continuous risks. Hardening reduces your attack surface, prevents common automated attack vectors, enforces least privilege, and minimizes the blast radius of any future potential incident."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is DISALLOW_FILE_EDIT and why is it important?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "DISALLOW_FILE_EDIT is a WordPress configuration constant placed in wp-config.php that disables the built-in theme and plugin file editors in the WordPress admin dashboard. If an attacker compromises an administrator account, this setting prevents them from directly editing PHP files and uploading webshells through the WordPress interface."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why should PHP execution be restricted in the uploads directory?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The /wp-content/uploads/ directory is designed exclusively for media assets like images, PDFs, and videos. Legitimate WordPress operation never requires executing PHP files inside this folder. Attackers commonly exploit file upload vulnerabilities in third-party plugins to drop malicious PHP scripts into uploads. Restricting PHP execution via server configuration prevents these uploaded scripts from running even if an attacker manages to upload them."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why do you recommend disabling XML-RPC?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "XML-RPC (xmlrpc.php) is a legacy remote communication protocol in WordPress. Because the system.multicall method allows attackers to test hundreds of password combinations in a single HTTP request, XML-RPC is heavily targeted for automated brute-force attacks and amplified DDoS attacks. Unless you rely on specific legacy third-party mobile integrations, disabling XML-RPC significantly reduces automated attack traffic."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will security hardening slow down my website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Proper engineering-level hardening generally improves performance rather than slowing it down. Disabling unused endpoints like XML-RPC, blocking automated malicious bot scans at the server or firewall level, and restricting unnecessary script execution frees up server CPU and database resources."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What credentials and access are needed for security hardening?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We require SFTP or SSH access to configure server rewrite rules and file permissions, WordPress administrator credentials to audit user accounts and security plugins, and hosting panel or DNS access if web application firewall (WAF) or header rules need to be implemented at the edge."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/css/core.css" />
+    <link rel="stylesheet" href="/assets/css/critical.css" />
+    <link rel="stylesheet" href="/assets/css/services.css" />
+
+    <style>
+        .service-breadcrumb {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .service-breadcrumb a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .service-breadcrumb a:hover {
+            color: #111;
+        }
+        .service-tag-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1.5rem;
+        }
+        .service-tag {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #f0f0f0;
+            color: #555;
+        }
+        .blueprint-pipeline {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 1.5rem;
+        }
+        .blueprint-row {
+            display: grid;
+            grid-template-columns: 100px 1.5fr 2fr auto;
+            align-items: center;
+            padding: 16px 20px;
+            background: #fbfbfb;
+            border: 1px solid rgba(17, 17, 17, 0.06);
+            border-radius: 4px;
+            gap: 20px;
+        }
+        .blueprint-step-idx {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #999;
+            letter-spacing: 0.05em;
+        }
+        .blueprint-step-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .blueprint-step-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .blueprint-step-badge {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .badge-forensic {
+            background: #eef2ff;
+            color: #3730a3;
+        }
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+        .faq-item {
+            background: #fbfbfb;
+            border: 1px solid rgba(17, 17, 17, 0.06);
+            border-radius: 4px;
+            padding: 20px 24px;
+        }
+        .faq-question {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111;
+            margin: 0 0 10px 0;
+        }
+        .faq-answer {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(17, 17, 17, 0.08);
+            border-radius: 4px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Host Grotesk', sans-serif;
+            text-align: left;
+        }
+        .comparison-table th {
+            background: #f7f7f7;
+            padding: 14px 18px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #333;
+            border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+        }
+        .comparison-table td {
+            padding: 14px 18px;
+            font-size: 0.9rem;
+            color: #555;
+            border-bottom: 1px solid rgba(17, 17, 17, 0.04);
+            vertical-align: top;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        @media (max-width: 860px) {
+            .blueprint-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body class="services-page">
+
+    <!-- FLOATING PILL NAV (EXACT SHARED BRAND DESIGN) -->
+    <header class="site-header">
+        <nav class="nav-pill" aria-label="Main Navigation">
+            <a href="/" class="nav-brand" aria-label="Kawaki Studios Home">
+                <span class="brand-text">KAWAKI</span>
+                <span class="brand-sub">STUDIOS</span>
+            </a>
+            <div class="nav-center-wrap">
+                <ul class="nav-links">
+                    <li><a href="/services" class="active">Services</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/case-studies">Work</a></li>
+                    <li><a href="/blog">Writing</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="/contact?service=website-security-hardening" class="nav-cta-btn">
+                    <span>Contact</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                    </svg>
+                </a>
+                <button class="nav-menu-btn" id="menuToggleBtn" aria-label="Toggle Navigation Menu">
+                    <span class="menu-bar"></span>
+                    <span class="menu-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MEGA MENU OVERLAY -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-container">
+            <div class="menu-inner">
+                <div class="menu-col menu-col-left">
+                    <div class="menu-col-header">
+                        <span class="menu-col-tag">// NAVIGATION</span>
+                    </div>
+                    <ul class="menu-nav-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services" class="active">Services</a></li>
+                        <li><a href="/case-studies">Work</a></li>
+                        <li><a href="/blog">Writing</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-col menu-col-mid">
+                    <div class="menu-col-header">
+                        <span class="menu-col-tag">// PRACTICE AREAS</span>
+                    </div>
+                    <div class="menu-services-scroll">
+                        <div class="menu-services-groups">
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// ENGINEERING &amp; COMMERCE</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/about_hero_bg.webp" data-tag="Architecture" data-desc="Modern Custom Web Applications &amp; Next.js Systems">
+                                        <a href="/services/custom-web-development">
+                                            <span class="sub-idx">01</span>
+                                            <span class="sub-name">Custom Web Development</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="Headless Commerce" data-desc="Shopify Plus &amp; Custom Storefront Engineering">
+                                        <a href="/services/shopify-development">
+                                            <span class="sub-idx">02</span>
+                                            <span class="sub-name">Shopify Development</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// AI &amp; AUTOMATION</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/station_drag_prism.webp" data-tag="Intelligent Systems" data-desc="n8n, Make &amp; Deterministic AI Agent Workflows">
+                                        <a href="/services/ai-automation">
+                                            <span class="sub-idx">03</span>
+                                            <span class="sub-name">AI Automation</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Search Engineering" data-desc="AI Search Optimization, AEO &amp; GEO Architecture">
+                                        <a href="/services/ai-search-optimization">
+                                            <span class="sub-idx">04</span>
+                                            <span class="sub-name">AI Search Optimization</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// SECURITY &amp; RECOVERY</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Security &amp; Recovery" data-desc="Hacked Site Cleanup &amp; Database Sanitization">
+                                        <a href="/services/wordpress-malware-removal">
+                                            <span class="sub-idx">05</span>
+                                            <span class="sub-name">WordPress Malware Removal</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-col menu-col-right">
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/about_hero_bg.webp" alt="Preview" width="1376" height="768" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">Defense Engineering</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">WordPress Security Hardening</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-info-block">
+                        <div class="menu-status-pill">
+                            <span class="status-dot"></span>
+                            <span>Defense Engineering Active</span>
+                        </div>
+                        <a href="/contact?service=website-security-hardening" class="menu-cta-button">
+                            <span>Get Hardening Help</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                                <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN EDITORIAL CONTENT WRAPPER -->
+    <main class="services-page-wrapper">
+
+        <!-- HERO SECTION -->
+        <section class="section hero" style="padding-bottom: 2rem;">
+            <div>
+                <nav class="service-breadcrumb" aria-label="Breadcrumb">
+                    <a href="/">Home</a>
+                    <span>/</span>
+                    <a href="/services">Services</a>
+                    <span>/</span>
+                    <a href="/services/wordpress-malware-removal">WordPress Malware Removal</a>
+                    <span>/</span>
+                    <span style="color: #111;">Security Hardening</span>
+                </nav>
+
+                <h1 class="hero-title" style="font-size: clamp(2.4rem, 5vw, 4.6rem);">
+                    WordPress Security Hardening &amp;<br><em>Post-Cleanup Defense Engineering</em>
+                </h1>
+            </div>
+        </section>
+
+        <!-- LEAD STORY SECTION -->
+        <section class="section story-section" style="padding-top: 1rem;">
+            <div class="story-grid">
+                <div class="story-title">
+                    <h2>defense<br><em>after remediation</em></h2>
+                </div>
+                <div class="story-content">
+                    <p>
+                        Cleaning malware from a hacked WordPress website resolves the immediate compromise. But if the underlying attack surface remains identical to the day of intrusion, reinfection is merely a matter of time.
+                    </p>
+                    <p>
+                        Default WordPress installations prioritize broad backward compatibility and ease of use over strict security posture. Features such as in-dashboard theme and plugin editors, unrestricted PHP execution inside media directories, public XML-RPC endpoints, and permissive file permissions create accessible attack paths. We apply practical defense engineering: reducing attack surfaces, locking down server execution permissions, implementing multi-factor authentication, and invalidating session keys to establish resilient protection after an incident.
+                    </p>
+                    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <a href="/contact?service=website-security-hardening" style="text-decoration:none;">
+                            <button class="rlvnt-btn max-content">
+                                <span>Harden Your WordPress Site</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                                    <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                                </svg>
+                            </button>
+                        </a>
+                        <a href="/services/wordpress-malware-removal" style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 500; color: #666; text-decoration: none; padding-left: 10px;">
+                            &larr; Back to Recovery Hub
+                        </a>
+                    </div>
+                    <div class="service-tag-strip" aria-label="Hardening Disciplines">
+                        <span class="service-tag">DISALLOW_FILE_EDIT</span>
+                        <span class="service-tag">Uploads PHP Execution Lockdown</span>
+                        <span class="service-tag">Authentication Key Rotation</span>
+                        <span class="service-tag">XML-RPC Disablement</span>
+                        <span class="service-tag">File Permission 755/644 Standards</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 01: Why Defaults Leave WordPress Exposed -->
+        <section class="section" id="default-vulnerabilities">
+            <div class="border-top"></div>
+            <div class="flex-split">
+                <aside class="flex-col-left group-header">
+                    <span class="group-title">(01) — The Attack Surface</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-top: 1rem; color: #111;">
+                        Why Default WordPress Leaves Attack Paths Open
+                    </h2>
+                    <p style="font-size: 0.9rem; color: #777; line-height: 1.6; margin-top: 0.75rem; max-width: 280px;">
+                        WordPress ships with features configured for convenience rather than security isolation. Hardening closes these systemic gaps.
+                    </p>
+                </aside>
+                <div class="flex-col-right service-items">
+                    <div class="service-row" style="cursor: default;">
+                        <h3 class="service-name">In-Dashboard File Editing</h3>
+                        <span class="service-desc">By default, WordPress allows administrators to edit theme and plugin PHP files directly from <code>/wp-admin/theme-editor.php</code>. If an administrative session is hijacked or brute-forced, the attacker can immediately inject remote code execution shells into core templates.</span>
+                    </div>
+                    <div class="service-row" style="cursor: default;">
+                        <h3 class="service-name">Executable Uploads Directory</h3>
+                        <span class="service-desc">Many web servers allow PHP files located inside <code>/wp-content/uploads/</code> to execute directly. When a third-party plugin has an arbitrary file upload vulnerability, attackers can upload a webshell disguised as an image and execute it with direct HTTP requests.</span>
+                    </div>
+                    <div class="service-row" style="cursor: default;">
+                        <h3 class="service-name">Exposed XML-RPC Endpoints</h3>
+                        <span class="service-desc">The <code>xmlrpc.php</code> file is enabled by default to support external mobile apps. Its <code>system.multicall</code> method permits testing hundreds of username and password combinations in a single request, bypassing basic login rate limits.</span>
+                    </div>
+                    <div class="service-row" style="cursor: default;">
+                        <h3 class="service-name">Stale Authentication Salts</h3>
+                        <span class="service-desc">Security keys and salts inside <code>wp-config.php</code> are often left unchanged for years. If session cookies are compromised during a breach, attackers retain persistent access until those keys are explicitly regenerated.</span>
+                    </div>
+                    <div class="service-row" style="cursor: default;">
+                        <h3 class="service-name">Overly Permissive File Permissions</h3>
+                        <span class="service-desc">Shared hosting environments often use 777 or 775 permissions on critical directories, allowing any compromised process on the web server to write to or overwrite vital application code.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 02: Core Hardening Controls -->
+        <section class="section" id="hardening-controls">
+            <div class="border-top"></div>
+            <div class="flex-split">
+                <aside class="flex-col-left group-header">
+                    <span class="group-title">(02) — Defense Architecture</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-top: 1rem; color: #111;">
+                        Key Technical Hardening Measures
+                    </h2>
+                </aside>
+                <div class="flex-col-right">
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444; margin-bottom: 1.5rem;">
+                        We implement layered, defense-in-depth controls across configuration files, web server rules, authentication endpoints, and database permissions.
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                        <div style="background: #fbfbfb; padding: 24px; border: 1px solid rgba(17,17,17,0.06); border-radius: 4px;">
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">1. Configuration Lockdown in wp-config.php</h3>
+                            <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin: 0;">
+                                We define <code>DISALLOW_FILE_EDIT</code> and <code>DISALLOW_FILE_MODS</code> where appropriate, generate fresh cryptographic security salts, and move <code>wp-config.php</code> above web root or restrict its file permissions to <code>600</code>/<code>640</code>.
+                            </p>
+                        </div>
+
+                        <div style="background: #fbfbfb; padding: 24px; border: 1px solid rgba(17,17,17,0.06); border-radius: 4px;">
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">2. Server-Level Uploads Lockdown</h3>
+                            <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin: 0;">
+                                In Nginx or Apache <code>.htaccess</code>, we configure explicit directives denying script execution in <code>/wp-content/uploads/</code>, ensuring uploaded <code>.php</code>, <code>.phtml</code>, or <code>.php5</code> files return HTTP 403 Forbidden.
+                            </p>
+                        </div>
+
+                        <div style="background: #fbfbfb; padding: 24px; border: 1px solid rgba(17,17,17,0.06); border-radius: 4px;">
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">3. Authentication &amp; Access Controls</h3>
+                            <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin: 0;">
+                                We enforce Two-Factor Authentication (2FA) for administrative roles, implement IP-restricted access to <code>/wp-login.php</code> where feasible, disable XML-RPC, and configure automated brute-force rate limiting.
+                            </p>
+                        </div>
+
+                        <div style="background: #fbfbfb; padding: 24px; border: 1px solid rgba(17,17,17,0.06); border-radius: 4px;">
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">4. Filesystem &amp; Database Least Privilege</h3>
+                            <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin: 0;">
+                                We enforce <code>755</code> directory and <code>644</code> file permissions across the entire tree, review database user privileges to prevent unnecessary <code>DROP</code> or <code>ALTER</code> rights, and audit user role assignments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 03: Hardening Methodology Pipeline -->
+        <section class="section" id="hardening-methodology">
+            <div class="border-top"></div>
+            <div class="flex-split">
+                <aside class="flex-col-left group-header">
+                    <span class="group-title">(03) — Engineering Workflow</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-top: 1rem; color: #111;">
+                        Our Hardening Implementation Process
+                    </h2>
+                    <p style="font-size: 0.9rem; color: #777; line-height: 1.6; margin-top: 1rem; max-width: 280px;">
+                        A structured 5-stage deployment ensuring systems are fortified without breaking valid e-commerce, membership, or editorial workflows.
+                    </p>
+                </aside>
+                <div class="flex-col-right">
+                    <div class="blueprint-pipeline">
+                        <div class="blueprint-row">
+                            <span class="blueprint-step-idx">STAGE 01</span>
+                            <h3 class="blueprint-step-title">
+                                <span>Baseline Integrity &amp; Backup</span>
+                            </h3>
+                            <div class="blueprint-step-desc">
+                                We capture a full filesystem and database backup snapshot to guarantee immediate rollback capability before applying any configuration changes.
+                            </div>
+                            <span class="blueprint-step-badge badge-forensic">
+                                <span class="badge-dot"></span> Snapshot
+                            </span>
+                        </div>
+
+                        <div class="blueprint-row">
+                            <span class="blueprint-step-idx">STAGE 02</span>
+                            <h3 class="blueprint-step-title">
+                                <span>Configuration &amp; Salt Invalidation</span>
+                            </h3>
+                            <div class="blueprint-step-desc">
+                                We rotate all authentication salts in <code>wp-config.php</code>, invalidate all existing sessions, and add constants disabling the in-dashboard file editor.
+                            </div>
+                            <span class="blueprint-step-badge badge-forensic">
+                                <span class="badge-dot"></span> wp-config
+                            </span>
+                        </div>
+
+                        <div class="blueprint-row">
+                            <span class="blueprint-step-idx">STAGE 03</span>
+                            <h3 class="blueprint-step-title">
+                                <span>Server Execution &amp; Endpoint Lockdown</span>
+                            </h3>
+                            <div class="blueprint-step-desc">
+                                We apply server directives blocking PHP execution in <code>/wp-content/uploads/</code>, disabling XML-RPC endpoints, and hiding sensitive dotfiles (<code>.git</code>, <code>.env</code>).
+                            </div>
+                            <span class="blueprint-step-badge badge-forensic">
+                                <span class="badge-dot"></span> Web Server
+                            </span>
+                        </div>
+
+                        <div class="blueprint-row">
+                            <span class="blueprint-step-idx">STAGE 04</span>
+                            <h3 class="blueprint-step-title">
+                                <span>Authentication &amp; User Audit</span>
+                            </h3>
+                            <div class="blueprint-step-desc">
+                                We audit all accounts in <code>wp_users</code>, remove defunct admin accounts, implement two-factor authentication requirements, and configure brute-force protections.
+                            </div>
+                            <span class="blueprint-step-badge badge-forensic">
+                                <span class="badge-dot"></span> Access Control
+                            </span>
+                        </div>
+
+                        <div class="blueprint-row">
+                            <span class="blueprint-step-idx">STAGE 05</span>
+                            <h3 class="blueprint-step-title">
+                                <span>Functional Verification &amp; Monitoring</span>
+                            </h3>
+                            <div class="blueprint-step-desc">
+                                We verify that checkout, media uploads, contact forms, and cron tasks function properly under the hardened rules, and establish file integrity monitoring.
+                            </div>
+                            <span class="blueprint-step-badge badge-forensic">
+                                <span class="badge-dot"></span> Verification
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 04: What is Included vs Client Requirements -->
+        <section class="section" id="scope">
+            <div class="border-top"></div>
+            <div class="flex-split">
+                <aside class="flex-col-left group-header">
+                    <span class="group-title">(04) — Scope &amp; Responsibilities</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-top: 1rem; color: #111;">
+                        Service Scope &amp; Deliverables
+                    </h2>
+                </aside>
+                <div class="flex-col-right">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                        <div>
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111;">
+                                What Is Included
+                            </h3>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem; line-height: 1.8; color: #555;">
+                                <li style="margin-bottom: 8px;">&bull; Implementation of <code>DISALLOW_FILE_EDIT</code> in <code>wp-config.php</code>.</li>
+                                <li style="margin-bottom: 8px;">&bull; Server-level restriction of PHP execution inside media and upload directories.</li>
+                                <li style="margin-bottom: 8px;">&bull; Disablement of XML-RPC (<code>xmlrpc.php</code>) to eliminate brute-force amplification.</li>
+                                <li style="margin-bottom: 8px;">&bull; Cryptographic rotation of authentication salts and session key invalidation.</li>
+                                <li style="margin-bottom: 8px;">&bull; Filesystem permission standardization (<code>755</code> directories / <code>644</code> files).</li>
+                                <li style="margin-bottom: 8px;">&bull; User account audit, role cleanup, and Two-Factor Authentication deployment.</li>
+                                <li style="margin-bottom: 8px;">&bull; Post-hardening functional testing across core workflows (forms, checkout, media).</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111;">
+                                What You Should Provide
+                            </h3>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem; line-height: 1.8; color: #555;">
+                                <li style="margin-bottom: 8px;">&bull; SSH or SFTP access with write permissions to core configuration files.</li>
+                                <li style="margin-bottom: 8px;">&bull; Administrator access to the WordPress dashboard.</li>
+                                <li style="margin-bottom: 8px;">&bull; Hosting panel access (cPanel, Plesk, SpinupWP, RunCloud, or custom VPS).</li>
+                                <li style="margin-bottom: 8px;">&bull; List of essential third-party integrations (e.g., mobile apps, ERP feeds) that connect to WordPress.</li>
+                                <li style="margin-bottom: 8px;">&bull; Staging environment availability if major architecture changes are required.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 05: Limitations & Truth in Security -->
+        <section class="section" id="outcome-boundaries">
+            <div class="border-top"></div>
+            <div class="flex-split">
+                <aside class="flex-col-left group-header">
+                    <span class="group-title">(05) — Outcome Boundaries</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-top: 1rem; color: #111;">
+                        Truth in Security Engineering &amp; Limitations
+                    </h2>
+                </aside>
+                <div class="flex-col-right">
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444; margin-bottom: 1.5rem;">
+                        We believe in transparent engineering realities. We do not make misleading claims of 100% invulnerability or permanent protection.
+                    </p>
+
+                    <div class="comparison-table-wrapper">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Hardening Objective</th>
+                                    <th>Security Reality &amp; Continuous Responsibility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Attack Surface Reduction:</strong> Disabling unused features (file editor, XML-RPC, uploads execution) eliminates major automated attack vectors.</td>
+                                    <td><strong>Continuous Vulnerabilities:</strong> Hardening does not prevent future security flaws from emerging in newly installed or outdated third-party plugins. Ongoing updates remain necessary.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Access Lockdown:</strong> Enforcing 2FA, salt rotation, and rate limiting blocks credential stuffing and password guessing.</td>
+                                    <td><strong>Credential Compromise:</strong> Hardening cannot prevent an administrator from entering their password into a phishing site or using compromised workstations.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Least Privilege:</strong> Restricting database and filesystem permissions limits the lateral damage an intrusion can cause.</td>
+                                    <td><strong>Server Infrastructure:</strong> Shared hosting vulnerabilities at the hypervisor or neighboring account level are outside application-level hardening control.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 06: Related Services Network -->
+        <section class="section" id="related-services">
+            <div class="border-top"></div>
+            <div class="flex-split">
+                <aside class="flex-col-left group-header">
+                    <span class="group-title">(06) — Service Ecosystem</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-top: 1rem; color: #111;">
+                        Related Security &amp; Engineering Services
+                    </h2>
+                </aside>
+                <div class="flex-col-right">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+                        <div style="background: #fbfbfb; padding: 20px; border: 1px solid rgba(17,17,17,0.06); border-radius: 4px;">
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">
+                                <a href="/services/wordpress-malware-removal" style="color: #111; text-decoration: none;">WordPress Malware Removal</a>
+                            </h3>
+                            <p style="font-size: 0.85rem; color: #666; line-height: 1.5; margin: 0 0 12px 0;">
+                                Our central recovery hub for emergency malware cleanup, infected file remediation, and blacklist removal.
+                            </p>
+                            <a href="/services/wordpress-malware-removal" style="font-family: 'Host Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; color: #111; text-decoration: none;">View Hub &rarr;</a>
+                        </div>
+
+                        <div style="background: #fbfbfb; padding: 20px; border: 1px solid rgba(17,17,17,0.06); border-radius: 4px;">
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">
+                                <a href="/services/wordpress-security-audit" style="color: #111; text-decoration: none;">WordPress Security Audit</a>
+                            </h3>
+                            <p style="font-size: 0.85rem; color: #666; line-height: 1.5; margin: 0 0 12px 0;">
+                                Diagnostic security assessment evaluating core integrity, plugin CVE exposure, and configuration risks prior to incidents.
+                            </p>
+                            <a href="/services/wordpress-security-audit" style="font-family: 'Host Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; color: #111; text-decoration: none;">View Service &rarr;</a>
+                        </div>
+
+                        <div style="background: #fbfbfb; padding: 20px; border: 1px solid rgba(17,17,17,0.06); border-radius: 4px;">
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">
+                                <a href="/services/wordpress-backdoor-removal" style="color: #111; text-decoration: none;">Backdoor Removal</a>
+                            </h3>
+                            <p style="font-size: 0.85rem; color: #666; line-height: 1.5; margin: 0 0 12px 0;">
+                                Discover and remove hidden webshells, rogue admin users, and wp_cron persistence mechanisms before hardening.
+                            </p>
+                            <a href="/services/wordpress-backdoor-removal" style="font-family: 'Host Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; color: #111; text-decoration: none;">View Service &rarr;</a>
+                        </div>
+
+                        <div style="background: #fbfbfb; padding: 20px; border: 1px solid rgba(17,17,17,0.06); border-radius: 4px;">
+                            <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">
+                                <a href="/services/custom-web-development" style="color: #111; text-decoration: none;">Custom Web Development</a>
+                            </h3>
+                            <p style="font-size: 0.85rem; color: #666; line-height: 1.5; margin: 0 0 12px 0;">
+                                Bespoke web engineering and high-security architecture for businesses requiring isolated, modern digital infrastructure.
+                            </p>
+                            <a href="/services/custom-web-development" style="font-family: 'Host Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; color: #111; text-decoration: none;">View Service &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 07: Visibly Rendered FAQs -->
+        <section class="section" id="faq">
+            <div class="border-top"></div>
+            <div class="flex-split">
+                <aside class="flex-col-left group-header">
+                    <span class="group-title">(07) — Frequently Asked Questions</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-top: 1rem; color: #111;">
+                        Common Questions on WordPress Hardening
+                    </h2>
+                </aside>
+                <div class="flex-col-right">
+                    <div class="faq-accordion">
+                        <div class="faq-item">
+                            <h3 class="faq-question">Can security hardening make a WordPress site 100% unhackable?</h3>
+                            <p class="faq-answer">No. In information security, no system connected to the internet can be considered 100% invulnerable or permanently protected. New zero-day vulnerabilities in plugins, hosting infrastructure changes, and human credential compromise are continuous risks. Hardening reduces your attack surface, prevents common automated attack vectors, enforces least privilege, and minimizes the blast radius of any future potential incident.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">What is DISALLOW_FILE_EDIT and why is it important?</h3>
+                            <p class="faq-answer">DISALLOW_FILE_EDIT is a WordPress configuration constant placed in wp-config.php that disables the built-in theme and plugin file editors in the WordPress admin dashboard. If an attacker compromises an administrator account, this setting prevents them from directly editing PHP files and uploading webshells through the WordPress interface.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">Why should PHP execution be restricted in the uploads directory?</h3>
+                            <p class="faq-answer">The /wp-content/uploads/ directory is designed exclusively for media assets like images, PDFs, and videos. Legitimate WordPress operation never requires executing PHP files inside this folder. Attackers commonly exploit file upload vulnerabilities in third-party plugins to drop malicious PHP scripts into uploads. Restricting PHP execution via server configuration prevents these uploaded scripts from running even if an attacker manages to upload them.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">Why do you recommend disabling XML-RPC?</h3>
+                            <p class="faq-answer">XML-RPC (xmlrpc.php) is a legacy remote communication protocol in WordPress. Because the system.multicall method allows attackers to test hundreds of password combinations in a single HTTP request, XML-RPC is heavily targeted for automated brute-force attacks and amplified DDoS attacks. Unless you rely on specific legacy third-party mobile integrations, disabling XML-RPC significantly reduces automated attack traffic.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">Will security hardening slow down my website?</h3>
+                            <p class="faq-answer">No. Proper engineering-level hardening generally improves performance rather than slowing it down. Disabling unused endpoints like XML-RPC, blocking automated malicious bot scans at the server or firewall level, and restricting unnecessary script execution frees up server CPU and database resources.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">What credentials and access are needed for security hardening?</h3>
+                            <p class="faq-answer">We require SFTP or SSH access to configure server rewrite rules and file permissions, WordPress administrator credentials to audit user accounts and security plugins, and hosting panel or DNS access if web application firewall (WAF) or header rules need to be implemented at the edge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION -->
+        <section class="section" style="padding-top: 4rem; padding-bottom: 6rem;">
+            <div class="border-top"></div>
+            <div style="background: #111; color: #fff; padding: 48px; border-radius: 4px; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; justify-content: space-between;">
+                <div>
+                    <span style="font-family: 'Host Grotesk', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: #C6FF00;">// Preventative Defense</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; margin: 12px 0 0 0; color: #fff;">
+                        Fortify Your WordPress Architecture
+                    </h2>
+                    <p style="font-size: 1rem; color: #aaa; max-width: 600px; line-height: 1.6; margin: 12px 0 0 0;">
+                        Reduce attack surfaces, lock down execution permissions, and implement engineering-level security controls to protect your business.
+                    </p>
+                </div>
+                <a href="/contact?service=website-security-hardening" style="text-decoration: none;">
+                    <button class="rlvnt-btn max-content" style="background: #C6FF00; color: #111;">
+                        <span style="color: #111;">Contact for Security Hardening</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8" fill="#111"></circle>
+                            <path fill="#C6FF00" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                        </svg>
+                    </button>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- UNIVERSAL GLOBAL FOOTER -->
+    <footer class="sections global-site-footer">
+        <div class="footer-top-strip">
+            <div class="footer-status-pill">
+                <span class="footer-status-dot"></span>
+                <span>Available for Security Hardening &amp; Engineering Defense</span>
+            </div>
+        </div>
+
+        <div class="services-header-2">
+            <div class="footer-headline-group">
+                <h3 class="services-title-2">Need immediate help?</h3>
+                <h3 class="services-title-2"><em>let’s secure your <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">architecture.</span></em></h3>
+            </div>
+            <a href="/contact?service=website-security-hardening" class="footer-cta-card-btn">
+                <span>Start Hardening</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                    <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div class="footer-grid-directory">
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECTORY</div>
+                <ul class="footer-links-list">
+                    <li><a href="/"><span>Home</span> <span class="nav-idx">01</span></a></li>
+                    <li><a href="/about"><span>About Studio</span> <span class="nav-idx">02</span></a></li>
+                    <li><a href="/services"><span>Services &amp; Systems</span> <span class="nav-idx">03</span></a></li>
+                    <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
+                    <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
+                    <li><a href="/contact"><span>Discovery &amp; Booking</span> <span class="nav-idx">06</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECT CHANNELS</div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-label">Emergency Remediation</span>
+                    <a href="mailto:hello@kawakistudios.com" class="footer-contact-val">
+                        hello@kawakistudios.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                    <span class="footer-contact-label">Direct Founder Calendar</span>
+                    <a href="/contact" class="footer-contact-val" style="color: #111111; font-weight: 600;">
+                        Book Briefing ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// STUDIOS &amp; LOCAL TIME</div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New Delhi (HQ)</span>
+                        <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>London</span>
+                        <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New York</span>
+                        <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// RECOVERY NETWORK</div>
+                <ul class="footer-links-list">
+                    <li><a href="/services/wordpress-malware-removal"><span>Malware Removal Hub</span></a></li>
+                    <li><a href="/services/malicious-redirect-removal"><span>Redirect Removal</span></a></li>
+                    <li><a href="/services/wordpress-backdoor-removal"><span>Backdoor Cleanup</span></a></li>
+                    <li><a href="/services/seo-spam-removal"><span>SEO Spam Cleanup</span></a></li>
+                    <li><a href="/services/website-security-hardening"><span>Security Hardening</span></a></li>
+                    <li><a href="/services/wordpress-security-audit"><span>Security Audit</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-giant-watermark">
+            <span>KAWAKI</span>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Kawaki Studios Ltd. All rights reserved. — WordPress Security &amp; Malware Remediation.</div>
+            <ul class="footer-bottom-links">
+                <li><a href="/about">Privacy Policy</a></li>
+                <li><a href="/about">Terms of Service</a></li>
+                <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
+                <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
+                <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
+            </ul>
+            <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
+                <span>Back to Top</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            </button>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+            const lenis = new Lenis();
+            lenis.on("scroll", ScrollTrigger.update);
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
+        });
+    </script>
+    <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
+</body>
+</html>
