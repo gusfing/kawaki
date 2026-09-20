@@ -579,10 +579,10 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
                                     <span class="menu-expand-badge" title="Expand services">+</span>
                                 </a>
                             </li>
-                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Client Case Studies" data-desc="Selected Work &amp; Live Client Benchmarks">
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Architectural Concepts" data-desc="Reference Designs &amp; Engineering Blueprints">
                                 <a href="/case-studies">
                                     <span class="menu-idx">04</span>
-                                    <span class="menu-text">Selected <em>Work &amp; Results</em></span>
+                                    <span class="menu-text">Selected <em>Concepts &amp; Blueprints</em></span>
                                 </a>
                             </li>
                             <li data-img="/assets/images/station_drag_prism.webp" data-tag="Engineering &amp; Design Notes" data-desc="Essays on Web Engineering &amp; Performance">
