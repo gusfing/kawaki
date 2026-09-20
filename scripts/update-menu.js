@@ -42,10 +42,10 @@ const newMenuHtml = `    <!-- FULLSCREEN OVERLAY MENU -->
                                     <span class="menu-text">Explore <em>Our Services</em></span>
                                 </a>
                             </li>
-                            <li data-img="https://i.pinimg.com/736x/ec/64/00/ec6400c4369a4732aa8c4c478e124b81.jpg" data-tag="Client Case Studies">
-                                <a href="/case-studies.html">
+                            <li data-img="https://i.pinimg.com/736x/ec/64/00/ec6400c4369a4732aa8c4c478e124b81.jpg" data-tag="Architectural Concepts">
+                                <a href="/case-studies">
                                     <span class="menu-idx">04</span>
-                                    <span class="menu-text">Selected <em>Work &amp; Results</em></span>
+                                    <span class="menu-text">Selected <em>Concepts &amp; Blueprints</em></span>
                                 </a>
                             </li>
                             <li data-img="https://i.pinimg.com/736x/07/7d/51/077d510bf4c86a3d6cb7f3fdf5d68d1b.jpg" data-tag="Engineering &amp; Design Notes">
