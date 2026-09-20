@@ -5,13 +5,21 @@
 ```
 /                                   Home — Organization + ProfessionalService schema
 ├── /services                       Hub — OfferCatalog schema
-│   ├── /web-development
-│   ├── /ecommerce-shopify
-│   ├── /web-app-development
-│   ├── /wordpress-development
-│   ├── /frontend-engineering
-│   ├── /backend-development
-│   └── /maintenance-support
+│   ├── /custom-web-development     Pillar 1 Hub
+│   │   ├── /web-application-development       (Batch 2 — Authenticated apps, portals, dashboards)
+│   │   ├── /website-redesign                  (Batch 2 — Modernization, legacy rebuild, 301 migration)
+│   │   ├── /website-performance-optimization  (Batch 2 — Core Web Vitals, runtime remediation)
+│   │   └── /wordpress-development             (Batch 2 — Custom Gutenberg, headless WP, ACF)
+│   │   *Note: SaaS Development and AI Website Development held back to prevent cannibalization
+│   ├── /shopify-development        Pillar 2 Hub
+│   ├── /ai-automation              Pillar 3 Hub
+│   ├── /ai-search-optimization     Pillar 4 Hub
+│   └── /wordpress-malware-removal  Pillar 5 Hub
+│       ├── /malicious-redirect-removal        (Batch 1 — Script injection, redirect hijacking)
+│       ├── /wordpress-backdoor-removal        (Batch 1 — Webshells, cron persistence)
+│       ├── /seo-spam-removal                  (Batch 1 — Japanese/pharma keyword spam)
+│       ├── /website-security-hardening        (Batch 1 — WAF, 2FA, file permissions)
+│       └── /wordpress-security-audit          (Batch 1 — Diagnostic vulnerability assessment)
 ├── /industries                     Hub
 │   ├── /architecture-design-studios
 │   ├── /fintech
@@ -34,6 +42,18 @@
 ├── /llms.txt                       AI-crawler page index
 └── /sitemap.xml                    Auto-generated, quality-gated
 ```
+
+## Architectural Rule & Strategy Ledger: Commercial Child Endpoints
+
+> [!NOTE]
+> **Architecture Ledger Update (2026-09-20):**
+> The earlier constraint *"Five Pillars Remain the Sole Commercial Endpoints"* is officially **superseded** by the approved two-tier cluster architecture:
+> 1. **Core Pillar Hubs (5):** Serve as broad thematic authorities (`custom-web-development`, `shopify-development`, `ai-automation`, `ai-search-optimization`, `wordpress-malware-removal`).
+> 2. **Approved Child Commercial Endpoints (9):**
+>    - **Batch 1 (WordPress Recovery Cluster — 5 pages):** `/services/malicious-redirect-removal`, `/services/wordpress-backdoor-removal`, `/services/seo-spam-removal`, `/services/website-security-hardening`, `/services/wordpress-security-audit`.
+>    - **Batch 2 (Web Engineering Network — 4 pages):** `/services/web-application-development`, `/services/website-redesign`, `/services/website-performance-optimization`, `/services/wordpress-development`.
+> 3. **Boundary Discipline:** New commercial child pages are only permitted when they target distinct user search intents and buying situations with zero query cannibalization. SaaS Development and AI Website Development remain strictly held back.
+
 
 ## Internal Linking Rules
 
