@@ -36,7 +36,7 @@ const blogSlugs = [
   'what-is-editorial-engineering',
   'headless-shopify-development-guide',
   'webflow-vs-custom-development',
-  'core-web-vitals-checklist',
+  'nextjs-performance-architecture',
   'nextjs-server-vs-client-components',
   'nextjs-state-management-api-boundaries'
 ];
