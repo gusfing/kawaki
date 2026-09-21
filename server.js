@@ -144,7 +144,14 @@ const server = http.createServer((req, res) => {
   }
 
   const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
-  let reqPath = decodeURIComponent(parsedUrl.pathname);
+  let reqPath;
+  try {
+    reqPath = decodeURIComponent(parsedUrl.pathname);
+  } catch (e) {
+    res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('Bad Request: Malformed URL encoding');
+    return;
+  }
 
   // 1. Forward all /api/ requests to the Hono Backend (with SQLite database fallback)
   if (reqPath.startsWith('/api/') || reqPath === '/api') {
@@ -271,6 +278,15 @@ const server = http.createServer((req, res) => {
     }
 
     // Otherwise 404
+    const notFoundPage = path.join(ROOT, '404.html');
+    if (fs.existsSync(notFoundPage)) {
+      res.writeHead(404, {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      });
+      fs.createReadStream(notFoundPage).pipe(res);
+      return;
+    }
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end(`Not Found: ${reqPath}`);
   });
