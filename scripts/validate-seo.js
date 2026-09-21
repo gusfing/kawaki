@@ -38,7 +38,8 @@ const blogSlugs = [
   'webflow-vs-custom-development',
   'nextjs-performance-architecture',
   'nextjs-server-vs-client-components',
-  'nextjs-state-management-api-boundaries'
+  'nextjs-state-management-api-boundaries',
+  'ai-automation-architecture'
 ];
 
 for (const slug of blogSlugs) {
