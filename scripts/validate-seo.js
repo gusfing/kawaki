@@ -37,8 +37,8 @@ const blogSlugs = [
   'headless-shopify-development-guide',
   'webflow-vs-custom-development',
   'core-web-vitals-checklist',
-  'the-architecture-of-modern-digital-luxury',
-  'nextjs-server-vs-client-components'
+  'nextjs-server-vs-client-components',
+  'nextjs-state-management-api-boundaries'
 ];
 
 for (const slug of blogSlugs) {
