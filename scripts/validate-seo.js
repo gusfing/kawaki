@@ -38,7 +38,7 @@ const blogSlugs = [
   'webflow-vs-custom-development',
   'core-web-vitals-checklist',
   'the-architecture-of-modern-digital-luxury',
-  'headless-commerce-at-sub-second-latency'
+  'nextjs-server-vs-client-components'
 ];
 
 for (const slug of blogSlugs) {

@@ -8,37 +8,37 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Headless Commerce at Sub-Second Latency — Kawaki Studios</title>
-    <meta name="description" content="Technical analysis of sub-second headless commerce architecture and its direct impact on transaction velocity." />
+    <title>Next.js Server vs Client Components: How to Design the Boundary — Kawaki Studios</title>
+    <meta name="description" content="An architectural guide to designing the server/client boundary in Next.js App Router. Learn when to render on the server, when client state is necessary, and how to avoid hydration costs." />
     <meta name="generator" content="Kawaki Blog Engine" />
-    <link rel="canonical" href="https://www.kawaki.co.in/blog/headless-commerce-at-sub-second-latency" />
+    <link rel="canonical" href="https://www.kawaki.co.in/blog/nextjs-server-vs-client-components" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://www.kawaki.co.in/blog/headless-commerce-at-sub-second-latency" />
-    <meta property="og:title" content="Headless Commerce at Sub-Second Latency | Kawaki Studios" />
-    <meta property="og:description" content="Technical analysis of sub-second headless commerce architecture and its direct impact on transaction velocity." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:url" content="https://www.kawaki.co.in/blog/nextjs-server-vs-client-components" />
+    <meta property="og:title" content="Next.js Server vs Client Components: How to Design the Boundary | Kawaki Studios" />
+    <meta property="og:description" content="An architectural guide to designing the server/client boundary in Next.js App Router. Learn when to render on the server, when client state is necessary, and how to avoid hydration costs." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
-    <meta name="twitter:title" content="Headless Commerce at Sub-Second Latency | Kawaki Studios" />
-    <meta name="twitter:description" content="Technical analysis of sub-second headless commerce architecture and its direct impact on transaction velocity." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:title" content="Next.js Server vs Client Components: How to Design the Boundary | Kawaki Studios" />
+    <meta name="twitter:description" content="An architectural guide to designing the server/client boundary in Next.js App Router. Learn when to render on the server, when client state is necessary, and how to avoid hydration costs." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Headless Commerce at Sub-Second Latency",
-    "description": "Technical analysis of sub-second headless commerce architecture and its direct impact on transaction velocity.",
-    "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80",
-    "datePublished": "2026-08-28T14:30:00.000Z",
-    "dateModified": "2026-08-28T14:30:00.000Z",
+    "headline": "Next.js Server vs Client Components: How to Design the Boundary",
+    "description": "An architectural guide to designing the server/client boundary in Next.js App Router. Learn when to render on the server, when client state is necessary, and how to avoid hydration costs.",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+    "datePublished": "2026-09-18T10:00:00.000Z",
+    "dateModified": "2026-09-21T18:00:00.000Z",
     "author": {
         "@type": "Person",
         "name": "Kunal Sharma"
@@ -51,7 +51,7 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.kawaki.co.in/blog/headless-commerce-at-sub-second-latency"
+        "@id": "https://www.kawaki.co.in/blog/nextjs-server-vs-client-components"
     }
 }
     </script>
@@ -75,8 +75,8 @@
         {
             "@type": "ListItem",
             "position": 3,
-            "name": "Headless Commerce at Sub-Second Latency",
-            "item": "https://www.kawaki.co.in/blog/headless-commerce-at-sub-second-latency"
+            "name": "Next.js Server vs Client Components: How to Design the Boundary",
+            "item": "https://www.kawaki.co.in/blog/nextjs-server-vs-client-components"
         }
     ]
 }
@@ -576,7 +576,7 @@
             <span class="bc-sep">/</span>
             <a href="/blog">Blog</a>
             <span class="bc-sep">/</span>
-            <span class="bc-current">Headless Commerce at Sub-Second Latency</span>
+            <span class="bc-current">Next.js Server vs Client Components: How to Design the Boundary</span>
         </nav>
 
         <a href="/blog" class="back-link">
@@ -585,11 +585,11 @@
 
         <article id="articleWrapper">
             <div class="article-meta-badge" id="articleCategory">
-                ● Commerce
+                ● Next.js
             </div>
             
             <h1 class="article-header-title" id="articleTitle">
-                Headless Commerce at Sub-Second Latency
+                Next.js Server vs Client Components: How to Design the Boundary
             </h1>
 
             <div class="article-info-bar">
@@ -597,37 +597,360 @@
                     <div class="author-avatar" id="authorInitial">KS</div>
                     <div>
                         <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
-                        <div style="font-size: 12px;" id="articleDate">28 Aug 2026</div>
+                        <div style="font-size: 12px;" id="articleDate">18 Sep 2026</div>
                     </div>
                 </div>
                 <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
-                    89 reads
+                    215 reads
                 </div>
             </div>
 
-            <img id="articleImage" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80" alt="Headless Commerce at Sub-Second Latency" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+            <img id="articleImage" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Next.js Server vs Client Components: How to Design the Boundary" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
 
             <div class="article-content" id="articleContent">
-                <p>How Shopify Hydrogen and edge caching architectures optimize conversion velocity.</p>
-<h3>Architecture Highlights</h3>
+                <p>In modern web development with the Next.js App Router, few decisions impact application performance, security posture, and maintainability as fundamentally as the <strong>server/client boundary</strong>.</p>
+<p>Since the introduction of React Server Components (RSC), Next.js defaults to rendering components on the server. While the Pages Router remains supported for backward compatibility, the App Router requires a different mental model. Too often, developers either treat Server Components as a magic bullet that makes every page faster, or reflexively declare <code>'use client'</code> at the top of a layout the moment an interactive widget is needed.</p>
+<p>Both approaches miss the fundamental architectural reality:</p>
+<blockquote>
+<p><strong>The server/client boundary is not a component divider—it is a network serialization boundary.</strong></p>
+</blockquote>
+<p>The boundary determines which code executes in a trusted Node.js or Edge runtime, what data crosses the wire as serialized JSON payloads, and how much JavaScript the browser must download, parse, and hydrate.</p>
+<p>At <a href="/services/custom-web-development">Kawaki Studios</a>, we treat boundary placement as a primary design decision in our <a href="/services/custom-web-development">custom web engineering</a> and <a href="/services/web-application-development">web application development</a>. In this guide, we break down the mechanics of the server/client boundary, a practical decision framework, common anti-patterns, and the architectural principles needed to build high-performance Next.js platforms.</p>
+<hr />
+<h2>1. What the Server/Client Boundary Actually Means</h2>
+<p>To design clean component architectures, you must understand the two distinct execution environments that make up a Next.js application:</p>
+<ol>
+<li><strong>The Server Environment:</strong> Code executing exclusively on the server (Node.js runtime or Edge workers). It has direct access to filesystem primitives, internal microservices, environment variables, databases, and private encryption keys. It produces either static HTML or an RSC stream (a serialized format describing the virtual DOM).</li>
+<li><strong>The Client Environment:</strong> Code executing in the visitor's browser. It has direct access to browser APIs (DOM, <code>window</code>, <code>localStorage</code>, Geolocation, WebGL), handles user input events (clicks, keypresses, touches), and maintains persistent client state between interactions.</li>
+<li><strong>The Network Boundary:</strong> The interface between these two worlds. When a Server Component renders a Client Component, the server evaluates the server portion and sends a serialized payload across the network. The client receives this payload and hydrates the interactive components into the DOM.</li>
+</ol>
+<p>The boundary is not determined by file extensions or folder hierarchies. It is established explicitly by where you place the <code>'use client'</code> directive in your module dependency graph.</p>
+<hr />
+<h2>2. Server Components: The Default Execution Model</h2>
+<p>In the Next.js App Router, all components inside the <code>app</code> directory are <strong>React Server Components by default</strong> (<a href="https://nextjs.org/docs/app/building-your-application/rendering/server-components">Next.js Documentation</a>).</p>
+<h3>Key Capabilities</h3>
 <ul>
-<li>Distributed Redis session cache with 18ms p95 read latency.</li>
-<li>Hydrogen Cart API integration with optimistic mutation queues.</li>
-<li>Instant route transitions without full page re-hydration.</li>
+<li><strong>Zero Client Bundle Impact:</strong> Dependencies imported exclusively by Server Components never ship to the browser. Heavy packages like Markdown parsers (<code>marked</code>, <code>remark</code>), syntax highlighters, or date formatting utilities (<code>date-fns</code>) execute on the server and emit only lightweight HTML.</li>
+<li><strong>Direct Backend &amp; Database Access:</strong> Server Components can directly query databases (PostgreSQL, SQLite, Prisma) or call internal microservices without needing an intermediary REST API layer.</li>
+<li><strong>Secret Isolation:</strong> API keys, database connection strings, and private service tokens stay on the server. There is zero risk of leaking them into client JavaScript bundles.</li>
+<li><strong>Streaming &amp; Progressive Rendering:</strong> Server Components integrate with React <code>&lt;Suspense&gt;</code> boundaries, allowing the server to stream initial layout shells immediately while slower data queries resolve in parallel.</li>
 </ul>
+<h3>Limitations</h3>
+<p>Server Components cannot:</p>
+<ul>
+<li>Use React state hooks (<code>useState</code>, <code>useReducer</code>).</li>
+<li>Use lifecycle or side-effect hooks (<code>useEffect</code>, <code>useLayoutEffect</code>).</li>
+<li>Attach event listeners (<code>onClick</code>, <code>onChange</code>, <code>onSubmit</code>).</li>
+<li>Access browser-exclusive APIs (<code>window</code>, <code>document</code>, <code>localStorage</code>, <code>navigator</code>).</li>
+<li>Use custom hooks that depend on client state.</li>
+</ul>
+<p><em>Technical accuracy note:</em> Server Components do not use a <code>'use server'</code> directive. The <code>'use server'</code> directive in React is used exclusively to declare Server Actions—callable server-side RPC functions (<a href="https://react.dev/reference/rsc/directives">React Documentation</a>).</p>
+<hr />
+<h2>3. Client Components: Handling Tactile Interactivity</h2>
+<p>A Client Component is declared by placing the <code>'use client'</code> directive at the very top of a file, before any import statements (<a href="https://react.dev/reference/rsc/use-client">React Documentation</a>).</p>
+<p>The <code>'use client'</code> directive is <strong>not</strong> an instruction that tells React to only run code in the browser. Rather, it marks a <strong>boundary</strong> between server-only code and code that can run in both environments. Client Components are still pre-rendered to static HTML on the server during the initial page request to provide fast First Contentful Paint (FCP); they are then hydrated in the browser to enable interactivity.</p>
+<h3>Key Capabilities</h3>
+<ul>
+<li><strong>Tactile State Management:</strong> Using <code>useState</code>, <code>useReducer</code>, and context providers to drive dynamic UI changes.</li>
+<li><strong>User Event Handling:</strong> Listening for clicks, keystrokes, form submissions, and touch gestures.</li>
+<li><strong>Browser API Integration:</strong> Interacting with <code>window.matchMedia</code>, Intersection Observers, Canvas, Web Audio, or local device storage.</li>
+<li><strong>Client-Side Lifecycle Effects:</strong> Running subscriptions, animations (GSAP, Framer Motion), and imperative DOM adjustments via <code>useEffect</code>.</li>
+</ul>
+<hr />
+<h2>4. How to Decide Where the Boundary Goes</h2>
+<p>When designing an application feature, use this 6-question decision framework to locate the exact component boundary:</p>
+<pre><code>                     [New Feature / Component]
+                                 │
+                 1. Requires browser-only APIs?
+                     (window, localStorage, etc.)
+                                ╱ ╲
+                             Yes   No
+                             ╱       ╲
+                   [Client Component] 2. Requires interactive state
+                                         or event listeners?
+                                         (useState, onClick)
+                                             ╱ ╲
+                                          Yes   No
+                                          ╱       ╲
+                                [Client Component] 3. Requires server secrets,
+                                                      direct DB, or heavy libs?
+                                                          ╱ ╲
+                                                       Yes   No
+                                                       ╱       ╲
+                                            [Server Component] [Server Component]
+                                                               (Default)
+</code></pre>
+<h3>Diagnostic Questions:</h3>
+<ol>
+<li><strong>Does this component need browser-exclusive APIs?</strong> If it interacts with <code>window</code>, <code>document</code>, or hardware sensors, it must be a Client Component.</li>
+<li><strong>Does it manage interactive local state or respond to user events?</strong> If a user clicks, drags, or types and the UI must react immediately, that specific interactive element requires <code>'use client'</code>.</li>
+<li><strong>Can the interactive portion be isolated into a small leaf component?</strong> If a page contains a 2,000-word article with a single 'Copy Link' button, only the button should be a Client Component. The article, typography, and metadata should remain Server Components.</li>
+<li><strong>Does the component handle sensitive credentials or internal database queries?</strong> If yes, it must remain on the server to prevent exposing operational logic or tokens.</li>
+<li><strong>Does the component import large dependencies?</strong> If a package is only used for formatting or data parsing, keeping it in a Server Component saves valuable kilobytes in browser payload.</li>
+<li><strong>Can server data be passed across the boundary as serializable props?</strong> If data can be pre-fetched and serialized as plain JSON, fetch it on the server and pass it down.</li>
+</ol>
+<hr />
+<h2>5. The Common Mistake: Making the Whole Page Client-Side</h2>
+<p>The most common architectural mistake in Next.js App Router applications is placing <code>'use client'</code> at the page or layout root:</p>
+<pre><code class="language-tsx">// ❌ ANTI-PATTERN: Whole page marked as client
+'use client';
+
+import { useState } from 'react';
+import HeavyMarkdownParser from 'heavy-markdown-parser'; // Bundled to client!
+import Sidebar from './Sidebar';                         // Forced to client!
+import ArticleBody from './ArticleBody';                 // Forced to client!
+
+export default function ArticlePage({ initialData }) {
+  const [likes, setLikes] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;Sidebar /&gt;
+      &lt;ArticleBody content={HeavyMarkdownParser(initialData.text)} /&gt;
+      &lt;button onClick={() =&gt; setLikes(likes + 1)}&gt;Like ({likes})&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h3>Why This Degrades Architecture:</h3>
+<p>When you add <code>'use client'</code> to a file, <strong>that module and all modules it imports become part of the client bundle</strong>. </p>
+<p>In the example above, <code>HeavyMarkdownParser</code>, <code>Sidebar</code>, and <code>ArticleBody</code> are all forced into the browser JavaScript bundle, even if they contain zero interactive logic. This increases the total JavaScript payload that the browser must parse, compile, and execute, degrading the user's <strong>Interaction to Next Paint (INP)</strong> and consuming mobile memory.</p>
+<hr />
+<h2>6. Composition Patterns: Passing Server Components as Props</h2>
+<p>To keep client bundles lean while retaining rich interactivity, use React's <strong>composition pattern</strong>. You can pass Server Components as <code>children</code> (or as other props) into Client Components:</p>
+<pre><code class="language-tsx">// ✅ CORRECT PATTERN: Interactive wrapper as client, content as server
+
+// 1. InteractiveShell.tsx (Client Component)
+'use client';
+
+import { useState } from 'react';
+
+export default function InteractiveShell({ children }: { children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    &lt;div className="shell"&gt;
+      &lt;button onClick={() =&gt; setIsOpen(!isOpen)}&gt;
+        {isOpen ? 'Collapse' : 'Expand'}
+      &lt;/button&gt;
+      {isOpen &amp;&amp; &lt;div className="shell-content"&gt;{children}&lt;/div&gt;}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code class="language-tsx">// 2. Page.tsx (Server Component by default)
+import InteractiveShell from './InteractiveShell';
+import HeavyServerContent from './HeavyServerContent'; // Never ships to browser!
+
+export default async function Page() {
+  const data = await fetchServerData();
+
+  return (
+    &lt;main&gt;
+      &lt;h1&gt;Server-Rendered Article&lt;/h1&gt;
+      &lt;InteractiveShell&gt;
+        {/* HeavyServerContent renders on the server and passes as rendered virtual DOM */}
+        &lt;HeavyServerContent data={data} /&gt;
+      &lt;/InteractiveShell&gt;
+    &lt;/main&gt;
+  );
+}
+</code></pre>
+<p>In this pattern, <code>HeavyServerContent</code> executes strictly on the server. Its code never enters the browser bundle, yet it renders seamlessly inside the interactive <code>InteractiveShell</code>.</p>
+<hr />
+<h2>7. Data Fetching and API Boundaries</h2>
+<p>Data fetching architecture differs fundamentally between Server and Client Components:</p>
+<h3>When to Fetch on the Server (RSC)</h3>
+<ul>
+<li>Initial page loads, catalog listings, editorial articles, and account dashboards.</li>
+<li>Direct database or ORM queries where low network latency between server and database produces rapid execution.</li>
+<li>Parallel data loading using <code>Promise.all()</code>:<pre><code class="language-tsx">export default async function DashboardPage() {
+  // Parallel fetching without waterfall
+  const [user, analytics] = await Promise.all([
+    getUserProfile(),
+    getAnalyticsData()
+  ]);
+
+  return &lt;DashboardView user={user} analytics={analytics} /&gt;;
+}
+</code></pre>
+</li>
+</ul>
+<h3>When to Fetch on the Client</h3>
+<ul>
+<li>Dynamic search queries that update on every keystroke.</li>
+<li>Infinite scroll pagination triggered by viewport intersection.</li>
+<li>Polling for live status updates (e.g., webhook processing or queue progress).</li>
+<li>User-driven mutations where client state updates optimistically before server confirmation.</li>
+</ul>
+<p><em>Architectural rule:</em> Separate domain and business logic from the UI. Server Components should orchestrate data retrieval; Client Components should receive clean, serializable props.</p>
+<hr />
+<h2>8. Authentication &amp; Security Boundaries</h2>
+<p>Securing a Next.js application requires enforcing security boundaries on the server, not in client UI state.</p>
+<h3>Security Principles:</h3>
+<ol>
+<li><strong>Never Rely on Client-Side Hiding:</strong> Hiding a button or section with <code>{isAdmin &amp;&amp; &lt;AdminPanel /&gt;}</code> in a Client Component does not protect administrative data. If the data is included in the serialized props sent to the browser, it can be inspected in the network tab.</li>
+<li><strong>Authorize at the Server Data Layer:</strong> Server Components must verify session cookies or JWT signatures before querying sensitive records:<pre><code class="language-tsx">import { getSession } from '@/lib/auth';
+import { redirect } from 'next/navigation';
+
+export default async function AdminRoute() {
+  const session = await getSession();
+  if (!session || session.role !== 'admin') {
+    redirect('/login');
+  }
+
+  const sensitiveData = await getAdminMetrics();
+  return &lt;AdminDashboard data={sensitiveData} /&gt;;
+}
+</code></pre>
+</li>
+<li><strong>Keep Tokens Server-Side:</strong> Refresh tokens, database passwords, and third-party API secrets should never be prefixed with <code>NEXT_PUBLIC_</code>.</li>
+</ol>
+<hr />
+<h2>9. Performance Implications: Hydration &amp; Bundle Weight</h2>
+<p>Designing component boundaries is an exercise in resource optimization:</p>
+<ul>
+<li><strong>Browser Parse &amp; Compile Time:</strong> Every kilobyte of JavaScript shipped to the client must be downloaded, decompressed, parsed, and compiled by the browser's JavaScript engine. On low-power mobile devices, parsing 500KB of JavaScript can lock the main thread for hundreds of milliseconds.</li>
+<li><strong>Hydration Overhead:</strong> Hydration is the process by which React attaches event listeners to server-rendered HTML. By keeping static sections of the tree as Server Components, React skips hydrating those DOM nodes entirely, leaving the main thread free to respond to user input.</li>
+<li><strong>Data Locality:</strong> Server Components execute in close physical proximity to databases and cache stores (typically in the same cloud region), eliminating multiple roundtrips over high-latency mobile networks.</li>
+</ul>
+<p>For performance-critical systems, pairing thoughtful boundary placement with <a href="/services/website-performance-optimization">website performance optimization</a> ensures smooth Core Web Vitals across diverse client hardware.</p>
+<hr />
+<h2>10. When Client Components Are Exactly the Right Choice</h2>
+<p>Client Components are not an anti-pattern—they are an essential tool for rich user experiences. Use them confidently for:</p>
+<ul>
+<li><strong>E-Commerce Cart Drawers:</strong> Instant open/close triggers, quantity increments, and optimistic cart badge updates.</li>
+<li><strong>Interactive Multi-Step Forms:</strong> Step-by-step validation, client-side error states, and responsive input masks.</li>
+<li><strong>Faceted Product Filters:</strong> Checkboxes, price sliders, and sort dropdowns that filter in-memory lists or update URL parameters.</li>
+<li><strong>Accessible Accordions &amp; Tabs:</strong> Keyboard-navigable UI disclosures managing local expanded/collapsed states.</li>
+<li><strong>Interactive Visualizers:</strong> Canvas graphs, SVG animation controls, and 3D product viewports.</li>
+</ul>
+<hr />
+<h2>11. When Server Components Are the Better Fit</h2>
+<p>Default to Server Components for:</p>
+<ul>
+<li><strong>Editorial &amp; Content Pages:</strong> Articles, documentation, case studies, and marketing landing pages.</li>
+<li><strong>Catalog &amp; Product Details:</strong> Product description text, image grids, specifications, and breadcrumbs.</li>
+<li><strong>Protected User Dashboards:</strong> Overview layouts, billing summaries, and audit logs.</li>
+<li><strong>Metadata Generation:</strong> Dynamic <code>generateMetadata()</code> functions computing OpenGraph tags and Schema.org structured data on the server.</li>
+<li><strong>Syntax Highlighting &amp; Code Blocks:</strong> Rendering code snippets using Prism or Shiki without shipping the grammar tokenizer to the browser.</li>
+</ul>
+<hr />
+<h2>12. A Practical Reference Architecture</h2>
+<p>The following reference diagram illustrates a clean boundary separation in a production Next.js application:</p>
+<pre><code>[Route /products/analytics]
+           │
+           ▼
+┌────────────────────────────────────────────────────────┐
+│  Server Page Component (RSC)                           │
+│  - Authenticates user session                          │
+│  - Queries database in parallel via Promise.all()      │
+│  - Computes aggregation metrics                        │
+└───────────────────┬────────────────────────────────────┘
+                    │
+                    ├────────────────────────────────────┐
+                    ▼                                    ▼
+┌──────────────────────────────────────┐  ┌──────────────────────────────────────┐
+│  Server-Rendered UI (RSC)            │  │  Interactive Leaf (Client Component) │
+│  - Page title &amp; semantic typography  │  │  'use client'                        │
+│  - Static data tables                │  │  - Date range selector               │
+│  - Breadcrumb hierarchy              │  │  - Interactive chart toggle          │
+│  - Zero client JS payload            │  │  - Local filter state                │
+└──────────────────────────────────────┘  └──────────────────────────────────────┘
+</code></pre>
+<p>Notice that the top-level route and layout remain on the server. Interactivity is pushed outward to small, dedicated leaf components that receive serialized data.</p>
+<hr />
+<h2>13. Component Boundary Decision Matrix</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Requirement</th>
+<th align="center">Recommended Boundary</th>
+<th align="left">Architectural Rationale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Static Prose &amp; Typography</strong></td>
+<td align="center"><strong>Server</strong></td>
+<td align="left">No interactivity needed; zero client bundle cost.</td>
+</tr>
+<tr>
+<td align="left"><strong>Database or ORM Queries</strong></td>
+<td align="center"><strong>Server</strong></td>
+<td align="left">Direct data access; protects connection credentials.</td>
+</tr>
+<tr>
+<td align="left"><strong>User Click Handlers (<code>onClick</code>)</strong></td>
+<td align="center"><strong>Client</strong></td>
+<td align="left">Event listeners require browser DOM binding.</td>
+</tr>
+<tr>
+<td align="left"><strong>Form Inputs with Live Validation</strong></td>
+<td align="center"><strong>Client</strong></td>
+<td align="left">Immediate tactile feedback requires local React state.</td>
+</tr>
+<tr>
+<td align="left"><strong>Browser Storage (<code>localStorage</code>)</strong></td>
+<td align="center"><strong>Client</strong></td>
+<td align="left">API only exists within the browser environment.</td>
+</tr>
+<tr>
+<td align="left"><strong>Sensitive Authentication Logic</strong></td>
+<td align="center"><strong>Server</strong></td>
+<td align="left">Protects authorization checks from client tampering.</td>
+</tr>
+<tr>
+<td align="left"><strong>Heavy Markdown / Syntax Parsing</strong></td>
+<td align="center"><strong>Server</strong></td>
+<td align="left">Executes parser on server; ships lightweight HTML only.</td>
+</tr>
+<tr>
+<td align="left"><strong>Dynamic Modal / Drawer Shell</strong></td>
+<td align="center"><strong>Client Wrapper</strong></td>
+<td align="left">Houses toggle state; can wrap server-rendered children.</td>
+</tr>
+</tbody></table>
+<hr />
+<h2>14. Common Architectural Mistakes</h2>
+<p>Review your codebase against these five common traps:</p>
+<ol>
+<li><strong>Confusing <code>'use server'</code> with Server Components:</strong> <code>'use server'</code> does not designate a component as a Server Component. It is used strictly to declare Server Actions (callable RPC endpoints). Server Components require no directive.</li>
+<li><strong>Leaking Server Modules to the Client:</strong> Importing a module that uses Node.js primitives (<code>fs</code>, <code>crypto</code>, <code>process.env</code>) inside a Client Component causes build errors. Use the <code>server-only</code> package to enforce build-time boundaries.</li>
+<li><strong>Prop Drilling Non-Serializable Data:</strong> Attempting to pass functions, class instances, or symbols from a Server Component to a Client Component will fail. Props crossing the boundary must be JSON-serializable.</li>
+<li><strong>Creating Unnecessary Request Waterfalls:</strong> Fetching data inside nested Client Components via <code>useEffect</code> forces sequential network waterfalls. Pre-fetch on the server or parallelize requests.</li>
+<li><strong>Overusing Root Client Context Providers:</strong> Wrapping your entire root layout in multiple client context providers effectively converts large portions of the component tree into client execution paths.</li>
+</ol>
+<hr />
+<h2>15. Frequently Asked Questions (FAQ)</h2>
+<h3>What is the core difference between Server and Client Components in Next.js?</h3>
+<p>Server Components execute only on the server and emit HTML/RSC payload without shipping their JavaScript dependencies to the browser. Client Components pre-render HTML on the server and then hydrate in the browser, enabling state, effects, and event handling.</p>
+<h3>When should I use the <code>'use client'</code> directive?</h3>
+<p>Use <code>'use client'</code> only when a component requires browser APIs, React state hooks (<code>useState</code>, <code>useReducer</code>), lifecycle effects (<code>useEffect</code>), or event listeners (<code>onClick</code>, <code>onChange</code>). Keep the directive as close to the interactive leaves of your DOM tree as possible.</p>
+<h3>Are Server Components always faster than Client Components?</h3>
+<p>Not universally. Server Components reduce client-side bundle size and eliminate hydration overhead, but if a server-side data fetch is slow and un-cached, it can delay Time to First Byte (TTFB). Architectural performance depends on proper caching, parallel data retrieval, and streaming with Suspense.</p>
+<h3>Can a Server Component render a Client Component?</h3>
+<p>Yes. A Server Component can import and render a Client Component directly. The server renders the component to HTML and serializes its props into the RSC payload for client hydration.</p>
+<h3>Can a Client Component render a Server Component?</h3>
+<p>A Client Component cannot directly import a Server Component (because the server code cannot run in the browser). However, a Client Component can accept a Server Component as a <code>children</code> prop, allowing server-rendered content to be composed inside an interactive client shell.</p>
+<h3>Does this architecture apply to the Next.js Pages Router?</h3>
+<p>No. The server/client component boundary model is specific to the Next.js App Router. The Pages Router uses traditional SSR (<code>getServerSideProps</code>), SSG (<code>getStaticProps</code>), and full-page client-side hydration. Both routers continue to be supported by Next.js, but modern React features like RSC require the App Router.</p>
+<hr />
+<h2>Engineering Scalable Next.js Applications</h2>
+<p>Designing effective component boundaries requires balancing user experience, network efficiency, and security requirements. </p>
+<p>If your team is modernizing an existing web platform, architecting a high-performance Next.js application, or resolving hydration bottlenecks, <a href="/services/custom-web-development">explore our custom web development services</a> or <a href="/contact">schedule a technical briefing with Kawaki Studios</a>.</p>
 
             </div>
 
             <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
-                <span class="tag-pill">#Commerce</span><span class="tag-pill">#Shopify Hydrogen</span><span class="tag-pill">#Edge APIs</span>
+                <span class="tag-pill">#Next.js</span><span class="tag-pill">#React Server Components</span><span class="tag-pill">#Web Architecture</span><span class="tag-pill">#Performance</span>
             </div>
 
             <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
                 <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
                 <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
                 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                    <a href="/services/shopify-development" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
-                        Explore Shopify & Headless Commerce Engineering &rarr;
+                    <a href="/services/custom-web-development" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
+                        Explore Custom Web Development & Architectural Tiers &rarr;
                     </a>
                 </div>
                 <a href="/contact" class="rlvnt-btn max-content" style="margin: 0 auto;">
