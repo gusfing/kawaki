@@ -79,7 +79,7 @@ const newMenuHtml = `    <!-- FULLSCREEN OVERLAY MENU -->
                     <div class="menu-info-block">
                         <div class="menu-status-pill">
                             <span class="status-dot"></span>
-                            <span>Available for Q3/Q4 Projects</span>
+                            <span>Available for Select Projects</span>
                         </div>
                         <a href="/contact.html" class="menu-cta-button">
                             <span>Schedule a Call</span>

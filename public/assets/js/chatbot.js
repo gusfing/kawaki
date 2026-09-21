@@ -338,11 +338,11 @@
     }
     // Case Studies / Work / Portfolio
     else if (lower.includes('case stud') || lower.includes('work') || lower.includes('portfolio') || lower.includes('project')) {
-      reply = "You can review our featured client work in our [Case Studies Section](/case-studies), including Acme Headless E-commerce, Spatial 3D Web platforms, and editorial publishing engines.";
+      reply = "You can review our architectural blueprints and concept designs in our [Case Studies Section](/case-studies), including Acme Headless E-commerce and modern web architectures.";
     }
     // Location / Team
     else if (lower.includes('where are you') || lower.includes('location') || lower.includes('team') || lower.includes('based')) {
-      reply = "Kawaki Studios is based in New Delhi with an international distributed team of 15+ digital artisans and engineers shipping flagship work globally.";
+      reply = "Kawaki Studios is based in New Delhi, engineering custom web platforms, Shopify experiences, and automation systems for clients.";
     }
     // Default fallback
     else {

@@ -709,7 +709,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
                     <div class="menu-info-block">
                         <div class="menu-status-pill">
                             <span class="status-dot"></span>
-                            <span>Available for Q3/Q4 Projects</span>
+                            <span>Available for Select Projects</span>
                         </div>
                         <a href="/contact" class="menu-cta-button">
                             <span>Schedule a Call</span>
@@ -806,7 +806,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
         <div class="footer-top-strip">
             <div class="footer-status-pill">
                 <span class="footer-status-dot"></span>
-                <span>Available for Q3 / Q4 Projects — Worldwide</span>
+                <span>Available for Select Projects</span>
             </div>
         </div>
 
@@ -906,15 +906,14 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
         </div>
 
         <div class="footer-bottom">
-            <div class="copyright">© 2026 Kawaki Studios Ltd. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
+            <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
             <ul class="footer-bottom-links">
                 <li><a href="/about">Privacy Policy</a></li>
                 <li><a href="/about">Terms of Service</a></li>
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                <li><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; color: #555;"><span style="width:6px; height:6px; border-radius:50%; background:#C6FF00; display:inline-block;"></span> Systems Nominal</span></li>
-            </ul>
+                </ul>
             <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
                 <span>Back to Top</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
@@ -1055,9 +1054,19 @@ function updateSitemap(articles) {
 
   // Replace or build the Published High-Authority Articles block
   const sitemapArticlesXml = articles.map(b => {
+    let lastmodTag = '';
+    const dateVal = b.updatedAt || b.createdAt;
+    if (dateVal) {
+      const d = new Date(dateVal);
+      if (!isNaN(d.getTime())) {
+        const yyyy = d.getUTCFullYear();
+        const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+        const dd = String(d.getUTCDate()).padStart(2, '0');
+        lastmodTag = `\n    <lastmod>${yyyy}-${mm}-${dd}</lastmod>`;
+      }
+    }
     return `  <url>
-    <loc>https://www.kawaki.co.in/blog/${b.slug}</loc>
-    <lastmod>2026-09-11</lastmod>
+    <loc>https://www.kawaki.co.in/blog/${b.slug}</loc>${lastmodTag}
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`;

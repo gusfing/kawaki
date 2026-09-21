@@ -159,10 +159,17 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Dynamic Sitemap
+  // Canonical Sitemap: serve public/sitemap.xml directly with canonical XML headers
   if (reqPath === '/sitemap.xml') {
-    handleApiRequest(req, res, new URL('http://localhost/api/sitemap'));
-    return;
+    const sitemapPath = path.join(ROOT, 'sitemap.xml');
+    if (fs.existsSync(sitemapPath)) {
+      res.writeHead(200, {
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600'
+      });
+      fs.createReadStream(sitemapPath).pipe(res);
+      return;
+    }
   }
 
   // Security Headers for frontend assets

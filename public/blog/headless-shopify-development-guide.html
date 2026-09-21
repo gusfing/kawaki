@@ -542,7 +542,7 @@
                     <div class="menu-info-block">
                         <div class="menu-status-pill">
                             <span class="status-dot"></span>
-                            <span>Available for Q3/Q4 Projects</span>
+                            <span>Available for Select Projects</span>
                         </div>
                         <a href="/contact" class="menu-cta-button">
                             <span>Schedule a Call</span>
@@ -610,7 +610,7 @@
             <div class="article-content" id="articleContent">
                 <p>For high-volume merchants, Shopify's standard monolithic Liquid templating engine eventually hits an immovable ceiling. Third-party app bloat, render-blocking scripts, rigid URL structures, and cross-origin checkout hops erode customer conversion rates on mobile devices.</p>
 <p>Going <strong>Headless on Shopify Plus</strong> decouples the customer-facing frontend presentation layer from Shopify's enterprise commerce backend.</p>
-<p>In this comprehensive technical guide, we unpack the exact architecture, data fetching patterns, and performance optimizations we implement at <a href="/services">Kawaki Studios</a> to build sub-second headless storefronts that lift conversion rates.</p>
+<p>In this comprehensive technical guide, we examine the architecture, data fetching patterns, and performance optimizations used to build decoupled headless storefronts with sub-second page transitions.</p>
 <hr />
 <h2>1. Why Ambitious Brands Decouple Shopify</h2>
 <p>When evaluating headless architecture, engineering teams and e-commerce directors must weigh tangible business metrics against architectural complexity:</p>
@@ -649,23 +649,23 @@
 <li><strong>Dynamic Pricing &amp; Stock Checks:</strong> On the Product Detail Page (PDP), static product copy and imagery render instantly from the edge cache, while real-time variant stock is hydrated via a lightweight client-side micro-query.</li>
 </ul>
 <hr />
-<h2>5. Case Study Metrics: Acme Headless E-commerce</h2>
-<p>When Kawaki Studios re-engineered Acme's digital storefront from an off-the-shelf Shopify theme to a bespoke headless architecture:</p>
+<h2>5. Architectural Blueprint: Decoupled Commerce Architecture</h2>
+<p>In our decoupled commerce reference design (modeled for high-velocity storefronts):</p>
 <ul>
-<li><strong>Largest Contentful Paint (LCP):</strong> Dropped from 3.8 seconds to <strong>0.8 seconds</strong>.</li>
-<li><strong>Mobile Bounce Rate:</strong> Decreased by <strong>31%</strong>.</li>
-<li><strong>Mobile Conversion Rate:</strong> Increased by <strong>+42%</strong>.</li>
-<li><strong>Average Order Value (AOV):</strong> Lifted by <strong>18%</strong> through integrated editorial cross-sell modules.</li>
+<li><strong>Core Web Vitals Target:</strong> Decoupled edge delivery targeting LCP under 1.0 second.</li>
+<li><strong>Layout Stability:</strong> Pre-computed responsive aspect ratios targeting zero Cumulative Layout Shift (CLS).</li>
+<li><strong>Optimistic Interactions:</strong> Client-side cart mutations designed for instant feedback.</li>
+<li><strong>Edge Routing:</strong> Dynamic routing and inventory synchronization without origin roundtrips.</li>
 </ul>
-<p>Read the complete breakdown: <a href="/case-studies/acme-headless-ecommerce">Acme Headless Commerce Case Study</a>.</p>
+<p>Explore the architectural blueprint: <a href="/case-studies/acme-headless-ecommerce">Acme E-Commerce Architecture Concept</a>.</p>
 <hr />
 <h2>6. Frequently Asked Questions</h2>
 <h3>Does going headless break standard Shopify apps?</h3>
 <p>Front-end widget apps (such as basic review stars or pop-up countdowns) do not automatically inject into a custom headless frontend. Instead, you integrate review systems (such as Yotpo, Okendo, or Stamped) via their official REST/GraphQL APIs, resulting in faster load times and complete styling control. Back-office apps (shipping, ERP, inventory, taxes) function completely undisturbed.</p>
 <h3>How does checkout work in headless Shopify?</h3>
 <p>Checkout operates natively through Shopify's PCI-compliant, one-page checkout. When the customer is ready to transact, the frontend calls the Storefront API to generate a verified checkout URL and redirects the buyer seamlessly, preserving all discounts, gift cards, and Shop Pay preferences.</p>
-<h3>What is the typical investment for a custom headless build?</h3>
-<p>Enterprise headless builds typically range from $25,000 for focused flagship migrations to $75,000+ for complex multi-brand, multi-currency international deployments. Explore our <a href="/services">Services &amp; Engagement Tiers</a> or explore our <a href="/case-studies">Case Studies</a>.</p>
+<h3>What is the typical scope for a custom headless build?</h3>
+<p>Headless build scope varies based on catalog complexity, third-party integrations, and performance requirements—from focused storefront migrations to multi-brand international deployments. Explore our <a href="/services">Services</a> or <a href="/contact">Contact us</a> to discuss technical requirements.</p>
 <hr />
 <h2>Ready to Elevate Your Commerce Infrastructure?</h2>
 <p>If your current Shopify store is constrained by template limitations or sluggish mobile load times, let's talk engineering. <a href="/contact">Schedule an architectural briefing with our technical partners</a>.</p>
@@ -700,7 +700,7 @@
         <div class="footer-top-strip">
             <div class="footer-status-pill">
                 <span class="footer-status-dot"></span>
-                <span>Available for Q3 / Q4 Projects — Worldwide</span>
+                <span>Available for Select Projects</span>
             </div>
         </div>
 
@@ -800,15 +800,14 @@
         </div>
 
         <div class="footer-bottom">
-            <div class="copyright">© 2026 Kawaki Studios Ltd. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
+            <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
             <ul class="footer-bottom-links">
                 <li><a href="/about">Privacy Policy</a></li>
                 <li><a href="/about">Terms of Service</a></li>
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                <li><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; color: #555;"><span style="width:6px; height:6px; border-radius:50%; background:#C6FF00; display:inline-block;"></span> Systems Nominal</span></li>
-            </ul>
+                </ul>
             <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
                 <span>Back to Top</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
