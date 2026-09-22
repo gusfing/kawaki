@@ -251,49 +251,49 @@ function initGlobalNav() {
 
         if (document.querySelector('.hero-lama-bg-img')) {
             heroTl.fromTo('.hero-lama-bg-img',
-                { scale: 1.08, opacity: 0.7 },
-                { scale: 1.02, opacity: 1, duration: 2.2, ease: 'power3.out' },
+                { scale: 1.06, opacity: 0.8 },
+                { scale: 1.02, opacity: 1, duration: 1.8, ease: 'power3.out' },
                 0
-            );
-        }
-
-        if (document.querySelector('.nav-wrapper nav')) {
-            heroTl.fromTo('.nav-wrapper nav',
-                { y: -30, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1.1, ease: 'power4.out' },
-                0.2
-            );
-        }
-
-        if (document.querySelector('.hero-lama-eyebrow')) {
-            heroTl.fromTo('.hero-lama-eyebrow',
-                { y: 25, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
-                0.4
             );
         }
 
         if (document.querySelector('.hero-lama-title')) {
             heroTl.fromTo('.hero-lama-title',
-                { y: 45, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1.2, ease: 'power4.out' },
-                0.5
+                { y: 22, opacity: 0.88 },
+                { y: 0, opacity: 1, duration: 0.9, ease: 'power4.out' },
+                0.05
+            );
+        }
+
+        if (document.querySelector('.nav-wrapper nav')) {
+            heroTl.fromTo('.nav-wrapper nav',
+                { y: -20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, ease: 'power4.out' },
+                0.15
+            );
+        }
+
+        if (document.querySelector('.hero-lama-eyebrow')) {
+            heroTl.fromTo('.hero-lama-eyebrow',
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+                0.2
             );
         }
 
         if (document.querySelector('.hero-lama-desc-box')) {
             heroTl.fromTo('.hero-lama-desc-box',
-                { y: 35, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' },
-                0.65
+                { y: 25, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
+                0.25
             );
         }
 
         if (document.querySelector('.hero-lama-bottom-bar')) {
             heroTl.fromTo('.hero-lama-bottom-bar',
-                { y: 20, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1.0, ease: 'power3.out' },
-                0.8
+                { y: 15, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+                0.35
             );
         }
     }
