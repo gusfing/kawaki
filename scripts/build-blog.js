@@ -1046,9 +1046,8 @@ function updateBlogIndexHtml(articles) {
     console.warn('[Build Blog] Warning: Could not find #blogGrid in public/blog.html');
   }
 
-  // Ensure verified Instagram profile URL in blog.html
-  content = content.replace(/href="https:\/\/instagram\.com(?:\/)"?/g, 'href="https://instagram.com/kawaki.agency"');
-  content = content.replace(/href="https:\/\/instagram\.com"/g, 'href="https://instagram.com/kawaki.agency"');
+  // Ensure verified Instagram profile URL in blog.html (fully idempotent)
+  content = content.replace(/href="https:\/\/instagram\.com(?:\/[^"]*)?"(?:kawaki\.agency")*/g, 'href="https://instagram.com/kawaki.agency"');
 
   // Update client script in blog.html: remove fetch, retain filtering & Lenis
   const scriptRegex = /<script>\s*document\.addEventListener\('DOMContentLoaded',\s*(?:async\s*)?\(\)\s*=>\s*\{[\s\S]*?<\/script>/i;
