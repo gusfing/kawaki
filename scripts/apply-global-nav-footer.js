@@ -59,9 +59,9 @@ const newNav = `
                         <div class="socials-trigger-rlvnt">
                             <span class="socials-label-rlvnt">Socials</span>
                             <div class="socials-row-rlvnt">
-                                <a href="https://linkedin.com" target="_blank">LinkedIn.</a>
-                                <a href="https://twitter.com" target="_blank">Twitter.</a>
-                                <a href="https://instagram.com" target="_blank">Instagram.</a>
+                                <a href="https://linkedin.com/company/kawaki-studios" target="_blank">LinkedIn.</a>
+                                <a href="https://twitter.com/kawakistudios" target="_blank">Twitter.</a>
+                                <a href="https://instagram.com/kawaki.agency" target="_blank">Instagram.</a>
                                 <a href="https://behance.net" target="_blank">Behance.</a>
                             </div>
                         </div>
@@ -76,8 +76,8 @@ const newFooter = `
     <footer class="sections global-site-footer">
         <div class="services-header-2">
             <h3 class="left services-title-2">Ready to talk?</h3>
-            <div class="svg-container"> 
-                <img src="/assets/images/Hello.png" alt="Hello" class="hello-image wave-hover" onerror="this.src='https://ik.imagekit.io/rlvntstudios/rlvntsite/others/Hello.png';"> 
+            <div class="svg-container">
+                <img src="/assets/images/Hello.png" alt="Hello" class="hello-image wave-hover">
             </div>
             <h3 class="right services-title-2"><em>let's connect</em></h3>
         </div>
@@ -119,9 +119,9 @@ const newFooter = `
                 <div class="socials-trigger-rlvnt">
                     <span class="socials-label-rlvnt">Socials</span>
                     <div class="socials-row-rlvnt">
-                        <a href="https://linkedin.com" target="_blank" class="social-icon-rlvnt" title="LinkedIn">Lin.</a>
-                        <a href="https://twitter.com" target="_blank" class="social-icon-rlvnt" title="Twitter">Twi.</a>
-                        <a href="https://instagram.com" target="_blank" class="social-icon-rlvnt" title="Instagram">Ins.</a>
+                        <a href="https://linkedin.com/company/kawaki-studios" target="_blank" class="social-icon-rlvnt" title="LinkedIn">Lin.</a>
+                        <a href="https://twitter.com/kawakistudios" target="_blank" class="social-icon-rlvnt" title="Twitter">Twi.</a>
+                        <a href="https://instagram.com/kawaki.agency" target="_blank" class="social-icon-rlvnt" title="Instagram">Ins.</a>
                         <a href="https://behance.net" target="_blank" class="social-icon-rlvnt" title="Behance">Beh.</a>
                     </div>
                 </div>

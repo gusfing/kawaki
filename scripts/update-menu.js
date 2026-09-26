@@ -95,9 +95,9 @@ const newMenuHtml = `    <!-- FULLSCREEN OVERLAY MENU -->
                     <div class="menu-socials-strip">
                         <span class="socials-title">Follow</span>
                         <div class="social-tags">
-                            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn ↗</a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter / X ↗</a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram ↗</a>
                             <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
                         </div>
                     </div>

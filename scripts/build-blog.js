@@ -3,6 +3,7 @@ const path = require('path');
 const { marked } = require('marked');
 const sanitizeHtmlLib = require('sanitize-html');
 const { getDb, formatBlogRow, FALLBACK_BLOGS } = require('../lib/db-api-handler.js');
+const { generateLlms } = require('./generate-llms.js');
 
 const rootDir = path.resolve(__dirname, '..');
 const publicDir = path.resolve(rootDir, 'public');
@@ -124,11 +125,60 @@ function getContextualService(article) {
       label: 'Explore Shopify & Headless Commerce Engineering'
     };
   }
-  if (slug.includes('vitals') || slug.includes('search') || category.includes('performance')) {
+  if (slug.includes('state-management') || slug.includes('api-boundaries') || slug.includes('web-application')) {
+    return {
+      name: 'Web Application Development',
+      url: '/services/web-application-development',
+      label: 'Explore Full-Stack Web Application Engineering'
+    };
+  }
+  if (slug.includes('performance') || slug.includes('speed') || slug.includes('core-web-vitals') || category.includes('performance')) {
+    return {
+      name: 'Website Performance Optimization',
+      url: '/services/website-performance-optimization',
+      label: 'Explore Website Performance & Core Web Vitals Optimization'
+    };
+  }
+  if (slug.includes('backdoor') || slug.includes('web-shell') || category.includes('backdoor')) {
+    return {
+      name: 'WordPress Backdoor Removal',
+      url: '/services/wordpress-backdoor-removal',
+      label: 'Explore WordPress Backdoor Removal & Forensic Incident Response'
+    };
+  }
+  if (slug.includes('redirect') || category.includes('redirect')) {
+    return {
+      name: 'WordPress Malicious Redirect Removal',
+      url: '/services/malicious-redirect-removal',
+      label: 'Explore WordPress Malicious Redirect Removal & Injected Script Cleanup'
+    };
+  }
+  if (slug.includes('keyword-hack') || slug.includes('seo-spam') || slug.includes('spam-removal') || category.includes('spam') || slug.includes('malware') || category.includes('malware')) {
+    return {
+      name: 'SEO Spam Removal',
+      url: '/services/seo-spam-removal',
+      label: 'Explore WordPress SEO Spam Removal & Recovery'
+    };
+  }
+  if (slug.includes('wordpress')) {
+    return {
+      name: 'WordPress Development',
+      url: '/services/wordpress-development',
+      label: 'Explore Custom WordPress Engineering & Gutenberg Architecture'
+    };
+  }
+  if (slug.includes('search') || slug.includes('aeo') || slug.includes('geo')) {
     return {
       name: 'AI Search Optimization',
       url: '/services/ai-search-optimization',
-      label: 'Explore AI Search Optimization & Web Performance'
+      label: 'Explore AI Search Optimization & Search Engineering'
+    };
+  }
+  if (slug.includes('ai-') || slug.includes('automation') || category.includes('ai') || category.includes('automation')) {
+    return {
+      name: 'AI Automation',
+      url: '/services/ai-automation',
+      label: 'Explore AI Automation & Workflow Architecture'
     };
   }
   return {
@@ -175,6 +225,7 @@ function generateArticleHtml(article) {
     },
     "publisher": {
       "@type": "Organization",
+      "@id": "https://www.kawaki.co.in/#organization",
       "name": "Kawaki Studios",
       "url": "https://www.kawaki.co.in",
       "logo": "https://www.kawaki.co.in/assets/images/kawaki-logo.png"
@@ -724,9 +775,9 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
                     <div class="menu-socials-strip">
                         <span class="socials-title">Follow</span>
                         <div class="social-tags">
-                            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn ↗</a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter / X ↗</a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram ↗</a>
                             <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
                         </div>
                     </div>
@@ -862,28 +913,28 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
             </div>
 
             <div class="footer-col">
-                <div class="footer-col-header">// STUDIOS & LOCAL TIME</div>
+                <div class="footer-col-header">// CLIENT TIME ZONES</div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>New Delhi (HQ)</span>
+                        <span>New Delhi — Studio HQ</span>
                         <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
                     </div>
                 </div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>Tokyo</span>
+                        <span>Tokyo — Client Time Zone</span>
                         <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
                     </div>
                 </div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>London</span>
+                        <span>London — Client Time Zone</span>
                         <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
                     </div>
                 </div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>New York</span>
+                        <span>New York — Client Time Zone</span>
                         <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
                     </div>
                 </div>
@@ -892,11 +943,11 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
             <div class="footer-col">
                 <div class="footer-col-header">// SOCIAL INDEX</div>
                 <ul class="footer-links-list">
-                    <li><a href="https://instagram.com" target="_blank" rel="noopener"><span>Instagram</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
-                    <li><a href="https://twitter.com" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
-                    <li><a href="https://linkedin.com" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener"><span>Instagram</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
                     <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
-                    <li><a href="https://github.com" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
                 </ul>
             </div>
         </div>
@@ -994,6 +1045,10 @@ function updateBlogIndexHtml(articles) {
   } else {
     console.warn('[Build Blog] Warning: Could not find #blogGrid in public/blog.html');
   }
+
+  // Ensure verified Instagram profile URL in blog.html
+  content = content.replace(/href="https:\/\/instagram\.com(?:\/)"?/g, 'href="https://instagram.com/kawaki.agency"');
+  content = content.replace(/href="https:\/\/instagram\.com"/g, 'href="https://instagram.com/kawaki.agency"');
 
   // Update client script in blog.html: remove fetch, retain filtering & Lenis
   const scriptRegex = /<script>\s*document\.addEventListener\('DOMContentLoaded',\s*(?:async\s*)?\(\)\s*=>\s*\{[\s\S]*?<\/script>/i;
@@ -1163,7 +1218,10 @@ function build() {
   // Update sitemap.xml
   updateSitemap(articles);
 
-  console.log('\n🚀 [Build Blog] Successfully pre-rendered all articles and synchronized catalog!\n');
+  // Update llms.txt and llms-full.txt
+  generateLlms(articles);
+
+  console.log('\n🚀 [Build Blog] Successfully pre-rendered all articles, sitemaps, and llms.txt!\n');
   return { articles, removedStale };
 }
 

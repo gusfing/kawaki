@@ -39,7 +39,11 @@ const blogSlugs = [
   'nextjs-performance-architecture',
   'nextjs-server-vs-client-components',
   'nextjs-state-management-api-boundaries',
-  'ai-automation-architecture'
+  'ai-automation-architecture',
+  'ai-agent-reliability-evaluation',
+  'japanese-keyword-hack-wordpress',
+  'wordpress-backdoors-stealth-web-shells',
+  'wordpress-malicious-redirects-cleanup'
 ];
 
 for (const slug of blogSlugs) {

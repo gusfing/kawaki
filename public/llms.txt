@@ -1,30 +1,575 @@
 # Kawaki Studios
-> Custom Web Development, Shopify Development, AI Automation, AI Search Optimization, and Security Services.
 
-Kawaki Studios (https://www.kawaki.co.in) is an independent digital engineering studio founded by Kunal Sharma. We engineer custom web applications, bespoke Shopify storefronts, automation workflows, AI search architecture, and WordPress security recovery.
+> Kawaki Studios is a founder-led digital engineering studio based in New Delhi, India, focused on custom web development, web applications, Shopify development, AI automation, AI search optimization, and WordPress security and recovery.
 
-## Core Services & Architecture
-- [Custom Web Development](https://www.kawaki.co.in/services/custom-web-development): Full-stack custom web applications, Next.js architecture, TypeScript engineering, semantic frontends, and API integrations.
-- [Shopify Development](https://www.kawaki.co.in/services/shopify-development): Custom Liquid theme development, headless Shopify architectures, Storefront API integrations, and platform migrations.
-- [AI Automation](https://www.kawaki.co.in/services/ai-automation): Practical workflow automation, deterministic webhook pipelines, n8n and Make orchestration, and task-specific AI agents.
-- [AI Search Optimization](https://www.kawaki.co.in/services/ai-search-optimization): Technical search engineering, entity architecture, Schema.org structured data, and content discoverability across search engines and AI assistants.
-- [WordPress Malware Removal](https://www.kawaki.co.in/services/wordpress-malware-removal): Hacked site recovery, malicious script isolation, database cleanup, backdoor investigation, and security hardening.
-- [Engineering Standards](https://www.kawaki.co.in/services): Core Web Vitals optimization, clean semantic markup, strict asset budgeting, and production-grade deployment workflows.
+## Core Capabilities
 
-## Primary Pages & Documentation
-- [Home](https://www.kawaki.co.in/): Studio overview and engineering capabilities.
-- [About Studio](https://www.kawaki.co.in/about): Studio philosophy, founder background, and engineering principles.
-- [Services](https://www.kawaki.co.in/services): Detailed breakdown of engineering disciplines and delivery models.
-- [Case Studies](https://www.kawaki.co.in/case-studies): Selected project architectures and technical case studies.
-- [Acme Headless Commerce Case Study](https://www.kawaki.co.in/case-studies/acme-headless-ecommerce): Illustrative case study exploring decoupled Next.js storefront architecture with Shopify Storefront API.
-- [Fintech ROI Calculator Case Study](https://www.kawaki.co.in/case-studies/fintech-roi-calculator): Illustrative case study on client-side interactive financial modeling and CRM webhook integration.
-- [Insights & Blog](https://www.kawaki.co.in/blog): Technical articles on web engineering, performance optimization, and architectural decisions.
-- [Contact](https://www.kawaki.co.in/contact): Project inquiry form and discovery call scheduling.
+1. [Custom web development](https://www.kawaki.co.in/services/custom-web-development): Bespoke digital platforms engineered with Next.js App Router, TypeScript, and modern CSS architectures.
+2. [Modern web application development](https://www.kawaki.co.in/services/web-application-development): Full-stack web applications with complex state, dedicated API boundaries, and clear intellectual property ownership.
+3. [Shopify and headless commerce engineering](https://www.kawaki.co.in/services/shopify-development): Custom Liquid themes, Storefront API integrations, and sub-second decoupled commerce storefronts.
+4. [AI workflow automation and bounded AI agents](https://www.kawaki.co.in/services/ai-automation): Deterministic workflow orchestration (n8n/Make/code) and task-specific AI agents with strict runtime guardrails.
+5. [AI search optimization and search engineering](https://www.kawaki.co.in/services/ai-search-optimization): Technical search engineering, entity clarity, Schema.org JSON-LD structured data, and answer-first content discoverability.
+6. [WordPress malware removal and security recovery](https://www.kawaki.co.in/services/wordpress-malware-removal): Incident response, malicious code and backdoor extraction, database cleanup, and security hardening.
+7. [Website performance optimization](https://www.kawaki.co.in/services/website-performance-optimization): Core Web Vitals optimization, asset budgeting, font subsetting, and JavaScript main-thread execution reduction.
+8. [Website redesign and platform modernization](https://www.kawaki.co.in/services/website-redesign): Strategic replatforming, technical refactoring, and modernizing legacy web platforms without losing organic search equity.
 
-## Studio Details
-- **Founder & Creative Director**: Kunal Sharma
-- **Primary Domain**: https://www.kawaki.co.in
-- **Inquiries**: hello@kawakistudios.com / partners@kawakistudios.com
-- **Headquarters**: New Delhi, India
-- **Sitemap**: https://www.kawaki.co.in/sitemap.xml
+## About Kawaki Studios
+
+Kawaki Studios is an independent digital engineering studio founded and led by Kunal Sharma. The studio bridges thoughtful visual design with disciplined software engineering, delivering bespoke web platforms, modern web applications, e-commerce storefronts, and automated workflows.
+
+Based in New Delhi, India, the studio works directly with a select roster of clients globally. We operate without junior account managers or sales intermediaries; every project is architected and executed directly by senior engineering leadership.
+
+Our engineering philosophy prioritizes deterministic systems, verifiable performance, sub-second latency, security hygiene, and clean architectural boundaries.
+
+## What Kawaki Does
+
+We design, develop, and maintain high-performance digital systems across six primary disciplines:
+
+- **Custom Web Development**
+- **Modern Web Applications**
+- **Shopify and Headless Commerce**
+- **AI Workflow Automation & Bounded Agents**
+- **AI Search Optimization & Search Engineering**
+- **WordPress Malware Removal & Security Recovery**
+
+## Core Engineering Services
+
+### Custom Web Development
+
+**Definition**
+Bespoke digital platform engineering utilizing modern web standards, component-driven frontend architecture, and server-side rendering to create high-performance web presences tailored to exact operational requirements.
+
+**What Kawaki Delivers**
+- Modular frontend architectures built on Next.js App Router and React Server Components
+- TypeScript codebases engineered for type safety, maintainability, and clean separation of concerns
+- Publication-grade typographic hierarchies and custom design implementations without generic templates
+- Sub-second page transitions, responsive viewports, and asset-budgeted media delivery
+- Direct API integrations, webhook handlers, and database connections
+
+**Typical Problems Addressed**
+- Rigid CMS template constraints preventing custom layout grids or dynamic customer flows
+- Excessive JavaScript bundles and render-blocking scripts degrading Core Web Vitals
+- Fragile third-party plugin ecosystems causing frequent software regressions
+- Lack of clean developer documentation and poor code maintainability
+
+**Technical Areas**
+- Next.js App Router, React Server Components (RSC), TypeScript
+- Modern CSS architectures, fluid typography (CSS clamp), semantic HTML5
+- REST & GraphQL API design, serverless microservices
+- Edge caching, CDN routing, and Core Web Vitals engineering
+
+**When This Service Is Appropriate**
+Appropriate when a business requires a distinctive, highly tailored digital flagship that cannot be constrained by off-the-shelf website builders or generic themes.
+
+**Related Services**
+- <https://www.kawaki.co.in/services/web-application-development>
+- <https://www.kawaki.co.in/services/website-performance-optimization>
+- <https://www.kawaki.co.in/services/website-redesign>
+
+**Related Resources**
+- <https://www.kawaki.co.in/blog/nextjs-server-vs-client-components>
+- <https://www.kawaki.co.in/blog/nextjs-state-management-api-boundaries>
+- <https://www.kawaki.co.in/blog/nextjs-performance-architecture>
+- <https://www.kawaki.co.in/blog/webflow-vs-custom-development>
+- <https://www.kawaki.co.in/blog/what-is-editorial-engineering>
+
+**Canonical URL**: <https://www.kawaki.co.in/services/custom-web-development>
+
+### Web Application Development
+
+**Definition**
+Full-stack software engineering for complex interactive web applications, internal tools, customer portals, and SaaS interfaces requiring persistent state, multi-tenant security, and robust backend integration.
+
+**What Kawaki Delivers**
+- Interactive single-page and hybrid server-rendered application frontends
+- Strict server/client boundaries preventing unauthorized access to sensitive business logic
+- Session-based authentication, role-based access control (RBAC), and token verification
+- Real-time state management, optimistic UI updates, and client-side error boundaries
+- Complete client ownership of all application source code and deployment assets
+
+**Typical Problems Addressed**
+- Spreadsheet-driven business processes causing manual operational friction and data errors
+- Legacy software systems lacking modern responsive interfaces and mobile usability
+- Slow client-side rendering with excessive hydration penalties locking the main thread
+- Unsecured client-side data queries leaking internal operational metrics
+
+**Technical Areas**
+- Next.js, React 19, TypeScript, Node.js
+- Client state management, optimistic mutations, server action contracts
+- PostgreSQL, SQLite, Redis caching, structured data migrations
+- JWT/Session authentication, CORS security envelopes, API Route Handlers
+
+**When This Service Is Appropriate**
+Appropriate when a business requires an interactive software tool, dashboard, portal, or workflow engine that demands dedicated state management and transactional backend operations.
+
+**Related Services**
+- <https://www.kawaki.co.in/services/custom-web-development>
+- <https://www.kawaki.co.in/services/ai-automation>
+
+**Related Resources**
+- <https://www.kawaki.co.in/blog/nextjs-state-management-api-boundaries>
+- <https://www.kawaki.co.in/blog/nextjs-server-vs-client-components>
+
+**Canonical URL**: <https://www.kawaki.co.in/services/web-application-development>
+
+### Shopify Development
+
+**Definition**
+Custom e-commerce engineering for Shopify stores, ranging from bespoke Liquid theme development and checkout optimizations to decoupled headless storefronts powered by the Shopify Storefront GraphQL API.
+
+**What Kawaki Delivers**
+- Bespoke Shopify Liquid themes built without bloated multi-purpose commercial themes
+- Decoupled headless storefronts utilizing Next.js, Shopify Hydrogen, and Edge caching
+- Custom product detail pages (PDPs) with narrative layouts and dynamic variant pickers
+- Optimistic cart drawer mutations providing instantaneous customer feedback
+- Platform migrations from WooCommerce, Magento, or custom carts to Shopify
+
+**Typical Problems Addressed**
+- Slow mobile storefront loading speeds caused by excessive third-party Shopify app scripts
+- Conversion rate drops resulting from sluggish cart interactions and layout shift
+- Rigid theme settings preventing unique editorial storytelling or brand presentation
+- Catalog synchronization errors across multi-currency or localized storefronts
+
+**Technical Areas**
+- Shopify Liquid, Theme App Extensions, Theme Customizer JSON schemas
+- Shopify Storefront GraphQL API (v2026-01+), cartLinesAdd mutations
+- Next.js App Router, React Server Components, Vercel Edge / Cloudflare Workers
+- Stale-while-revalidate (SWR) edge caching with automated inventory webhooks
+
+**When This Service Is Appropriate**
+Appropriate for ambitious e-commerce brands needing either a high-performance custom Liquid theme or a sub-second decoupled headless storefront.
+
+**Related Services**
+- <https://www.kawaki.co.in/services/custom-web-development>
+- <https://www.kawaki.co.in/services/website-performance-optimization>
+
+**Related Resources**
+- <https://www.kawaki.co.in/blog/headless-shopify-development-guide>
+
+**Canonical URL**: <https://www.kawaki.co.in/services/shopify-development>
+
+### AI Automation
+
+**Definition**
+Enterprise workflow automation engineering that pairs deterministic orchestration with bounded artificial intelligence, strict tool permissions, human authorization gates, and end-to-end audit logging.
+
+**What Kawaki Delivers**
+- Multi-step automated workflows built on self-hosted n8n, Make, or custom Node.js/Python services
+- Task-specific AI agents with strict schema-validated tool definitions and narrow scopes
+- Human-in-the-loop authorization gates that pause execution for high-consequence business actions
+- Automated document ingestion converting PDFs, invoices, and contracts into structured JSON
+- Immutable telemetry sinks recording every reasoning step, tool payload, and latency metric
+
+**Typical Problems Addressed**
+- Repetitive manual data entry and copying between CRM, accounting, and communication tools
+- Unbounded AI prototypes hallucinating database updates or leaking customer credentials
+- Brittle automation scripts crashing silently on unexpected schema changes or network timeouts
+- Lack of compliance records and visibility into what automated systems executed
+
+**Technical Areas**
+- Self-hosted n8n instances, Make, webhook orchestration, event-driven architecture
+- Bounded LLM integration (OpenAI, Anthropic, local models), JSON Schema / Zod validation
+- Deterministic state machines, checkpoint serialization, idempotency key enforcement
+- Exponential backoff with full jitter, Saga pattern compensating actions
+
+**When This Service Is Appropriate**
+Appropriate for organizations seeking to automate complex, multi-system operational workflows without granting unbounded write access or risking data corruption.
+
+**Related Services**
+- <https://www.kawaki.co.in/services/web-application-development>
+- <https://www.kawaki.co.in/services/ai-search-optimization>
+
+**Related Resources**
+- <https://www.kawaki.co.in/blog/ai-automation-architecture>
+- <https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation>
+
+**Canonical URL**: <https://www.kawaki.co.in/services/ai-automation>
+
+### AI Search Optimization
+
+**Definition**
+Search engineering and content discoverability architecture that optimizes digital assets for traditional search engines, answer engines (AEO), and generative AI assistants (GEO) through entity clarity and verifiable structured data.
+
+**What Kawaki Delivers**
+- Comprehensive Schema.org JSON-LD graph architecture (Organization, WebSite, Service, BlogPosting)
+- Answer-first editorial structure designed for semantic entity extraction and snippet inclusion
+- Internal linking architecture establishing clear topical authority hierarchies
+- Crawl budget optimization, canonical URL enforcement, and automated XML sitemaps
+- Machine-readable markdown indices and documentation layers for external agent ingestion
+
+**Typical Problems Addressed**
+- Digital content ignored or misrepresented by AI assistants (Perplexity, ChatGPT, Gemini, Copilot)
+- Fragmented entity signals across the web leading to ambiguous search brand graphs
+- Technical crawl blockers, canonical loops, and missing structured metadata
+- Keyword-stuffed content that fails to provide authoritative, citable factual definitions
+
+**Technical Areas**
+- Schema.org JSON-LD graph modeling, entity linkage via @id references
+- Technical SEO audits, Core Web Vitals compliance, server-side rendering (SSR)
+- Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO)
+- Information retrieval heuristics, context window citation formatting
+
+**When This Service Is Appropriate**
+Appropriate for businesses wanting their technical expertise, services, and brand identity to be accurately indexed, comprehended, and cited by modern search and AI models.
+
+**Related Services**
+- <https://www.kawaki.co.in/services/custom-web-development>
+- <https://www.kawaki.co.in/services/ai-automation>
+
+**Related Resources**
+- <https://www.kawaki.co.in/blog/what-is-editorial-engineering>
+
+**Canonical URL**: <https://www.kawaki.co.in/services/ai-search-optimization>
+
+### WordPress Malware Removal & Recovery
+
+**Definition**
+Forensic incident response, malicious code eradication, and security recovery for compromised WordPress platforms, followed by environmental hardening to prevent reinfection.
+
+**What Kawaki Delivers**
+- Full filesystem forensic audit comparing core and plugin files against official checksums
+- Manual and automated extraction of obfuscated PHP backdoors, webshells, and eval scripts
+- Database sanitization removing injected spam links, rogue admin accounts, and malicious wp_options records
+- Resolution of search engine security blacklists (Google 'Deceptive site ahead' warnings)
+- Post-cleanup environment hardening, file permission lockdown, and security policy deployment
+
+**Typical Problems Addressed**
+- Websites silently redirecting mobile or search visitors to spam and phishing domains
+- Hosting accounts suspended due to high CPU spikes, malware detection, or outbound spam emails
+- Recurring malware reinfections caused by hidden root-level backdoors or persistent cron jobs
+- Japanese keyword hacks, pharma spam, and thousands of injected doorway pages
+
+**Technical Areas**
+- PHP malware de-obfuscation, webshell identification, Linux server log forensics
+- MySQL database payload inspection, serialized data repair, cron table analysis
+- .htaccess rewrite rule audit, nginx server block hardening, WAF deployment
+- WordPress core checksum verification, salt rotation, file permission lockdowns
+
+**When This Service Is Appropriate**
+Appropriate when a WordPress website has been breached, blacklisted, suspended by hosting, or compromised by persistent unauthorized scripts.
+
+**Related Services**
+- <https://www.kawaki.co.in/services/wordpress-backdoor-removal>
+- <https://www.kawaki.co.in/services/malicious-redirect-removal>
+- <https://www.kawaki.co.in/services/seo-spam-removal>
+- <https://www.kawaki.co.in/services/website-security-hardening>
+- <https://www.kawaki.co.in/services/wordpress-security-audit>
+
+**Related Resources**
+- <https://www.kawaki.co.in/blog/japanese-keyword-hack-wordpress>
+
+**Canonical URL**: <https://www.kawaki.co.in/services/wordpress-malware-removal>
+
+## Supporting Web Engineering Services
+
+### Website Redesign
+Strategic replatforming and visual modernization of outdated websites into high-performance digital platforms without losing organic search equity, keyword rankings, or URL authority.
+**Canonical URL**: <https://www.kawaki.co.in/services/website-redesign>
+
+### Website Performance Optimization
+Systematic Core Web Vitals engineering targeting Largest Contentful Paint (LCP < 1.2s), zero Cumulative Layout Shift (CLS = 0), and low Interaction to Next Paint (INP < 100ms) through asset budgeting, critical font subsetting, and JavaScript reduction.
+**Canonical URL**: <https://www.kawaki.co.in/services/website-performance-optimization>
+
+### WordPress Development
+Clean, bespoke WordPress theme and backend engineering for publishers and organizations that require WordPress for content management but demand custom code, fast load times, and minimal plugin dependencies.
+**Canonical URL**: <https://www.kawaki.co.in/services/wordpress-development>
+
+## WordPress Security & Recovery
+
+Kawaki Studios provides full-lifecycle incident response and security hardening for compromised WordPress environments. The core service is [WordPress Malware Removal & Recovery](https://www.kawaki.co.in/services/wordpress-malware-removal), supported by specialized forensic services:
+
+### WordPress Backdoor Removal
+- **Problem**: Hidden persistent access vectors allowing attackers to regain administrative control after surface-level cleanup.
+- **Symptoms**: Malware returning within 24-48 hours, unauthorized administrator accounts appearing, unfamiliar files in wp-includes.
+- **Scope**: Forensic code inspection, hash verification against WordPress.org releases, rogue cron job elimination, salt key rotation.
+- **Canonical URL**: <https://www.kawaki.co.in/services/wordpress-backdoor-removal>
+
+### Malicious Redirect Removal
+- **Problem**: Conditional script injections redirecting select visitors (such as mobile users or search traffic) to malicious external sites.
+- **Symptoms**: Site opens normally on direct desktop visits but redirects to suspicious domains when accessed from mobile Google search.
+- **Scope**: Inspection of .htaccess files, index.php headers, theme footer scripts, database option records, and server rewrite rules.
+- **Canonical URL**: <https://www.kawaki.co.in/services/malicious-redirect-removal>
+
+### SEO Spam Removal
+- **Problem**: Automated injection of thousands of spam pages or outbound links designed to siphon domain authority for illicit networks.
+- **Symptoms**: Google indexing thousands of Japanese, pharma, or gambling URLs under your domain; search console security alerts.
+- **Scope**: Database query cleanup, removal of injected sitemaps, virtual doorway file deletion, Google Search Console re-indexing requests.
+- **Canonical URL**: <https://www.kawaki.co.in/services/seo-spam-removal>
+
+### Website Security Hardening
+- **Problem**: Default configurations and outdated software exposing web platforms to brute-force attacks and known vulnerabilities.
+- **Symptoms**: Excessive failed login attempts, unauthorized file upload warnings, missing security headers.
+- **Scope**: Directory execution restrictions (/wp-content/uploads/ disabled for PHP), two-factor authentication, security headers, least-privilege permissions.
+- **Canonical URL**: <https://www.kawaki.co.in/services/website-security-hardening>
+
+### WordPress Security Audit
+- **Problem**: Unknown vulnerabilities, misconfigurations, and outdated third-party code putting systems at risk prior to active breach.
+- **Symptoms**: Compliance requirements, pre-acquisition due diligence, or proactive risk assessment for business-critical websites.
+- **Scope**: Full code and plugin vulnerability scanning, database user audit, hosting configuration review, and prioritized remediation roadmap.
+- **Canonical URL**: <https://www.kawaki.co.in/services/wordpress-security-audit>
+
+## Engineering Approach
+
+### Web Architecture
+We engineer web platforms using clean semantic HTML5, fluid typography via CSS clamp() mathematics, and modern component boundaries. We reject bloated multi-purpose themes in favor of lean, maintainable codebases.
+
+### Application Architecture
+In web application engineering, we enforce strict server/client execution boundaries. Data access, credential management, and business logic remain strictly isolated on the server; client components are reserved for tactile user events and local UI state.
+
+### Performance Engineering
+Performance is treated as an architectural constraint, not an afterthought. We optimize for Core Web Vitals (LCP < 1.2s, CLS = 0, INP < 100ms) through critical asset budgeting, self-hosted font subsetting, and GPU-accelerated motion.
+
+### AI Automation Architecture
+We follow a six-stage orchestration model: Ingestion & Parsing → Deterministic Filtering → Bounded AI Inference → Human Authorization Gate → System Execution & Write → Telemetry & Audit Log. Deterministic rules always precede probabilistic models.
+
+### AI Agent Reliability
+Our agent architecture framework organizes reliability into three pillars: (1) Evaluation Harnesses, (2) Five-Layer Defense-in-Depth Guardrails (Input, Decision, Tool, Output, Infrastructure) enforced outside the model, and (3) Failure Recovery via classification, exponential backoff with full jitter, and Saga compensation patterns.
+
+### Security & Recovery
+Security recovery requires root-cause eradication. We verify core checksums, isolate obfuscated backdoors, sanitize database records, and enforce least-privilege permissions to eliminate persistent vectors.
+
+### Search Engineering
+We construct interconnected Schema.org JSON-LD knowledge graphs linked to a canonical Organization entity, establishing clear authority across search engines and AI answer engines.
+
+## AI Automation Deep Dive
+
+### What AI Automation Means
+AI automation is the integration of machine reasoning into operational business workflows. At Kawaki Studios, automation is never treated as unconstrained model autonomy; it is engineered as governed, bounded software.
+
+### Workflow Automation vs. AI Agents
+Deterministic workflows route structured data using strict rule engines. AI agents are introduced selectively when unstructured text, ambiguous intent, or dynamic semantic synthesis is required.
+
+### Human Approval & Tool Permissions
+Agents operate under strict least-privilege API scopes and Zod schema validation. High-consequence mutations (financial transactions, data deletions, security changes) pause asynchronously for human operator sign-off.
+
+### Evaluation & Guardrails
+Agent capabilities are validated using Evaluation-Driven Development (EDD) across golden datasets and deterministic code assertions. Production systems enforce five layers of deterministic software guardrails outside the model.
+
+### Failure Recovery & Observability
+Transient errors recover via full-jitter backoff; permanent failures trigger compensating Saga rollbacks. Every action, tool call, and observation is persisted in structured telemetry sinks.
+
+**Key Resources**:
+- [AI Automation Architecture](https://www.kawaki.co.in/blog/ai-automation-architecture)
+- [AI Agent Reliability: Evaluation, Guardrails, and Failure Recovery](https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation)
+
+## AI Search Optimization Deep Dive
+
+### SEO, AEO, and GEO
+- **SEO (Search Engine Optimization)**: Optimizes technical crawlability, indexation, site speed, and semantic hierarchy for algorithmic web crawlers.
+- **AEO (Answer Engine Optimization)**: Formats factual definitions and concise answers for direct answer extraction by search features.
+- **GEO (Generative Engine Optimization)**: Establishes clear entity authority, structured Schema.org graphs, and authoritative documentation to ensure accurate representation in generative AI systems.
+
+### Entity Clarity & Structured Data
+We link all digital assets to a singular `https://www.kawaki.co.in/#organization` node, explicitly defining founder, geographic presence, services, and published articles.
+
+### Measurement Limitations
+Search engines do not use machine-readable documentation files (such as llms.txt) as direct algorithmic ranking signals. Structured data and machine documentation facilitate accurate indexing, but do not guarantee specific rankings or generative AI inclusions.
+
+## Shopify & Commerce Deep Dive
+
+### Shopify Development & Custom Themes
+We develop lightweight, custom Shopify Liquid themes that eliminate third-party app bloat and maintain fast mobile loading speeds.
+
+### Headless Shopify Architecture
+For enterprise e-commerce requirements, we decouple frontend presentation using Next.js, querying Shopify's Storefront GraphQL API and utilizing edge caching with automated inventory webhook invalidation.
+
+## Published Architecture Guides & Resources
+
+### Web Engineering Resources
+
+#### [Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals](https://www.kawaki.co.in/blog/nextjs-performance-architecture)
+> An engineering deep dive into Next.js performance architecture: how rendering models, JavaScript bundle budgeting, modern asset pipelines, and caching primitives govern real-world Core Web Vitals.
+
+- **Canonical**: https://www.kawaki.co.in/blog/nextjs-performance-architecture
+- **Topic**: Next.js
+
+#### [State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications](https://www.kawaki.co.in/blog/nextjs-state-management-api-boundaries)
+> An architectural decision framework for modern Next.js applications: categorizing state ownership, eliminating unnecessary API layers, and designing secure mutation boundaries.
+
+- **Canonical**: https://www.kawaki.co.in/blog/nextjs-state-management-api-boundaries
+- **Topic**: Next.js
+
+#### [Next.js Server vs Client Components: How to Design the Boundary](https://www.kawaki.co.in/blog/nextjs-server-vs-client-components)
+> An architectural decision framework for Next.js App Router: determining data ownership, hydration boundaries, composition patterns, and security without default-to-client anti-patterns.
+
+- **Canonical**: https://www.kawaki.co.in/blog/nextjs-server-vs-client-components
+- **Topic**: Next.js
+
+#### [Webflow vs Custom Development: When Ambitious Brands Need to Graduate to Code in 2026](https://www.kawaki.co.in/blog/webflow-vs-custom-development)
+> An objective, architecture-first comparison between Webflow and custom engineering. We break down total cost of ownership, SEO control, performance ceilings, and proprietary lock-in.
+
+- **Canonical**: https://www.kawaki.co.in/blog/webflow-vs-custom-development
+- **Topic**: Web Development
+
+#### [What is Editorial Engineering? The Definitive Guide to Modern Web Craft](https://www.kawaki.co.in/blog/what-is-editorial-engineering)
+> Discover why modern digital flagships are trading generic component libraries for editorial engineering—a discipline bridging publication-grade typography, narrative motion, and sub-second web architecture.
+
+- **Canonical**: https://www.kawaki.co.in/blog/what-is-editorial-engineering
+- **Topic**: Editorial Engineering
+
+### AI Automation Resources
+
+#### [AI Agent Reliability: Evaluation, Guardrails, and Failure Recovery](https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation)
+> An engineering guide to AI agent reliability in production: evaluation methodologies, pass@k boundaries, defense-in-depth guardrails, and autonomous failure recovery.
+
+- **Canonical**: https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation
+- **Topic**: AI Automation
+
+#### [AI Automation Architecture: Designing Reliable Workflows, Agents, and Human Approval Loops](https://www.kawaki.co.in/blog/ai-automation-architecture)
+> An engineering guide to AI automation architecture: designing bounded workflows, tool permission gates, human-in-the-loop approval loops, and observable recovery systems.
+
+- **Canonical**: https://www.kawaki.co.in/blog/ai-automation-architecture
+- **Topic**: AI Automation
+
+### Shopify & Commerce Resources
+
+#### [Headless Shopify Development: The Architecture of High-Velocity Commerce](https://www.kawaki.co.in/blog/headless-shopify-development-guide)
+> A technical blueprint for engineering sub-second headless Shopify Plus storefronts using Storefront API v2026, edge caching, and optimistic cart mutations.
+
+- **Canonical**: https://www.kawaki.co.in/blog/headless-shopify-development-guide
+- **Topic**: Commerce
+
+### WordPress Security & Recovery Resources
+
+#### [WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation](https://www.kawaki.co.in/blog/wordpress-malicious-redirects-cleanup)
+> A forensic engineering guide to detecting, diagnosing, and eradicating WordPress malicious redirects, covering injected JavaScript, conditional .htaccess rules, and mobile-only gating.
+
+- **Canonical**: https://www.kawaki.co.in/blog/wordpress-malicious-redirects-cleanup
+- **Topic**: WordPress Security
+
+#### [WordPress Backdoors & Stealth Web Shells: Forensic Detection, Obfuscation Decoding, and Persistent Cron Eradication](https://www.kawaki.co.in/blog/wordpress-backdoors-stealth-web-shells)
+> A forensic engineering guide to detecting, analyzing, and eradicating stealth WordPress backdoors and web shells, covering obfuscation patterns and persistent cron hooks.
+
+- **Canonical**: https://www.kawaki.co.in/blog/wordpress-backdoors-stealth-web-shells
+- **Topic**: WordPress Security
+
+#### [The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress](https://www.kawaki.co.in/blog/japanese-keyword-hack-wordpress)
+> A forensic engineering guide to detecting, isolating, and eradicating the WordPress Japanese Keyword Hack. Covers server-side cloaking detection, database sanitization, and permanent HTTP 410 deindexing.
+
+- **Canonical**: https://www.kawaki.co.in/blog/japanese-keyword-hack-wordpress
+- **Topic**: WordPress Security
+
+## Case Studies & Architectural Reference Designs
+
+*Note: The following projects represent Architectural Reference Designs and conceptual systems engineered to demonstrate technical capabilities; they are not client engagements.*
+
+### [Acme Headless Commerce Architecture](https://www.kawaki.co.in/case-studies/acme-headless-ecommerce)
+- **Status**: Architectural Reference Design
+- **Summary**: A conceptual reference architecture demonstrating how ambitious e-commerce brands decouple Shopify backend commerce from customer-facing presentation. Explores Next.js App Router, Shopify Storefront GraphQL API v2026, edge caching (SWR), and optimistic cart mutations targeting sub-second page transitions.
+- **Canonical URL**: <https://www.kawaki.co.in/case-studies/acme-headless-ecommerce>
+
+### [Fintech ROI Calculator Architecture](https://www.kawaki.co.in/case-studies/fintech-roi-calculator)
+- **Status**: Architectural Reference Design
+- **Summary**: A conceptual reference architecture exploring client-side interactive financial modeling. Demonstrates zero-dependency SVG chart rendering, parametric sensitivity calculations, sub-second reactivity, and lead qualification webhook integration.
+- **Canonical URL**: <https://www.kawaki.co.in/case-studies/fintech-roi-calculator>
+
+## Company Entity
+
+**Name**: Kawaki Studios
+**Canonical Website**: https://www.kawaki.co.in/
+**Founder**: Kunal Sharma (Founder & Creative Direction)
+**Headquarters**: New Delhi, India
+**Primary Disciplines**:
+- Custom Web Development
+- Modern Web Applications
+- Shopify and Headless Commerce
+- AI Workflow Automation & Bounded Agents
+- AI Search Optimization & Search Engineering
+- WordPress Malware Removal & Security Recovery
+
+**Verified Profiles**:
+- GitHub: <https://github.com/gusfing/kawaki>
+- LinkedIn: <https://linkedin.com/company/kawaki-studios>
+- Twitter / X: <https://twitter.com/kawakistudios>
+- Instagram: <https://instagram.com/kawaki.agency>
+
+## Entity Relationships
+
+- Kawaki Studios → founded by → Kunal Sharma
+- Kawaki Studios → provides → Custom Web Development
+- Kawaki Studios → provides → Web Application Development
+- Kawaki Studios → provides → Shopify Development
+- Kawaki Studios → provides → AI Automation
+- Kawaki Studios → provides → AI Search Optimization
+- Kawaki Studios → provides → WordPress Security & Recovery
+- Kawaki Studios → publishes → Technical Architecture Guides
+- Kawaki Studios → publishes → Architectural Reference Designs
+
+## Geographic Presence
+
+Kawaki Studios is based in New Delhi, India. The studio delivers projects and collaborates with clients globally via remote asynchronous engineering workflows. The studio maintains no physical offices outside New Delhi, India.
+
+## Frequently Asked Questions
+
+### What does Kawaki Studios do?
+**Category**: General
+
+Kawaki Studios is an independent digital engineering studio founded by Kunal Sharma. We engineer custom web platforms, modern web applications, bespoke Shopify storefronts, deterministic AI workflow automations, AI search architectures, and WordPress security recovery.
+
+### Where is Kawaki Studios based?
+**Category**: General
+
+Kawaki Studios is based in New Delhi, India, and collaborates with select clients globally.
+
+### What is custom web development?
+**Category**: Web Development
+
+Custom web development is the engineering of a digital platform using modern programming standards, clean semantic code, and tailored architecture, rather than forcing business requirements into pre-made commercial CMS templates or no-code page builders.
+
+### When should a business choose custom development over a site builder?
+**Category**: Web Development
+
+Custom development is appropriate when a business requires a distinctive design identity, specialized user flows, sub-second loading performance, complete code ownership, or deep API and database integrations that off-the-shelf builders cannot support.
+
+### Who retains ownership of the custom web application source code?
+**Category**: Web Development
+
+Clients retain 100% intellectual property ownership of the source code, architecture documentation, and design assets upon milestone settlement. Kawaki Studios delivers clean Git repositories with no proprietary runtime lock-in.
+
+### What is the difference between simple automation and an AI agent?
+**Category**: AI Automation
+
+Simple automation follows rigid, deterministic if-this-then-that branching paths. An AI agent uses a language model to interpret unstructured inputs, reason across dynamic conditions, select and invoke tools, and synthesize data before committing actions.
+
+### How does Kawaki Studios constrain AI agents to ensure reliability?
+**Category**: AI Automation
+
+We deploy defense-in-depth guardrails: strict Zod schema validation on tool inputs, least-privilege API scopes, finite state machine action spaces, full-jitter exponential backoff, structured observation contracts, and human-in-the-loop gates for high-impact decisions.
+
+### When should human approval be required in an AI workflow?
+**Category**: AI Automation
+
+Human authorization gates are required when an action crosses pre-defined risk thresholds: high-value financial mutations, irreversible database deletions, security credential alterations, or sensitive customer-facing communication.
+
+### When is headless Shopify appropriate?
+**Category**: Shopify
+
+Headless Shopify is appropriate for high-volume merchants whose conversion rates or brand experience are constrained by Liquid templating, app script bloat, or multi-market international catalog requirements requiring sub-second edge rendering.
+
+### What is the distinction between WordPress Development and WordPress Security?
+**Category**: WordPress Security
+
+WordPress Development focuses on engineering, customizing, and maintaining clean WordPress themes and backends. WordPress Security and Recovery focuses on forensic investigation, malware extraction, backdoor removal, and hardening on compromised sites.
+
+### Why does WordPress malware frequently return after deletion?
+**Category**: WordPress Security
+
+Malware recurs because attackers install stealth backdoors—obfuscated PHP files, rogue administrative users, or database cron jobs—that re-download malicious payloads after surface files are deleted. Complete recovery requires eradicating all persistence vectors.
+
+### What is the difference between SEO, AEO, and GEO?
+**Category**: AI Search
+
+Traditional SEO focuses on crawler indexability and algorithmic SERP rankings. Answer Engine Optimization (AEO) structures content for direct question-answering engines. Generative Engine Optimization (GEO) focuses on entity authority, verifiable documentation, and citation in LLM knowledge graphs.
+
+### Does maintaining an llms.txt file guarantee visibility in AI search answers?
+**Category**: AI Search
+
+No. llms.txt is a clean, machine-readable documentation file for systems that choose to ingest it. It does not act as an algorithmic ranking signal in Google Search, and no technical markup guarantees inclusion in generative AI overviews.
+
+## Contact
+
+- **Canonical Website**: https://www.kawaki.co.in/
+- **General Inquiries**: hello@kawakistudios.com
+- **Partnerships**: partners@kawakistudios.com
+- **Project Discovery**: <https://www.kawaki.co.in/contact>
 - **Full LLM Context**: https://www.kawaki.co.in/llms-full.txt
