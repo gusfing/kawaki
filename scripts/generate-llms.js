@@ -197,7 +197,8 @@ const CORE_SERVICES = [
       "https://www.kawaki.co.in/services/website-performance-optimization"
     ],
     relatedResources: [
-      "https://www.kawaki.co.in/blog/headless-shopify-development-guide"
+      "https://www.kawaki.co.in/blog/headless-shopify-development-guide",
+      "https://www.kawaki.co.in/blog/shopify-liquid-vs-headless"
     ]
   },
   {

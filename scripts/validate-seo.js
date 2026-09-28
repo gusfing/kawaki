@@ -44,7 +44,8 @@ const blogSlugs = [
   'japanese-keyword-hack-wordpress',
   'wordpress-backdoors-stealth-web-shells',
   'wordpress-malicious-redirects-cleanup',
-  'custom-web-development-vs-no-code'
+  'custom-web-development-vs-no-code',
+  'shopify-liquid-vs-headless'
 ];
 
 for (const slug of blogSlugs) {

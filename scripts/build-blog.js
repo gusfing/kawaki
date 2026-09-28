@@ -118,6 +118,14 @@ function getContextualService(article) {
   const slug = (article.slug || '').toLowerCase();
   const category = (article.tags && article.tags[0] ? article.tags[0] : '').toLowerCase();
 
+  if (slug === 'shopify-liquid-vs-headless' || slug.includes('liquid-vs-headless')) {
+    return {
+      name: 'Shopify Development',
+      url: '/services/shopify-development',
+      contactUrl: '/contact?service=shopify-development',
+      label: 'Explore Shopify & Headless Commerce Engineering'
+    };
+  }
   if (slug.includes('shopify') || slug.includes('commerce') || category.includes('commerce')) {
     return {
       name: 'Shopify Development',

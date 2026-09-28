@@ -156,6 +156,7 @@ Appropriate for ambitious e-commerce brands needing either a high-performance cu
 - Related Service: <https://www.kawaki.co.in/services/custom-web-development>
 - Related Service: <https://www.kawaki.co.in/services/website-performance-optimization>
 - Technical Guide: <https://www.kawaki.co.in/blog/headless-shopify-development-guide>
+- Technical Guide: <https://www.kawaki.co.in/blog/shopify-liquid-vs-headless>
 
 ---
 
@@ -342,6 +343,13 @@ pass@k := E [ 1 - (binom(n-c, k) / binom(n, k)) ]
 For live side-effecting workflows, single-attempt success is more directly relevant than pass@k, but production reliability requires multi-dimensional tracking: Task Completion Rate (TCR), Invariant Violation Rate, recovery convergence, observability, and bounded execution budgets.
 
 ## 8. Published Technical Research & Architecture Guides
+
+### [Shopify Liquid vs Headless Shopify: A Practical Decision Framework for Growing Stores](https://www.kawaki.co.in/blog/shopify-liquid-vs-headless)
+- **Canonical URL**: https://www.kawaki.co.in/blog/shopify-liquid-vs-headless
+- **Author**: Kunal Sharma
+- **Primary Topics**: Shopify, Headless Commerce, Liquid Architecture, E-Commerce Performance, Engineering Strategy
+- **Executive Summary**: An engineering decision framework for choosing between Shopify Liquid themes and Headless Shopify: 12-dimension matrix, true causes of store latency, 5-stage Liquid optimization sequence, and migration guide.
+- **Key Concepts**: shopify liquid vs headless, headless shopify vs liquid, shopify architecture, when to go headless shopify, shopify performance optimization, liquid theme optimization, headless commerce decision framework, shopify storefront api
 
 ### [Custom Web Development vs No-Code: Architectural Trade-Offs, Decision Matrix, and Scaling Limits](https://www.kawaki.co.in/blog/custom-web-development-vs-no-code)
 - **Canonical URL**: https://www.kawaki.co.in/blog/custom-web-development-vs-no-code
