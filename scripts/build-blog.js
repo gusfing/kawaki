@@ -184,6 +184,14 @@ function getContextualService(article) {
       label: 'Explore AI Automation & Workflow Architecture'
     };
   }
+  if (slug.includes('custom-web') || slug.includes('no-code') || slug.includes('web-development')) {
+    return {
+      name: 'Custom Web Development',
+      url: '/services/custom-web-development',
+      contactUrl: '/contact?service=custom-web-development',
+      label: 'Explore Custom Web Development & Architectural Tiers'
+    };
+  }
   return {
     name: 'Custom Web Development',
     url: '/services/custom-web-development',

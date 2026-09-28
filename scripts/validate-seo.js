@@ -43,7 +43,8 @@ const blogSlugs = [
   'ai-agent-reliability-evaluation',
   'japanese-keyword-hack-wordpress',
   'wordpress-backdoors-stealth-web-shells',
-  'wordpress-malicious-redirects-cleanup'
+  'wordpress-malicious-redirects-cleanup',
+  'custom-web-development-vs-no-code'
 ];
 
 for (const slug of blogSlugs) {

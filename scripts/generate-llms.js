@@ -576,7 +576,7 @@ function generateLlmsTxt(articles) {
   // Categorize articles
   const webEngArticles = articles.filter(a => {
     const slug = a.slug || '';
-    return slug.includes('nextjs') || slug.includes('editorial') || slug.includes('webflow');
+    return slug.includes('nextjs') || slug.includes('editorial') || slug.includes('webflow') || slug.includes('custom-web') || slug.includes('no-code');
   });
   const aiArticles = articles.filter(a => {
     const slug = a.slug || '';
