@@ -554,7 +554,7 @@
                 <div class="flex-col-right service-items">
                     <div class="service-row" style="cursor: default;">
                         <h3 class="service-name">In-Dashboard File Editing</h3>
-                        <span class="service-desc">By default, WordPress allows administrators to edit theme and plugin PHP files directly from <code>/wp-admin/theme-editor.php</code>. If an administrative session is hijacked or brute-forced, the attacker can immediately inject remote code execution shells into core templates.</span>
+                        <span class="service-desc">By default, WordPress allows administrators to edit theme and plugin PHP files directly from <code>/wp-admin/theme-editor.php</code>. If an administrative session is hijacked or brute-forced, the attacker can immediately inject remote code execution shells into core templates. Learn how persistent footholds operate in our technical analysis of <a href="/blog/wordpress-backdoors-stealth-web-shells" style="color: inherit; text-decoration: underline; font-weight: 600;">WordPress backdoors and stealth web shells</a>.</span>
                     </div>
                     <div class="service-row" style="cursor: default;">
                         <h3 class="service-name">Executable Uploads Directory</h3>
@@ -602,7 +602,7 @@
                         <div style="background: #fbfbfb; padding: 24px; border: 1px solid rgba(17,17,17,0.06); border-radius: 4px;">
                             <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">2. Server-Level Uploads Lockdown</h3>
                             <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin: 0;">
-                                In Nginx or Apache <code>.htaccess</code>, we configure explicit directives denying script execution in <code>/wp-content/uploads/</code>, ensuring uploaded <code>.php</code>, <code>.phtml</code>, or <code>.php5</code> files return HTTP 403 Forbidden.
+                                In Nginx or Apache <code>.htaccess</code>, we configure explicit directives denying script execution in <code>/wp-content/uploads/</code>, ensuring uploaded <code>.php</code>, <code>.phtml</code>, or <code>.php5</code> files return HTTP 403 Forbidden. Tightening server rewrite rules also prevents <a href="/blog/wordpress-malicious-redirects-cleanup" style="color: inherit; text-decoration: underline; font-weight: 600;">conditional malicious redirects</a> from hijacking web traffic.
                             </p>
                         </div>
 

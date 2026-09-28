@@ -143,6 +143,7 @@ function getContextualService(article) {
     return {
       name: 'WordPress Backdoor Removal',
       url: '/services/wordpress-backdoor-removal',
+      contactUrl: '/contact?service=wordpress-backdoor-removal',
       label: 'Explore WordPress Backdoor Removal & Forensic Incident Response'
     };
   }
@@ -150,6 +151,7 @@ function getContextualService(article) {
     return {
       name: 'WordPress Malicious Redirect Removal',
       url: '/services/malicious-redirect-removal',
+      contactUrl: '/contact?service=malicious-redirect-removal',
       label: 'Explore WordPress Malicious Redirect Removal & Injected Script Cleanup'
     };
   }
@@ -157,6 +159,7 @@ function getContextualService(article) {
     return {
       name: 'SEO Spam Removal',
       url: '/services/seo-spam-removal',
+      contactUrl: '/contact?service=seo-spam-removal',
       label: 'Explore WordPress SEO Spam Removal & Recovery'
     };
   }
@@ -841,7 +844,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
                         ${contextualService.label} &rarr;
                     </a>
                 </div>
-                <a href="/contact" class="rlvnt-btn max-content" style="margin: 0 auto;">
+                <a href="${contextualService.contactUrl || '/contact'}" class="rlvnt-btn max-content" style="margin: 0 auto;">
                     <span>Start a Project</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
                         <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
