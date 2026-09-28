@@ -4862,6 +4862,27 @@ body.menu-is-open #menu-toggle-icon .bar-bottom,
   transform: translate(2px, -2px) !important;
 }
 
+.footer-partner-badge {
+  display: inline-block;
+  margin-top: 0.35rem;
+}
+
+.footer-partner-badge img {
+  height: 38px;
+  width: auto;
+  border-radius: 6px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.92;
+}
+
+.footer-partner-badge:hover img {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+}
+
 .footer-time-badge {
   display: flex;
   flex-direction: column;
