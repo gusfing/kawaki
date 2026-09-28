@@ -232,7 +232,8 @@ const CORE_SERVICES = [
     ],
     relatedResources: [
       "https://www.kawaki.co.in/blog/ai-automation-architecture",
-      "https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation"
+      "https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation",
+      "https://www.kawaki.co.in/blog/ai-automation-vs-ai-agents"
     ]
   },
   {
@@ -554,7 +555,8 @@ function generateLlmsTxt(articles) {
   doc += `Transient errors recover via full-jitter backoff; permanent failures trigger compensating Saga rollbacks. Every action, tool call, and observation is persisted in structured telemetry sinks.\n\n`;
   doc += `**Key Resources**:\n`;
   doc += `- [AI Automation Architecture](https://www.kawaki.co.in/blog/ai-automation-architecture)\n`;
-  doc += `- [AI Agent Reliability: Evaluation, Guardrails, and Failure Recovery](https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation)\n\n`;
+  doc += `- [AI Agent Reliability: Evaluation, Guardrails, and Failure Recovery](https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation)\n`;
+  doc += `- [AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each](https://www.kawaki.co.in/blog/ai-automation-vs-ai-agents)\n\n`;
 
   doc += `## AI Search Optimization Deep Dive\n\n`;
   doc += `### SEO, AEO, and GEO\n`;

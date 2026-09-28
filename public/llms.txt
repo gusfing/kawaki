@@ -183,6 +183,7 @@ Appropriate for organizations seeking to automate complex, multi-system operatio
 **Related Resources**
 - <https://www.kawaki.co.in/blog/ai-automation-architecture>
 - <https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation>
+- <https://www.kawaki.co.in/blog/ai-automation-vs-ai-agents>
 
 **Canonical URL**: <https://www.kawaki.co.in/services/ai-automation>
 
@@ -352,6 +353,7 @@ Transient errors recover via full-jitter backoff; permanent failures trigger com
 **Key Resources**:
 - [AI Automation Architecture](https://www.kawaki.co.in/blog/ai-automation-architecture)
 - [AI Agent Reliability: Evaluation, Guardrails, and Failure Recovery](https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation)
+- [AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each](https://www.kawaki.co.in/blog/ai-automation-vs-ai-agents)
 
 ## AI Search Optimization Deep Dive
 
@@ -415,6 +417,12 @@ For enterprise e-commerce requirements, we decouple frontend presentation using 
 - **Topic**: Editorial Engineering
 
 ### AI Automation Resources
+
+#### [AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each](https://www.kawaki.co.in/blog/ai-automation-vs-ai-agents)
+> An engineering decision framework for choosing between AI automation and autonomous AI agents: 18-dimension decision matrix, autonomy spectrum, reliability mitigations, and reference architectures.
+
+- **Canonical**: https://www.kawaki.co.in/blog/ai-automation-vs-ai-agents
+- **Topic**: AI Automation
 
 #### [AI Agent Reliability: Evaluation, Guardrails, and Failure Recovery](https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation)
 > An engineering guide to AI agent reliability in production: evaluation methodologies, pass@k boundaries, defense-in-depth guardrails, and autonomous failure recovery.

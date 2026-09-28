@@ -191,6 +191,7 @@ Appropriate for organizations seeking to automate complex, multi-system operatio
 - Related Service: <https://www.kawaki.co.in/services/ai-search-optimization>
 - Technical Guide: <https://www.kawaki.co.in/blog/ai-automation-architecture>
 - Technical Guide: <https://www.kawaki.co.in/blog/ai-agent-reliability-evaluation>
+- Technical Guide: <https://www.kawaki.co.in/blog/ai-automation-vs-ai-agents>
 
 ---
 
@@ -343,6 +344,13 @@ pass@k := E [ 1 - (binom(n-c, k) / binom(n, k)) ]
 For live side-effecting workflows, single-attempt success is more directly relevant than pass@k, but production reliability requires multi-dimensional tracking: Task Completion Rate (TCR), Invariant Violation Rate, recovery convergence, observability, and bounded execution budgets.
 
 ## 8. Published Technical Research & Architecture Guides
+
+### [AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each](https://www.kawaki.co.in/blog/ai-automation-vs-ai-agents)
+- **Canonical URL**: https://www.kawaki.co.in/blog/ai-automation-vs-ai-agents
+- **Author**: Kunal Sharma
+- **Primary Topics**: AI Automation, AI Agents, System Architecture, Reliability Engineering, Workflow Design
+- **Executive Summary**: An engineering decision framework for choosing between AI automation and autonomous AI agents: 18-dimension decision matrix, autonomy spectrum, reliability mitigations, and reference architectures.
+- **Key Concepts**: ai automation vs ai agents, ai agents vs automation, when to use ai agents, ai automation architecture, bounded ai agent, deterministic automation vs ai agents, ai agent reliability, ai agent evaluation
 
 ### [Shopify Liquid vs Headless Shopify: A Practical Decision Framework for Growing Stores](https://www.kawaki.co.in/blog/shopify-liquid-vs-headless)
 - **Canonical URL**: https://www.kawaki.co.in/blog/shopify-liquid-vs-headless

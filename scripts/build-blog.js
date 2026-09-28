@@ -185,6 +185,14 @@ function getContextualService(article) {
       label: 'Explore AI Search Optimization & Search Engineering'
     };
   }
+  if (slug === 'ai-automation-vs-ai-agents' || slug.includes('automation-vs-ai-agents')) {
+    return {
+      name: 'AI Automation',
+      url: '/services/ai-automation',
+      contactUrl: '/contact?service=ai-automation',
+      label: 'Explore AI Automation & Workflow Architecture'
+    };
+  }
   if (slug.includes('ai-') || slug.includes('automation') || category.includes('ai') || category.includes('automation')) {
     return {
       name: 'AI Automation',
