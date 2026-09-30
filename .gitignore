@@ -44,3 +44,7 @@ admin-dashboard/
 # scratch directory
 scratch/
 
+# sqlite temporary files
+*.db-shm
+*.db-wal
+

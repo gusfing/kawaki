@@ -34,6 +34,22 @@
     scheduleInitChatbot();
   }
 
+  
+  // Load exit intent popup lazily
+  function loadExitPopup() {
+    if (document.getElementById('kawaki-exit-popup-script')) return;
+    const script = document.createElement('script');
+    script.id = 'kawaki-exit-popup-script';
+    script.src = '/assets/js/exit-popup.js';
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(loadExitPopup, { timeout: 3500 });
+  } else {
+    setTimeout(loadExitPopup, 1000);
+  }
+
   function initChatbot() {
     renderChatbotDOM();
     setupChatEvents();
@@ -307,6 +323,31 @@
   /* --------------------------------------------------------------------------
      3. CONVERSATIONAL LOGIC & STUDIO ENGINE
      -------------------------------------------------------------------------- */
+  
+  function syncChatbotLead() {
+    if (!leadData.email) return;
+    const conversationSummary = leadData.messages
+      .map(m => `[${m.sender}]: ${m.text}`)
+      .slice(-8)
+      .join('\n');
+
+    fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: leadData.name || 'Chatbot Visitor',
+        email: leadData.email,
+        contact: leadData.company || 'AI Chatbot Session',
+        service: leadData.scope || 'AI Chatbot Inquiry',
+        stage: 'Chatbot Lead',
+        budget: leadData.budget || 'Unspecified',
+        notes: `Lead captured via AI Chatbot.\n\nRecent Messages:\n${conversationSummary}`,
+        slot_date: new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
+        slot_time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+      })
+    }).catch(err => console.warn('Chatbot lead sync notice:', err));
+  }
+
   function generateAiResponse(userText) {
     showTypingIndicator();
 
@@ -318,6 +359,7 @@
     const emailMatch = userText.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
     if (emailMatch) {
       leadData.email = emailMatch[0];
+      syncChatbotLead();
       reply = `Thanks for sharing your email (${leadData.email})! Our partners at Kawaki Studios will reach out with project architecture notes. What company or brand are you building with?`;
     }
     // Features / Capabilities

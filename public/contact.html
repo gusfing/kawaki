@@ -1872,7 +1872,7 @@
             });
 
             // Form Submit
-            bookingForm.addEventListener('submit', function (e) {
+            bookingForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
                 if (!selectedDate || !selectedTime) {
                     showToast('Please select both a date and a time slot first.');
@@ -1883,19 +1883,52 @@
                     return;
                 }
 
+                const originalBtnText = submitButton.querySelector('span').textContent;
                 submitButton.disabled = true;
                 submitButton.querySelector('span').textContent = 'Confirming...';
 
-                setTimeout(() => {
+                const serviceSelect = document.getElementById('service-select');
+                const payload = {
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    contact: contactInput.value.trim(),
+                    service: serviceSelect ? serviceSelect.value : '',
+                    stage: packageSelect ? packageSelect.value : '',
+                    budget: budgetSlider ? getBudgetDisplay(budgetSlider.value) : '',
+                    notes: notesInput.value.trim(),
+                    slot_date: selectedDate,
+                    slot_time: selectedTime
+                };
+
+                try {
+                    const res = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const data = await res.json().catch(() => ({}));
+
+                    if (!res.ok && !data.success) {
+                        throw new Error(data.error || 'Failed to submit inquiry. Please try again.');
+                    }
+
                     middlePane.style.display = 'none';
                     formPane.style.display = 'none';
                     bookingViewport.classList.remove('form-visible');
 
                     const desc = document.getElementById('success-desc');
-                    desc.innerHTML = `Thank you, <b>${nameInput.value.trim()}</b>! Your 15-minute discovery call is confirmed for <b>${selectedDate} at ${selectedTime} (IST)</b>.<br>A meeting invite has been sent to <b>${emailInput.value.trim()}</b>.`;
+                    desc.innerHTML = `Thank you, <b>${nameInput.value.trim()}</b>! Your 15-minute discovery call is confirmed for <b>${selectedDate} at ${selectedTime} (IST)</b>.<br>A meeting invite and confirmation have been recorded for <b>${emailInput.value.trim()}</b>.`;
 
                     bookingSuccess.classList.add('visible');
-                }, 900);
+                } catch (err) {
+                    console.error('Submission error:', err);
+                    showToast(err.message || 'Network error occurred. Please contact us via Telegram.');
+                    submitButton.disabled = false;
+                    submitButton.querySelector('span').textContent = originalBtnText;
+                }
             });
         });
     </script>
