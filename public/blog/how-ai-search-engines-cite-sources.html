@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization — Kawaki Studios</title>
+    <meta name="description" content="How AI search engines like Google AI Overviews, Perplexity, and ChatGPT cite web sources. An architectural guide to RAG retrieval, query fan-out, and GEO." />
+    <meta name="generator" content="Kawaki Blog Engine" />
+    <link rel="canonical" href="https://www.kawaki.co.in/blog/how-ai-search-engines-cite-sources" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.kawaki.co.in/blog/how-ai-search-engines-cite-sources" />
+    <meta property="og:title" content="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization | Kawaki Studios" />
+    <meta property="og:description" content="How AI search engines like Google AI Overviews, Perplexity, and ChatGPT cite web sources. An architectural guide to RAG retrieval, query fan-out, and GEO." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" content="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization | Kawaki Studios" />
+    <meta name="twitter:description" content="How AI search engines like Google AI Overviews, Perplexity, and ChatGPT cite web sources. An architectural guide to RAG retrieval, query fan-out, and GEO." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization",
+    "description": "How AI search engines like Google AI Overviews, Perplexity, and ChatGPT cite web sources. An architectural guide to RAG retrieval, query fan-out, and GEO.",
+    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+    "datePublished": "2026-10-02T10:00:00.000Z",
+    "dateModified": "2026-10-02T10:00:00.000Z",
+    "author": {
+        "@type": "Person",
+        "name": "Kunal Sharma"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.kawaki.co.in/#organization",
+        "name": "Kawaki Studios",
+        "url": "https://www.kawaki.co.in",
+        "logo": "https://www.kawaki.co.in/assets/images/kawaki-logo.png"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.kawaki.co.in/blog/how-ai-search-engines-cite-sources"
+    }
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.kawaki.co.in/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.kawaki.co.in/blog"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization",
+            "item": "https://www.kawaki.co.in/blog/how-ai-search-engines-cite-sources"
+        }
+    ]
+}
+    </script>
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
+
+    <style>
+        :root {
+            --color-bg: #FFFFFF;
+            --color-text: #12100E;
+            --color-muted: #6B7280;
+            --color-accent: #C6FF00;
+            --font-sans: "Plus Jakarta Sans", sans-serif;
+            --font-serif: "Instrument Serif", serif;
+            --font-mono: "JetBrains Mono", monospace;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            font-size: 17px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        em {
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+
+        .article-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 130px 24px 80px;
+        }
+
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+            margin-bottom: 1.5rem;
+        }
+        .article-breadcrumb a {
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .article-breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+        .article-breadcrumb .bc-sep {
+            color: rgba(0,0,0,0.3);
+        }
+        .article-breadcrumb .bc-current {
+            color: var(--color-text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 420px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-muted);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .article-meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .article-header-title {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin: 0 0 1.5rem;
+            color: #111111;
+        }
+
+        .article-info-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 1.25rem 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .author-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #111111;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .article-hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+        }
+
+        .article-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #2D2A26;
+        }
+
+        .article-content h1, 
+        .article-content h2, 
+        .article-content h3 {
+            color: #111111;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 2.5rem 0 1rem;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+        .article-content h3 {
+            font-size: 1.35rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content a {
+            color: #111111;
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent);
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .article-content a:hover {
+            color: #000000;
+        }
+
+        .article-content pre {
+            background: #111116;
+            color: #F4F4F5;
+            padding: 1.25rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            margin: 1.5rem 0;
+        }
+
+        .article-content code {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            background: rgba(0,0,0,0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .article-content pre code {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            color: inherit;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1.25rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #4A4640;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: rgba(0,0,0,0.05);
+            font-size: 12px;
+            font-weight: 600;
+            color: #4A4640;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .rlvnt-btn {
+            position: relative;
+            display: inline-flex;
+            gap: 8px;
+            border: 1px solid var(--color-text);
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-style: italic;
+            background: transparent;
+            color: var(--color-text);
+            font-size: 1rem;
+            overflow: hidden;
+            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .rlvnt-btn.max-content {
+            width: max-content;
+            height: max-content;
+            font-size: 20px;
+            padding: 8px 16px;
+        }
+        .rlvnt-btn:hover {
+            background-color: var(--color-text);
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- SVG LIQUID LENS FILTER -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid-lens">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.03" numOctaves="1" result="turbulence"></feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" xChannelSelector="R" yChannelSelector="G" result="displacement"></feDisplacementMap>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- GLOBAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper" id="globalNav">
+        <nav>
+            <a href="/" class="nav-left" aria-label="Kawaki Studios">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" width="947" height="242" decoding="async" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
+            <div class="nav-right" id="menuToggleBtn" aria-label="Open Menu">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links" id="mainMenuPrimary">
+                        <ul>
+                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home — Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
+                                <a href="/">
+                                    <span class="menu-idx">01</span>
+                                    <span class="menu-text">Home <em>Index</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us — Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
+                                <a href="/about">
+                                    <span class="menu-idx">02</span>
+                                    <span class="menu-text">About <em>Kawaki Studios</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Capabilities &amp; Architecture" data-desc="Five Core Engineering &amp; Recovery Pillars">
+                                <a href="/services" id="menuServicesTrigger" class="menu-services-trigger" aria-haspopup="true" aria-expanded="false">
+                                    <span class="menu-idx">03</span>
+                                    <span class="menu-text">Explore <em>Our Services</em></span>
+                                    <span class="menu-expand-badge" title="Expand services">+</span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Architectural Concepts" data-desc="Reference Designs &amp; Engineering Blueprints">
+                                <a href="/case-studies">
+                                    <span class="menu-idx">04</span>
+                                    <span class="menu-text">Selected <em>Concepts &amp; Blueprints</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/station_drag_prism.webp" data-tag="Engineering &amp; Design Notes" data-desc="Essays on Web Engineering &amp; Performance">
+                                <a href="/blog">
+                                    <span class="menu-idx">05</span>
+                                    <span class="menu-text">Blogs &amp; <em>Insights</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about-studio.webp" data-tag="15-Min Strategy Session" data-desc="Schedule a Technical Discovery Call">
+                                <a href="/contact">
+                                    <span class="menu-idx">06</span>
+                                    <span class="menu-text">Discovery <em>Call</em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- EXPANDED SERVICES SUB-NAVIGATION MEGA-MENU -->
+                    <div class="main-menu-services" id="mainMenuServices" style="display: none; opacity: 0;">
+                        <div class="menu-services-topbar">
+                            <button type="button" class="menu-services-back-btn" id="menuServicesBackBtn" aria-label="Back to main menu">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                                <span>Back to Menu</span>
+                            </button>
+                            <span class="menu-services-header-title">EXPLORE OUR SERVICES</span>
+                            <a href="/services" class="menu-services-hub-link">
+                                <span>All Services</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+
+                        <div class="menu-services-grid">
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// WEB &amp; COMMERCE</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/project_1.jpg" data-tag="Web Engineering" data-desc="Custom Websites &amp; Next.js Web Applications">
+                                        <a href="/services/custom-web-development">
+                                            <span class="sub-idx">01</span>
+                                            <span class="sub-name">Custom Web Development</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Commerce Engineering" data-desc="Custom Storefronts &amp; Theme Customization">
+                                        <a href="/services/shopify-development">
+                                            <span class="sub-idx">02</span>
+                                            <span class="sub-name">Shopify Development</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// AI &amp; AUTOMATION</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/station_drag_prism.webp" data-tag="Intelligent Systems" data-desc="n8n, Make &amp; Deterministic AI Agent Workflows">
+                                        <a href="/services/ai-automation">
+                                            <span class="sub-idx">03</span>
+                                            <span class="sub-name">AI Automation</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Search Engineering" data-desc="AI Search Optimization, AEO &amp; GEO Architecture">
+                                        <a href="/services/ai-search-optimization">
+                                            <span class="sub-idx">04</span>
+                                            <span class="sub-name">AI Search Optimization</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// SECURITY &amp; RECOVERY</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Security &amp; Recovery" data-desc="Hacked Site Cleanup &amp; Database Sanitization">
+                                        <a href="/services/wordpress-malware-removal">
+                                            <span class="sub-idx">05</span>
+                                            <span class="sub-name">WordPress Malware Removal</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// CREATIVE &amp; SPECIALIST</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="Brand &amp; Creative" data-desc="Social Presence &amp; Content Architecture">
+                                        <a href="/services">
+                                            <span class="sub-idx">06</span>
+                                            <span class="sub-name">Social Media Management</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/about-studio.webp" data-tag="Motion Design" data-desc="Short-Form Video &amp; Editorial Motion Content">
+                                        <a href="/services">
+                                            <span class="sub-idx">07</span>
+                                            <span class="sub-name">Reel Editing</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/kw-project-ecomm.webp" data-tag="Spatial &amp; 3D" data-desc="Visual Product Modeling &amp; 3D Interactive Assets">
+                                        <a href="/services">
+                                            <span class="sub-idx">08</span>
+                                            <span class="sub-name">3D Design</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/project_3_1787254295127.webp" data-tag="Spatial Planning" data-desc="Architectural Modeling &amp; Environmental Visualization">
+                                        <a href="/services">
+                                            <span class="sub-idx">09</span>
+                                            <span class="sub-name">Architecture Planning</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-col menu-col-right">
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/station_drag_prism.webp" alt="Preview" width="1376" height="768" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">Engineering &amp; Design Notes</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">Custom Web Design &amp; Development</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-info-block">
+                        <div class="menu-status-pill">
+                            <span class="status-dot"></span>
+                            <span>Available for Select Projects</span>
+                        </div>
+                        <a href="/contact" class="menu-cta-button">
+                            <span>Schedule a Call</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                                <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <div class="social-tags">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram ↗</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN ARTICLE BODY -->
+    <main class="article-container">
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+            <a href="/">Home</a>
+            <span class="bc-sep">/</span>
+            <a href="/blog">Blog</a>
+            <span class="bc-sep">/</span>
+            <span class="bc-current">How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization</span>
+        </nav>
+
+        <a href="/blog" class="back-link">
+            ← Back to all stories
+        </a>
+
+        <article id="articleWrapper">
+            <div class="article-meta-badge" id="articleCategory">
+                ● AI Search
+            </div>
+            
+            <h1 class="article-header-title" id="articleTitle">
+                How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization
+            </h1>
+
+            <div class="article-info-bar">
+                <div class="author-box">
+                    <div class="author-avatar" id="authorInitial">KS</div>
+                    <div>
+                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
+                        <div style="font-size: 12px;" id="articleDate">2 Oct 2026</div>
+                    </div>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
+                    180 reads
+                </div>
+            </div>
+
+            <img id="articleImage" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+
+            <div class="article-content" id="articleContent">
+                <p>For more than two decades, search engine optimization operated under a stable mental model: search engines crawled web pages, indexed their contents, and sorted the results into an ordered list of links based on hundreds of ranking signals. Success meant competing for position one on a search engine results page (SERP), where users would click through to synthesize their own conclusions.</p>
+<p>The emergence of AI search engines—including Google AI Overviews, Perplexity AI, and ChatGPT Search—has added a fundamental layer to this equation. Traditional search retrieves and ranks indexed documents using many signals. AI search adds additional retrieval, synthesis, and source attribution behavior. The user no longer receives merely a list of URLs; they receive a synthesized, natural-language answer with embedded citations linking back to the source documents used to substantiate individual claims.</p>
+<p>Understanding <strong>how AI search engines cite sources</strong> has consequently become one of the most critical frontiers in technical web architecture. Yet the marketing discourse surrounding this shift has been overrun by speculative claims, fabricated "AI secrets," and unverified promises of guaranteed citations. To separate engineering reality from industry noise, we must examine the actual underlying architecture of Retrieval-Augmented Generation (RAG), review peer-reviewed academic research from Princeton and Google Search Central's official documentation, and determine what truly makes a digital asset groundable, extractable, and citable.</p>
+<hr />
+<blockquote>
+<h3>The Core Architectural Principle: Eligibility vs. Extraction</h3>
+<p>Traditional search is a <em>retrieval and ranking</em> problem. Generative AI search is a two-tier pipeline: an eligibility and retrieval phase followed by an extraction, synthesis, and attribution phase. Ranking on page one of organic results makes a URL eligible for retrieval, but earning a citation requires high factual density, modular groundability, and relevance to the specific sub-queries executed by the engine's query fan-out.</p>
+</blockquote>
+<hr />
+<h2>1. The Fundamental Shift: From Document Ranking to Extracted Attribution</h2>
+<p>To grasp why traditional SEO tactics often fail in AI answer engines, we must look at how the delivery objective has changed. In traditional search engines, the core engine retrieves candidate documents from an inverted index, scores them against user intent signals, and presents the highest-scoring documents directly to the searcher. The search engine acts as a directory; the human visitor performs the cognitive work of reading multiple pages, comparing statements, and synthesizing an answer.</p>
+<p>In generative search systems, this cognitive synthesis is performed inside the engine itself before the answer is rendered. The system does not merely ask, <em>"Which document is the most authoritative overall match for this query?"</em> Instead, it operates across four distinct questions:</p>
+<ol>
+<li><strong>What discrete sub-questions must be answered to satisfy this prompt?</strong></li>
+<li><strong>Which candidate passages across the web contain verifiable, unambiguous factual assertions that answer these sub-questions?</strong></li>
+<li><strong>How can these extracted facts be synthesized into a coherent summary without introducing hallucinations?</strong></li>
+<li><strong>Which specific URLs substantiate each generated claim, allowing the user to verify the source?</strong></li>
+</ol>
+<p>This decoupling of <em>ranking</em> from <em>citation</em> explains a phenomenon observed by digital teams across every sector: a website can hold position #1 in traditional organic search for a high-volume keyword, yet be completely excluded from the citations generated in Google AI Overviews or Perplexity for the exact same query. Conversely, pages ranking in positions #4, #7, or even on secondary pages can frequently be cited as primary sources if their text provides concise, groundable, and extract-friendly data.</p>
+<hr />
+<h2>2. Anatomy of an AI Search Pipeline: How Engines Read and Attribute the Web</h2>
+<p>While proprietary implementations differ across Google, OpenAI, and Perplexity, modern AI search engines universally rely on variants of <strong>Retrieval-Augmented Generation (RAG)</strong>. RAG is an architectural pattern that constrains an otherwise creative large language model (LLM) by providing it with retrieved external context documents, forcing the model to generate its response grounded strictly in the supplied text.</p>
+<p>A production AI web search pipeline typically progresses through six distinct architectural phases:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Phase</th>
+<th align="left">Pipeline Stage</th>
+<th align="left">Technical Operation</th>
+<th align="left">Impact on Website Visibility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>01</strong></td>
+<td align="left">Query Decomposition (Fan-Out)</td>
+<td align="left">Prompt broken into 2 to 7 discrete search queries.</td>
+<td align="left">Content must answer specific sub-intentions, not just broad head queries.</td>
+</tr>
+<tr>
+<td align="left"><strong>02</strong></td>
+<td align="left">Candidate Retrieval</td>
+<td align="left">Web crawler or search API fetches top URLs and document snippets.</td>
+<td align="left">Traditional crawlability, fast TTFB, and indexation remain mandatory prerequisites.</td>
+</tr>
+<tr>
+<td align="left"><strong>03</strong></td>
+<td align="left">Semantic Filtering &amp; Re-ranking</td>
+<td align="left">Passages scored via dense embeddings or cross-encoders.</td>
+<td align="left">Fluff and marketing filler are discarded; modular, dense passages survive.</td>
+</tr>
+<tr>
+<td align="left"><strong>04</strong></td>
+<td align="left">Context Window Allocation</td>
+<td align="left">Top-ranked passages formatted into the LLM system prompt.</td>
+<td align="left">Front-loaded facts win context budget; deep buried insights risk truncation.</td>
+</tr>
+<tr>
+<td align="left"><strong>05</strong></td>
+<td align="left">Constrained Synthesis</td>
+<td align="left">LLM generates response constrained to ground truth context.</td>
+<td align="left">Clear entity definitions and declarative statements prevent hallucination.</td>
+</tr>
+<tr>
+<td align="left"><strong>06</strong></td>
+<td align="left">Source Attribution Mapping</td>
+<td align="left">Generated assertions mapped to URLs via citation mechanisms.</td>
+<td align="left">Direct, unambiguous factual matches receive linked footnote references.</td>
+</tr>
+</tbody></table>
+<h3>Phase 1: Query Decomposition &amp; Query Fan-Out</h3>
+<p>When a user enters a complex prompt—such as <em>"What are the performance trade-offs of headless Shopify vs Liquid for an e-commerce store with 50,000 SKUs?"</em>—the AI engine does not submit that single sentence to its search index. Instead, it employs <strong>query decomposition</strong> (referred to in Google documentation as <strong>query fan-out</strong>).</p>
+<p>The orchestrator breaks the complex query into several discrete searches executed in parallel:</p>
+<ul>
+<li><code>"Shopify Liquid performance limits 50000 SKUs"</code></li>
+<li><code>"Headless Shopify Storefront API rate limits"</code></li>
+<li><code>"Headless commerce total cost of ownership vs Liquid"</code></li>
+<li><code>"Core Web Vitals benchmarks Shopify Liquid vs Next.js"</code></li>
+</ul>
+<p>If your website only targets the broad keyword <em>"headless Shopify development,"</em> you may never appear in the fan-out searches. Earning citations requires comprehensive topic architecture that anticipates and answers the granular technical sub-queries generated during decomposition.</p>
+<h3>Phase 2: Candidate Retrieval &amp; Document Fetching</h3>
+<p>Once sub-queries are generated, the engine queries its underlying web index. For Google, this is the existing Google Search index. For Perplexity and ChatGPT Search, it is a combination of third-party web search APIs (such as Bing or Google), dedicated web crawlers (such as <code>PerplexityBot</code>, <code>GPTBot</code>, or <code>OAI-SearchBot</code>), and licensed publisher feeds.</p>
+<p>Here, foundational technical hygiene is non-negotiable. If your server returns slow responses, blocks AI crawler user-agents in <code>robots.txt</code>, or relies on client-side JavaScript rendering that fails to hydrate server-side, your document is dropped before semantic analysis even begins. We explored how sub-second server response times protect crawl efficiency in our deep dive on <a href="/blog/nextjs-performance-architecture">Next.js performance architecture</a>.</p>
+<h3>Phase 3: Semantic Filtering &amp; Context Selection</h3>
+<p>An AI engine cannot feed thousands of retrieved pages into an LLM's context window; doing so would be prohibitively slow and expensive, and would degrade model reasoning (the "lost in the middle" phenomenon). Instead, retrieved HTML is stripped of navigation, boilerplate, and scripts, split into discrete semantic chunks (typically 200–500 tokens), and re-ranked using cross-encoder models or dense vector similarity.</p>
+<p>Passages that contain high factual density, explicit entity names, and direct answers receive high relevance scores. Fluffy introductory paragraphs, rhetorical musings, and keyword-stuffed copy are discarded during this filtering stage.</p>
+<h3>Phase 4: Synthesis &amp; Attribution</h3>
+<p>The surviving passages are injected into the prompt context of the generative model. The model is instructed to synthesize an answer derived solely from the provided text. During generation, the system uses source attribution mechanisms—which may include post-processing verification passes, token probability constraints, or reference mapping—to link specific assertions to the URL from which the fact was extracted. While technical writers sometimes describe this conceptually as a "citation head," search providers implement attribution through varied proprietary pipelines rather than a single universal component.</p>
+<hr />
+<h2>3. Google AI Overviews vs. Perplexity vs. ChatGPT Search: Publicly Documented Behaviors</h2>
+<p>A dangerous misconception in the SEO industry is assuming that all AI search engines share a single algorithm or retrieval pipeline. In reality, Google, Perplexity, and OpenAI operate distinct platforms with different technical architectures, commercial incentives, and citation philosophies.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Platform</th>
+<th align="left">Underlying Search Engine</th>
+<th align="left">Documented Retrieval Approach</th>
+<th align="left">Citation Style &amp; Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Google AI Overviews</strong></td>
+<td align="left">Google Core Search Index</td>
+<td align="left">RAG grounded in standard organic index via query fan-out.</td>
+<td align="left">Side-by-side cards and inline clickable links; tied to core web ranking systems.</td>
+</tr>
+<tr>
+<td align="left"><strong>Perplexity AI</strong></td>
+<td align="left">Hybrid (Bing API + PerplexityBot Index)</td>
+<td align="left">Multi-step Pro Search with iterative search refinement.</td>
+<td align="left">Numbered inline footnotes linked directly to source URLs; high emphasis on objective factual density.</td>
+</tr>
+<tr>
+<td align="left"><strong>ChatGPT Search</strong></td>
+<td align="left">Bing Search API + OpenAI Web Crawlers</td>
+<td align="left">Hybrid parametric memory + live web search fallback.</td>
+<td align="left">Inline linked anchors and dedicated "Sources" sidebar panel; heavily favors authoritative reference sites.</td>
+</tr>
+</tbody></table>
+<h3>Google AI Overviews (AIO) &amp; AI Mode</h3>
+<p>Google officially documents its AI search features under the <em>Generative AI Fundamentals</em> section of Google Search Central. Google's explicit architectural stance is that <strong>AI Overviews are an extension of core Google Search systems, not a separate index</strong>:</p>
+<ul>
+<li><strong>Core Systems Integration:</strong> AI Overviews utilize Google's existing quality, helpfulness, and spam prevention systems. A page that is penalized or demoted in traditional search cannot be rescued by "AI optimization."</li>
+<li><strong>Documented RAG &amp; Fan-Out:</strong> Google confirms that AI Overviews use Retrieval-Augmented Generation to ground responses in web results, issuing multiple simultaneous queries (query fan-out) to gather diverse perspectives.</li>
+<li><strong>No Special Markups:</strong> Google explicitly states that webmasters do not need to add specialized AI markup, create <code>llms.txt</code> files, or alter writing styles to qualify for AI Overviews. Standard technical SEO and high-utility content remain the primary criteria.</li>
+</ul>
+<h3>Perplexity AI</h3>
+<p>Perplexity positions itself as an "answer engine" rather than a traditional search directory. Its architecture, documented through its technical publications and Pro Search guides, emphasizes rapid, multi-source verification:</p>
+<ul>
+<li><strong>Iterative Multi-Search:</strong> When a user asks a complex question, Perplexity's backend orchestrates sequential search rounds. If the first round reveals ambiguous terminology, it immediately fires secondary clarifying queries.</li>
+<li><strong>Citation Density:</strong> Perplexity places heavy visual emphasis on numbered citations. Unlike traditional search, where users select one result, Perplexity answers synthesized from 4 to 8 citations encourage users to verify claims across multiple independent publishers.</li>
+<li><strong>Source Classification:</strong> Perplexity assigns qualitative categories (such as Academic, News, Government) to prioritize factual integrity and objective reporting over commercial marketing landing pages.</li>
+</ul>
+<h3>ChatGPT Search</h3>
+<p>OpenAI's ChatGPT Search integrates live web retrieval directly into the conversational ChatGPT interface. Its documented approach combines fine-tuned GPT-4o models with real-time web retrieval:</p>
+<ul>
+<li><strong>Search Triggering Intent:</strong> The model autonomously determines whether a query requires live web search (e.g., breaking news, sports scores, stock prices, or recent software releases) or can be answered from parametric training data.</li>
+<li><strong>Sources Sidebar:</strong> Citations appear as inline badges within paragraphs, alongside a dedicated slide-out drawer displaying publisher logos, page titles, and preview snippets.</li>
+<li><strong>Third-Party Providers &amp; Crawlers:</strong> OpenAI documents partnerships with third-party search providers alongside its own web crawlers (<code>OAI-SearchBot</code>, <code>GPTBot</code>) to discover and index live content.</li>
+</ul>
+<h3>The Low Cross-Engine Citation Overlap</h3>
+<p>Because each engine employs distinct query decomposition logic, index sources, and re-ranking thresholds, cross-platform citation overlap is surprisingly low. Multiple third-party studies conducted across 2025 and 2026 have revealed that when identical prompts are run across Google AI Overviews, Perplexity, and ChatGPT Search, the shared citation overlap between all three engines frequently falls below <strong>5% to 12%</strong>.</p>
+<p>There is no monolithic "AI algorithm." An enterprise seeking AI visibility cannot optimize for a single formula; rather, they must engineer content for the universal mathematical requirements of RAG context windows: high informational density, clear entity structures, and verifiable claims.</p>
+<hr />
+<h2>4. What the Scientific Research Actually Found: Deconstructing the Princeton GEO Study</h2>
+<p>In November 2023, a team of researchers from Princeton University, Georgia Tech, the Allen Institute for AI, and IIT Delhi published a landmark academic paper titled <em>"GEO: Generative Engine Optimization"</em> (presented at the ACM SIGKDD 2024 conference; arXiv:2311.09735 by Aggarwal et al.). This paper introduced the term "GEO" and represented the first rigorous, large-scale empirical evaluation of how specific content adjustments impact an engine's likelihood of citing a source.</p>
+<p>To understand how to apply it, we must examine what was actually tested, what metric was measured, and what the researchers concluded.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Optimization Strategy</th>
+<th align="left">Experimental Impact on GEO Metric</th>
+<th align="left">Mechanism of Action</th>
+<th align="left">Key Takeaway for Technical Writers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Quotation Addition</strong></td>
+<td align="left"><strong>+40.9%</strong></td>
+<td align="left">Adds direct quotes from named experts or official bodies.</td>
+<td align="left">LLMs prioritize verifiable human authority when synthesizing answers.</td>
+</tr>
+<tr>
+<td align="left"><strong>Statistics Addition</strong></td>
+<td align="left"><strong>+30.6%</strong></td>
+<td align="left">Replaces vague claims with quantitative metrics and data.</td>
+<td align="left">Numbers provide discrete, extractable facts that satisfy context constraints.</td>
+</tr>
+<tr>
+<td align="left"><strong>Fluency Optimization</strong></td>
+<td align="left"><strong>+28.0%</strong></td>
+<td align="left">Improves grammar, sentence structure, and clarity.</td>
+<td align="left">High-fluency text reduces semantic ambiguity during embedding scoring.</td>
+</tr>
+<tr>
+<td align="left"><strong>Cite Sources</strong></td>
+<td align="left"><strong>+27.5%</strong></td>
+<td align="left">Explicitly references primary studies and documentation.</td>
+<td align="left">Demonstrates evidentiary provenance; triggers authority heuristics.</td>
+</tr>
+<tr>
+<td align="left"><strong>Keyword Stuffing</strong></td>
+<td align="left"><strong>-8.3%</strong></td>
+<td align="left">Artificially repeats target phrases across text.</td>
+<td align="left">Degrades fluency and triggers retrieval penalties in modern embedding models.</td>
+</tr>
+</tbody></table>
+<h3>The Experimental Framework and Metric</h3>
+<p>The Princeton study built <strong>GEO-bench</strong>, a synthetic benchmark comprising 10,000 queries spanning diverse domains (including history, science, commerce, and law). They evaluated how generative search engines (such as Bing Chat and Perplexity) cited source text when competing web pages underwent specific transformations.</p>
+<p>Crucially, the study measured performance using a specific academic metric: <strong>Position-Adjusted Word Count</strong>. This metric did not measure raw click-through rate or whether a site ranked #1 on Google; it measured the relative volume and prominence of a website's text that survived into the generative model's synthesized response. </p>
+<blockquote>
+<p><strong>Important Caveat:</strong> When the researchers reported that adding quotations yielded a <code>+40.9%</code> boost, they meant that quotation-enriched pages saw their attributed word count increase by 40.9% under their experimental conditions. These are experimental results from the GEO-bench test environment, <strong>not</strong> universal guarantees for Google AI Overviews, Perplexity, ChatGPT, or any live commercial website. What they prove fundamentally is the <em>direction of causality</em>: generative models reward verifiable empirical data and penalize artificial repetition.</p>
+</blockquote>
+<h3>The "Equalizer Effect"</h3>
+<p>One of the most consequential findings of the Princeton study was what the authors termed the <strong>Equalizer Effect</strong>. In traditional search, high-domain-authority websites with massive backlink profiles dominate positions #1 through #3, making it nearly impossible for smaller, specialized websites to compete.</p>
+<p>Under GEO evaluation, however, lower-ranked websites (pages sitting at rank 5 or lower in organic search) that implemented rigorous source citation and quantitative data saw their relative citation share jump dramatically—in some categories by over <strong>115%</strong>. Because the generative synthesis phase evaluates text extractability rather than raw PageRank alone, high-density, evidence-rich niche sites can win citations over superficial enterprise competitors.</p>
+<h3>The Negative Impact of Keyword Stuffing</h3>
+<p>For twenty years, traditional SEO practitioners responded to new search algorithms by increasing keyword density. The Princeton benchmark conclusively demonstrated that this strategy actively harms AI visibility. When pages were modified with keyword stuffing, their citation prominence dropped by <strong>8.3%</strong> across all engines, and dropped even more sharply on advanced reasoning models. Repetitive phrasing degrades linguistic perplexity, reduces embedding relevance, and flags the content as low-quality filler during semantic filtering.</p>
+<h3>The 44.2% First-30% Observational Finding</h3>
+<p>In addition to the 2024 Princeton benchmark, modern observational research provides further insight into how AI engines parse long-form documents. A separate 2026 observational analysis conducted by SearchSquare, analyzing <strong>18,012 verified citations across approximately 1.2 million AI answers</strong>, revealed a striking structural pattern: <strong>44.2% of all cited passages originated within the first 30% of the page's text</strong>.</p>
+<p>This finding should not be mistaken for an official algorithmic rule; rather, it reflects the architectural reality of context window constraints and retrieval truncation. When engines ingest full web pages, information that is front-loaded near the top of the article is far more likely to be included in the initial chunking window and survive into the prompt context than facts buried under thousands of words of preamble.</p>
+<hr />
+<h2>5. What Makes a Page More Groundable and Extractable?</h2>
+<p>Based on retrieval pipeline mechanics and empirical research, what specific attributes allow a webpage to be selected by an AI engine's attribution heads? In engineering terms, we describe this as <strong>groundability</strong>—the degree to which an assertion in your text can be verified and directly mapped to a user's intent without requiring subjective inference.</p>
+<h3>1. Direct Answers</h3>
+<p>Traditional SEO often encouraged "fluffing" articles—forcing users to scroll past 800 words of background history before answering the title question to artificially inflate time-on-page. For AI search engines, this is fatal. To be extractable, each major section must open with a direct, declarative answer to the sub-heading's implied question. The first 1–2 sentences should provide a standalone, definitive statement that could be quoted in an AI summary verbatim.</p>
+<h3>2. Factual Density Over Commodity Prose</h3>
+<p>Large language models are trained on internet-scale text; they already know generic definitions. If an article about <em>"custom web development vs no-code"</em> merely states that <em>"no-code platforms are easy to use while custom code offers more flexibility,"</em> the engine gains zero new information from your page. It can generate that sentence from its own parametric memory without citing you. Content must supply <strong>information gain</strong>—discrete, non-obvious data points, benchmarks, and concrete architectural constraints.</p>
+<h3>3. Clear Entity Disambiguation</h3>
+<p>AI search models operate on knowledge graphs and entity relationships. When referring to technologies, architectures, or methodologies, avoid pronouns and vague descriptions. Instead of writing <em>"The platform allows you to automate workflows without servers,"</em> write <em>"n8n allows engineering teams to deploy self-hosted deterministic workflow pipelines via Docker on AWS ECS."</em> Explicit entity naming ensures the text is indexed under the exact vector nodes accessed during query decomposition.</p>
+<h3>4. Self-Contained Passages</h3>
+<p>Because RAG chunkers split articles into 200–500 token segments, each section must make sense as an isolated snippet. If paragraph four relies on an ambiguous pronoun ("it") introduced in paragraph one, the chunker will score paragraph four as low-relevance because it lacks context. Every sub-section should clearly restate the subject matter, define its terms, and maintain internal narrative coherence.</p>
+<hr />
+<h2>6. What About llms.txt, Schema, and AI-Specific Markup?</h2>
+<p>As the marketing industry rushed to monetize GEO, several widespread myths emerged regarding technical requirements for AI search visibility. Let us examine them using primary documentation from search engine engineers.</p>
+<h3>Myth 1: "You Must Have an llms.txt File to Rank in Google AI Overviews"</h3>
+<p><strong>Reality: False.</strong> The <code>llms.txt</code> specification—proposed as an open standard to offer clean, markdown-formatted versions of websites for LLMs—is not used by Google Search. Google Search Central officially confirmed that <strong>Google Search and Google AI Overviews do not use <code>llms.txt</code> for crawling, indexing, or generating AI Overviews</strong>. Googlebot parses standard HTML, CSS, and structured data through its existing rendering infrastructure.</p>
+<p>Maintaining an <code>llms.txt</code> file (as Kawaki does) is an excellent practice for providing direct context to autonomous developer agents, Anthropic tools, or local LLM scratchpads, but it is <strong>not</strong> a Google ranking signal or a requirement for search visibility.</p>
+<h3>Myth 2: "There is a Special AI Schema Markup Required for Citations"</h3>
+<p><strong>Reality: False.</strong> There is no proprietary "AI schema" recognized by Schema.org or search engines. Google officially reiterates that standard Schema.org structured data (such as <code>BlogPosting</code>, <code>Organization</code>, <code>Article</code>, and <code>BreadcrumbList</code>) remains the standard for communicating machine-readable context.</p>
+<p>While schema helps search engines disambiguate authors, entities, and publication dates, simply wrapping content in JSON-LD does not make ungrounded, low-quality text citable. Schema provides machine-readable metadata; RAG pipelines extract textual evidence from the rendered content body.</p>
+<h3>Myth 3: "Content Chunking Requires Re-Writing Your Site into Micro-Pages"</h3>
+<p><strong>Reality: False.</strong> Google's documentation directly warns against creating thin, fragmented doorway pages for minor query variations. Doing so violates Google Search Essentials spam policies and degrades user experience. Modern RAG chunkers easily parse well-structured, comprehensive 4,000-word guides provided they use clear semantic HTML headings (<code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>) and modular paragraphs.</p>
+<hr />
+<h2>7. A Practical GEO Content Architecture: The 8-Point Engineering Framework</h2>
+<p>To transition from theory to execution, technical teams should implement a disciplined architectural framework when authoring technical editorial assets:</p>
+<ol>
+<li><strong>Define the Query Sub-Intent:</strong> Identify the 3–5 fan-out queries associated with the primary topic.</li>
+<li><strong>Answer Early:</strong> Provide a direct, declarative conclusion in the first 40 words of each H2 section.</li>
+<li><strong>Inject Empirical Statistics:</strong> Integrate quantitative measurements, benchmarks, or verified figures.</li>
+<li><strong>Anchor with Named Quotes:</strong> Attribute architectural trade-offs to named engineers, official documentation, or RFCs.</li>
+<li><strong>Name Entities Unambiguously:</strong> Disambiguate protocols, tools, and platforms without generic pronouns.</li>
+<li><strong>Document Methodology:</strong> Explain <em>how</em> benchmarks or conclusions were derived.</li>
+<li><strong>Format in Semantic Tables:</strong> Structure multi-dimensional comparisons into clean HTML tables for rapid row extraction.</li>
+<li><strong>Enforce Sub-Second TTFB:</strong> Deliver clean, server-rendered static HTML to ensure zero crawler timeouts.</li>
+</ol>
+<p>For organizations building automated content and workflow pipelines, combining this editorial discipline with <a href="/blog/ai-automation-architecture">AI automation architecture</a> and rigorous <a href="/blog/ai-agent-reliability-evaluation">AI agent reliability and evaluation</a> ensures scalable quality without human burnout.</p>
+<hr />
+<h2>8. How Technical Leaders Should Think About AI Search Visibility</h2>
+<p>As you evaluate your organization's digital footprint, replace the hype of "AI ranking tricks" with disciplined software engineering principles. AI search visibility follows a three-stage probabilistic funnel:</p>
+<ol>
+<li><strong>Stage 1: Indexation &amp; Quality Eligibility (Traditional SEO).</strong> Your site must be crawlable, renderable, fast, and compliant with Google Search Essentials. If your technical architecture is broken, you do not exist in the candidate retrieval pool.</li>
+<li><strong>Stage 2: Semantic Relevance (Query Fan-Out Matching).</strong> Your content must cover the actual sub-questions that search models generate during decomposition. Broad landing pages with generic marketing copy are ignored.</li>
+<li><strong>Stage 3: Groundability &amp; Citation Attribution (GEO).</strong> Your passages must contain the verifiable facts, statistics, and clean entity relationships required by the model's constrained decoding heads to substantiate an answer.</li>
+</ol>
+<p>There are no algorithmic shortcuts or secret backdoors. Generative engines are statistical prediction engines trained to minimize hallucination by seeking high-confidence grounding data. When your website becomes the clearest, most verifiable source of empirical truth on a specific technical subject, the model cites you not out of favoritism, but out of mathematical necessity.</p>
+<hr />
+<h2>9. Conclusion: Engineering the Future of Search</h2>
+<p>The transition from traditional document ranking to generative answer synthesis does not represent the death of SEO—it represents its maturation into <strong>technical information architecture</strong>. The manipulative tactics that plagued early web marketing—keyword stuffing, doorway pages, and fabricated claims—are rendered ineffective by embedding models and RAG grounding systems.</p>
+<p>At Kawaki Studios, we engineer web platforms that excel in this new reality. From building sub-second digital flagships using Next.js to implementing comprehensive <a href="/services/ai-search-optimization">AI search optimization and GEO engineering</a>, our focus is grounded in technical rigor, verifiable architecture, and clean code.</p>
+<p>If your enterprise is ready to audit its search visibility, optimize its technical information architecture, and ensure your digital assets are recognized and cited by modern answer engines, explore our full suite of web engineering and generative search services.</p>
+<hr />
+<h3>Primary Sources &amp; References</h3>
+<ol>
+<li><strong>Google Search Central:</strong> <em>Optimizing your website for generative AI features on Google Search</em> (May 2026).</li>
+<li><strong>Aggarwal et al.:</strong> <em>GEO: Generative Engine Optimization</em>, ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2024) / arXiv:2311.09735.</li>
+<li><strong>OpenAI:</strong> <em>Introducing ChatGPT Search</em> (November 2024 / Updated 2025).</li>
+<li><strong>Perplexity AI:</strong> <em>Pro Search Architecture &amp; Technical Documentation</em> (2025–2026).</li>
+<li><strong>SearchSquare:</strong> <em>Empirical Observational Study of 18,012 Verified AI Citations across 1.2M Answers</em> (2026).</li>
+</ol>
+
+            </div>
+
+            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                <span class="tag-pill">#AI Search</span><span class="tag-pill">#GEO</span><span class="tag-pill">#RAG Architecture</span><span class="tag-pill">#Search Engineering</span><span class="tag-pill">#Generative AI</span>
+            </div>
+
+            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
+                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
+                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <a href="/services/ai-search-optimization" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
+                        Explore AI Search Optimization & Search Engineering &rarr;
+                    </a>
+                </div>
+                <a href="/contact" class="rlvnt-btn max-content" style="margin: 0 auto;">
+                    <span>Start a Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- UNIVERSAL GLOBAL FOOTER -->
+    <footer class="sections global-site-footer">
+        <div class="footer-top-strip">
+            <div class="footer-status-pill">
+                <span class="footer-status-dot"></span>
+                <span>Available for Select Projects</span>
+            </div>
+        </div>
+
+        <div class="services-header-2">
+            <div class="footer-headline-group">
+                <h3 class="services-title-2">Ready to talk?</h3>
+                <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+            </div>
+            <a href="/contact" class="footer-cta-card-btn">
+                <span>Schedule Intro Call</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                    <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div class="footer-grid-directory">
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECTORY</div>
+                <ul class="footer-links-list">
+                    <li><a href="/"><span>Home</span> <span class="nav-idx">01</span></a></li>
+                    <li><a href="/about"><span>About Studio</span> <span class="nav-idx">02</span></a></li>
+                    <li><a href="/services"><span>Services & Systems</span> <span class="nav-idx">03</span></a></li>
+                    <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
+                    <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
+                    <li><a href="/contact"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECT CHANNELS</div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-label">New Business & Inquiries</span>
+                    <a href="mailto:hello@kawakistudios.com" class="footer-contact-val">
+                        hello@kawakistudios.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                    <span class="footer-contact-label">Partnerships & Co-Ventures</span>
+                    <a href="mailto:partners@kawakistudios.com" class="footer-contact-val">
+                        partners@kawakistudios.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                    <span class="footer-contact-label">Direct Founder Calendar</span>
+                    <a href="/contact" class="footer-contact-val" style="color: #111111; font-weight: 600;">
+                        Book 15-Min Briefing ↗
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.75rem;">
+                    <span class="footer-contact-label">Infrastructure Partner</span>
+                    <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Partner — Cloud &amp; Hosting Infrastructure">
+                        <img src="/assets/images/hostinger-partner-dark.png" alt="Hostinger Partner" width="160" height="60" loading="lazy" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// CLIENT TIME ZONES</div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New Delhi — Studio HQ</span>
+                        <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>Tokyo — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>London — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New York — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// SOCIAL INDEX</div>
+                <ul class="footer-links-list">
+                    <li><a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener"><span>Instagram</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-giant-watermark">
+            <span>KAWAKI</span>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
+            <ul class="footer-bottom-links">
+                <li><a href="/about">Privacy Policy</a></li>
+                <li><a href="/about">Terms of Service</a></li>
+                <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
+                <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
+                <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
+                </ul>
+            <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
+                <span>Back to Top</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            </button>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Time update helper for footer
+            function updateFooterClocks() {
+                const now = new Date();
+                const opt = (tz) => ({ timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: true });
+                const elDelhi = document.getElementById('footerTimeDelhi');
+                const elTokyo = document.getElementById('footerTimeTokyo');
+                const elLondon = document.getElementById('footerTimeLondon');
+                const elNY = document.getElementById('footerTimeNY');
+                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
+                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
+                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
+                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+            }
+            updateFooterClocks();
+            setInterval(updateFooterClocks, 10000);
+
+            // Back to top
+            const btt = document.getElementById('backToTop');
+            if (btt) {
+                btt.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+    <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
+</body>
+</html>

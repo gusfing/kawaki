@@ -46,7 +46,8 @@ const blogSlugs = [
   'wordpress-malicious-redirects-cleanup',
   'custom-web-development-vs-no-code',
   'shopify-liquid-vs-headless',
-  'ai-automation-vs-ai-agents'
+  'ai-automation-vs-ai-agents',
+  'how-ai-search-engines-cite-sources'
 ];
 
 for (const slug of blogSlugs) {
