@@ -170,6 +170,7 @@ try {
   const cases = [
     { in: '/blog-post?slug=what-is-editorial-engineering', out: '/blog/what-is-editorial-engineering' },
     { in: '/blog-post?slug=the-architecture-of-modern-digital-luxury', out: '/blog/what-is-editorial-engineering' },
+    { in: '/blog-post?slug=webflow-vs-custom-development', out: '/blog/webflow-vs-custom-development' },
     { in: '/blog-post?slug=headless-shopify-development-guide', out: '/blog/headless-shopify-development-guide' },
     { in: '/blog-post?slug=webflow-vs-custom-development&utm_source=test', out: '/blog/webflow-vs-custom-development?utm_source=test' },
     { in: '/blog-post?slug=does-not-exist', out: '/blog/does-not-exist' },

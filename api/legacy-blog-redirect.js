@@ -28,8 +28,12 @@ module.exports = (req, res) => {
 
   const cleanSlug = rawSlug.trim().replace(/^\/+|\/+$/g, '');
 
-  // Strip the legacy 'slug' parameter completely
-  parsedUrl.searchParams.delete('slug');
+  // Strip the legacy 'slug' parameter completely (case-insensitive)
+  for (const key of Array.from(parsedUrl.searchParams.keys())) {
+    if (key.toLowerCase() === 'slug') {
+      parsedUrl.searchParams.delete(key);
+    }
+  }
 
   // Resolve legacy alias slugs to canonical destinations
   const resolvedSlug = LEGACY_SLUG_MAP[cleanSlug] || cleanSlug;

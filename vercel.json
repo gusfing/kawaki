@@ -18,59 +18,7 @@
     }
   ],
   "redirects": [
-    {
-      "source": "/blog-post",
-      "has": [
-        {
-          "type": "query",
-          "key": "slug",
-          "value": "the-architecture-of-modern-digital-luxury"
-        }
-      ],
-      "destination": "/blog/what-is-editorial-engineering",
-      "permanent": true
-    },
-    {
-      "source": "/blog-post",
-      "has": [
-        {
-          "type": "query",
-          "key": "slug",
-          "value": "core-web-vitals-checklist"
-        }
-      ],
-      "destination": "/blog/nextjs-performance-architecture",
-      "permanent": true
-    },
-    {
-      "source": "/blog-post",
-      "has": [
-        {
-          "type": "query",
-          "key": "slug",
-          "value": "headless-commerce-at-sub-second-latency"
-        }
-      ],
-      "destination": "/blog/headless-shopify-development-guide",
-      "permanent": true
-    },
-    {
-      "source": "/blog-post",
-      "has": [
-        {
-          "type": "query",
-          "key": "slug",
-          "value": "(?<slug>[^&]+)"
-        }
-      ],
-      "destination": "/blog/:slug",
-      "permanent": true
-    },
-    {
-      "source": "/blog-post",
-      "destination": "/blog",
-      "permanent": true
-    },
+
     {
       "source": "/blog/core-web-vitals-checklist",
       "destination": "/blog/nextjs-performance-architecture",
