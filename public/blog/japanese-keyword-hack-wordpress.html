@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -620,7 +642,10 @@
 <hr />
 <h2>1. What the Japanese Keyword Hack Is</h2>
 <p>The Japanese Keyword Hack represents an automated, financially motivated cyber compromise aimed at search engine poisoning. Attackers do not compromise your WordPress installation to deface your brand or disrupt your operations; their primary objective is to quietly exploit your established domain authority, crawl budget, and organic trust to rank illicit e-commerce networks on search engines like Google and Bing.</p>
-<h3>Core Operational Mechanisms</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/japanese-keyword-hack-infection-kill-chain.webp" alt="Attack progression flowchart showing vulnerability exploit, backdoor drop, sitemap injection, and indexing" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Japanese Keyword Hack infection kill chain and search engine poisoning lifecycle.</figcaption>
+</figure><h3>Core Operational Mechanisms</h3>
 <p>In a standard infection cycle, the compromise operates across several distinct architectural layers:</p>
 <pre><code>[Attacker Network]
        │ (Exploits unpatched plugin / weak credential / existing backdoor)
@@ -657,7 +682,10 @@
 <hr />
 <h2>2. What a Compromised Site Can Look Like</h2>
 <p>Because attackers deliberately conceal their presence from everyday administrators, the symptoms of a Japanese Keyword Hack are often first noticed externally rather than on the website itself.</p>
-<h3>Observable Indicators</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/wordpress-japanese-hack-remediation-checklist.webp" alt="Four-step remediation flowchart showing core checksum diff, database sweep, server lock, and index flush" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Four-phase forensic remediation protocol for eradicating SEO spam infections.</figcaption>
+</figure><h3>Observable Indicators</h3>
 <p>The following indicators are commonly observed in compromised environments:</p>
 <ul>
 <li><strong>Foreign Characters in Search Engine Results Pages (SERPs):</strong> When performing a <code>site:yourdomain.com</code> query on Google, titles and meta descriptions appear in Japanese text alongside unfamiliar e-commerce terminology.</li>
@@ -678,10 +706,16 @@
 <hr />
 <h2>3. Why the Website May Look Normal to the Owner: Understanding Cloaking</h2>
 <p>The most disorienting aspect of the Japanese Keyword Hack for site owners is that their live website appears pristine. When navigating through the homepage, reading blog posts, or testing navigation menus on desktop and mobile browsers, there is no visible sign of malware.</p>
-<p>This occurs because attackers engineer <strong>conditional delivery mechanisms</strong>, commonly known in security and search engineering as <strong>cloaking</strong>.</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/cloaking-user-agent-ip-gating-diagram.webp" alt="Comparison diagram showing conditional cloaking behavior between normal visitors and search engine crawlers" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Conditional cloaking mechanics: hiding malicious doorway pages from website owners.</figcaption>
+</figure><p>This occurs because attackers engineer <strong>conditional delivery mechanisms</strong>, commonly known in security and search engineering as <strong>cloaking</strong>.</p>
 <h3>How Server-Side Cloaking Works</h3>
 <p>Cloaking is the practice of delivering distinctly different content or status codes to search engine crawlers compared to standard human visitors. In a compromised WordPress environment, attackers accomplish this via PHP scripts or web server configuration rules that evaluate incoming request headers before rendering the page.</p>
-<pre><code>Incoming HTTP Request
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/http-410-vs-404-deindexing-timeline.webp" alt="Timeline comparison diagram between slow HTTP 404 re-crawl cycles and accelerated HTTP 410 index purging" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Search engine deindexing timeline: accelerating spam removal with HTTP 410 Gone.</figcaption>
+</figure><pre><code>Incoming HTTP Request
        │
        ├── Evaluates HTTP_USER_AGENT
        │     ├─ Matches: "Googlebot", "Bingbot", "Googlebot-Mobile", "Yandex" ──► SERVE SPAM HTML

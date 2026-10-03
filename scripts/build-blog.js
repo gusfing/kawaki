@@ -76,11 +76,14 @@ function sanitizeHtml(html) {
       'strong', 'b', 'em', 'i', 'u', 's', 'strike', 'del',
       'blockquote', 'code', 'pre',
       'a', 'img', 'br', 'hr', 'span',
+      'figure', 'figcaption',
       'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td'
     ],
     allowedAttributes: {
       'a': ['href', 'title', 'target', 'rel'],
       'img': ['src', 'alt', 'title', 'width', 'height', 'loading', 'decoding'],
+      'figure': ['class', 'style'],
+      'figcaption': ['class', 'style'],
       'code': ['class'],
       'pre': ['class'],
       'span': ['class'],
@@ -553,6 +556,28 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
             margin: 2rem 0;
             font-style: italic;
             color: #4A4640;
+        }
+
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
         }
 
         .tag-pill {

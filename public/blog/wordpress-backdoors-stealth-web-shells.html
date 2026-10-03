@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -620,7 +642,10 @@
 <hr />
 <h2>1. The Persistence Lifecycle: Why WordPress Malware Recurs</h2>
 <p>To defend against persistent server compromises, security engineers must understand the multi-stage lifecycle of modern web intrusions. Attackers treat compromised WordPress installations not as temporary targets to deface, but as persistent compute and reputation nodes within automated cybercrime networks.</p>
-<h3>The Attack Progression Lifecycle</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/wordpress-backdoor-persistence-lifecycle.webp" alt="Flowchart showing backdoor infiltration, multi-point filesystem anchoring, cron hooks, and execution" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: WordPress backdoor persistence lifecycle and reinfection loop.</figcaption>
+</figure><h3>The Attack Progression Lifecycle</h3>
 <pre><code>[Phase 1: Initial Infiltration]
        │ Exploits unpatched CVE (plugin/theme), weak SFTP/SSH/WP credential,
        │ or supply-chain vulnerability.
@@ -649,7 +674,10 @@
 <hr />
 <h2>2. Taxonomy of WordPress Backdoors &amp; Web Shells</h2>
 <p>Attackers employ varied backdoor architectures depending on the target server environment, security tooling, and operational objectives. Categorizing the compromise is the first step in formulating a targeted forensic strategy.</p>
-<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/wordpress-forensic-eradication-pipeline.webp" alt="Layered pipeline diagram showing environment isolation, filesystem replacement, DB sweep, and file locks" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Comprehensive forensic eradication pipeline for permanent backdoor removal.</figcaption>
+</figure><pre><code>┌────────────────────────────────────────────────────────────────────────┐
 │                  WORDPRESS BACKDOOR TAXONOMY                           │
 ├─────────────────────┬────────────────────┬─────────────────────────────┤
 │ Category            │ Primary Mechanism  │ Typical Footprint           │
@@ -701,10 +729,16 @@
 <hr />
 <h2>3. Deconstructing Obfuscation &amp; Evasion Techniques</h2>
 <p>Threat actors know that hosting environments and security plugins run signature-matching engines (such as ClamAV or commercial WordPress scanner plugins) looking for known strings like <code>eval</code>, <code>passthru</code>, or <code>base64_decode</code>. To circumvent these static filters, attackers employ sophisticated obfuscation pipelines.</p>
-<h3>Common Obfuscation Strategies</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/wordpress-webshell-obfuscation-decoder.webp" alt="Comparison table diagram contrasting PHP webshell obfuscation techniques with AST and entropy analysis" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Common webshell obfuscation signatures and forensic de-obfuscation methodologies.</figcaption>
+</figure><h3>Common Obfuscation Strategies</h3>
 <h4>1. Multi-Layered Compression and Encoding</h4>
 <p>A standard technique involves nesting encoded payloads across multiple encoding layers. The unpacker script dynamically reconstructs the original string at runtime before passing it to an execution sink:</p>
-<pre><code>[Raw Malicious Payload]
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/wordpress-cron-database-persistence-flow.webp" alt="Flowchart diagram illustrating database option payload injection, cron scheduling, and file regeneration" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Covert database and WP-Cron persistence mechanism resurrecting deleted files.</figcaption>
+</figure><pre><code>[Raw Malicious Payload]
          │
          ▼ (Compression)
      gzdeflate()

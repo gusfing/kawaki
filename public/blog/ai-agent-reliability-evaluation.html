@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -649,7 +671,10 @@
 <hr />
 <h2>1. What Does "Reliable" Mean for an AI Agent?</h2>
 <p>In conventional infrastructure, reliability often defaults to availability (e.g., 99.9% uptime). For autonomous agents, availability is insufficient: an agent endpoint can maintain 100% uptime while silently corrupting enterprise records.</p>
-<p>We define agent reliability across seven independent architectural vectors:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/ai-agent-benchmark-scorecard-metrics.webp" alt="Matrix scorecard displaying AI agent task completion rate, tool accuracy, token cost, and p95 latency" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Production readiness scorecard: key evaluation metrics for autonomous agents.</figcaption>
+</figure><p>We define agent reliability across seven independent architectural vectors:</p>
 <pre><code>                                  ┌────────────────────────┐
                                   │   AGENT RELIABILITY    │
                                   └───────────┬────────────┘
@@ -671,7 +696,10 @@
 <hr />
 <h2>2. The Reliability Architecture</h2>
 <p>To operationalize these vectors, this guide proposes a <strong>Tri-Pillar Reliability Architecture</strong>:</p>
-<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/ai-agent-state-machine-loop-prevention.webp" alt="Flowchart diagram showing step budgeting, token cost caps, oscillation detection, and failsafe escalation" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Deterministic state machine safeguards preventing infinite loops and runaway costs.</figcaption>
+</figure><pre><code>┌────────────────────────────────────────────────────────────────────────┐
 │                   TRI-PILLAR RELIABILITY ARCHITECTURE                   │
 ├────────────────────────────────────────────────────────────────────────┤
 │  PILLAR I: EVALUATION HARNESS                                          │
@@ -734,7 +762,10 @@
 <hr />
 <h2>3. Evaluation-Driven Development (EDD)</h2>
 <p>In agent engineering, <strong>Evaluation-Driven Development (EDD)</strong> mandates that evaluation datasets, mock environments, and grading harnesses precede prompt modifications or model migrations.</p>
-<h3>Core Evaluation Components</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/ai-agent-reliability-testing-pyramid.webp" alt="Layered testing hierarchy diagram for AI agents from unit tool tests to golden dataset benchmarks" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Evaluation-Driven Development (EDD) testing hierarchy for autonomous agents.</figcaption>
+</figure><h3>Core Evaluation Components</h3>
 <p>An enterprise evaluation harness requires four foundational artifacts:</p>
 <ol>
 <li><strong>Golden Datasets:</strong> Version-controlled corpora of standard tasks, production edge cases, and adversarial prompts.</li>
@@ -744,7 +775,10 @@
 </ol>
 <h3>The Grader Hierarchy</h3>
 <p>Evaluating an agent requires distinct grading paradigms depending on output type:</p>
-<table>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/ai-agent-guardrails-input-output-filter.webp" alt="Three-stage guardrail diagram showing prompt injection firewall, constrained generation, and output validation" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Dual-stage input sanitization and schema validation guardrail pipeline.</figcaption>
+</figure><table>
 <thead>
 <tr>
 <th align="left">Grader Type</th>

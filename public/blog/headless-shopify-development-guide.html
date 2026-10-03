@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -615,7 +637,10 @@
 <hr />
 <h2>1. Why Ambitious Brands Decouple Shopify</h2>
 <p>When evaluating headless architecture, engineering teams and e-commerce directors must weigh tangible business metrics against architectural complexity:</p>
-<ol>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/shopify-storefront-api-vs-liquid-dataflow.webp" alt="Data flow comparison diagram between monolithic Shopify Liquid rendering and decoupled Storefront GraphQL API" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Monolithic server rendering vs decoupled GraphQL payload execution.</figcaption>
+</figure><ol>
 <li><strong>Sub-Second Page Transitions:</strong> Liquid renders server-side on Shopify's centralized servers for every page request. Decoupled frontends (built on Next.js or Shopify Hydrogen) leverage edge computing (Cloudflare Workers, Vercel Edge) to serve catalog pages in under 80 milliseconds.</li>
 <li><strong>Total Design and UX Freedom:</strong> You are no longer constrained by Liquid's DOM structure or rigid theme editor settings. Build custom 3D configurators, non-standard layout grids, and bespoke editorial checkout flows.</li>
 <li><strong>Multi-Market and Localization Scale:</strong> Serve distinct currencies, localized languages, and personalized inventory catalogs from a single unified codebase.</li>
@@ -624,7 +649,10 @@
 <hr />
 <h2>2. The Modern Headless Shopify Stack</h2>
 <p>The 2026 enterprise headless stack consists of four decoupled layers:</p>
-<ol>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/headless-shopify-request-lifecycle-flow.webp" alt="Four-step request lifecycle flowchart from browser navigation to edge cache and Shopify GraphQL resolution" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: End-to-end request lifecycle and edge cache resolution.</figcaption>
+</figure><ol>
 <li><strong>Presentation Layer:</strong> Next.js App Router or Shopify Hydrogen with React Server Components.</li>
 <li><strong>Edge Routing &amp; Caching:</strong> Cloudflare Workers or Vercel Edge delivering stale-while-revalidate caching and Geo-IP currency routing.</li>
 <li><strong>Commerce Engine:</strong> Shopify Storefront GraphQL API (v2026-01+) powering products, collections, inventory, and cart mutations.</li>
@@ -633,7 +661,10 @@
 <hr />
 <h2>3. Engineering Optimistic Cart Mutations</h2>
 <p>The cart is where conversion rate optimization (CRO) is won or lost. In traditional Shopify stores, clicking 'Add to Cart' triggers a blocking network request, displays a loading spinner, and refreshes the cart drawer after a 400–800ms delay.</p>
-<p>In a high-velocity headless architecture, we implement <strong>Optimistic Cart State</strong>:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/headless-shopify-cart-state-synchronization.webp" alt="Sequence flowchart showing optimistic client cart updates, Server Action mutations, and checkout handoff" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Optimistic state updates and secure checkout token synchronization.</figcaption>
+</figure><p>In a high-velocity headless architecture, we implement <strong>Optimistic Cart State</strong>:</p>
 <ol>
 <li><strong>Instant UI Response:</strong> When a user clicks 'Add to Bag', the local client state updates instantly (0ms delay), incrementing the badge counter and opening the slide-over drawer with spring physics.</li>
 <li><strong>Background Mutation Pipeline:</strong> A background GraphQL mutation is dispatched to Shopify's cartLinesAdd endpoint.</li>
@@ -643,7 +674,10 @@
 <hr />
 <h2>4. Edge Caching &amp; Cache Invalidation Strategy</h2>
 <p>The primary challenge of headless e-commerce is ensuring product inventory, pricing, and availability remain strictly synchronized without sacrificing edge caching speed.</p>
-<h3>Stale-While-Revalidate (SWR) with Webhook Invalidation</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/headless-commerce-cache-invalidation-pipeline.webp" alt="Layered cache invalidation pipeline showing Shopify product webhooks triggering Next.js revalidateTag" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Webhook-driven cache invalidation ensuring edge speed with real-time inventory.</figcaption>
+</figure><h3>Stale-While-Revalidate (SWR) with Webhook Invalidation</h3>
 <ul>
 <li><strong>Catalog Pages (Collections &amp; Products):</strong> Cached globally at the CDN edge with an SWR policy (s-maxage=3600, stale-while-revalidate=86400).</li>
 <li><strong>Inventory Webhooks:</strong> Shopify inventory_levels/update and products/update webhooks trigger instant, surgical edge cache purges for the specific product slug via on-demand revalidation.</li>

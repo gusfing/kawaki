@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -615,7 +637,10 @@
 <hr />
 <h2>1. The Core Definition: Beyond Traditional Frontend Development</h2>
 <p>Traditional web development treats content as a passive payload injected into pre-fabricated layout containers. Designers create static wireframes in Figma, developers translate them into rigid CSS grids, and copywriters force copy into fixed character limits.</p>
-<p>Editorial engineering upends this hierarchy:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/editorial-engineering-vs-traditional-frontend.webp" alt="Comparison table diagram contrasting traditional frontend development with editorial engineering principles" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Architectural differences between standard component libraries and editorial engineering systems.</figcaption>
+</figure><p>Editorial engineering upends this hierarchy:</p>
 <ol>
 <li><strong>Content Shapes the Architecture:</strong> Layouts dynamically adapt to the cadence, rhythm, and emotional tone of the editorial prose.</li>
 <li><strong>Typography is Structural Infrastructure:</strong> Rather than defaulting to system UI fonts, typographical pairings (such as high-contrast serifs paired with technical grotesks) guide the visitor's reading velocity.</li>
@@ -626,7 +651,10 @@
 <h2>2. The Three Architectural Pillars of Editorial Engineering</h2>
 <h3>Pillar I: Publication-Grade Typographic Systems</h3>
 <p>In print journalism—from <em>The New Yorker</em> to <em>Monocle</em>—typography is calibrated with surgical precision. Leading, tracking, optical margins, and measure (line length) are calculated to minimize cognitive fatigue.</p>
-<p>In digital editorial engineering, we translate these classical principles to fluid viewports:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/editorial-three-architectural-pillars.webp" alt="Diagram outlining the three architectural pillars of editorial web craft: typography, edge delivery, and headless content" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: The three interdependent engineering pillars that power digital publication flagships.</figcaption>
+</figure><p>In digital editorial engineering, we translate these classical principles to fluid viewports:</p>
 <ul>
 <li><strong>Fluid Type Scales:</strong> Utilizing CSS clamp() mathematics to ensure headline hierarchy scales smoothly across mobile, tablet, and ultra-wide displays without awkward word wraps.</li>
 <li><strong>Serif &amp; Grotesk Dialogue:</strong> Pairing expressive display serifs (such as <em>Instrument Serif</em> or <em>Playfair</em>) with rigorous structural sans-serifs (<em>Plus Jakarta Sans</em>, <em>Host Grotesk</em>) creates visual tension between heritage craft and contemporary digital speed.</li>
@@ -651,7 +679,10 @@
 <hr />
 <h2>3. Editorial Engineering in Headless Commerce</h2>
 <p>While publishing companies were the first to embrace editorial engineering, high-growth direct-to-consumer (DTC) and luxury commerce brands are now adopting it to solve rising customer acquisition costs (CAC).</p>
-<p>When every competitor uses standard Shopify themes, shopping becomes a generic, transactional chore. Editorial commerce transforms the store into a digital magazine:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/headless-editorial-commerce-architecture.webp" alt="Multi-tier system architecture diagram showing headless CMS, Next.js edge runtime, and Shopify Storefront API" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Unified headless editorial and commerce decoupled architecture.</figcaption>
+</figure><p>When every competitor uses standard Shopify themes, shopping becomes a generic, transactional chore. Editorial commerce transforms the store into a digital magazine:</p>
 <ul>
 <li><strong>Narrative Product Detail Pages (PDPs):</strong> Replacing basic photo carousels with immersive storytelling, origin deep dives, ingredient sourcing breakdowns, and interactive 3D visualizers.</li>
 <li><strong>Seamless Add-to-Cart from Editorial Content:</strong> Readers can inspect and purchase featured products directly inside long-form essays without navigating away from the narrative.</li>
@@ -661,7 +692,10 @@
 <hr />
 <h2>4. How to Audit Your Platform for Editorial Engineering Readiness</h2>
 <p>Ask your engineering and creative leadership these five critical diagnostic questions:</p>
-<ol>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/editorial-engineering-audit-scorecard.webp" alt="Scorecard matrix detailing Core Web Vitals, CLS limits, asset budgets, and editorial velocity benchmarks" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Non-negotiable technical benchmarks for high-end digital editorial platforms.</figcaption>
+</figure><ol>
 <li><strong>Mobile LCP:</strong> Is your Largest Contentful Paint under 1.0s, or do visitors wait while megabytes of JavaScript hydrate?</li>
 <li><strong>Typographic Hierarchy:</strong> Do headlines scale seamlessly using fluid typography, or do they awkwardly clip on narrow viewports?</li>
 <li><strong>Layout Stability:</strong> Does your page suffer from layout shift when images or fonts load?</li>

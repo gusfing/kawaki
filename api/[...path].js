@@ -1,5 +1,6 @@
 // Vercel Serverless Function Gateway for Kawaki CMS API
 const { handleApiRequest } = require('../lib/db-api-handler.js');
+const legacyBlogRedirect = require('./legacy-blog-redirect.js');
 
 module.exports = (req, res) => {
   // CORS Pre-flight
@@ -23,6 +24,16 @@ module.exports = (req, res) => {
     forwarded.searchParams.forEach((v, k) => {
       if (!parsedUrl.searchParams.has(k)) parsedUrl.searchParams.set(k, v);
     });
+  }
+
+  // Intercept legacy blog redirector routes
+  if (
+    parsedUrl.pathname === '/api/legacy-blog-redirect' ||
+    parsedUrl.pathname === '/legacy-blog-redirect' ||
+    parsedUrl.pathname === '/blog-post' ||
+    parsedUrl.pathname === '/api/blog-post'
+  ) {
+    return legacyBlogRedirect(req, res);
   }
 
   return handleApiRequest(req, res, parsedUrl, req.body);

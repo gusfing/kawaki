@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -620,7 +642,10 @@
 <hr />
 <h2>1. How WordPress Malicious Redirects Work</h2>
 <p>To investigate and dismantle a redirect infection, responders must first categorize the execution layer where the detour occurs. Redirection can occur at multiple stages of the web request lifecycle—from early network routing and web server daemon evaluation down to client-side DOM execution inside the user's browser.</p>
-<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/wordpress-malicious-redirect-execution-flow.webp" alt="Flowchart showing malicious redirect execution from visitor arrival to conditional check and destination" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Malicious redirect execution flow and user-agent evasion filters.</figcaption>
+</figure><pre><code>┌────────────────────────────────────────────────────────────────────────┐
 │                   THE REDIRECT EXECUTION TAXONOMY                      │
 ├─────────────────────┬───────────────────┬──────────────────────────────┤
 │ Execution Layer     │ Mechanism         │ Typical Forensic Signature   │
@@ -675,7 +700,10 @@
 <hr />
 <h2>2. Why You May Not See the Redirect Yourself</h2>
 <p>The single most frustrating aspect of a redirect infection for site owners is the inability to reproduce it on demand. Site administrators frequently dismiss customer complaints as local browser malware or user error because their own testing reveals a clean, functional site. </p>
-<p>Attackers intentionally engineer <strong>conditional gating logic</strong> to preserve stealth and delay discovery for as long as possible.</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/conditional-htaccess-mobile-redirect-rules.webp" alt="Comparison diagram showing conditional .htaccess rewrite rules targeting mobile search and remediation steps" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Conditional .htaccess rewrite anatomy and server-level remediation.</figcaption>
+</figure><p>Attackers intentionally engineer <strong>conditional gating logic</strong> to preserve stealth and delay discovery for as long as possible.</p>
 <pre><code>[Incoming Web Visitor Request]
                │
                ▼
@@ -720,7 +748,10 @@
 <h3>The Seven Evasion Filters of Conditional Redirection</h3>
 <h4>1. User-Agent Discrimination</h4>
 <p>Redirect scripts parse the incoming <code>HTTP_USER_AGENT</code> string. Attackers frequently configure rules that trigger only for mobile browser tokens (<code>iPhone</code>, <code>Android</code>, <code>Mobile Safari</code>, <code>Dalvik</code>, <code>Windows Phone</code>) while ignoring desktop user agents (<code>Windows NT</code>, <code>Macintosh</code>, <code>X11</code>). Desktop developers testing the site never encounter the condition.</p>
-<h4>2. Search Engine Referrer Filtering</h4>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/wordpress-redirect-forensic-investigation-protocol.webp" alt="Flowchart outlining cURL header simulation, DOM script auditing, database search-replace, and WAF rules" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Forensic investigation and neutralization protocol for stealth redirects.</figcaption>
+</figure><h4>2. Search Engine Referrer Filtering</h4>
 <p>Attackers want organic consumers, not administrators navigating directly to the URL. The malware inspects the <code>HTTP_REFERER</code> header:</p>
 <ul>
 <li>If the referrer is blank (direct navigation) or originates from your own domain, the redirect sleeps.</li>
@@ -751,7 +782,10 @@
 <hr />
 <h2>3. The Major Redirect Persistence Locations</h2>
 <p>Where does redirect code conceal itself inside a WordPress ecosystem? Because WordPress relies on a flexible, modular architecture, malicious logic can reside across ten distinct filesystem and database zones.</p>
-<pre><code>/var/www/html/
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/database-javascript-injection-vectors.webp" alt="Matrix diagram illustrating database script injection vectors in wp_posts, wp_options, and widgets" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Primary database injection vectors harboring persistent malicious redirect scripts.</figcaption>
+</figure><pre><code>/var/www/html/
 ├── .htaccess                     ◄── Rogue rewrite rules routing traffic at server layer
 ├── .user.ini                     ◄── auto_prepend_file loading external scripts on all requests
 ├── wp-config.php                 ◄── Obfuscated PHP base64 code injected above core constants

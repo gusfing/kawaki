@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -627,7 +649,10 @@
 <p>Building custom code prematurely wastes valuable capital. Remaining on no-code past its architectural limits creates bottlenecks and compounding technical debt. This technical guide provides an engineering framework to evaluate this trade-off.</p>
 <hr />
 <h2>1. Defining the Paradigms: Custom Development vs. No-Code Platforms</h2>
-<p>To make a rational architectural determination, we must define what happens beneath the surface in each approach.</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/architectural-taxonomy-website-app-saas.webp" alt="Layered architecture taxonomy classifying simple websites, hybrid web applications, and SaaS platforms" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Architectural taxonomy: mapping application complexity to optimal engineering stacks.</figcaption>
+</figure><p>To make a rational architectural determination, we must define what happens beneath the surface in each approach.</p>
 <pre><code>+------------------------------------------------------------------------+
 |                      THE ARCHITECTURAL SPECTRUM                        |
 +---------------------+-------------------+------------------------------+
@@ -663,7 +688,10 @@
 </ul>
 <hr />
 <h2>2. The 9-Dimension Decision Matrix</h2>
-<p>When evaluating an engineering investment, technical leaders require an objective evaluation framework. The matrix below contrasts custom web development against no-code across nine mission-critical dimensions:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/custom-code-vs-nocode-decision-matrix-chart.webp" alt="Strategic comparison matrix comparing custom Next.js development against no-code platforms across key metrics" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Strategic decision matrix: evaluating scalability, ownership, and performance ceilings.</figcaption>
+</figure><p>When evaluating an engineering investment, technical leaders require an objective evaluation framework. The matrix below contrasts custom web development against no-code across nine mission-critical dimensions:</p>
 <table>
 <thead>
 <tr>
@@ -730,7 +758,10 @@
 </tbody></table>
 <hr />
 <h3>Detailed Dimension Analysis</h3>
-<h4>Dimension 1: Launch Speed</h4>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/custom-development-migration-phases.webp" alt="Four-step migration roadmap detailing technical audit, Next.js rebuild, data ETL, and zero-downtime cutover" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Phased migration roadmap transitioning off no-code platforms without downtime.</figcaption>
+</figure><h4>Dimension 1: Launch Speed</h4>
 <p>No-code platforms deliver rapid initial velocity. Pre-configured hosting, responsive visual canvases, and managed databases allow teams to publish functional marketing sites or directories in days. Custom web development requires foundational scaffolding—TypeScript configurations, component hierarchies, database schemas, authentication layers, and CI/CD pipelines—establishing a multi-week baseline before release.</p>
 <h4>Dimension 2: Flexibility</h4>
 <p>No-code tools operate within a bounded conceptual envelope. When applications demand proprietary calculation models or multi-step workflows, visual builders force teams into fragile workarounds: chained webhook relays, automation middleware, and brittle scripts. Custom engineering grants unconstrained expressiveness: any computable algorithm, background worker, or protocol can be implemented with mathematical precision.</p>
@@ -750,7 +781,10 @@
 <p>No-code lowers the barrier to entry, enabling non-technical stakeholders to create and iterate on web interfaces directly. Custom web development introduces substantial technical complexity: managing state across client and server boundaries, designing relational database normalization, configuring CI/CD automation, handling error boundaries, and mitigating security threats such as Cross-Site Scripting (XSS) and SQL injection.</p>
 <hr />
 <h2>3. When NO-CODE Is the Better Choice</h2>
-<p>Engineering discipline means selecting the most capital-efficient tool that satisfies commercial requirements. Building custom software when a no-code solution suffices is an operational mistake. No-code is the superior, more pragmatic choice in several distinct scenarios:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nocode-tco-scaling-curve-vs-custom-code.webp" alt="Three-phase timeline comparison showing total cost of ownership inflection point over 36 months" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Total Cost of Ownership (TCO) trajectory over 36 months of business growth.</figcaption>
+</figure><p>Engineering discipline means selecting the most capital-efficient tool that satisfies commercial requirements. Building custom software when a no-code solution suffices is an operational mistake. No-code is the superior, more pragmatic choice in several distinct scenarios:</p>
 <h3>1. Rapid Pre-Revenue MVP Validation</h3>
 <p>When testing a new business model, your primary risk is market risk (whether anyone wants the product), not technical risk (whether the software can scale to a million users). Spending capital and months writing custom software before validating willingness to pay is inefficient. A founder can assemble an MVP in two weeks using Bubble, Webflow, Airtable, and Stripe, validating demand with minimal exposure. If the hypothesis fails, you pivot with minimal sunk costs.</p>
 <h3>2. Marketing Websites and Lead-Generation Portals</h3>

@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -620,7 +642,10 @@
 <hr />
 <h2>1. What the Server/Client Boundary Actually Means</h2>
 <p>To design clean component architectures, you must understand the two distinct execution environments that make up a Next.js application:</p>
-<ol>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-server-client-component-tree-boundary.webp" alt="Comparison diagram showing capabilities and execution environments of Server Components vs Client Components" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Execution capabilities and bundle weight trade-offs across the component boundary.</figcaption>
+</figure><ol>
 <li><strong>The Server Environment:</strong> Code executing exclusively on the server (Node.js runtime or Edge workers). It has direct access to filesystem primitives, internal microservices, environment variables, databases, and private encryption keys. It produces either static HTML or an RSC stream (a serialized format describing the virtual DOM).</li>
 <li><strong>The Client Environment:</strong> Code executing in the visitor's browser. It has direct access to browser APIs (DOM, <code>window</code>, <code>localStorage</code>, Geolocation, WebGL), handles user input events (clicks, keypresses, touches), and maintains persistent client state between interactions.</li>
 <li><strong>The Network Boundary:</strong> The interface between these two worlds. When a Server Component renders a Client Component, the server evaluates the server portion and sends a serialized payload across the network. The client receives this payload and hydrates the interactive components into the DOM.</li>
@@ -629,7 +654,10 @@
 <hr />
 <h2>2. Server Components: The Default Execution Model</h2>
 <p>In the Next.js App Router, all components inside the <code>app</code> directory are <strong>React Server Components by default</strong> (<a href="https://nextjs.org/docs/app/building-your-application/rendering/server-components">Next.js Documentation</a>).</p>
-<h3>Key Capabilities</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-rsc-payload-streaming-flow.webp" alt="Four-step diagram showing Server Component evaluation, wire format streaming, and selective hydration" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: RSC wire protocol serialization and progressive HTML streaming.</figcaption>
+</figure><h3>Key Capabilities</h3>
 <ul>
 <li><strong>Zero Client Bundle Impact:</strong> Dependencies imported exclusively by Server Components never ship to the browser. Heavy packages like Markdown parsers (<code>marked</code>, <code>remark</code>), syntax highlighters, or date formatting utilities (<code>date-fns</code>) execute on the server and emit only lightweight HTML.</li>
 <li><strong>Direct Backend &amp; Database Access:</strong> Server Components can directly query databases (PostgreSQL, SQLite, Prisma) or call internal microservices without needing an intermediary REST API layer.</li>
@@ -649,7 +677,10 @@
 <hr />
 <h2>3. Client Components: Handling Tactile Interactivity</h2>
 <p>A Client Component is declared by placing the <code>'use client'</code> directive at the very top of a file, before any import statements (<a href="https://react.dev/reference/rsc/use-client">React Documentation</a>).</p>
-<p>The <code>'use client'</code> directive is <strong>not</strong> an instruction that tells React to only run code in the browser. Rather, it marks a <strong>boundary</strong> between server-only code and code that can run in both environments. Client Components are still pre-rendered to static HTML on the server during the initial page request to provide fast First Contentful Paint (FCP); they are then hydrated in the browser to enable interactivity.</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-client-component-leaves-pattern.webp" alt="Architectural comparison contrasting root-level use client anti-patterns with leaf-node boundaries" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Pushing client boundaries to interactive leaf nodes to minimize JavaScript weight.</figcaption>
+</figure><p>The <code>'use client'</code> directive is <strong>not</strong> an instruction that tells React to only run code in the browser. Rather, it marks a <strong>boundary</strong> between server-only code and code that can run in both environments. Client Components are still pre-rendered to static HTML on the server during the initial page request to provide fast First Contentful Paint (FCP); they are then hydrated in the browser to enable interactivity.</p>
 <h3>Key Capabilities</h3>
 <ul>
 <li><strong>Tactile State Management:</strong> Using <code>useState</code>, <code>useReducer</code>, and context providers to drive dynamic UI changes.</li>
@@ -660,7 +691,10 @@
 <hr />
 <h2>4. How to Decide Where the Boundary Goes</h2>
 <p>When designing an application feature, use this 6-question decision framework to locate the exact component boundary:</p>
-<pre><code>                     [New Feature / Component]
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-server-client-composition-slots.webp" alt="Step-by-step composition pattern diagram illustrating Server Components passed as children to Client wrappers" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Slot composition pattern: nesting server-rendered trees inside interactive wrappers.</figcaption>
+</figure><pre><code>                     [New Feature / Component]
                                  │
                  1. Requires browser-only APIs?
                      (window, localStorage, etc.)

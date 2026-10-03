@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -635,7 +657,10 @@
 <hr />
 <h2>2. Rendering Paradigms &amp; Execution Budgets</h2>
 <p>The Next.js App Router provides multiple rendering strategies. Selecting the appropriate paradigm for each route segment is the single most consequential architectural decision for initial page responsiveness.</p>
-<h3>The Modern Rendering Spectrum</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-hybrid-rendering-matrix.webp" alt="Decision matrix diagram comparing Next.js SSG, ISR, SSR, and CSR rendering patterns" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Next.js rendering matrix: choosing compilation strategies based on volatility.</figcaption>
+</figure><h3>The Modern Rendering Spectrum</h3>
 <ol>
 <li><p><strong>Static Prerendering (Build-Time / Edge-Cached):</strong></p>
 <ul>
@@ -691,10 +716,16 @@ export default function DashboardPage() {
 <li><strong>FCP Target:</strong> Under 1.0s on median 4G mobile connections.</li>
 <li><strong>LCP Target:</strong> Under 2.5s (Google's "Good" threshold), with ambitious performance architectures targeting under 1.2s.</li>
 </ul>
-<hr />
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-critical-rendering-path-waterfall.webp" alt="Step-by-step rendering waterfall diagram showing edge DNS, critical CSS inlining, and streaming Suspense" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Critical rendering path optimization for sub-second Core Web Vitals.</figcaption>
+</figure><hr />
 <h2>3. JavaScript Payload &amp; Hydration Economics</h2>
 <p>In web development, byte-for-byte, <strong>JavaScript is significantly more expensive than HTML, CSS, or images</strong>. </p>
-<p>While a 200KB WebP image is decoded off the main thread with minimal CPU overhead, a 200KB JavaScript bundle must be:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-bundle-splitting-chunk-graph.webp" alt="Layered diagram showing Next.js bundle splitting into core, layout, page, and dynamic client chunks" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Granular code splitting: stripping unused JavaScript from client bundles.</figcaption>
+</figure><p>While a 200KB WebP image is decoded off the main thread with minimal CPU overhead, a 200KB JavaScript bundle must be:</p>
 <ol>
 <li>Downloaded over the network.</li>
 <li>Decompressed and parsed into an Abstract Syntax Tree (AST).</li>
@@ -704,7 +735,10 @@ export default function DashboardPage() {
 <p>On low-tier or mid-tier mobile devices, evaluating 300KB of JavaScript can freeze the main thread for 400ms to 800ms, creating severe responsiveness bottlenecks.</p>
 <h3>How Server Components Reduce Client JavaScript</h3>
 <p>React Server Components (RSC) fundamentally alter this equation. <strong>Server Components themselves are never sent to the browser</strong>. Their code, internal logic, and dependencies execute exclusively on the server, emitting only lightweight HTML and serialized JSON data.</p>
-<p>Only Client Components—and the modules in their explicit dependency subtrees—are packaged into browser bundles.</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-image-optimization-pipeline.webp" alt="Three-step image optimization pipeline showing raw ingestion, edge libvips format negotiation, and caching" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Automated media optimization pipeline serving format-negotiated AVIF and WebP.</figcaption>
+</figure><p>Only Client Components—and the modules in their explicit dependency subtrees—are packaged into browser bundles.</p>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
 │ Server Component Tree (Zero Client JS)                          │
 │ - Markdown parser (marked, remark): 120KB executed on server    │

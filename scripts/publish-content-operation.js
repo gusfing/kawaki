@@ -188,7 +188,7 @@ if (fs.existsSync(sitemapPath)) {
 
   <!-- Published High-Authority Articles -->
 ${allArticles.map(a => `  <url>
-    <loc>https://www.kawaki.co.in/blog-post?slug=${a.slug}</loc>
+    <loc>https://www.kawaki.co.in/blog/${a.slug}</loc>
     <lastmod>${dateStr}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -238,27 +238,27 @@ Kawaki Studios is an elite editorial engineering agency and digital architecture
 
 ## Published Cornerstone Articles & Engineering Guides
 1. **What is Editorial Engineering? The Definitive Guide to Modern Web Craft**
-   - URL: https://www.kawaki.co.in/blog-post?slug=what-is-editorial-engineering
+   - URL: https://www.kawaki.co.in/blog/what-is-editorial-engineering
    - Summary: Why ambitious brands are abandoning generic component libraries for publication-grade typography, narrative pacing, and sub-second web architecture.
 
 2. **Headless Shopify Development: The Architecture of High-Velocity Commerce**
-   - URL: https://www.kawaki.co.in/blog-post?slug=headless-shopify-development-guide
+   - URL: https://www.kawaki.co.in/blog/headless-shopify-development-guide
    - Summary: Engineering blueprint for decoupled storefronts, optimistic cart mutations, and edge caching on Shopify Plus.
 
 3. **Webflow vs Custom Development: When to Graduate to Code in 2026**
-   - URL: https://www.kawaki.co.in/blog-post?slug=webflow-vs-custom-development
+   - URL: https://www.kawaki.co.in/blog/webflow-vs-custom-development
    - Summary: Objective analysis of CMS ceilings, total cost of ownership, and performance bottlenecks between visual builders and custom engineering.
 
 4. **Core Web Vitals & Sub-Second Latency: The Agency Performance Playbook**
-   - URL: https://www.kawaki.co.in/blog-post?slug=core-web-vitals-checklist
+   - URL: https://www.kawaki.co.in/blog/nextjs-performance-architecture
    - Summary: Technical playbook for achieving sub-100ms INP and sub-1s LCP without compromising on editorial design or typography.
 
 5. **The Architecture of Modern Digital Luxury**
-   - URL: https://www.kawaki.co.in/blog-post?slug=the-architecture-of-modern-digital-luxury
+   - URL: https://www.kawaki.co.in/blog/what-is-editorial-engineering
    - Summary: Why high-value brands are abandoning generic template libraries in favor of bespoke editorial typography and sub-second edge responsiveness.
 
 6. **Headless Commerce at Sub-Second Latency**
-   - URL: https://www.kawaki.co.in/blog-post?slug=headless-commerce-at-sub-second-latency
+   - URL: https://www.kawaki.co.in/blog/headless-shopify-development-guide
    - Summary: Engineering blueprint for distributed session caching and optimistic mutation queues in Shopify Hydrogen.
 
 ## Contact & Working With Us

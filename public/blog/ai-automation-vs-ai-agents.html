@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -619,7 +641,10 @@
 <hr />
 <h2>1. AI Automation and AI Agents Are Not the Same Thing</h2>
 <p>To make sound architectural investments, engineering teams must establish precise technical definitions. While vendor marketing frequently presents every model invocation as an "intelligent agent," software architecture requires distinguishing between predefined execution graphs and dynamic action loops.</p>
-<p><strong>AI Automation</strong> is a software architecture that uses predetermined programmatic workflows, APIs, conditional rules, triggers, and optionally machine learning models to execute a defined business process. The sequence of execution steps is fixed at design time by human engineers. If a large language model (LLM) is invoked, it functions as a specialized processing node—such as extracting JSON from an invoice or classifying customer intent—without deciding what downstream step occurs next.</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/ai-autonomy-spectrum-architecture.webp" alt="Layered architecture diagram outlining the four levels of the AI autonomy spectrum from scripts to swarms" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: The AI autonomy spectrum: distinguishing scripted workflows from autonomous agents.</figcaption>
+</figure><p><strong>AI Automation</strong> is a software architecture that uses predetermined programmatic workflows, APIs, conditional rules, triggers, and optionally machine learning models to execute a defined business process. The sequence of execution steps is fixed at design time by human engineers. If a large language model (LLM) is invoked, it functions as a specialized processing node—such as extracting JSON from an invoice or classifying customer intent—without deciding what downstream step occurs next.</p>
 <p><strong>AI Agent</strong> is a software architecture where an underlying model is provided with a goal, operational context, and a set of callable tools (APIs, database queries, code execution runtimes), and is empowered to evaluate intermediate observations to decide which actions or tools to invoke next. In an agentic system, the exact sequence of steps is not hardcoded; the model determines its trajectory dynamically at runtime.</p>
 <p>Industry terminology varies, and production software exists along a spectrum rather than as a strict binary. Practical enterprise implementations divide into four architectural tiers:</p>
 <pre><code>+------------------------------------------------------------------------+
@@ -675,7 +700,10 @@
 <hr />
 <h2>2. The Autonomy Spectrum</h2>
 <p>Rather than viewing automation and agents as a binary choice, systems architecture should evaluate initiatives along an <strong>Autonomy Spectrum</strong>. Moving from left to right along this spectrum increases operational flexibility and reduces human authoring overhead for ambiguous tasks, but systematically increases non-determinism, latency, token consumption, and failure complexity.</p>
-<pre><code>+---------------------------------------------------------------------------------------------------+
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/ai-automation-vs-ai-agent-decision-matrix.webp" alt="Comparison table diagram contrasting deterministic workflow automation with autonomous goal-oriented agents" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Strategic decision matrix: deterministic automation vs autonomous agent architectures.</figcaption>
+</figure><pre><code>+---------------------------------------------------------------------------------------------------+
 |                                     THE AUTONOMY SPECTRUM                                         |
 +-------------------+--------------------+--------------------+--------------------+----------------+
 | Level 0           | Level 1            | Level 2            | Level 3            | Level 4        |
@@ -698,7 +726,10 @@
 +-------------------+--------------------+--------------------+--------------------+----------------+
 </code></pre>
 <h3>Architectural Implications of the Spectrum</h3>
-<ol>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/ai-system-failure-mode-mitigation-flow.webp" alt="Matrix diagram illustrating mitigations for hallucinations, reasoning loops, schema drift, and rate limits" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Failure mode mitigation architecture for enterprise AI implementations.</figcaption>
+</figure><ol>
 <li><strong>State Space Complexity</strong>: At Levels 0 and 1, the system's state space is fully enumerable at build time. Every possible transition can be covered with unit and integration tests. At Levels 3 and 4, the state space expands exponentially because the model can emit unforeseen tool parameters, call tools in unanticipated sequences, or encounter edge cases that cannot be fully anticipated in advance.</li>
 <li><strong>Failure Locality</strong>: In a Level 1 deterministic workflow, when a step fails (e.g., an API endpoint returns HTTP 503), the exact failure site and cause are immediately identifiable in telemetry traces. In a Level 3 or 4 agentic system, failures are frequently semantic: the model may misinterpret an API observation, hallucinate a parameter value that passes basic type checks, or loop repeatedly on a subtask without throwing a runtime syntax error.</li>
 <li><strong>Operational Governance</strong>: As autonomy increases, governance cannot rely solely on compile-time types. It requires runtime semantic validation, input/output guardrails, explicit tool sandboxes, and immutable execution logging.</li>
@@ -706,7 +737,10 @@
 <hr />
 <h2>3. When Traditional Automation Is the Better Architecture</h2>
 <p>Despite the industry excitement surrounding autonomous agents, traditional deterministic automation remains the superior architectural choice for the majority of enterprise processes. </p>
-<p>Engineering discipline dictates that introducing non-deterministic models into workflows where rules suffice is an architectural anti-pattern. Traditional workflow automation is the superior fit under the following conditions:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/bounded-ai-agent-sandbox-architecture.webp" alt="Four-step security diagram showing least privilege tools, container sandboxing, cost limits, and audit logs" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Bounded AI agent architecture: enforcing security sandboxing and budget throttles.</figcaption>
+</figure><p>Engineering discipline dictates that introducing non-deterministic models into workflows where rules suffice is an architectural anti-pattern. Traditional workflow automation is the superior fit under the following conditions:</p>
 <ul>
 <li><strong>Predictable, Well-Understood Processes</strong>: If a business process can be diagrammed completely in a standard flowchart with clear decision branches (<code>if customer tier == enterprise AND invoice overdue &gt; 30 days -&gt; send escalation notice</code>), traditional automation is optimal. Attempting to manage this logic by prompting an LLM introduces latency, cost, and the risk of hallucinated interpretations of simple boolean logic.</li>
 <li><strong>Regulatory Compliance and Auditability</strong>: In banking, insurance, healthcare, and tax administration, regulatory frameworks require organizations to prove exactly why a specific decision was reached. A deterministic workflow provides an auditable code path and database trace. Proving why an autonomous agent selected a specific action when running probabilistic inference across billions of parameters is technically difficult and often fails compliance audits.</li>

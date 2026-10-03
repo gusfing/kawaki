@@ -311,6 +311,28 @@
             color: #4A4640;
         }
 
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
         .tag-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -623,7 +645,10 @@
 <hr />
 <h2>1. State Is Not One Thing: The 5 Categories of Application State</h2>
 <p>Treating all application data as generic "state" is the root cause of architectural bloat. In modern Next.js applications, state falls into five distinct categories:</p>
-<ol>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-server-client-state-flow.webp" alt="Data flow diagram illustrating state transition from server database fetch to RSC wire payload and client store" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Server-to-client state hydration and serialization boundary.</figcaption>
+</figure><ol>
 <li><strong>Server &amp; Domain Data:</strong> The source-of-truth business records stored in databases, caches, or third-party APIs (e.g., user account profiles, product catalogs, invoice history). It is durable, shared across sessions, and governed by backend authorization rules.</li>
 <li><strong>Client &amp; UI State:</strong> Ephemeral visual state that controls the immediate presentation layer (e.g., modal visibility, mobile menu drawers, active tab indices, accordion expansion). It is transient and specific to a single browser tab.</li>
 <li><strong>Form &amp; Input State:</strong> Temporary, uncommitted user inputs undergoing validation before persistence (e.g., text fields, multi-step wizard progress, file upload queues).</li>
@@ -662,7 +687,10 @@
 <hr />
 <h2>3. Server-Owned Data: Keeping Data at the Source</h2>
 <p>Server-owned data represents the core business reality of your application: inventory counts, customer records, permissions, and billing transactions.</p>
-<p>In the Next.js App Router, Server Components can access this data directly:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-server-actions-mutation-flow.webp" alt="Sequence diagram of Next.js Server Actions optimistic mutation, RPC execution, and revalidateTag" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Server Actions mutation lifecycle with optimistic client reconciliation.</figcaption>
+</figure><p>In the Next.js App Router, Server Components can access this data directly:</p>
 <pre><code class="language-tsx">// app/dashboard/invoices/page.tsx (Server Component)
 import { db } from '@/lib/db';
 import { getSession } from '@/lib/auth';
@@ -696,7 +724,10 @@ export default async function InvoicesPage() {
 <hr />
 <h2>4. Client State: When Local Interactivity Is Essential</h2>
 <p>Client state is not an anti-pattern. Modern web applications require rich, tactile interactions that can only execute in the browser.</p>
-<h3>Legitimate Uses of Client State:</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-cache-layers-architecture.webp" alt="Layered architecture diagram detailing the four Next.js App Router caching mechanisms" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: The 4-tier Next.js cache hierarchy and invalidation boundaries.</figcaption>
+</figure><h3>Legitimate Uses of Client State:</h3>
 <ul>
 <li><strong>Modal &amp; Drawer Visibility:</strong> <code>const [isOpen, setIsOpen] = useState(false)</code> for dialog overlays and mobile navigation.</li>
 <li><strong>Accordion &amp; Tab Controllers:</strong> Managing active index states in accessible UI disclosures.</li>
@@ -708,7 +739,10 @@ export default async function InvoicesPage() {
 <hr />
 <h2>5. URL State: The Most Underutilized State Container</h2>
 <p>One of the most frequent architectural mistakes in modern web applications is storing filter, sort, and pagination state in client memory (<code>useState</code> or a global store) instead of the URL.</p>
-<h3>Why URL State Is Superior for Navigation:</h3>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/nextjs-api-route-error-boundary-architecture.webp" alt="Matrix diagram illustrating Next.js schema validation gates, error.tsx boundaries, and telemetry" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Architectural isolation and error boundary strategy in Next.js route handlers.</figcaption>
+</figure><h3>Why URL State Is Superior for Navigation:</h3>
 <ul>
 <li><strong>Shareability:</strong> Users can copy the URL and send it to teammates, preserving the exact filter configuration.</li>
 <li><strong>Browser History Support:</strong> Back and forward buttons work intuitively, restoring previous search views.</li>
