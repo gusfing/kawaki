@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decor Lab — 33-Year Architecture & Parametric Studio Case Study | Kawaki Studios</title>
+    <meta name="description" content="How Kawaki Studios engineered Decor Lab's digital flagship, featuring Next.js, fullscreen background video kinematics, and parametric architectural galleries." />
+    <link rel="canonical" href="https://www.kawaki.co.in/case-studies/decor-lab" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.kawaki.co.in/case-studies/decor-lab" />
+    <meta property="og:title" content="Decor Lab — 33-Year Architecture & Parametric Studio Case Study | Kawaki Studios" />
+    <meta property="og:description" content="How Kawaki Studios engineered Decor Lab's digital flagship, featuring Next.js, fullscreen background video kinematics, and parametric architectural galleries." />
+    <meta property="og:image" content="https://www.kawaki.co.in/assets/images/case-studies/decor-lab/hero.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" content="Decor Lab — 33-Year Architecture & Parametric Studio Case Study | Kawaki Studios" />
+    <meta name="twitter:description" content="How Kawaki Studios engineered Decor Lab's digital flagship, featuring Next.js, fullscreen background video kinematics, and parametric architectural galleries." />
+    <meta name="twitter:image" content="https://www.kawaki.co.in/assets/images/case-studies/decor-lab/hero.jpg" />
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Decor Lab",
+  "headline": "Decor Lab: Immersive Digital Experience for a 33-Year Indian Architecture Practice",
+  "description": "How Kawaki Studios engineered Decor Lab's digital flagship, featuring Next.js, fullscreen background video kinematics, and parametric architectural galleries.",
+  "url": "https://www.kawaki.co.in/case-studies/decor-lab",
+  "image": "https://www.kawaki.co.in/assets/images/case-studies/decor-lab/hero.jpg",
+  "creator": {
+    "@type": "Organization",
+    "@id": "https://www.kawaki.co.in/#organization",
+    "name": "Kawaki Studios",
+    "url": "https://www.kawaki.co.in"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.kawaki.co.in/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Portfolio & Case Studies",
+        "item": "https://www.kawaki.co.in/case-studies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Decor Lab",
+        "item": "https://www.kawaki.co.in/case-studies/decor-lab"
+      }
+    ]
+  }
+}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
+    <style>
+        .csd-live-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #C6FF00;
+            color: #111111;
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 1.5rem;
+        }
+        .csd-live-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(198, 255, 0, 0.3);
+        }
+        .csd-disabled-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            color: #888888;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            cursor: not-allowed;
+            margin-top: 1.5rem;
+        }
+        .csd-logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+        }
+        .csd-logo-badge img {
+            max-height: 28px;
+            width: auto;
+            object-fit: contain;
+        }
+        .csd-tech-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            color: #dddddd;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0.2rem;
+        }
+        .csd-service-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #111111;
+            color: #C6FF00;
+            border: 1px solid rgba(198, 255, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: 'Host Grotesk', sans-serif;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .csd-service-tag:hover {
+            background: #C6FF00;
+            color: #111111;
+        }
+    </style>
+</head>
+<body style="background-color: #ffffff; color: #111111;">
+    <!-- GLOBAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper" id="globalNav">
+        <nav>
+            <a href="/" class="nav-left" aria-label="Kawaki Studios">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" width="947" height="242" decoding="async" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
+            <div class="nav-right" id="menuToggleBtn" aria-label="Open Menu">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links" id="mainMenuPrimary">
+                        <ul>
+                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home — Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
+                                <a href="/"><span class="menu-idx">01</span><span class="menu-text">Home <em>Index</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us — Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
+                                <a href="/about"><span class="menu-idx">02</span><span class="menu-text">About <em>Kawaki Studios</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Capabilities &amp; Architecture" data-desc="Five Core Engineering &amp; Recovery Pillars">
+                                <a href="/services"><span class="menu-idx">03</span><span class="menu-text">Explore <em>Our Services</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Portfolio &amp; Case Studies" data-desc="Real Software, Flagships &amp; Mobile Ecosystems">
+                                <a href="/case-studies"><span class="menu-idx">04</span><span class="menu-text">Selected <em>Work &amp; Case Studies</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/station_drag_prism.webp" data-tag="Engineering &amp; Design Notes" data-desc="Essays on Web Engineering &amp; Performance">
+                                <a href="/blog"><span class="menu-idx">05</span><span class="menu-text">Blogs &amp; <em>Insights</em></span></a>
+                            </li>
+                            <li data-img="/assets/images/about-studio.webp" data-tag="15-Min Strategy Session" data-desc="Schedule a Technical Discovery Call">
+                                <a href="/contact"><span class="menu-idx">06</span><span class="menu-text">Discovery <em>Call</em></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-col menu-col-right">
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="https://www.kawaki.co.in/assets/images/case-studies/decor-lab/hero.jpg" alt="Preview" width="1376" height="768" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">Brand & Marketing Websites</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">Decor Lab Case Study</span>
+                        </div>
+                    </div>
+                    <div class="menu-info-block">
+                        <div class="menu-status-pill"><span class="status-dot"></span><span>Available for Select Projects</span></div>
+                        <a href="/contact" class="menu-cta-button"><span>Schedule a Call</span></a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- Case Study Detail Hero -->
+        <section class="csd-hero" style="background: #0c0d10; color: #ffffff; padding: 8rem 2rem 5rem; position: relative;">
+            <div class="csd-hero-inner" style="max-width: 1200px; margin: 0 auto;">
+                <a href="/case-studies" class="csd-back-btn" style="color: #C6FF00; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">&larr; Back to Selected Work</a>
+                
+                <div class="csd-logo-badge"><img src="/assets/images/case-studies/decor-lab/logo.webp" alt="Decor Lab Logo" loading="lazy" decoding="async" /><span>Decor Lab</span></div>
+
+                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Brand & Marketing Websites &middot; Architecture / Parametric Design Practice</div>
+                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 2rem;">
+                    Decor Lab: Immersive Digital Experience for a 33-Year Indian Architecture Practice
+                </h1>
+                
+                <div class="csd-meta-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; padding: 2rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+                    <div class="csd-meta-item">
+                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Client / Product</span>
+                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Decor Lab</span>
+                    </div>
+                    <div class="csd-meta-item">
+                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Discipline</span>
+                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Brand & Marketing Websites</span>
+                    </div>
+                    <div class="csd-meta-item">
+                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Kawaki's Role</span>
+                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Full-Stack Web Engineering & Kinematics (Next.js, Video Hero, Horizontal Project Showcase)</span>
+                    </div>
+                    <div class="csd-meta-item">
+                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Verified Technologies</span>
+                        <div style="margin-top: 0.25rem;"><span class="csd-tech-badge">Next.js</span> <span class="csd-tech-badge">Fullscreen Background Video</span> <span class="csd-tech-badge">Horizontal Gallery Kinematics</span> <span class="csd-tech-badge">Hardware Acceleration</span></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <a href="https://www.decorlabs.co.in/" target="_blank" rel="noopener noreferrer" class="csd-live-btn">Visit Live Project ↗</a>
+                </div>
+            </div>
+            
+            <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Decor Lab Project Hero" width="1376" height="768" fetchpriority="high" decoding="async" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            </div>
+        </section>
+
+        <!-- Challenge & Objective -->
+        <section class="csd-text-section" style="padding: 6rem 2rem; background: #ffffff; color: #111111;">
+            <div class="csd-text-inner" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem;">
+                <div class="csd-text-column">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// THE CHALLENGE</span>
+                    <h2 class="csd-text-heading" style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">The Engineering &amp; Operational Friction</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444;">Founded in 1993, Decor Lab has evolved from traditional architecture into an innovative parametric and fluid design studio. Their digital flagship needed to honor three decades of Indian architectural heritage while positioning them at the cutting edge of contemporary computational design.</p>
+                </div>
+                <div class="csd-text-column">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// THE OBJECTIVE</span>
+                    <h2 class="csd-text-heading" style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Target Architectural Outcomes</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444;">Engineer an immersive digital platform utilizing hardware-accelerated video kinematics, smooth horizontal project scrolling, and bespoke typography that communicates spatial innovation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="cs-stats">
+            <div class="cs-stats-inner">
+                
+    <div class="cs-stat">
+        <span class="cs-stat-num">Since 1993</span>
+        <span class="cs-stat-label">33-Year Studio Heritage</span>
+    </div>
+  <div class="cs-stat-divider"></div>
+    <div class="cs-stat">
+        <span class="cs-stat-num">Next.js</span>
+        <span class="cs-stat-label">Engineered by Kawaki Studios</span>
+    </div>
+  <div class="cs-stat-divider"></div>
+    <div class="cs-stat">
+        <span class="cs-stat-num">Video Hero</span>
+        <span class="cs-stat-label">Hardware Accelerated</span>
+    </div>
+  <div class="cs-stat-divider"></div>
+    <div class="cs-stat">
+        <span class="cs-stat-num">Parametric</span>
+        <span class="cs-stat-label">Fluid Design Direction</span>
+    </div>
+  
+            </div>
+        </section>
+
+        <!-- What Kawaki Built / Detailed Walkthrough -->
+        <section style="padding: 6rem 2rem; background: #fbfbfc; color: #111111; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 4rem;">
+                <div>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// WHAT WE BUILT</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Engineered Capabilities &amp; Deliverables</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #555555; margin-bottom: 2rem;">Kawaki built the site using Next.js, incorporating a seamless background video hero and optimized project showcases. The production footer explicitly credits the technical craft: 'Site by Kawaki Studios — Made with precision in Kolkata, India.'</p>
+                    <ul style="padding-left: 1.25rem; color: #444444; font-size: 1rem;">
+                        <li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Hardware-Accelerated Video Kinematics:</strong> Fullscreen ambient video backdrop executing with zero layout shift and automated memory management.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Fluid Parametric Project Gallery:</strong> Dynamic architectural presentation highlighting residential penthouses, commercial jewelry flagships, and spatial renderings.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Design Philosophy Walkthrough:</strong> Clear articulation of Decor Lab's core pillars: Functionality First, Material Innovation, and Fluid Architecture.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Interactive Architectural Reel:</strong> Embedded high-definition video walkthroughs showcasing living room proportions and interior lighting studies.</li>
+                    </ul>
+                </div>
+                <div>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// ARCHITECTURE &amp; RIGOR</span>
+                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Technical Implementation</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 2rem;">Engineered using CSS translate3d hardware acceleration and optimized video encoding, ensuring steady 60fps frame rates across desktop workstations and mobile browsers without device overheating.</p>
+                    <div style="padding: 2rem; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px;">
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">Core Engineering Highlights</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; color: #555555;">
+                            <div>&check; <strong>Verified Technology Stack:</strong> Zero simulated runtime libraries.</div>
+                            <div>&check; <strong>Performance Conscious:</strong> Strict DOM budgeting and responsive image pipelines.</div>
+                            <div>&check; <strong>Credibility First:</strong> Factual technical outcomes drawn from actual deliverables.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <!-- Related Kawaki Capabilities & Next Project -->
+        <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
+                <div>
+                    <span class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">ENGINEERING DOMAINS</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem;">Related Studio Capabilities</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <a href="/services/custom-web-development" class="csd-service-tag">Custom Web Development &rarr;</a>
+                    </div>
+                </div>
+
+                
+                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap: 2rem;">
+                    <div>
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
+                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Slix IPTV &rarr;</a>
+                        </h4>
+                        <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Mobile Applications &middot; Digital Media / Video Streaming / Entertainment</p>
+                    </div>
+                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Studio Engineering CTA -->
+        <section class="cs-testimonials" style="background: #111111; color: #ffffff; padding: 6rem 2rem; text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <span class="cs-grid-eyebrow" style="color: #C6FF00;">ENGINEER WITH KAWAKI</span>
+                <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; margin: 1.5rem 0; line-height: 1.15;">
+                    Have an ambitious platform or digital product to build?
+                </h2>
+                <p style="color: #aaaaaa; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;">
+                    We design and engineer bespoke web platforms, AI applications, and mobile ecosystems with zero template bloat and verified architectural rigor.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="/contact" class="csd-live-btn" style="margin-top: 0; padding: 1rem 2.5rem; font-size: 1rem;">Schedule Technical Discovery &rarr;</a>
+                    <a href="/case-studies" class="csd-service-tag" style="padding: 1rem 2rem; font-size: 1rem;">View All Case Studies</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background: #08090b; color: #888888; padding: 4rem 2rem 2rem; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.06);">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+            <div>
+                <img src="/assets/images/kawaki-logo-white.png" alt="Kawaki Studios" style="height: 28px; width: auto; opacity: 0.9;" />
+                <p style="margin-top: 0.75rem; color: #666666;">Bespoke Digital Engineering &amp; High-Performance Systems.</p>
+            </div>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <a href="/about" style="color: inherit; text-decoration: none;">About</a>
+                <a href="/services" style="color: inherit; text-decoration: none;">Services</a>
+                <a href="/case-studies" style="color: #C6FF00; text-decoration: none;">Case Studies</a>
+                <a href="/blog" style="color: inherit; text-decoration: none;">Blog</a>
+                <a href="/contact" style="color: inherit; text-decoration: none;">Contact</a>
+            </div>
+        </div>
+        <div style="max-width: 1200px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; font-size: 0.8rem; color: #555555;">
+            <span>&copy; 2026 Kawaki Studios. All rights reserved.</span>
+            <span>Zero Fluff &middot; Real Engineering</span>
+        </div>
+    </footer>
+
+    <script src="/assets/js/global.js"></script>
+    <script src="/assets/js/chatbot.js"></script>
+</body>
+</html>

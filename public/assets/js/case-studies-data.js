@@ -1,0 +1,235 @@
+/**
+ * Kawaki Studios — Case Studies & Project Portfolio Data Registry
+ * 
+ * Centralized data source for portfolio projects, ensuring single-source
+ * of truth for URLs, branding, tech stacks, and capabilities.
+ * 
+ * Strict Evidence Principles:
+ * - Real verified URLs only. No invented links.
+ * - Real project imagery and logos.
+ * - Capabilities divided by:
+ *   - AI & Digital Products
+ *   - Web Applications & Platforms
+ *   - Commerce & B2B
+ *   - Brand & Marketing Websites
+ *   - Mobile Applications
+ */
+
+const KAWAKI_PORTFOLIO = [
+    {
+        slug: "pixza",
+        name: "Pixza",
+        client: "Proprietary Product",
+        industry: "Artificial Intelligence / Creative SaaS",
+        category: "AI & Digital Products",
+        categories: ["AI & Digital Products", "Web Applications & Platforms"],
+        heroImage: "/assets/images/case-studies/pixza/hero.jpg",
+        logo: "/assets/images/case-studies/pixza/hero.jpg",
+        liveUrl: "https://pixzaai.com/",
+        hasLiveUrl: true,
+        comingSoon: false,
+        caseStudyUrl: "/case-studies/pixza",
+        techStack: ["React 19", "Hono", "Cloudflare Workers AI", "Token Rotation", "Flow Canvas"],
+        services: ["/services/web-application-development", "/services/ai-automation"],
+        summary: "High-performance edge-native generative AI studio featuring multi-provider model orchestration, zero-downtime token rotation, and node-based visual Flow Mode.",
+        isFlagship: true,
+        order: 1
+    },
+    {
+        slug: "kova",
+        name: "Kova",
+        client: "Proprietary Product",
+        industry: "Artificial Intelligence / Visual Site Builder",
+        category: "AI & Digital Products",
+        categories: ["AI & Digital Products", "Web Applications & Platforms"],
+        heroImage: "/assets/images/case-studies/kova/logo.png",
+        logo: "/assets/images/case-studies/kova/logo.svg",
+        liveUrl: null,
+        hasLiveUrl: false,
+        comingSoon: true,
+        caseStudyUrl: "/case-studies/kova",
+        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Visual Canvas", "AI Generation Engine"],
+        services: ["/services/web-application-development", "/services/ai-automation"],
+        summary: "AI website builder combining prompt-driven section generation with an interactive visual canvas for instant design manipulation and code export.",
+        isFlagship: true,
+        order: 2
+    },
+    {
+        slug: "nextschool-erp",
+        name: "NextSchool ERP",
+        client: "NextSchool Enterprise",
+        industry: "EdTech / School Management / Cloud ERP",
+        category: "Web Applications & Platforms",
+        categories: ["Web Applications & Platforms"],
+        heroImage: "/assets/images/project_1_1787254271240.webp",
+        logo: null,
+        liveUrl: "https://nextschoolerp.com/",
+        hasLiveUrl: true,
+        comingSoon: false,
+        caseStudyUrl: "/case-studies/nextschool-erp",
+        techStack: ["Cloud Architecture", "Multi-Tenant Database", "RBAC", "Modular ERP Subsystems"],
+        services: ["/services/web-application-development"],
+        summary: "Enterprise cloud school management ERP architected with multi-role access control spanning administrative governance, academic scheduling, finance, and logistics.",
+        isFlagship: true,
+        order: 3
+    },
+    {
+        slug: "nursepass",
+        name: "NursePass",
+        client: "NursePass Deutschland",
+        industry: "Healthcare / EdTech / Professional LMS",
+        category: "Web Applications & Platforms",
+        categories: ["Web Applications & Platforms"],
+        heroImage: "/assets/images/case-studies/nursepass/hero.jpg",
+        logo: "/assets/images/case-studies/nursepass/logo.svg",
+        liveUrl: "https://nursepass.de/",
+        hasLiveUrl: true,
+        comingSoon: false,
+        caseStudyUrl: "/case-studies/nursepass",
+        techStack: ["Laravel", "Modular LMS Architecture", "Multilingual i18n", "Digital Examination Engine"],
+        services: ["/services/web-application-development"],
+        summary: "Dedicated healthcare learning platform supporting internationally trained nurses through the German professional recognition process (Kenntnisprüfung & Anpassungslehrgang).",
+        isFlagship: false,
+        order: 4
+    },
+    {
+        slug: "lms-ecosystem",
+        name: "Multi-Role LMS & School Mobility Ecosystem",
+        client: "Campus Enterprise Systems",
+        industry: "Education / Fleet Mobility / Multi-Role Systems",
+        category: "Web Applications & Platforms",
+        categories: ["Web Applications & Platforms", "Mobile Applications"],
+        heroImage: "/assets/images/project_2_1787254282785.webp",
+        logo: null,
+        liveUrl: null,
+        hasLiveUrl: false,
+        comingSoon: false,
+        isPrivateEnterprise: true,
+        caseStudyUrl: "/case-studies/lms-ecosystem",
+        techStack: ["Flutter", "BLoC/Cubit", "Laravel Core", "Hive Storage", "Vehicle GPS Telematics"],
+        services: ["/services/web-application-development", "/services/mobile-app-development"],
+        summary: "Unified education operations ecosystem connecting educators via Staff App, parents/students via Academic Portal, and transport drivers via real-time GPS tracking.",
+        isFlagship: true,
+        order: 5
+    },
+    {
+        slug: "urbanland",
+        name: "Urbanland Products",
+        client: "Urbanland Products",
+        industry: "B2B Infrastructure / Architectural Outdoor Furniture",
+        category: "Commerce & B2B",
+        categories: ["Commerce & B2B"],
+        heroImage: "/assets/images/case-studies/urbanland/hero.jpg",
+        logo: "/assets/images/case-studies/urbanland/logo.png",
+        liveUrl: "https://urbanlandproducts.com/",
+        hasLiveUrl: true,
+        comingSoon: false,
+        caseStudyUrl: "/case-studies/urbanland",
+        techStack: ["React", "Custom Catalogue Architecture", "B2B RFP Workflow", "Technical Specifications Engine"],
+        services: ["/services/custom-web-development", "/services/shopify-development"],
+        summary: "High-capacity B2B architectural furniture catalogue and quote-driven specification platform engineered for landscape architects, contractors, and urban planners.",
+        isFlagship: true,
+        order: 6
+    },
+    {
+        slug: "bazzaro",
+        name: "BAZZARO",
+        client: "BAZZARO",
+        industry: "D2C E-Commerce / Designer Canvas Goods",
+        category: "Commerce & B2B",
+        categories: ["Commerce & B2B"],
+        heroImage: "/assets/images/case-studies/bazzaro/hero.png",
+        logo: "/assets/images/case-studies/bazzaro/logo.png",
+        liveUrl: "https://www.bazzaro.in/",
+        hasLiveUrl: true,
+        comingSoon: false,
+        caseStudyUrl: "/case-studies/bazzaro",
+        techStack: ["Next.js App Router", "TypeScript", "Tailwind CSS", "Slide-out Cart & Wishlist"],
+        services: ["/services/custom-web-development", "/services/shopify-development"],
+        summary: "D2C artistic canvas tote brand combining responsive Next.js storefront performance, curated collection storytelling, and fluid customer checkout ergonomics.",
+        isFlagship: false,
+        order: 7
+    },
+    {
+        slug: "kala-design",
+        name: "Kala Design Co",
+        client: "Kala Design Co",
+        industry: "Architecture / Contemporary Interior Design",
+        category: "Brand & Marketing Websites",
+        categories: ["Brand & Marketing Websites"],
+        heroImage: "/assets/images/case-studies/kala-design/hero.jpg",
+        logo: "/assets/images/case-studies/kala-design/logo.png",
+        liveUrl: "https://kaladesignco.com/",
+        hasLiveUrl: true,
+        comingSoon: false,
+        caseStudyUrl: "/case-studies/kala-design",
+        techStack: ["Editorial Web Architecture", "High-Resolution Image Pipeline", "Responsive Gallery"],
+        services: ["/services/custom-web-development"],
+        summary: "Editorial digital flagship for a turnkey architecture and interior studio, celebrating 1.5M+ sq. ft. of residential and commercial design through curated visual narratives.",
+        isFlagship: false,
+        order: 8
+    },
+    {
+        slug: "decor-lab",
+        name: "Decor Lab",
+        client: "Decor Lab",
+        industry: "Architecture / Parametric Design Practice",
+        category: "Brand & Marketing Websites",
+        categories: ["Brand & Marketing Websites"],
+        heroImage: "/assets/images/case-studies/decor-lab/hero.jpg",
+        logo: "/assets/images/case-studies/decor-lab/logo.webp",
+        liveUrl: "https://www.decorlabs.co.in/",
+        hasLiveUrl: true,
+        comingSoon: false,
+        caseStudyUrl: "/case-studies/decor-lab",
+        techStack: ["Next.js", "Fullscreen Background Video", "Horizontal Gallery", "Performance Optimizations"],
+        services: ["/services/custom-web-development"],
+        summary: "Immersive digital flagship for a 33-year Indian architecture studio, featuring fullscreen video kinematics, fluid parametric project showcases, and bespoke typography.",
+        isFlagship: false,
+        order: 9
+    },
+    {
+        slug: "iptv-mobile",
+        name: "Slix IPTV",
+        client: "Private Client",
+        industry: "Digital Media / Video Streaming",
+        category: "Mobile Applications",
+        categories: ["Mobile Applications"],
+        heroImage: "/assets/images/case-studies/iptv/hero.png",
+        logo: "/assets/images/case-studies/iptv/icon.png",
+        liveUrl: null,
+        hasLiveUrl: false,
+        comingSoon: false,
+        isPrivateEnterprise: true,
+        caseStudyUrl: "/case-studies/iptv-mobile",
+        techStack: ["Flutter 3.5", "Riverpod", "MediaKit", "BetterPlayer", "Xtream Codes API", "Picture-in-Picture"],
+        services: ["/services/mobile-app-development"],
+        summary: "Cinematic cross-platform streaming client built with Flutter, featuring hardware-accelerated video decoding, native PiP, and resilient Xtream/MAG protocol streaming.",
+        isFlagship: false,
+        order: 10
+    },
+    {
+        slug: "spa-salon",
+        name: "Spa & Salon Management & Booking Platform",
+        client: "Wellness Solutions",
+        industry: "Wellness / Beauty & Aesthetics / Service Operations",
+        category: "Mobile Applications",
+        categories: ["Mobile Applications"],
+        heroImage: "/assets/images/project_3_1787254295127.webp",
+        logo: null,
+        liveUrl: null,
+        hasLiveUrl: false,
+        comingSoon: false,
+        isPrivateEnterprise: true,
+        caseStudyUrl: "/case-studies/spa-salon",
+        techStack: ["Flutter", "Laravel Admin Core", "Dynamic Slot Calculation", "Firebase Push Notifications"],
+        services: ["/services/mobile-app-development"],
+        summary: "Dual-tier mobile booking and salon operations system delivering frictionless 4-step consumer scheduling and multi-branch specialist shift management.",
+        isFlagship: false,
+        order: 11
+    }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { KAWAKI_PORTFOLIO };
+}
