@@ -3809,6 +3809,317 @@
             }
         }
 
+
+        /* --- EDITORIAL SELECTED WORK GRID --- */
+        .work-card-editorial {
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .work-card-editorial:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.12);
+            border-color: rgba(0, 0, 0, 0.16);
+        }
+        .work-card-thumb {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            background: #0C0E14;
+        }
+        .work-card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .work-card-editorial:hover .work-card-thumb img {
+            transform: scale(1.05);
+        }
+        .work-card-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(12, 14, 20, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .work-card-info {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .work-card-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .work-card-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #111111;
+            margin: 0.4rem 0 0.85rem;
+            letter-spacing: -0.02em;
+        }
+        .work-card-summary {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: #555555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .work-card-cta {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+        .work-card-cta:hover {
+            color: #556C58;
+            transform: translateX(4px);
+        }
+
+        /* --- BUILT FOR DIFFERENT STAGES OF GROWTH --- */
+        .stage-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 18px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .stage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #111111;
+            border-radius: 18px 18px 0 0;
+            transition: background 0.3s ease;
+        }
+        .stage-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
+            border-color: rgba(198, 255, 0, 0.6);
+        }
+        .stage-card:hover::before {
+            background: #C6FF00;
+        }
+        .stage-card-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #C6FF00;
+            background: #111111;
+            display: inline-block;
+            align-self: flex-start;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 1.25rem;
+        }
+        .stage-card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #111111;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+        .stage-card-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555555;
+            margin-bottom: 1.75rem;
+        }
+        .stage-focus-box {
+            background: #F8FAFC;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem;
+            flex-grow: 1;
+        }
+        .stage-focus-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+        .stage-focus-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .stage-focus-list li {
+            font-size: 0.88rem;
+            color: #334155;
+            position: relative;
+            padding-left: 1.25rem;
+            line-height: 1.4;
+        }
+        .stage-focus-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #C6FF00;
+            background: #111111;
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* --- OUR ENGINEERING PRINCIPLES --- */
+        .principle-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 18px;
+            padding: 2.75rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .principle-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.16);
+        }
+        .principle-badge {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.75rem;
+        }
+        .principle-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .principle-body {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 1.5rem;
+        }
+        .principle-note {
+            background: #F8FAFC;
+            border-left: 3px solid #C6FF00;
+            padding: 0.85rem 1.15rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #334155;
+        }
+
+        /* --- WHY KAWAKI --- */
+        .why-kawaki-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+        .why-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 2.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .why-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(198, 255, 0, 0.5);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+        }
+        .why-idx {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-bottom: 1.25rem;
+        }
+        .why-card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+        .why-card-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #64748b;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .selected-work-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+            .stages-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            .principles-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            .why-kawaki-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+        @media (max-width: 640px) {
+            .why-kawaki-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
 </style>
 
     <!-- JSON-LD Schema Markup -->
@@ -4254,17 +4565,28 @@
             <div class="hero-lama-main-grid">
                 <div class="hero-lama-left">
                     <h1 class="hero-lama-title">
-                        A creative digital agency<br>
-                        that <span class="serif-italic">goes all in</span><br>
-                        or not at all<span class="hero-dot">.</span>
+                        Custom Web Development &amp;<br>
+                        <span class="serif-italic">Digital Products</span>,<br>
+                        Built to Last<span class="hero-dot">.</span>
                     </h1>
                 </div>
 
                 <div class="hero-lama-right">
                     <div class="hero-lama-desc-box">
-                        <p>
-                            We craft brands, products and experiences that hit harder, work smarter and connect deeper. With heart, with craft, and with a team that's all in or not at all.
+                        <p style="margin-bottom: 0.85rem;">
+                            Kawaki Studios is a Delhi-based digital product and web development studio building custom websites, web applications, ecommerce experiences and AI-powered systems for ambitious businesses worldwide.
                         </p>
+                        <p style="font-size: 0.95rem; color: #888888; margin-bottom: 1.5rem;">
+                            We combine strategy, design and engineering to create digital products that look distinctive, perform reliably and remain maintainable long after launch.
+                        </p>
+                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                            <a href="/contact" class="bento-btn-neon" style="padding: 10px 20px; font-size: 0.78rem;">
+                                <span>Start a Project &rarr;</span>
+                            </a>
+                            <a href="#work" class="cap-link" style="font-family: 'Space Mono', monospace; font-size: 0.78rem; text-decoration: underline; text-underline-offset: 4px;">
+                                <span>Explore Our Work &rarr;</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4274,7 +4596,7 @@
                 <div class="lama-bottom-left">
                     <span class="lama-meta-item">15+ DIGITAL ARTISANS</span>
                     <span class="lama-meta-sep">/</span>
-                    <span class="lama-meta-item">NEW DELHI &amp; GLOBAL</span>
+                    <span class="lama-meta-item">NEW DELHI &middot; GLOBAL</span>
                 </div>
 
                 <div class="lama-bottom-right">
@@ -4428,28 +4750,37 @@
             </div>
         </section>
 
-        <section class="about-statement">
+        <section class="about-statement" id="about-intro">
             <div class="container-inner">
                 <div class="about-content">
                     <div class="about-eyebrow">
-                        ABOUT THE STUDIO
+                        WE BUILD PRECISE, DURABLE WEB SYSTEMS
                     </div>
                     
                     <h2 class="about-heading">
-                        We build <span class="serif-italic">precise, durable</span> web <span class="serif-italic">systems</span><span class="about-dot"></span>
+                        Your website should be <br>more than a <span class="serif-italic">polished front end</span><span class="about-dot">.</span>
                     </h2>
                     
-                    <p class="about-text">
-                        Kawaki is a development studio in Delhi. We don't use page templates &mdash; every site is designed from your positioning, built on modern frameworks, and handed over with a codebase your own team can actually maintain.
+                    <p class="about-text" style="margin-bottom: 1rem;">
+                        Kawaki Studios designs and develops custom digital experiences around your business, audience and technical requirements &mdash; without relying on bloated templates or black-box systems.
                     </p>
                     
-                    <a href="/about" class="about-btn">
-                        Read our process 
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
+                    <p class="about-text" style="margin-bottom: 1rem;">
+                        From marketing websites and Shopify storefronts to full-stack web applications and AI-powered workflows, we build with modern technologies and clean, maintainable code.
+                    </p>
+
+                    <p class="about-text" style="font-weight: 600; color: #111111; margin-bottom: 1.75rem;">
+                        The result is a digital system your business can actually grow with.
+                    </p>
+                    
+                    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                        <a href="#process" class="about-btn">
+                            Read Our Process &rarr;
+                        </a>
+                        <a href="/about" class="about-btn" style="background: transparent; color: #111111; border: 1px solid rgba(0,0,0,0.15);">
+                            About Kawaki Studios &rarr;
+                        </a>
+                    </div>
                 </div>
 
                 <div class="about-media-card" style="position: relative;">
@@ -4511,364 +4842,155 @@
         <!-- ============================ -->
         <!-- Featured Projects Showcase Section -->
         <!-- ============================ -->
-        <section class="systems-showcase-sec sections" id="featured-projects" data-section="Featured Projects">
+        <!-- ============================ -->
+        <!-- WHAT WE BUILD (CAPABILITIES) -->
+        <!-- ============================ -->
+        <section class="capabilities-sec sections" id="capabilities" data-section="What We Build">
             <div class="services-header oth">
                 <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ SELECTED WORKS &amp; FLAGSHIPS ]</div>
-                    <h2 class="header-title">Featured Projects <br><span class="bs-serif-text">Engineered to Endure</span><span class="about-dot"></span></h2>
+                    <div class="sec-eyebrow">[ 01 / WHAT WE BUILD ]</div>
+                    <h2 class="header-title">What <br><span class="bs-serif-text">We Build</span><span class="about-dot"></span></h2>
                 </div>
-                <span class="another-span">A curated selection of production flagships, bespoke digital platforms, and intelligent AI tools engineered for institutional brands and high-growth founders.</span>
-            </div>
-
-            <div class="systems-showcase-grid">
-                <!-- Project 1: Kala Design Co -->
-                <div class="showcase-card">
-                    <div class="showcase-card-img-wrap">
-                        <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architectural Monograph" width="1376" height="768" loading="lazy" decoding="async" />
-                        <div class="showcase-floating-badge">Architecture &amp; Spatial Studio &bull; Next.js + Lenis</div>
-                    </div>
-                    <div class="showcase-card-body">
-                        <div>
-                            <div class="showcase-meta-row">
-                                <span class="showcase-role-tag">Brand Architecture &middot; Web Flagship</span>
-                                <span class="showcase-year-tag">2026</span>
-                            </div>
-                            <h3 class="showcase-title">Kala Design Co: Bespoke Editorial Architecture</h3>
-                            <p class="showcase-desc">High-performance digital architectural monograph featuring generous whitespace, serif typography, monograph discovery, and sub-second asset delivery.</p>
-                        </div>
-                        <a href="/case-studies/kala-design" class="showcase-link-btn" aria-label="Explore Case Study: Kala Design Co">
-                            <span>Explore Case Study</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2: BAZZARO -->
-                <div class="showcase-card">
-                    <div class="showcase-card-img-wrap">
-                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="BAZZARO Luxury Menswear Storefront" width="1376" height="768" loading="lazy" decoding="async" />
-                        <div class="showcase-floating-badge">Luxury D2C Menswear &bull; Shopify Liquid</div>
-                    </div>
-                    <div class="showcase-card-body">
-                        <div>
-                            <div class="showcase-meta-row">
-                                <span class="showcase-role-tag">Commerce Engineering &middot; D2C Storefront</span>
-                                <span class="showcase-year-tag">2026</span>
-                            </div>
-                            <h3 class="showcase-title">BAZZARO: High-Conversion D2C Flagship</h3>
-                            <p class="showcase-desc">Custom bespoke Shopify storefront engineered with instant drawer carts, faceted collection filtering, and sub-second mobile navigation.</p>
-                        </div>
-                        <a href="/case-studies/bazzaro" class="showcase-link-btn" aria-label="Explore Case Study: BAZZARO">
-                            <span>Explore Case Study</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3: Pixza -->
-                <div class="showcase-card">
-                    <div class="showcase-card-img-wrap">
-                        <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza Autonomous AI Creative Studio" width="1376" height="768" loading="lazy" decoding="async" />
-                        <div class="showcase-floating-badge">AI Creative Studio &bull; Cloudflare Workers AI</div>
-                    </div>
-                    <div class="showcase-card-body">
-                        <div>
-                            <div class="showcase-meta-row">
-                                <span class="showcase-role-tag">AI Product Architecture &middot; Generative Studio</span>
-                                <span class="showcase-year-tag">2026</span>
-                            </div>
-                            <h3 class="showcase-title">Pixza: Autonomous AI Creative Studio</h3>
-                            <p class="showcase-desc">Production AI creative generation studio with multi-model failover, streaming canvas workflows, and real-time generation architecture.</p>
-                        </div>
-                        <a href="/case-studies/pixza" class="showcase-link-btn" aria-label="Explore Case Study: Pixza AI Creative Studio">
-                            <span>Explore Case Study</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 4: NextSchool ERP -->
-                <div class="showcase-card">
-                    <div class="showcase-card-img-wrap">
-                        <img src="/assets/images/project_1_1787254271240.webp" alt="NextSchool ERP Enterprise Campus Management Platform" width="1376" height="768" loading="lazy" decoding="async" />
-                        <div class="showcase-floating-badge">Enterprise ERP &bull; Multi-Tenant Cloud</div>
-                    </div>
-                    <div class="showcase-card-body">
-                        <div>
-                            <div class="showcase-meta-row">
-                                <span class="showcase-role-tag">Fullstack Platform &middot; Academic ERP</span>
-                                <span class="showcase-year-tag">2026</span>
-                            </div>
-                            <h3 class="showcase-title">NextSchool ERP: Campus Management Platform</h3>
-                            <p class="showcase-desc">Multi-portal enterprise school management ecosystem orchestrating academics, examinations, fee collection, and administrative workflows.</p>
-                        </div>
-                        <a href="/case-studies/nextschool-erp" class="showcase-link-btn" aria-label="Explore Case Study: NextSchool ERP">
-                            <span>Explore Case Study</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 5: Urbanland Products -->
-                <div class="showcase-card">
-                    <div class="showcase-card-img-wrap">
-                        <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products Smart City Catalog" width="1376" height="768" loading="lazy" decoding="async" />
-                        <div class="showcase-floating-badge">Smart City Infrastructure &bull; Spec Matrix</div>
-                    </div>
-                    <div class="showcase-card-body">
-                        <div>
-                            <div class="showcase-meta-row">
-                                <span class="showcase-role-tag">B2B Commerce &middot; Architectural Systems</span>
-                                <span class="showcase-year-tag">2026</span>
-                            </div>
-                            <h3 class="showcase-title">Urbanland Products: Architectural Spec System</h3>
-                            <p class="showcase-desc">B2B architectural product specification platform with multi-composite material engineering matrices, CAD asset downloads, and tender quote workflows.</p>
-                        </div>
-                        <a href="/case-studies/urbanland" class="showcase-link-btn" aria-label="Explore Case Study: Urbanland Products">
-                            <span>Explore Case Study</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 6: Decor Lab -->
-                <div class="showcase-card">
-                    <div class="showcase-card-img-wrap">
-                        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Decor Lab Sensory Architecture Showcase" width="1376" height="768" loading="lazy" decoding="async" />
-                        <div class="showcase-floating-badge">Landscape Architecture &bull; Next.js + Edge</div>
-                    </div>
-                    <div class="showcase-card-body">
-                        <div>
-                            <div class="showcase-meta-row">
-                                <span class="showcase-role-tag">Sensory Interior &middot; Commercial Architecture</span>
-                                <span class="showcase-year-tag">2026</span>
-                            </div>
-                            <h3 class="showcase-title">Decor Lab: Sensory Architectural Showcase</h3>
-                            <p class="showcase-desc">Sensory commercial interior and landscape architecture showcase honoring 33 years of institutional design heritage with seamless turnkey inquiry funnels.</p>
-                        </div>
-                        <a href="/case-studies/decor-lab" class="showcase-link-btn" aria-label="Explore Case Study: Decor Lab">
-                            <span>Explore Case Study</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div style="display: flex; justify-content: center; margin-top: 3.5rem;">
-                <a href="/case-studies" class="all-works-btn" style="padding: 1rem 2.5rem; font-size: 0.95rem; border-radius: 9999px; text-decoration: none;">Explore All 11 Case Studies &nearr;</a>
-            </div>
-        </section>
-
-        <!-- ============================ -->
-        <!-- How We Build: Architectural Pipeline -->
-        <!-- ============================ -->
-        <section class="how-we-build-sec sections" id="process" data-section="How we do it">
-            <div class="services-header oth">
-                <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ 02 / ENGINEERING METHODOLOGY ]</div>
-                    <h2 class="header-title">How <br><span class="bs-serif-text">We Build</span><span class="about-dot"></span></h2>
-                </div>
-                <span class="another-span">A deterministic, four-stage engineering sequence engineered to eliminate guesswork, enforce sub-second performance, and deliver institutional code quality.</span>
-            </div>
-
-            <div class="build-pipeline-track">
-                <!-- Step 01 -->
-                <div class="build-step-node">
-                    <div class="step-header">
-                        <span class="step-badge">STAGE 01</span>
-                        <span class="step-tag">AUDIT &amp; TELEMETRY</span>
-                    </div>
-                    <h3 class="step-title">System Audit &amp; Technical Specs</h3>
-                    <p class="step-desc">We deconstruct your domain model, competitor bottlenecks, and data flows to define concrete Core Web Vitals targets, API contracts, and security boundaries before writing a line of code.</p>
-                    <div class="step-output">
-                        <span class="output-label">DELIVERABLE:</span>
-                        <span class="output-val">Architecture Spec &amp; Performance SLA</span>
-                    </div>
-                </div>
-
-                <!-- Step 02 -->
-                <div class="build-step-node">
-                    <div class="step-header">
-                        <span class="step-badge">STAGE 02</span>
-                        <span class="step-tag">INTERACTION CRAFT</span>
-                    </div>
-                    <h3 class="step-title">Spatial Ergonomics &amp; Motion Canvas</h3>
-                    <p class="step-desc">Engineering bespoke design systems in Figma with 60fps micro-interaction prototypes, responsive typography hierarchy, fluid physics, and zero layout thrashing.</p>
-                    <div class="step-output">
-                        <span class="output-label">DELIVERABLE:</span>
-                        <span class="output-val">Figma Tokens &amp; Motion System</span>
-                    </div>
-                </div>
-
-                <!-- Step 03 -->
-                <div class="build-step-node">
-                    <div class="step-header">
-                        <span class="step-badge">STAGE 03</span>
-                        <span class="step-tag">COMPILATION</span>
-                    </div>
-                    <h3 class="step-title">Zero-Bloat Compilation &amp; Testing</h3>
-                    <p class="step-desc">Hand-crafted implementation on Next.js, Shopify, or Flutter with strict TypeScript contracts, zero unused runtime bloat, automated unit tests, and WCAG 2.2 AA accessibility verification.</p>
-                    <div class="step-output">
-                        <span class="output-label">DELIVERABLE:</span>
-                        <span class="output-val">Clean Source Code &amp; Automated CI/CD</span>
-                    </div>
-                </div>
-
-                <!-- Step 04 -->
-                <div class="build-step-node">
-                    <div class="step-header">
-                        <span class="step-badge">STAGE 04</span>
-                        <span class="step-tag">CUTOVER</span>
-                    </div>
-                    <h3 class="step-title">Edge Hardening &amp; Global Cutover</h3>
-                    <p class="step-desc">Zero-downtime DNS deployment, sub-second edge cache routing, security headers, Google Search Console indexing, and continuous monitoring telemetry.</p>
-                    <div class="step-output">
-                        <span class="output-label">DELIVERABLE:</span>
-                        <span class="output-val">Global Edge Cutover &amp; Handover</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================ -->
-        <!-- Core Capabilities: Kinetic Bento Matrix -->
-        <!-- ============================ -->
-        <section class="capabilities-sec sections" id="capabilities" data-section="Core Capabilities">
-            <div class="services-header oth">
-                <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ CORE CAPABILITIES &amp; DISCIPLINES ]</div>
-                    <h2 class="header-title">Engineered for <br><span class="bs-serif-text">Velocity &amp; Scale</span><span class="about-dot"></span></h2>
-                </div>
-                <span class="another-span">From custom full-stack web applications and Shopify commerce to AI automation systems and search optimization, we engineer platforms that build lasting digital gravity.</span>
+                <span class="another-span">Custom websites, web applications, ecommerce experiences and AI-powered systems engineered for ambitious businesses worldwide.</span>
             </div>
 
             <div class="capabilities-bento-grid">
-                <!-- Bento Feature Card 1: Custom Web Platforms (Wide Dark Card) -->
+                <!-- 01 Web Application Development (Wide Feature Bento Card) -->
                 <div class="bento-card-wide">
                     <div>
                         <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-                            <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #C6FF00; color: #000000; padding: 3px 10px; border-radius: 4px;">PRIMARY PILLAR</span>
-                            <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">FULLSTACK &amp; EDGE RUNTIMES</span>
+                            <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #C6FF00; color: #000000; padding: 3px 10px; border-radius: 4px;">01 &mdash; CORE DISCIPLINE</span>
+                            <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">FULL-STACK &amp; EDGE RUNTIMES</span>
                         </div>
-                        <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: #ffffff; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.03em;">
-                            Custom Web Platforms &amp; Digital Flagships
+                        <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: #ffffff; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
+                            Web Application Development
                         </h3>
-                        <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 2rem; max-width: 600px;">
-                            Bespoke architectures built on Next.js 15, React 19, and TypeScript with zero template bloat, sub-100ms API response times, and handcrafted kinetic motion physics.
+                        <h4 style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.2rem; color: #C6FF00; font-weight: 400; margin-bottom: 1rem;">
+                            Custom web applications and digital platforms
+                        </h4>
+                        <p style="font-size: 1.02rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1rem; max-width: 620px;">
+                            We design and develop scalable web applications around real business workflows &mdash; from customer-facing platforms to internal systems and SaaS products.
+                        </p>
+                        <p style="font-size: 0.95rem; line-height: 1.65; color: #94a3b8; margin-bottom: 1.75rem; max-width: 620px;">
+                            Our web application development work can include custom interfaces, dashboards, authentication, APIs, content systems and full-stack architectures built with modern frameworks.
                         </p>
                         
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
-                            <span class="bento-tag-dark">Next.js 15 App Router</span>
-                            <span class="bento-tag-dark">React 19 Server Components</span>
-                            <span class="bento-tag-dark">TypeScript Contracts</span>
-                            <span class="bento-tag-dark">Cloudflare Workers AI</span>
-                            <span class="bento-tag-dark">TailwindCSS v4</span>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem;">
+                            <span class="bento-tag-dark">Next.js</span>
+                            <span class="bento-tag-dark">TypeScript</span>
+                            <span class="bento-tag-dark">React</span>
+                            <span class="bento-tag-dark">APIs</span>
+                            <span class="bento-tag-dark">Headless CMS</span>
+                            <span class="bento-tag-dark">Full-Stack Architecture</span>
                         </div>
 
                         <a href="/services/custom-web-development" class="bento-btn-neon">
-                            <span>Explore Web Engineering</span>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            <span>Explore Web Applications &rarr;</span>
                         </a>
                     </div>
 
-                    <!-- Live Benchmark Artifact Box -->
+                    <!-- Verified Tech Standards Box -->
                     <div class="bento-benchmark-box">
                         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; margin-bottom: 1.25rem;">
-                            <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">RUNTIME BENCHMARKS</span>
-                            <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #64748b;">VERIFIED METRICS</span>
+                            <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SYSTEM STANDARDS</span>
+                            <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #64748b;">PRODUCTION SPEC</span>
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 1rem;">
                             <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <span style="font-size: 0.9rem; color: #94a3b8;">Largest Contentful Paint (LCP)</span>
-                                <strong style="font-family: 'Space Mono', monospace; color: #C6FF00; font-size: 1.1rem;">&lt; 1.2s</strong>
+                                <span style="font-size: 0.9rem; color: #94a3b8;">Codebase Quality</span>
+                                <strong style="font-family: 'Space Mono', monospace; color: #C6FF00; font-size: 1rem;">Strict TypeScript</strong>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <span style="font-size: 0.9rem; color: #94a3b8;">Interaction to Next Paint (INP)</span>
-                                <strong style="font-family: 'Space Mono', monospace; color: #C6FF00; font-size: 1.1rem;">&lt; 85ms</strong>
+                                <span style="font-size: 0.9rem; color: #94a3b8;">Frontend Latency</span>
+                                <strong style="font-family: 'Space Mono', monospace; color: #C6FF00; font-size: 1rem;">Sub-second LCP</strong>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <span style="font-size: 0.9rem; color: #94a3b8;">Edge Cache Hit Ratio</span>
-                                <strong style="font-family: 'Space Mono', monospace; color: #ffffff; font-size: 1.1rem;">99.4%</strong>
+                                <span style="font-size: 0.9rem; color: #94a3b8;">API Contracts</span>
+                                <strong style="font-family: 'Space Mono', monospace; color: #ffffff; font-size: 1rem;">REST &amp; GraphQL</strong>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <span style="font-size: 0.9rem; color: #94a3b8;">Mobile Google PageSpeed</span>
-                                <strong style="font-family: 'Space Mono', monospace; color: #C6FF00; font-size: 1.1rem;">98 / 100</strong>
+                                <span style="font-size: 0.9rem; color: #94a3b8;">CMS Architecture</span>
+                                <strong style="font-family: 'Space Mono', monospace; color: #C6FF00; font-size: 1rem;">Headless Decoupled</strong>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bento Card 2: Shopify & Headless Commerce -->
+                <!-- 02 Shopify & E-Commerce Development -->
                 <div class="bento-card-regular">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
                             <span class="cap-num">02</span>
                             <span class="cap-chip">E-COMMERCE</span>
                         </div>
-                        <h3 class="cap-title"><em>shopify stores</em> &amp; theme builds</h3>
-                        <p class="cap-desc">Bespoke Shopify storefronts, custom Liquid sections, Storefront API integrations, and instant sub-second drawer carts built for rapid checkout conversion.</p>
+                        <h3 class="cap-title"><em>Shopify &amp; E-Commerce</em> Development</h3>
+                        <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: #111111; margin: 0.5rem 0 0.75rem;">Custom Shopify stores built around your brand</h4>
+                        <p class="cap-desc">We build Shopify storefronts that go beyond standard themes. From custom Liquid sections and responsive storefronts to Storefront API integrations, product architecture and catalog migrations, we create ecommerce experiences designed around how your customers actually shop.</p>
                         <div class="cap-tags">
-                            <span class="cap-tag">Liquid Themes</span>
+                            <span class="cap-tag">Shopify</span>
+                            <span class="cap-tag">Liquid</span>
                             <span class="cap-tag">Storefront API</span>
-                            <span class="cap-tag">Ajax Slideout</span>
-                            <span class="cap-tag">Hydrogen</span>
+                            <span class="cap-tag">Custom Themes</span>
+                            <span class="cap-tag">Ecommerce Architecture</span>
                         </div>
                     </div>
                     <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1.25rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #64748b; font-weight: 700;">CONVERSION ARCHITECTURE</span>
-                        <a href="/services/shopify-development" class="cap-link" aria-label="Explore Shopify Development">
-                            <span>Explore</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        <a href="/services/shopify-development" class="cap-link" aria-label="Explore E-Commerce">
+                            <span>Explore E-Commerce &rarr;</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Bento Card 3: AI Automation & Agents -->
+                <!-- 03 AI & Automation -->
                 <div class="bento-card-regular">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
                             <span class="cap-num">03</span>
                             <span class="cap-chip">INTELLIGENT SYSTEMS</span>
                         </div>
-                        <h3 class="cap-title"><em>ai automation</em> &amp; workflow systems</h3>
-                        <p class="cap-desc">Deterministic workflow automation using n8n and Make, multi-model failover routing, task-oriented LLM agents, and automated data ingestion pipelines.</p>
+                        <h3 class="cap-title"><em>AI &amp; Automation</em> Systems</h3>
+                        <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: #111111; margin: 0.5rem 0 0.75rem;">Intelligent systems for repetitive business workflows</h4>
+                        <p class="cap-desc">We use AI and automation to remove unnecessary manual work and connect the systems your business already uses. Our solutions can include workflow automation, AI agents, data pipelines, CRM synchronization and multi-step processes built with tools such as n8n and Make.</p>
                         <div class="cap-tags">
-                            <span class="cap-tag">Model Routing</span>
-                            <span class="cap-tag">n8n / Make</span>
                             <span class="cap-tag">AI Agents</span>
-                            <span class="cap-tag">Token Controls</span>
+                            <span class="cap-tag">n8n</span>
+                            <span class="cap-tag">Make</span>
+                            <span class="cap-tag">Data Pipelines</span>
+                            <span class="cap-tag">Workflow Automation</span>
                         </div>
                     </div>
                     <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1.25rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #64748b; font-weight: 700;">DETERMINISTIC PIPELINES</span>
-                        <a href="/services/ai-automation" class="cap-link" aria-label="Explore AI Automation">
-                            <span>Explore</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        <a href="/services/ai-automation" class="cap-link" aria-label="Explore AI & Automation">
+                            <span>Explore AI &amp; Automation &rarr;</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Bento Card 4: Search & Security Recovery -->
+                <!-- 04 Search, SEO & Technical Recovery -->
                 <div class="bento-card-regular">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
                             <span class="cap-num">04</span>
                             <span class="cap-chip">SEARCH &amp; RECOVERY</span>
                         </div>
-                        <h3 class="cap-title"><em>ai search</em> &amp; forensic recovery</h3>
-                        <p class="cap-desc">AEO &amp; GEO semantic citation optimization, structured JSON-LD entity graphs, and emergency WordPress malware and backdoor eradication.</p>
+                        <h3 class="cap-title"><em>Search, SEO</em> &amp; Technical Recovery</h3>
+                        <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: #111111; margin: 0.5rem 0 0.75rem;">Make your digital presence easier to discover, understand and trust</h4>
+                        <p class="cap-desc">Modern search is changing. We help businesses build technically strong websites with structured data, search-focused information architecture and content foundations designed for traditional search engines and emerging AI answer engines. We also help recover and harden compromised WordPress websites when technical issues put an existing digital presence at risk.</p>
                         <div class="cap-tags">
-                            <span class="cap-tag">AEO / GEO</span>
-                            <span class="cap-tag">Entity Graphs</span>
-                            <span class="cap-tag">Malware Removal</span>
-                            <span class="cap-tag">Hardening</span>
+                            <span class="cap-tag">Technical SEO</span>
+                            <span class="cap-tag">AEO</span>
+                            <span class="cap-tag">GEO</span>
+                            <span class="cap-tag">Schema</span>
+                            <span class="cap-tag">WordPress Recovery</span>
+                            <span class="cap-tag">Security Hardening</span>
                         </div>
                     </div>
                     <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1.25rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #64748b; font-weight: 700;">INCIDENT RECOVERY</span>
-                        <a href="/services/ai-search-optimization" class="cap-link" aria-label="Explore Search and Security">
-                            <span>Explore</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        <a href="/services/ai-search-optimization" class="cap-link" aria-label="Explore Search & Recovery">
+                            <span>Explore Search &amp; Recovery &rarr;</span>
                         </a>
                     </div>
                 </div>
@@ -4876,440 +4998,400 @@
         </section>
 
         <!-- ============================ -->
-        <!-- 3. Studio Philosophy & Engineering Standards -->
+        <!-- HOW WE BUILD (PROCESS) -->
         <!-- ============================ -->
-        <section class="philosophy-sec sections" id="philosophy" data-section="Studio Philosophy">
+        <section class="how-we-build-sec sections" id="process" data-section="How We Build">
             <div class="services-header oth">
                 <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ STUDIO PHILOSOPHY ]</div>
-                    <h2 class="header-title">Crafting Solutions to <br><span class="bs-serif-text">Complex Systems</span><span class="about-dot"></span></h2>
+                    <div class="sec-eyebrow">[ 02 / STRUCTURED PROCESS ]</div>
+                    <h2 class="header-title">How <br><span class="bs-serif-text">We Build</span><span class="about-dot"></span></h2>
                 </div>
-                <span class="another-span">We reject bloated templates and transient hype. Every platform we build is engineered with strict type safety, sub-second latency, and architectural durability.</span>
+                <div>
+                    <div style="font-family: 'Space Mono', monospace; font-size: 0.88rem; font-weight: 700; color: #111111; margin-bottom: 0.4rem; letter-spacing: 0.05em;">
+                        Strategy &rarr; Design &rarr; Engineering &rarr; Growth
+                    </div>
+                    <span class="another-span">Every project follows a structured process designed to reduce uncertainty and create a stronger digital foundation.</span>
+                </div>
             </div>
 
-            <div class="philosophy-grid">
-                <!-- Left: Manifesto Card -->
-                <div class="philosophy-manifesto-card">
-                    <p class="philosophy-quote">
-                        &ldquo;From Tokyo to San Francisco, we partner with ambitious founders to engineer web platforms that combine <em>editorial elegance</em> with <em>mission-critical performance</em>.&rdquo;
+            <div class="build-pipeline-track">
+                <!-- 01 Discovery -->
+                <div class="build-step-node">
+                    <div class="step-header">
+                        <span class="step-badge">01</span>
+                        <span class="step-tag">FOUNDATION</span>
+                    </div>
+                    <h3 class="step-title">Discovery</h3>
+                    <p class="step-desc">We understand your business, audience, competitors, goals and technical requirements before we start building.</p>
+                    <div class="step-output">
+                        <span class="output-label">OBJECTIVE:</span>
+                        <span class="output-val">Understand what needs to be solved before deciding how it should be built.</span>
+                    </div>
+                </div>
+
+                <!-- 02 Strategy & Experience -->
+                <div class="build-step-node">
+                    <div class="step-header">
+                        <span class="step-badge">02</span>
+                        <span class="step-tag">EXPERIENCE</span>
+                    </div>
+                    <h3 class="step-title">Strategy &amp; Experience</h3>
+                    <p class="step-desc">We translate research into positioning, information architecture, user journeys and interface direction.</p>
+                    <div class="step-output">
+                        <span class="output-label">OBJECTIVE:</span>
+                        <span class="output-val">Every major design decision has a reason behind it.</span>
+                    </div>
+                </div>
+
+                <!-- 03 Design & Development -->
+                <div class="build-step-node">
+                    <div class="step-header">
+                        <span class="step-badge">03</span>
+                        <span class="step-tag">ENGINEERING</span>
+                    </div>
+                    <h3 class="step-title">Design &amp; Development</h3>
+                    <p class="step-desc">Our designers and developers work together to turn the system into a polished, responsive digital experience.</p>
+                    <div class="step-output">
+                        <span class="output-label">OBJECTIVE:</span>
+                        <span class="output-val">Custom interfaces, reusable components and maintainable code rather than forcing your business into a template.</span>
+                    </div>
+                </div>
+
+                <!-- 04 Launch & Evolution -->
+                <div class="build-step-node">
+                    <div class="step-header">
+                        <span class="step-badge">04</span>
+                        <span class="step-tag">CONTINUITY</span>
+                    </div>
+                    <h3 class="step-title">Launch &amp; Evolution</h3>
+                    <p class="step-desc">Launch is not the end of the project. We help refine performance, resolve issues, introduce new features and evolve the system as your business grows.</p>
+                    <div class="step-output">
+                        <span class="output-label">OBJECTIVE:</span>
+                        <span class="output-val">Active performance refinement, issue resolution, and system evolution.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================ -->
+        <!-- SELECTED WORK (CASE STUDIES) -->
+        <!-- ============================ -->
+        <section class="works-section sections" id="work" data-section="Selected Work">
+            <div class="works-header" style="max-width: 1340px; margin: 0 auto 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+                <div>
+                    <div class="sec-eyebrow">[ 03 / PORTFOLIO ARCHIVE ]</div>
+                    <h2 class="header-title" style="margin-bottom: 0.5rem;">Selected <br><span class="bs-serif-text">Work</span><span class="about-dot"></span></h2>
+                    <p style="font-size: 1.05rem; color: #555555; max-width: 600px; margin-top: 0.5rem;">
+                        Digital products, platforms and experiences we've built. We work across web development, ecommerce, SaaS, education, architecture, lifestyle and mobile products.
                     </p>
-                    
-                    <div class="philosophy-coords">
-                        <span class="philosophy-coords-bullet">&bull;</span>
-                        <span>SF 37.77&deg; N / TYO 35.67&deg; N &bull; EST. 2026</span>
-                    </div>
+                </div>
+                <a href="/case-studies" class="all-works-btn" style="padding: 12px 24px; border: 1px solid rgba(0,0,0,0.15); border-radius: 999px; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #111111; transition: background 0.2s ease;">
+                    View All Case Studies &rarr;
+                </a>
+            </div>
 
-                    <div class="philosophy-actions">
-                        <a href="/contact" class="philosophy-btn-primary">
-                            <span>Start Project</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                        <a href="/about" class="philosophy-btn-secondary">
-                            <span>Read Process</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
+            <div class="selected-work-grid" style="max-width: 1340px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem;">
+                <!-- Project 1: Pixza -->
+                <div class="work-card-editorial">
+                    <div class="work-card-thumb">
+                        <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza AI Creative Studio" width="1376" height="768" loading="lazy" decoding="async" />
+                        <span class="work-card-badge">AI &middot; SaaS &middot; Digital Product</span>
+                    </div>
+                    <div class="work-card-info">
+                        <div class="work-card-meta">
+                            <span class="work-card-sub">AI Creative Studio</span>
+                        </div>
+                        <h3 class="work-card-name">Pixza</h3>
+                        <p class="work-card-summary">An AI-powered creative production platform designed around product photography, social content, advertising workflows and video creation.</p>
+                        <a href="/case-studies/pixza" class="work-card-cta">View Case Study &rarr;</a>
                     </div>
                 </div>
 
-                <!-- Right: 6 Engineering Pillars -->
-                <div class="philosophy-pillars-list">
-                    <div class="philosophy-pillar-card">
-                        <span class="pillar-idx">01 / KERNEL</span>
-                        <h3 class="pillar-name">Zero-Bloat Foundation</h3>
-                        <p class="pillar-desc">Lightweight semantic markup, zero unnecessary runtime dependencies, and minimal payload size.</p>
+                <!-- Project 2: Kala Design Co -->
+                <div class="work-card-editorial">
+                    <div class="work-card-thumb">
+                        <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architecture" width="1376" height="768" loading="lazy" decoding="async" />
+                        <span class="work-card-badge">Web Design &middot; Development &middot; Architecture</span>
                     </div>
-
-                    <div class="philosophy-pillar-card">
-                        <span class="pillar-idx">02 / ARCHITECTURE</span>
-                        <h3 class="pillar-name">Modular Domain Design</h3>
-                        <p class="pillar-desc">Decoupled data layer, edge caching boundaries, and strict type-safe contracts across all services.</p>
+                    <div class="work-card-info">
+                        <div class="work-card-meta">
+                            <span class="work-card-sub">Architecture &amp; Interior Design</span>
+                        </div>
+                        <h3 class="work-card-name">Kala Design Co</h3>
+                        <p class="work-card-summary">A digital experience designed to communicate an architecture and interior studio's work through strong visual storytelling, structured project presentation and a refined editorial interface.</p>
+                        <a href="/case-studies/kala-design" class="work-card-cta">View Case Study &rarr;</a>
                     </div>
+                </div>
 
-                    <div class="philosophy-pillar-card">
-                        <span class="pillar-idx">03 / WEBGL &amp; MOTION</span>
-                        <h3 class="pillar-name">60fps Kinetic Craft</h3>
-                        <p class="pillar-desc">Hardware-accelerated shaders, spring physics, and fluid micro-interactions with zero layout thrashing.</p>
+                <!-- Project 3: NextSchool ERP -->
+                <div class="work-card-editorial">
+                    <div class="work-card-thumb">
+                        <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="NextSchool ERP Platform" width="1376" height="768" loading="lazy" decoding="async" />
+                        <span class="work-card-badge">EdTech &middot; ERP &middot; Web Application</span>
                     </div>
-
-                    <div class="philosophy-pillar-card">
-                        <span class="pillar-idx">04 / ACCESSIBILITY</span>
-                        <h3 class="pillar-name">WCAG 2.2 AA Standard</h3>
-                        <p class="pillar-desc">Keyboard navigable, screen-reader optimized, and high-contrast accessibility guaranteed across devices.</p>
+                    <div class="work-card-info">
+                        <div class="work-card-meta">
+                            <span class="work-card-sub">School Management &amp; ERP Platform</span>
+                        </div>
+                        <h3 class="work-card-name">NextSchool ERP</h3>
+                        <p class="work-card-summary">A digital platform designed around the operational needs of schools, connecting administration, teachers, students, parents and campus workflows.</p>
+                        <a href="/case-studies/nextschool" class="work-card-cta">View Case Study &rarr;</a>
                     </div>
+                </div>
 
-                    <div class="philosophy-pillar-card">
-                        <span class="pillar-idx">05 / KINETIC UI</span>
-                        <h3 class="pillar-name">Tactile State Physics</h3>
-                        <p class="pillar-desc">Fluid gesture handling, responsive feedback loops, and intuitive navigation ergonomics.</p>
+                <!-- Project 4: BAZZARO -->
+                <div class="work-card-editorial">
+                    <div class="work-card-thumb">
+                        <img src="/assets/images/case-studies/bazzaro/hero.jpg" alt="BAZZARO D2C Ecommerce" width="1376" height="768" loading="lazy" decoding="async" />
+                        <span class="work-card-badge">E-Commerce &middot; Shopify &middot; D2C</span>
                     </div>
+                    <div class="work-card-info">
+                        <div class="work-card-meta">
+                            <span class="work-card-sub">D2C Ecommerce</span>
+                        </div>
+                        <h3 class="work-card-name">BAZZARO</h3>
+                        <p class="work-card-summary">A fashion and lifestyle ecommerce experience built around product discovery, collections, visual storytelling and direct-to-consumer shopping.</p>
+                        <a href="/case-studies/bazzaro" class="work-card-cta">View Case Study &rarr;</a>
+                    </div>
+                </div>
 
-                    <div class="philosophy-pillar-card">
-                        <span class="pillar-idx">06 / INTELLIGENCE</span>
-                        <h3 class="pillar-name">Edge AI Integration</h3>
-                        <p class="pillar-desc">Streaming AI assistants, semantic search indexing, and real-time inference orchestration.</p>
+                <!-- Project 5: Decor Lab -->
+                <div class="work-card-editorial">
+                    <div class="work-card-thumb">
+                        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Decor Lab Architecture" width="1376" height="768" loading="lazy" decoding="async" />
+                        <span class="work-card-badge">Web Development &middot; Architecture &middot; Design</span>
+                    </div>
+                    <div class="work-card-info">
+                        <div class="work-card-meta">
+                            <span class="work-card-sub">Architecture &amp; Landscape Studio</span>
+                        </div>
+                        <h3 class="work-card-name">Decor Lab</h3>
+                        <p class="work-card-summary">A digital platform for an architecture and landscape practice, combining project storytelling, visual identity and a structured content experience.</p>
+                        <a href="/case-studies/decor-lab" class="work-card-cta">View Case Study &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Urbanland Products -->
+                <div class="work-card-editorial">
+                    <div class="work-card-thumb">
+                        <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products B2B" width="1376" height="768" loading="lazy" decoding="async" />
+                        <span class="work-card-badge">B2B &middot; Product Catalogue &middot; Web Development</span>
+                    </div>
+                    <div class="work-card-info">
+                        <div class="work-card-meta">
+                            <span class="work-card-sub">B2B Product Catalogue</span>
+                        </div>
+                        <h3 class="work-card-name">Urbanland Products</h3>
+                        <p class="work-card-summary">A product-focused digital experience for an architectural infrastructure and outdoor furniture business, designed to make a broad catalogue easier to explore and understand.</p>
+                        <a href="/case-studies/urbanland" class="work-card-cta">View Case Study &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SELECTED CLIENT WORKS — hover image list -->
-        <section class="works-section" id="work">
-            <div class="works-header">
-                <h2 class="works-title">Selected <span class="serif-italic">works,</span><br>engineered <span class="serif-italic">with precision</span><span class="about-dot"></span></h2>
-                <a href="/case-studies" class="all-works-btn">All Case Studies &nearr;</a>
-            </div>
-
-            <ul class="work-list">
-                <li class="work-item"
-                    data-img="/assets/images/case-studies/pixza/hero.jpg">
-                    <a href="/case-studies/pixza" class="work-item-link">
-                        <div class="work-item-left">
-                            <span class="work-num">01</span>
-                            <span class="work-name">Pixza</span>
-                            <span class="work-tag">Autonomous AI Creative Studio &middot; PyTorch</span>
-                        </div>
-                        <span class="work-arrow">&nearr;</span>
-                    </a>
-                </li>
-                <li class="work-item"
-                    data-img="/assets/images/case-studies/kala-design/hero.jpg">
-                    <a href="/case-studies/kala-design" class="work-item-link">
-                        <div class="work-item-left">
-                            <span class="work-num">02</span>
-                            <span class="work-name">Kala Design Co</span>
-                            <span class="work-tag">Architecture &amp; Spatial Studio &middot; Web</span>
-                        </div>
-                        <span class="work-arrow">&nearr;</span>
-                    </a>
-                </li>
-                <li class="work-item"
-                    data-img="/assets/images/project_1_1787254271240.webp">
-                    <a href="/case-studies/nextschool-erp" class="work-item-link">
-                        <div class="work-item-left">
-                            <span class="work-num">03</span>
-                            <span class="work-name">NextSchool ERP</span>
-                            <span class="work-tag">Multi-Tenant Campus Cloud ERP</span>
-                        </div>
-                        <span class="work-arrow">&nearr;</span>
-                    </a>
-                </li>
-                <li class="work-item"
-                    data-img="/assets/images/case-studies/bazzaro/hero.png">
-                    <a href="/case-studies/bazzaro" class="work-item-link">
-                        <div class="work-item-left">
-                            <span class="work-num">04</span>
-                            <span class="work-name">BAZZARO</span>
-                            <span class="work-tag">D2C Canvas Flagship &middot; Storefront</span>
-                        </div>
-                        <span class="work-arrow">&nearr;</span>
-                    </a>
-                </li>
-                <li class="work-item"
-                    data-img="/assets/images/case-studies/decor-lab/hero.jpg">
-                    <a href="/case-studies/decor-lab" class="work-item-link">
-                        <div class="work-item-left">
-                            <span class="work-num">05</span>
-                            <span class="work-name">Decor Lab</span>
-                            <span class="work-tag">Parametric Architecture Practice &middot; Next.js</span>
-                        </div>
-                        <span class="work-arrow">&nearr;</span>
-                    </a>
-                </li>
-                <li class="work-item"
-                    data-img="/assets/images/case-studies/urbanland/hero.jpg">
-                    <a href="/case-studies/urbanland" class="work-item-link">
-                        <div class="work-item-left">
-                            <span class="work-num">06</span>
-                            <span class="work-name">Urbanland Products</span>
-                            <span class="work-tag">B2B Architectural Infrastructure &middot; Catalog</span>
-                        </div>
-                        <span class="work-arrow">&nearr;</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
-
         <!-- ============================ -->
-        <!-- Growth Stage Pricing Section -->
+        <!-- BUILT FOR DIFFERENT STAGES OF GROWTH -->
         <!-- ============================ -->
-        <section class="main-pricing sections" data-section="Our packages">
+        <section class="stages-sec sections" id="growth-stages" data-section="Stages of Growth">
             <div class="services-header oth">
-                <h2 class="header-title">Identify Your <br><span class="bs-serif-text">Growth Stage</span></h2>
-                <span class="another-span">We don't just sell services; we map our solutions to your business lifecycle. Select the stage that matches your current operational maturity.</span>
+                <div class="capabilities-header-left">
+                    <div class="sec-eyebrow">[ 04 / ENGAGEMENT TIERS ]</div>
+                    <h2 class="header-title">Built for Different <br><span class="bs-serif-text">Stages of Growth</span><span class="about-dot"></span></h2>
+                </div>
+                <span class="another-span">Not every business needs the same digital system. We architect solutions tailored to your operational complexity and growth velocity.</span>
             </div>
 
-            <div class="packages-grid">
-                <!-- Card 1: Seedling -->
-                <a href="/contact?package=seedling" class="card-link">
-                    <div class="package-card">
-                        <div class="card-header">
-                            <div class="card-options">
-                                <h3>
-                                    Seedling
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
-                                        <circle cx="8" cy="8" r="8" fill="#C6FF00" />
-                                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z" />
-                                    </svg>
-                                </h3>
-                            </div>
-                            <p class="description">For founders validating an idea. You need a professional face for the business to gain initial trust and market entry.</p>
-                        </div>
-
-                        <div class="price-section">
-                            <div class="price">
-                                <span class="price-amount">Early Stage</span>
-                            </div>
-                            <p class="price-period">Focus: Validation &amp; Identity</p>
-                        </div>
-
-                        <ul class="feature-list">
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Brand Identity Direction</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Core Messaging Framework</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Essential Marketing Website</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Responsive Mobile Layout</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Technical SEO Setup</li>
+            <div class="stages-grid" style="max-width: 1340px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <!-- Stage 1 -->
+                <div class="stage-card">
+                    <div class="stage-card-num">STAGE 01</div>
+                    <h3 class="stage-card-title">Starting Something New</h3>
+                    <p class="stage-card-desc">You need a strong digital foundation that communicates what you do and gives customers a reason to trust you.</p>
+                    <div class="stage-focus-box">
+                        <div class="stage-focus-label">FOCUS</div>
+                        <ul class="stage-focus-list">
+                            <li>Custom marketing website</li>
+                            <li>Brand and messaging direction</li>
+                            <li>Responsive UX</li>
+                            <li>Technical SEO foundation</li>
+                            <li>Conversion-focused information architecture</li>
                         </ul>
                     </div>
-                </a>
+                </div>
 
-                <!-- Card 2: Sapling (Popular) -->
-                <a href="/contact?package=sapling" class="card-link">
-                    <div class="package-card popular">
-                        <div class="card-header">
-                            <div class="card-options">
-                                <h3>
-                                    Sapling
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
-                                        <circle cx="8" cy="8" r="8" fill="#C6FF00" />
-                                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z" />
-                                    </svg>
-                                </h3>
-                            </div>
-                            <p class="description">For businesses with traction. You are ready to streamline operations, update content frequently, and scale your reach.</p>
-                        </div>
-
-                        <div class="price-section">
-                            <div class="price">
-                                <span class="price-amount">Growth Stage</span>
-                            </div>
-                            <p class="price-period">Focus: Traction &amp; Scalable Systems</p>
-                        </div>
-
-                        <ul class="feature-list">
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Comprehensive Design System</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Dynamic CMS &amp; Content Architecture</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Blog &amp; Insights Engine</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Core Web Vitals Optimization</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Conversion Focused UI/UX</li>
+                <!-- Stage 2 -->
+                <div class="stage-card">
+                    <div class="stage-card-num">STAGE 02</div>
+                    <h3 class="stage-card-title">Growing With Traction</h3>
+                    <p class="stage-card-desc">Your business is established and your digital presence needs to become easier to manage and scale.</p>
+                    <div class="stage-focus-box">
+                        <div class="stage-focus-label">FOCUS</div>
+                        <ul class="stage-focus-list">
+                            <li>Design systems</li>
+                            <li>CMS architecture</li>
+                            <li>Content and publishing systems</li>
+                            <li>Ecommerce</li>
+                            <li>Performance optimization</li>
+                            <li>Conversion-focused UX</li>
                         </ul>
                     </div>
-                </a>
+                </div>
 
-                <!-- Card 3: Established -->
-                <a href="/contact?package=established" class="card-link">
-                    <div class="package-card">
-                        <div class="card-header">
-                            <div class="card-options">
-                                <h3>
-                                    Established
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
-                                        <circle cx="8" cy="8" r="8" fill="#C6FF00" />
-                                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z" />
-                                    </svg>
-                                </h3>
-                            </div>
-                            <p class="description">For complex organizations. You have unique functionality needs, integrations, or high-volume requirements.</p>
-                        </div>
-
-                        <div class="price-section">
-                            <div class="price">
-                                <span class="price-amount">Expansion</span>
-                            </div>
-                            <p class="price-period">Focus: Custom Architecture &amp; Scale</p>
-                        </div>
-
-                        <ul class="feature-list">
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Bespoke Digital Web Solutions</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Custom API &amp; CRM Integrations</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Enterprise-Grade Next.js Architecture</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Consultative Product Strategy</li>
-                            <li><svg class="check-icon" viewBox="0 0 16 16" width="18" height="18"><circle cx="8" cy="8" r="8" fill="#C6FF00"/><path fill="#fff" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Priority SLA Support Channel</li>
+                <!-- Stage 3 -->
+                <div class="stage-card">
+                    <div class="stage-card-num">STAGE 03</div>
+                    <h3 class="stage-card-title">Building Something Complex</h3>
+                    <p class="stage-card-desc">You need functionality that cannot be solved with an off-the-shelf website.</p>
+                    <div class="stage-focus-box">
+                        <div class="stage-focus-label">FOCUS</div>
+                        <ul class="stage-focus-list">
+                            <li>Custom web applications</li>
+                            <li>APIs and integrations</li>
+                            <li>Business automation</li>
+                            <li>SaaS architecture</li>
+                            <li>Advanced Next.js development</li>
+                            <li>Product strategy and technical consulting</li>
                         </ul>
                     </div>
-                </a>
+                </div>
             </div>
         </section>
 
         <!-- ============================ -->
-        <!-- Infinite Text Scroll Marquee 2 -->
+        <!-- OUR ENGINEERING PRINCIPLES -->
         <!-- ============================ -->
-        <div class="infs-marquee-container sections" data-section="Numbers count">
-            <div class="infs-scroll-wrapper infs-rtl">
-                <div class="infs-scroll-track">
-                    <span class="infs-scroll-text">digital craft</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">visual logic</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">design systems</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">brand energy</span>
-                    <span class="infs-dot">&bull;</span>
+        <section class="principles-sec sections" id="principles" data-section="Engineering Principles">
+            <div class="services-header oth">
+                <div class="capabilities-header-left">
+                    <div class="sec-eyebrow">[ 05 / ENGINEERING DISCIPLINE ]</div>
+                    <h2 class="header-title">Our <br><span class="bs-serif-text">Engineering Principles</span><span class="about-dot"></span></h2>
                 </div>
-                <div class="infs-scroll-track" aria-hidden="true">
-                    <span class="infs-scroll-text">digital craft</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">visual logic</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">design systems</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">brand energy</span>
-                    <span class="infs-dot">&bull;</span>
-                </div>
-            </div>
-            <div class="infs-scroll-wrapper infs-ltr">
-                <div class="infs-scroll-track">
-                    <span class="infs-scroll-text">clean UI - UX</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">solid strategy</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">real impact</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">built to last</span>
-                    <span class="infs-dot">&bull;</span>
-                </div>
-                <div class="infs-scroll-track" aria-hidden="true">
-                    <span class="infs-scroll-text">clean UI - UX</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">solid strategy</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">real impact</span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">built to last</span>
-                    <span class="infs-dot">&bull;</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ============================ -->
-        <!-- Engineering Delivery Standards -->
-        <!-- ============================ -->
-        <div class="testimonials-container sections" id="testimonials" data-section="Delivery Standards">
-            <div class="testimonials-header">
-                <div class="testimonials-header-left">
-                    <div class="sec-eyebrow">[ DELIVERY STANDARDS &amp; DISCIPLINES ]</div>
-                    <h2 class="testimonials-title">
-                        Built on <br><span class="bs-serif-text">engineering rigor</span>
-                    </h2>
-                </div>
-                <div class="testimonials-header-right">
-                    <p class="testimonials-subtitle">Our delivery principles guide every engagement — from architectural code reviews to responsive typography, search clarity, and reliable post-launch stability.</p>
-                </div>
+                <span class="another-span">Rigorous architectural tenets that govern every line of code, data contract, and user interaction we deploy.</span>
             </div>
 
-            <div class="testimonials-grid">
-                <!-- Standard 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-top">
-                        <div class="testimonial-meta-row">
-                            <span class="testimonial-metric-chip">ARCHITECTURE FIRST</span>
-                            <div class="testimonial-rating-box">
-                                <span class="testimonial-score">STANDARD 01</span>
-                            </div>
-                        </div>
-                        <p class="testimonial-quote">
-                            &ldquo;We engineer software with strict modularity, robust typing, and predictable data flow. 
-                            Every digital platform is built for <span class="italic-text">long-term maintainability</span>, clean architectural health, 
-                            and seamless future extensions.&rdquo;
-                        </p>
-                    </div>
-                    <div class="testimonial-author-box">
-                        <div class="testimonial-avatar">01</div>
-                        <div class="testimonial-author-info">
-                            <span class="testimonial-author-name">Type-Safe Clean Codebases</span>
-                            <span class="testimonial-author-role">Foundational Engineering Discipline</span>
-                        </div>
+            <div class="principles-grid" style="max-width: 1340px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <!-- Principle 1 -->
+                <div class="principle-card">
+                    <div class="principle-badge">01 &middot; ARCHITECTURE</div>
+                    <h3 class="principle-title">Architecture First</h3>
+                    <p class="principle-body">
+                        We build systems around clear structure, reusable components and maintainable code so future changes don't become expensive rebuilds.
+                    </p>
+                    <div class="principle-note">
+                        <strong>Clean, maintainable code:</strong> Modern frameworks, predictable data flow and thoughtful architecture form the foundation of every project.
                     </div>
                 </div>
 
-                <!-- Standard 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-top">
-                        <div class="testimonial-meta-row">
-                            <span class="testimonial-metric-chip">MEASURED PERFORMANCE</span>
-                            <div class="testimonial-rating-box">
-                                <span class="testimonial-score">STANDARD 02</span>
-                            </div>
-                        </div>
-                        <p class="testimonial-quote">
-                            &ldquo;Fast page rendering and accessible interaction models are architectural baselines, not afterthought add-ons. 
-                            We optimize assets, execution paths, and <span class="italic-text">layout stability by design</span> across every viewport.&rdquo;
-                        </p>
-                    </div>
-                    <div class="testimonial-author-box">
-                        <div class="testimonial-avatar">02</div>
-                        <div class="testimonial-author-info">
-                            <span class="testimonial-author-name">Performance &amp; Accessibility</span>
-                            <span class="testimonial-author-role">Sub-Second Experience Standard</span>
-                        </div>
+                <!-- Principle 2 -->
+                <div class="principle-card">
+                    <div class="principle-badge">02 &middot; PERFORMANCE</div>
+                    <h3 class="principle-title">Performance by Design</h3>
+                    <p class="principle-body">
+                        Performance is considered during architecture, design and development &mdash; not added as an afterthought.
+                    </p>
+                    <div class="principle-note">
+                        We optimize assets, rendering, interaction and layout stability across devices to guarantee sub-second load times.
                     </div>
                 </div>
 
-                <!-- Standard 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-top">
-                        <div class="testimonial-meta-row">
-                            <span class="testimonial-metric-chip">TRANSPARENT COLLABORATION</span>
-                            <div class="testimonial-rating-box">
-                                <span class="testimonial-score">STANDARD 03</span>
-                            </div>
-                        </div>
-                        <p class="testimonial-quote">
-                            &ldquo;You work directly with the engineers building your systems. 
-                            Clear technical updates, working milestone demos, and <span class="italic-text">honest technical guidance</span> ensure your digital vision is executed with precision.&rdquo;
-                        </p>
+                <!-- Principle 3 -->
+                <div class="principle-card">
+                    <div class="principle-badge">03 &middot; ACCESSIBILITY</div>
+                    <h3 class="principle-title">Accessible Experiences</h3>
+                    <p class="principle-body">
+                        We design and develop interfaces that are usable across different devices, input methods and accessibility needs.
+                    </p>
+                    <div class="principle-note">
+                        Accessibility is considered throughout the product rather than treated as a final checklist.
                     </div>
-                    <div class="testimonial-author-box">
-                        <div class="testimonial-avatar">03</div>
-                        <div class="testimonial-author-info">
-                            <span class="testimonial-author-name">Direct Technical Ownership</span>
-                            <span class="testimonial-author-role">Collaborative Delivery Framework</span>
-                        </div>
+                </div>
+
+                <!-- Principle 4 -->
+                <div class="principle-card">
+                    <div class="principle-badge">04 &middot; DIRECT TECHNICAL OWNERSHIP</div>
+                    <h3 class="principle-title">Direct Technical Ownership</h3>
+                    <p class="principle-body">
+                        You work directly with the people building your product.
+                    </p>
+                    <div class="principle-note">
+                        Clear communication, working demonstrations and transparent technical decisions keep projects moving without unnecessary layers between you and the work.
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- ============================ -->
-        <!-- Frequently Asked Questions   -->
+        <!-- WHY KAWAKI? -->
+        <!-- ============================ -->
+        <section class="why-kawaki-sec sections" id="why-kawaki" data-section="Why Kawaki">
+            <div class="services-header oth">
+                <div class="capabilities-header-left">
+                    <div class="sec-eyebrow">[ 06 / VALUE PROPOSITION ]</div>
+                    <h2 class="header-title">Why <br><span class="bs-serif-text">Kawaki?</span><span class="about-dot"></span></h2>
+                </div>
+                <div>
+                    <div style="font-family: 'Space Mono', monospace; font-size: 0.95rem; font-weight: 700; color: #111111; margin-bottom: 0.4rem;">
+                        No unnecessary complexity. No generic templates.
+                    </div>
+                    <span class="another-span">We believe digital products should be distinctive without becoming difficult to maintain.</span>
+                </div>
+            </div>
+
+            <div class="why-kawaki-grid" style="max-width: 1340px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem;">
+                <div class="why-card">
+                    <span class="why-idx">01</span>
+                    <h3 class="why-card-title">Strategy before execution</h3>
+                    <p class="why-card-desc">We understand the business problem before choosing the technology.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-idx">02</span>
+                    <h3 class="why-card-title">Custom where it matters</h3>
+                    <p class="why-card-desc">We don't force unique businesses into generic templates.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-idx">03</span>
+                    <h3 class="why-card-title">Modern engineering</h3>
+                    <p class="why-card-desc">We use current frameworks and development practices to create maintainable digital systems.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-idx">04</span>
+                    <h3 class="why-card-title">Design &amp; engineering together</h3>
+                    <p class="why-card-desc">A beautiful interface means little if the underlying system cannot support it.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-idx">05</span>
+                    <h3 class="why-card-title">Built for what's next</h3>
+                    <p class="why-card-desc">Your website or application should have room to evolve with your business.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================ -->
+        <!-- FREQUENTLY ASKED QUESTIONS -->
         <!-- ============================ -->
         <section class="sections container-faq animate-section" id="faq" data-section="Got question?">
             <div class="services-header oth">
-                <h2 class="header-title">Frequently <br><span class="bs-serif-text">asked questions</span></h2>
-                <a href="mailto:hello@kawakistudios.com">
-                    <button class="rlvnt-btn max-content">
-                        <span>got questions?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
-                            <circle cx="8" cy="8" r="8" fill="#C6FF00" />
-                            <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z" />
-                        </svg>
-                    </button>
-                </a>
+                <div class="capabilities-header-left">
+                    <div class="sec-eyebrow">[ 07 / FREQUENTLY ASKED QUESTIONS ]</div>
+                    <h2 class="header-title">Got questions?<br><span class="bs-serif-text">Here are answers</span><span class="about-dot"></span></h2>
+                </div>
+                <span class="another-span">Straightforward answers about our capabilities, timelines, engineering methodology, and commercial models.</span>
             </div>
 
             <ul class="list-faq">
                 <!-- FAQ 1 -->
                 <li class="item-faq">
-                    <button class="question-faq active-faq" data-faq-target="faq-answer-1" type="button">
-                        <span class="text-faq">What does <em>working with us</em> look like?
-                            <p>A simple breakdown of our process.</p>
+                    <button class="question-faq" data-faq-target="faq-answer-1" type="button">
+                        <span class="text-faq">What does Kawaki Studios do?
+                            <p>Studio scope and core offerings.</p>
                         </span>
                         <span class="arrow-faq">
                             <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
                         </span>
                     </button>
-                    <div class="answer-faq open-faq" id="faq-answer-1">
+                    <div class="answer-faq" id="faq-answer-1">
                         <div class="content-faq">
-                            We start by understanding your goals, audience and competitive space. Our team creates a strategy-led foundation followed by branding, UI UX design and website development built for traction. You get one dedicated project manager, transparent weekly updates and a seamless execution process designed for clarity and results.
+                            Kawaki Studios is a digital product and web development studio based in Delhi, India. We design and develop custom websites, web applications, Shopify stores, ecommerce experiences and AI-powered automation systems for businesses worldwide.
                         </div>
                     </div>
                 </li>
@@ -5317,8 +5399,8 @@
                 <!-- FAQ 2 -->
                 <li class="item-faq">
                     <button class="question-faq" data-faq-target="faq-answer-2" type="button">
-                        <span class="text-faq">How long does <em>branding or a website</em> take?
-                            <p>Realistic timelines you can rely on.</p>
+                        <span class="text-faq">How long does a website or web application take?
+                            <p>Timelines and milestone sequencing.</p>
                         </span>
                         <span class="arrow-faq">
                             <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
@@ -5326,7 +5408,7 @@
                     </button>
                     <div class="answer-faq" id="faq-answer-2">
                         <div class="content-faq">
-                            A complete brand identity project takes 2 to 4 weeks. UI UX design and website development projects take 4 to 8 weeks based on complexity, integrations and content readiness. Larger product design or platform builds may require more time. After the discovery call we provide a clear timeline that you can count on.
+                            Project timelines depend on the scope, number of pages, functionality, integrations and content requirements. After understanding your requirements, we provide a realistic project timeline before development begins.
                         </div>
                     </div>
                 </li>
@@ -5334,8 +5416,8 @@
                 <!-- FAQ 3 -->
                 <li class="item-faq">
                     <button class="question-faq" data-faq-target="faq-answer-3" type="button">
-                        <span class="text-faq">What is the <em>investment</em> to work with us?
-                            <p>Our pricing philosophy in one line.</p>
+                        <span class="text-faq">How much does a custom website cost?
+                            <p>Pricing, investment, and deliverables.</p>
                         </span>
                         <span class="arrow-faq">
                             <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
@@ -5343,7 +5425,7 @@
                     </button>
                     <div class="answer-faq" id="faq-answer-3">
                         <div class="content-faq">
-                            Every project is priced specifically for your brand, website or product requirements. Once we understand scope, deliverables and growth goals we provide a fixed quote with no hidden costs. We position ourselves as a strategic partner, not a vendor. Our pricing reflects the long-term value we create for founders and businesses.
+                            There is no single price for a custom digital product. The investment depends on the design complexity, functionality, integrations, content requirements and technical architecture. Contact us with your requirements and we'll recommend the right approach.
                         </div>
                     </div>
                 </li>
@@ -5351,8 +5433,8 @@
                 <!-- FAQ 4 -->
                 <li class="item-faq">
                     <button class="question-faq" data-faq-target="faq-answer-4" type="button">
-                        <span class="text-faq">Do you offer <em>fully custom</em> solutions?
-                            <p>For brands that need more than standard execution.</p>
+                        <span class="text-faq">Do you build fully custom websites?
+                            <p>Bespoke architecture vs templates.</p>
                         </span>
                         <span class="arrow-faq">
                             <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
@@ -5360,14 +5442,63 @@
                     </button>
                     <div class="answer-faq" id="faq-answer-4">
                         <div class="content-faq">
-                            Yes. Our work is primarily fully custom including brand identity, UI UX, product design, and high-performance website development. If you need a scalable digital ecosystem designed for growth, we structure the process around your objectives, industry positioning and market relevance.
+                            Yes. We specialize in custom web development and do not rely on a one-size-fits-all approach. We can build from an existing brand system or develop the digital experience from the ground up.
+                        </div>
+                    </div>
+                </li>
+
+                <!-- FAQ 5 -->
+                <li class="item-faq">
+                    <button class="question-faq" data-faq-target="faq-answer-5" type="button">
+                        <span class="text-faq">Do you develop Shopify stores?
+                            <p>Liquid, themes, and headless ecommerce.</p>
+                        </span>
+                        <span class="arrow-faq">
+                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
+                        </span>
+                    </button>
+                    <div class="answer-faq" id="faq-answer-5">
+                        <div class="content-faq">
+                            Yes. We build custom Shopify storefronts, develop custom Liquid sections, customize themes, work with the Storefront API and support ecommerce migrations and integrations.
+                        </div>
+                    </div>
+                </li>
+
+                <!-- FAQ 6 -->
+                <li class="item-faq">
+                    <button class="question-faq" data-faq-target="faq-answer-6" type="button">
+                        <span class="text-faq">Can you build web applications and SaaS products?
+                            <p>Fullstack applications, dashboards, and APIs.</p>
+                        </span>
+                        <span class="arrow-faq">
+                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
+                        </span>
+                    </button>
+                    <div class="answer-faq" id="faq-answer-6">
+                        <div class="content-faq">
+                            Yes. We develop custom web applications and digital products using modern technologies such as Next.js, React and TypeScript, with custom APIs, data systems and integrations where required.
+                        </div>
+                    </div>
+                </li>
+
+                <!-- FAQ 7 -->
+                <li class="item-faq">
+                    <button class="question-faq" data-faq-target="faq-answer-7" type="button">
+                        <span class="text-faq">Do you work with businesses outside Delhi?
+                            <p>Global collaboration and remote delivery.</p>
+                        </span>
+                        <span class="arrow-faq">
+                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
+                        </span>
+                    </button>
+                    <div class="answer-faq" id="faq-answer-7">
+                        <div class="content-faq">
+                            Yes. Kawaki Studios is based in New Delhi and works with businesses and teams globally across time zones.
                         </div>
                     </div>
                 </li>
             </ul>
         </section>
-
-
 
         <footer class="sections global-site-footer">
             <!-- Top Availability Pill -->
@@ -5380,12 +5511,14 @@
 
             <!-- Big Impact Headline & Magnetic CTA -->
             <div class="services-header-2">
-                <div class="footer-headline-group">
-                    <h3 class="services-title-2">Ready to talk?</h3>
-                    <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+                <div class="footer-headline-group" style="max-width: 650px;">
+                    <h3 class="services-title-2" style="margin-bottom: 0.5rem;">Let's Build Something <br><em><span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">Worth Keeping.</span></em></h3>
+                    <p style="font-size: 1.05rem; line-height: 1.6; color: #555555; margin-top: 1rem;">
+                        Have a website, digital product or business system that needs to be built properly? Tell us what you're working on, what you're trying to achieve and where you're stuck. We'll help you figure out what needs to be built &mdash; and the right way to build it.
+                    </p>
                 </div>
                 <a href="/contact" class="footer-cta-card-btn">
-                    <span>Schedule Intro Call</span>
+                    <span>Start a Project &rarr;</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
                         <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
                         <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
