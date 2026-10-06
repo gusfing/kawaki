@@ -3701,114 +3701,185 @@
             color: #1e293b;
         }
 
-        /* --- ENHANCED BENTO CAPABILITIES --- */
-        .capabilities-bento-grid {
+        
+        /* --- VOLUME EDITORIAL CAPABILITIES GRID --- */
+        .volume-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.75rem;
-            max-width: 1340px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
         }
-        .bento-card-wide {
-            grid-column: span 3;
-            background: #0C0E14;
-            color: #FFFFFF;
-            border-radius: 20px;
-            padding: 3.5rem 3.5rem;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 3.5rem;
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        .bento-card-wide::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(198, 255, 0, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .bento-tag-dark {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #C6FF00;
-            font-family: "Space Mono", monospace;
-            font-size: 0.72rem;
-            padding: 5px 12px;
-            border-radius: 9999px;
-        }
-        .bento-btn-neon {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #C6FF00;
-            color: #000000;
-            font-family: "Space Mono", monospace;
-            font-size: 0.82rem;
-            font-weight: 700;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-        .bento-btn-neon:hover {
-            transform: translateX(4px);
-            background: #d4ff33;
-        }
-        .bento-benchmark-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            padding: 2rem 2.25rem;
-            position: relative;
-            z-index: 2;
-        }
-        .bento-card-regular {
-            background: #FAFAFA;
-            border-radius: 18px;
-            padding: 2.5rem 2rem;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+
+        .volume-card {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease, background-color 0.3s ease;
-        }
-        .bento-card-regular:hover {
-            transform: translateY(-8px);
-            background: #FFFFFF;
-            box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.1);
-            border-color: rgba(0, 0, 0, 0.16);
+            text-align: left;
+            position: relative;
+            box-sizing: border-box;
         }
 
-        @media (max-width: 1024px) {
-            .build-pipeline-track {
+        .volume-media-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1.16;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f8fafc;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            display: block;
+            text-decoration: none;
+            transition: box-shadow 0.4s ease, border-color 0.3s ease;
+        }
+
+        .volume-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .volume-media-wrap:hover .volume-img,
+        .volume-card:hover .volume-img {
+            transform: scale(1.05);
+        }
+
+        .volume-pill {
+            position: absolute;
+            bottom: 1.15rem;
+            right: 1.15rem;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #111111;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            letter-spacing: 0.04em;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .volume-media-wrap:hover .volume-pill,
+        .volume-card:hover .volume-pill {
+            background: #111111;
+            color: #ffffff;
+            border-color: #111111;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .volume-content {
+            padding-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .volume-title-lockup {
+            margin-bottom: 0.75rem;
+        }
+
+        .volume-num-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #ea580c;
+            letter-spacing: 0.08em;
+            display: inline-block;
+            margin-right: 0.4rem;
+        }
+
+        .volume-card-title {
+            margin: 0;
+            display: inline;
+        }
+
+        .volume-card-title a {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #111111;
+            text-decoration: none;
+            display: inline-block;
+            border-bottom: 2px solid #ea580c;
+            padding-bottom: 4px;
+            line-height: 1.4;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .volume-card-title a:hover {
+            color: #ea580c;
+        }
+
+        .volume-card-sub {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0.65rem 0 0.5rem 0;
+            line-height: 1.35;
+        }
+
+        .volume-desc {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.88rem;
+            line-height: 1.68;
+            color: #475569;
+            margin: 0 0 1.25rem 0;
+            flex-grow: 1;
+        }
+
+        .volume-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+        }
+
+        .volume-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            color: #475569;
+            background: #f1f5f9;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.02em;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .volume-card:hover .volume-tag {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        @media (max-width: 1200px) {
+            .volume-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            .bento-card-wide {
-                grid-template-columns: 1fr;
-                padding: 2.5rem 2rem;
                 gap: 2rem;
             }
-            .capabilities-bento-grid {
-                grid-template-columns: 1fr;
-            }
-            .bento-card-wide {
-                grid-column: span 1;
-            }
-        }
-        @media (max-width: 640px) {
-            .build-pipeline-track {
-                grid-template-columns: 1fr;
-            }
         }
 
+        @media (max-width: 640px) {
+            .volume-grid {
+                grid-template-columns: 1fr;
+                gap: 2.75rem;
+            }
+        }
 
         /* --- EDITORIAL SELECTED WORK GRID --- */
         .work-card-editorial {
@@ -4714,146 +4785,103 @@
                 <span class="another-span">Custom web development and digital product engineering form our primary craft, supported by specialized ecommerce, automation, and search systems.</span>
             </div>
 
-            <div class="capabilities-bento-grid">
-                <!-- 01 Web Application Development (Wide Feature Bento Card) -->
-                <div class="bento-card-wide">
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-                            <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #C6FF00; color: #000000; padding: 3px 10px; border-radius: 4px;">PRIMARY CORE DISCIPLINE</span>
-                            <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">FULL-STACK &amp; EDGE RUNTIMES</span>
+                        <div class="volume-grid">
+                <!-- 01 Web Application Development -->
+                <article class="volume-card">
+                    <a href="/services/custom-web-development" class="volume-media-wrap" aria-label="Explore Web Application Development">
+                        <img src="/assets/images/hero_agency_showcase.webp" alt="Web Application Development &amp; Custom Platforms by Kawaki Studios" width="600" height="700" class="volume-img" loading="lazy" decoding="async">
+                        <div class="volume-pill">Explore +</div>
+                    </a>
+                    <div class="volume-content">
+                        <div class="volume-title-lockup">
+                            <span class="volume-num-tag">[ 01 ]</span>
+                            <h3 class="volume-card-title"><a href="/services/custom-web-development">WEB APPLICATION DEVELOPMENT</a></h3>
                         </div>
-                        <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: #ffffff; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
-                            Web Application Development
-                        </h3>
-                        <h4 style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.2rem; color: #C6FF00; font-weight: 400; margin-bottom: 1rem;">
-                            Custom web applications and digital platforms
-                        </h4>
-                        <p style="font-size: 1.02rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1rem; max-width: 620px;">
-                            We design and develop scalable web applications around real business workflows &mdash; from customer-facing platforms to internal systems and SaaS products.
+                        <h4 class="volume-card-sub">Custom web applications &amp; digital platforms</h4>
+                        <p class="volume-desc">
+                            We design and develop scalable web applications around real business workflows &mdash; from customer-facing platforms to internal operational systems and SaaS products. Built with strict TypeScript, clean component architecture, and modern full-stack systems.
                         </p>
-                        <p style="font-size: 0.95rem; line-height: 1.65; color: #94a3b8; margin-bottom: 1.75rem; max-width: 620px;">
-                            Our web application development work can include custom interfaces, dashboards, authentication, APIs, content systems and full-stack architectures built with modern frameworks.
-                        </p>
-                        
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem;">
-                            <span class="bento-tag-dark">Next.js</span>
-                            <span class="bento-tag-dark">TypeScript</span>
-                            <span class="bento-tag-dark">React</span>
-                            <span class="bento-tag-dark">APIs</span>
-                            <span class="bento-tag-dark">Headless CMS</span>
-                            <span class="bento-tag-dark">Full-Stack Architecture</span>
-                        </div>
-
-                        <a href="/services/custom-web-development" class="bento-btn-neon">
-                            <span>Explore Web Applications &rarr;</span>
-                        </a>
-                    </div>
-
-                    <!-- Verified Tech Standards Box -->
-                    <div class="bento-benchmark-box">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; margin-bottom: 1.25rem;">
-                            <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SYSTEM STANDARDS</span>
-                            <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #64748b;">PRODUCTION SPEC</span>
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <span style="font-size: 0.9rem; color: #94a3b8;">Codebase Quality</span>
-                                <strong style="font-family: 'Space Mono', monospace; color: #C6FF00; font-size: 1rem;">Strict TypeScript</strong>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <span style="font-size: 0.9rem; color: #94a3b8;">Frontend Performance</span>
-                                <strong style="font-family: 'Space Mono', monospace; color: #C6FF00; font-size: 1rem;">Fast Core Web Vitals</strong>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <span style="font-size: 0.9rem; color: #94a3b8;">API Contracts</span>
-                                <strong style="font-family: 'Space Mono', monospace; color: #ffffff; font-size: 1rem;">REST &amp; GraphQL</strong>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <span style="font-size: 0.9rem; color: #94a3b8;">CMS Architecture</span>
-                                <strong style="font-family: 'Space Mono', monospace; color: #C6FF00; font-size: 1rem;">Headless Decoupled</strong>
-                            </div>
+                        <div class="volume-tags">
+                            <span class="volume-tag">Next.js</span>
+                            <span class="volume-tag">TypeScript</span>
+                            <span class="volume-tag">React</span>
+                            <span class="volume-tag">APIs</span>
+                            <span class="volume-tag">Headless CMS</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- 02 Shopify & E-Commerce Development -->
-                <div class="bento-card-regular">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-                            <span class="cap-num">02</span>
-                            <span class="cap-chip">E-COMMERCE</span>
+                <article class="volume-card">
+                    <a href="/services/shopify-development" class="volume-media-wrap" aria-label="Explore Shopify &amp; E-Commerce Development">
+                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="Shopify &amp; Custom E-Commerce Storefront Development by Kawaki Studios" width="600" height="700" class="volume-img" loading="lazy" decoding="async">
+                        <div class="volume-pill">Explore +</div>
+                    </a>
+                    <div class="volume-content">
+                        <div class="volume-title-lockup">
+                            <span class="volume-num-tag">[ 02 ]</span>
+                            <h3 class="volume-card-title"><a href="/services/shopify-development">SHOPIFY &amp; E-COMMERCE</a></h3>
                         </div>
-                        <h3 class="cap-title"><em>Shopify &amp; E-Commerce</em> Development</h3>
-                        <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: #111111; margin: 0.5rem 0 0.75rem;">Custom Shopify stores built around your brand</h4>
-                        <p class="cap-desc">We build Shopify storefronts that go beyond standard themes. From custom Liquid sections and responsive storefronts to Storefront API integrations, product architecture and catalog migrations, we create ecommerce experiences designed around how your customers actually shop.</p>
-                        <div class="cap-tags">
-                            <span class="cap-tag">Shopify</span>
-                            <span class="cap-tag">Liquid</span>
-                            <span class="cap-tag">Storefront API</span>
-                            <span class="cap-tag">Custom Themes</span>
-                            <span class="cap-tag">Ecommerce Architecture</span>
+                        <h4 class="volume-card-sub">Custom Shopify stores built around your brand</h4>
+                        <p class="volume-desc">
+                            We build Shopify storefronts that go far beyond off-the-shelf templates. Custom Liquid sections, Storefront API integrations, product architecture and catalog migrations crafted around real buying psychology and measurable conversion velocity.
+                        </p>
+                        <div class="volume-tags">
+                            <span class="volume-tag">Shopify</span>
+                            <span class="volume-tag">Liquid</span>
+                            <span class="volume-tag">Storefront API</span>
+                            <span class="volume-tag">Custom Themes</span>
                         </div>
                     </div>
-                    <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1.25rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #64748b; font-weight: 700;">CONVERSION ARCHITECTURE</span>
-                        <a href="/services/shopify-development" class="cap-link" aria-label="Explore E-Commerce">
-                            <span>Explore E-Commerce &rarr;</span>
-                        </a>
-                    </div>
-                </div>
+                </article>
 
-                <!-- 03 AI & Automation -->
-                <div class="bento-card-regular">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-                            <span class="cap-num">03</span>
-                            <span class="cap-chip">INTELLIGENT SYSTEMS</span>
+                <!-- 03 AI & Automation Systems -->
+                <article class="volume-card">
+                    <a href="/services/ai-automation" class="volume-media-wrap" aria-label="Explore AI &amp; Automation Systems">
+                        <img src="/assets/images/case-studies/pixza/hero.jpg" alt="AI Agents &amp; Intelligent Workflow Automation Systems by Kawaki Studios" width="600" height="700" class="volume-img" loading="lazy" decoding="async">
+                        <div class="volume-pill">Explore +</div>
+                    </a>
+                    <div class="volume-content">
+                        <div class="volume-title-lockup">
+                            <span class="volume-num-tag">[ 03 ]</span>
+                            <h3 class="volume-card-title"><a href="/services/ai-automation">AI &amp; AUTOMATION SYSTEMS</a></h3>
                         </div>
-                        <h3 class="cap-title"><em>AI &amp; Automation</em> Systems</h3>
-                        <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: #111111; margin: 0.5rem 0 0.75rem;">Intelligent systems for repetitive business workflows</h4>
-                        <p class="cap-desc">We use AI and automation to remove unnecessary manual work and connect the systems your business already uses. Our solutions can include workflow automation, AI agents, data pipelines, CRM synchronization and multi-step processes built with tools such as n8n and Make.</p>
-                        <div class="cap-tags">
-                            <span class="cap-tag">AI Agents</span>
-                            <span class="cap-tag">n8n</span>
-                            <span class="cap-tag">Make</span>
-                            <span class="cap-tag">Data Pipelines</span>
-                            <span class="cap-tag">Workflow Automation</span>
+                        <h4 class="volume-card-sub">Intelligent workflows for operational speed</h4>
+                        <p class="volume-desc">
+                            We deploy deterministic automation and AI agent pipelines to eliminate repetitive manual overhead and connect your core business tools. Workflow automation, data pipelines, and CRM synchronization built with n8n, Make, and custom endpoints.
+                        </p>
+                        <div class="volume-tags">
+                            <span class="volume-tag">AI Agents</span>
+                            <span class="volume-tag">n8n</span>
+                            <span class="volume-tag">Make</span>
+                            <span class="volume-tag">Data Pipelines</span>
                         </div>
                     </div>
-                    <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1.25rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #64748b; font-weight: 700;">DETERMINISTIC PIPELINES</span>
-                        <a href="/services/ai-automation" class="cap-link" aria-label="Explore AI & Automation">
-                            <span>Explore AI &amp; Automation &rarr;</span>
-                        </a>
-                    </div>
-                </div>
+                </article>
 
                 <!-- 04 Search, SEO & Technical Recovery -->
-                <div class="bento-card-regular">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-                            <span class="cap-num">04</span>
-                            <span class="cap-chip">SEARCH &amp; RECOVERY</span>
+                <article class="volume-card">
+                    <a href="/services/ai-search-optimization" class="volume-media-wrap" aria-label="Explore Search, SEO &amp; Technical Recovery">
+                        <img src="/assets/images/station_infra_system.webp" alt="Search Engine Optimization, GEO and Technical Recovery by Kawaki Studios" width="600" height="700" class="volume-img" loading="lazy" decoding="async">
+                        <div class="volume-pill">Explore +</div>
+                    </a>
+                    <div class="volume-content">
+                        <div class="volume-title-lockup">
+                            <span class="volume-num-tag">[ 04 ]</span>
+                            <h3 class="volume-card-title"><a href="/services/ai-search-optimization">SEARCH, SEO &amp; RECOVERY</a></h3>
                         </div>
-                        <h3 class="cap-title"><em>Search, SEO</em> &amp; Technical Recovery</h3>
-                        <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: #111111; margin: 0.5rem 0 0.75rem;">Make your digital presence easier to discover, understand and trust</h4>
-                        <p class="cap-desc">Modern search is changing. We help businesses build technically strong websites with structured data, search-focused information architecture and content foundations designed for traditional search engines and emerging AI answer engines. We also help recover and harden compromised WordPress websites when technical issues put an existing digital presence at risk.</p>
-                        <div class="cap-tags">
-                            <span class="cap-tag">Technical SEO</span>
-                            <span class="cap-tag">AEO</span>
-                            <span class="cap-tag">GEO</span>
-                            <span class="cap-tag">Schema</span>
-                            <span class="cap-tag">WordPress Recovery</span>
-                            <span class="cap-tag">Security Hardening</span>
+                        <h4 class="volume-card-sub">Engineered visibility &amp; platform hardening</h4>
+                        <p class="volume-desc">
+                            We build technically strong architectures with structured data and content foundations optimized for traditional search engines and emerging AI answer engines (GEO &amp; AEO) &mdash; alongside rapid incident response and malware sanitization.
+                        </p>
+                        <div class="volume-tags">
+                            <span class="volume-tag">Technical SEO</span>
+                            <span class="volume-tag">AEO</span>
+                            <span class="volume-tag">GEO</span>
+                            <span class="volume-tag">Security Hardening</span>
                         </div>
                     </div>
-                    <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1.25rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #64748b; font-weight: 700;">INCIDENT RECOVERY</span>
-                        <a href="/services/ai-search-optimization" class="cap-link" aria-label="Explore Search & Recovery">
-                            <span>Explore Search &amp; Recovery &rarr;</span>
-                        </a>
-                    </div>
-                </div>
+                </article>
             </div>
         </section>
 
