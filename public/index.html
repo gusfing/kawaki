@@ -67,6 +67,12 @@
             font-family: var(--font-primary) !important;
         }
 
+        /* Prevent default browser blue/purple link styling on mobile */
+        a, a:visited, a:active {
+            color: inherit;
+            text-decoration: none;
+        }
+
         /* Eliminate all serif italic and monospace overrides */
         .bs-serif-text, .serif-italic, em {
             font-family: var(--font-primary) !important;
@@ -3763,6 +3769,203 @@
             transform: scale(1.04);
         }
 
+        
+        /* --- SECTION: CORE OFFERINGS & DISCIPLINES (VOLUME 4-COL GALLERY) --- */
+        .capabilities-sec {
+            padding: 6.5rem 2rem 6rem !important;
+            background: #ffffff;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .volume-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.25rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .volume-card {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .volume-media-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1.16;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f8fafc;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            display: block;
+            text-decoration: none !important;
+            transition: box-shadow 0.4s ease, border-color 0.3s ease;
+        }
+
+        .volume-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .volume-media-wrap:hover .volume-img,
+        .volume-card:hover .volume-img {
+            transform: scale(1.05);
+        }
+
+        .volume-pill {
+            position: absolute;
+            bottom: 1.15rem;
+            right: 1.15rem;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            color: #111111 !important;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            letter-spacing: 0.04em;
+            text-decoration: none !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .volume-media-wrap:hover .volume-pill,
+        .volume-card:hover .volume-pill {
+            background: #111111;
+            color: #ffffff !important;
+            border-color: #111111;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .volume-content {
+            padding-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .volume-title-lockup {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .volume-num-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #ea580c;
+            letter-spacing: 0.08em;
+            display: inline-block;
+        }
+
+        .volume-card-title {
+            margin: 0;
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .volume-card-title a {
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #111111 !important;
+            text-decoration: none !important;
+            display: inline-block;
+            border-bottom: 2px solid #ea580c !important;
+            padding-bottom: 4px;
+            line-height: 1.4;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .volume-card-title a:hover {
+            color: #ea580c !important;
+        }
+
+        .volume-card-sub {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0.65rem 0 0.5rem 0;
+            line-height: 1.35;
+        }
+
+        .volume-desc {
+            font-size: 0.88rem;
+            line-height: 1.68;
+            color: #475569;
+            margin: 0 0 1.25rem 0;
+            flex-grow: 1;
+        }
+
+        .volume-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+        }
+
+        .volume-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #475569;
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 4px;
+            letter-spacing: 0.02em;
+            display: inline-block;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .volume-card:hover .volume-tag {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        @media (max-width: 1200px) {
+            .volume-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .volume-grid {
+                grid-template-columns: 1fr;
+                gap: 2.75rem;
+            }
+            .volume-media-wrap {
+                aspect-ratio: 4 / 3.5;
+            }
+        }
+
+
         /* --- SECTION: PROCESS PIPELINE --- */
         .how-we-build-sec {
             padding: 6.5rem 2rem !important;
@@ -5064,7 +5267,7 @@
                 <!-- Project 4: BAZZARO -->
                 <article class="vol-work-card">
                     <a href="/case-studies/bazzaro" class="vol-work-media" aria-label="View BAZZARO Case Study">
-                        <img src="/assets/images/case-studies/bazzaro/hero.jpg" alt="BAZZARO D2C Ecommerce" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
+                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="BAZZARO D2C Ecommerce" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
                         <div class="vol-work-pill">View Project +</div>
                     </a>
                     <div class="vol-work-content">
