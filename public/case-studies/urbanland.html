@@ -8,31 +8,31 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Urbanland Products — B2B Architectural Catalogue &amp; RFP Platform Case Study | Kawaki Studios</title>
-    <meta name="description" content="How Kawaki Studios engineered Urbanland Products&#39; B2B architectural catalogue, structuring 12 product domains, CAD downloads, and quote-driven commercial workflows." />
+    <title>Urbanland Products &mdash; Commerce &amp; B2B Case Study | Kawaki Studios</title>
+    <meta name="description" content="How Kawaki Studios engineered Urbanland Products' B2B architectural catalogue, structuring 12 product domains, CAD downloads, and quote-driven commercial workflows." />
     <link rel="canonical" href="https://www.kawaki.co.in/case-studies/urbanland" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.kawaki.co.in/case-studies/urbanland" />
-    <meta property="og:title" content="Urbanland Products — B2B Architectural Catalogue &amp; RFP Platform Case Study | Kawaki Studios" />
-    <meta property="og:description" content="How Kawaki Studios engineered Urbanland Products&#39; B2B architectural catalogue, structuring 12 product domains, CAD downloads, and quote-driven commercial workflows." />
+    <meta property="og:title" content="Urbanland Products &mdash; Commerce &amp; B2B Case Study | Kawaki Studios" />
+    <meta property="og:description" content="How Kawaki Studios engineered Urbanland Products' B2B architectural catalogue, structuring 12 product domains, CAD downloads, and quote-driven commercial workflows." />
     <meta property="og:image" content="https://www.kawaki.co.in/assets/images/case-studies/urbanland/hero.jpg" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
-    <meta name="twitter:title" content="Urbanland Products — B2B Architectural Catalogue &amp; RFP Platform Case Study | Kawaki Studios" />
-    <meta name="twitter:description" content="How Kawaki Studios engineered Urbanland Products&#39; B2B architectural catalogue, structuring 12 product domains, CAD downloads, and quote-driven commercial workflows." />
+    <meta name="twitter:title" content="Urbanland Products &mdash; Commerce &amp; B2B Case Study | Kawaki Studios" />
+    <meta name="twitter:description" content="How Kawaki Studios engineered Urbanland Products' B2B architectural catalogue, structuring 12 product domains, CAD downloads, and quote-driven commercial workflows." />
     <meta name="twitter:image" content="https://www.kawaki.co.in/assets/images/case-studies/urbanland/hero.jpg" />
 
     <!-- JSON-LD Schema -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Urbanland Products",
-  "headline": "Urbanland Products: B2B Architectural Outdoor Infrastructure Catalogue & RFP System",
+  "@type": "CreativeWork",
+  "name": "Urbanland Products Case Study",
+  "headline": "Urbanland Products: B2B Architectural Outdoor Infrastructure Catalogue &amp; RFP System",
   "description": "How Kawaki Studios engineered Urbanland Products' B2B architectural catalogue, structuring 12 product domains, CAD downloads, and quote-driven commercial workflows.",
   "url": "https://www.kawaki.co.in/case-studies/urbanland",
   "image": "https://www.kawaki.co.in/assets/images/case-studies/urbanland/hero.jpg",
@@ -54,7 +54,7 @@
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Portfolio & Case Studies",
+        "name": "Case Studies",
         "item": "https://www.kawaki.co.in/case-studies"
       },
       {
@@ -69,554 +69,227 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
+
     <style>
         :root {
+            --cs-bg: #FFFFFF;
+            --cs-text-primary: #111111;
+            --cs-text-secondary: #555555;
+            --cs-text-muted: #888888;
             --cs-accent: #C6FF00;
-            --cs-dark: #0c0d10;
-            --cs-card-bg: #14161d;
-            --cs-border: rgba(255, 255, 255, 0.08);
-            --cs-text-muted: #8e929e;
+            --cs-dark: #0A0A0C;
+            --cs-border: rgba(0, 0, 0, 0.08);
         }
 
-        /* Hero & Header elements */
-        .csd-live-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #C6FF00;
-            color: #111111;
-            font-family: 'Host Grotesk', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            padding: 0.85rem 1.75rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .csd-live-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(198, 255, 0, 0.35);
-        }
-        .csd-disabled-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.08);
-            color: #aaaaaa;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            padding: 0.85rem 1.5rem;
-            border-radius: 9999px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            cursor: not-allowed;
-        }
-        .csd-logo-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-        .csd-logo-badge img {
-            max-height: 28px;
-            width: auto;
-            object-fit: contain;
+        body {
+            background-color: var(--cs-bg);
+            color: var(--cs-text-primary);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* 2-Column Snapshot Grid */
-        .csd-snapshot-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 2.5rem;
-        }
-        @media (max-width: 768px) {
-            .csd-snapshot-grid {
-                grid-template-columns: 1fr;
-                padding: 1.5rem;
-            }
-        }
-        .csd-snapshot-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-        .csd-snapshot-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #888888;
-        }
-        .csd-snapshot-val {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #ffffff;
-            line-height: 1.4;
-        }
-        .csd-snapshot-val a {
-            color: #C6FF00;
-            text-decoration: none;
-        }
-        .csd-snapshot-val a:hover {
-            text-decoration: underline;
-        }
-
-        /* Sections common styling */
-        .csd-section-dark {
-            background: #0c0d10;
-            color: #ffffff;
-            padding: 6rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .csd-section-light {
-            background: #ffffff;
-            color: #111111;
-            padding: 6rem 2rem;
-            border-top: 1px solid #eeeeee;
-        }
-        .csd-section-offwhite {
-            background: #f8f9fa;
-            color: #111111;
-            padding: 6rem 2rem;
-            border-top: 1px solid #e9ecef;
-        }
-        .csd-container {
-            max-width: 1200px;
+        /* Hero Monograph Header */
+        .editorial-hero {
+            padding: 9rem 2rem 4rem;
+            max-width: 1440px;
             margin: 0 auto;
         }
-
-        .csd-section-eyebrow {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 0.75rem;
-        }
-        .csd-eyebrow-accent {
-            color: #C6FF00;
-        }
-        .csd-eyebrow-muted {
-            color: #666666;
-        }
-        .csd-section-title {
-            font-family: 'Host Grotesk', sans-serif;
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Cards & Grid Utilities */
-        .csd-cards-grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        .csd-cards-grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-        .csd-cards-grid-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-        @media (max-width: 900px) {
-            .csd-cards-grid-2, .csd-cards-grid-3, .csd-cards-grid-4 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .csd-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-        }
-        .csd-card-dark {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        /* Diagrams & Code Blocks */
-        .csd-diagram-box {
-            background: #08090b;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 2rem;
-            color: #C6FF00;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            overflow-x: auto;
-            margin: 2rem 0;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
-        }
-
-        /* Tables */
-        .csd-table-wrapper {
-            overflow-x: auto;
-            margin: 2rem 0;
-            border-radius: 10px;
-            border: 1px solid #e5e7eb;
-        }
-        .csd-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-            text-align: left;
-        }
-        .csd-table th {
-            background: #f1f3f5;
-            color: #111111;
-            padding: 1rem 1.25rem;
-            font-family: 'Host Grotesk', sans-serif;
-            font-weight: 700;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        .csd-table td {
-            padding: 1.2rem 1.25rem;
-            border-bottom: 1px solid #e5e7eb;
-            vertical-align: top;
-            line-height: 1.6;
-            color: #444444;
-        }
-        .csd-table tr:last-child td {
-            border-bottom: none;
-        }
-        .csd-table td strong {
-            color: #111111;
-        }
-
-        /* Tech Badges */
-        .csd-tech-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.06);
-            color: #dddddd;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 0.25rem;
-        }
-        .csd-tech-badge-light {
-            display: inline-block;
-            background: #eef1f5;
-            color: #333333;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-            border: 1px solid #dde2e8;
-            margin: 0.25rem;
-        }
-        .csd-service-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: #111111;
-            color: #C6FF00;
-            border: 1px solid rgba(198, 255, 0, 0.3);
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-family: 'Host Grotesk', sans-serif;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-        .csd-service-tag:hover {
-            background: #C6FF00;
-            color: #111111;
-        }
-
-        /* Screen Caption Cards */
-        .csd-screen-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-            margin-bottom: 2.5rem;
-        }
-        .csd-screen-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 1px solid #e5e7eb;
-            object-fit: cover;
-        }
-        .csd-screen-caption {
-            padding: 1.5rem 2rem;
-            background: #ffffff;
-        }
-        .csd-screen-title {
-            font-family: 'Host Grotesk', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #111111;
-            margin-bottom: 0.4rem;
-        }
-        .csd-screen-desc {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #555555;
-        }
-
-        /* Gallery Grid */
-        .csd-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        @media (max-width: 768px) {
-            .csd-gallery-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .csd-gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: #14161d;
-        }
-        .csd-gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .csd-gallery-item:hover img {
-            transform: scale(1.02);
-        }
-        .csd-gallery-item-caption {
-            padding: 1.25rem;
-            font-size: 0.85rem;
-            color: #aaaaaa;
-            line-height: 1.5;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Deliverables Checklist */
-        .csd-checklist {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
-            margin-top: 2rem;
-        }
-        .csd-check-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .csd-check-icon {
-            color: #C6FF00;
-            font-weight: 800;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-            line-height: 1;
-        }
-
-        /* Related Projects Showcase */
-        .csd-related-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            overflow: hidden;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-        .csd-related-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(198, 255, 0, 0.4);
-        }
-        .csd-related-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
-        .csd-related-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        /* Modern 8-Chapter Editorial Styles */
-        .csd-hero-visual-cinematic {
-            width: 100%;
-            max-width: 1280px;
-            margin: 3rem auto 0;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            background: #08090b;
-        }
-        .csd-hero-visual-cinematic img {
-            width: 100%;
-            height: auto;
-            max-height: 720px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .csd-brief-grid {
-            display: grid;
-            grid-template-columns: 1.35fr 1fr;
-            gap: 3.5rem;
-            align-items: start;
-        }
-        @media (max-width: 900px) {
-            .csd-brief-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-        }
-
-        .csd-challenge-approach-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-        }
-        @media (max-width: 860px) {
-            .csd-challenge-approach-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .csd-col-challenge {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-top: 3px solid #ff5252;
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-        .csd-col-approach {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-top: 3px solid #C6FF00;
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-
-        .csd-flow-container {
+        .hero-meta-strip {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 1rem;
-            margin: 2.5rem 0;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
+            border-bottom: 1px solid var(--cs-border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 3rem;
         }
-        .csd-flow-node {
-            background: #14161d;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 1.25rem 1.5rem;
-            flex: 1 1 180px;
-            text-align: center;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        .hero-meta-left {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
         }
-        .csd-flow-arrow {
-            color: #C6FF00;
-            font-size: 1.25rem;
+        .hero-logo-img {
+            height: 36px;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+        }
+        .hero-category-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
             font-weight: 700;
-            user-select: none;
+            color: var(--cs-text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
-        @media (max-width: 768px) {
-            .csd-flow-container {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .csd-flow-arrow {
-                text-align: center;
-                transform: rotate(90deg);
-                margin: 0.25rem 0;
-            }
+        .hero-live-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--cs-text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 9999px;
+            transition: all 0.25s ease;
+        }
+        .hero-live-link:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
         }
 
-        .csd-workflow-large {
-            margin-bottom: 4rem;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        .hero-title-group {
+            max-width: 1100px;
+            margin-bottom: 3.5rem;
         }
-        .csd-workflow-dark {
-            background: #12141a;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+        .hero-main-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(3rem, 6.5vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.02;
+            color: var(--cs-text-primary);
+            margin: 0 0 1.5rem;
         }
-        .csd-workflow-media {
+        .hero-main-title em {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .hero-lead-text {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            line-height: 1.55;
+            color: var(--cs-text-secondary);
+            max-width: 820px;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* Giant Edge-to-Edge Hero Image */
+        .editorial-hero-media {
             width: 100%;
-            background: #090a0d;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            height: 80vh;
+            min-height: 520px;
+            max-height: 860px;
+            border-radius: 20px;
             overflow: hidden;
+            background: var(--cs-dark);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+        }
+        .editorial-hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 50/50 Split Showcase Section */
+        .editorial-split {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 7rem 2rem;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .editorial-split.reverse {
+            grid-template-columns: 0.85fr 1.15fr;
+        }
+        .editorial-split-img-box {
+            width: 100%;
+            height: 75vh;
+            min-height: 500px;
+            max-height: 720px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: var(--cs-dark);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .csd-workflow-media img {
+        .editorial-split-img-box img {
             width: 100%;
-            height: auto;
-            max-height: 720px;
+            height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .csd-workflow-content {
-            padding: 2.25rem 2.5rem;
-        }
-        .csd-why-matters {
-            margin-top: 1.25rem;
-            padding: 1rem 1.25rem;
-            background: rgba(198, 255, 0, 0.06);
-            border-left: 3px solid #C6FF00;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.95rem;
-            color: #444444;
-            line-height: 1.6;
-        }
-        .csd-why-matters-dark {
-            color: #d1d5db;
-            background: rgba(198, 255, 0, 0.05);
+        .editorial-split-img-box:hover img {
+            transform: scale(1.03);
         }
 
+        .editorial-split-copy {
+            max-width: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .editorial-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--cs-text-muted);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+        .editorial-chapter-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.12;
+            color: var(--cs-text-primary);
+            margin: 0 0 1.5rem;
+        }
+        .editorial-chapter-title em {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .editorial-body {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: var(--cs-text-secondary);
+            margin: 0 0 2rem;
+        }
+        .editorial-meta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #1e293b;
+            background: #F1F5F9;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            align-self: flex-start;
+        }
+
+        /* Mobile Device Frame Mockup */
         .csd-phone-mockup {
             width: 290px;
             max-width: 100%;
-            margin: 2rem auto;
-            border: 12px solid #1a1c24;
-            border-radius: 42px;
+            margin: 0 auto;
+            border: 10px solid #1a1c24;
+            border-radius: 40px;
             overflow: hidden;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
             background: #000000;
             position: relative;
         }
@@ -625,45 +298,235 @@
             height: auto;
             display: block;
         }
-        .csd-phone-mockup::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 5px;
-            background: #2a2d3a;
-            border-radius: 4px;
-            z-index: 10;
-        }
 
+        /* Spec Table for Industrial / Material Case Studies */
         .csd-spec-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
-            font-size: 0.95rem;
-            background: #14161d;
-            border-radius: 10px;
+            font-size: 0.88rem;
+            background: #FAFAFA;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
         .csd-spec-table th, .csd-spec-table td {
-            padding: 1.1rem 1.25rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             text-align: left;
         }
         .csd-spec-table th {
             font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            color: #888888;
+            font-size: 0.72rem;
+            color: #64748b;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            background: rgba(255, 255, 255, 0.03);
+            background: #F1F5F9;
+        }
+
+        /* Full Bleed Monograph Spread */
+        .editorial-fullbleed {
+            max-width: 1440px;
+            margin: 2rem auto 7rem;
+            padding: 0 2rem;
+        }
+        .fullbleed-frame {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            min-height: 520px;
+            max-height: 820px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1);
+        }
+        .fullbleed-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .fullbleed-caption {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #FFFFFF;
+            padding: 1rem 1.75rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            max-width: 440px;
+        }
+        .fullbleed-caption-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+        .fullbleed-caption-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #C6FF00;
+        }
+
+        /* Editorial 2-Col Gallery Grid */
+        .editorial-duo-grid {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 2rem 7rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+        .duo-card {
+            border-radius: 18px;
+            overflow: hidden;
+            background: #FAFAFA;
+            border: 1px solid var(--cs-border);
+            display: flex;
+            flex-direction: column;
+        }
+        .duo-img-box {
+            width: 100%;
+            height: 480px;
+            overflow: hidden;
+            background: var(--cs-dark);
+        }
+        .duo-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .duo-card:hover .duo-img-box img {
+            transform: scale(1.04);
+        }
+        .duo-content {
+            padding: 2.25rem;
+        }
+        .duo-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        .duo-desc {
+            font-size: 0.98rem;
+            line-height: 1.65;
+            color: var(--cs-text-secondary);
+            margin: 0;
+        }
+
+        /* Next Project Navigation Strip */
+        .editorial-footer-nav {
+            background: #0A0A0C;
+            color: #FFFFFF;
+            padding: 7rem 2rem;
+            text-align: center;
+        }
+        .footer-nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .footer-nav-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: #C6FF00;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .footer-nav-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin: 0 0 2.5rem;
+            color: #FFFFFF;
+        }
+        .footer-nav-title em {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .footer-nav-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+        .footer-btn-neon {
+            background: #C6FF00;
+            color: #000000;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .footer-btn-neon:hover {
+            transform: translateY(-3px);
+            background: #d4ff33;
+        }
+        .footer-btn-ghost {
+            background: transparent;
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .footer-btn-ghost:hover {
+            border-color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Mobile Breakpoints */
+        @media (max-width: 1024px) {
+            .editorial-split,
+            .editorial-split.reverse {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 4.5rem 1.5rem;
+            }
+            .editorial-split.reverse .editorial-split-img-box {
+                order: -1;
+            }
+            .editorial-split-img-box {
+                height: 55vh;
+                min-height: 380px;
+            }
+            .editorial-hero-media {
+                height: 55vh;
+                min-height: 380px;
+            }
+            .editorial-duo-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .duo-img-box {
+                height: 360px;
+            }
+            .fullbleed-frame {
+                height: 55vh;
+                min-height: 380px;
+            }
         }
     </style>
 </head>
-<body style="background-color: #ffffff; color: #111111;">
+
+<body>
     <!-- GLOBAL FLOATING PILL NAVBAR -->
     <div class="nav-wrapper" id="globalNav">
         <nav>
@@ -681,739 +544,200 @@
         </nav>
     </div>
 
-    <!-- FULLSCREEN OVERLAY MENU -->
-    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
-        <div class="menu-overlay-layer"></div>
-        <div class="menu-overlay-layer"></div>
-        <div class="menu-content-wrapper">
-            <span class="span-menu"><em>kawaki</em></span>
-            <div class="menu-layout">
-                <div class="menu-col menu-col-left">
-                    <div class="main-menu-links" id="mainMenuPrimary">
-                        <ul>
-                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home — Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
-                                <a href="/"><span class="menu-idx">01</span><span class="menu-text">Home <em>Index</em></span></a>
-                            </li>
-                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us — Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
-                                <a href="/about"><span class="menu-idx">02</span><span class="menu-text">About <em>Kawaki Studios</em></span></a>
-                            </li>
-                            <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Capabilities &amp; Architecture" data-desc="Five Core Engineering &amp; Recovery Pillars">
-                                <a href="/services"><span class="menu-idx">03</span><span class="menu-text">Explore <em>Our Services</em></span></a>
-                            </li>
-                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Portfolio &amp; Case Studies" data-desc="Real Software, Flagships &amp; Mobile Ecosystems">
-                                <a href="/case-studies"><span class="menu-idx">04</span><span class="menu-text">Selected <em>Work &amp; Case Studies</em></span></a>
-                            </li>
-                            <li data-img="/assets/images/station_drag_prism.webp" data-tag="Engineering &amp; Design Notes" data-desc="Essays on Web Engineering &amp; Performance">
-                                <a href="/blog"><span class="menu-idx">05</span><span class="menu-text">Blogs &amp; <em>Insights</em></span></a>
-                            </li>
-                            <li data-img="/assets/images/about-studio.webp" data-tag="15-Min Strategy Session" data-desc="Schedule a Technical Discovery Call">
-                                <a href="/contact"><span class="menu-idx">06</span><span class="menu-text">Discovery <em>Call</em></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="menu-col menu-col-right">
-                    <div class="menu-preview-card" id="menuPreviewCard">
-                        <div class="menu-preview-img-box">
-                            <img id="menuPreviewImg" src="/assets/images/case-studies/urbanland/hero.jpg" alt="Preview" width="1376" height="768" loading="lazy" decoding="async" />
-                        </div>
-                        <div class="menu-preview-meta">
-                            <span class="menu-preview-badge" id="menuPreviewTag">Commerce & B2B</span>
-                            <span class="menu-preview-desc" id="menuPreviewDesc">Urbanland Products Case Study</span>
-                        </div>
-                    </div>
-                    <div class="menu-info-block">
-                        <div class="menu-status-pill"><span class="status-dot"></span><span>Available for Select Projects</span></div>
-                        <a href="/contact" class="menu-cta-button"><span>Schedule a Call</span></a>
-                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <main>
-
-
-    <!-- CHAPTER 01: HERO -->
-    <header id="chapter-01" class="csd-hero-sec" style="background: #08090b; color: #ffffff; padding: 7rem 2rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
-        <div class="csd-container" style="text-align: center; max-width: 1100px;">
-            <div style="display: flex; justify-content: center;">
-                <div class="csd-logo-badge"><img src="/assets/images/case-studies/urbanland/logo.png" alt="Urbanland Products Logo" loading="lazy" decoding="async" /><span>Urbanland Products LLP</span></div>
-            </div>
-            <h1 class="csd-hero-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: #ffffff;">
-                Urbanland Products
-            </h1>
-            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; color: #b5b9c4; max-width: 860px; margin: 0 auto 2.5rem;">
-                Urbanland Products: B2B Architectural Outdoor Infrastructure Catalogue &amp; RFP System
-            </p>
-            
-            <!-- Quick Metadata Pill Strip -->
-            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem;">
-                <span style="background: rgba(255,255,255,0.06); color: #C6FF00; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(198,255,0,0.2);">Commerce &amp; B2B</span>
-                <span style="background: rgba(255,255,255,0.06); color: #e2e8f0; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);">B2B Infrastructure / Architectural Outdoor Amenities / Smart City Furniture</span>
-                <span style="background: rgba(255,255,255,0.06); color: #94a3b8; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.08);">Live in Production</span>
-            </div>
-
-            <div>
-                <a href="https://urbanlandproducts.com/" target="_blank" rel="noopener noreferrer" class="csd-live-btn">Visit Live Project ↗</a>
-            </div>
-
-            <!-- Huge Cinematic Real Hero Visual -->
-            <div class="csd-hero-visual-cinematic">
-                <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products Hero Showcase" fetchpriority="high" decoding="async" />
-            </div>
-        </div>
-    </header>
-  
-
-    <!-- CHAPTER 02: PROJECT BRIEF -->
-    <section id="chapter-02" class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 02. PROJECT BRIEF</span>
-            <h2 class="csd-section-title">Strategic Mandate &amp; Operational Objectives</h2>
-            
-            <div class="csd-brief-grid">
-                <!-- Left: Narrative & Objectives -->
-                <div>
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Institutional Context</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;">Urbanland Products LLP is a premier Indian manufacturer of architectural outdoor furniture, public transit shelters, and smart city infrastructure based in Vasai, Maharashtra. The firm manufactures heavy-duty street benches, composite planters, commercial waste bins, bus shelters, gazebos, and modular pre-fab structures engineered from weather-resistant composites and architectural aluminium.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555; margin-bottom: 1.5rem;">Founded in 2023 by Raj Shekhar, Urbanland serves premier commercial real estate developers (Lodha, Adani, Oberoi), municipal corporations (Mumbai Smart Shelters, Delhi Metro Plazas), and leading landscape architecture practices across India. Their products carry ISO 9001:2015 quality certifications, two-year commercial warranties, and custom fabrication support.</p>
-                    
-                    <div style="background: #f8fafc; border-left: 3px solid #0f172a; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2.5rem;">
-                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 700;">STRATEGIC IMPERATIVE</span>
-                        <p style="font-size: 1rem; line-height: 1.6; color: #1e293b; margin: 0.4rem 0 0;">B2B infrastructure procurement differs fundamentally from retail e-commerce: buyers do not pay via credit card. Instead, landscape architects require exact dimensional drawings, material durability data (WPC vs NFC vs aluminium), and the ability to compile a multi-item specification list for a customized commercial Request for Quote (RFQ).</p>
-                    </div>
-
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #111111;">Verified Project Objectives</h3>
-                    <div style="margin-top: 1rem;">
-                        
-    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 01</span>
-        <div>
-            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Structure 12 Diverse Infrastructure Domains</h4>
-            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Organize hundreds of heavy outdoor infrastructure products (benches, bus shelters, bollards, pergolas) into an intuitive, scalable architectural catalogue.</p>
-        </div>
-    </div>
-  
-    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 02</span>
-        <div>
-            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Engineer a Multi-Item B2B Request for Quote (RFQ) Cart</h4>
-            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Replace standard consumer e-commerce checkout with a commercial quotation engine allowing architects to assemble project schedules and upload architectural drawings.</p>
-        </div>
-    </div>
-  
-    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 03</span>
-        <div>
-            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Provide Instant Access to Technical CAD Specifications</h4>
-            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Enable landscape architects and municipal contractors to inspect structural load ratings, weather-resistance certifications, and download engineering data sheets.</p>
-        </div>
-    </div>
-  
-    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 04</span>
-        <div>
-            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Dominate B2B Infrastructure Search Visibility</h4>
-            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Implement a deep Schema.org graph linking OfferCatalog, LocalBusiness, and FAQPage schemas across all 12 product domains to outrank industrial aggregators.</p>
-        </div>
-    </div>
-  
-                    </div>
+        <!-- ============================================== -->
+        <!-- CHAPTER 01: HERO MONOGRAPH COVER -->
+        <!-- ============================================== -->
+        <header class="editorial-hero" id="chapter-01">
+            <div class="hero-meta-strip">
+                <div class="hero-meta-left">
+                    <img src="/assets/images/case-studies/urbanland/logo.png" alt="Urbanland Products" class="hero-logo-img" />
+                    <span class="hero-category-tag">Commerce &amp; B2B &middot; B2B Infrastructure / Architectural Outdoor Amenities / Smart City Furniture</span>
                 </div>
-
-                <!-- Right: Structured Spec Matrix -->
-                <div style="background: #0f172a; color: #ffffff; padding: 2.25rem; border-radius: 14px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #C6FF00; letter-spacing: 0.05em; font-weight: 700; display: block; margin-bottom: 1.5rem;">PROJECT SNAPSHOT</span>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-                        <div>
-                            <span class="csd-snapshot-label">Client / Brand</span>
-                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Urbanland Products LLP</span>
-                        </div>
-                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
-                            <span class="csd-snapshot-label">Industry &amp; Domain</span>
-                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Architectural Outdoor Infrastructure &amp; Smart City Furniture</span>
-                        </div>
-                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
-                            <span class="csd-snapshot-label">Services Provided</span>
-                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">B2B Information Architecture, Technical Catalogue Development, Quote Request Engine</span>
-                        </div>
-                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
-                            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
-                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Hydrated Web Application Architecture (Vite/ESM)</span>
-                        </div>
-                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
-                            <span class="csd-snapshot-label">Verified Tech Stack</span>
-                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">React, Vite, Lenis Smooth Scroll, Deep Schema.org OfferCatalog Graph</span>
-                        </div>
-                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
-                            <span class="csd-snapshot-label">Execution Scope</span>
-                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">12-Category Technical Product Catalogue, Specification Download Engine, Commercial RFP Funnel</span>
-                        </div>
-                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
-                            <span class="csd-snapshot-label">Production Status</span>
-                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Live in Production</span>
-                        </div>
-                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
-                            <span class="csd-snapshot-label">Live Platform / Access</span>
-                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">
-                                <a href="https://urbanlandproducts.com/" target="_blank" rel="noopener noreferrer">https://urbanlandproducts.com/ ↗</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-  
-
-    <!-- CHAPTER 03: THE CHALLENGE & THE APPROACH -->
-    <section id="chapter-03" class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 03. THE CHALLENGE &amp; THE APPROACH</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction vs. Architectural Strategy</h2>
-            
-            <div class="csd-challenge-approach-grid" style="margin-top: 2.5rem;">
-                <!-- Left: The Challenge -->
-                <div class="csd-col-challenge">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #ff5252; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE VERIFIED CHALLENGE</span>
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Real Constraints &amp; Friction</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
-                        Structuring hundreds of heavy industrial products across 12 diverse categories into an intuitive, high-speed catalogue with direct RFP quotation capabilities.
-                    </p>
-                    
-    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
-            Massive Product Variety &amp; Classification
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-            Organizing 12 distinct product domains (from cast-iron park benches to solar-powered smart bus shelters and modular cabins) without creating an impenetrable navigation maze.
-        </p>
-    </div>
-  
-    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
-            Technical Documentation Requirements
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-            Landscape architects require instant access to CAD drawings, structural load tolerances, and material specifications before including items in municipal tenders.
-        </p>
-    </div>
-  
-    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
-            B2B Quote Request vs Immediate Checkout
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-            Traditional e-commerce shopping carts with retail price tags do not fit commercial bidding, where order volumes vary from 5 luxury resort cabanas to 500 municipal street benches.
-        </p>
-    </div>
-  
-    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
-            Search Visibility &amp; Category SEO
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-            Competing against legacy trade portals (IndiaMART, TradeIndia) required deep semantic search markup across every product classification.
-        </p>
-    </div>
-  
-    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
-            Mobile Usability for Site Engineers
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-            Site supervisors and project managers frequently inspect product specs and assembly details directly on construction sites via mobile smartphones.
-        </p>
-    </div>
-  
-                </div>
-
-                <!-- Right: The Approach -->
-                <div class="csd-col-approach">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #C6FF00; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE KAWAKI APPROACH</span>
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Architectural Response</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
-                        We designed Urbanland&#39;s digital platform as an engineered technical specification hub. We replaced consumer shopping paradigms with a high-efficiency architectural catalogue that empowers specifiers to find, evaluate, and quote infrastructure components in minutes.
-                    </p>
-                    
-    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
-            12-Pillar Architectural Information Architecture
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-            We structured the catalogue into 12 definitive domains with standardized product cards featuring material tags, dimensional specs, and installation methods.
-        </p>
-    </div>
-  
-    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
-            B2B Request for Quote (RFQ) Cart
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-            We engineered a multi-item quotation builder allowing architects to assemble project schedules, upload architectural drawings, and request bulk manufacturing bids.
-        </p>
-    </div>
-  
-    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
-            Fullscreen Multi-Column Mega-Menu
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-            To make browsing effortless, we built an interactive fullscreen navigation menu categorizing all 12 product domains with visual thumbnails and quick-jump links.
-        </p>
-    </div>
-  
-    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
-            Deep Schema.org OfferCatalog Graph
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-            We implemented an exhaustive JSON-LD graph linking `OfferCatalog`, `LocalBusiness`, and `FAQPage` schemas to dominate organic search rankings for outdoor infrastructure keywords.
-        </p>
-    </div>
-  
-                </div>
-            </div>
-        </div>
-    </section>
-  
-
-      <section id="chapter-04" class="csd-section-offwhite">
-          <div class="csd-container">
-              <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. EXPERIENCE &amp; ARCHITECTURE</span>
-              <h2 class="csd-section-title">Catalog Taxonomy &amp; Conversion Ergonomics</h2>
-              <p style="font-size: 1.1rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 2.5rem;">
-                  Engineering high-conversion digital commerce requires balancing rich visual storytelling with frictionless product specification, instant filter feedback, and sub-100ms cart transitions.
-              </p>
-
-              <!-- Responsive Visual Node Flow -->
-              <div class="csd-flow-container" style="background: #ffffff; border: 1px solid #e2e8f0;">
-                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
-                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STEP 01</span>
-                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Visual Discovery</strong>
-                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Collections &amp; drops</span>
-                  </div>
-                  <span class="csd-flow-arrow" style="color: #0f172a;">&rarr;</span>
-                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
-                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STEP 02</span>
-                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Taxonomy Filter</strong>
-                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Real-time facet sorting</span>
-                  </div>
-                  <span class="csd-flow-arrow" style="color: #0f172a;">&rarr;</span>
-                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
-                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STEP 03</span>
-                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Rich Specification</strong>
-                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Material &amp; CAD details</span>
-                  </div>
-                  <span class="csd-flow-arrow" style="color: #0f172a;">&rarr;</span>
-                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
-                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STEP 04</span>
-                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Instant Checkout / Quote</strong>
-                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Zero-friction transaction</span>
-                  </div>
-              </div>
-
-              <!-- Commerce UX Pillars -->
-              <div class="csd-cards-grid-3" style="margin-top: 2rem;">
-                  <div class="csd-card">
-                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">EXPERIENCE 01</span>
-                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #111111;">Catalog Discovery</h3>
-                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A multi-column fullscreen mega-menu presents all 12 infrastructure categories with visual thumbnails, allowing landscape architects to jump directly to specific municipal amenities.</p>
-                  </div>
-                  <div class="csd-card">
-                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">EXPERIENCE 02</span>
-                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #111111;">Workflow &amp; Processing</h3>
-                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Architects review technical dimension tables, verify ISO 9001:2015 certifications, add items to their project schedule, and attach CAD site drawings (.dwg, .pdf) in one flow.</p>
-                  </div>
-                  <div class="csd-card">
-                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">EXPERIENCE 03</span>
-                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #111111;">Mobile Conversion Flow</h3>
-                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Technical data tables feature horizontal scroll indicators with `data-lenis-prevent` locks, ensuring site engineers can inspect assembly drawings on-site without scroll trapping.</p>
-                  </div>
-              </div>
-          </div>
-      </section>
-    
-
-    <!-- CHAPTER 05: FEATURED WORKFLOWS (Visual Showcase) -->
-    <section id="chapter-05" class="csd-section-dark" style="background: #08090b;">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. FEATURED WORKFLOWS &amp; INTERFACES</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Engineered Capabilities &amp; Production Walkthrough</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 3.5rem;">
-                A comprehensive walkthrough of the authentic user interfaces, operational flows, and customer touchpoints delivered for Urbanland Products.
-            </p>
-            <div>
-                
-        <div class="csd-workflow-large csd-workflow-dark">
-            <div class="csd-workflow-media">
-                <img src="/assets/images/case-studies/urbanland/hero-1.webp" alt="B2B Infrastructure Catalog Homepage" loading="lazy" decoding="async" />
-            </div>
-            <div class="csd-workflow-content">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 01</span>
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
-                </div>
-                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">B2B Infrastructure Catalog Homepage</h3>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">High-density architectural product matrix displaying outdoor street furniture, smart city planters, and composite materials.</p>
-                <div class="csd-why-matters csd-why-matters-dark">
-                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
-                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
-                </div>
-            </div>
-        </div>
-      
-        <div class="csd-workflow-large csd-workflow-dark">
-            <div class="csd-workflow-media">
-                <img src="/assets/images/case-studies/urbanland/hero2.webp" alt="Commercial Spec Sheet &amp; Material Matrix" loading="lazy" decoding="async" />
-            </div>
-            <div class="csd-workflow-content">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 02</span>
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
-                </div>
-                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Commercial Spec Sheet &amp; Material Matrix</h3>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Engineered specification drawer allowing landscape architects to review tensile strength, UV resistance ratings, and architectural CAD downloads.</p>
-                <div class="csd-why-matters csd-why-matters-dark">
-                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
-                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
-                </div>
-            </div>
-        </div>
-      
-        <div class="csd-workflow-large csd-workflow-dark">
-            <div class="csd-workflow-media">
-                <img src="/assets/images/case-studies/urbanland/hero3.webp" alt="Township &amp; Hospitality Solutions Discovery" loading="lazy" decoding="async" />
-            </div>
-            <div class="csd-workflow-content">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 03</span>
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
-                </div>
-                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Township &amp; Hospitality Solutions Discovery</h3>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Curated sector groupings showcasing deployments across municipal plazas, corporate campuses, and luxury hospitality courtyards.</p>
-                <div class="csd-why-matters csd-why-matters-dark">
-                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
-                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
-                </div>
-            </div>
-        </div>
-      
-            </div>
-        </div>
-    </section>
-  
-
-      <section id="chapter-06" class="csd-section-light">
-          <div class="csd-container">
-              <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. ARCHITECTURAL CRAFT &amp; SPECIFICATION SYSTEM</span>
-              <h2 class="csd-section-title">Composite Material Engineering &amp; B2B Spec Matrix</h2>
-              <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 2rem;">
-                  Commercial landscape architects and smart-city municipal planners require strict technical specification sheets before specifying products into construction tenders:
-              </p>
-
-              <table class="csd-spec-table">
-                  <thead>
-                      <tr>
-                          <th>Material Composite</th>
-                          <th>Tensile / Load Strength</th>
-                          <th>Weather Resistance</th>
-                          <th>Maintenance Cycle</th>
-                          <th>Architectural Application</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td><strong>Wood Polymer (WPC)</strong></td>
-                          <td>High Density Structural Load</td>
-                          <td>UV-Proof &amp; Monsoon Sealed</td>
-                          <td>Zero Annual Sealing Required</td>
-                          <td>Park Benches &amp; Public Seating</td>
-                      </tr>
-                      <tr>
-                          <td><strong>Natural Fiber (NFC)</strong></td>
-                          <td>Impact-Resistant Reclaimed Fiber</td>
-                          <td>Zero Rot, Termite &amp; Fungal Decay</td>
-                          <td>Wipe-Clean Non-Porous Finish</td>
-                          <td>Smart City Planters &amp; Bollards</td>
-                      </tr>
-                      <tr>
-                          <td><strong>Architectural Aluminium</strong></td>
-                          <td>Powder-Coated T6 Marine Grade</td>
-                          <td>Corrosion-Proof Salt Spray Tested</td>
-                          <td>Lifetime Structural Integrity</td>
-                          <td>Shade Pergolas &amp; Campus Fixtures</td>
-                      </tr>
-                  </tbody>
-              </table>
-
-              <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                  <div class="csd-card">
-                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Catalog Architecture</h3>
-                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Engineered using React and Vite with ESM production bundling. Clean component hydration ensures instant DOM interactivity without layout flickering.</p>
-                  </div>
-                  <div class="csd-card">
-                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Quote &amp; CAD Specification Journey</h3>
-                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Optimized REST quotation endpoints with email webhook dispatch to factory sales engineers.</p>
-                  </div>
-              </div>
-          </div>
-      </section>
-    
-
-    <!-- CHAPTER 07: OUTCOME & DELIVERABLES -->
-    <section id="chapter-07" class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. PRODUCTION IMPACT &amp; DELIVERABLES</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Verified Outcomes &amp; Scope of Work</h2>
-            
-            <div class="csd-cards-grid-2" style="margin-top: 2.5rem; margin-bottom: 3.5rem;">
-                <!-- Qualitative Outcomes -->
-                <div class="csd-card-dark" style="border-top: 3px solid #C6FF00;">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">QUALITATIVE IMPACT</span>
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Production Achievements</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 1.5rem;">A high-capacity B2B architectural catalogue establishing Urbanland Products as a premier manufacturing partner for smart city infrastructure.</p>
-                    
-    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
-        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
-        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Complete 12-domain technical catalogue organizing hundreds of outdoor infrastructure products.</span>
-    </div>
-  
-    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
-        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
-        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Streamlined B2B RFP quotation pipeline allowing instant schedule compilation and drawing uploads.</span>
-    </div>
-  
-    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
-        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
-        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Deep Schema.org search visibility establishing authority across commercial outdoor furniture queries.</span>
-    </div>
-  
-    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
-        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
-        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">High-performance architecture delivering sub-second page loads across both desktop and mobile devices.</span>
-    </div>
-  
-                </div>
-
-                <!-- Scope of Work Delivered -->
-                <div class="csd-card-dark">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">SCOPE OF WORK</span>
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Contracted Deliverables</h3>
-                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&bull;</span>
-        <span style="color: #cbd5e1;">12-Category Technical Product Information Architecture</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&bull;</span>
-        <span style="color: #cbd5e1;">Fullscreen Multi-Column Navigation Mega-Menu</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&bull;</span>
-        <span style="color: #cbd5e1;">B2B Request for Quote (RFQ) Engine with File Upload Support</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&bull;</span>
-        <span style="color: #cbd5e1;">Technical Specification Sheets &amp; CAD Download Modules</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&bull;</span>
-        <span style="color: #cbd5e1;">Lenis Smooth Scrolling with Protected Container Boundaries</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&bull;</span>
-        <span style="color: #cbd5e1;">Comprehensive Schema.org OfferCatalog &amp; LocalBusiness Graph</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&bull;</span>
-        <span style="color: #cbd5e1;">Mobile-Optimized Interface for Construction Site Inspection</span>
-    </div>
-  
-                    </div>
-                </div>
+                <a href="https://urbanlandproducts.com/" target="_blank" rel="noopener noreferrer" class="hero-live-link">
+          <span>Visit Live Platform</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+         </a>
             </div>
 
-            <!-- Verified Tech Stack Badges -->
-            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.25rem; margin-bottom: 3.5rem;">
-                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 1rem;">VERIFIED TECHNOLOGY STACK</span>
-                <div class="csd-cards-grid-3">
-                    
-    <div style="margin-bottom: 1.5rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Frontend Core</span>
-        <div>
-            <span class="csd-tech-badge">React</span><span class="csd-tech-badge">Vite ESM Pipeline</span><span class="csd-tech-badge">Lenis Smooth Scroll</span><span class="csd-tech-badge">Modern Component Architecture</span>
-        </div>
-    </div>
-  
-    <div style="margin-bottom: 1.5rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">B2B Commerce &amp; Forms</span>
-        <div>
-            <span class="csd-tech-badge">RFQ Schedule Builder</span><span class="csd-tech-badge">Multipart Drawing Ingestion</span><span class="csd-tech-badge">Honeypot Validation</span><span class="csd-tech-badge">Email Webhooks</span>
-        </div>
-    </div>
-  
-    <div style="margin-bottom: 1.5rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Structured SEO</span>
-        <div>
-            <span class="csd-tech-badge">Schema.org OfferCatalog</span><span class="csd-tech-badge">LocalBusiness Graph</span><span class="csd-tech-badge">FAQPage Schema</span><span class="csd-tech-badge">Core Web Vitals Engine</span>
-        </div>
-    </div>
-  
-                </div>
-            </div>
-
-            <!-- Project Gallery -->
-            <div>
-                <span class="csd-section-eyebrow csd-eyebrow-accent" style="margin-bottom: 0.5rem;">CURATED ASSET ARCHIVE</span>
-                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 2rem;">Additional High-Resolution Deliverables</h3>
-                <div class="csd-gallery-grid">
-                    
-    <div class="csd-gallery-item">
-        <img src="/assets/images/case-studies/urbanland/wpc-main.webp" alt="Wood Polymer Composite Engineering Range" loading="lazy" decoding="async" />
-        <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Wood Polymer Composite Engineering Range</strong>
-            <span>Heavy-duty weather-sealed composite benches engineered for zero maintenance in extreme monsoon and coastal climates.</span>
-        </div>
-    </div>
-  
-    <div class="csd-gallery-item">
-        <img src="/assets/images/case-studies/urbanland/nfc-main.webp" alt="Natural Fiber Composite Product Showcase" loading="lazy" decoding="async" />
-        <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Natural Fiber Composite Product Showcase</strong>
-            <span>Sustainable biophilic bollards and architectural elements manufactured from reclaimed plant fiber polymers.</span>
-        </div>
-    </div>
-  
-    <div class="csd-gallery-item">
-        <img src="/assets/images/case-studies/urbanland/aluminium-main.webp" alt="Architectural Aluminium Specification" loading="lazy" decoding="async" />
-        <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Architectural Aluminium Specification</strong>
-            <span>Precision powder-coated architectural aluminium planters and structural shade pergolas for modern corporate developments.</span>
-        </div>
-    </div>
-  
-                </div>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- CHAPTER 08: NEXT PROJECT & CTA -->
-        <section id="chapter-08" class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
-            <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
-                
-                <!-- Related Projects in Capability Taxonomy -->
-                
-    <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3.5rem;">
-        <span class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">TAXONOMY &middot; RELATED CASE STUDIES</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem;">Similar Engineering Engagements</h3>
-        <div class="csd-cards-grid-3">
-            
-                <a href="/case-studies/bazzaro" class="csd-related-card">
-                    <img src="/assets/images/case-studies/bazzaro/hero.png" alt="BAZZARO Preview" class="csd-related-img" loading="lazy" decoding="async" />
-                    <div class="csd-related-content">
-                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Commerce &amp; B2B</span>
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">BAZZARO &rarr;</h4>
-                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">D2C E-Commerce / Designer Canvas Accessories / Fashion Goods</p>
-                    </div>
-                </a>
-            
-                <a href="/case-studies/kala-design" class="csd-related-card">
-                    <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Preview" class="csd-related-img" loading="lazy" decoding="async" />
-                    <div class="csd-related-content">
-                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Brand &amp; Marketing Websites</span>
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">Kala Design Co &rarr;</h4>
-                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">Architecture / Luxury Interior Design / Spatial Curation</p>
-                    </div>
-                </a>
-            
-                <a href="/case-studies/decor-lab" class="csd-related-card">
-                    <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Decor Lab Preview" class="csd-related-img" loading="lazy" decoding="async" />
-                    <div class="csd-related-content">
-                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Brand &amp; Marketing Websites</span>
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">Decor Lab &rarr;</h4>
-                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">Architecture / Luxury Interior Curation / Parametric &amp; Fluid Architecture</p>
-                    </div>
-                </a>
-            
-        </div>
-    </div>
-  
-
-                <div>
-                    <span class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">ENGINEERING DOMAINS</span>
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem;">Related Studio Capabilities</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-                        <a href="/services/custom-web-development" class="csd-service-tag">Custom Web Development &rarr;</a> <a href="/services/shopify-development" class="csd-service-tag">Shopify Development &rarr;</a>
-                    </div>
-                </div>
-
-                
-                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
-                    <div>
-                        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Pixza &rarr;</a>
-                        </h4>
-                        <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">AI & Digital Products &middot; Artificial Intelligence / Creative SaaS / Generative Image Platform</p>
-                    </div>
-                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
-                </div>
-                
-            </div>
-        </section>
-
-        <!-- Studio Engineering CTA -->
-        <section class="cs-testimonials" style="background: #111111; color: #ffffff; padding: 6rem 2rem; text-align: center;">
-            <div style="max-width: 800px; margin: 0 auto;">
-                <span class="cs-grid-eyebrow" style="color: #C6FF00;">ENGINEER WITH KAWAKI</span>
-                <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; margin: 1.5rem 0; line-height: 1.15;">
-                    Have a complex digital product in mind?
-                </h2>
-                <p style="color: #aaaaaa; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;">
-                    We design and engineer bespoke web platforms, AI applications, and mobile ecosystems with zero template bloat and verified architectural rigor.
+            <div class="hero-title-group">
+                <h1 class="hero-main-title">
+                    Urbanland Products<br>
+                    <em>Engineered with Precision</em>
+                </h1>
+                <p class="hero-lead-text">
+                    Urbanland Products LLP is a premier Indian manufacturer of architectural outdoor furniture, public transit shelters, and smart city infrastructure based in Vasai, Maharashtra. The firm manufactures heavy-duty street benches, composite planters, commercial waste bins, bus shelters, gazebos, and modular pre-fab...
                 </p>
-                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                    <a href="/contact" class="csd-live-btn" style="margin-top: 0; padding: 1rem 2.5rem; font-size: 1rem;">Schedule Technical Discovery &rarr;</a>
-                    <a href="/case-studies" class="csd-service-tag" style="padding: 1rem 2rem; font-size: 1rem;">View All Case Studies</a>
+            </div>
+
+            <!-- Massive Edge-to-Edge Hero Photograph -->
+            <div class="editorial-hero-media">
+                <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products Showcase" fetchpriority="high" decoding="async" />
+            </div>
+        </header>
+
+        <!-- ============================================== -->
+        <!-- CHAPTER 02: THE MANDATE (50/50 SPLIT) -->
+        <!-- ============================================== -->
+        <section class="editorial-split" id="chapter-02">
+            <div class="editorial-split-img-box">
+                <img src="/assets/images/case-studies/urbanland/hero-1.webp" alt="Urbanland Products Strategic Commission" loading="lazy" decoding="async" />
+            </div>
+            <div class="editorial-split-copy">
+                <span class="editorial-eyebrow">01 / THE MANDATE</span>
+                <h2 class="editorial-chapter-title">Distinct <em>Positioning</em></h2>
+                <p class="editorial-body">
+                    B2B infrastructure procurement differs fundamentally from retail e-commerce: buyers do not pay via credit card. Instead, landscape architects require exact dimensional drawings, material durability data (WPC vs NFC vs aluminium), and the ability to compile...
+                </p>
+                <div class="editorial-meta-pill">
+                    <span>DELIVERABLE: Turnkey Technical &amp; Visual Architecture</span>
                 </div>
             </div>
         </section>
+
+        <!-- ============================================== -->
+        <!-- CHAPTER 03: THE SPATIAL CANVAS (REVERSE 50/50) -->
+        <!-- ============================================== -->
+        <section class="editorial-split reverse" id="chapter-03">
+            <div class="editorial-split-copy">
+                <span class="editorial-eyebrow">02 / THE EXPERIENCE</span>
+                <h2 class="editorial-chapter-title">The Digital <em>Canvas</em></h2>
+                <p class="editorial-body">
+                    We architected a bespoke visual canvas and responsive layout systems that elevate brand dignity and eliminate layout shifts across high-DPI displays.
+                </p>
+                <div class="editorial-meta-pill">
+                    <span>DELIVERABLE: Bespoke Design System &amp; Fluid Ergonomics</span>
+                </div>
+            </div>
+            <div class="editorial-split-img-box">
+                <img src="/assets/images/case-studies/urbanland/hero2.webp" alt="Urbanland Products Experience Design" loading="lazy" decoding="async" />
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- CHAPTER 04: FULL BLEED HERO SPREAD -->
+        <!-- ============================================== -->
+        <section class="editorial-fullbleed" id="chapter-04">
+            <div class="fullbleed-frame">
+                <img src="/assets/images/case-studies/urbanland/hero3.webp" alt="Urbanland Products Platform Architecture" loading="lazy" decoding="async" />
+                <div class="fullbleed-caption">
+                    <div class="fullbleed-caption-title">Urbanland Products &mdash; Production Deployment</div>
+                    <div class="fullbleed-caption-sub">VERIFIED INSTITUTIONAL BENCHMARK</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- CHAPTER 05: RUNTIME ENGINEERING (50/50 SPLIT) -->
+        <!-- ============================================== -->
+        <section class="editorial-split" id="chapter-05">
+            <div class="editorial-split-img-box">
+                <img src="/assets/images/case-studies/urbanland/wpc-main.webp" alt="Urbanland Products Runtime Architecture" loading="lazy" decoding="async" />
+            </div>
+            <div class="editorial-split-copy">
+                <span class="editorial-eyebrow">03 / PERFORMANCE</span>
+                <h2 class="editorial-chapter-title">Engineered for <em>Velocity</em></h2>
+                <p class="editorial-body">
+                    Engineered with clean modern contracts, optimized media compression, and zero unused runtime dependencies for instant page transitions.
+                </p>
+                <div class="editorial-meta-pill">
+                    <span>DELIVERABLE: Sub-Second Load &amp; Strict Contracts</span>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <table class="csd-spec-table">
+                        <thead>
+                            <tr>
+                                <th>MATERIAL SPECIFICATION</th>
+                                <th>STANDARD / TOLERANCE</th>
+                                <th>PRODUCTION BENCHMARK</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Architectural Cladding Profiles</td>
+                                <td>AA 6063-T6 Precision Extrusion</td>
+                                <td>100% Quality Inspected</td>
+                            </tr>
+                            <tr>
+                                <td>Surface Finishing Durability</td>
+                                <td>Qualicoat Class 2 Architectural Powder</td>
+                                <td>15-Year Weathering SLA</td>
+                            </tr>
+                            <tr>
+                                <td>B2B Digital Catalog Navigation</td>
+                                <td>Faceted Category Filtering API</td>
+                                <td>Instant Parameter Search</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- CHAPTER 06: PLATFORM ARCHIVE DUO -->
+        <!-- ============================================== -->
+        <section class="editorial-duo-grid" id="chapter-06">
+            <div class="duo-card">
+                <div class="duo-img-box">
+                    <img src="/assets/images/case-studies/urbanland/nfc-main.webp" alt="B2B Infrastructure Catalog Homepage" loading="lazy" decoding="async" />
+                </div>
+                <div class="duo-content">
+                    <h3 class="duo-title">B2B Infrastructure Catalog Homepage</h3>
+                    <p class="duo-desc">High-density architectural product matrix displaying outdoor street furniture, smart city planters, and composite materials.</p>
+                </div>
+            </div>
+            <div class="duo-card">
+                <div class="duo-img-box">
+                    <img src="/assets/images/case-studies/urbanland/aluminium-main.webp" alt="Commercial Spec Sheet &amp; Material Matrix" loading="lazy" decoding="async" />
+                </div>
+                <div class="duo-content">
+                    <h3 class="duo-title">Commercial Spec Sheet &amp; Material Matrix</h3>
+                    <p class="duo-desc">Engineered specification drawer allowing landscape architects to review tensile strength, UV resistance ratings, and architectural CAD downloads.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- CHAPTER 07: BUSINESS OUTCOME (REVERSE 50/50) -->
+        <!-- ============================================== -->
+        <section class="editorial-split reverse" id="chapter-07">
+            <div class="editorial-split-copy">
+                <span class="editorial-eyebrow">04 / BUSINESS IMPACT</span>
+                <h2 class="editorial-chapter-title">Measurable <em>Gravity</em></h2>
+                <p class="editorial-body">
+                    The deployed platform establishes distinct market positioning, accelerating qualified user conversion and operational efficiency.
+                </p>
+                <div class="editorial-meta-pill">
+                    <span>DELIVERABLE: Scalable Platform Architecture</span>
+                </div>
+            </div>
+            <div class="editorial-split-img-box">
+                <img src="/assets/images/case-studies/urbanland/hero-1.webp" alt="Urbanland Products Final Outcome" loading="lazy" decoding="async" />
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- CHAPTER 08: CLOSE & LIVE ACCESS -->
+        <!-- ============================================== -->
+        <footer class="editorial-footer-nav" id="chapter-08">
+            <div class="footer-nav-inner">
+                <span class="footer-nav-eyebrow">CASE STUDY CONCLUSION</span>
+                <h2 class="footer-nav-title">Experience Urbanland Products <em>in Production</em></h2>
+                <div class="footer-nav-actions">
+                    <a href="https://urbanlandproducts.com/" target="_blank" rel="noopener noreferrer" class="footer-btn-neon">
+                        Visit Live Platform ↗
+                    </a>
+                    <a href="/case-studies" class="footer-btn-ghost">
+                        &larr; All Case Studies
+                    </a>
+                </div>
+            </div>
+        </footer>
     </main>
 
-    <!-- FOOTER -->
-    <footer style="background: #08090b; color: #888888; padding: 4rem 2rem 2rem; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.06);">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
-            <div>
-                <img src="/assets/images/kawaki-logo-white.png" alt="Kawaki Studios" style="height: 28px; width: auto; opacity: 0.9;" />
-                <p style="margin-top: 0.75rem; color: #666666;">Bespoke Digital Engineering &amp; High-Performance Systems.</p>
-            </div>
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-                <a href="/about" style="color: inherit; text-decoration: none;">About</a>
-                <a href="/services" style="color: inherit; text-decoration: none;">Services</a>
-                <a href="/case-studies" style="color: #C6FF00; text-decoration: none;">Case Studies</a>
-                <a href="/blog" style="color: inherit; text-decoration: none;">Blog</a>
-                <a href="/contact" style="color: inherit; text-decoration: none;">Contact</a>
-            </div>
-        </div>
-        <div style="max-width: 1200px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; font-size: 0.8rem; color: #555555;">
-            <span>&copy; 2026 Kawaki Studios. All rights reserved.</span>
-            <span>Zero Fluff &middot; Real Engineering</span>
-        </div>
-    </footer>
-
-    <script src="/assets/js/global.js"></script>
-    <script src="/assets/js/chatbot.js"></script>
+    <script src="/assets/js/main.js?v=20260919_v1" defer></script>
+    <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
 </body>
 </html>
