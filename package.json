@@ -5,7 +5,11 @@
   "engines": {
     "node": ">=22.0.0"
   },
+  "bin": {
+    "kawaki": "./bin/cli.js"
+  },
   "scripts": {
+    "cli": "node bin/cli.js",
     "dev": "node scripts/start-all.js",
     "dev:all": "node scripts/start-all.js",
     "start": "node scripts/start-all.js",

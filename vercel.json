@@ -15,6 +15,14 @@
     {
       "source": "/blog-post",
       "destination": "/api/legacy-blog-redirect"
+    },
+    {
+      "source": "/cli",
+      "destination": "/api/cli"
+    },
+    {
+      "source": "/term",
+      "destination": "/api/cli"
     }
   ],
   "redirects": [

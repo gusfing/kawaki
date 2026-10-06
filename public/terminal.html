@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaki Studios // Terminal Shell</title>
+    <meta name="description" content="Interactive Command Line Interface for Kawaki Studios. Explore bespoke digital engineering, verified client case studies, and capabilities directly in the terminal.">
+    <link rel="canonical" href="https://www.kawaki.co.in/terminal">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- Monospace Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #07080a;
+            --term-bg: #0c0e12;
+            --accent-neon: #C6FF00;
+            --accent-cyan: #38bdf8;
+            --accent-green: #4ade80;
+            --accent-yellow: #facc15;
+            --accent-red: #f87171;
+            --text-main: #e2e8f0;
+            --text-dim: #64748b;
+            --text-slate: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 14.5px;
+            line-height: 1.6;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Scanline Overlay (Subtle Cyber CRT) */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: 100;
+            opacity: 0.35;
+        }
+
+        /* Main Window Shell */
+        .term-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            background: var(--term-bg);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Terminal Title Bar */
+        .term-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.85rem 1.25rem;
+            background: #11141a;
+            border-bottom: 1px solid var(--border-color);
+            user-select: none;
+        }
+
+        .term-dots {
+            display: flex;
+            gap: 8px;
+        }
+        .term-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .term-title {
+            color: var(--text-slate);
+            font-size: 12.5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .term-title span.active-tag {
+            background: rgba(198, 255, 0, 0.15);
+            color: var(--accent-neon);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10.5px;
+        }
+
+        .term-shortcuts {
+            display: flex;
+            gap: 8px;
+        }
+        .shortcut-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-slate);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 11.5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .shortcut-btn:hover {
+            background: var(--accent-neon);
+            color: #000000;
+            border-color: var(--accent-neon);
+            font-weight: 700;
+        }
+
+        /* Terminal Body Viewport */
+        .term-body {
+            flex: 1;
+            padding: 1.5rem 1.75rem;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .term-body::-webkit-scrollbar {
+            width: 6px;
+        }
+        .term-body::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 3px;
+        }
+
+        /* Banner Art */
+        .term-banner {
+            color: var(--accent-neon);
+            font-size: clamp(9px, 1.2vw, 13px);
+            line-height: 1.15;
+            white-space: pre;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 12px rgba(198, 255, 0, 0.3);
+            user-select: none;
+        }
+
+        .term-welcome {
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .term-line {
+            margin-bottom: 0.85rem;
+            word-break: break-word;
+        }
+
+        .term-prompt-line {
+            display: flex;
+            align-items: center;
+            color: var(--accent-neon);
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        .prompt-user {
+            color: var(--accent-cyan);
+        }
+        .prompt-at {
+            color: var(--text-dim);
+        }
+        .prompt-host {
+            color: var(--accent-neon);
+        }
+        .prompt-path {
+            color: var(--text-main);
+        }
+        .prompt-char {
+            color: var(--accent-neon);
+            margin: 0 8px 0 4px;
+        }
+
+        /* Input Form */
+        .term-input-row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .term-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 15px;
+            caret-color: var(--accent-neon);
+        }
+
+        /* Command Result Elements */
+        .cmd-table {
+            width: 100%;
+            margin: 0.75rem 0 1.25rem;
+            border-collapse: collapse;
+        }
+        .cmd-table td {
+            padding: 0.4rem 0.75rem;
+            vertical-align: top;
+        }
+        .cmd-table td.col-cmd {
+            color: var(--accent-neon);
+            font-weight: 700;
+            width: 160px;
+        }
+        .cmd-table td.col-desc {
+            color: var(--text-slate);
+        }
+
+        .project-card-cli {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent-neon);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 0.75rem 0 1.25rem;
+        }
+
+        .tag-pill-cli {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--accent-neon);
+            font-size: 11px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+
+        a.term-link {
+            color: var(--accent-cyan);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        a.term-link:hover {
+            color: var(--accent-neon);
+        }
+
+        @media (max-width: 768px) {
+            .term-banner {
+                font-size: 8px;
+            }
+            .term-shortcuts {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+
+    <div class="term-container">
+        <!-- Terminal Header Bar -->
+        <div class="term-bar">
+            <div class="term-dots">
+                <span class="term-dot dot-red"></span>
+                <span class="term-dot dot-yellow"></span>
+                <span class="term-dot dot-green"></span>
+            </div>
+            <div class="term-title">
+                <span>visitor@kawaki-studios: ~ (zsh)</span>
+                <span class="active-tag">CLI LIVE</span>
+            </div>
+            <div class="term-shortcuts">
+                <button class="shortcut-btn" onclick="executeCommand('about')">about</button>
+                <button class="shortcut-btn" onclick="executeCommand('services')">services</button>
+                <button class="shortcut-btn" onclick="executeCommand('projects')">projects</button>
+                <button class="shortcut-btn" onclick="executeCommand('ping')">ping</button>
+                <button class="shortcut-btn" onclick="executeCommand('help')">help</button>
+                <a href="/" class="shortcut-btn" style="color: var(--accent-neon); border-color: rgba(198,255,0,0.3);">[ GUI Mode &rarr; ]</a>
+            </div>
+        </div>
+
+        <!-- Terminal Viewport Output -->
+        <div class="term-body" id="termBody">
+            <div class="term-banner">
+██╗  ██╗ █████╗ ██╗    ██╗ █████╗ ██╗  ██╗██╗
+██║ ██╔╝██╔══██╗██║    ██║██╔══██╗██║ ██╔╝██║
+█████╔╝ ███████║██║ █╗ ██║███████║█████╔╝ ██║
+██╔═██╗ ██╔══██║██║███╗██║██╔══██║██╔═██╗ ██║
+██║  ██╗██║  ██║╚███╔███╔╝██║  ██║██║  ██╗██║
+╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝
+ K A W A K I   S T U D I O S // TERMINAL SHELL v2.0
+            </div>
+
+            <div class="term-welcome">
+                <p>Welcome to Kawaki Studios Terminal System (SF 37.77° N / TYO 35.67° N).</p>
+                <p style="color: var(--text-dim); margin-top: 4px;">Bespoke Digital Engineering &middot; High-Performance Systems &middot; Zero Fluff.</p>
+                <p style="margin-top: 8px;">
+                    Run directly in your system terminal via: <strong style="color: var(--accent-neon);">npx kawaki</strong> or curl: <strong style="color: var(--accent-cyan);">curl -sL kawaki.co.in/cli</strong>
+                </p>
+                <p style="margin-top: 6px;">Type <strong style="color: var(--accent-neon);">help</strong> to see available commands or click the shortcut buttons above.</p>
+            </div>
+
+            <div id="termHistory"></div>
+
+            <!-- Active Prompt Line -->
+            <div class="term-input-row" id="promptRow">
+                <span class="prompt-user">visitor</span><span class="prompt-at">@</span><span class="prompt-host">kawaki</span><span class="prompt-path">:~</span><span class="prompt-char">$</span>
+                <input type="text" id="termInput" class="term-input" autocomplete="off" spellcheck="false" autofocus />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const termInput = document.getElementById('termInput');
+        const termHistory = document.getElementById('termHistory');
+        const termBody = document.getElementById('termBody');
+        const promptRow = document.getElementById('promptRow');
+
+        const commandHistory = [];
+        let historyIndex = -1;
+
+        const PROJECTS = [
+            { slug: 'pixza', name: 'Pixza', category: 'AI & Digital Products', stack: 'React 19, Hono, Workers AI', status: 'Private Studio Deployment', live: null, desc: 'Autonomous AI Creative Studio with real-time multi-model failover.' },
+            { slug: 'kala-design', name: 'Kala Design Co', category: 'Brand & Marketing Websites', stack: 'Next.js, TailwindCSS, Lenis', status: 'Production Live', live: 'https://kaladesignco.com/', desc: 'Bespoke editorial architectural monograph with sub-second asset delivery.' },
+            { slug: 'kova', name: 'Kova', category: 'AI & Digital Products', stack: 'React 19, TypeScript, JSON AST', status: 'Private Testing', live: null, desc: 'Visual generative website canvas with reactive AST trees.' },
+            { slug: 'nextschool-erp', name: 'NextSchool ERP', category: 'Web Applications', stack: 'React, Node.js, PostgreSQL, Docker', status: 'Production Live', live: 'https://nextschoolerp.com/', desc: 'Enterprise multi-tenant campus operating platform.' },
+            { slug: 'bazzaro', name: 'BAZZARO', category: 'Commerce & B2B', stack: 'Shopify Liquid, Custom Theme, Ajax Cart', status: 'Production Live', live: 'https://www.bazzaro.in/', desc: 'High-conversion editorial menswear D2C storefront.' },
+            { slug: 'urbanland', name: 'Urbanland Products', category: 'Commerce & B2B', stack: 'Custom Web, REST API, Cloudflare CDN', status: 'Production Live', live: 'https://urbanlandproducts.com/', desc: 'Smart city infrastructure catalog & composite material spec matrix.' },
+            { slug: 'decor-lab', name: 'Decor Lab', category: 'Brand & Marketing Websites', stack: 'Custom Architecture, Cloudflare Edge', status: 'Production Live', live: 'https://www.decorlabs.co.in/', desc: 'Sensory interior architecture showcase honoring 33 years of design heritage.' },
+            { slug: 'nursepass', name: 'NursePass', category: 'Web Applications', stack: 'Next.js, TypeScript, PostgreSQL', status: 'Production Live', live: 'https://nursepass.de/', desc: 'Healthcare qualification portal for medical German exams.' },
+            { slug: 'lms-ecosystem', name: 'LMS Ecosystem', category: 'Mobile Applications', stack: 'Flutter, Dart, BLoC/Cubit, Sockets', status: 'Mobile Apps', live: null, desc: 'Tri-portal mobile ecosystem uniting teachers, parents, and GPS transit fleet.' },
+            { slug: 'iptv-mobile', name: 'Slix IPTV', category: 'Mobile Applications', stack: 'Flutter, ExoPlayer, PiP Engine', status: 'Mobile App', live: null, desc: 'High-throughput mobile video player with PiP ergonomics.' },
+            { slug: 'spa-salon', name: 'Spa & Salon', category: 'Mobile Applications', stack: 'Flutter, Dart, Firebase Messaging', status: 'Mobile App', live: null, desc: 'Multi-branch booking and resource scheduling application.' }
+        ];
+
+        const SERVICES = [
+            { id: 'web-dev', title: 'Custom Web Development', stack: 'Next.js 15, React 19, TypeScript, Cloudflare Workers', desc: 'Bespoke high-performance digital flagships engineered with sub-second latency and zero template bloat.' },
+            { id: 'shopify', title: 'Shopify & Headless Commerce', stack: 'Shopify Liquid, Hydrogen, Storefront API', desc: 'Custom conversion-optimized storefronts, checkout extensions, and headless architectures.' },
+            { id: 'ai-auto', title: 'AI Automation & Agents', stack: 'Deterministic Workflows, n8n, LangChain, Model Routing', desc: 'Autonomous workflow pipelines, multi-model failover, and self-hosted AI assistants.' },
+            { id: 'ai-search', title: 'AI Search Optimization (AEO / GEO)', stack: 'JSON-LD Graphs, Semantic Vectors, llms.txt', desc: 'Positioning institutional brands as definitive cited sources inside Perplexity, ChatGPT, and Google AI.' },
+            { id: 'security', title: 'Security & Malware Recovery', stack: 'Database Forensics, AST Auditing, WAF Hardening', desc: 'Emergency backdoor elimination, malicious redirect cleanup, and hardened web security.' },
+            { id: 'perf', title: 'Website Performance Optimization', stack: 'Sub-Second INP, LCP < 1.2s, Edge Caching', desc: 'Profiling and code optimization guaranteeing 95+ Google PageSpeed mobile scores.' }
+        ];
+
+        function appendOutput(html) {
+            const outDiv = document.createElement('div');
+            outDiv.className = 'term-line';
+            outDiv.innerHTML = html;
+            termHistory.appendChild(outDiv);
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        function executeCommand(raw) {
+            const line = raw.trim();
+            if (!line) return;
+
+            // Render prompt echo
+            appendOutput(`
+                <div class="term-prompt-line">
+                    <span class="prompt-user">visitor</span><span class="prompt-at">@</span><span class="prompt-host">kawaki</span><span class="prompt-path">:~</span><span class="prompt-char">$</span>
+                    <span style="color: #ffffff;">${escapeHtml(line)}</span>
+                </div>
+            `);
+
+            commandHistory.push(line);
+            historyIndex = commandHistory.length;
+
+            const parts = line.split(/\s+/);
+            const cmd = parts[0].toLowerCase();
+            const arg = parts.slice(1).join(' ').toLowerCase();
+
+            switch (cmd) {
+                case 'help':
+                case '?':
+                    appendOutput(`
+                        <p style="color: var(--accent-neon); font-weight: 700; margin-bottom: 0.5rem;">AVAILABLE COMMANDS:</p>
+                        <table class="cmd-table">
+                            <tr><td class="col-cmd">about</td><td class="col-desc">Studio manifesto, core philosophy, and engineering ethos</td></tr>
+                            <tr><td class="col-cmd">services</td><td class="col-desc">Explore our 6 technical capabilities & architecture tiers</td></tr>
+                            <tr><td class="col-cmd">projects</td><td class="col-desc">List all 11 real client case studies & verified tech stacks</td></tr>
+                            <tr><td class="col-cmd">project &lt;slug&gt;</td><td class="col-desc">View technical brief for a specific project (e.g. project pixza)</td></tr>
+                            <tr><td class="col-cmd">blog</td><td class="col-desc">List engineering essays & Core Web Vitals research</td></tr>
+                            <tr><td class="col-cmd">contact</td><td class="col-desc">Initiate a technical consultation request</td></tr>
+                            <tr><td class="col-cmd">ping</td><td class="col-desc">Run real-time latency ping to Kawaki Edge CDN</td></tr>
+                            <tr><td class="col-cmd">gui</td><td class="col-desc">Navigate to the graphical website homepage</td></tr>
+                            <tr><td class="col-cmd">clear</td><td class="col-desc">Clear the terminal screen</td></tr>
+                        </table>
+                    `);
+                    break;
+
+                case 'about':
+                case 'whoami':
+                case 'manifesto':
+                    appendOutput(`
+                        <div class="project-card-cli">
+                            <p style="color: var(--accent-neon); font-weight: 700; margin-bottom: 0.5rem;">KAWAKI STUDIOS // BESPOKE DIGITAL ENGINEERING</p>
+                            <p style="margin-bottom: 0.75rem;">"We reject bloated templates, generic frameworks, and transient hype. Every platform we build is engineered with strict type safety, sub-second latency, and architectural durability."</p>
+                            <p style="color: var(--text-slate); margin-bottom: 0.75rem;">From Tokyo to San Francisco, we partner with ambitious founders to engineer web platforms that combine editorial elegance with mission-critical performance.</p>
+                            <p><strong>Locations:</strong> SF 37.77° N / TYO 35.67° N &middot; Founded 2026 &middot; Real Engineering</p>
+                        </div>
+                    `);
+                    break;
+
+                case 'services':
+                case 'capabilities':
+                    let servHtml = `<p style="color: var(--accent-neon); font-weight: 700; margin-bottom: 0.75rem;">STUDIO CAPABILITIES & ARCHITECTURAL TIERS:</p>`;
+                    SERVICES.forEach((s, idx) => {
+                        servHtml += `
+                            <div class="project-card-cli" style="margin-bottom: 0.75rem;">
+                                <p><strong style="color: var(--text-main);">[0${idx+1}] ${s.title}</strong></p>
+                                <p style="color: var(--accent-cyan); font-size: 12.5px; margin: 0.25rem 0;">Stack: ${s.stack}</p>
+                                <p style="color: var(--text-slate);">${s.desc}</p>
+                            </div>
+                        `;
+                    });
+                    appendOutput(servHtml);
+                    break;
+
+                case 'projects':
+                case 'work':
+                case 'ls':
+                    let projHtml = `<p style="color: var(--accent-neon); font-weight: 700; margin-bottom: 0.75rem;">VERIFIED CLIENT CASE STUDIES (11 PRODUCTION WORKS):</p>`;
+                    PROJECTS.forEach((p, idx) => {
+                        const statusColor = p.status.includes('Live') ? 'var(--accent-green)' : 'var(--accent-yellow)';
+                        projHtml += `
+                            <div style="margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <span style="color: var(--accent-neon); font-weight: 700;">[${(idx+1).toString().padStart(2, '0')}] ${p.name}</span>
+                                <span class="tag-pill-cli">${p.category}</span>
+                                <span style="color: ${statusColor}; font-size: 12px;">&bull; ${p.status}</span>
+                                <p style="color: var(--text-slate); margin: 0.25rem 0;">${p.desc}</p>
+                                <p style="font-size: 12px; color: var(--text-dim);">
+                                    Stack: <span style="color: var(--accent-cyan);">${p.stack}</span> 
+                                    &middot; <a href="/case-studies/${p.slug}" class="term-link">View Monograph &rarr;</a>
+                                    ${p.live ? ` &middot; <a href="${p.live}" target="_blank" rel="noopener" class="term-link">Live Site ↗</a>` : ''}
+                                </p>
+                            </div>
+                        `;
+                    });
+                    appendOutput(projHtml);
+                    break;
+
+                case 'project':
+                case 'cat':
+                case 'view':
+                    if (!arg) {
+                        appendOutput(`<p style="color: var(--accent-yellow);">Usage: project &lt;slug&gt; (e.g. project pixza, project kala-design, project nextschool-erp)</p>`);
+                    } else {
+                        const p = PROJECTS.find(x => x.slug === arg || x.name.toLowerCase() === arg);
+                        if (!p) {
+                            appendOutput(`<p style="color: var(--accent-red);">Project '${arg}' not found. Type 'projects' to list all valid slugs.</p>`);
+                        } else {
+                            appendOutput(`
+                                <div class="project-card-cli">
+                                    <h3 style="color: var(--accent-neon); font-size: 1.15rem; margin-bottom: 0.5rem;">${p.name.toUpperCase()} // ${p.category}</h3>
+                                    <p style="margin-bottom: 0.5rem;"><strong>Brief:</strong> ${p.desc}</p>
+                                    <p style="margin-bottom: 0.5rem;"><strong>Status:</strong> ${p.status}</p>
+                                    <p style="color: var(--accent-cyan); margin-bottom: 0.5rem;"><strong>Stack:</strong> ${p.stack}</p>
+                                    ${p.live ? `<p><strong>Live URL:</strong> <a href="${p.live}" target="_blank" class="term-link">${p.live} ↗</a></p>` : ''}
+                                    <p style="margin-top: 0.75rem;">
+                                        <a href="/case-studies/${p.slug}" class="term-link" style="color: var(--accent-neon);">Open 8-Chapter Editorial Case Study &rarr;</a>
+                                    </p>
+                                </div>
+                            `);
+                        }
+                    }
+                    break;
+
+                case 'blog':
+                case 'insights':
+                    appendOutput(`
+                        <p style="color: var(--accent-neon); font-weight: 700; margin-bottom: 0.5rem;">TECHNICAL ESSAYS & RESEARCH NOTES:</p>
+                        <div style="margin-bottom: 0.5rem;">[01] <a href="/blog/how-ai-search-engines-cite-sources" class="term-link">How AI Search Engines Cite Sources: Mechanics of AEO & GEO</a></div>
+                        <div style="margin-bottom: 0.5rem;">[02] <a href="/blog/ai-automation-vs-ai-agents" class="term-link">AI Automation vs. AI Agents: Choosing the Right Layer</a></div>
+                        <div style="margin-bottom: 0.5rem;">[03] <a href="/blog/shopify-liquid-vs-headless" class="term-link">Shopify Liquid vs. Headless: Architectural Tradeoffs</a></div>
+                        <div style="margin-bottom: 0.5rem;">[04] <a href="/blog/nextjs-performance-architecture" class="term-link">Next.js Performance Architecture: Sub-Second Transitions</a></div>
+                        <div style="margin-bottom: 0.5rem;">[05] <a href="/blog/wordpress-malicious-redirects-cleanup" class="term-link">WordPress Malicious Redirects: Forensic Remediation</a></div>
+                        <p style="margin-top: 0.75rem;"><a href="/blog" class="term-link">Explore all 15 articles on /blog &rarr;</a></p>
+                    `);
+                    break;
+
+                case 'contact':
+                case 'hire':
+                    appendOutput(`
+                        <div class="project-card-cli">
+                            <p style="color: var(--accent-neon); font-weight: 700; margin-bottom: 0.5rem;">TECHNICAL DISCOVERY & CONSULTATION:</p>
+                            <p style="margin-bottom: 0.75rem;">To schedule a 15-minute architecture discovery session or submit project parameters:</p>
+                            <p><strong>Direct Email:</strong> <a href="mailto:hello@kawakistudios.com" class="term-link">hello@kawakistudios.com</a></p>
+                            <p style="margin-top: 0.35rem;"><strong>Web Booking:</strong> <a href="/contact" class="term-link">https://www.kawaki.co.in/contact &rarr;</a></p>
+                            <p style="margin-top: 0.35rem; color: var(--accent-cyan);"><strong>CLI Native:</strong> Run <code>npx kawaki contact</code> in your local terminal for interactive prompt intake.</p>
+                        </div>
+                    `);
+                    break;
+
+                case 'ping':
+                case 'status':
+                    const startTime = performance.now();
+                    appendOutput(`<p style="color: var(--text-slate);">Pinging Kawaki Edge Gateway at https://www.kawaki.co.in/api/blogs...</p>`);
+                    fetch('/api/blogs')
+                        .then(() => {
+                            const latency = Math.round(performance.now() - startTime);
+                            appendOutput(`<p style="color: var(--accent-green);">&bull; 200 OK — Latency: <strong style="color: var(--accent-neon);">${latency}ms</strong> &middot; Edge Cache Operational &middot; SSL Valid</p>`);
+                        })
+                        .catch(() => {
+                            appendOutput(`<p style="color: var(--accent-yellow);">&bull; Edge ping completed (${Math.round(performance.now() - startTime)}ms).</p>`);
+                        });
+                    break;
+
+                case 'gui':
+                case 'exit':
+                case 'quit':
+                    appendOutput(`<p style="color: var(--accent-neon);">Switching to Graphical Portfolio...</p>`);
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 600);
+                    break;
+
+                case 'clear':
+                case 'cls':
+                    termHistory.innerHTML = '';
+                    break;
+
+                default:
+                    appendOutput(`<p style="color: var(--accent-red);">Unknown command: "${escapeHtml(cmd)}". Type <span style="color: var(--accent-neon); font-weight: 700;">help</span> to see valid commands.</p>`);
+                    break;
+            }
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Input handler
+        termInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const val = termInput.value;
+                termInput.value = '';
+                executeCommand(val);
+            } else if (e.key === 'ArrowUp') {
+                if (commandHistory.length > 0 && historyIndex > 0) {
+                    historyIndex--;
+                    termInput.value = commandHistory[historyIndex];
+                }
+                e.preventDefault();
+            } else if (e.key === 'ArrowDown') {
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    termInput.value = commandHistory[historyIndex];
+                } else {
+                    historyIndex = commandHistory.length;
+                    termInput.value = '';
+                }
+                e.preventDefault();
+            } else if (e.key === 'Tab') {
+                e.preventDefault();
+                const current = termInput.value.trim().toLowerCase();
+                const available = ['help', 'about', 'services', 'projects', 'project', 'blog', 'contact', 'ping', 'gui', 'clear'];
+                const match = available.find(c => c.startsWith(current));
+                if (match) {
+                    termInput.value = match;
+                }
+            }
+        });
+
+        // Click anywhere to focus input
+        document.addEventListener('click', () => {
+            termInput.focus();
+        });
+    </script>
+</body>
+</html>

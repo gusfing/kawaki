@@ -153,6 +153,12 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 0. Dedicated CLI Endpoint (/cli, /term)
+  if (reqPath === '/cli' || reqPath === '/term' || reqPath === '/api/cli') {
+    const cliHandler = require('./api/cli.js');
+    return cliHandler(req, res);
+  }
+
   // 1. Forward all /api/ requests to the Hono Backend (with SQLite database fallback)
   if (reqPath.startsWith('/api/') || reqPath === '/api') {
     handleApiProxyOrDirect(req, res, parsedUrl);
