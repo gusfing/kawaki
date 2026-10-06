@@ -437,6 +437,34 @@
             flex-shrink: 0;
             line-height: 1;
         }
+
+        /* Related Projects Showcase */
+        .csd-related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .csd-related-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(198, 255, 0, 0.4);
+        }
+        .csd-related-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .csd-related-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
     </style>
 </head>
 <body style="background-color: #ffffff; color: #111111;">
@@ -659,11 +687,51 @@
     </section>
   
 
-        <!-- 5. The Approach -->
+        <!-- 5. Objectives -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. PROJECT OBJECTIVES</span>
+            <h2 class="csd-section-title">Verified Engineering &amp; Strategic Mandates</h2>
+            <p style="font-size: 1.05rem; line-height: 1.65; color: #555555; max-width: 840px; margin-bottom: 2.5rem;">
+                Every architectural initiative was driven by concrete operational objectives established with client stakeholders:
+            </p>
+            <div class="csd-cards-grid-2">
+                
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 01</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Bridge Natural Language Synthesis with Visual Canvas Manipulation</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Enable creators to describe websites in natural language while maintaining direct, visual editing control over spacing, typography, and component hierarchies.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 02</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Decouple AST State Representation from Runtime Rendering</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Separate component abstract syntax trees (AST) from client-side DOM rendering, allowing users to modify copy visually while keeping code structures clean.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 03</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Isolate AI-Generated Code in Secure Sandboxes</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Execute synthesized layouts inside isolated iframe sandboxes communicating via a postMessage event bus, preventing styling conflicts with the host workspace.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 04</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Export Production-Ready Code with Zero Vendor Lock-In</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Output clean, standards-compliant HTML5 and Tailwind CSS markup ready for immediate deployment on Vercel, Netlify, or Cloudflare Pages.</p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 6. The Approach -->
         
     <section class="csd-section-offwhite">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. THE APPROACH</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. THE APPROACH</span>
             <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
             <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
                 We architected Kova around the principle that AI should act as an interactive design partner, not an opaque black box. By decoupling abstract syntax trees (AST) from visual rendering, creators maintain granular control over typography, spacing, and layout at every stage.
@@ -699,11 +767,11 @@
     </section>
   
 
-        <!-- 6. Information Architecture -->
+        <!-- 7. Information Architecture -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. INFORMATION ARCHITECTURE</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. INFORMATION ARCHITECTURE</span>
             <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
             <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
                 A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
@@ -736,11 +804,50 @@
     </section>
   
 
-        <!-- 7. UX & Design System -->
+        <!-- 8. UX & Product Thinking -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 05. UX &amp; DESIGN SYSTEM</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. UX &amp; PRODUCT THINKING</span>
+            <h2 class="csd-section-title">User Journey &amp; Operational Ergonomics</h2>
+            <div class="csd-cards-grid-3" style="margin-top: 2.5rem;">
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 01</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Discovery</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Users initiate projects through a prompt synthesis modal that captures brand positioning, visual aesthetic preferences, and target conversion objectives.</p>
+                </div>
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 02</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Navigation &amp; Structure</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">An infinite visual canvas with smooth pan, zoom, and spatial bounding boxes allows effortless navigation across complex multi-section web layouts.</p>
+                </div>
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 03</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Workflow &amp; Processing</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Kova synthesizes atomic sections (Heroes, Features, Pricing, Proof) that appear on the canvas. Users visually click any text or element to edit copy or trigger section regeneration.</p>
+                </div>
+            </div>
+            <div class="csd-cards-grid-2" style="margin-top: 1.5rem;">
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 04</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Conversion &amp; Ingestion</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A clean code export panel displays real-time HTML5 and Tailwind CSS with one-click clipboard copying or direct GitHub / ZIP repository export.</p>
+                </div>
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 05</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Mobile Ergonomics</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A responsive device toolbar allows creators to toggle the canvas frame between Desktop (1440px), Tablet (768px), and Mobile (375px) viewports with real-time CSS compilation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 9. UX & Design System -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 07. UX &amp; DESIGN SYSTEM</span>
             <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
             <div class="csd-cards-grid-2" style="margin-top: 2rem;">
                 <div class="csd-card">
@@ -764,11 +871,11 @@
     </section>
   
 
-        <!-- 8. Key Features & Experiences -->
+        <!-- 10. Key Features & Experiences -->
         
-    <section class="csd-section-offwhite">
+    <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. KEY FEATURES &amp; EXPERIENCES</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. KEY FEATURES &amp; EXPERIENCES</span>
             <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
             <div style="max-width: 960px; margin-top: 3rem;">
                 
@@ -801,11 +908,11 @@
     </section>
   
 
-        <!-- 9. Engineering & Architecture -->
+        <!-- 11. Engineering & Architecture -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. ENGINEERING &amp; ARCHITECTURE</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. ENGINEERING &amp; ARCHITECTURE</span>
             <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
             <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
                 Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
@@ -844,11 +951,11 @@
     </section>
   
 
-        <!-- 10. Selected Screens & Walkthrough -->
+        <!-- 12. Selected Screens & Walkthrough -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. SELECTED SCREENS &amp; WALKTHROUGH</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. SELECTED SCREENS &amp; WALKTHROUGH</span>
             <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
             <div style="margin-top: 3rem;">
                 
@@ -881,11 +988,11 @@
     </section>
   
 
-        <!-- 11. Technical Deep Dive -->
+        <!-- 13. Technical Deep Dive -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. TECHNICAL DEEP DIVE</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 11. TECHNICAL DEEP DIVE</span>
             <h2 class="csd-section-title" style="color: #ffffff;">Natural Language to Sandboxed AST Canvas Pipeline</h2>
             <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
                 By constraining the LLM to output a strict JSON component schema rather than raw strings, Kova parses and validates every UI element against responsive design rules before sending it to the sandboxed renderer.
@@ -917,11 +1024,11 @@
     </section>
   
 
-        <!-- 12. Challenges & Solutions Table -->
+        <!-- 14. Challenges & Solutions Table -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. CHALLENGES &amp; SOLUTIONS</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 12. CHALLENGES &amp; SOLUTIONS</span>
             <h2 class="csd-section-title">Architectural Friction Resolved</h2>
             <div class="csd-table-wrapper">
                 <table class="csd-table">
@@ -960,11 +1067,11 @@
     </section>
   
 
-        <!-- 13. Outcome & Business Impact -->
+        <!-- 15. Outcome & Business Impact -->
         
     <section class="csd-section-offwhite">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 11. OUTCOME &amp; BUSINESS IMPACT</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 13. OUTCOME &amp; BUSINESS IMPACT</span>
             <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
             <div class="csd-card" style="margin-top: 2rem;">
                 <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
@@ -978,11 +1085,11 @@
     </section>
   
 
-        <!-- 14. What We Delivered -->
+        <!-- 16. What We Delivered -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 12. SCOPE OF WORK</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 14. SCOPE OF WORK</span>
             <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
             <div class="csd-checklist">
                 
@@ -1026,11 +1133,11 @@
     </section>
   
 
-        <!-- 15. Project Gallery -->
+        <!-- 17. Project Gallery -->
         
     <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 13. PROJECT GALLERY</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 15. PROJECT GALLERY</span>
             <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
             <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
                 
@@ -1055,11 +1162,11 @@
     </section>
   
 
-        <!-- 16. Technology Stack -->
+        <!-- 18. Technology Stack -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 14. TECHNOLOGY STACK</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 16. TECHNOLOGY STACK</span>
             <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
             <div class="csd-cards-grid-3" style="margin-top: 2rem;">
                 
@@ -1092,6 +1199,45 @@
         <!-- Related Kawaki Capabilities & Next Project -->
         <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
+                
+                <!-- Related Projects in Capability Taxonomy -->
+                
+    <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3.5rem;">
+        <span class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">TAXONOMY &middot; RELATED CASE STUDIES</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem;">Similar Engineering Engagements</h3>
+        <div class="csd-cards-grid-3">
+            
+                <a href="/case-studies/pixza" class="csd-related-card">
+                    <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza Preview" class="csd-related-img" loading="lazy" decoding="async" />
+                    <div class="csd-related-content">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">AI &amp; Digital Products</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">Pixza &rarr;</h4>
+                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">Artificial Intelligence / Creative SaaS / Generative Image Platform</p>
+                    </div>
+                </a>
+            
+                <a href="/case-studies/nextschool-erp" class="csd-related-card">
+                    <img src="/assets/images/project_1_1787254271240.webp" alt="NextSchool ERP Preview" class="csd-related-img" loading="lazy" decoding="async" />
+                    <div class="csd-related-content">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Web Applications &amp; Platforms</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">NextSchool ERP &rarr;</h4>
+                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">EdTech / Cloud School Management ERP / Multi-Tenant SaaS</p>
+                    </div>
+                </a>
+            
+                <a href="/case-studies/lms-ecosystem" class="csd-related-card">
+                    <img src="/assets/images/project_2_1787254282785.webp" alt="Multi-Role LMS &amp; School Mobility Ecosystem Preview" class="csd-related-img" loading="lazy" decoding="async" />
+                    <div class="csd-related-content">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Web Applications &amp; Platforms</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">Multi-Role LMS &amp; School Mobility Ecosystem &rarr;</h4>
+                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">Education / Fleet Mobility / Multi-Role Enterprise Systems</p>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+  
+
                 <div>
                     <span class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">ENGINEERING DOMAINS</span>
                     <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem;">Related Studio Capabilities</h3>
@@ -1120,7 +1266,7 @@
             <div style="max-width: 800px; margin: 0 auto;">
                 <span class="cs-grid-eyebrow" style="color: #C6FF00;">ENGINEER WITH KAWAKI</span>
                 <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; margin: 1.5rem 0; line-height: 1.15;">
-                    Have an ambitious platform or digital product to build?
+                    Have a complex digital product in mind?
                 </h2>
                 <p style="color: #aaaaaa; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;">
                     We design and engineer bespoke web platforms, AI applications, and mobile ecosystems with zero template bloat and verified architectural rigor.

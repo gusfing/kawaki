@@ -437,6 +437,34 @@
             flex-shrink: 0;
             line-height: 1;
         }
+
+        /* Related Projects Showcase */
+        .csd-related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .csd-related-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(198, 255, 0, 0.4);
+        }
+        .csd-related-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .csd-related-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
     </style>
 </head>
 <body style="background-color: #ffffff; color: #111111;">
@@ -659,11 +687,51 @@
     </section>
   
 
-        <!-- 5. The Approach -->
+        <!-- 5. Objectives -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. PROJECT OBJECTIVES</span>
+            <h2 class="csd-section-title">Verified Engineering &amp; Strategic Mandates</h2>
+            <p style="font-size: 1.05rem; line-height: 1.65; color: #555555; max-width: 840px; margin-bottom: 2.5rem;">
+                Every architectural initiative was driven by concrete operational objectives established with client stakeholders:
+            </p>
+            <div class="csd-cards-grid-2">
+                
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 01</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Unify Three Dedicated Mobile Clients Under Flutter</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Engineer interconnected Teacher/Staff and Student/Parent mobile applications alongside Fleet Telematics sharing unified Dart networking and state logic.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 02</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Enforce Predictable BLoC / Cubit State Machines</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Structure every functional module (Auth, Attendance, Timetable, Exams, Transport) as an isolated Cubit to guarantee unidirectional data flow and zero UI stutter.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 03</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Deploy Real-Time Vehicle GPS Telematics</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Build dedicated route tracking endpoints (`/transport/location/{vehicleId}`) delivering lightweight coordinates with spatial smoothing for live parent bus tracking.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 04</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Ensure Offline Classroom Data Resilience</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Integrate Hive local key-value databases on mobile clients, enabling educators to mark attendance in cellular dead zones with automated reconnection syncing.</p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 6. The Approach -->
         
     <section class="csd-section-offwhite">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. THE APPROACH</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. THE APPROACH</span>
             <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
             <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
                 We engineered the ecosystem on a unified mobile-first philosophy using Flutter and BLoC Cubits. By establishing shared data contracts, isolated state machines, and localized offline databases, every user experiences an app tailored to their exact role while the central backend maintains data integrity.
@@ -705,11 +773,11 @@
     </section>
   
 
-        <!-- 6. Information Architecture -->
+        <!-- 7. Information Architecture -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. INFORMATION ARCHITECTURE</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. INFORMATION ARCHITECTURE</span>
             <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
             <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
                 A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
@@ -740,11 +808,50 @@
     </section>
   
 
-        <!-- 7. UX & Design System -->
+        <!-- 8. UX & Product Thinking -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 05. UX &amp; DESIGN SYSTEM</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. UX &amp; PRODUCT THINKING</span>
+            <h2 class="csd-section-title">User Journey &amp; Operational Ergonomics</h2>
+            <div class="csd-cards-grid-3" style="margin-top: 2.5rem;">
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 01</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Discovery</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Role-gated authentication routes staff, students, and parents into specialized mobile dashboards displaying role-relevant daily priorities and schedules.</p>
+                </div>
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 02</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Navigation &amp; Structure</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Bottom navigation bars provide one-tap switching between core duties (Attendance, Timetable, Chat for Staff; Exams, Results, Notices for Parents).</p>
+                </div>
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 03</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Workflow &amp; Processing</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Educators tap student attendance cards in classrooms with immediate local Hive caching, while the central telematics engine pushes live bus GPS coordinates to parent map screens.</p>
+                </div>
+            </div>
+            <div class="csd-cards-grid-2" style="margin-top: 1.5rem;">
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 04</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Conversion &amp; Ingestion</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Parents verify vehicle arrival times through animated map pins and pay overdue tuition fees securely through integrated mobile payment gateways.</p>
+                </div>
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 05</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Mobile Ergonomics</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Adaptive Flutter layout trees automatically adjust component padding and touch target sizes across budget 4.7-inch smartphones up to 12.9-inch iPad classroom tablets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 9. UX & Design System -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 07. UX &amp; DESIGN SYSTEM</span>
             <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
             <div class="csd-cards-grid-2" style="margin-top: 2rem;">
                 <div class="csd-card">
@@ -768,11 +875,11 @@
     </section>
   
 
-        <!-- 8. Key Features & Experiences -->
+        <!-- 10. Key Features & Experiences -->
         
-    <section class="csd-section-offwhite">
+    <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. KEY FEATURES &amp; EXPERIENCES</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. KEY FEATURES &amp; EXPERIENCES</span>
             <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
             <div style="max-width: 960px; margin-top: 3rem;">
                 
@@ -805,11 +912,11 @@
     </section>
   
 
-        <!-- 9. Engineering & Architecture -->
+        <!-- 11. Engineering & Architecture -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. ENGINEERING &amp; ARCHITECTURE</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. ENGINEERING &amp; ARCHITECTURE</span>
             <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
             <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
                 Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
@@ -848,11 +955,11 @@
     </section>
   
 
-        <!-- 10. Selected Screens & Walkthrough -->
+        <!-- 12. Selected Screens & Walkthrough -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. SELECTED SCREENS &amp; WALKTHROUGH</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. SELECTED SCREENS &amp; WALKTHROUGH</span>
             <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
             <div style="margin-top: 3rem;">
                 
@@ -885,11 +992,11 @@
     </section>
   
 
-        <!-- 11. Technical Deep Dive -->
+        <!-- 13. Technical Deep Dive -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. TECHNICAL DEEP DIVE</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 11. TECHNICAL DEEP DIVE</span>
             <h2 class="csd-section-title" style="color: #ffffff;">Real-Time Fleet Telematics &amp; Cubit State Sync Flow</h2>
             <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
                 By decoupling high-frequency GPS coordinate pushes into a dedicated telematics controller with spatial smoothing, the parent mobile app renders smooth bus marker movements without draining phone batteries or causing server lag.
@@ -917,11 +1024,11 @@
     </section>
   
 
-        <!-- 12. Challenges & Solutions Table -->
+        <!-- 14. Challenges & Solutions Table -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. CHALLENGES &amp; SOLUTIONS</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 12. CHALLENGES &amp; SOLUTIONS</span>
             <h2 class="csd-section-title">Architectural Friction Resolved</h2>
             <div class="csd-table-wrapper">
                 <table class="csd-table">
@@ -960,11 +1067,11 @@
     </section>
   
 
-        <!-- 13. Outcome & Business Impact -->
+        <!-- 15. Outcome & Business Impact -->
         
     <section class="csd-section-offwhite">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 11. OUTCOME &amp; BUSINESS IMPACT</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 13. OUTCOME &amp; BUSINESS IMPACT</span>
             <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
             <div class="csd-card" style="margin-top: 2rem;">
                 <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
@@ -978,11 +1085,11 @@
     </section>
   
 
-        <!-- 14. What We Delivered -->
+        <!-- 16. What We Delivered -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 12. SCOPE OF WORK</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 14. SCOPE OF WORK</span>
             <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
             <div class="csd-checklist">
                 
@@ -1026,11 +1133,11 @@
     </section>
   
 
-        <!-- 15. Project Gallery -->
+        <!-- 17. Project Gallery -->
         
     <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 13. PROJECT GALLERY</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 15. PROJECT GALLERY</span>
             <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
             <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
                 
@@ -1055,11 +1162,11 @@
     </section>
   
 
-        <!-- 16. Technology Stack -->
+        <!-- 18. Technology Stack -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 14. TECHNOLOGY STACK</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 16. TECHNOLOGY STACK</span>
             <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
             <div class="csd-cards-grid-3" style="margin-top: 2rem;">
                 
@@ -1092,6 +1199,45 @@
         <!-- Related Kawaki Capabilities & Next Project -->
         <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
+                
+                <!-- Related Projects in Capability Taxonomy -->
+                
+    <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3.5rem;">
+        <span class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">TAXONOMY &middot; RELATED CASE STUDIES</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem;">Similar Engineering Engagements</h3>
+        <div class="csd-cards-grid-3">
+            
+                <a href="/case-studies/nextschool-erp" class="csd-related-card">
+                    <img src="/assets/images/project_1_1787254271240.webp" alt="NextSchool ERP Preview" class="csd-related-img" loading="lazy" decoding="async" />
+                    <div class="csd-related-content">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Web Applications &amp; Platforms</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">NextSchool ERP &rarr;</h4>
+                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">EdTech / Cloud School Management ERP / Multi-Tenant SaaS</p>
+                    </div>
+                </a>
+            
+                <a href="/case-studies/iptv-mobile" class="csd-related-card">
+                    <img src="/assets/images/case-studies/iptv/hero.png" alt="Slix IPTV Preview" class="csd-related-img" loading="lazy" decoding="async" />
+                    <div class="csd-related-content">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Mobile Applications</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">Slix IPTV &rarr;</h4>
+                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">Digital Media / Video Streaming / Entertainment / IPTV</p>
+                    </div>
+                </a>
+            
+                <a href="/case-studies/spa-salon" class="csd-related-card">
+                    <img src="/assets/images/project_3_1787254295127.webp" alt="Spa &amp; Salon Management Platform Preview" class="csd-related-img" loading="lazy" decoding="async" />
+                    <div class="csd-related-content">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Mobile Applications</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">Spa &amp; Salon Management Platform &rarr;</h4>
+                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">Wellness / Beauty &amp; Aesthetics / Service Operations / Mobile Booking</p>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+  
+
                 <div>
                     <span class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">ENGINEERING DOMAINS</span>
                     <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem;">Related Studio Capabilities</h3>
@@ -1120,7 +1266,7 @@
             <div style="max-width: 800px; margin: 0 auto;">
                 <span class="cs-grid-eyebrow" style="color: #C6FF00;">ENGINEER WITH KAWAKI</span>
                 <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; margin: 1.5rem 0; line-height: 1.15;">
-                    Have an ambitious platform or digital product to build?
+                    Have a complex digital product in mind?
                 </h2>
                 <p style="color: #aaaaaa; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;">
                     We design and engineer bespoke web platforms, AI applications, and mobile ecosystems with zero template bloat and verified architectural rigor.

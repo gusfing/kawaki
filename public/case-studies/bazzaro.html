@@ -437,6 +437,34 @@
             flex-shrink: 0;
             line-height: 1;
         }
+
+        /* Related Projects Showcase */
+        .csd-related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .csd-related-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(198, 255, 0, 0.4);
+        }
+        .csd-related-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .csd-related-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
     </style>
 </head>
 <body style="background-color: #ffffff; color: #111111;">
@@ -659,11 +687,51 @@
     </section>
   
 
-        <!-- 5. The Approach -->
+        <!-- 5. Objectives -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. PROJECT OBJECTIVES</span>
+            <h2 class="csd-section-title">Verified Engineering &amp; Strategic Mandates</h2>
+            <p style="font-size: 1.05rem; line-height: 1.65; color: #555555; max-width: 840px; margin-bottom: 2.5rem;">
+                Every architectural initiative was driven by concrete operational objectives established with client stakeholders:
+            </p>
+            <div class="csd-cards-grid-2">
+                
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 01</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Eliminate E-Commerce Template Bloat</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Replace sluggish Shopify themes and 30+ third-party app scripts with a custom Next.js App Router storefront delivering sub-second page transitions.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 02</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Build an Instant Reactive Dual-Tab Drawer</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Combine active Cart items and persistent Wishlist favorites into a single client-side slide-over drawer with zero full-page reloads.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 03</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Communicate Heavyweight Cotton Canvas Craftsmanship</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Design detailed material specification modules highlighting cotton GSM, reinforced X-stitching, internal utility pockets, and archival screenprinting.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 04</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Streamline D2C Impulse Purchases</h3>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Incorporate native View Transitions API page morphs and persistent promotional incentives (Free Shipping on ₹2,999+, flat ₹600 pricing) to maximize checkout completion.</p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 6. The Approach -->
         
     <section class="csd-section-offwhite">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. THE APPROACH</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. THE APPROACH</span>
             <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
             <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
                 We treated BAZZARO&#39;s e-commerce presence as an editorial gallery where every product is an art piece. Performance is treated as a core design feature: zero third-party script bloat, instant slide-over drawers, and native view transitions that feel like a native mobile app.
@@ -699,11 +767,11 @@
     </section>
   
 
-        <!-- 6. Information Architecture -->
+        <!-- 7. Information Architecture -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. INFORMATION ARCHITECTURE</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. INFORMATION ARCHITECTURE</span>
             <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
             <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
                 A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
@@ -741,11 +809,50 @@
     </section>
   
 
-        <!-- 7. UX & Design System -->
+        <!-- 8. UX & Product Thinking -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 05. UX &amp; DESIGN SYSTEM</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. UX &amp; PRODUCT THINKING</span>
+            <h2 class="csd-section-title">User Journey &amp; Operational Ergonomics</h2>
+            <div class="csd-cards-grid-3" style="margin-top: 2.5rem;">
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 01</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Discovery</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Shoppers explore curated drops (Botanical, Anime, Graphic Art) through high-density 3:4 aspect ratio cards featuring secondary image reveals on hover and instant quick-add actions.</p>
+                </div>
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 02</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Navigation &amp; Structure</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A clean announcement bar communicates shipping thresholds, while a full-screen typographic slide-out drawer provides thumb-friendly category exploration on mobile viewports.</p>
+                </div>
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 03</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Workflow &amp; Processing</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Product pages break down fabric density and dimensions alongside customer reviews. Tapping &#39;Add to Tote&#39; instantly triggers the reactive slide-over cart without navigating away from the lookbook.</p>
+                </div>
+            </div>
+            <div class="csd-cards-grid-2" style="margin-top: 1.5rem;">
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 04</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Conversion &amp; Ingestion</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">The slide-over drawer features a real-time shipping progress bar and one-tap checkout forwarding to secure payment gateways with zero layout shift.</p>
+                </div>
+                <div class="csd-card">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 05</span>
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Mobile Ergonomics</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Designed mobile-first with sticky bottom purchase actions on product pages and swipeable image galleries supporting native touch momentum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 9. UX & Design System -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 07. UX &amp; DESIGN SYSTEM</span>
             <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
             <div class="csd-cards-grid-2" style="margin-top: 2rem;">
                 <div class="csd-card">
@@ -769,11 +876,11 @@
     </section>
   
 
-        <!-- 8. Key Features & Experiences -->
+        <!-- 10. Key Features & Experiences -->
         
-    <section class="csd-section-offwhite">
+    <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. KEY FEATURES &amp; EXPERIENCES</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. KEY FEATURES &amp; EXPERIENCES</span>
             <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
             <div style="max-width: 960px; margin-top: 3rem;">
                 
@@ -806,11 +913,11 @@
     </section>
   
 
-        <!-- 9. Engineering & Architecture -->
+        <!-- 11. Engineering & Architecture -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. ENGINEERING &amp; ARCHITECTURE</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. ENGINEERING &amp; ARCHITECTURE</span>
             <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
             <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
                 Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
@@ -849,11 +956,11 @@
     </section>
   
 
-        <!-- 10. Selected Screens & Walkthrough -->
+        <!-- 12. Selected Screens & Walkthrough -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. SELECTED SCREENS &amp; WALKTHROUGH</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. SELECTED SCREENS &amp; WALKTHROUGH</span>
             <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
             <div style="margin-top: 3rem;">
                 
@@ -886,11 +993,11 @@
     </section>
   
 
-        <!-- 11. Technical Deep Dive -->
+        <!-- 13. Technical Deep Dive -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. TECHNICAL DEEP DIVE</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 11. TECHNICAL DEEP DIVE</span>
             <h2 class="csd-section-title" style="color: #ffffff;">Headless E-Commerce State &amp; Render Lifecycle</h2>
             <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
                 By managing cart and wishlist states through lightweight reactive React hooks and local storage persistence, the customer experiences instant visual feedback without waiting for server round-trips.
@@ -918,11 +1025,11 @@
     </section>
   
 
-        <!-- 12. Challenges & Solutions Table -->
+        <!-- 14. Challenges & Solutions Table -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. CHALLENGES &amp; SOLUTIONS</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 12. CHALLENGES &amp; SOLUTIONS</span>
             <h2 class="csd-section-title">Architectural Friction Resolved</h2>
             <div class="csd-table-wrapper">
                 <table class="csd-table">
@@ -961,11 +1068,11 @@
     </section>
   
 
-        <!-- 13. Outcome & Business Impact -->
+        <!-- 15. Outcome & Business Impact -->
         
     <section class="csd-section-offwhite">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 11. OUTCOME &amp; BUSINESS IMPACT</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 13. OUTCOME &amp; BUSINESS IMPACT</span>
             <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
             <div class="csd-card" style="margin-top: 2rem;">
                 <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
@@ -979,11 +1086,11 @@
     </section>
   
 
-        <!-- 14. What We Delivered -->
+        <!-- 16. What We Delivered -->
         
     <section class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 12. SCOPE OF WORK</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 14. SCOPE OF WORK</span>
             <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
             <div class="csd-checklist">
                 
@@ -1027,11 +1134,11 @@
     </section>
   
 
-        <!-- 15. Project Gallery -->
+        <!-- 17. Project Gallery -->
         
     <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 13. PROJECT GALLERY</span>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 15. PROJECT GALLERY</span>
             <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
             <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
                 
@@ -1056,11 +1163,11 @@
     </section>
   
 
-        <!-- 16. Technology Stack -->
+        <!-- 18. Technology Stack -->
         
     <section class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 14. TECHNOLOGY STACK</span>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 16. TECHNOLOGY STACK</span>
             <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
             <div class="csd-cards-grid-3" style="margin-top: 2rem;">
                 
@@ -1093,6 +1200,45 @@
         <!-- Related Kawaki Capabilities & Next Project -->
         <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
+                
+                <!-- Related Projects in Capability Taxonomy -->
+                
+    <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3.5rem;">
+        <span class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">TAXONOMY &middot; RELATED CASE STUDIES</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem;">Similar Engineering Engagements</h3>
+        <div class="csd-cards-grid-3">
+            
+                <a href="/case-studies/urbanland" class="csd-related-card">
+                    <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products Preview" class="csd-related-img" loading="lazy" decoding="async" />
+                    <div class="csd-related-content">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Commerce &amp; B2B</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">Urbanland Products &rarr;</h4>
+                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">B2B Infrastructure / Architectural Outdoor Amenities / Smart City Furniture</p>
+                    </div>
+                </a>
+            
+                <a href="/case-studies/kala-design" class="csd-related-card">
+                    <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Preview" class="csd-related-img" loading="lazy" decoding="async" />
+                    <div class="csd-related-content">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Brand &amp; Marketing Websites</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">Kala Design Co &rarr;</h4>
+                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">Architecture / Luxury Interior Design / Spatial Curation</p>
+                    </div>
+                </a>
+            
+                <a href="/case-studies/decor-lab" class="csd-related-card">
+                    <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Decor Lab Preview" class="csd-related-img" loading="lazy" decoding="async" />
+                    <div class="csd-related-content">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00;">Brand &amp; Marketing Websites</span>
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.2rem 0;">Decor Lab &rarr;</h4>
+                        <p style="font-size: 0.85rem; color: #aaaaaa; margin: 0; line-height: 1.5;">Architecture / Luxury Interior Curation / Parametric &amp; Fluid Architecture</p>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+  
+
                 <div>
                     <span class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">ENGINEERING DOMAINS</span>
                     <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem;">Related Studio Capabilities</h3>
@@ -1121,7 +1267,7 @@
             <div style="max-width: 800px; margin: 0 auto;">
                 <span class="cs-grid-eyebrow" style="color: #C6FF00;">ENGINEER WITH KAWAKI</span>
                 <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; margin: 1.5rem 0; line-height: 1.15;">
-                    Have an ambitious platform or digital product to build?
+                    Have a complex digital product in mind?
                 </h2>
                 <p style="color: #aaaaaa; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;">
                     We design and engineer bespoke web platforms, AI applications, and mobile ecosystems with zero template bloat and verified architectural rigor.
