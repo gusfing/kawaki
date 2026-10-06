@@ -465,6 +465,202 @@
             flex-direction: column;
             gap: 0.5rem;
         }
+
+        /* Modern 8-Chapter Editorial Styles */
+        .csd-hero-visual-cinematic {
+            width: 100%;
+            max-width: 1280px;
+            margin: 3rem auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #08090b;
+        }
+        .csd-hero-visual-cinematic img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .csd-brief-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .csd-brief-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .csd-challenge-approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        @media (max-width: 860px) {
+            .csd-challenge-approach-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .csd-col-challenge {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 3px solid #ff5252;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        .csd-col-approach {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #C6FF00;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .csd-flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+        .csd-flow-node {
+            background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            flex: 1 1 180px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+        .csd-flow-arrow {
+            color: #C6FF00;
+            font-size: 1.25rem;
+            font-weight: 700;
+            user-select: none;
+        }
+        @media (max-width: 768px) {
+            .csd-flow-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .csd-flow-arrow {
+                text-align: center;
+                transform: rotate(90deg);
+                margin: 0.25rem 0;
+            }
+        }
+
+        .csd-workflow-large {
+            margin-bottom: 4rem;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        .csd-workflow-dark {
+            background: #12141a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+        }
+        .csd-workflow-media {
+            width: 100%;
+            background: #090a0d;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .csd-workflow-media img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+        .csd-workflow-content {
+            padding: 2.25rem 2.5rem;
+        }
+        .csd-why-matters {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(198, 255, 0, 0.06);
+            border-left: 3px solid #C6FF00;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #444444;
+            line-height: 1.6;
+        }
+        .csd-why-matters-dark {
+            color: #d1d5db;
+            background: rgba(198, 255, 0, 0.05);
+        }
+
+        .csd-phone-mockup {
+            width: 290px;
+            max-width: 100%;
+            margin: 2rem auto;
+            border: 12px solid #1a1c24;
+            border-radius: 42px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            background: #000000;
+            position: relative;
+        }
+        .csd-phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .csd-phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 5px;
+            background: #2a2d3a;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .csd-spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            background: #14161d;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .csd-spec-table th, .csd-spec-table td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
+        }
+        .csd-spec-table th {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(255, 255, 255, 0.03);
+        }
     </style>
 </head>
 <body style="background-color: #ffffff; color: #111111;">
@@ -538,348 +734,134 @@
 
     <main>
 
-        <!-- Case Study Detail Hero -->
-        <section class="csd-hero" style="background: #0c0d10; color: #ffffff; padding: 8rem 2rem 5rem; position: relative;">
-            <div class="csd-hero-inner" style="max-width: 1200px; margin: 0 auto;">
-                <a href="/case-studies" class="csd-back-btn" style="color: #C6FF00; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">&larr; Back to Selected Work</a>
-                
+
+    <!-- CHAPTER 01: HERO -->
+    <header id="chapter-01" class="csd-hero-sec" style="background: #08090b; color: #ffffff; padding: 7rem 2rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="csd-container" style="text-align: center; max-width: 1100px;">
+            <div style="display: flex; justify-content: center;">
                 <div class="csd-logo-badge"><img src="/assets/images/case-studies/kala-design/logo.png" alt="Kala Design Co Logo" loading="lazy" decoding="async" /><span>Kala Design Co.</span></div>
-
-                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Brand &amp; Marketing Websites &middot; Architecture / Luxury Interior Design / Spatial Curation &middot; Year 2024</div>
-                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;">
-                    Kala Design Co: Editorial Digital Flagship for Turnkey Architecture &amp; Spatial Curation
-                </h1>
-                
-                <p style="font-size: 1.2rem; line-height: 1.6; color: #cccccc; max-width: 850px; margin-bottom: 2rem;">
-                    Digital Flagship Engineering, Editorial UI/UX Design, High-Resolution Image Pipeline, Turnkey Consultation Ingestion
-                </p>
-
-                <div style="margin-bottom: 2.5rem;">
-                    <a href="https://kaladesignco.com/" target="_blank" rel="noopener noreferrer" class="csd-live-btn">Visit Live Project ↗</a>
-                </div>
-
-                <!-- 2. Project Snapshot Table -->
-                
-    <div class="csd-snapshot-grid">
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Client / Product</span>
-            <span class="csd-snapshot-val">Kala Design Co.</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Industry &amp; Domain</span>
-            <span class="csd-snapshot-val">Architecture &amp; Contemporary Spatial Curation</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Services Provided</span>
-            <span class="csd-snapshot-val">Custom Web Development, Editorial Design Systems, Responsive Picture Optimization</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
-            <span class="csd-snapshot-val">Bespoke Decoupled Web Architecture</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Core Technologies</span>
-            <span class="csd-snapshot-val">Semantic HTML5, CSS Grid / Flexbox, Vanilla JavaScript, Optimized Modern Media</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Project Scope</span>
-            <span class="csd-snapshot-val">Complete Brand Digital Flagship, Curated Portfolio Engine, Qualified Consultation Ingestion</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Production Status</span>
-            <span class="csd-snapshot-val">Live in Production</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Live Platform / Access</span>
-            <span class="csd-snapshot-val">
-                <a href="https://kaladesignco.com/" target="_blank" rel="noopener noreferrer">https://kaladesignco.com/ ↗</a>
-            </span>
-        </div>
-    </div>
-  
             </div>
+            <h1 class="csd-hero-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: #ffffff;">
+                Kala Design Co
+            </h1>
+            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; color: #b5b9c4; max-width: 860px; margin: 0 auto 2.5rem;">
+                Kala Design Co: Editorial Digital Flagship for Turnkey Architecture &amp; Spatial Curation
+            </p>
             
-            <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-                <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Project Hero" width="1376" height="768" fetchpriority="high" decoding="async" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <!-- Quick Metadata Pill Strip -->
+            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem;">
+                <span style="background: rgba(255,255,255,0.06); color: #C6FF00; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(198,255,0,0.2);">Brand &amp; Marketing Websites</span>
+                <span style="background: rgba(255,255,255,0.06); color: #e2e8f0; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);">Architecture / Luxury Interior Design / Spatial Curation</span>
+                <span style="background: rgba(255,255,255,0.06); color: #94a3b8; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.08);">Live in Production</span>
             </div>
-        </section>
 
-        <!-- 3. The Context -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 01. THE CONTEXT</span>
-            <h2 class="csd-section-title">Institutional Background &amp; Strategic Mission</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Who the Client Is</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;">Kala Design Co. is a contemporary interior design and architecture studio operating across residential, commercial, and industrial sectors. With over six years of practice, more than 1.5 million square feet planned and executed, and 135+ clients served across luxury residential villas and commercial developments, the studio bridges the gap between architecture, interiors, and emotional resonance.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;">Headquartered in Bhiwadi, Rajasthan, the studio&#39;s portfolio spans turnkey residential villas (Nakra Residence, Project Shree, Gaur Residence, Chauhan Residence), high-impact commercial retail spaces (Bumdums Project, JVI Project), and expansive corporate facilities (JD Industries). Their design philosophy is grounded in timeless restraint, natural materiality, tactile textures, and architectural discipline.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Target Audience &amp; Strategic Mandate</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Audience Profile:</strong> The digital audience comprises high-net-worth individuals (HNWIs) commissioning custom villas, luxury real estate developers seeking turnkey interior execution, commercial business directors requiring brand-aligned retail headquarters, and architectural design publications.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;"><strong>Digital Mandate:</strong> The studio needed a digital flagship that reflects the physical restraint and sophistication of their built work. Generic corporate templates or cluttered portfolio themes failed to communicate the scale, spatial proportion, and materiality that define their practice. The site had to lead with architectural photography while qualifying prospective high-value turnkey clients.</p>
-                </div>
+            <div>
+                <a href="https://kaladesignco.com/" target="_blank" rel="noopener noreferrer" class="csd-live-btn">Visit Live Project ↗</a>
+            </div>
+
+            <!-- Huge Cinematic Real Hero Visual -->
+            <div class="csd-hero-visual-cinematic">
+                <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Hero Showcase" fetchpriority="high" decoding="async" />
             </div>
         </div>
-    </section>
+    </header>
   
 
-        <!-- 4. The Challenge -->
-        
-    <section class="csd-section-dark">
+    <!-- CHAPTER 02: PROJECT BRIEF -->
+    <section id="chapter-02" class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 02. THE CHALLENGE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction &amp; Technical Constraints</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #cccccc; max-width: 800px; margin-bottom: 3rem;">
-                Translating tactile spatial environments into digital viewports without losing architectural weight, material clarity, or mobile performance.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Existing Experience &amp; Template Limitations
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Prior digital representations relied on standard website layouts with rigid multi-column grids that forced square thumbnail crops, truncating ceiling heights and double-volume residential proportions.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Business &amp; Client Qualification Requirements
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            The studio receives numerous casual inquiries. They required a structured qualification mechanism to filter casual residential queries from high-value turnkey projects (10,000+ sq. ft. residential commissions and commercial fit-outs).
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            UX &amp; Image Presentation Dilemmas
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Architectural imagery contains subtle plaster textures, precise marble veining, and delicate shadow play. Standard aggressive web compression turned neutral limewash walls into muddy banding artifacts.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Content &amp; Typographic Hierarchy
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Editorial storytelling required a balance between bold visual statements and quiet, readable narratives that detail project challenges, material palettes, and spatial programming.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Technical &amp; Performance Constraints
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Displaying hundreds of high-resolution architectural images without degrading mobile page load times, exceeding DOM memory limits, or causing cumulative layout shift (CLS).
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Mobile &amp; Responsive Ergonomics
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Ensuring luxury residential clients browsing on mobile devices (smartphones, iPads) experience the same editorial breathing room, fluid navigation, and visual impact as desktop 4K displays.
-        </p>
-    </div>
-  
-            </div>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 02. PROJECT BRIEF</span>
+            <h2 class="csd-section-title">Strategic Mandate &amp; Operational Objectives</h2>
+            
+            <div class="csd-brief-grid">
+                <!-- Left: Narrative & Objectives -->
+                <div>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Institutional Context</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;">Kala Design Co. is a contemporary interior design and architecture studio operating across residential, commercial, and industrial sectors. With over six years of practice, more than 1.5 million square feet planned and executed, and 135+ clients served across luxury residential villas and commercial developments, the studio bridges the gap between architecture, interiors, and emotional resonance.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555; margin-bottom: 1.5rem;">Headquartered in Bhiwadi, Rajasthan, the studio&#39;s portfolio spans turnkey residential villas (Nakra Residence, Project Shree, Gaur Residence, Chauhan Residence), high-impact commercial retail spaces (Bumdums Project, JVI Project), and expansive corporate facilities (JD Industries). Their design philosophy is grounded in timeless restraint, natural materiality, tactile textures, and architectural discipline.</p>
+                    
+                    <div style="background: #f8fafc; border-left: 3px solid #0f172a; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2.5rem;">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 700;">STRATEGIC IMPERATIVE</span>
+                        <p style="font-size: 1rem; line-height: 1.6; color: #1e293b; margin: 0.4rem 0 0;">The studio needed a digital flagship that reflects the physical restraint and sophistication of their built work. Generic corporate templates or cluttered portfolio themes failed to communicate the scale, spatial proportion, and materiality that define their practice. The site had to lead with architectural photography while qualifying prospective high-value turnkey clients.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #111111;">Verified Project Objectives</h3>
+                    <div style="margin-top: 1rem;">
+                        
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 01</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Lead with Spatial Visual Storytelling</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Prioritize architectural volume, natural light, and physical materiality over standard corporate brochure text, letting 1.5M+ sq. ft. of built commissions take center stage.</p>
         </div>
-    </section>
-  
-
-        <!-- 5. Objectives -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. PROJECT OBJECTIVES</span>
-            <h2 class="csd-section-title">Verified Engineering &amp; Strategic Mandates</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #555555; max-width: 840px; margin-bottom: 2.5rem;">
-                Every architectural initiative was driven by concrete operational objectives established with client stakeholders:
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Lead with Spatial Visual Storytelling</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Prioritize architectural volume, natural light, and physical materiality over standard corporate brochure text, letting 1.5M+ sq. ft. of built commissions take center stage.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Deliver High-Resolution 4K Media with Zero Layout Shift</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Build a modern responsive picture pipeline serving WebP formats with precomputed bounding boxes, ensuring crisp clarity without mobile layout shifts (CLS: 0.00).</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Qualify High-Intent Turnkey Inquiries</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Replace generic message fields with an architecturally grounded questionnaire capturing project typology, square footage, site readiness, and execution timelines.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Maintain Flawless Mobile Reading Ergonomics</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Ensure luxury residential homeowners browsing on smartphones experience the same editorial breathing room and fluid typography as 4K desktop presentation displays.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 02</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Deliver High-Resolution 4K Media with Zero Layout Shift</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Build a modern responsive picture pipeline serving WebP formats with precomputed bounding boxes, ensuring crisp clarity without mobile layout shifts (CLS: 0.00).</p>
         </div>
-    </section>
-  
-
-        <!-- 6. The Approach -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. THE APPROACH</span>
-            <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
-                We approached Kala Design Co.&#39;s digital flagship as an editorial monograph rather than a standard commercial website. Architecture must lead; the interface should provide a whisper-quiet gallery framework that lets spatial proportions, lighting, and materiality speak without visual interference.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 01</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Editorial Masthead &amp; Typography Architecture</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We established a classic newspaper/monograph masthead pairing high-contrast editorial serifs (Playfair Display) with clean geometric grotesk accents and monospaced technical metadata, instantly positioning the studio alongside international architectural ateliers.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 02</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Spatial Whitespace as an Architectural Element</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Just as luxury architecture uses negative space to emphasize volume, we utilized generous vertical spacing, asymmetrical column offsets, and deliberate margins to give each project room to breathe.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 03</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Modern Responsive Picture Pipeline</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Rather than serving one heavy image file, we engineered a responsive picture pipeline with dynamic srcset attributes, delivering pixel-crisp WebP/AVIF formats calibrated specifically to the viewer&#39;s viewport width and pixel density.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 04</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">High-Intent Scope Ingestion Workflow</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We replaced generic &#39;Leave a message&#39; contact boxes with an architecturally grounded consultation questionnaire that collects project typology, square footage, site location, and anticipated execution timelines.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 03</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Qualify High-Intent Turnkey Inquiries</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Replace generic message fields with an architecturally grounded questionnaire capturing project typology, square footage, site readiness, and execution timelines.</p>
         </div>
-    </section>
+    </div>
   
-
-        <!-- 7. Information Architecture -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. INFORMATION ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
-                A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Kala Design Co — Digital Flagship Root]
-   │
-   ├── [01. Index / Editorial Masthead]
-   │     ├── Studio Manifesto (&quot;Bridging Architecture, Interiors &amp; Emotion&quot;)
-   │     ├── Featured Monograph (Nakra Residence Spotlight)
-   │     ├── Selected Works Showcase (Asymmetrical Gallery)
-   │     ├── Practice Metric Verification (6 Years | 1.5M+ Sq.Ft. | 135+ Clients)
-   │     └── Direct Consultation Invitation
-   │
-   ├── [02. Selected Works Portfolio]
-   │     ├── Luxury Residential (Nakra Residence, Project Shree, Gaur Residence, Chauhan Residence)
-   │     ├── Commercial &amp; Retail (Bumdums Flagship, JVI Project)
-   │     └── Industrial Architecture (JD Industries Campus)
-   │
-   ├── [03. Project Monograph Pages (Detail)]
-   │     ├── Spatial Context &amp; Brief
-   │     ├── Architectural Materiality &amp; Palette Specifications
-   │     ├── Full-Width High-Fidelity Gallery Walkthrough
-   │     └── Project Credits (Location, Area, Typology, Year)
-   │
-   ├── [04. The Practice (About)]
-   │     ├── Studio Heritage &amp; Bhiwadi Design Headquarters
-   │     ├── Turnkey Execution Philosophy (Concept to Commissioning)
-   │     └── Principal Leadership &amp; Design Team
-   │
-   └── [05. Turnkey Consultation Ingestion]
-         ├── Project Typology Selection (Residential / Commercial / Retail)
-         ├── Scope &amp; Floor Area Matrix (&lt;5k sq.ft., 5-15k sq.ft., 15k+ sq.ft.)
-         └── Direct Studio Communication Channels</pre>
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 04</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Maintain Flawless Mobile Reading Ergonomics</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Ensure luxury residential homeowners browsing on smartphones experience the same editorial breathing room and fluid typography as 4K desktop presentation displays.</p>
         </div>
-    </section>
+    </div>
   
+                    </div>
+                </div>
 
-        <!-- 8. UX & Product Thinking -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. UX &amp; PRODUCT THINKING</span>
-            <h2 class="csd-section-title">User Journey &amp; Operational Ergonomics</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 01</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Discovery</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Visitors explore the studio&#39;s portfolio through an intentional typology filter (Luxury Residential, Commercial Retail, Industrial Corporate). Projects are accompanied by essential spatial metrics—square footage, location, and year—before deep exploration.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 02</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Navigation &amp; Structure</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">The editorial masthead establishes a calm, non-intrusive navigation hierarchy. Rather than mega-menus, navigation persists through clean typographic anchors and an unobtrusive mobile drawer.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 03</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Workflow &amp; Processing</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Project detail monographs are structured into a 3-act narrative: Spatial Brief &amp; Context, Material Palette Specifications (raw travertine, brushed brass, fluted oak), and Full-Width Lightbox Exploration.</p>
-                </div>
-            </div>
-            <div class="csd-cards-grid-2" style="margin-top: 1.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 04</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Conversion &amp; Ingestion</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">The turnkey consultation workflow guides prospective clients through a structured project assessment, allowing the studio to identify high-value commissions while filtering out casual inquiries.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 05</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Mobile Ergonomics</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Desktop asymmetrical column offsets collapse naturally into a single-column editorial stream. Image decoding is decoupled from the main thread, allowing smooth momentum scrolling.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 9. UX & Design System -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 07. UX &amp; DESIGN SYSTEM</span>
-            <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Design Direction &amp; Layout Grid</h3>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Aesthetic Thesis:</strong> Editorial luxury, architectural restraint, and quiet typography. Monochromatic surfaces with warm plaster undertones and crisp micro-borders.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Typography Hierarchy:</strong> Playfair Display (Editorial Headlines, Serifs) paired with Plus Jakarta Sans (Body Text, High Legibility) and Space Mono (Technical Data Labels, Year, Area Specs).</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Layout &amp; Viewport Mechanics:</strong> 12-column dynamic grid with asymmetrical offsets. Generous gutters (32px desktop) and fluid vertical padding (clamp 5rem to 10rem) reinforcing spatial luxury.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Key Engineered Components</h3>
-                    <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Editorial Masthead: Classic publication-grade header with live studio location and current time.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Asymmetric Project Cards: Offset imagery cards breaking standard monotonous grids to mimic architectural elevations.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Lightbox Gallery Engine: Full-viewport zoom and inspection modal preserving aspect ratios and natural lighting tones.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Monograph Meta Strips: Space Mono metadata bars displaying square footage, materials, and project year.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Turnkey Ingestion Form: Multi-step architectural brief builder qualifying high-value commissions.</li>
-                    </ul>
-                    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border: 1px solid #e9ecef;">
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: #111111;">Mobile &amp; Touch Ergonomics</h4>
-                        <p style="font-size: 0.9rem; line-height: 1.6; color: #555555; margin: 0;">Desktop asymmetrical offsets collapse into an elegant, thumb-friendly single-column editorial stream. Images load progressively with zero layout shift, and navigation persists in an unobtrusive bottom floating pill.</p>
+                <!-- Right: Structured Spec Matrix -->
+                <div style="background: #0f172a; color: #ffffff; padding: 2.25rem; border-radius: 14px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #C6FF00; letter-spacing: 0.05em; font-weight: 700; display: block; margin-bottom: 1.5rem;">PROJECT SNAPSHOT</span>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <span class="csd-snapshot-label">Client / Brand</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Kala Design Co.</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Industry &amp; Domain</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Architecture &amp; Contemporary Spatial Curation</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Services Provided</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Custom Web Development, Editorial Design Systems, Responsive Picture Optimization</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Bespoke Decoupled Web Architecture</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Verified Tech Stack</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Semantic HTML5, CSS Grid / Flexbox, Vanilla JavaScript, Optimized Modern Media</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Execution Scope</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Complete Brand Digital Flagship, Curated Portfolio Engine, Qualified Consultation Ingestion</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Production Status</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Live in Production</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Live Platform / Access</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">
+                                <a href="https://kaladesignco.com/" target="_blank" rel="noopener noreferrer">https://kaladesignco.com/ ↗</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -887,275 +869,394 @@
     </section>
   
 
-        <!-- 10. Key Features & Experiences -->
-        
-    <section class="csd-section-light">
+    <!-- CHAPTER 03: THE CHALLENGE & THE APPROACH -->
+    <section id="chapter-03" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. KEY FEATURES &amp; EXPERIENCES</span>
-            <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
-            <div style="max-width: 960px; margin-top: 3rem;">
-                
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Spatial Project Discovery</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Visitors explore the studio&#39;s portfolio through an intuitive filter based on architectural typology (Luxury Residential, Commercial Retail, Corporate). Each project entry is paired with immediate context: square footage, location, and execution scope.</p>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 03. THE CHALLENGE &amp; THE APPROACH</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction vs. Architectural Strategy</h2>
+            
+            <div class="csd-challenge-approach-grid" style="margin-top: 2.5rem;">
+                <!-- Left: The Challenge -->
+                <div class="csd-col-challenge">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #ff5252; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE VERIFIED CHALLENGE</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Real Constraints &amp; Friction</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        Translating tactile spatial environments into digital viewports without losing architectural weight, material clarity, or mobile performance.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Existing Experience &amp; Template Limitations
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Prior digital representations relied on standard website layouts with rigid multi-column grids that forced square thumbnail crops, truncating ceiling heights and double-volume residential proportions.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Architectural Materiality &amp; Narrative Pages</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Individual project pages present more than just pretty photos; they articulate the spatial brief, how lighting challenges were solved, and the exact material palette (raw travertine, brushed brass, fluted oak millwork) specified by the studio.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Business &amp; Client Qualification Requirements
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            The studio receives numerous casual inquiries. They required a structured qualification mechanism to filter casual residential queries from high-value turnkey projects (10,000+ sq. ft. residential commissions and commercial fit-outs).
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Turnkey Consultation Qualification Engine</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">To protect studio partner time, the inquiry flow guides prospective clients through a structured project assessment. It collects site readiness, location, estimated square footage, and project nature before submission.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            UX &amp; Image Presentation Dilemmas
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Architectural imagery contains subtle plaster textures, precise marble veining, and delicate shadow play. Standard aggressive web compression turned neutral limewash walls into muddy banding artifacts.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Sub-Second Image Delivery Pipeline</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">All portfolio imagery is served through automated responsive picture elements, serving next-generation WebP formats with precomputed aspect ratios to eliminate layout shifting (CLS: 0.00).</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Content &amp; Typographic Hierarchy
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Editorial storytelling required a balance between bold visual statements and quiet, readable narratives that detail project challenges, material palettes, and spatial programming.
+        </p>
     </div>
   
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Technical &amp; Performance Constraints
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Displaying hundreds of high-resolution architectural images without degrading mobile page load times, exceeding DOM memory limits, or causing cumulative layout shift (CLS).
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Mobile &amp; Responsive Ergonomics
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Ensuring luxury residential clients browsing on mobile devices (smartphones, iPads) experience the same editorial breathing room, fluid navigation, and visual impact as desktop 4K displays.
+        </p>
+    </div>
+  
+                </div>
+
+                <!-- Right: The Approach -->
+                <div class="csd-col-approach">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #C6FF00; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE KAWAKI APPROACH</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Architectural Response</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        We approached Kala Design Co.&#39;s digital flagship as an editorial monograph rather than a standard commercial website. Architecture must lead; the interface should provide a whisper-quiet gallery framework that lets spatial proportions, lighting, and materiality speak without visual interference.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Editorial Masthead &amp; Typography Architecture
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We established a classic newspaper/monograph masthead pairing high-contrast editorial serifs (Playfair Display) with clean geometric grotesk accents and monospaced technical metadata, instantly positioning the studio alongside international architectural ateliers.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Spatial Whitespace as an Architectural Element
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Just as luxury architecture uses negative space to emphasize volume, we utilized generous vertical spacing, asymmetrical column offsets, and deliberate margins to give each project room to breathe.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Modern Responsive Picture Pipeline
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Rather than serving one heavy image file, we engineered a responsive picture pipeline with dynamic srcset attributes, delivering pixel-crisp WebP/AVIF formats calibrated specifically to the viewer&#39;s viewport width and pixel density.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            High-Intent Scope Ingestion Workflow
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We replaced generic &#39;Leave a message&#39; contact boxes with an architecturally grounded consultation questionnaire that collects project typology, square footage, site location, and anticipated execution timelines.
+        </p>
+    </div>
+  
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 11. Engineering & Architecture -->
-        
-    <section class="csd-section-dark">
+      <section id="chapter-04" class="csd-section-offwhite">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. EXPERIENCE &amp; ARCHITECTURE</span>
+              <h2 class="csd-section-title">Spatial Hierarchy &amp; Content Discovery Flow</h2>
+              <p style="font-size: 1.1rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 2.5rem;">
+                  For an architectural studio, the digital experience mirrors the physical brief: clarity, proportion, materiality, and seamless movement between visual exploration and qualified consultation.
+              </p>
+
+              <!-- Responsive Visual Node Flow -->
+              <div class="csd-flow-container" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STAGE 01</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Spatial Masthead</strong>
+                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Immediate scale &amp; authority</span>
+                  </div>
+                  <span class="csd-flow-arrow" style="color: #0f172a;">&rarr;</span>
+                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STAGE 02</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Project Typologies</strong>
+                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Residential &amp; Commercial</span>
+                  </div>
+                  <span class="csd-flow-arrow" style="color: #0f172a;">&rarr;</span>
+                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STAGE 03</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Detailed Monographs</strong>
+                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Materials, lighting, brief</span>
+                  </div>
+                  <span class="csd-flow-arrow" style="color: #0f172a;">&rarr;</span>
+                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STAGE 04</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Turnkey Ingestion</strong>
+                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Qualified client intake</span>
+                  </div>
+              </div>
+
+              <!-- Typographic & Spatial Pillars -->
+              <div class="csd-cards-grid-3" style="margin-top: 2rem;">
+                  <div class="csd-card">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">CRAFT PILLAR 01</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #111111;">Typographic Authority</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Playfair Display (Editorial Headlines, Serifs) paired with Plus Jakarta Sans (Body Text, High Legibility) and Space Mono (Technical Data Labels, Year, Area Specs).</p>
+                  </div>
+                  <div class="csd-card">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">CRAFT PILLAR 02</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #111111;">Spatial Composition</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">12-column dynamic grid with asymmetrical offsets. Generous gutters (32px desktop) and fluid vertical padding (clamp 5rem to 10rem) reinforcing spatial luxury.</p>
+                  </div>
+                  <div class="csd-card">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">CRAFT PILLAR 03</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #111111;">Responsive Ergonomics</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Desktop asymmetrical offsets collapse into an elegant, thumb-friendly single-column editorial stream. Images load progressively with zero layout shift, and navigation persists in an unobtrusive bottom floating pill.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 05: FEATURED WORKFLOWS (Visual Showcase) -->
+    <section id="chapter-05" class="csd-section-dark" style="background: #08090b;">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. ENGINEERING &amp; ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
-                Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. FEATURED WORKFLOWS &amp; INTERFACES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Engineered Capabilities &amp; Production Walkthrough</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 3.5rem;">
+                A comprehensive walkthrough of the authentic user interfaces, operational flows, and customer touchpoints delivered for Kala Design Co.
             </p>
-            <div class="csd-cards-grid-3">
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Frontend Architecture</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Engineered using clean, semantic HTML5, CSS Grid, and modular vanilla JavaScript. Zero heavy framework runtime bloat ensures the site delivers instantaneous first-contentful-paint (FCP) times under 0.6 seconds even on mobile networks.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Backend &amp; Serverless APIs</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Decoupled static generation deployed to global edge CDNs. Assets are immutable and served directly from edge caches with aggressive Cache-Control headers.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">API &amp; Network Contracts</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Serverless form endpoints integrated with spam-filtering honeypots and automated client notification webhooks.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Authentication &amp; Security</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Public editorial flagship with secure token-gated administrative preview routing.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Data Persistence &amp; State</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Structured JSON schema data store for project monographs, decoupling editorial copy from visual template layouts.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Performance &amp; Web Vitals</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">100% Core Web Vitals compliance. Cumulative Layout Shift (CLS) of 0.00, Largest Contentful Paint (LCP) under 1.2s, and First Input Delay (FID) under 15ms.</p>
-                </div>
-            </div>
-            <div class="csd-card-dark" style="margin-top: 2rem;">
-                <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Responsive Multi-Device Engineering</h4>
-                <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc; margin: 0;">Fluid viewport clamp sizing (`clamp()`) for typography and margins, ensuring seamless scalability from 320px mobile viewports up to 3840px 4K studio presentation monitors.</p>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 12. Selected Screens & Walkthrough -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. SELECTED SCREENS &amp; WALKTHROUGH</span>
-            <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
-            <div style="margin-top: 3rem;">
+            <div>
                 
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/kala-design/nakra.jpg" alt="Editorial Homepage &amp; Masthead" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Editorial Homepage &amp; Masthead</h4>
-            <p class="csd-screen-desc">The homepage establishes immediate architectural authority with high-contrast serif typography, studio location coordinates, and the featured Nakra Residence monograph spotlight.</p>
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/kala-design/nakra.jpg" alt="Editorial Homepage &amp; Masthead" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 01</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Editorial Homepage &amp; Masthead</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">The homepage establishes immediate architectural authority with high-contrast serif typography, studio location coordinates, and the featured Nakra Residence monograph spotlight.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/kala-design/shree.jpg" alt="Spatial Villa Monograph &amp; Light Studies" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Spatial Villa Monograph &amp; Light Studies</h4>
-            <p class="csd-screen-desc">Detailed project showcase illustrating the double-height living spaces, material textures, and ambient daylight studies of bespoke residential villas.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/kala-design/shree.jpg" alt="Spatial Villa Monograph &amp; Light Studies" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 02</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Spatial Villa Monograph &amp; Light Studies</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Detailed project showcase illustrating the double-height living spaces, material textures, and ambient daylight studies of bespoke residential villas.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/kala-design/gaur-residence.jpg" alt="Mobile Responsive Monograph Mode" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Mobile Responsive Monograph Mode</h4>
-            <p class="csd-screen-desc">Responsive view showing single-column typographic flow, edge-to-edge photography, and frictionless consultation access optimized for mobile thumb ergonomics.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/kala-design/gaur-residence.jpg" alt="Mobile Responsive Monograph Mode" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 03</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Mobile Responsive Monograph Mode</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Responsive view showing single-column typographic flow, edge-to-edge photography, and frictionless consultation access optimized for mobile thumb ergonomics.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
+      
             </div>
         </div>
     </section>
   
 
-        <!-- 13. Technical Deep Dive -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 11. TECHNICAL DEEP DIVE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Edge Asset Delivery &amp; Media Optimization Pipeline</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
-                By structuring media requests through modern HTML5 `&lt;picture&gt;` tags with explicitly dimensioned bounding boxes, the browser negotiates optimal resolution without downloading redundant desktop pixels on mobile screens. Layout shifts are completely eliminated.
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Client Browser (Mobile / Desktop / 4K)]
-                │
-                ▼ (HTTPS GET /work/nakra-residence)
-[Global Edge CDN (Cloudflare / Edge POP)]
-                │
-    ┌───────────┴───────────┐
-    ▼ (HTML / CSS / JS)     ▼ (Responsive Picture Asset)
-[Edge Cache Hit (&lt;30ms)] [Dynamic Viewport Resolution Check]
-                            │
-              ┌─────────────┼─────────────┐
-              ▼ (Desktop)   ▼ (Tablet)    ▼ (Mobile)
-          [2048w WebP]  [1200w WebP]   [640w WebP]
-              │             │             │
-              └─────────────┼─────────────┘
-                            ▼
-              [Client Native Render (CLS: 0.00)]</pre>
-            </div>
-        </div>
-    </section>
-  
+      <section id="chapter-06" class="csd-section-light">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. ARCHITECTURAL CRAFT &amp; PERFORMANCE</span>
+              <h2 class="csd-section-title">Visual Ergonomics &amp; Sub-Second Asset Delivery</h2>
+              <div class="csd-cards-grid-2" style="margin-top: 2rem;">
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Visual Direction &amp; Layout Grid</h3>
+                      <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Aesthetic Thesis:</strong> Editorial luxury, architectural restraint, and quiet typography. Monochromatic surfaces with warm plaster undertones and crisp micro-borders.</p>
+                      <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Typography Hierarchy:</strong> Playfair Display (Editorial Headlines, Serifs) paired with Plus Jakarta Sans (Body Text, High Legibility) and Space Mono (Technical Data Labels, Year, Area Specs).</p>
+                      <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Viewport Scaling:</strong> 12-column dynamic grid with asymmetrical offsets. Generous gutters (32px desktop) and fluid vertical padding (clamp 5rem to 10rem) reinforcing spatial luxury.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Asset Optimization &amp; Core Web Vitals</h3>
+                      <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Performance Discipline:</strong> 100% Core Web Vitals compliance. Cumulative Layout Shift (CLS) of 0.00, Largest Contentful Paint (LCP) under 1.2s, and First Input Delay (FID) under 15ms.</p>
+                      <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Frontend Architecture:</strong> Engineered using clean, semantic HTML5, CSS Grid, and modular vanilla JavaScript. Zero heavy framework runtime bloat ensures the site delivers instantaneous first-contentful-paint (FCP) times under 0.6 seconds even on mobile networks.</p>
+                      <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Responsive Mechanics:</strong> Fluid viewport clamp sizing (`clamp()`) for typography and margins, ensuring seamless scalability from 320px mobile viewports up to 3840px 4K studio presentation monitors.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
 
-        <!-- 14. Challenges & Solutions Table -->
-        
-    <section class="csd-section-light">
+    <!-- CHAPTER 07: OUTCOME & DELIVERABLES -->
+    <section id="chapter-07" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 12. CHALLENGES &amp; SOLUTIONS</span>
-            <h2 class="csd-section-title">Architectural Friction Resolved</h2>
-            <div class="csd-table-wrapper">
-                <table class="csd-table">
-                    <thead>
-                        <tr>
-                            <th>Specific Project Challenge</th>
-                            <th>Kawaki's Architectural Solution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. PRODUCTION IMPACT &amp; DELIVERABLES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Verified Outcomes &amp; Scope of Work</h2>
+            
+            <div class="csd-cards-grid-2" style="margin-top: 2.5rem; margin-bottom: 3.5rem;">
+                <!-- Qualitative Outcomes -->
+                <div class="csd-card-dark" style="border-top: 3px solid #C6FF00;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">QUALITATIVE IMPACT</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Production Achievements</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 1.5rem;">The completed digital flagship elevates Kala Design Co. into an editorial tier commensurate with their multi-crore architectural commissions.</p>
+                    
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">A quiet, editorial web flagship that lets 1.5M+ sq. ft. of built architectural work take center stage.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Zero template bloat: 100% bespoke layout, custom typography, and sub-second page transitions.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">High-intent consultation pipeline filtering inquiries by square footage, project typology, and readiness.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Flawless Core Web Vitals across both mobile smartphones and high-resolution studio presentation displays.</span>
+    </div>
+  
+                </div>
+
+                <!-- Scope of Work Delivered -->
+                <div class="csd-card-dark">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">SCOPE OF WORK</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Contracted Deliverables</h3>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                         
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Preserving raw architectural textures (limewash, marble) without enormous multi-megabyte image payloads.</td>
-        <td style="width: 55%; color: #444444;">Engineered an automated asset pipeline generating multi-breakpoint WebP and AVIF variants with custom chroma subsampling.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Bespoke Brand Digital Flagship Architecture</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Template layouts felt generic and failed to convey the 1.5M+ sq. ft. institutional scale of the practice.</td>
-        <td style="width: 55%; color: #444444;">Designed a bespoke editorial monograph system with asymmetrical whitespace, editorial serifs, and prominent practice metrics.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Editorial UI/UX Design System &amp; Custom Typographic Hierarchy</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">High volume of unqualified, casual inquiries wasting senior architectural partners&#39; discovery time.</td>
-        <td style="width: 55%; color: #444444;">Built an architecturally grounded consultation questionnaire gathering site readiness, square footage, and execution scope.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">High-Fidelity Multi-Breakpoint Image Delivery Pipeline</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Choppy scrolling and memory crashes on mobile devices loading dozens of full-width project photos.</td>
-        <td style="width: 55%; color: #444444;">Implemented native lazy-loading with root margin offsets and decoupled image decoding from main thread DOM execution.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Turnkey Client Qualification &amp; Ingestion Workflow</span>
+    </div>
   
-                    </tbody>
-                </table>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Portfolio Monograph CMS &amp; Structured Data Schema</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Full Mobile &amp; Tablet Ergonomic Optimization</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Production Deployment &amp; Edge Caching Configuration</span>
+    </div>
+  
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 15. Outcome & Business Impact -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 13. OUTCOME &amp; BUSINESS IMPACT</span>
-            <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
-            <div class="csd-card" style="margin-top: 2rem;">
-                <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
-                    The completed digital flagship elevates Kala Design Co. into an editorial tier commensurate with their multi-crore architectural commissions.
-                </p>
-                <ul style="padding-left: 1.25rem;">
-                    <li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">A quiet, editorial web flagship that lets 1.5M+ sq. ft. of built architectural work take center stage.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Zero template bloat: 100% bespoke layout, custom typography, and sub-second page transitions.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">High-intent consultation pipeline filtering inquiries by square footage, project typology, and readiness.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Flawless Core Web Vitals across both mobile smartphones and high-resolution studio presentation displays.</li>
-                </ul>
+            <!-- Verified Tech Stack Badges -->
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.25rem; margin-bottom: 3.5rem;">
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 1rem;">VERIFIED TECHNOLOGY STACK</span>
+                <div class="csd-cards-grid-3">
+                    
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Frontend &amp; Architecture</span>
+        <div>
+            <span class="csd-tech-badge">Semantic HTML5</span><span class="csd-tech-badge">CSS Grid &amp; Flexbox</span><span class="csd-tech-badge">Vanilla JavaScript (ES6+)</span><span class="csd-tech-badge">Responsive Picture Engine</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Typography &amp; Design</span>
+        <div>
+            <span class="csd-tech-badge">Playfair Display (Editorial)</span><span class="csd-tech-badge">Plus Jakarta Sans</span><span class="csd-tech-badge">Space Mono</span><span class="csd-tech-badge">Figma Design System</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Infrastructure &amp; SEO</span>
+        <div>
+            <span class="csd-tech-badge">Global Edge CDN</span><span class="csd-tech-badge">JSON-LD Schema.org</span><span class="csd-tech-badge">WebP/AVIF Compression</span><span class="csd-tech-badge">DNS Performance Routing</span>
+        </div>
+    </div>
+  
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 16. What We Delivered -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 14. SCOPE OF WORK</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
-            <div class="csd-checklist">
-                
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Bespoke Brand Digital Flagship Architecture</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Editorial UI/UX Design System &amp; Custom Typographic Hierarchy</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">High-Fidelity Multi-Breakpoint Image Delivery Pipeline</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Turnkey Client Qualification &amp; Ingestion Workflow</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Portfolio Monograph CMS &amp; Structured Data Schema</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Full Mobile &amp; Tablet Ergonomic Optimization</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Production Deployment &amp; Edge Caching Configuration</span>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 17. Project Gallery -->
-        
-    <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 15. PROJECT GALLERY</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
-            <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
-                
+            <!-- Project Gallery -->
+            <div>
+                <span class="csd-section-eyebrow csd-eyebrow-accent" style="margin-bottom: 0.5rem;">CURATED ASSET ARCHIVE</span>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 2rem;">Additional High-Resolution Deliverables</h3>
+                <div class="csd-gallery-grid">
+                    
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/kala-design/chauhan-residence.jpg" alt="Residential Villa Elevation &amp; Volumetric Design" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Residential Villa Elevation &amp; Volumetric Design</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Residential Villa Elevation &amp; Volumetric Design</strong>
             <span>Full-width visual presentation highlighting double-volume living rooms and curated interior furnishings.</span>
         </div>
     </div>
@@ -1163,7 +1264,7 @@
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/kala-design/bumdums.jpg" alt="Bespoke Millwork &amp; Material Palette" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Bespoke Millwork &amp; Material Palette</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Bespoke Millwork &amp; Material Palette</strong>
             <span>Close-up architectural detail showing custom fluted timber paneling and brushed brass fixtures.</span>
         </div>
     </div>
@@ -1171,52 +1272,19 @@
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/kala-design/jd-industries.jpg" alt="Commercial Spatial Planning" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Commercial Spatial Planning</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Commercial Spatial Planning</strong>
             <span>Spatial planning showcase for luxury commercial and retail flagship interiors.</span>
         </div>
     </div>
   
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 18. Technology Stack -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 16. TECHNOLOGY STACK</span>
-            <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2rem;">
-                
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Frontend &amp; Architecture</h4>
-        <div>
-            <span class="csd-tech-badge-light">Semantic HTML5</span> <span class="csd-tech-badge-light">CSS Grid &amp; Flexbox</span> <span class="csd-tech-badge-light">Vanilla JavaScript (ES6+)</span> <span class="csd-tech-badge-light">Responsive Picture Engine</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Typography &amp; Design</h4>
-        <div>
-            <span class="csd-tech-badge-light">Playfair Display (Editorial)</span> <span class="csd-tech-badge-light">Plus Jakarta Sans</span> <span class="csd-tech-badge-light">Space Mono</span> <span class="csd-tech-badge-light">Figma Design System</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Infrastructure &amp; SEO</h4>
-        <div>
-            <span class="csd-tech-badge-light">Global Edge CDN</span> <span class="csd-tech-badge-light">JSON-LD Schema.org</span> <span class="csd-tech-badge-light">WebP/AVIF Compression</span> <span class="csd-tech-badge-light">DNS Performance Routing</span>
-        </div>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-  
-        <!-- Related Kawaki Capabilities & Next Project -->
-        <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
+        <!-- CHAPTER 08: NEXT PROJECT & CTA -->
+        <section id="chapter-08" class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
                 
                 <!-- Related Projects in Capability Taxonomy -->
@@ -1270,11 +1338,11 @@
                     <div>
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
                         <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="/case-studies/decor-lab" style="color: #ffffff; text-decoration: none;">Decor Lab &rarr;</a>
+                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Decor Lab &rarr;</a>
                         </h4>
                         <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Brand & Marketing Websites &middot; Architecture / Luxury Interior Curation / Parametric & Fluid Architecture</p>
                     </div>
-                    <a href="/case-studies/decor-lab" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
                 </div>
                 
             </div>

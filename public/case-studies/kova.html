@@ -465,6 +465,202 @@
             flex-direction: column;
             gap: 0.5rem;
         }
+
+        /* Modern 8-Chapter Editorial Styles */
+        .csd-hero-visual-cinematic {
+            width: 100%;
+            max-width: 1280px;
+            margin: 3rem auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #08090b;
+        }
+        .csd-hero-visual-cinematic img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .csd-brief-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .csd-brief-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .csd-challenge-approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        @media (max-width: 860px) {
+            .csd-challenge-approach-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .csd-col-challenge {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 3px solid #ff5252;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        .csd-col-approach {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #C6FF00;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .csd-flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+        .csd-flow-node {
+            background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            flex: 1 1 180px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+        .csd-flow-arrow {
+            color: #C6FF00;
+            font-size: 1.25rem;
+            font-weight: 700;
+            user-select: none;
+        }
+        @media (max-width: 768px) {
+            .csd-flow-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .csd-flow-arrow {
+                text-align: center;
+                transform: rotate(90deg);
+                margin: 0.25rem 0;
+            }
+        }
+
+        .csd-workflow-large {
+            margin-bottom: 4rem;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        .csd-workflow-dark {
+            background: #12141a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+        }
+        .csd-workflow-media {
+            width: 100%;
+            background: #090a0d;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .csd-workflow-media img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+        .csd-workflow-content {
+            padding: 2.25rem 2.5rem;
+        }
+        .csd-why-matters {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(198, 255, 0, 0.06);
+            border-left: 3px solid #C6FF00;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #444444;
+            line-height: 1.6;
+        }
+        .csd-why-matters-dark {
+            color: #d1d5db;
+            background: rgba(198, 255, 0, 0.05);
+        }
+
+        .csd-phone-mockup {
+            width: 290px;
+            max-width: 100%;
+            margin: 2rem auto;
+            border: 12px solid #1a1c24;
+            border-radius: 42px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            background: #000000;
+            position: relative;
+        }
+        .csd-phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .csd-phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 5px;
+            background: #2a2d3a;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .csd-spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            background: #14161d;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .csd-spec-table th, .csd-spec-table td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
+        }
+        .csd-spec-table th {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(255, 255, 255, 0.03);
+        }
     </style>
 </head>
 <body style="background-color: #ffffff; color: #111111;">
@@ -538,332 +734,134 @@
 
     <main>
 
-        <!-- Case Study Detail Hero -->
-        <section class="csd-hero" style="background: #0c0d10; color: #ffffff; padding: 8rem 2rem 5rem; position: relative;">
-            <div class="csd-hero-inner" style="max-width: 1200px; margin: 0 auto;">
-                <a href="/case-studies" class="csd-back-btn" style="color: #C6FF00; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">&larr; Back to Selected Work</a>
-                
+
+    <!-- CHAPTER 01: HERO -->
+    <header id="chapter-01" class="csd-hero-sec" style="background: #08090b; color: #ffffff; padding: 7rem 2rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="csd-container" style="text-align: center; max-width: 1100px;">
+            <div style="display: flex; justify-content: center;">
                 <div class="csd-logo-badge"><img src="/assets/images/case-studies/kova/logo.svg" alt="Kova Logo" loading="lazy" decoding="async" /><span>Kawaki Proprietary Product</span></div>
-
-                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">AI &amp; Digital Products &middot; Artificial Intelligence / Web Design SaaS / Developer Tools &middot; Year 2024</div>
-                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;">
-                    Kova: Prompt-Driven Visual Canvas Platform for Instant Website Generation
-                </h1>
-                
-                <p style="font-size: 1.2rem; line-height: 1.6; color: #cccccc; max-width: 850px; margin-bottom: 2rem;">
-                    Product Concept, Canvas Engineering, Next.js Full-Stack Architecture, AI Generation Pipeline
-                </p>
-
-                <div style="margin-bottom: 2.5rem;">
-                    <span class="csd-disabled-btn">● Live URL Scheduled — Private Testing</span>
-                </div>
-
-                <!-- 2. Project Snapshot Table -->
-                
-    <div class="csd-snapshot-grid">
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Client / Product</span>
-            <span class="csd-snapshot-val">Kawaki Proprietary Product (Self-Engineered)</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Industry &amp; Domain</span>
-            <span class="csd-snapshot-val">AI Web Design &amp; Visual Canvas SaaS</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Services Provided</span>
-            <span class="csd-snapshot-val">Product Conception, Visual Canvas Engineering, Prompt Synthesis, Full-Stack Architecture</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
-            <span class="csd-snapshot-val">Next.js App Router (Full-Stack)</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Core Technologies</span>
-            <span class="csd-snapshot-val">Next.js, TypeScript, Tailwind CSS, Visual Canvas Engine, Sandboxed Iframe AST</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Project Scope</span>
-            <span class="csd-snapshot-val">Interactive Visual Canvas, Prompt-Based Section Synthesis, Clean Tailwind Code Exporter</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Production Status</span>
-            <span class="csd-snapshot-val">Private Testing Phase (Scheduled Rollout)</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Live Platform / Access</span>
-            <span class="csd-snapshot-val">
-                Staging / Private Beta (Live URL Coming Soon)
-            </span>
-        </div>
-    </div>
-  
             </div>
+            <h1 class="csd-hero-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: #ffffff;">
+                Kova
+            </h1>
+            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; color: #b5b9c4; max-width: 860px; margin: 0 auto 2.5rem;">
+                Kova: Prompt-Driven Visual Canvas Platform for Instant Website Generation
+            </p>
             
-            <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-                <img src="/assets/images/case-studies/kova/logo.png" alt="Kova Project Hero" width="1376" height="768" fetchpriority="high" decoding="async" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <!-- Quick Metadata Pill Strip -->
+            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem;">
+                <span style="background: rgba(255,255,255,0.06); color: #C6FF00; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(198,255,0,0.2);">AI &amp; Digital Products</span>
+                <span style="background: rgba(255,255,255,0.06); color: #e2e8f0; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);">Artificial Intelligence / Web Design SaaS / Developer Tools</span>
+                <span style="background: rgba(255,255,255,0.06); color: #94a3b8; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.08);">Private Testing Phase (Scheduled Rollout)</span>
             </div>
-        </section>
 
-        <!-- 3. The Context -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 01. THE CONTEXT</span>
-            <h2 class="csd-section-title">Institutional Background &amp; Strategic Mission</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Who the Client Is</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;">Kova is a proprietary AI-powered web generation platform engineered by Kawaki Studios. Addressing the rigid constraints of traditional site builders and the unpredictable outputs of raw AI code generators, Kova introduces an interactive visual canvas where creators can generate, manipulate, and refine web components using natural language prompts.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;">As an internal research-and-development project, Kova represents Kawaki Studios&#39; commitment to building sophisticated developer tools and no-code design systems that empower non-technical founders to produce production-grade web applications.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Target Audience &amp; Strategic Mandate</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Audience Profile:</strong> Startup founders, freelance web designers, agency developers, and growth marketing teams seeking to rapidly generate bespoke landing pages without repetitive manual coding.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;"><strong>Digital Mandate:</strong> Traditional website builders force users into tedious drag-and-drop mechanics with rigid templates. Conversely, current AI coding tools generate black-box code blocks that break layout responsiveness and are difficult for non-engineers to edit visually. Kova was engineered to bridge this gap: natural language generation paired with direct canvas manipulation.</p>
-                </div>
+            <div>
+                <span class="csd-disabled-btn">● Live URL Scheduled — Private Testing</span>
+            </div>
+
+            <!-- Huge Cinematic Real Hero Visual -->
+            <div class="csd-hero-visual-cinematic">
+                <img src="/assets/images/case-studies/kova/logo.png" alt="Kova Hero Showcase" fetchpriority="high" decoding="async" />
             </div>
         </div>
-    </section>
+    </header>
   
 
-        <!-- 4. The Challenge -->
-        
-    <section class="csd-section-dark">
+    <!-- CHAPTER 02: PROJECT BRIEF -->
+    <section id="chapter-02" class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 02. THE CHALLENGE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction &amp; Technical Constraints</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #cccccc; max-width: 800px; margin-bottom: 3rem;">
-                Harmonizing natural language LLM component synthesis with direct, real-time visual canvas manipulation while ensuring clean code exports.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Brittle Monolithic Code Generation
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Standard AI models generate full HTML pages as single strings. When a user requests a change to one section, the entire page regenerates, losing manual edits.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Visual Direct Manipulation
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Translating abstract syntax tree (AST) code structures into visually selectable, draggable, and editable UI blocks on an infinite zoomable canvas.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Script Sandboxing &amp; Preview Safety
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Executing AI-generated JavaScript and CSS layouts in real time without allowing generated code to leak into or corrupt the host application&#39;s DOM state.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Vendor Lock-In vs Clean Code Export
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Most no-code platforms output obfuscated HTML bloated with proprietary runtime scripts. Kova needed to export semantic, standards-compliant HTML and Tailwind CSS.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Real-Time Canvas Performance
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Maintaining smooth 60fps pan and zoom interactions across complex multi-section web layouts on standard laptops.
-        </p>
-    </div>
-  
-            </div>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 02. PROJECT BRIEF</span>
+            <h2 class="csd-section-title">Strategic Mandate &amp; Operational Objectives</h2>
+            
+            <div class="csd-brief-grid">
+                <!-- Left: Narrative & Objectives -->
+                <div>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Institutional Context</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;">Kova is a proprietary AI-powered web generation platform engineered by Kawaki Studios. Addressing the rigid constraints of traditional site builders and the unpredictable outputs of raw AI code generators, Kova introduces an interactive visual canvas where creators can generate, manipulate, and refine web components using natural language prompts.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555; margin-bottom: 1.5rem;">As an internal research-and-development project, Kova represents Kawaki Studios&#39; commitment to building sophisticated developer tools and no-code design systems that empower non-technical founders to produce production-grade web applications.</p>
+                    
+                    <div style="background: #f8fafc; border-left: 3px solid #0f172a; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2.5rem;">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 700;">STRATEGIC IMPERATIVE</span>
+                        <p style="font-size: 1rem; line-height: 1.6; color: #1e293b; margin: 0.4rem 0 0;">Traditional website builders force users into tedious drag-and-drop mechanics with rigid templates. Conversely, current AI coding tools generate black-box code blocks that break layout responsiveness and are difficult for non-engineers to edit visually. Kova was engineered to bridge this gap: natural language generation paired with direct canvas manipulation.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #111111;">Verified Project Objectives</h3>
+                    <div style="margin-top: 1rem;">
+                        
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 01</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Bridge Natural Language Synthesis with Visual Canvas Manipulation</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Enable creators to describe websites in natural language while maintaining direct, visual editing control over spacing, typography, and component hierarchies.</p>
         </div>
-    </section>
-  
-
-        <!-- 5. Objectives -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. PROJECT OBJECTIVES</span>
-            <h2 class="csd-section-title">Verified Engineering &amp; Strategic Mandates</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #555555; max-width: 840px; margin-bottom: 2.5rem;">
-                Every architectural initiative was driven by concrete operational objectives established with client stakeholders:
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Bridge Natural Language Synthesis with Visual Canvas Manipulation</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Enable creators to describe websites in natural language while maintaining direct, visual editing control over spacing, typography, and component hierarchies.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Decouple AST State Representation from Runtime Rendering</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Separate component abstract syntax trees (AST) from client-side DOM rendering, allowing users to modify copy visually while keeping code structures clean.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Isolate AI-Generated Code in Secure Sandboxes</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Execute synthesized layouts inside isolated iframe sandboxes communicating via a postMessage event bus, preventing styling conflicts with the host workspace.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Export Production-Ready Code with Zero Vendor Lock-In</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Output clean, standards-compliant HTML5 and Tailwind CSS markup ready for immediate deployment on Vercel, Netlify, or Cloudflare Pages.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 02</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Decouple AST State Representation from Runtime Rendering</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Separate component abstract syntax trees (AST) from client-side DOM rendering, allowing users to modify copy visually while keeping code structures clean.</p>
         </div>
-    </section>
-  
-
-        <!-- 6. The Approach -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. THE APPROACH</span>
-            <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
-                We architected Kova around the principle that AI should act as an interactive design partner, not an opaque black box. By decoupling abstract syntax trees (AST) from visual rendering, creators maintain granular control over typography, spacing, and layout at every stage.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 01</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Decoupled AST State vs Visual Renderer</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We separated component code representation (AST) from client-side DOM rendering, allowing users to modify copy visually while keeping code structures clean.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 02</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Sandboxed Iframe Execution Layer</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Generated web layouts render inside an isolated, responsive iframe communicating with the host canvas via a secure postMessage bus, preventing styling conflicts.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 03</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Prompt-Driven Section Synthesis</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Rather than generating whole sites at once, Kova synthesizes atomic sections (Hero, Features, Pricing, Proof, FAQ) that can be individually refined or regenerated.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 04</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Clean Tailwind &amp; Semantic HTML Exporter</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Exported projects contain zero proprietary runtime libraries—just clean HTML5 and Tailwind CSS ready for production deployment on Vercel, Netlify, or Cloudflare.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 03</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Isolate AI-Generated Code in Secure Sandboxes</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Execute synthesized layouts inside isolated iframe sandboxes communicating via a postMessage event bus, preventing styling conflicts with the host workspace.</p>
         </div>
-    </section>
+    </div>
   
-
-        <!-- 7. Information Architecture -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. INFORMATION ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
-                A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Kova Platform Workspace]
-   │
-   ├── [01. Prompt Ingestion &amp; Brand Synthesizer]
-   │     ├── Brand Positioning &amp; Target Industry Questionnaire
-   │     ├── Design Aesthetics (Minimalist, Brutalist, High-Contrast, Glassmorphism)
-   │     └── Target Conversion Objective (Lead Gen, SaaS Trial, E-Commerce)
-   │
-   ├── [02. Interactive Visual Canvas (Infinite Workspace)]
-   │     ├── Spatial Section Ordering (Drag &amp; Drop Hierarchy)
-   │     ├── Inline Text Editing &amp; Typography Adjustments
-   │     ├── Real-Time Device Viewport Switcher (Desktop 1440px | Tablet 768px | Mobile 375px)
-   │     └── Canvas Navigation (Pan, Zoom, Bounding Box Selection)
-   │
-   ├── [03. Sandboxed Preview Execution Engine]
-   │     ├── Isolated Iframe Runtime
-   │     ├── Bidirectional postMessage Event Bus
-   │     └── Dynamic Tailwind CSS Class Hydrator
-   │
-   └── [04. Production Code Exporter]
-         ├── Semantic HTML5 Markup Generation
-         ├── Purged Tailwind CSS Output
-         └── One-Click Git / ZIP Repository Export (Zero Runtime Dependencies)</pre>
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 04</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Export Production-Ready Code with Zero Vendor Lock-In</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Output clean, standards-compliant HTML5 and Tailwind CSS markup ready for immediate deployment on Vercel, Netlify, or Cloudflare Pages.</p>
         </div>
-    </section>
+    </div>
   
+                    </div>
+                </div>
 
-        <!-- 8. UX & Product Thinking -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. UX &amp; PRODUCT THINKING</span>
-            <h2 class="csd-section-title">User Journey &amp; Operational Ergonomics</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 01</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Discovery</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Users initiate projects through a prompt synthesis modal that captures brand positioning, visual aesthetic preferences, and target conversion objectives.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 02</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Navigation &amp; Structure</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">An infinite visual canvas with smooth pan, zoom, and spatial bounding boxes allows effortless navigation across complex multi-section web layouts.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 03</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Workflow &amp; Processing</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Kova synthesizes atomic sections (Heroes, Features, Pricing, Proof) that appear on the canvas. Users visually click any text or element to edit copy or trigger section regeneration.</p>
-                </div>
-            </div>
-            <div class="csd-cards-grid-2" style="margin-top: 1.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 04</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Conversion &amp; Ingestion</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A clean code export panel displays real-time HTML5 and Tailwind CSS with one-click clipboard copying or direct GitHub / ZIP repository export.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 05</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Mobile Ergonomics</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A responsive device toolbar allows creators to toggle the canvas frame between Desktop (1440px), Tablet (768px), and Mobile (375px) viewports with real-time CSS compilation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 9. UX & Design System -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 07. UX &amp; DESIGN SYSTEM</span>
-            <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Design Direction &amp; Layout Grid</h3>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Aesthetic Thesis:</strong> Sleek dark-mode developer studio, precision toolbars, subtle wireframe grids, and vibrant neon accents.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Typography Hierarchy:</strong> Host Grotesk (Studio interface headers) paired with Space Mono (Code inspector, token data) and Plus Jakarta Sans (General controls).</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Layout &amp; Viewport Mechanics:</strong> Infinite canvas with dynamic grid guidelines, floating toolbars, and responsive frame wrappers.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Key Engineered Components</h3>
-                    <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Prompt Synthesizer Modal: Natural language input block with style preset buttons and tone sliders.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Interactive Canvas Frame: Zoomable, pannable container rendering the sandboxed web application.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Device Viewport Switcher: Quick-toggle buttons switching canvas frames between desktop, tablet, and mobile dimensions.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Inline Component Toolbar: Floating contextual menu for re-ordering, styling, or regenerating selected sections.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Code Inspector Drawer: Slide-out panel showing real-time generated HTML and Tailwind markup.</li>
-                    </ul>
-                    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border: 1px solid #e9ecef;">
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: #111111;">Mobile &amp; Touch Ergonomics</h4>
-                        <p style="font-size: 0.9rem; line-height: 1.6; color: #555555; margin: 0;">Optimized for desktop workstation design workflows, with a responsive companion view allowing project review on tablets and mobile devices.</p>
+                <!-- Right: Structured Spec Matrix -->
+                <div style="background: #0f172a; color: #ffffff; padding: 2.25rem; border-radius: 14px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #C6FF00; letter-spacing: 0.05em; font-weight: 700; display: block; margin-bottom: 1.5rem;">PROJECT SNAPSHOT</span>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <span class="csd-snapshot-label">Client / Brand</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Kawaki Proprietary Product (Self-Engineered)</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Industry &amp; Domain</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">AI Web Design &amp; Visual Canvas SaaS</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Services Provided</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Product Conception, Visual Canvas Engineering, Prompt Synthesis, Full-Stack Architecture</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Next.js App Router (Full-Stack)</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Verified Tech Stack</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Next.js, TypeScript, Tailwind CSS, Visual Canvas Engine, Sandboxed Iframe AST</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Execution Scope</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Interactive Visual Canvas, Prompt-Based Section Synthesis, Clean Tailwind Code Exporter</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Production Status</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Private Testing Phase (Scheduled Rollout)</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Live Platform / Access</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">
+                                Staging / Private Beta (Live URL Coming Soon)
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -871,280 +869,393 @@
     </section>
   
 
-        <!-- 10. Key Features & Experiences -->
-        
-    <section class="csd-section-light">
+    <!-- CHAPTER 03: THE CHALLENGE & THE APPROACH -->
+    <section id="chapter-03" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. KEY FEATURES &amp; EXPERIENCES</span>
-            <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
-            <div style="max-width: 960px; margin-top: 3rem;">
-                
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Prompt-Driven Section Generation</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Convert concise natural language prompts into fully styled, responsive UI components (Heroes, Feature Grids, Testimonials) adhering to atomic design standards.</p>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 03. THE CHALLENGE &amp; THE APPROACH</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction vs. Architectural Strategy</h2>
+            
+            <div class="csd-challenge-approach-grid" style="margin-top: 2.5rem;">
+                <!-- Left: The Challenge -->
+                <div class="csd-col-challenge">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #ff5252; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE VERIFIED CHALLENGE</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Real Constraints &amp; Friction</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        Harmonizing natural language LLM component synthesis with direct, real-time visual canvas manipulation while ensuring clean code exports.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Brittle Monolithic Code Generation
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Standard AI models generate full HTML pages as single strings. When a user requests a change to one section, the entire page regenerates, losing manual edits.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Interactive Visual Canvas</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Direct manipulation interface allowing creators to visually adjust spacing, edit text directly on the canvas, and reorganize component layouts with instant visual feedback.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Visual Direct Manipulation
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Translating abstract syntax tree (AST) code structures into visually selectable, draggable, and editable UI blocks on an infinite zoomable canvas.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Sandboxed Preview Isolation</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Secure iframe execution environment preventing AI-generated styles and scripts from conflicting with the host workspace or causing memory leaks.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Script Sandboxing &amp; Preview Safety
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Executing AI-generated JavaScript and CSS layouts in real time without allowing generated code to leak into or corrupt the host application&#39;s DOM state.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Clean Production Code Export</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Export production-ready semantic HTML5 and Tailwind CSS with zero vendor lock-in or proprietary JavaScript dependencies.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Vendor Lock-In vs Clean Code Export
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Most no-code platforms output obfuscated HTML bloated with proprietary runtime scripts. Kova needed to export semantic, standards-compliant HTML and Tailwind CSS.
+        </p>
     </div>
   
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Real-Time Canvas Performance
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Maintaining smooth 60fps pan and zoom interactions across complex multi-section web layouts on standard laptops.
+        </p>
+    </div>
+  
+                </div>
+
+                <!-- Right: The Approach -->
+                <div class="csd-col-approach">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #C6FF00; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE KAWAKI APPROACH</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Architectural Response</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        We architected Kova around the principle that AI should act as an interactive design partner, not an opaque black box. By decoupling abstract syntax trees (AST) from visual rendering, creators maintain granular control over typography, spacing, and layout at every stage.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Decoupled AST State vs Visual Renderer
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We separated component code representation (AST) from client-side DOM rendering, allowing users to modify copy visually while keeping code structures clean.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Sandboxed Iframe Execution Layer
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Generated web layouts render inside an isolated, responsive iframe communicating with the host canvas via a secure postMessage bus, preventing styling conflicts.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Prompt-Driven Section Synthesis
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Rather than generating whole sites at once, Kova synthesizes atomic sections (Hero, Features, Pricing, Proof, FAQ) that can be individually refined or regenerated.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Clean Tailwind &amp; Semantic HTML Exporter
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Exported projects contain zero proprietary runtime libraries—just clean HTML5 and Tailwind CSS ready for production deployment on Vercel, Netlify, or Cloudflare.
+        </p>
+    </div>
+  
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 11. Engineering & Architecture -->
-        
-    <section class="csd-section-dark">
+      <section id="chapter-04" class="csd-section-dark">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. EXPERIENCE &amp; ARCHITECTURE</span>
+              <h2 class="csd-section-title" style="color: #ffffff;">Application Architecture &amp; Workflow Pipelines</h2>
+              <p style="font-size: 1.1rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 2.5rem;">
+                  Architected with modular domain boundaries, reactive client state, and streaming API endpoints to handle complex multi-tenant and generative computational workloads.
+              </p>
+
+              <!-- Responsive Visual Node Flow -->
+              <div class="csd-flow-container">
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 01</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Interactive Client</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Reactive canvas / UI</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 02</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Gateway Proxy</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Auth &amp; token routing</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 03</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Processing Engine</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Models &amp; business logic</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 04</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">State Persistence</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">JSON AST / Database</span>
+                  </div>
+              </div>
+
+              <!-- Product Architecture Pillars -->
+              <div class="csd-cards-grid-3" style="margin-top: 2rem;">
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SUBSYSTEM 01</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Workflow &amp; Processing</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">Kova synthesizes atomic sections (Heroes, Features, Pricing, Proof) that appear on the canvas. Users visually click any text or element to edit copy or trigger section regeneration.</p>
+                  </div>
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SUBSYSTEM 02</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Role Governance</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">An infinite visual canvas with smooth pan, zoom, and spatial bounding boxes allows effortless navigation across complex multi-section web layouts.</p>
+                  </div>
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SUBSYSTEM 03</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Client Ergonomics</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">A clean code export panel displays real-time HTML5 and Tailwind CSS with one-click clipboard copying or direct GitHub / ZIP repository export.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 05: FEATURED WORKFLOWS (Visual Showcase) -->
+    <section id="chapter-05" class="csd-section-dark" style="background: #08090b;">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. ENGINEERING &amp; ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
-                Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. FEATURED WORKFLOWS &amp; INTERFACES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Engineered Capabilities &amp; Production Walkthrough</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 3.5rem;">
+                A comprehensive walkthrough of the authentic user interfaces, operational flows, and customer touchpoints delivered for Kova.
             </p>
-            <div class="csd-cards-grid-3">
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Frontend Architecture</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Built with Next.js App Router, React Server Components, and TypeScript. The canvas engine utilizes hardware-accelerated transforms for steady 60fps pan and zoom interactions.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Backend &amp; Serverless APIs</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Next.js serverless route handlers managing prompt expansion, LLM synthesis streaming, and AST component transformation.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">API &amp; Network Contracts</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Streaming SSE endpoints delivering incremental component generation feedback directly to the canvas UI.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Authentication &amp; Security</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Session-based authentication protecting user canvas state and project workspaces.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Data Persistence &amp; State</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Relational project database storing component hierarchies, brand design tokens, and revision histories.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Performance &amp; Web Vitals</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Strict AST diffing algorithms ensure that editing one section only updates the targeted DOM subtree without re-rendering the entire canvas.</p>
-                </div>
-            </div>
-            <div class="csd-card-dark" style="margin-top: 2rem;">
-                <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Responsive Multi-Device Engineering</h4>
-                <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc; margin: 0;">Automated CSS media query compilation ensuring every synthesized section satisfies mobile, tablet, and wide desktop breakpoints.</p>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 12. Selected Screens & Walkthrough -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. SELECTED SCREENS &amp; WALKTHROUGH</span>
-            <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
-            <div style="margin-top: 3rem;">
+            <div>
                 
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/kova/logo.png" alt="Visual Canvas Editor Workspace" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Visual Canvas Editor Workspace</h4>
-            <p class="csd-screen-desc">Infinite canvas workspace supporting freeform component dragging, responsive artboards, and instant DOM node synchronization.</p>
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/kova/logo.png" alt="Visual Canvas Editor Workspace" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 01</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Visual Canvas Editor Workspace</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Infinite canvas workspace supporting freeform component dragging, responsive artboards, and instant DOM node synchronization.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/kw-project-ecomm.webp" alt="Component Manipulation &amp; Code Tree" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Component Manipulation &amp; Code Tree</h4>
-            <p class="csd-screen-desc">Bi-directional synchronization between the visual canvas and clean React/Tailwind code output.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/kw-project-ecomm.webp" alt="Component Manipulation &amp; Code Tree" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 02</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Component Manipulation &amp; Code Tree</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Bi-directional synchronization between the visual canvas and clean React/Tailwind code output.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/hero_uclay_showcase.jpg" alt="Full-Viewport Responsive Layout Mode" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Full-Viewport Responsive Layout Mode</h4>
-            <p class="csd-screen-desc">Multi-device viewport testing interface showing simultaneous rendering across mobile, tablet, and wide desktop viewports.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/hero_uclay_showcase.jpg" alt="Full-Viewport Responsive Layout Mode" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 03</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Full-Viewport Responsive Layout Mode</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Multi-device viewport testing interface showing simultaneous rendering across mobile, tablet, and wide desktop viewports.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
+      
             </div>
         </div>
     </section>
   
 
-        <!-- 13. Technical Deep Dive -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 11. TECHNICAL DEEP DIVE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Natural Language to Sandboxed AST Canvas Pipeline</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
-                By constraining the LLM to output a strict JSON component schema rather than raw strings, Kova parses and validates every UI element against responsive design rules before sending it to the sandboxed renderer.
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[User Prompt: &quot;Modern FinTech SaaS Hero with Glassmorphism&quot;]
-                          │
-                          ▼
-[LLM Synthesizer Engine (Structured JSON Contract)]
-                          │
-                          ▼
-[Abstract Syntax Tree (AST) Transformer]
-                          │
-    ┌─────────────────────┴─────────────────────┐
-    ▼ (AST Node Schema)                         ▼ (Tailwind Classes)
-[Update Canvas State Machine]               [Compile Scoped Stylesheet]
-    │                                           │
-    └─────────────────────┬─────────────────────┘
-                          ▼
-    [postMessage Dispatch to Sandboxed Iframe]
-                          │
-                          ▼
-    [Live Iframe DOM Render with Direct Edit Handles]
-                          │
-                          ▼ (User One-Click Export)
-    [Clean HTML5 + Tailwind CSS Output (Zero Bloat)]</pre>
-            </div>
-        </div>
-    </section>
-  
+      <section id="chapter-06" class="csd-section-light">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. ARCHITECTURAL &amp; CRAFT DEEP DIVE</span>
+              <h2 class="csd-section-title">Production Engineering &amp; System Hardening</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 2rem;">
+                  A detailed examination of the verified fullstack infrastructure, state hydration boundaries, and API gateways powering Kova.
+              </p>
 
-        <!-- 14. Challenges & Solutions Table -->
-        
-    <section class="csd-section-light">
+              <div class="csd-cards-grid-2">
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">01 / Frontend &amp; Client Runtime</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Built with Next.js App Router, React Server Components, and TypeScript. The canvas engine utilizes hardware-accelerated transforms for steady 60fps pan and zoom interactions.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">02 / API &amp; Real-Time Gateway</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Streaming SSE endpoints delivering incremental component generation feedback directly to the canvas UI.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">03 / State Management &amp; Persistence</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Local application state and structured JSON project trees managing component ASTs, style properties, and section order directly within the canvas session.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">04 / Security &amp; Performance Discipline</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Strict AST diffing algorithms ensure that editing one section only updates the targeted DOM subtree without re-rendering the entire canvas.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 07: OUTCOME & DELIVERABLES -->
+    <section id="chapter-07" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 12. CHALLENGES &amp; SOLUTIONS</span>
-            <h2 class="csd-section-title">Architectural Friction Resolved</h2>
-            <div class="csd-table-wrapper">
-                <table class="csd-table">
-                    <thead>
-                        <tr>
-                            <th>Specific Project Challenge</th>
-                            <th>Kawaki's Architectural Solution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. PRODUCTION IMPACT &amp; DELIVERABLES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Verified Outcomes &amp; Scope of Work</h2>
+            
+            <div class="csd-cards-grid-2" style="margin-top: 2.5rem; margin-bottom: 3.5rem;">
+                <!-- Qualitative Outcomes -->
+                <div class="csd-card-dark" style="border-top: 3px solid #C6FF00;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">QUALITATIVE IMPACT</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Production Achievements</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 1.5rem;">A cutting-edge AI visual canvas platform bridging natural language generation with professional frontend design engineering.</p>
+                    
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Prompt-driven component synthesis delivering production-ready responsive sections in seconds.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Interactive visual canvas with 60fps pan, zoom, and direct text manipulation capabilities.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Secure sandboxed preview environment preventing script leakage and layout corruption.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Zero vendor lock-in: outputs clean semantic HTML and Tailwind CSS ready for deployment.</span>
+    </div>
+  
+                </div>
+
+                <!-- Scope of Work Delivered -->
+                <div class="csd-card-dark">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">SCOPE OF WORK</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Contracted Deliverables</h3>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                         
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">AI-generated code frequently broke mobile responsiveness and caused styling conflicts.</td>
-        <td style="width: 55%; color: #444444;">Engineered an AST schema parser enforcing strict mobile-first Tailwind constraints on every generated component.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Next.js Full-Stack Web Application Architecture</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Real-time visual editing required bidirectional synchronization between user canvas clicks and underlying code.</td>
-        <td style="width: 55%; color: #444444;">Built a postMessage event bus mapping visual bounding box clicks directly to specific AST node identifiers.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Interactive Infinite Visual Canvas Engine</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Pannable infinite canvases often stutter and drop frames when rendering complex DOM elements.</td>
-        <td style="width: 55%; color: #444444;">Separated the canvas navigation layer onto GPU-accelerated CSS transforms while keeping the preview inside a virtualized frame.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Structured LLM Prompt Synthesizer &amp; AST Transformer</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Most AI builders generate locked proprietary code that cannot be easily exported or modified.</td>
-        <td style="width: 55%; color: #444444;">Enforced clean, standards-compliant HTML5 and Tailwind CSS generation with zero proprietary runtime scripts.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Sandboxed Iframe Execution Layer with postMessage Bus</span>
+    </div>
   
-                    </tbody>
-                </table>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Responsive Viewport Toggle (Desktop, Tablet, Mobile)</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Semantic HTML5 &amp; Tailwind CSS Clean Code Exporter</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Scheduled Private Beta Infrastructure &amp; Staging Deployment</span>
+    </div>
+  
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 15. Outcome & Business Impact -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 13. OUTCOME &amp; BUSINESS IMPACT</span>
-            <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
-            <div class="csd-card" style="margin-top: 2rem;">
-                <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
-                    A cutting-edge AI visual canvas platform bridging natural language generation with professional frontend design engineering.
-                </p>
-                <ul style="padding-left: 1.25rem;">
-                    <li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Prompt-driven component synthesis delivering production-ready responsive sections in seconds.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Interactive visual canvas with 60fps pan, zoom, and direct text manipulation capabilities.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Secure sandboxed preview environment preventing script leakage and layout corruption.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Zero vendor lock-in: outputs clean semantic HTML and Tailwind CSS ready for deployment.</li>
-                </ul>
+            <!-- Verified Tech Stack Badges -->
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.25rem; margin-bottom: 3.5rem;">
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 1rem;">VERIFIED TECHNOLOGY STACK</span>
+                <div class="csd-cards-grid-3">
+                    
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Frontend Core</span>
+        <div>
+            <span class="csd-tech-badge">Next.js App Router</span><span class="csd-tech-badge">React Server Components</span><span class="csd-tech-badge">TypeScript</span><span class="csd-tech-badge">Tailwind CSS</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Canvas &amp; Sandbox</span>
+        <div>
+            <span class="csd-tech-badge">Visual Canvas Engine</span><span class="csd-tech-badge">Sandboxed Iframe</span><span class="csd-tech-badge">postMessage Bus</span><span class="csd-tech-badge">AST Transformer</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">AI &amp; Export</span>
+        <div>
+            <span class="csd-tech-badge">Structured Prompt Synthesis</span><span class="csd-tech-badge">Clean Code Exporter</span><span class="csd-tech-badge">Git Integration</span><span class="csd-tech-badge">Vercel / Cloudflare Edge</span>
+        </div>
+    </div>
+  
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 16. What We Delivered -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 14. SCOPE OF WORK</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
-            <div class="csd-checklist">
-                
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Next.js Full-Stack Web Application Architecture</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Interactive Infinite Visual Canvas Engine</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Structured LLM Prompt Synthesizer &amp; AST Transformer</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Sandboxed Iframe Execution Layer with postMessage Bus</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Responsive Viewport Toggle (Desktop, Tablet, Mobile)</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Semantic HTML5 &amp; Tailwind CSS Clean Code Exporter</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Scheduled Private Beta Infrastructure &amp; Staging Deployment</span>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 17. Project Gallery -->
-        
-    <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 15. PROJECT GALLERY</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
-            <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
-                
+            <!-- Project Gallery -->
+            <div>
+                <span class="csd-section-eyebrow csd-eyebrow-accent" style="margin-bottom: 0.5rem;">CURATED ASSET ARCHIVE</span>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 2rem;">Additional High-Resolution Deliverables</h3>
+                <div class="csd-gallery-grid">
+                    
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/kova/logo.svg" alt="Design Token Architecture" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Design Token Architecture</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Design Token Architecture</strong>
             <span>Tailwind CSS token orchestration managing cohesive typography, color scales, and spacing across generated web apps.</span>
         </div>
     </div>
@@ -1152,52 +1263,19 @@
     <div class="csd-gallery-item">
         <img src="/assets/images/station_drag_prism.webp" alt="Visual Drag-and-Drop Canvas Mechanics" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Visual Drag-and-Drop Canvas Mechanics</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Visual Drag-and-Drop Canvas Mechanics</strong>
             <span>Zero-latency interaction engine powering intuitive section re-ordering and dynamic block injection.</span>
         </div>
     </div>
   
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 18. Technology Stack -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 16. TECHNOLOGY STACK</span>
-            <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2rem;">
-                
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Frontend Core</h4>
-        <div>
-            <span class="csd-tech-badge-light">Next.js App Router</span> <span class="csd-tech-badge-light">React Server Components</span> <span class="csd-tech-badge-light">TypeScript</span> <span class="csd-tech-badge-light">Tailwind CSS</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Canvas &amp; Sandbox</h4>
-        <div>
-            <span class="csd-tech-badge-light">Visual Canvas Engine</span> <span class="csd-tech-badge-light">Sandboxed Iframe</span> <span class="csd-tech-badge-light">postMessage Bus</span> <span class="csd-tech-badge-light">AST Transformer</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">AI &amp; Export</h4>
-        <div>
-            <span class="csd-tech-badge-light">Structured Prompt Synthesis</span> <span class="csd-tech-badge-light">Clean Code Exporter</span> <span class="csd-tech-badge-light">Git Integration</span> <span class="csd-tech-badge-light">Vercel / Cloudflare Edge</span>
-        </div>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-  
-        <!-- Related Kawaki Capabilities & Next Project -->
-        <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
+        <!-- CHAPTER 08: NEXT PROJECT & CTA -->
+        <section id="chapter-08" class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
                 
                 <!-- Related Projects in Capability Taxonomy -->
@@ -1251,11 +1329,11 @@
                     <div>
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
                         <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="/case-studies/nextschool-erp" style="color: #ffffff; text-decoration: none;">NextSchool ERP &rarr;</a>
+                            <a href="undefined" style="color: #ffffff; text-decoration: none;">NextSchool ERP &rarr;</a>
                         </h4>
                         <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Web Applications & Platforms &middot; EdTech / Cloud School Management ERP / Multi-Tenant SaaS</p>
                     </div>
-                    <a href="/case-studies/nextschool-erp" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
                 </div>
                 
             </div>

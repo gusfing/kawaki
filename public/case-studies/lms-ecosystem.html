@@ -465,6 +465,202 @@
             flex-direction: column;
             gap: 0.5rem;
         }
+
+        /* Modern 8-Chapter Editorial Styles */
+        .csd-hero-visual-cinematic {
+            width: 100%;
+            max-width: 1280px;
+            margin: 3rem auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #08090b;
+        }
+        .csd-hero-visual-cinematic img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .csd-brief-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .csd-brief-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .csd-challenge-approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        @media (max-width: 860px) {
+            .csd-challenge-approach-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .csd-col-challenge {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 3px solid #ff5252;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        .csd-col-approach {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #C6FF00;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .csd-flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+        .csd-flow-node {
+            background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            flex: 1 1 180px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+        .csd-flow-arrow {
+            color: #C6FF00;
+            font-size: 1.25rem;
+            font-weight: 700;
+            user-select: none;
+        }
+        @media (max-width: 768px) {
+            .csd-flow-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .csd-flow-arrow {
+                text-align: center;
+                transform: rotate(90deg);
+                margin: 0.25rem 0;
+            }
+        }
+
+        .csd-workflow-large {
+            margin-bottom: 4rem;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        .csd-workflow-dark {
+            background: #12141a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+        }
+        .csd-workflow-media {
+            width: 100%;
+            background: #090a0d;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .csd-workflow-media img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+        .csd-workflow-content {
+            padding: 2.25rem 2.5rem;
+        }
+        .csd-why-matters {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(198, 255, 0, 0.06);
+            border-left: 3px solid #C6FF00;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #444444;
+            line-height: 1.6;
+        }
+        .csd-why-matters-dark {
+            color: #d1d5db;
+            background: rgba(198, 255, 0, 0.05);
+        }
+
+        .csd-phone-mockup {
+            width: 290px;
+            max-width: 100%;
+            margin: 2rem auto;
+            border: 12px solid #1a1c24;
+            border-radius: 42px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            background: #000000;
+            position: relative;
+        }
+        .csd-phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .csd-phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 5px;
+            background: #2a2d3a;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .csd-spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            background: #14161d;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .csd-spec-table th, .csd-spec-table td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
+        }
+        .csd-spec-table th {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(255, 255, 255, 0.03);
+        }
     </style>
 </head>
 <body style="background-color: #ffffff; color: #111111;">
@@ -538,336 +734,134 @@
 
     <main>
 
-        <!-- Case Study Detail Hero -->
-        <section class="csd-hero" style="background: #0c0d10; color: #ffffff; padding: 8rem 2rem 5rem; position: relative;">
-            <div class="csd-hero-inner" style="max-width: 1200px; margin: 0 auto;">
-                <a href="/case-studies" class="csd-back-btn" style="color: #C6FF00; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">&larr; Back to Selected Work</a>
-                
+
+    <!-- CHAPTER 01: HERO -->
+    <header id="chapter-01" class="csd-hero-sec" style="background: #08090b; color: #ffffff; padding: 7rem 2rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="csd-container" style="text-align: center; max-width: 1100px;">
+            <div style="display: flex; justify-content: center;">
                 <div class="csd-logo-badge"><span>Campus Enterprise Systems</span></div>
-
-                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Web Applications &amp; Platforms &middot; Education / Fleet Mobility / Multi-Role Enterprise Systems &middot; Year 2024</div>
-                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;">
-                    Multi-Role Flutter LMS &amp; School Mobility Ecosystem: Staff, Students &amp; Fleet Telematics
-                </h1>
-                
-                <p style="font-size: 1.2rem; line-height: 1.6; color: #cccccc; max-width: 850px; margin-bottom: 2rem;">
-                    Lead Mobile Architecture (Flutter), BLoC/Cubit State Engineering, GPS Telematics Integration, Central Backend APIs
-                </p>
-
-                <div style="margin-bottom: 2.5rem;">
-                    <span class="csd-disabled-btn">● Private Enterprise Infrastructure Deployment</span>
-                </div>
-
-                <!-- 2. Project Snapshot Table -->
-                
-    <div class="csd-snapshot-grid">
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Client / Product</span>
-            <span class="csd-snapshot-val">Campus Enterprise Systems</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Industry &amp; Domain</span>
-            <span class="csd-snapshot-val">Enterprise Education Operations &amp; Campus Fleet Telematics</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Services Provided</span>
-            <span class="csd-snapshot-val">Cross-Platform Mobile Engineering (Flutter), BLoC/Cubit Architecture, Real-Time GPS Tracking, Central APIs</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
-            <span class="csd-snapshot-val">Unified Flutter Mobile Ecosystem (iOS &amp; Android) + Laravel Backend</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Core Technologies</span>
-            <span class="csd-snapshot-val">Flutter SDK, Dart, BLoC/Cubit, Hive Local Storage, Dio, WebSockets, GPS Telematics</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Project Scope</span>
-            <span class="csd-snapshot-val">3 Interconnected Mobile Apps (Teacher App, Student/Parent App, Transport App) + Real-Time Telematics Engine</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Production Status</span>
-            <span class="csd-snapshot-val">Enterprise Client Deployment (Private Infrastructure)</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Live Platform / Access</span>
-            <span class="csd-snapshot-val">
-                Private Enterprise Mobile &amp; Cloud Deployment
-            </span>
-        </div>
-    </div>
-  
             </div>
+            <h1 class="csd-hero-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: #ffffff;">
+                Multi-Role LMS &amp; School Mobility Ecosystem
+            </h1>
+            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; color: #b5b9c4; max-width: 860px; margin: 0 auto 2.5rem;">
+                Multi-Role Flutter LMS &amp; School Mobility Ecosystem: Staff, Students &amp; Fleet Telematics
+            </p>
             
-            <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-                <img src="/assets/images/project_2_1787254282785.webp" alt="Multi-Role LMS &amp; School Mobility Ecosystem Project Hero" width="1376" height="768" fetchpriority="high" decoding="async" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <!-- Quick Metadata Pill Strip -->
+            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem;">
+                <span style="background: rgba(255,255,255,0.06); color: #C6FF00; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(198,255,0,0.2);">Web Applications &amp; Platforms</span>
+                <span style="background: rgba(255,255,255,0.06); color: #e2e8f0; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);">Education / Fleet Mobility / Multi-Role Enterprise Systems</span>
+                <span style="background: rgba(255,255,255,0.06); color: #94a3b8; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.08);">Enterprise Client Deployment (Private Infrastructure)</span>
             </div>
-        </section>
 
-        <!-- 3. The Context -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 01. THE CONTEXT</span>
-            <h2 class="csd-section-title">Institutional Background &amp; Strategic Mission</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Who the Client Is</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;">The Multi-Role LMS &amp; School Mobility Ecosystem is an enterprise-grade education operations platform engineered by Kawaki Studios. Rather than forcing schools to run three disconnected tools, the ecosystem delivers an interconnected multi-role architecture spanning three dedicated mobile interfaces: a Teacher &amp; Staff App, a Student &amp; Parent App, and an integrated Fleet Transport Tracking module with live GPS telematics.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;">Deployed across campus environments, all three mobile clients communicate with a central multi-tenant backend, ensuring cryptographic data separation, role-based access control, and millisecond-level push synchronization across institutional stakeholders.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Target Audience &amp; Strategic Mandate</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Audience Profile:</strong> Classroom educators logging attendance, school principals tracking staff schedules, students checking exam dates, parents tracking student bus arrivals in real time, and campus fleet drivers managing route stops.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;"><strong>Digital Mandate:</strong> School operations suffer from communication disconnects: educators manage grades in one system, parents track bus arrivals via separate third-party hardware apps, and students access timetables elsewhere. This creates support fatigue, parent anxiety, and administrative bottlenecks. Kawaki was commissioned to engineer a synchronized mobile ecosystem under a unified codebase.</p>
-                </div>
+            <div>
+                <span class="csd-disabled-btn">● Private Studio Deployment</span>
+            </div>
+
+            <!-- Huge Cinematic Real Hero Visual -->
+            <div class="csd-hero-visual-cinematic">
+                <img src="/assets/images/project_2_1787254282785.webp" alt="Multi-Role LMS &amp; School Mobility Ecosystem Hero Showcase" fetchpriority="high" decoding="async" />
             </div>
         </div>
-    </section>
+    </header>
   
 
-        <!-- 4. The Challenge -->
-        
-    <section class="csd-section-dark">
+    <!-- CHAPTER 02: PROJECT BRIEF -->
+    <section id="chapter-02" class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 02. THE CHALLENGE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction &amp; Technical Constraints</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #cccccc; max-width: 800px; margin-bottom: 3rem;">
-                Coordinating diverse user roles (teachers, parents, bus drivers) with conflicting operational requirements across mobile viewports with varying network conditions.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Role-Specific Ergonomic Divergence
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Teachers need fast, thumb-friendly classroom attendance taking (sub-60 seconds), parents need real-time GPS bus tracking with ETA alarms, and students need distraction-free online exams.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Real-Time Fleet Telematics &amp; Battery Drain
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Streaming vehicle GPS coordinates from mobile phones or in-vehicle trackers to parent screens without draining mobile device batteries or overloading central servers.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Volatile Campus Network Connectivity
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Teachers marking attendance in thick concrete school buildings frequently lose internet. The app had to operate offline and auto-sync records upon reconnection.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Predictable Cross-Platform State Management
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Maintaining deterministic application state across dozens of concurrent modules (Auth, Attendance, Chat, Timetable, Exams, Telematics) across hundreds of Android and iOS device models.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Real-Time Communication &amp; Notifications
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Dispatching immediate alerts for unscheduled bus delays, student absences, emergency circulars, and fee due dates without push delivery dropouts.
-        </p>
-    </div>
-  
-            </div>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 02. PROJECT BRIEF</span>
+            <h2 class="csd-section-title">Strategic Mandate &amp; Operational Objectives</h2>
+            
+            <div class="csd-brief-grid">
+                <!-- Left: Narrative & Objectives -->
+                <div>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Institutional Context</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;">The Multi-Role LMS &amp; School Mobility Ecosystem is an enterprise-grade education operations platform engineered by Kawaki Studios. Rather than forcing schools to run three disconnected tools, the ecosystem delivers an interconnected multi-role architecture spanning three dedicated mobile interfaces: a Teacher &amp; Staff App, a Student &amp; Parent App, and an integrated Fleet Transport Tracking module with live GPS telematics.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555; margin-bottom: 1.5rem;">Deployed across campus environments, all three mobile clients communicate with a central multi-tenant backend, ensuring cryptographic data separation, role-based access control, and millisecond-level push synchronization across institutional stakeholders.</p>
+                    
+                    <div style="background: #f8fafc; border-left: 3px solid #0f172a; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2.5rem;">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 700;">STRATEGIC IMPERATIVE</span>
+                        <p style="font-size: 1rem; line-height: 1.6; color: #1e293b; margin: 0.4rem 0 0;">School operations suffer from communication disconnects: educators manage grades in one system, parents track bus arrivals via separate third-party hardware apps, and students access timetables elsewhere. This creates support fatigue, parent anxiety, and administrative bottlenecks. Kawaki was commissioned to engineer a synchronized mobile ecosystem under a unified codebase.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #111111;">Verified Project Objectives</h3>
+                    <div style="margin-top: 1rem;">
+                        
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 01</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Unify Three Dedicated Mobile Clients Under Flutter</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Engineer interconnected Teacher/Staff and Student/Parent mobile applications alongside Fleet Telematics sharing unified Dart networking and state logic.</p>
         </div>
-    </section>
-  
-
-        <!-- 5. Objectives -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. PROJECT OBJECTIVES</span>
-            <h2 class="csd-section-title">Verified Engineering &amp; Strategic Mandates</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #555555; max-width: 840px; margin-bottom: 2.5rem;">
-                Every architectural initiative was driven by concrete operational objectives established with client stakeholders:
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Unify Three Dedicated Mobile Clients Under Flutter</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Engineer interconnected Teacher/Staff and Student/Parent mobile applications alongside Fleet Telematics sharing unified Dart networking and state logic.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Enforce Predictable BLoC / Cubit State Machines</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Structure every functional module (Auth, Attendance, Timetable, Exams, Transport) as an isolated Cubit to guarantee unidirectional data flow and zero UI stutter.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Deploy Real-Time Vehicle GPS Telematics</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Build dedicated route tracking endpoints (`/transport/location/{vehicleId}`) delivering lightweight coordinates with spatial smoothing for live parent bus tracking.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Ensure Offline Classroom Data Resilience</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Integrate Hive local key-value databases on mobile clients, enabling educators to mark attendance in cellular dead zones with automated reconnection syncing.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 02</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Enforce Predictable BLoC / Cubit State Machines</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Structure every functional module (Auth, Attendance, Timetable, Exams, Transport) as an isolated Cubit to guarantee unidirectional data flow and zero UI stutter.</p>
         </div>
-    </section>
-  
-
-        <!-- 6. The Approach -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. THE APPROACH</span>
-            <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
-                We engineered the ecosystem on a unified mobile-first philosophy using Flutter and BLoC Cubits. By establishing shared data contracts, isolated state machines, and localized offline databases, every user experiences an app tailored to their exact role while the central backend maintains data integrity.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 01</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Unified Flutter Cross-Platform Architecture</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We utilized Flutter SDK to share foundational business logic, networking layers, and theme tokens across both Teacher and Student/Parent applications, reducing codebase divergence.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 02</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Predictable BLoC / Cubit State Machines</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Every functional domain operates as an isolated Cubit (`TeacherAttendanceCubit`, `ExamsOnlineCubit`, `NoticeBoardCubit`), ensuring unidirectional data flow and zero race conditions.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 03</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Real-Time Fleet Telematics API</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We built dedicated vehicle tracking endpoints (`/transport/location/{vehicleId}`) delivering lightweight lat/long coordinates with spatial buffer smoothing for live parent map tracking.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 04</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Offline-Resilient Local Storage (Hive)</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We integrated Hive key-value databases, enabling educators to mark classroom attendance and view cached timetables even when cellular signals drop out.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 05</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">AwesomeNotifications &amp; Firebase Integration</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We implemented push notification channels with background intent handling for instant attendance alerts, bus departure warnings, and broadcast notices.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 03</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Deploy Real-Time Vehicle GPS Telematics</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Build dedicated route tracking endpoints (`/transport/location/{vehicleId}`) delivering lightweight coordinates with spatial smoothing for live parent bus tracking.</p>
         </div>
-    </section>
+    </div>
   
-
-        <!-- 7. Information Architecture -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. INFORMATION ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
-                A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Central Multi-Tenant Backend (Laravel / WebSockets)]
-       │
-       ├──► [01. Teacher &amp; Staff Mobile Application (Flutter)]
-       │      ├── AuthCubit: Tokenized Session Validation &amp; Role Module Permissions
-       │      ├── TeacherAttendanceCubit: 60-Second Batch Classroom Attendance
-       │      ├── TeacherMyTimetableCubit: Dynamic Schedule &amp; Substitution Alerts
-       │      ├── TeacherAssignmentsCubit: Homework Posting &amp; Digital Grading
-       │      └── ChatMessagesCubit &amp; SocketSettingCubit: Real-Time Staff Messaging
-       │
-       ├──► [02. Student &amp; Parent Mobile Application (Flutter)]
-       │      ├── SchoolConfigurationCubit: Branding, Grading Scales &amp; Academic Rules
-       │      ├── NoticeBoardCubit: Real-Time Institutional Announcements
-       │      ├── ExamsOnlineCubit &amp; ResultsOnlineCubit: Timed Exams &amp; Instant Marks
-       │      └── FeePaymentCubit: Digital Invoicing, Overdue Alerts &amp; Receipt Vault
-       │
-       └──► [03. School Mobility &amp; Fleet Transport Telematics]
-              ├── Real-Time Vehicle GPS Endpoint: /transport/location/{vehicleId}
-              ├── Driver Route Rosters &amp; Student Boarding Check-Ins
-              ├── TransportDashboardController: Fleet Telematics &amp; Vehicle Allocation
-              └── Student Transport Reporting (/student-transport-report)</pre>
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 04</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Ensure Offline Classroom Data Resilience</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Integrate Hive local key-value databases on mobile clients, enabling educators to mark attendance in cellular dead zones with automated reconnection syncing.</p>
         </div>
-    </section>
+    </div>
   
+                    </div>
+                </div>
 
-        <!-- 8. UX & Product Thinking -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. UX &amp; PRODUCT THINKING</span>
-            <h2 class="csd-section-title">User Journey &amp; Operational Ergonomics</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 01</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Discovery</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Role-gated authentication routes staff, students, and parents into specialized mobile dashboards displaying role-relevant daily priorities and schedules.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 02</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Navigation &amp; Structure</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Bottom navigation bars provide one-tap switching between core duties (Attendance, Timetable, Chat for Staff; Exams, Results, Notices for Parents).</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 03</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Workflow &amp; Processing</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Educators tap student attendance cards in classrooms with immediate local Hive caching, while the central telematics engine pushes live bus GPS coordinates to parent map screens.</p>
-                </div>
-            </div>
-            <div class="csd-cards-grid-2" style="margin-top: 1.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 04</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Conversion &amp; Ingestion</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Parents verify vehicle arrival times through animated map pins and pay overdue tuition fees securely through integrated mobile payment gateways.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 05</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Mobile Ergonomics</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Adaptive Flutter layout trees automatically adjust component padding and touch target sizes across budget 4.7-inch smartphones up to 12.9-inch iPad classroom tablets.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 9. UX & Design System -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 07. UX &amp; DESIGN SYSTEM</span>
-            <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Design Direction &amp; Layout Grid</h3>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Aesthetic Thesis:</strong> Functional mobile ergonomics, high visual contrast, clear role color-coding, and accessible thumb-zone action targets.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Typography Hierarchy:</strong> Plus Jakarta Sans (Crisp mobile UI headings and buttons) paired with Space Mono (Timetable hours, bus numbers, grade percentages).</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Layout &amp; Viewport Mechanics:</strong> Flutter responsive widget tree with adaptive bottom navigation bars, swipeable tab views, and shimmer skeleton loading states.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Key Engineered Components</h3>
-                    <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Teacher Attendance Grid: Rapid tap-to-toggle student cards with batch confirmation dialogs.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Live Transport Map Marker: Smoothly animated vehicle pin showing real-time bus location along assigned routes.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Online Examination Card: Focused mobile testing interface with question timers and progress bars.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Digital Noticeboard Feed: Media-rich announcement cards supporting document attachments and broadcast priority tags.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Fee Ledger Tile: Mobile billing summary with color-coded status badges (Paid, Pending, Overdue).</li>
-                    </ul>
-                    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border: 1px solid #e9ecef;">
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: #111111;">Mobile &amp; Touch Ergonomics</h4>
-                        <p style="font-size: 0.9rem; line-height: 1.6; color: #555555; margin: 0;">Engineered specifically for one-handed mobile operation in active environments (teachers walking classroom aisles, parents holding groceries, drivers in transit).</p>
+                <!-- Right: Structured Spec Matrix -->
+                <div style="background: #0f172a; color: #ffffff; padding: 2.25rem; border-radius: 14px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #C6FF00; letter-spacing: 0.05em; font-weight: 700; display: block; margin-bottom: 1.5rem;">PROJECT SNAPSHOT</span>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <span class="csd-snapshot-label">Client / Brand</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Campus Enterprise Systems</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Industry &amp; Domain</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Enterprise Education Operations &amp; Campus Fleet Telematics</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Services Provided</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Cross-Platform Mobile Engineering (Flutter), BLoC/Cubit Architecture, Real-Time GPS Tracking, Central APIs</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Unified Flutter Mobile Ecosystem (iOS &amp; Android) + Laravel Backend</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Verified Tech Stack</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Flutter SDK, Dart, BLoC/Cubit, Hive Local Storage, Dio, WebSockets, GPS Telematics</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Execution Scope</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">3 Interconnected Mobile Apps (Teacher App, Student/Parent App, Transport App) + Real-Time Telematics Engine</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Production Status</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Enterprise Client Deployment (Private Infrastructure)</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Live Platform / Access</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">
+                                Private Enterprise Mobile &amp; Cloud Deployment
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -875,276 +869,402 @@
     </section>
   
 
-        <!-- 10. Key Features & Experiences -->
-        
-    <section class="csd-section-light">
+    <!-- CHAPTER 03: THE CHALLENGE & THE APPROACH -->
+    <section id="chapter-03" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. KEY FEATURES &amp; EXPERIENCES</span>
-            <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
-            <div style="max-width: 960px; margin-top: 3rem;">
-                
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Teacher &amp; Staff Mobile Application</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Empowers educators with sub-60-second classroom attendance logging, timetable schedule tracking, digital assignment grading, and real-time staff messaging.</p>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 03. THE CHALLENGE &amp; THE APPROACH</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction vs. Architectural Strategy</h2>
+            
+            <div class="csd-challenge-approach-grid" style="margin-top: 2.5rem;">
+                <!-- Left: The Challenge -->
+                <div class="csd-col-challenge">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #ff5252; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE VERIFIED CHALLENGE</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Real Constraints &amp; Friction</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        Coordinating diverse user roles (teachers, parents, bus drivers) with conflicting operational requirements across mobile viewports with varying network conditions.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Role-Specific Ergonomic Divergence
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Teachers need fast, thumb-friendly classroom attendance taking (sub-60 seconds), parents need real-time GPS bus tracking with ETA alarms, and students need distraction-free online exams.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Student &amp; Parent Mobile Application</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Provides families with transparent access to online examination schedules, instant report cards, digital fee invoices, and official broadcast notices.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Real-Time Fleet Telematics &amp; Battery Drain
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Streaming vehicle GPS coordinates from mobile phones or in-vehicle trackers to parent screens without draining mobile device batteries or overloading central servers.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Real-Time Fleet &amp; Bus GPS Telematics</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Live vehicle location tracking endpoint (`/transport/location/{vehicleId}`) providing parents with real-time map positions and student boarding reports.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Volatile Campus Network Connectivity
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Teachers marking attendance in thick concrete school buildings frequently lose internet. The app had to operate offline and auto-sync records upon reconnection.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Offline-Resilient Local Caching (Hive)</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Integrated Hive key-value storage enabling teachers to log attendance and browse schedules even during campus network dead zones, auto-syncing upon reconnection.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Predictable Cross-Platform State Management
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Maintaining deterministic application state across dozens of concurrent modules (Auth, Attendance, Chat, Timetable, Exams, Telematics) across hundreds of Android and iOS device models.
+        </p>
     </div>
   
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Real-Time Communication &amp; Notifications
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Dispatching immediate alerts for unscheduled bus delays, student absences, emergency circulars, and fee due dates without push delivery dropouts.
+        </p>
+    </div>
+  
+                </div>
+
+                <!-- Right: The Approach -->
+                <div class="csd-col-approach">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #C6FF00; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE KAWAKI APPROACH</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Architectural Response</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        We engineered the ecosystem on a unified mobile-first philosophy using Flutter and BLoC Cubits. By establishing shared data contracts, isolated state machines, and localized offline databases, every user experiences an app tailored to their exact role while the central backend maintains data integrity.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Unified Flutter Cross-Platform Architecture
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We utilized Flutter SDK to share foundational business logic, networking layers, and theme tokens across both Teacher and Student/Parent applications, reducing codebase divergence.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Predictable BLoC / Cubit State Machines
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Every functional domain operates as an isolated Cubit (`TeacherAttendanceCubit`, `ExamsOnlineCubit`, `NoticeBoardCubit`), ensuring unidirectional data flow and zero race conditions.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Real-Time Fleet Telematics API
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We built dedicated vehicle tracking endpoints (`/transport/location/{vehicleId}`) delivering lightweight lat/long coordinates with spatial buffer smoothing for live parent map tracking.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Offline-Resilient Local Storage (Hive)
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We integrated Hive key-value databases, enabling educators to mark classroom attendance and view cached timetables even when cellular signals drop out.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            AwesomeNotifications &amp; Firebase Integration
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We implemented push notification channels with background intent handling for instant attendance alerts, bus departure warnings, and broadcast notices.
+        </p>
+    </div>
+  
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 11. Engineering & Architecture -->
-        
-    <section class="csd-section-dark">
+      <section id="chapter-04" class="csd-section-dark">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. EXPERIENCE &amp; ARCHITECTURE</span>
+              <h2 class="csd-section-title" style="color: #ffffff;">Application Architecture &amp; Workflow Pipelines</h2>
+              <p style="font-size: 1.1rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 2.5rem;">
+                  Architected with modular domain boundaries, reactive client state, and streaming API endpoints to handle complex multi-tenant and generative computational workloads.
+              </p>
+
+              <!-- Responsive Visual Node Flow -->
+              <div class="csd-flow-container">
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 01</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Interactive Client</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Reactive canvas / UI</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 02</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Gateway Proxy</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Auth &amp; token routing</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 03</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Processing Engine</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Models &amp; business logic</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 04</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">State Persistence</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">JSON AST / Database</span>
+                  </div>
+              </div>
+
+              <!-- Product Architecture Pillars -->
+              <div class="csd-cards-grid-3" style="margin-top: 2rem;">
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SUBSYSTEM 01</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Workflow &amp; Processing</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">Educators tap student attendance cards in classrooms with immediate local Hive caching, while the central telematics engine pushes live bus GPS coordinates to parent map screens.</p>
+                  </div>
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SUBSYSTEM 02</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Role Governance</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">Bottom navigation bars provide one-tap switching between core duties (Attendance, Timetable, Chat for Staff; Exams, Results, Notices for Parents).</p>
+                  </div>
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SUBSYSTEM 03</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Client Ergonomics</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">Parents verify vehicle arrival times through animated map pins and pay overdue tuition fees securely through integrated mobile payment gateways.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 05: FEATURED WORKFLOWS (Visual Showcase) -->
+    <section id="chapter-05" class="csd-section-dark" style="background: #08090b;">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. ENGINEERING &amp; ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
-                Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. FEATURED WORKFLOWS &amp; INTERFACES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Engineered Capabilities &amp; Production Walkthrough</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 3.5rem;">
+                A comprehensive walkthrough of the authentic user interfaces, operational flows, and customer touchpoints delivered for Multi-Role LMS &amp; School Mobility Ecosystem.
             </p>
-            <div class="csd-cards-grid-3">
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Frontend Architecture</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Engineered using Flutter SDK and Dart, sharing networking and state management layers across multiple mobile application targets for iOS and Android.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Backend &amp; Serverless APIs</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Modular multi-tenant Laravel backend exposing RESTful JSON endpoints and WebSocket broadcast channels.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">API &amp; Network Contracts</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Dio HTTP client with custom interceptors for automatic bearer token injection, automated token refresh, and centralized error logging.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Authentication &amp; Security</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">JWT-based mobile authentication validating institutional role permissions (`permission:transport.manage`, `module:transport`).</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Data Persistence &amp; State</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Relational multi-tenant database coupled with Hive key-value storage on mobile devices for offline session persistence.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Performance &amp; Web Vitals</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">BLoC Cubit state machines prevent unnecessary widget rebuilds, maintaining fluid 60fps scrolling across budget Android hardware.</p>
-                </div>
-            </div>
-            <div class="csd-card-dark" style="margin-top: 2rem;">
-                <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Responsive Multi-Device Engineering</h4>
-                <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc; margin: 0;">Adaptive Flutter layout builders that seamlessly adjust spacing and component densities between 4.7-inch budget smartphones and 12.9-inch iPad classroom tablets.</p>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 12. Selected Screens & Walkthrough -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. SELECTED SCREENS &amp; WALKTHROUGH</span>
-            <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
-            <div style="margin-top: 3rem;">
+            <div>
                 
-    <div class="csd-screen-card">
-        <img src="/assets/images/project_2_1787254282785.webp" alt="Teacher &amp; Staff Mobile Companion (Flutter)" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Teacher &amp; Staff Mobile Companion (Flutter)</h4>
-            <p class="csd-screen-desc">Flutter-powered mobile app providing classroom attendance logging, homework dispatch, and direct parent messaging on iOS &amp; Android.</p>
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/project_2_1787254282785.webp" alt="Teacher &amp; Staff Mobile Companion (Flutter)" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 01</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Teacher &amp; Staff Mobile Companion (Flutter)</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Flutter-powered mobile app providing classroom attendance logging, homework dispatch, and direct parent messaging on iOS &amp; Android.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/station_drag_prism.webp" alt="Real-Time Student Attendance &amp; Grading Flow" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Real-Time Student Attendance &amp; Grading Flow</h4>
-            <p class="csd-screen-desc">Offline-first attendance capture synchronizing automatically with central ERP databases upon network reconnect.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/station_drag_prism.webp" alt="Real-Time Student Attendance &amp; Grading Flow" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 02</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Real-Time Student Attendance &amp; Grading Flow</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Offline-first attendance capture synchronizing automatically with central ERP databases upon network reconnect.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/hero_agency_showcase.webp" alt="Fleet Telematics &amp; Real-Time Bus GPS Tracking" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Fleet Telematics &amp; Real-Time Bus GPS Tracking</h4>
-            <p class="csd-screen-desc">Driver-facing mobile telemetry publishing vehicle coordinates every 5 seconds to provide parents with live bus tracking maps.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/hero_agency_showcase.webp" alt="Fleet Telematics &amp; Real-Time Bus GPS Tracking" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 03</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Fleet Telematics &amp; Real-Time Bus GPS Tracking</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Driver-facing mobile telemetry publishing vehicle coordinates every 5 seconds to provide parents with live bus tracking maps.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
+      
             </div>
         </div>
     </section>
   
 
-        <!-- 13. Technical Deep Dive -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 11. TECHNICAL DEEP DIVE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Real-Time Fleet Telematics &amp; Cubit State Sync Flow</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
-                By decoupling high-frequency GPS coordinate pushes into a dedicated telematics controller with spatial smoothing, the parent mobile app renders smooth bus marker movements without draining phone batteries or causing server lag.
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[School Bus In-Vehicle Tracker / Driver Phone]
-                      │
-                      ▼ (Periodic GPS Coordinates: Lat/Long)
-[Central Telematics Engine: /transport/location/{vehicleId}]
-                      │
-                      ▼
-[Spatial Buffer &amp; Route Geofence Validator]
-                      │
-    ┌─────────────────┴─────────────────┐
-    ▼ (WebSocket Push)                  ▼ (Database Transit Log)
-[Active Parent App Sessions]        [Student Transport History Ledger]
-    │                                   │
-    ▼                                   ▼
-[TransportLocationCubit: State Emit]   [/student-transport-report Audit]
-    │
-    ▼
-[Smoothly Animate Bus Pin on Google Maps Widget (60 FPS)]</pre>
-            </div>
-        </div>
-    </section>
-  
+      <section id="chapter-06" class="csd-section-light">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. ARCHITECTURAL &amp; CRAFT DEEP DIVE</span>
+              <h2 class="csd-section-title">Production Engineering &amp; System Hardening</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 2rem;">
+                  A detailed examination of the verified fullstack infrastructure, state hydration boundaries, and API gateways powering Multi-Role LMS &amp; School Mobility Ecosystem.
+              </p>
 
-        <!-- 14. Challenges & Solutions Table -->
-        
-    <section class="csd-section-light">
+              <div class="csd-cards-grid-2">
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">01 / Frontend &amp; Client Runtime</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Engineered using Flutter SDK and Dart, sharing networking and state management layers across multiple mobile application targets for iOS and Android.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">02 / API &amp; Real-Time Gateway</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Dio HTTP client with custom interceptors for automatic bearer token injection, automated token refresh, and centralized error logging.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">03 / State Management &amp; Persistence</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Relational multi-tenant database coupled with Hive key-value storage on mobile devices for offline session persistence.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">04 / Security &amp; Performance Discipline</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">BLoC Cubit state machines prevent unnecessary widget rebuilds, maintaining fluid 60fps scrolling across budget Android hardware.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 07: OUTCOME & DELIVERABLES -->
+    <section id="chapter-07" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 12. CHALLENGES &amp; SOLUTIONS</span>
-            <h2 class="csd-section-title">Architectural Friction Resolved</h2>
-            <div class="csd-table-wrapper">
-                <table class="csd-table">
-                    <thead>
-                        <tr>
-                            <th>Specific Project Challenge</th>
-                            <th>Kawaki's Architectural Solution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. PRODUCTION IMPACT &amp; DELIVERABLES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Verified Outcomes &amp; Scope of Work</h2>
+            
+            <div class="csd-cards-grid-2" style="margin-top: 2.5rem; margin-bottom: 3.5rem;">
+                <!-- Qualitative Outcomes -->
+                <div class="csd-card-dark" style="border-top: 3px solid #C6FF00;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">QUALITATIVE IMPACT</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Production Achievements</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 1.5rem;">A unified enterprise mobile ecosystem eliminating operational blind spots across classroom, home, and transit.</p>
+                    
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Delivered three interconnected mobile applications under a synchronized Flutter and BLoC architecture.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Live bus GPS tracking providing parents with real-time transit safety and arrival notifications.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Offline-tolerant classroom workflows allowing teachers to log attendance in under 60 seconds without network delays.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Eliminated communication silos between school administration, educators, students, and campus transport.</span>
+    </div>
+  
+                </div>
+
+                <!-- Scope of Work Delivered -->
+                <div class="csd-card-dark">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">SCOPE OF WORK</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Contracted Deliverables</h3>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                         
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Schools operated three separate disconnected systems for staff, parents, and transportation.</td>
-        <td style="width: 55%; color: #444444;">Engineered an interconnected multi-role Flutter ecosystem synchronized through a single central multi-tenant backend.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Teacher &amp; Staff Mobile Application (Flutter for iOS &amp; Android)</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Thick concrete school buildings frequently caused cellular dead zones during classroom attendance.</td>
-        <td style="width: 55%; color: #444444;">Integrated Hive key-value databases on the mobile client, enabling full offline attendance taking with auto-sync.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Student &amp; Parent Mobile Application (Flutter for iOS &amp; Android)</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">High-frequency GPS tracking drained mobile batteries and overwhelmed central backend databases.</td>
-        <td style="width: 55%; color: #444444;">Implemented an optimized telematics router with spatial coordinate buffering and delta updates.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">School Mobility &amp; Real-Time GPS Fleet Telematics Subsystem</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Complex state synchronization across diverse user roles caused race conditions and widget rebuild stutter.</td>
-        <td style="width: 55%; color: #444444;">Structured the entire mobile presentation layer with BLoC Cubits, ensuring predictable unidirectional data flow.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">BLoC / Cubit Reactive State Management Architecture</span>
+    </div>
   
-                    </tbody>
-                </table>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Offline-Resilient Hive Key-Value Local Database Subsystem</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Dio HTTP Client with Automated Token Interceptors</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">AwesomeNotifications &amp; Firebase Cloud Messaging Pipeline</span>
+    </div>
+  
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 15. Outcome & Business Impact -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 13. OUTCOME &amp; BUSINESS IMPACT</span>
-            <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
-            <div class="csd-card" style="margin-top: 2rem;">
-                <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
-                    A unified enterprise mobile ecosystem eliminating operational blind spots across classroom, home, and transit.
-                </p>
-                <ul style="padding-left: 1.25rem;">
-                    <li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Delivered three interconnected mobile applications under a synchronized Flutter and BLoC architecture.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Live bus GPS tracking providing parents with real-time transit safety and arrival notifications.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Offline-tolerant classroom workflows allowing teachers to log attendance in under 60 seconds without network delays.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Eliminated communication silos between school administration, educators, students, and campus transport.</li>
-                </ul>
+            <!-- Verified Tech Stack Badges -->
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.25rem; margin-bottom: 3.5rem;">
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 1rem;">VERIFIED TECHNOLOGY STACK</span>
+                <div class="csd-cards-grid-3">
+                    
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Mobile Core</span>
+        <div>
+            <span class="csd-tech-badge">Flutter SDK 3.x</span><span class="csd-tech-badge">Dart</span><span class="csd-tech-badge">BLoC / Cubit Pattern</span><span class="csd-tech-badge">Hive Local Database</span><span class="csd-tech-badge">Dio HTTP Client</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Backend &amp; Telematics</span>
+        <div>
+            <span class="csd-tech-badge">Laravel Multi-Tenant API</span><span class="csd-tech-badge">WebSocket Gateway</span><span class="csd-tech-badge">GPS Telematics Router</span><span class="csd-tech-badge">Geofence Engine</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Hardware &amp; Notifications</span>
+        <div>
+            <span class="csd-tech-badge">AwesomeNotifications</span><span class="csd-tech-badge">Firebase Cloud Messaging</span><span class="csd-tech-badge">Google Maps SDK</span><span class="csd-tech-badge">Battery-Optimized Telemetry</span>
+        </div>
+    </div>
+  
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 16. What We Delivered -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 14. SCOPE OF WORK</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
-            <div class="csd-checklist">
-                
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Teacher &amp; Staff Mobile Application (Flutter for iOS &amp; Android)</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Student &amp; Parent Mobile Application (Flutter for iOS &amp; Android)</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">School Mobility &amp; Real-Time GPS Fleet Telematics Subsystem</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">BLoC / Cubit Reactive State Management Architecture</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Offline-Resilient Hive Key-Value Local Database Subsystem</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Dio HTTP Client with Automated Token Interceptors</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">AwesomeNotifications &amp; Firebase Cloud Messaging Pipeline</span>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 17. Project Gallery -->
-        
-    <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 15. PROJECT GALLERY</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
-            <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
-                
+            <!-- Project Gallery -->
+            <div>
+                <span class="csd-section-eyebrow csd-eyebrow-accent" style="margin-bottom: 0.5rem;">CURATED ASSET ARCHIVE</span>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 2rem;">Additional High-Resolution Deliverables</h3>
+                <div class="csd-gallery-grid">
+                    
     <div class="csd-gallery-item">
         <img src="/assets/images/project_2_1787254282785.webp" alt="Parent Notification &amp; Real-Time Exam Results" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Parent Notification &amp; Real-Time Exam Results</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Parent Notification &amp; Real-Time Exam Results</strong>
             <span>Push notification engine informing parents immediately of grades, exam schedules, and attendance alerts.</span>
         </div>
     </div>
@@ -1152,52 +1272,19 @@
     <div class="csd-gallery-item">
         <img src="/assets/images/station_infra_system.webp" alt="Multi-Role Socket Messaging Infrastructure" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Multi-Role Socket Messaging Infrastructure</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Multi-Role Socket Messaging Infrastructure</strong>
             <span>Encrypted real-time messaging channel facilitating safe communication between faculty, administrators, and parents.</span>
         </div>
     </div>
   
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 18. Technology Stack -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 16. TECHNOLOGY STACK</span>
-            <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2rem;">
-                
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Mobile Core</h4>
-        <div>
-            <span class="csd-tech-badge-light">Flutter SDK 3.x</span> <span class="csd-tech-badge-light">Dart</span> <span class="csd-tech-badge-light">BLoC / Cubit Pattern</span> <span class="csd-tech-badge-light">Hive Local Database</span> <span class="csd-tech-badge-light">Dio HTTP Client</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Backend &amp; Telematics</h4>
-        <div>
-            <span class="csd-tech-badge-light">Laravel Multi-Tenant API</span> <span class="csd-tech-badge-light">WebSocket Gateway</span> <span class="csd-tech-badge-light">GPS Telematics Router</span> <span class="csd-tech-badge-light">Geofence Engine</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Hardware &amp; Notifications</h4>
-        <div>
-            <span class="csd-tech-badge-light">AwesomeNotifications</span> <span class="csd-tech-badge-light">Firebase Cloud Messaging</span> <span class="csd-tech-badge-light">Google Maps SDK</span> <span class="csd-tech-badge-light">Battery-Optimized Telemetry</span>
-        </div>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-  
-        <!-- Related Kawaki Capabilities & Next Project -->
-        <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
+        <!-- CHAPTER 08: NEXT PROJECT & CTA -->
+        <section id="chapter-08" class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
                 
                 <!-- Related Projects in Capability Taxonomy -->
@@ -1251,11 +1338,11 @@
                     <div>
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
                         <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="/case-studies/iptv-mobile" style="color: #ffffff; text-decoration: none;">Slix IPTV &rarr;</a>
+                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Slix IPTV &rarr;</a>
                         </h4>
                         <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Mobile Applications &middot; Digital Media / Video Streaming / Entertainment / IPTV</p>
                     </div>
-                    <a href="/case-studies/iptv-mobile" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
                 </div>
                 
             </div>

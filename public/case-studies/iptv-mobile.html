@@ -465,6 +465,202 @@
             flex-direction: column;
             gap: 0.5rem;
         }
+
+        /* Modern 8-Chapter Editorial Styles */
+        .csd-hero-visual-cinematic {
+            width: 100%;
+            max-width: 1280px;
+            margin: 3rem auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #08090b;
+        }
+        .csd-hero-visual-cinematic img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .csd-brief-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .csd-brief-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .csd-challenge-approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        @media (max-width: 860px) {
+            .csd-challenge-approach-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .csd-col-challenge {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 3px solid #ff5252;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        .csd-col-approach {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #C6FF00;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .csd-flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+        .csd-flow-node {
+            background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            flex: 1 1 180px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+        .csd-flow-arrow {
+            color: #C6FF00;
+            font-size: 1.25rem;
+            font-weight: 700;
+            user-select: none;
+        }
+        @media (max-width: 768px) {
+            .csd-flow-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .csd-flow-arrow {
+                text-align: center;
+                transform: rotate(90deg);
+                margin: 0.25rem 0;
+            }
+        }
+
+        .csd-workflow-large {
+            margin-bottom: 4rem;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        .csd-workflow-dark {
+            background: #12141a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+        }
+        .csd-workflow-media {
+            width: 100%;
+            background: #090a0d;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .csd-workflow-media img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+        .csd-workflow-content {
+            padding: 2.25rem 2.5rem;
+        }
+        .csd-why-matters {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(198, 255, 0, 0.06);
+            border-left: 3px solid #C6FF00;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #444444;
+            line-height: 1.6;
+        }
+        .csd-why-matters-dark {
+            color: #d1d5db;
+            background: rgba(198, 255, 0, 0.05);
+        }
+
+        .csd-phone-mockup {
+            width: 290px;
+            max-width: 100%;
+            margin: 2rem auto;
+            border: 12px solid #1a1c24;
+            border-radius: 42px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            background: #000000;
+            position: relative;
+        }
+        .csd-phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .csd-phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 5px;
+            background: #2a2d3a;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .csd-spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            background: #14161d;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .csd-spec-table th, .csd-spec-table td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
+        }
+        .csd-spec-table th {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(255, 255, 255, 0.03);
+        }
     </style>
 </head>
 <body style="background-color: #ffffff; color: #111111;">
@@ -538,342 +734,134 @@
 
     <main>
 
-        <!-- Case Study Detail Hero -->
-        <section class="csd-hero" style="background: #0c0d10; color: #ffffff; padding: 8rem 2rem 5rem; position: relative;">
-            <div class="csd-hero-inner" style="max-width: 1200px; margin: 0 auto;">
-                <a href="/case-studies" class="csd-back-btn" style="color: #C6FF00; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">&larr; Back to Selected Work</a>
-                
+
+    <!-- CHAPTER 01: HERO -->
+    <header id="chapter-01" class="csd-hero-sec" style="background: #08090b; color: #ffffff; padding: 7rem 2rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="csd-container" style="text-align: center; max-width: 1100px;">
+            <div style="display: flex; justify-content: center;">
                 <div class="csd-logo-badge"><img src="/assets/images/case-studies/iptv/icon.png" alt="Slix IPTV Logo" loading="lazy" decoding="async" /><span>Private Client</span></div>
-
-                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Mobile Applications &middot; Digital Media / Video Streaming / Entertainment / IPTV &middot; Year 2024</div>
-                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;">
-                    Slix IPTV: Hardware-Accelerated Streaming Client with Netflix-Style UI in Flutter
-                </h1>
-                
-                <p style="font-size: 1.2rem; line-height: 1.6; color: #cccccc; max-width: 850px; margin-bottom: 2rem;">
-                    Mobile Application Architecture (Flutter 3.5), Riverpod Reactive State, Video Player Pipelines, Protocol Integration
-                </p>
-
-                <div style="margin-bottom: 2.5rem;">
-                    <span class="csd-disabled-btn">● Private Enterprise Infrastructure Deployment</span>
-                </div>
-
-                <!-- 2. Project Snapshot Table -->
-                
-    <div class="csd-snapshot-grid">
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Client / Product</span>
-            <span class="csd-snapshot-val">Private Client (Slix IPTV)</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Industry &amp; Domain</span>
-            <span class="csd-snapshot-val">Digital Entertainment &amp; High-Definition Media Streaming</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Services Provided</span>
-            <span class="csd-snapshot-val">Mobile Application Architecture (Flutter 3.5), Player Engine Integration, Protocol Parsers, Riverpod State</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
-            <span class="csd-snapshot-val">Flutter Cross-Platform (Android Mobile, Android TV, iOS)</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Core Technologies</span>
-            <span class="csd-snapshot-val">Flutter 3.5, Riverpod, MediaKit, BetterPlayer, Xtream Codes API, Native PiP, Hardware Keystore</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Project Scope</span>
-            <span class="csd-snapshot-val">High-Performance Streaming Client, Netflix-Style Discovery UI, Xtream &amp; Stalker Protocol Engines</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Production Status</span>
-            <span class="csd-snapshot-val">Enterprise Client Deployment (Private Infrastructure)</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Live Platform / Access</span>
-            <span class="csd-snapshot-val">
-                Private Mobile Client (Enterprise Distribution)
-            </span>
-        </div>
-    </div>
-  
             </div>
+            <h1 class="csd-hero-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: #ffffff;">
+                Slix IPTV
+            </h1>
+            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; color: #b5b9c4; max-width: 860px; margin: 0 auto 2.5rem;">
+                Slix IPTV: Hardware-Accelerated Streaming Client with Netflix-Style UI in Flutter
+            </p>
             
-            <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-                <img src="/assets/images/case-studies/iptv/hero.png" alt="Slix IPTV Project Hero" width="1376" height="768" fetchpriority="high" decoding="async" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <!-- Quick Metadata Pill Strip -->
+            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem;">
+                <span style="background: rgba(255,255,255,0.06); color: #C6FF00; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(198,255,0,0.2);">Mobile Applications</span>
+                <span style="background: rgba(255,255,255,0.06); color: #e2e8f0; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);">Digital Media / Video Streaming / Entertainment / IPTV</span>
+                <span style="background: rgba(255,255,255,0.06); color: #94a3b8; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.08);">Enterprise Client Deployment (Private Infrastructure)</span>
             </div>
-        </section>
 
-        <!-- 3. The Context -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 01. THE CONTEXT</span>
-            <h2 class="csd-section-title">Institutional Background &amp; Strategic Mission</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Who the Client Is</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;">Slix IPTV is a high-performance cross-platform streaming application engineered in Flutter, delivering a cinematic, Netflix-style visual experience for live television broadcasts, video-on-demand (VOD) cinema, and episodic TV series.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;">Traditional IPTV player applications suffer from clunky spreadsheet-like interfaces, sluggish playlist parsing, unreliable stream buffering, and poor remote/touch ergonomics. Slix IPTV was architected from the ground up to solve these friction points: combining hardware-accelerated video decoding (`media_kit` and `better_player`), resilient multi-protocol connectivity (Xtream Codes API and MAG/Stalker portal emulation), background stream keep-alive (`wakelock_plus`), and seamless Picture-in-Picture (`floating`) playback.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Target Audience &amp; Strategic Mandate</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Audience Profile:</strong> Subscribers streaming live sports broadcasts, international cinema, and multi-season episodic television across smartphones, tablets, and Android TV devices.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;"><strong>Digital Mandate:</strong> Most third-party IPTV apps look like dated software from 2005: tiny fonts, spreadsheet grids, and unstable players that drop frames during live sports broadcasts. Slix IPTV was commissioned to deliver the fluid, poster-rich visual sophistication of top-tier commercial streaming platforms (Netflix, Apple TV) while preserving universal compatibility with IPTV protocols.</p>
-                </div>
+            <div>
+                <span class="csd-disabled-btn">● Private Studio Deployment</span>
+            </div>
+
+            <!-- Huge Cinematic Real Hero Visual -->
+            <div class="csd-hero-visual-cinematic">
+                <img src="/assets/images/case-studies/iptv/hero.png" alt="Slix IPTV Hero Showcase" fetchpriority="high" decoding="async" />
             </div>
         </div>
-    </section>
+    </header>
   
 
-        <!-- 4. The Challenge -->
-        
-    <section class="csd-section-dark">
+    <!-- CHAPTER 02: PROJECT BRIEF -->
+    <section id="chapter-02" class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 02. THE CHALLENGE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction &amp; Technical Constraints</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #cccccc; max-width: 800px; margin-bottom: 3rem;">
-                Delivering stutter-free 60fps hardware-accelerated video decoding and parsing multi-thousand-item content playlists without freezing the Flutter UI thread.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Hardware Video Decoding Bottlenecks
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Decoding high-bitrate H.264 and HEVC/H.265 1080p and 4K streams in software drains battery and causes dropped frames. The app required direct native hardware acceleration.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Massive Multi-Thousand Item Playlists
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Parsing extensive M3U/Xtream feeds containing 10,000+ live channels and 25,000+ VOD movies frequently crashes mobile app memory if loaded synchronously.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Picture-in-Picture (PiP) Window Management
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Users expect background playback and PiP window support so they can respond to messages while keeping live sporting matches visible.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Protocol Support: Xtream Codes &amp; Stalker Portals
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Accommodating diverse authentication handshakes, tokenized stream URLs, and electronic program guides (EPG) across divergent server architectures.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Secure Credential Storage
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Safeguarding user server credentials, MAC addresses, and portal tokens against extraction on rooted or modified mobile devices.
-        </p>
-    </div>
-  
-            </div>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 02. PROJECT BRIEF</span>
+            <h2 class="csd-section-title">Strategic Mandate &amp; Operational Objectives</h2>
+            
+            <div class="csd-brief-grid">
+                <!-- Left: Narrative & Objectives -->
+                <div>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Institutional Context</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;">Slix IPTV is a high-performance cross-platform streaming application engineered in Flutter, delivering a cinematic, Netflix-style visual experience for live television broadcasts, video-on-demand (VOD) cinema, and episodic TV series.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555; margin-bottom: 1.5rem;">Traditional IPTV player applications suffer from clunky spreadsheet-like interfaces, sluggish playlist parsing, unreliable stream buffering, and poor remote/touch ergonomics. Slix IPTV was architected from the ground up to solve these friction points: combining hardware-accelerated video decoding (`media_kit` and `better_player`), resilient multi-protocol connectivity (Xtream Codes API and MAG/Stalker portal emulation), background stream keep-alive (`wakelock_plus`), and seamless Picture-in-Picture (`floating`) playback.</p>
+                    
+                    <div style="background: #f8fafc; border-left: 3px solid #0f172a; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2.5rem;">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 700;">STRATEGIC IMPERATIVE</span>
+                        <p style="font-size: 1rem; line-height: 1.6; color: #1e293b; margin: 0.4rem 0 0;">Most third-party IPTV apps look like dated software from 2005: tiny fonts, spreadsheet grids, and unstable players that drop frames during live sports broadcasts. Slix IPTV was commissioned to deliver the fluid, poster-rich visual sophistication of top-tier commercial streaming platforms (Netflix, Apple TV) while preserving universal compatibility with IPTV protocols.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #111111;">Verified Project Objectives</h3>
+                    <div style="margin-top: 1rem;">
+                        
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 01</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Deliver 60fps Hardware-Accelerated Video Playback</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Integrate native hardware decoding via `media_kit` and `better_player` to stream high-bitrate H.264/H.265 broadcasts without frame drops or device overheating.</p>
         </div>
-    </section>
-  
-
-        <!-- 5. Objectives -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. PROJECT OBJECTIVES</span>
-            <h2 class="csd-section-title">Verified Engineering &amp; Strategic Mandates</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #555555; max-width: 840px; margin-bottom: 2.5rem;">
-                Every architectural initiative was driven by concrete operational objectives established with client stakeholders:
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Deliver 60fps Hardware-Accelerated Video Playback</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Integrate native hardware decoding via `media_kit` and `better_player` to stream high-bitrate H.264/H.265 broadcasts without frame drops or device overheating.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Engineer a Netflix-Style Visual Content Discovery UI</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Replace spreadsheet-like IPTV interfaces with poster-rich horizontal carousels, hero banners, and shimmer skeleton loading states.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Support Universal Streaming Protocols (Xtream &amp; Stalker)</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Build resilient network adapters parsing multi-thousand channel playlists, live EPG timetables, and legacy MAG/Stalker portal handshakes.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Integrate Native Picture-in-Picture &amp; Wakelock</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Implement native Android/iOS PiP window lifecycle hooks and display wakelock protocols for uninterrupted background mobile streaming.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 02</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Engineer a Netflix-Style Visual Content Discovery UI</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Replace spreadsheet-like IPTV interfaces with poster-rich horizontal carousels, hero banners, and shimmer skeleton loading states.</p>
         </div>
-    </section>
-  
-
-        <!-- 6. The Approach -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. THE APPROACH</span>
-            <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
-                We approached Slix IPTV as a modern cinematic entertainment application. Users should never feel like they are interacting with an IPTV playlist; they should feel like they are exploring a premium streaming service with fluid hero carousels, instant channel switches, and zero playback lag.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 01</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Dual-Engine Hardware Player Architecture</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We integrated `media_kit` native hardware decoding as the primary engine for high-bitrate live streams, backed by `better_player` for maximum format compatibility.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 02</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Riverpod Reactive State Management</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We utilized `flutter_riverpod` with background worker isolates to parse extensive channel manifests asynchronously without stuttering the 60fps UI thread.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 03</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Universal Protocol Compatibility</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We built dedicated network adapters supporting Xtream Codes API endpoints alongside legacy MAG/Stalker portal handshakes.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 04</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Native Picture-in-Picture &amp; Wakelock</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We integrated native Android/iOS PiP window lifecycle hooks using `floating` and `wakelock_plus` to prevent screens from auto-sleeping during playback.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 05</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Hardware Keystore Encryption</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We secured user credentials and server URLs in hardware-backed secure storage via `flutter_secure_storage`.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 03</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Support Universal Streaming Protocols (Xtream &amp; Stalker)</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Build resilient network adapters parsing multi-thousand channel playlists, live EPG timetables, and legacy MAG/Stalker portal handshakes.</p>
         </div>
-    </section>
+    </div>
   
-
-        <!-- 7. Information Architecture -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. INFORMATION ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
-                A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Slix IPTV Application Root]
-   │
-   ├── [01. Authentication &amp; Portal Manager]
-   │     ├── Xtream Codes Login (Server Host, Username, Password)
-   │     ├── MAG / Stalker Portal Emulation (MAC Address Handshake)
-   │     └── Hardware-Backed Credential Keystore (flutter_secure_storage)
-   │
-   ├── [02. Live Television Hub]
-   │     ├── Categorized Channel Guide (Sports, Cinema, News, Documentaries)
-   │     ├── Electronic Program Guide (EPG) Timeline with Live Progress Indicators
-   │     └── Quick-Switch Channel Carousel (Overlay During Playback)
-   │
-   ├── [03. Video-on-Demand (VOD) Cinema]
-   │     ├── Trending Hero Poster Banner with Backdrop Art
-   │     ├── Filterable Genre Grids with Shimmer Skeleton Loading
-   │     └── Movie Detail Screen: Synopsis, Runtime, Audio Tracks &amp; Resume Marker
-   │
-   ├── [04. Episodic TV Series Explorer]
-   │     ├── Multi-Season Selector &amp; Episode Thumbnails
-   │     ├── Watch History Tracking &amp; Next-Episode Auto-Play
-   │     └── Subtitle Stream &amp; Audio Channel Selector
-   │
-   └── [05. Hardware-Accelerated Video Player Surface]
-         ├── Dual Engine: MediaKit Native Hardware Decoder + BetterPlayer Fallback
-         ├── Native Picture-in-Picture (PiP) Window Controller
-         └── Display Wakelock &amp; Aspect Ratio Controls (16:9, Fill, Stretch, 4:3)</pre>
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 04</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Integrate Native Picture-in-Picture &amp; Wakelock</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Implement native Android/iOS PiP window lifecycle hooks and display wakelock protocols for uninterrupted background mobile streaming.</p>
         </div>
-    </section>
+    </div>
   
+                    </div>
+                </div>
 
-        <!-- 8. UX & Product Thinking -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. UX &amp; PRODUCT THINKING</span>
-            <h2 class="csd-section-title">User Journey &amp; Operational Ergonomics</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 01</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Discovery</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A cinematic dark-mode home screen features a trending hero banner, recently watched queue, and categorized carousels for Live TV, Movies, and TV Series.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 02</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Navigation &amp; Structure</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">GoRouter handles deep-linking between media verticals, with a quick-switch channel carousel overlay allowing viewers to browse channels during active playback.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 03</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Workflow &amp; Processing</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Viewers select channels or movies with instant buffer pre-caching. During live broadcasts, tapping the PiP button transitions video into a floating window while multitasking.</p>
-                </div>
-            </div>
-            <div class="csd-cards-grid-2" style="margin-top: 1.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 04</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Conversion &amp; Ingestion</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Subscribers authenticate securely via Xtream Codes or Stalker MAC portals, with tokens stored in hardware-backed keystores via `flutter_secure_storage`.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 05</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Mobile Ergonomics</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Automatic orientation sensors switch the app between portrait catalog browsing and edge-to-edge landscape hardware playback upon device rotation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 9. UX & Design System -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 07. UX &amp; DESIGN SYSTEM</span>
-            <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Design Direction &amp; Layout Grid</h3>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Aesthetic Thesis:</strong> Cinematic dark-mode streaming, poster-rich visual grids, fluid shimmer loaders, and high-visibility player overlays.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Typography Hierarchy:</strong> Host Grotesk (Movie titles and streaming categories) paired with Space Mono (Stream bitrates, resolution badges, timecodes) and Plus Jakarta Sans (General metadata).</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Layout &amp; Viewport Mechanics:</strong> Responsive dark canvas (`#0a0b0e`, `#12141a`) with horizontal poster carousels, hero banners, and auto-hiding overlay player controls.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Key Engineered Components</h3>
-                    <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Trending Hero Carousel: Full-width streaming banner showcasing featured titles with immediate play actions.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Poster Card with Shimmer: High-density image card utilizing cached network storage and shimmer placeholder skeletons.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Overlay Player HUD: Minimalist player controls displaying stream title, buffer bar, aspect ratio toggle, and PiP button.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">EPG Timeline Guide: Channel row displaying current program names and elapsed progress indicators.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Audio &amp; Subtitle Picker: Modal bottom sheet allowing one-tap switching between language audio streams.</li>
-                    </ul>
-                    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border: 1px solid #e9ecef;">
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: #111111;">Mobile &amp; Touch Ergonomics</h4>
-                        <p style="font-size: 0.9rem; line-height: 1.6; color: #555555; margin: 0;">Optimized for seamless orientation switching: portrait browsing instantly transitions into full-bleed horizontal playback upon device rotation.</p>
+                <!-- Right: Structured Spec Matrix -->
+                <div style="background: #0f172a; color: #ffffff; padding: 2.25rem; border-radius: 14px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #C6FF00; letter-spacing: 0.05em; font-weight: 700; display: block; margin-bottom: 1.5rem;">PROJECT SNAPSHOT</span>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <span class="csd-snapshot-label">Client / Brand</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Private Client (Slix IPTV)</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Industry &amp; Domain</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Digital Entertainment &amp; High-Definition Media Streaming</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Services Provided</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Mobile Application Architecture (Flutter 3.5), Player Engine Integration, Protocol Parsers, Riverpod State</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Flutter Cross-Platform (Android Mobile, Android TV, iOS)</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Verified Tech Stack</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Flutter 3.5, Riverpod, MediaKit, BetterPlayer, Xtream Codes API, Native PiP, Hardware Keystore</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Execution Scope</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">High-Performance Streaming Client, Netflix-Style Discovery UI, Xtream &amp; Stalker Protocol Engines</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Production Status</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Enterprise Client Deployment (Private Infrastructure)</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Live Platform / Access</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">
+                                Private Mobile Client (Enterprise Distribution)
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -881,280 +869,393 @@
     </section>
   
 
-        <!-- 10. Key Features & Experiences -->
-        
-    <section class="csd-section-light">
+    <!-- CHAPTER 03: THE CHALLENGE & THE APPROACH -->
+    <section id="chapter-03" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. KEY FEATURES &amp; EXPERIENCES</span>
-            <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
-            <div style="max-width: 960px; margin-top: 3rem;">
-                
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Dual Hardware-Accelerated Video Engine</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Leverages native hardware decoding via `media_kit` for high-bitrate live streams alongside `better_player` for VOD resilience.</p>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 03. THE CHALLENGE &amp; THE APPROACH</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction vs. Architectural Strategy</h2>
+            
+            <div class="csd-challenge-approach-grid" style="margin-top: 2.5rem;">
+                <!-- Left: The Challenge -->
+                <div class="csd-col-challenge">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #ff5252; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE VERIFIED CHALLENGE</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Real Constraints &amp; Friction</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        Delivering stutter-free 60fps hardware-accelerated video decoding and parsing multi-thousand-item content playlists without freezing the Flutter UI thread.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Hardware Video Decoding Bottlenecks
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Decoding high-bitrate H.264 and HEVC/H.265 1080p and 4K streams in software drains battery and causes dropped frames. The app required direct native hardware acceleration.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Netflix-Style Content Discovery</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Fluid, poster-rich dark mode layout organizing thousands of titles across Live TV, VOD Cinema, and Episodic Series with shimmer skeletons.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Massive Multi-Thousand Item Playlists
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Parsing extensive M3U/Xtream feeds containing 10,000+ live channels and 25,000+ VOD movies frequently crashes mobile app memory if loaded synchronously.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Universal Protocol Support</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Engineered network layer supporting Xtream Codes API endpoints, live EPG timetables, and legacy MAG/Stalker portal emulations.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Picture-in-Picture (PiP) Window Management
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Users expect background playback and PiP window support so they can respond to messages while keeping live sporting matches visible.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Native Picture-in-Picture (PiP)</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Seamless background playback allowing viewers to multitask on their phones without interrupting live video and audio streams.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Protocol Support: Xtream Codes &amp; Stalker Portals
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Accommodating diverse authentication handshakes, tokenized stream URLs, and electronic program guides (EPG) across divergent server architectures.
+        </p>
     </div>
   
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Secure Credential Storage
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Safeguarding user server credentials, MAC addresses, and portal tokens against extraction on rooted or modified mobile devices.
+        </p>
+    </div>
+  
+                </div>
+
+                <!-- Right: The Approach -->
+                <div class="csd-col-approach">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #C6FF00; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE KAWAKI APPROACH</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Architectural Response</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        We approached Slix IPTV as a modern cinematic entertainment application. Users should never feel like they are interacting with an IPTV playlist; they should feel like they are exploring a premium streaming service with fluid hero carousels, instant channel switches, and zero playback lag.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Dual-Engine Hardware Player Architecture
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We integrated `media_kit` native hardware decoding as the primary engine for high-bitrate live streams, backed by `better_player` for maximum format compatibility.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Riverpod Reactive State Management
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We utilized `flutter_riverpod` with background worker isolates to parse extensive channel manifests asynchronously without stuttering the 60fps UI thread.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Universal Protocol Compatibility
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We built dedicated network adapters supporting Xtream Codes API endpoints alongside legacy MAG/Stalker portal handshakes.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Native Picture-in-Picture &amp; Wakelock
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We integrated native Android/iOS PiP window lifecycle hooks using `floating` and `wakelock_plus` to prevent screens from auto-sleeping during playback.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Hardware Keystore Encryption
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We secured user credentials and server URLs in hardware-backed secure storage via `flutter_secure_storage`.
+        </p>
+    </div>
+  
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 11. Engineering & Architecture -->
-        
-    <section class="csd-section-dark">
+      <section id="chapter-04" class="csd-section-dark">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. EXPERIENCE &amp; ARCHITECTURE</span>
+              <h2 class="csd-section-title" style="color: #ffffff;">Mobile Architecture &amp; Ecosystem Orchestration</h2>
+              <p style="font-size: 1.1rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 2.5rem;">
+                  Engineered with Flutter, structured BLoC/Cubit state management, and real-time socket connections to ensure instantaneous feedback across multi-device ecosystems.
+              </p>
+
+              <!-- Responsive Visual Node Flow -->
+              <div class="csd-flow-container">
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">CLIENT LAYER</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Native Mobile App</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Flutter / BLoC / Cubit</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">GATEWAY</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Real-Time Socket Hub</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Low-latency sync &amp; alerts</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">BACKEND</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">API &amp; Rules Engine</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Role-based workflows</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">TELEMETRY</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">State Synchronization</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Conflict-free ledger</span>
+                  </div>
+              </div>
+
+              <!-- Mobile UX Pillars -->
+              <div class="csd-cards-grid-3" style="margin-top: 2rem;">
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">PILLAR 01</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Offline-First State</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">Viewers select channels or movies with instant buffer pre-caching. During live broadcasts, tapping the PiP button transitions video into a floating window while multitasking.</p>
+                  </div>
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">PILLAR 02</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Multi-Role Navigation</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">GoRouter handles deep-linking between media verticals, with a quick-switch channel carousel overlay allowing viewers to browse channels during active playback.</p>
+                  </div>
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">PILLAR 03</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Hardware Ergonomics</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">Automatic orientation sensors switch the app between portrait catalog browsing and edge-to-edge landscape hardware playback upon device rotation.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 05: FEATURED WORKFLOWS (Visual Showcase) -->
+    <section id="chapter-05" class="csd-section-dark" style="background: #08090b;">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. ENGINEERING &amp; ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
-                Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. FEATURED WORKFLOWS &amp; INTERFACES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Engineered Capabilities &amp; Production Walkthrough</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 3.5rem;">
+                A comprehensive walkthrough of the authentic user interfaces, operational flows, and customer touchpoints delivered for Slix IPTV.
             </p>
-            <div class="csd-cards-grid-3">
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Frontend Architecture</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Engineered with Flutter 3.5+, utilizing Riverpod for reactive state management and `go_router` for deep-linking navigation across content screens.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Backend &amp; Serverless APIs</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Client-side mobile application communicating directly with client streaming servers via optimized Dio network pipelines.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">API &amp; Network Contracts</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Cookie-aware HTTP sessions managed via `dio_cookie_manager` with dynamic network status monitoring via `connectivity_plus`.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Authentication &amp; Security</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Credentials and stream tokens encrypted using hardware-backed keystores on Android and iOS.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Data Persistence &amp; State</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Local caching of playlist categories and EPG guides using lightweight key-value stores to ensure instant offline app launch.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Performance &amp; Web Vitals</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Heavy playlist parsing offloaded to background Dart isolates, keeping the UI thread pinned at a steady 60fps during rapid scrolling.</p>
-                </div>
-            </div>
-            <div class="csd-card-dark" style="margin-top: 2rem;">
-                <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Responsive Multi-Device Engineering</h4>
-                <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc; margin: 0;">Universal layout adapting seamlessly from compact Android phones up to 10-inch tablets and Android TV television displays.</p>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 12. Selected Screens & Walkthrough -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. SELECTED SCREENS &amp; WALKTHROUGH</span>
-            <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
-            <div style="margin-top: 3rem;">
+            <div>
                 
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/iptv/hero.png" alt="Channel Guide &amp; Live Stream Interface" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Channel Guide &amp; Live Stream Interface</h4>
-            <p class="csd-screen-desc">High-performance electronic program guide (EPG) delivering instant channel switching and metadata preview.</p>
+        <div class="csd-workflow-large csd-workflow-dark" style="display: grid; grid-template-columns: 340px 1fr; gap: 3rem; align-items: center; padding: 2rem;">
+            <div class="csd-phone-mockup" style="margin: 0 auto;">
+                <img src="/assets/images/case-studies/iptv/hero.png" alt="Channel Guide &amp; Live Stream Interface" loading="lazy" decoding="async" />
+            </div>
+            <div>
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.5rem;">WORKFLOW 01</span>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Channel Guide &amp; Live Stream Interface</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.5rem;">High-performance electronic program guide (EPG) delivering instant channel switching and metadata preview.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Operational Value</strong>
+                    Direct client or operator interaction engineered with zero unnecessary latency, instant state reflection, and offline-resilient local sync.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/iptv/intro.jpg" alt="Authentication &amp; MAG Portal Provisioning" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Authentication &amp; MAG Portal Provisioning</h4>
-            <p class="csd-screen-desc">Secure Xtream Codes and Stalker portal emulation allowing subscribers to connect their favorite media playlists.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark" style="display: grid; grid-template-columns: 340px 1fr; gap: 3rem; align-items: center; padding: 2rem;">
+            <div class="csd-phone-mockup" style="margin: 0 auto;">
+                <img src="/assets/images/case-studies/iptv/intro.jpg" alt="Authentication &amp; MAG Portal Provisioning" loading="lazy" decoding="async" />
+            </div>
+            <div>
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.5rem;">WORKFLOW 02</span>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Authentication &amp; MAG Portal Provisioning</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.5rem;">Secure Xtream Codes and Stalker portal emulation allowing subscribers to connect their favorite media playlists.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Operational Value</strong>
+                    Direct client or operator interaction engineered with zero unnecessary latency, instant state reflection, and offline-resilient local sync.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/iptv/hero.png" alt="Native Picture-in-Picture &amp; Media Playback" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Native Picture-in-Picture &amp; Media Playback</h4>
-            <p class="csd-screen-desc">Hardware-accelerated video rendering supporting background audio playback and native Android/iOS picture-in-picture.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark" style="display: grid; grid-template-columns: 340px 1fr; gap: 3rem; align-items: center; padding: 2rem;">
+            <div class="csd-phone-mockup" style="margin: 0 auto;">
+                <img src="/assets/images/case-studies/iptv/hero.png" alt="Native Picture-in-Picture &amp; Media Playback" loading="lazy" decoding="async" />
+            </div>
+            <div>
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.5rem;">WORKFLOW 03</span>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Native Picture-in-Picture &amp; Media Playback</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.5rem;">Hardware-accelerated video rendering supporting background audio playback and native Android/iOS picture-in-picture.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Operational Value</strong>
+                    Direct client or operator interaction engineered with zero unnecessary latency, instant state reflection, and offline-resilient local sync.
+                </div>
+            </div>
         </div>
-    </div>
-  
+      
             </div>
         </div>
     </section>
   
 
-        <!-- 13. Technical Deep Dive -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 11. TECHNICAL DEEP DIVE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Hardware Video Decoding &amp; PiP Lifecycle Pipeline</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
-                By delegating video decoding directly to native platform surfaces (SurfaceView on Android, CAMetalLayer on iOS) through `media_kit`, Slix IPTV achieves 60fps playback without taxing the Flutter runtime or draining device battery life.
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[User Channel Selection / Tap Movie Poster]
-                     │
-                     ▼
-[Riverpod Player Provider: Resolve Stream URL]
-                     │
-                     ▼ (Background Dart Isolate)
-[Xtream / Stalker Token Handshake &amp; Stream Extraction]
-                     │
-                     ▼
-[MediaKit Native Hardware Player Initialization]
-                     │
-    ┌────────────────┴────────────────┐
-    ▼ (Android: SurfaceView)          ▼ (iOS: CAMetalLayer)
-[Direct GPU Hardware Decoding]    [Native Hardware Video Decode]
-    │                                 │
-    └────────────────┬────────────────┘
-                     ▼ (Steady 60 FPS HD Playback)
-[User Presses Home Button / Triggers PiP]
-                     │
-                     ▼ (floating Package Native Bridge)
-[Window Manager: Transition to Floating PiP Window (Audio Persists)]</pre>
-            </div>
-        </div>
-    </section>
-  
+      <section id="chapter-06" class="csd-section-light">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. ARCHITECTURAL &amp; CRAFT DEEP DIVE</span>
+              <h2 class="csd-section-title">Production Engineering &amp; System Hardening</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 2rem;">
+                  A detailed examination of the verified fullstack infrastructure, state hydration boundaries, and API gateways powering Slix IPTV.
+              </p>
 
-        <!-- 14. Challenges & Solutions Table -->
-        
-    <section class="csd-section-light">
+              <div class="csd-cards-grid-2">
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">01 / Frontend &amp; Client Runtime</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Engineered with Flutter 3.5+, utilizing Riverpod for reactive state management and `go_router` for deep-linking navigation across content screens.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">02 / API &amp; Real-Time Gateway</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Cookie-aware HTTP sessions managed via `dio_cookie_manager` with dynamic network status monitoring via `connectivity_plus`.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">03 / State Management &amp; Persistence</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Local caching of playlist categories and EPG guides using lightweight key-value stores to ensure instant offline app launch.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">04 / Security &amp; Performance Discipline</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Heavy playlist parsing offloaded to background Dart isolates, keeping the UI thread pinned at a steady 60fps during rapid scrolling.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 07: OUTCOME & DELIVERABLES -->
+    <section id="chapter-07" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 12. CHALLENGES &amp; SOLUTIONS</span>
-            <h2 class="csd-section-title">Architectural Friction Resolved</h2>
-            <div class="csd-table-wrapper">
-                <table class="csd-table">
-                    <thead>
-                        <tr>
-                            <th>Specific Project Challenge</th>
-                            <th>Kawaki's Architectural Solution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. PRODUCTION IMPACT &amp; DELIVERABLES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Verified Outcomes &amp; Scope of Work</h2>
+            
+            <div class="csd-cards-grid-2" style="margin-top: 2.5rem; margin-bottom: 3.5rem;">
+                <!-- Qualitative Outcomes -->
+                <div class="csd-card-dark" style="border-top: 3px solid #C6FF00;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">QUALITATIVE IMPACT</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Production Achievements</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 1.5rem;">A premium, hardware-accelerated Flutter streaming application delivering Netflix-grade visual ergonomics to IPTV subscribers.</p>
+                    
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Silky 60fps hardware-accelerated playback with instant channel switching and zero dropped frames.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Netflix-style content discovery across Live TV, VOD Cinema, and Episodic Series with shimmer loaders.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Universal protocol integration supporting Xtream Codes API and MAG/Stalker portal emulations.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Native Picture-in-Picture and display wakelock protocols for uninterrupted mobile entertainment.</span>
+    </div>
+  
+                </div>
+
+                <!-- Scope of Work Delivered -->
+                <div class="csd-card-dark">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">SCOPE OF WORK</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Contracted Deliverables</h3>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                         
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">High-bitrate HD streams suffered from frame drops and high CPU usage on budget mobile devices.</td>
-        <td style="width: 55%; color: #444444;">Integrated native hardware decoding via `media_kit`, eliminating software decoding bottlenecks.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Flutter 3.5+ Cross-Platform Mobile Application Architecture</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Playlists with 30,000+ items froze the mobile UI thread during JSON parsing.</td>
-        <td style="width: 55%; color: #444444;">Offloaded playlist parsing into dedicated background Dart worker isolates, preserving 60fps UI smoothness.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Dual Video Engine Integration (MediaKit + BetterPlayer)</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Users lost playback when switching apps to answer incoming text messages.</td>
-        <td style="width: 55%; color: #444444;">Implemented native Picture-in-Picture (PiP) window lifecycle hooks allowing seamless background video viewing.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Riverpod Reactive State Architecture with Background Isolates</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">IPTV credentials and portal URLs were vulnerable to memory scraping on modified Android devices.</td>
-        <td style="width: 55%; color: #444444;">Encrypted all sensitive server tokens in hardware-backed keystores via `flutter_secure_storage`.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Xtream Codes API &amp; Stalker Portal Protocol Parsers</span>
+    </div>
   
-                    </tbody>
-                </table>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Native Picture-in-Picture (PiP) &amp; Display Wakelock Integration</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Hardware-Backed Secure Credential Storage Vault</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Enterprise Android / iOS Distribution Packaging</span>
+    </div>
+  
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 15. Outcome & Business Impact -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 13. OUTCOME &amp; BUSINESS IMPACT</span>
-            <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
-            <div class="csd-card" style="margin-top: 2rem;">
-                <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
-                    A premium, hardware-accelerated Flutter streaming application delivering Netflix-grade visual ergonomics to IPTV subscribers.
-                </p>
-                <ul style="padding-left: 1.25rem;">
-                    <li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Silky 60fps hardware-accelerated playback with instant channel switching and zero dropped frames.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Netflix-style content discovery across Live TV, VOD Cinema, and Episodic Series with shimmer loaders.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Universal protocol integration supporting Xtream Codes API and MAG/Stalker portal emulations.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Native Picture-in-Picture and display wakelock protocols for uninterrupted mobile entertainment.</li>
-                </ul>
+            <!-- Verified Tech Stack Badges -->
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.25rem; margin-bottom: 3.5rem;">
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 1rem;">VERIFIED TECHNOLOGY STACK</span>
+                <div class="csd-cards-grid-3">
+                    
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Mobile Framework</span>
+        <div>
+            <span class="csd-tech-badge">Flutter 3.5+</span><span class="csd-tech-badge">Dart</span><span class="csd-tech-badge">flutter_riverpod</span><span class="csd-tech-badge">go_router</span><span class="csd-tech-badge">cached_network_image</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Video &amp; Hardware</span>
+        <div>
+            <span class="csd-tech-badge">media_kit</span><span class="csd-tech-badge">better_player</span><span class="csd-tech-badge">Hardware H.264/HEVC</span><span class="csd-tech-badge">floating (PiP)</span><span class="csd-tech-badge">wakelock_plus</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Protocols &amp; Security</span>
+        <div>
+            <span class="csd-tech-badge">Xtream Codes API</span><span class="csd-tech-badge">MAG/Stalker Emulation</span><span class="csd-tech-badge">Dio Cookie Manager</span><span class="csd-tech-badge">flutter_secure_storage</span>
+        </div>
+    </div>
+  
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 16. What We Delivered -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 14. SCOPE OF WORK</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
-            <div class="csd-checklist">
-                
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Flutter 3.5+ Cross-Platform Mobile Application Architecture</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Dual Video Engine Integration (MediaKit + BetterPlayer)</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Riverpod Reactive State Architecture with Background Isolates</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Xtream Codes API &amp; Stalker Portal Protocol Parsers</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Native Picture-in-Picture (PiP) &amp; Display Wakelock Integration</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Hardware-Backed Secure Credential Storage Vault</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Enterprise Android / iOS Distribution Packaging</span>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 17. Project Gallery -->
-        
-    <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 15. PROJECT GALLERY</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
-            <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
-                
+            <!-- Project Gallery -->
+            <div>
+                <span class="csd-section-eyebrow csd-eyebrow-accent" style="margin-bottom: 0.5rem;">CURATED ASSET ARCHIVE</span>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 2rem;">Additional High-Resolution Deliverables</h3>
+                <div class="csd-gallery-grid">
+                    
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/iptv/intro.jpg" alt="Multi-Server Xtream Codes Gateway" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Multi-Server Xtream Codes Gateway</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Multi-Server Xtream Codes Gateway</strong>
             <span>High-concurrency streaming connection manager handling automatic server failover and bitrate selection.</span>
         </div>
     </div>
@@ -1162,52 +1263,19 @@
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/iptv/icon.png" alt="Adaptive Stream Bitrate Orchestration" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Adaptive Stream Bitrate Orchestration</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Adaptive Stream Bitrate Orchestration</strong>
             <span>Dynamic video buffer management preventing playback stuttering on mobile 4G and 5G cellular networks.</span>
         </div>
     </div>
   
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 18. Technology Stack -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 16. TECHNOLOGY STACK</span>
-            <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2rem;">
-                
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Mobile Framework</h4>
-        <div>
-            <span class="csd-tech-badge-light">Flutter 3.5+</span> <span class="csd-tech-badge-light">Dart</span> <span class="csd-tech-badge-light">flutter_riverpod</span> <span class="csd-tech-badge-light">go_router</span> <span class="csd-tech-badge-light">cached_network_image</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Video &amp; Hardware</h4>
-        <div>
-            <span class="csd-tech-badge-light">media_kit</span> <span class="csd-tech-badge-light">better_player</span> <span class="csd-tech-badge-light">Hardware H.264/HEVC</span> <span class="csd-tech-badge-light">floating (PiP)</span> <span class="csd-tech-badge-light">wakelock_plus</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Protocols &amp; Security</h4>
-        <div>
-            <span class="csd-tech-badge-light">Xtream Codes API</span> <span class="csd-tech-badge-light">MAG/Stalker Emulation</span> <span class="csd-tech-badge-light">Dio Cookie Manager</span> <span class="csd-tech-badge-light">flutter_secure_storage</span>
-        </div>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-  
-        <!-- Related Kawaki Capabilities & Next Project -->
-        <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
+        <!-- CHAPTER 08: NEXT PROJECT & CTA -->
+        <section id="chapter-08" class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
                 
                 <!-- Related Projects in Capability Taxonomy -->
@@ -1261,11 +1329,11 @@
                     <div>
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
                         <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="/case-studies/spa-salon" style="color: #ffffff; text-decoration: none;">Spa & Salon Management Platform &rarr;</a>
+                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Spa & Salon Management Platform &rarr;</a>
                         </h4>
                         <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Mobile Applications &middot; Wellness / Beauty & Aesthetics / Service Operations / Mobile Booking</p>
                     </div>
-                    <a href="/case-studies/spa-salon" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
                 </div>
                 
             </div>

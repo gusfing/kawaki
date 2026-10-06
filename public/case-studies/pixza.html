@@ -465,6 +465,202 @@
             flex-direction: column;
             gap: 0.5rem;
         }
+
+        /* Modern 8-Chapter Editorial Styles */
+        .csd-hero-visual-cinematic {
+            width: 100%;
+            max-width: 1280px;
+            margin: 3rem auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #08090b;
+        }
+        .csd-hero-visual-cinematic img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .csd-brief-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .csd-brief-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .csd-challenge-approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        @media (max-width: 860px) {
+            .csd-challenge-approach-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .csd-col-challenge {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 3px solid #ff5252;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        .csd-col-approach {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #C6FF00;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .csd-flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+        .csd-flow-node {
+            background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            flex: 1 1 180px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+        .csd-flow-arrow {
+            color: #C6FF00;
+            font-size: 1.25rem;
+            font-weight: 700;
+            user-select: none;
+        }
+        @media (max-width: 768px) {
+            .csd-flow-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .csd-flow-arrow {
+                text-align: center;
+                transform: rotate(90deg);
+                margin: 0.25rem 0;
+            }
+        }
+
+        .csd-workflow-large {
+            margin-bottom: 4rem;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        .csd-workflow-dark {
+            background: #12141a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+        }
+        .csd-workflow-media {
+            width: 100%;
+            background: #090a0d;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .csd-workflow-media img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+        .csd-workflow-content {
+            padding: 2.25rem 2.5rem;
+        }
+        .csd-why-matters {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(198, 255, 0, 0.06);
+            border-left: 3px solid #C6FF00;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #444444;
+            line-height: 1.6;
+        }
+        .csd-why-matters-dark {
+            color: #d1d5db;
+            background: rgba(198, 255, 0, 0.05);
+        }
+
+        .csd-phone-mockup {
+            width: 290px;
+            max-width: 100%;
+            margin: 2rem auto;
+            border: 12px solid #1a1c24;
+            border-radius: 42px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            background: #000000;
+            position: relative;
+        }
+        .csd-phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .csd-phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 5px;
+            background: #2a2d3a;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .csd-spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            background: #14161d;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .csd-spec-table th, .csd-spec-table td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
+        }
+        .csd-spec-table th {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(255, 255, 255, 0.03);
+        }
     </style>
 </head>
 <body style="background-color: #ffffff; color: #111111;">
@@ -538,343 +734,134 @@
 
     <main>
 
-        <!-- Case Study Detail Hero -->
-        <section class="csd-hero" style="background: #0c0d10; color: #ffffff; padding: 8rem 2rem 5rem; position: relative;">
-            <div class="csd-hero-inner" style="max-width: 1200px; margin: 0 auto;">
-                <a href="/case-studies" class="csd-back-btn" style="color: #C6FF00; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">&larr; Back to Selected Work</a>
-                
+
+    <!-- CHAPTER 01: HERO -->
+    <header id="chapter-01" class="csd-hero-sec" style="background: #08090b; color: #ffffff; padding: 7rem 2rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="csd-container" style="text-align: center; max-width: 1100px;">
+            <div style="display: flex; justify-content: center;">
                 <div class="csd-logo-badge"><img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza Logo" loading="lazy" decoding="async" /><span>Kawaki Proprietary Product</span></div>
-
-                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">AI &amp; Digital Products &middot; Artificial Intelligence / Creative SaaS / Generative Image Platform &middot; Year 2024</div>
-                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;">
-                    Pixza: Edge-Native Multi-Model Generative AI Studio
-                </h1>
-                
-                <p style="font-size: 1.2rem; line-height: 1.6; color: #cccccc; max-width: 850px; margin-bottom: 2rem;">
-                    Full-Cycle Product Architecture, Frontend Engineering (React 19), Hono API Router &amp; AI Model Orchestration
-                </p>
-
-                <div style="margin-bottom: 2.5rem;">
-                    <a href="https://pixzaai.com/" target="_blank" rel="noopener noreferrer" class="csd-live-btn">Visit Live Project ↗</a>
-                </div>
-
-                <!-- 2. Project Snapshot Table -->
-                
-    <div class="csd-snapshot-grid">
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Client / Product</span>
-            <span class="csd-snapshot-val">Kawaki Proprietary Product (Self-Engineered)</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Industry &amp; Domain</span>
-            <span class="csd-snapshot-val">Generative Artificial Intelligence &amp; Creative SaaS</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Services Provided</span>
-            <span class="csd-snapshot-val">Full-Cycle Architecture, React 19 Frontend, Hono Edge API, Multi-Model Routing</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
-            <span class="csd-snapshot-val">Cloudflare Pages &amp; Workers Edge Runtime</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Core Technologies</span>
-            <span class="csd-snapshot-val">React 19, Hono 4, Cloudflare Workers AI, HuggingFace Spaces, OpenAI OAuth, AES-256-GCM</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Project Scope</span>
-            <span class="csd-snapshot-val">Multi-Model Inference Pipeline, Enterprise Token Rotation, Node-Based Flow Mode Canvas</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Production Status</span>
-            <span class="csd-snapshot-val">Live in Production</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Live Platform / Access</span>
-            <span class="csd-snapshot-val">
-                <a href="https://pixzaai.com/ (Staging: zenith-image-generator.pages.dev)" target="_blank" rel="noopener noreferrer">https://pixzaai.com/ (Staging: zenith-image-generator.pages.dev) ↗</a>
-            </span>
-        </div>
-    </div>
-  
             </div>
+            <h1 class="csd-hero-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: #ffffff;">
+                Pixza
+            </h1>
+            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; color: #b5b9c4; max-width: 860px; margin: 0 auto 2.5rem;">
+                Pixza: Edge-Native Multi-Model Generative AI Studio
+            </p>
             
-            <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-                <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza Project Hero" width="1376" height="768" fetchpriority="high" decoding="async" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <!-- Quick Metadata Pill Strip -->
+            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem;">
+                <span style="background: rgba(255,255,255,0.06); color: #C6FF00; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(198,255,0,0.2);">AI &amp; Digital Products</span>
+                <span style="background: rgba(255,255,255,0.06); color: #e2e8f0; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);">Artificial Intelligence / Creative SaaS / Generative Image Platform</span>
+                <span style="background: rgba(255,255,255,0.06); color: #94a3b8; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.08);">Private Studio Deployment</span>
             </div>
-        </section>
 
-        <!-- 3. The Context -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 01. THE CONTEXT</span>
-            <h2 class="csd-section-title">Institutional Background &amp; Strategic Mission</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Who the Client Is</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;">Pixza is a flagship generative AI web application engineered from the ground up by Kawaki Studios. Designed for digital artists, content creators, and growth marketing teams, Pixza eliminates the fragmented tooling and prohibitive subscription tiers of traditional AI image platforms. It combines an editorial dark-mode interface with multi-provider model routing, personal ChatGPT OAuth proxying, intelligent token rotation failover, and &#39;Flow Mode&#39;—a visual node canvas for batch generation.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;">As a proprietary in-house product, Pixza serves as concrete empirical proof of Kawaki Studios&#39; ability to conceptualize, architect, and deploy production-grade software capable of handling high-concurrency generative workloads across globally distributed edge nodes.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Target Audience &amp; Strategic Mandate</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Audience Profile:</strong> Digital graphic artists, creative directors, growth marketers, game asset designers, and AI hobbyists seeking high-speed inference without single-model vendor lock-in.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;"><strong>Digital Mandate:</strong> Most generative AI tools force creators into rigid single-model silos with monthly $30+ subscription fees. When third-party APIs experience downtime or hit rate limits (HTTP 429), creation freezes. Creators needed a unified creative canvas capable of orchestrating open-weight and proprietary models with automatic failover and zero client-side key exposure.</p>
-                </div>
+            <div>
+                <span class="csd-disabled-btn">● Private Studio Deployment</span>
+            </div>
+
+            <!-- Huge Cinematic Real Hero Visual -->
+            <div class="csd-hero-visual-cinematic">
+                <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza Hero Showcase" fetchpriority="high" decoding="async" />
             </div>
         </div>
-    </section>
+    </header>
   
 
-        <!-- 4. The Challenge -->
-        
-    <section class="csd-section-dark">
+    <!-- CHAPTER 02: PROJECT BRIEF -->
+    <section id="chapter-02" class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 02. THE CHALLENGE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction &amp; Technical Constraints</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #cccccc; max-width: 800px; margin-bottom: 3rem;">
-                Eliminating API rate-limit bottlenecks and model lock-in by orchestrating multi-provider AI inference on serverless edge runtimes.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            API Rate-Limit Failures (HTTP 429)
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            AI API keys frequently hit sudden rate limits during peak creative sessions, causing prompt generations to fail and frustrating creators.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Multi-Provider Model Fragmentation
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Creators must switch between Midjourney, DALL-E, and open-weight models (FLUX, Qwen) across different websites with inconsistent prompt syntax and aspect ratio controls.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            High Subscription Costs &amp; Barrier to Entry
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Forcing users to buy separate recurring monthly credits for each AI provider creates high friction. Pixza needed to let users leverage free edge allocations and personal ChatGPT subscriptions.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Key Storage Security &amp; Privacy
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Storing user-provided third-party API keys on central agency servers creates security vulnerabilities and legal liability in the event of database breaches.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Batch Generation &amp; Prompt Chaining UX
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Traditional linear chat-box interfaces make it difficult to compare outputs between models or iterate on variations across multiple aspect ratios.
-        </p>
-    </div>
-  
-            </div>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 02. PROJECT BRIEF</span>
+            <h2 class="csd-section-title">Strategic Mandate &amp; Operational Objectives</h2>
+            
+            <div class="csd-brief-grid">
+                <!-- Left: Narrative & Objectives -->
+                <div>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Institutional Context</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;">Pixza is a flagship generative AI web application engineered from the ground up by Kawaki Studios. Designed for digital artists, content creators, and growth marketing teams, Pixza eliminates the fragmented tooling and prohibitive subscription tiers of traditional AI image platforms. It combines an editorial dark-mode interface with multi-provider model routing, personal ChatGPT OAuth proxying, intelligent token rotation failover, and &#39;Flow Mode&#39;—a visual node canvas for batch generation.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555; margin-bottom: 1.5rem;">As a proprietary in-house product, Pixza serves as concrete empirical proof of Kawaki Studios&#39; ability to conceptualize, architect, and deploy production-grade software capable of handling high-concurrency generative workloads across globally distributed edge nodes.</p>
+                    
+                    <div style="background: #f8fafc; border-left: 3px solid #0f172a; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2.5rem;">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 700;">STRATEGIC IMPERATIVE</span>
+                        <p style="font-size: 1rem; line-height: 1.6; color: #1e293b; margin: 0.4rem 0 0;">Most generative AI tools force creators into rigid single-model silos with monthly $30+ subscription fees. When third-party APIs experience downtime or hit rate limits (HTTP 429), creation freezes. Creators needed a unified creative canvas capable of orchestrating open-weight and proprietary models with automatic failover and zero client-side key exposure.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #111111;">Verified Project Objectives</h3>
+                    <div style="margin-top: 1rem;">
+                        
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 01</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Eliminate API Rate-Limit Generation Failures (HTTP 429)</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Build an automated multi-key token rotation engine with sub-15ms failover to reserve keys, ensuring creative prompt generation never freezes.</p>
         </div>
-    </section>
-  
-
-        <!-- 5. Objectives -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. PROJECT OBJECTIVES</span>
-            <h2 class="csd-section-title">Verified Engineering &amp; Strategic Mandates</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #555555; max-width: 840px; margin-bottom: 2.5rem;">
-                Every architectural initiative was driven by concrete operational objectives established with client stakeholders:
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Eliminate API Rate-Limit Generation Failures (HTTP 429)</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Build an automated multi-key token rotation engine with sub-15ms failover to reserve keys, ensuring creative prompt generation never freezes.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Unify Open-Weight &amp; Proprietary Model Inference</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Abstract divergent API contracts from HuggingFace Spaces (FLUX Schnell, Qwen Fast), Cloudflare Workers AI, and OpenAI into a single normalized edge routing layer.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Engineer Flow Mode Visual Node Canvas</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Develop an interactive node graph enabling digital creators to visually connect prompt nodes, compare concurrent model outputs side-by-side, and run batch generation.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Enforce Zero-Retention Cryptographic Security</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Encrypt user API credentials client-side via AES-256-GCM before local storage, ensuring zero server-side retention of private keys or user generation histories.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 02</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Unify Open-Weight &amp; Proprietary Model Inference</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Abstract divergent API contracts from HuggingFace Spaces (FLUX Schnell, Qwen Fast), Cloudflare Workers AI, and OpenAI into a single normalized edge routing layer.</p>
         </div>
-    </section>
-  
-
-        <!-- 6. The Approach -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. THE APPROACH</span>
-            <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
-                We designed Pixza on an edge-native, zero-retention philosophy. Generative AI should not be locked behind bloated containers or single-vendor monopolies. By pairing modern React 19 with Cloudflare&#39;s global edge network, inference happens in milliseconds with automated failover and local cryptographic security.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 01</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Edge-Native Stack: React 19 &amp; Hono 4</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We decoupled frontend presentation from backend compute by deploying React 19 on Cloudflare Pages and Hono 4 on Cloudflare Workers, achieving sub-100ms cold starts worldwide.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 02</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Enterprise Token Rotation Engine</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We built a multi-key rotation arbiter that dynamically cycles through API tokens, automatically failing over to backup keys upon encountering HTTP 429 rate limits.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 03</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Personal ChatGPT OAuth Proxy</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We engineered a direct OAuth integration allowing users to authenticate their personal ChatGPT accounts (Free, Plus, Team) to generate via DALL-E-3 and refine prompts via GPT-4o.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 04</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Flow Mode Node Canvas</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We designed an interactive visual canvas allowing users to connect prompt nodes, compare concurrent outputs across different models, and execute batch runs.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 05</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Client-Side AES-256-GCM Encryption</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">API credentials are encrypted locally in the user&#39;s browser before storage, ensuring zero plain-text key exposure on server logs.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 03</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Engineer Flow Mode Visual Node Canvas</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Develop an interactive node graph enabling digital creators to visually connect prompt nodes, compare concurrent model outputs side-by-side, and run batch generation.</p>
         </div>
-    </section>
+    </div>
   
-
-        <!-- 7. Information Architecture -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. INFORMATION ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
-                A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Pixza Web Application Root]
-   │
-   ├── [01. Studio Workspace (Linear Mode)]
-   │     ├── Multi-Provider Model Selector (FLUX Schnell | Qwen Fast | DALL-E-3 | Z-Image)
-   │     ├── Aspect Ratio Matrix (1:1 Square | 16:9 Cinema | 9:16 Story | 4:5 Portrait)
-   │     ├── Advanced Controls (CFG Scale, Seed, Negative Prompting, Steps)
-   │     └── Real-Time Generation Progress &amp; Latency Telemetry
-   │
-   ├── [02. Flow Mode (Visual Node Canvas)]
-   │     ├── Prompt Generator Nodes (Text to Image)
-   │     ├── Model Comparison Bridges (Side-by-Side Model Benchmarking)
-   │     ├── Image-to-Image / Style Transfer Nodes
-   │     └── Batch Export &amp; High-Resolution Asset Download
-   │
-   ├── [03. Enterprise Token Management Subsystem]
-   │     ├── Multi-Key Pool Status (Active, Exhausted, Rate-Limited)
-   │     ├── Automated HTTP 429 Failover Trigger
-   │     └── UTC 00:00 Daily Quota Reset Scheduler
-   │
-   ├── [04. Personal Provider Proxy &amp; Auth]
-   │     ├── Direct ChatGPT OAuth Handshake
-   │     ├── HuggingFace Spaces Inference Gateway
-   │     └── Cloudflare Workers AI Serverless Neuron Router
-   │
-   └── [05. Client Security &amp; Local Cache Vault]
-         ├── AES-256-GCM Browser Keystore
-         └── Lightweight LocalStorage Metadata Sync (Zero Blob Bloat)</pre>
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 04</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Enforce Zero-Retention Cryptographic Security</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Encrypt user API credentials client-side via AES-256-GCM before local storage, ensuring zero server-side retention of private keys or user generation histories.</p>
         </div>
-    </section>
+    </div>
   
+                    </div>
+                </div>
 
-        <!-- 8. UX & Product Thinking -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. UX &amp; PRODUCT THINKING</span>
-            <h2 class="csd-section-title">User Journey &amp; Operational Ergonomics</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 01</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Discovery</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A multi-provider model selector categorizes open-weight, proprietary, and edge models with real-time speed and latency badges, allowing instant model comparison.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 02</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Navigation &amp; Structure</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">The workspace toggles between focused linear generation mode and spatial Flow Mode canvas, with collapsible drawers preserving maximum viewport space for high-resolution imagery.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 03</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Workflow &amp; Processing</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Creators input prompts, select aspect ratios (1:1, 16:9, 9:16, 4:5), and configure seed/CFG scales. Generations stream in real time with automated token rotation operating transparently in the background.</p>
-                </div>
-            </div>
-            <div class="csd-cards-grid-2" style="margin-top: 1.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 04</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Conversion &amp; Ingestion</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Users authenticate personal ChatGPT accounts directly via OAuth 2.0 PKCE, unlocking high-end DALL-E-3 generation and prompt optimization without recurring subscription fees.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 05</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Mobile Ergonomics</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">The workspace collapses into an ergonomic bottom drawer interface on mobile devices, keeping generation controls accessible while maximizing image preview scale.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 9. UX & Design System -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 07. UX &amp; DESIGN SYSTEM</span>
-            <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Design Direction &amp; Layout Grid</h3>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Aesthetic Thesis:</strong> Pixza Studio dark mode: high-focus creative workspace, frosted glass panels, neon lime telemetry accents, and crisp tactile borders.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Typography Hierarchy:</strong> Host Grotesk (Modern high-contrast headings) paired with Space Mono (Model telemetry, token status, generation latency) and Plus Jakarta Sans (UI inputs).</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Layout &amp; Viewport Mechanics:</strong> Modular collapsible multi-column workspace with a central rendering viewport and an infinite pan/zoom canvas in Flow Mode.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Key Engineered Components</h3>
-                    <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Model Selector Dropdown: Multi-category picker grouping open-weight and proprietary models with real-time speed badges.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Aspect Ratio Controller: Visual aspect ratio selector with live bounding box preview.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Token Health Status Pill: Live indicator displaying remaining API tokens and failover availability.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Flow Mode Node Tiles: Draggable, connectable cards representing prompts, models, and image outputs.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">High-Resolution Image Lightbox: Full-screen inspection modal with EXIF data, seed copy, and one-click upscale.</li>
-                    </ul>
-                    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border: 1px solid #e9ecef;">
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: #111111;">Mobile &amp; Touch Ergonomics</h4>
-                        <p style="font-size: 0.9rem; line-height: 1.6; color: #555555; margin: 0;">The workspace collapses into a focused bottom-drawer interface on mobile devices, allowing prompt input and aspect ratio adjustments while keeping generated images front and center.</p>
+                <!-- Right: Structured Spec Matrix -->
+                <div style="background: #0f172a; color: #ffffff; padding: 2.25rem; border-radius: 14px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #C6FF00; letter-spacing: 0.05em; font-weight: 700; display: block; margin-bottom: 1.5rem;">PROJECT SNAPSHOT</span>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <span class="csd-snapshot-label">Client / Brand</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Kawaki Proprietary Product (Self-Engineered)</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Industry &amp; Domain</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Generative Artificial Intelligence &amp; Creative SaaS</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Services Provided</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Full-Cycle Architecture, React 19 Frontend, Hono Edge API, Multi-Model Routing</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Cloudflare Pages &amp; Workers Edge Runtime</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Verified Tech Stack</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">React 19, Hono 4, Cloudflare Workers AI, HuggingFace Spaces, OpenAI OAuth, AES-256-GCM</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Execution Scope</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Multi-Model Inference Pipeline, Enterprise Token Rotation, Node-Based Flow Mode Canvas</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Production Status</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Private Studio Deployment</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Live Platform / Access</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">
+                                Private Studio Deployment
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -882,282 +869,402 @@
     </section>
   
 
-        <!-- 10. Key Features & Experiences -->
-        
-    <section class="csd-section-light">
+    <!-- CHAPTER 03: THE CHALLENGE & THE APPROACH -->
+    <section id="chapter-03" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. KEY FEATURES &amp; EXPERIENCES</span>
-            <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
-            <div style="max-width: 960px; margin-top: 3rem;">
-                
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Multi-Provider Model Orchestration</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Unified inference pipeline harmonizing HuggingFace Spaces (FLUX Schnell, Qwen Image Fast, Z-Image Turbo), Cloudflare Workers AI edge allocations, and personal OpenAI models under one interface.</p>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 03. THE CHALLENGE &amp; THE APPROACH</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction vs. Architectural Strategy</h2>
+            
+            <div class="csd-challenge-approach-grid" style="margin-top: 2.5rem;">
+                <!-- Left: The Challenge -->
+                <div class="csd-col-challenge">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #ff5252; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE VERIFIED CHALLENGE</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Real Constraints &amp; Friction</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        Eliminating API rate-limit bottlenecks and model lock-in by orchestrating multi-provider AI inference on serverless edge runtimes.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            API Rate-Limit Failures (HTTP 429)
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            AI API keys frequently hit sudden rate limits during peak creative sessions, causing prompt generations to fail and frustrating creators.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Enterprise Token Rotation Engine</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Intelligent multi-key pooling with instantaneous failover upon encountering 429 status codes, featuring live UI status reporting and automated UTC resets.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Multi-Provider Model Fragmentation
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Creators must switch between Midjourney, DALL-E, and open-weight models (FLUX, Qwen) across different websites with inconsistent prompt syntax and aspect ratio controls.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Flow Mode Visual Canvas</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">An interactive node graph enabling creators to visually connect prompt nodes, compare concurrent model outputs side-by-side, and run automated batch pipelines.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            High Subscription Costs &amp; Barrier to Entry
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Forcing users to buy separate recurring monthly credits for each AI provider creates high friction. Pixza needed to let users leverage free edge allocations and personal ChatGPT subscriptions.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Zero-Retention Cryptographic Security</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">User API credentials are encrypted client-side via AES-256-GCM before local browser persistence; zero plain-text keys or generated image histories are retained on backend servers.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Key Storage Security &amp; Privacy
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Storing user-provided third-party API keys on central agency servers creates security vulnerabilities and legal liability in the event of database breaches.
+        </p>
     </div>
   
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Batch Generation &amp; Prompt Chaining UX
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Traditional linear chat-box interfaces make it difficult to compare outputs between models or iterate on variations across multiple aspect ratios.
+        </p>
+    </div>
+  
+                </div>
+
+                <!-- Right: The Approach -->
+                <div class="csd-col-approach">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #C6FF00; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE KAWAKI APPROACH</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Architectural Response</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        We designed Pixza on an edge-native, zero-retention philosophy. Generative AI should not be locked behind bloated containers or single-vendor monopolies. By pairing modern React 19 with Cloudflare&#39;s global edge network, inference happens in milliseconds with automated failover and local cryptographic security.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Edge-Native Stack: React 19 &amp; Hono 4
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We decoupled frontend presentation from backend compute by deploying React 19 on Cloudflare Pages and Hono 4 on Cloudflare Workers, achieving sub-100ms cold starts worldwide.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Enterprise Token Rotation Engine
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We built a multi-key rotation arbiter that dynamically cycles through API tokens, automatically failing over to backup keys upon encountering HTTP 429 rate limits.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Personal ChatGPT OAuth Proxy
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We engineered a direct OAuth integration allowing users to authenticate their personal ChatGPT accounts (Free, Plus, Team) to generate via DALL-E-3 and refine prompts via GPT-4o.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Flow Mode Node Canvas
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We designed an interactive visual canvas allowing users to connect prompt nodes, compare concurrent outputs across different models, and execute batch runs.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Client-Side AES-256-GCM Encryption
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            API credentials are encrypted locally in the user&#39;s browser before storage, ensuring zero plain-text key exposure on server logs.
+        </p>
+    </div>
+  
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 11. Engineering & Architecture -->
-        
-    <section class="csd-section-dark">
+      <section id="chapter-04" class="csd-section-dark">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. EXPERIENCE &amp; ARCHITECTURE</span>
+              <h2 class="csd-section-title" style="color: #ffffff;">Application Architecture &amp; Workflow Pipelines</h2>
+              <p style="font-size: 1.1rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 2.5rem;">
+                  Architected with modular domain boundaries, reactive client state, and streaming API endpoints to handle complex multi-tenant and generative computational workloads.
+              </p>
+
+              <!-- Responsive Visual Node Flow -->
+              <div class="csd-flow-container">
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 01</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Interactive Client</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Reactive canvas / UI</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 02</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Gateway Proxy</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Auth &amp; token routing</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 03</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">Processing Engine</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">Models &amp; business logic</span>
+                  </div>
+                  <span class="csd-flow-arrow">&rarr;</span>
+                  <div class="csd-flow-node">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #C6FF00; font-weight: 700; display: block; margin-bottom: 0.25rem;">LAYER 04</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; color: #ffffff;">State Persistence</strong>
+                      <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-top: 0.35rem;">JSON AST / Database</span>
+                  </div>
+              </div>
+
+              <!-- Product Architecture Pillars -->
+              <div class="csd-cards-grid-3" style="margin-top: 2rem;">
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SUBSYSTEM 01</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Workflow &amp; Processing</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">Creators input prompts, select aspect ratios (1:1, 16:9, 9:16, 4:5), and configure seed/CFG scales. Generations stream in real time with automated token rotation operating transparently in the background.</p>
+                  </div>
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SUBSYSTEM 02</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Role Governance</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">The workspace toggles between focused linear generation mode and spatial Flow Mode canvas, with collapsible drawers preserving maximum viewport space for high-resolution imagery.</p>
+                  </div>
+                  <div class="csd-card-dark">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700;">SUBSYSTEM 03</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #ffffff;">Client Ergonomics</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1; margin: 0;">Users authenticate personal ChatGPT accounts directly via OAuth 2.0 PKCE, unlocking high-end DALL-E-3 generation and prompt optimization without recurring subscription fees.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 05: FEATURED WORKFLOWS (Visual Showcase) -->
+    <section id="chapter-05" class="csd-section-dark" style="background: #08090b;">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. ENGINEERING &amp; ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
-                Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. FEATURED WORKFLOWS &amp; INTERFACES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Engineered Capabilities &amp; Production Walkthrough</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 3.5rem;">
+                A comprehensive walkthrough of the authentic user interfaces, operational flows, and customer touchpoints delivered for Pixza.
             </p>
-            <div class="csd-cards-grid-3">
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Frontend Architecture</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Engineered using React 19, incorporating concurrent rendering features, action hooks, and optimized state machines to maintain 60fps canvas performance during multi-image generation.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Backend &amp; Serverless APIs</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Hono 4 micro-framework running on Cloudflare Workers edge runtime. Executes sub-millisecond route matching and proxies upstream AI inference requests without Node.js container overhead.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">API &amp; Network Contracts</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Universal inference adapter abstracting divergent REST, WebSocket, and SSE streaming payloads from HuggingFace, OpenAI, and Cloudflare AI into a unified JSON response contract.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Authentication &amp; Security</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Direct OAuth 2.0 PKCE flow for ChatGPT accounts, proxying session tokens securely without intermediary server caching.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Data Persistence &amp; State</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Zero-retention architecture. Session state and generation history reside exclusively in client-side IndexedDB and localStorage.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Performance &amp; Web Vitals</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Sub-100ms cold starts on Cloudflare global edge network. Zero heavy image blob retention in memory prevents browser tab crashes during long creative sessions.</p>
-                </div>
-            </div>
-            <div class="csd-card-dark" style="margin-top: 2rem;">
-                <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Responsive Multi-Device Engineering</h4>
-                <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc; margin: 0;">Touch-gesture zoom and pan mechanics in Flow Mode, with automatic viewport scaling for mobile smartphones and multi-monitor desktop setups.</p>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 12. Selected Screens & Walkthrough -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. SELECTED SCREENS &amp; WALKTHROUGH</span>
-            <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
-            <div style="margin-top: 3rem;">
+            <div>
                 
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/pixza/features-bg.jpg" alt="Production Studio Generation Canvas" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Production Studio Generation Canvas</h4>
-            <p class="csd-screen-desc">Unified creative workspace offering prompt construction, aspect ratio locking, model switching, and real-time generation previews.</p>
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/pixza/features-bg.jpg" alt="Production Studio Generation Canvas" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 01</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Production Studio Generation Canvas</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Unified creative workspace offering prompt construction, aspect ratio locking, model switching, and real-time generation previews.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/pixza/img-big.jpg" alt="High-Resolution Creative Asset Generation" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">High-Resolution Creative Asset Generation</h4>
-            <p class="csd-screen-desc">Multi-model inference engine delivering production-ready commercial imagery with calibrated lighting and fine-grain detail.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/pixza/img-big.jpg" alt="High-Resolution Creative Asset Generation" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 02</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">High-Resolution Creative Asset Generation</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Multi-model inference engine delivering production-ready commercial imagery with calibrated lighting and fine-grain detail.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/pixza/img-1.webp" alt="Lighting &amp; Texture Synthesis Pipeline" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Lighting &amp; Texture Synthesis Pipeline</h4>
-            <p class="csd-screen-desc">In-studio parametric controls allowing creators to manipulate photographic depth-of-field, lens focal length, and ambient color grade.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/pixza/img-1.webp" alt="Lighting &amp; Texture Synthesis Pipeline" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 03</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Lighting &amp; Texture Synthesis Pipeline</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">In-studio parametric controls allowing creators to manipulate photographic depth-of-field, lens focal length, and ambient color grade.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
+      
             </div>
         </div>
     </section>
   
 
-        <!-- 13. Technical Deep Dive -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 11. TECHNICAL DEEP DIVE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Edge Model Routing &amp; Token Rotation Failover Architecture</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
-                When an upstream AI inference provider returns an HTTP 429 Rate Limit response, Pixza&#39;s Token Pool Arbiter catches the error within 12 milliseconds, marks the exhausted token, and hot-swaps to the next active reserve key without failing the user&#39;s generation request.
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Client UI: React 19 Canvas]
-             │
-             ▼ (Encrypted Prompt Payload)
-[Cloudflare Global Edge CDN]
-             │
-             ▼
-[Hono 4 API Router (Cloudflare Worker)]
-             │
-             ▼
-[Token Pool Arbiter &amp; Health Checker]
-             │
-    ┌────────┴────────┬────────────────┐
-    ▼ (Key #1: Active)▼ (Key #2: Rate-Limited)▼ (Key #3: Reserve)
-[Upstream Provider]   [429 Trigger]    [Instant Hot Failover]
-    │                     │                     │
-    ▼                     └─────────►───────────┘
-[Model Inference: FLUX / Qwen / DALL-E-3]
-             │
-             ▼ (Base64 / WebP Image Stream)
-[Hono Edge Response Stream]
-             │
-             ▼
-[Client Native Canvas Render &amp; AES-256 Local Vault]</pre>
-            </div>
-        </div>
-    </section>
-  
+      <section id="chapter-06" class="csd-section-light">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. ARCHITECTURAL &amp; CRAFT DEEP DIVE</span>
+              <h2 class="csd-section-title">Production Engineering &amp; System Hardening</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 2rem;">
+                  A detailed examination of the verified fullstack infrastructure, state hydration boundaries, and API gateways powering Pixza.
+              </p>
 
-        <!-- 14. Challenges & Solutions Table -->
-        
-    <section class="csd-section-light">
+              <div class="csd-cards-grid-2">
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">01 / Frontend &amp; Client Runtime</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Engineered using React 19, incorporating concurrent rendering features, action hooks, and optimized state machines to maintain 60fps canvas performance during multi-image generation.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">02 / API &amp; Real-Time Gateway</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Universal inference adapter abstracting divergent REST, WebSocket, and SSE streaming payloads from HuggingFace, OpenAI, and Cloudflare AI into a unified JSON response contract.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">03 / State Management &amp; Persistence</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Zero-retention architecture. Session state and generation history reside exclusively in client-side IndexedDB and localStorage.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #111111;">04 / Security &amp; Performance Discipline</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Sub-100ms cold starts on Cloudflare global edge network. Zero heavy image blob retention in memory prevents browser tab crashes during long creative sessions.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 07: OUTCOME & DELIVERABLES -->
+    <section id="chapter-07" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 12. CHALLENGES &amp; SOLUTIONS</span>
-            <h2 class="csd-section-title">Architectural Friction Resolved</h2>
-            <div class="csd-table-wrapper">
-                <table class="csd-table">
-                    <thead>
-                        <tr>
-                            <th>Specific Project Challenge</th>
-                            <th>Kawaki's Architectural Solution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. PRODUCTION IMPACT &amp; DELIVERABLES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Verified Outcomes &amp; Scope of Work</h2>
+            
+            <div class="csd-cards-grid-2" style="margin-top: 2.5rem; margin-bottom: 3.5rem;">
+                <!-- Qualitative Outcomes -->
+                <div class="csd-card-dark" style="border-top: 3px solid #C6FF00;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">QUALITATIVE IMPACT</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Production Achievements</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 1.5rem;">A production-grade, multi-model AI creative platform operating globally on Cloudflare edge infrastructure with instantaneous failover and zero container bloat.</p>
+                    
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Unifies leading open-weight (FLUX, Qwen) and proprietary (DALL-E-3) image models under one canvas.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Automated token rotation engine eliminating generation failures caused by provider rate limits.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Flow Mode visual canvas delivering non-destructive batch generation and prompt tuning.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Zero-retention edge architecture ensuring complete user data privacy and local cryptographic key storage.</span>
+    </div>
+  
+                </div>
+
+                <!-- Scope of Work Delivered -->
+                <div class="csd-card-dark">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">SCOPE OF WORK</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Contracted Deliverables</h3>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                         
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Frequent HTTP 429 rate limit errors from AI providers caused user prompts to fail mid-generation.</td>
-        <td style="width: 55%; color: #444444;">Engineered an automated multi-key rotation pool with sub-15ms failover to reserve API tokens.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Full-Stack Web Application Architecture (React 19 &amp; Hono 4)</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Inconsistent API contracts and response structures across HuggingFace, Cloudflare, and OpenAI.</td>
-        <td style="width: 55%; color: #444444;">Built a universal Hono inference adapter normalizing disparate payloads into a unified stream contract.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Multi-Provider AI Inference Gateway &amp; Model Adapters</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Storing private user API keys on backend databases created severe security and compliance liabilities.</td>
-        <td style="width: 55%; color: #444444;">Implemented client-side AES-256-GCM encryption in the browser with zero central server credential retention.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Enterprise Token Rotation Engine with Automated 429 Failover</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Rendering dozens of high-resolution AI images in a visual canvas caused browser memory bloat and tab crashes.</td>
-        <td style="width: 55%; color: #444444;">Separated image URL pointers from raw binary blobs and integrated lightweight IndexedDB tile caching.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Flow Mode Interactive Node-Based Visual Canvas</span>
+    </div>
   
-                    </tbody>
-                </table>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Personal ChatGPT OAuth 2.0 PKCE Integration</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Client-Side AES-256-GCM Cryptographic Security Vault</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Cloudflare Pages &amp; Workers Global Edge Deployment</span>
+    </div>
+  
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 15. Outcome & Business Impact -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 13. OUTCOME &amp; BUSINESS IMPACT</span>
-            <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
-            <div class="csd-card" style="margin-top: 2rem;">
-                <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
-                    A production-grade, multi-model AI creative platform operating globally on Cloudflare edge infrastructure with instantaneous failover and zero container bloat.
-                </p>
-                <ul style="padding-left: 1.25rem;">
-                    <li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Unifies leading open-weight (FLUX, Qwen) and proprietary (DALL-E-3) image models under one canvas.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Automated token rotation engine eliminating generation failures caused by provider rate limits.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Flow Mode visual canvas delivering non-destructive batch generation and prompt tuning.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Zero-retention edge architecture ensuring complete user data privacy and local cryptographic key storage.</li>
-                </ul>
+            <!-- Verified Tech Stack Badges -->
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.25rem; margin-bottom: 3.5rem;">
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 1rem;">VERIFIED TECHNOLOGY STACK</span>
+                <div class="csd-cards-grid-3">
+                    
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Frontend Core</span>
+        <div>
+            <span class="csd-tech-badge">React 19</span><span class="csd-tech-badge">Cloudflare Pages</span><span class="csd-tech-badge">TypeScript</span><span class="csd-tech-badge">Tailwind CSS</span><span class="csd-tech-badge">Visual Canvas Engine</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Backend &amp; Edge Routing</span>
+        <div>
+            <span class="csd-tech-badge">Hono 4</span><span class="csd-tech-badge">Cloudflare Workers</span><span class="csd-tech-badge">Token Pool Arbiter</span><span class="csd-tech-badge">SSE Streaming</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">AI Inference &amp; Security</span>
+        <div>
+            <span class="csd-tech-badge">FLUX Schnell</span><span class="csd-tech-badge">Qwen Image Fast</span><span class="csd-tech-badge">DALL-E 3</span><span class="csd-tech-badge">Cloudflare AI</span><span class="csd-tech-badge">AES-256-GCM Encryption</span>
+        </div>
+    </div>
+  
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 16. What We Delivered -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 14. SCOPE OF WORK</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
-            <div class="csd-checklist">
-                
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Full-Stack Web Application Architecture (React 19 &amp; Hono 4)</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Multi-Provider AI Inference Gateway &amp; Model Adapters</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Enterprise Token Rotation Engine with Automated 429 Failover</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Flow Mode Interactive Node-Based Visual Canvas</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Personal ChatGPT OAuth 2.0 PKCE Integration</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Client-Side AES-256-GCM Cryptographic Security Vault</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Cloudflare Pages &amp; Workers Global Edge Deployment</span>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 17. Project Gallery -->
-        
-    <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 15. PROJECT GALLERY</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
-            <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
-                
+            <!-- Project Gallery -->
+            <div>
+                <span class="csd-section-eyebrow csd-eyebrow-accent" style="margin-bottom: 0.5rem;">CURATED ASSET ARCHIVE</span>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 2rem;">Additional High-Resolution Deliverables</h3>
+                <div class="csd-gallery-grid">
+                    
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/pixza/img-3.webp" alt="Editorial Fashion &amp; Portrait Model Inference" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Editorial Fashion &amp; Portrait Model Inference</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Editorial Fashion &amp; Portrait Model Inference</strong>
             <span>High-fidelity portraiture generation maintaining skin micro-textures, complex hair strands, and lifelike catchlights.</span>
         </div>
     </div>
@@ -1165,7 +1272,7 @@
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/pixza/img-6.webp" alt="Commercial Product Background Inpainting" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Commercial Product Background Inpainting</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Commercial Product Background Inpainting</strong>
             <span>Automated background replacement and commercial product composition for e-commerce advertising campaigns.</span>
         </div>
     </div>
@@ -1173,52 +1280,19 @@
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/pixza/img-2.webp" alt="Multi-Model Output Comparison Grid" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Multi-Model Output Comparison Grid</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Multi-Model Output Comparison Grid</strong>
             <span>Side-by-side model benchmarking enabling creators to evaluate prompt adherence across FLUX, SDXL, and Midjourney pipelines.</span>
         </div>
     </div>
   
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 18. Technology Stack -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 16. TECHNOLOGY STACK</span>
-            <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2rem;">
-                
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Frontend Core</h4>
-        <div>
-            <span class="csd-tech-badge-light">React 19</span> <span class="csd-tech-badge-light">Cloudflare Pages</span> <span class="csd-tech-badge-light">TypeScript</span> <span class="csd-tech-badge-light">Tailwind CSS</span> <span class="csd-tech-badge-light">Visual Canvas Engine</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Backend &amp; Edge Routing</h4>
-        <div>
-            <span class="csd-tech-badge-light">Hono 4</span> <span class="csd-tech-badge-light">Cloudflare Workers</span> <span class="csd-tech-badge-light">Token Pool Arbiter</span> <span class="csd-tech-badge-light">SSE Streaming</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">AI Inference &amp; Security</h4>
-        <div>
-            <span class="csd-tech-badge-light">FLUX Schnell</span> <span class="csd-tech-badge-light">Qwen Image Fast</span> <span class="csd-tech-badge-light">DALL-E 3</span> <span class="csd-tech-badge-light">Cloudflare AI</span> <span class="csd-tech-badge-light">AES-256-GCM Encryption</span>
-        </div>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-  
-        <!-- Related Kawaki Capabilities & Next Project -->
-        <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
+        <!-- CHAPTER 08: NEXT PROJECT & CTA -->
+        <section id="chapter-08" class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
                 
                 <!-- Related Projects in Capability Taxonomy -->
@@ -1272,11 +1346,11 @@
                     <div>
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
                         <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="/case-studies/kova" style="color: #ffffff; text-decoration: none;">Kova &rarr;</a>
+                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Kova &rarr;</a>
                         </h4>
                         <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">AI & Digital Products &middot; Artificial Intelligence / Web Design SaaS / Developer Tools</p>
                     </div>
-                    <a href="/case-studies/kova" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
                 </div>
                 
             </div>

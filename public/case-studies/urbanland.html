@@ -465,6 +465,202 @@
             flex-direction: column;
             gap: 0.5rem;
         }
+
+        /* Modern 8-Chapter Editorial Styles */
+        .csd-hero-visual-cinematic {
+            width: 100%;
+            max-width: 1280px;
+            margin: 3rem auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #08090b;
+        }
+        .csd-hero-visual-cinematic img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .csd-brief-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .csd-brief-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .csd-challenge-approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        @media (max-width: 860px) {
+            .csd-challenge-approach-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .csd-col-challenge {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 3px solid #ff5252;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        .csd-col-approach {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #C6FF00;
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .csd-flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+        .csd-flow-node {
+            background: #14161d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            flex: 1 1 180px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+        .csd-flow-arrow {
+            color: #C6FF00;
+            font-size: 1.25rem;
+            font-weight: 700;
+            user-select: none;
+        }
+        @media (max-width: 768px) {
+            .csd-flow-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .csd-flow-arrow {
+                text-align: center;
+                transform: rotate(90deg);
+                margin: 0.25rem 0;
+            }
+        }
+
+        .csd-workflow-large {
+            margin-bottom: 4rem;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        .csd-workflow-dark {
+            background: #12141a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+        }
+        .csd-workflow-media {
+            width: 100%;
+            background: #090a0d;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .csd-workflow-media img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+            display: block;
+        }
+        .csd-workflow-content {
+            padding: 2.25rem 2.5rem;
+        }
+        .csd-why-matters {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(198, 255, 0, 0.06);
+            border-left: 3px solid #C6FF00;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #444444;
+            line-height: 1.6;
+        }
+        .csd-why-matters-dark {
+            color: #d1d5db;
+            background: rgba(198, 255, 0, 0.05);
+        }
+
+        .csd-phone-mockup {
+            width: 290px;
+            max-width: 100%;
+            margin: 2rem auto;
+            border: 12px solid #1a1c24;
+            border-radius: 42px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            background: #000000;
+            position: relative;
+        }
+        .csd-phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .csd-phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 5px;
+            background: #2a2d3a;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .csd-spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            background: #14161d;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .csd-spec-table th, .csd-spec-table td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
+        }
+        .csd-spec-table th {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(255, 255, 255, 0.03);
+        }
     </style>
 </head>
 <body style="background-color: #ffffff; color: #111111;">
@@ -538,340 +734,134 @@
 
     <main>
 
-        <!-- Case Study Detail Hero -->
-        <section class="csd-hero" style="background: #0c0d10; color: #ffffff; padding: 8rem 2rem 5rem; position: relative;">
-            <div class="csd-hero-inner" style="max-width: 1200px; margin: 0 auto;">
-                <a href="/case-studies" class="csd-back-btn" style="color: #C6FF00; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">&larr; Back to Selected Work</a>
-                
+
+    <!-- CHAPTER 01: HERO -->
+    <header id="chapter-01" class="csd-hero-sec" style="background: #08090b; color: #ffffff; padding: 7rem 2rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="csd-container" style="text-align: center; max-width: 1100px;">
+            <div style="display: flex; justify-content: center;">
                 <div class="csd-logo-badge"><img src="/assets/images/case-studies/urbanland/logo.png" alt="Urbanland Products Logo" loading="lazy" decoding="async" /><span>Urbanland Products LLP</span></div>
-
-                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Commerce &amp; B2B &middot; B2B Infrastructure / Architectural Outdoor Amenities / Smart City Furniture &middot; Year 2024</div>
-                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;">
-                    Urbanland Products: B2B Architectural Outdoor Infrastructure Catalogue &amp; RFP System
-                </h1>
-                
-                <p style="font-size: 1.2rem; line-height: 1.6; color: #cccccc; max-width: 850px; margin-bottom: 2rem;">
-                    Lead Web Engineering, Technical Product Information Architecture, B2B RFP Quote Builder, Schema Graph
-                </p>
-
-                <div style="margin-bottom: 2.5rem;">
-                    <a href="https://urbanlandproducts.com/" target="_blank" rel="noopener noreferrer" class="csd-live-btn">Visit Live Project ↗</a>
-                </div>
-
-                <!-- 2. Project Snapshot Table -->
-                
-    <div class="csd-snapshot-grid">
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Client / Product</span>
-            <span class="csd-snapshot-val">Urbanland Products LLP</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Industry &amp; Domain</span>
-            <span class="csd-snapshot-val">Architectural Outdoor Infrastructure &amp; Smart City Furniture</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Services Provided</span>
-            <span class="csd-snapshot-val">B2B Information Architecture, Technical Catalogue Development, Quote Request Engine</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
-            <span class="csd-snapshot-val">Hydrated Web Application Architecture (Vite/ESM)</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Core Technologies</span>
-            <span class="csd-snapshot-val">React, Vite, Lenis Smooth Scroll, Deep Schema.org OfferCatalog Graph</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Project Scope</span>
-            <span class="csd-snapshot-val">12-Category Technical Product Catalogue, Specification Download Engine, Commercial RFP Funnel</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Production Status</span>
-            <span class="csd-snapshot-val">Live in Production</span>
-        </div>
-        <div class="csd-snapshot-item">
-            <span class="csd-snapshot-label">Live Platform / Access</span>
-            <span class="csd-snapshot-val">
-                <a href="https://urbanlandproducts.com/" target="_blank" rel="noopener noreferrer">https://urbanlandproducts.com/ ↗</a>
-            </span>
-        </div>
-    </div>
-  
             </div>
+            <h1 class="csd-hero-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: #ffffff;">
+                Urbanland Products
+            </h1>
+            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; color: #b5b9c4; max-width: 860px; margin: 0 auto 2.5rem;">
+                Urbanland Products: B2B Architectural Outdoor Infrastructure Catalogue &amp; RFP System
+            </p>
             
-            <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-                <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products Project Hero" width="1376" height="768" fetchpriority="high" decoding="async" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <!-- Quick Metadata Pill Strip -->
+            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem;">
+                <span style="background: rgba(255,255,255,0.06); color: #C6FF00; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(198,255,0,0.2);">Commerce &amp; B2B</span>
+                <span style="background: rgba(255,255,255,0.06); color: #e2e8f0; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);">B2B Infrastructure / Architectural Outdoor Amenities / Smart City Furniture</span>
+                <span style="background: rgba(255,255,255,0.06); color: #94a3b8; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.08);">Live in Production</span>
             </div>
-        </section>
 
-        <!-- 3. The Context -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 01. THE CONTEXT</span>
-            <h2 class="csd-section-title">Institutional Background &amp; Strategic Mission</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Who the Client Is</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;">Urbanland Products LLP is a premier Indian manufacturer of architectural outdoor furniture, public transit shelters, and smart city infrastructure based in Vasai, Maharashtra. The firm manufactures heavy-duty street benches, composite planters, commercial waste bins, bus shelters, gazebos, and modular pre-fab structures engineered from weather-resistant composites and architectural aluminium.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;">Founded in 2023 by Raj Shekhar, Urbanland serves premier commercial real estate developers (Lodha, Adani, Oberoi), municipal corporations (Mumbai Smart Shelters, Delhi Metro Plazas), and leading landscape architecture practices across India. Their products carry ISO 9001:2015 quality certifications, two-year commercial warranties, and custom fabrication support.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Target Audience &amp; Strategic Mandate</h3>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Audience Profile:</strong> Landscape architects specifying street furniture for masterplans, municipal procurement officers managing public tenders, real estate project heads, and civil contractors compiling commercial equipment schedules.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;"><strong>Digital Mandate:</strong> B2B infrastructure procurement differs fundamentally from retail e-commerce: buyers do not pay via credit card. Instead, landscape architects require exact dimensional drawings, material durability data (WPC vs NFC vs aluminium), and the ability to compile a multi-item specification list for a customized commercial Request for Quote (RFQ).</p>
-                </div>
+            <div>
+                <a href="https://urbanlandproducts.com/" target="_blank" rel="noopener noreferrer" class="csd-live-btn">Visit Live Project ↗</a>
+            </div>
+
+            <!-- Huge Cinematic Real Hero Visual -->
+            <div class="csd-hero-visual-cinematic">
+                <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products Hero Showcase" fetchpriority="high" decoding="async" />
             </div>
         </div>
-    </section>
+    </header>
   
 
-        <!-- 4. The Challenge -->
-        
-    <section class="csd-section-dark">
+    <!-- CHAPTER 02: PROJECT BRIEF -->
+    <section id="chapter-02" class="csd-section-light">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 02. THE CHALLENGE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction &amp; Technical Constraints</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #cccccc; max-width: 800px; margin-bottom: 3rem;">
-                Structuring hundreds of heavy industrial products across 12 diverse categories into an intuitive, high-speed catalogue with direct RFP quotation capabilities.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Massive Product Variety &amp; Classification
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Organizing 12 distinct product domains (from cast-iron park benches to solar-powered smart bus shelters and modular cabins) without creating an impenetrable navigation maze.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Technical Documentation Requirements
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Landscape architects require instant access to CAD drawings, structural load tolerances, and material specifications before including items in municipal tenders.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            B2B Quote Request vs Immediate Checkout
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Traditional e-commerce shopping carts with retail price tags do not fit commercial bidding, where order volumes vary from 5 luxury resort cabanas to 500 municipal street benches.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Search Visibility &amp; Category SEO
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Competing against legacy trade portals (IndiaMART, TradeIndia) required deep semantic search markup across every product classification.
-        </p>
-    </div>
-  
-    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-            Mobile Usability for Site Engineers
-        </h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
-            Site supervisors and project managers frequently inspect product specs and assembly details directly on construction sites via mobile smartphones.
-        </p>
-    </div>
-  
-            </div>
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 02. PROJECT BRIEF</span>
+            <h2 class="csd-section-title">Strategic Mandate &amp; Operational Objectives</h2>
+            
+            <div class="csd-brief-grid">
+                <!-- Left: Narrative & Objectives -->
+                <div>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Institutional Context</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;">Urbanland Products LLP is a premier Indian manufacturer of architectural outdoor furniture, public transit shelters, and smart city infrastructure based in Vasai, Maharashtra. The firm manufactures heavy-duty street benches, composite planters, commercial waste bins, bus shelters, gazebos, and modular pre-fab structures engineered from weather-resistant composites and architectural aluminium.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555; margin-bottom: 1.5rem;">Founded in 2023 by Raj Shekhar, Urbanland serves premier commercial real estate developers (Lodha, Adani, Oberoi), municipal corporations (Mumbai Smart Shelters, Delhi Metro Plazas), and leading landscape architecture practices across India. Their products carry ISO 9001:2015 quality certifications, two-year commercial warranties, and custom fabrication support.</p>
+                    
+                    <div style="background: #f8fafc; border-left: 3px solid #0f172a; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2.5rem;">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 700;">STRATEGIC IMPERATIVE</span>
+                        <p style="font-size: 1rem; line-height: 1.6; color: #1e293b; margin: 0.4rem 0 0;">B2B infrastructure procurement differs fundamentally from retail e-commerce: buyers do not pay via credit card. Instead, landscape architects require exact dimensional drawings, material durability data (WPC vs NFC vs aluminium), and the ability to compile a multi-item specification list for a customized commercial Request for Quote (RFQ).</p>
+                    </div>
+
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; color: #111111;">Verified Project Objectives</h3>
+                    <div style="margin-top: 1rem;">
+                        
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 01</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Structure 12 Diverse Infrastructure Domains</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Organize hundreds of heavy outdoor infrastructure products (benches, bus shelters, bollards, pergolas) into an intuitive, scalable architectural catalogue.</p>
         </div>
-    </section>
-  
-
-        <!-- 5. Objectives -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. PROJECT OBJECTIVES</span>
-            <h2 class="csd-section-title">Verified Engineering &amp; Strategic Mandates</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #555555; max-width: 840px; margin-bottom: 2.5rem;">
-                Every architectural initiative was driven by concrete operational objectives established with client stakeholders:
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Structure 12 Diverse Infrastructure Domains</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Organize hundreds of heavy outdoor infrastructure products (benches, bus shelters, bollards, pergolas) into an intuitive, scalable architectural catalogue.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Engineer a Multi-Item B2B Request for Quote (RFQ) Cart</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Replace standard consumer e-commerce checkout with a commercial quotation engine allowing architects to assemble project schedules and upload architectural drawings.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Provide Instant Access to Technical CAD Specifications</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Enable landscape architects and municipal contractors to inspect structural load ratings, weather-resistance certifications, and download engineering data sheets.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">OBJECTIVE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; margin: 0.5rem 0 0.75rem;">Dominate B2B Infrastructure Search Visibility</h3>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Implement a deep Schema.org graph linking OfferCatalog, LocalBusiness, and FAQPage schemas across all 12 product domains to outrank industrial aggregators.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 02</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Engineer a Multi-Item B2B Request for Quote (RFQ) Cart</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Replace standard consumer e-commerce checkout with a commercial quotation engine allowing architects to assemble project schedules and upload architectural drawings.</p>
         </div>
-    </section>
-  
-
-        <!-- 6. The Approach -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. THE APPROACH</span>
-            <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
-                We designed Urbanland&#39;s digital platform as an engineered technical specification hub. We replaced consumer shopping paradigms with a high-efficiency architectural catalogue that empowers specifiers to find, evaluate, and quote infrastructure components in minutes.
-            </p>
-            <div class="csd-cards-grid-2">
-                
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 01</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">12-Pillar Architectural Information Architecture</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We structured the catalogue into 12 definitive domains with standardized product cards featuring material tags, dimensional specs, and installation methods.</p>
     </div>
   
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 02</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">B2B Request for Quote (RFQ) Cart</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We engineered a multi-item quotation builder allowing architects to assemble project schedules, upload architectural drawings, and request bulk manufacturing bids.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 03</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Fullscreen Multi-Column Mega-Menu</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">To make browsing effortless, we built an interactive fullscreen navigation menu categorizing all 12 product domains with visual thumbnails and quick-jump links.</p>
-    </div>
-  
-    <div class="csd-card" style="position: relative;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 04</span>
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Deep Schema.org OfferCatalog Graph</h4>
-        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We implemented an exhaustive JSON-LD graph linking `OfferCatalog`, `LocalBusiness`, and `FAQPage` schemas to dominate organic search rankings for outdoor infrastructure keywords.</p>
-    </div>
-  
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 03</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Provide Instant Access to Technical CAD Specifications</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Enable landscape architects and municipal contractors to inspect structural load ratings, weather-resistance certifications, and download engineering data sheets.</p>
         </div>
-    </section>
+    </div>
   
-
-        <!-- 7. Information Architecture -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. INFORMATION ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
-            <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
-                A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Urbanland Products — B2B Infrastructure Platform]
-   │
-   ├── [01. Industrial Showcase &amp; Corporate Proof]
-   │     ├── ISO 9001:2015 Quality &amp; 2-Year Warranty Seals
-   │     ├── Landmark Proof (Adani Plazas, Lodha Estates, Delhi Metro)
-   │     └── Comprehensive Mega-Menu Navigation
-   │
-   ├── [02. 12 Core Architectural Catalogs]
-   │     ├── 01. Outdoor Benches &amp; Park Seating (WPC, Cast Iron, Aluminium)
-   │     ├── 02. Architectural Planters (FRP &amp; Composite Boxes)
-   │     ├── 03. Commercial Waste Receptacles &amp; Bins
-   │     ├── 04. Public Bus Shelters &amp; Transit Amenities
-   │     ├── 05. Engineered Car Shelters &amp; Cantilevers
-   │     ├── 06. Heavy-Duty Canteen &amp; Picnic Tables
-   │     ├── 07. Pergolas, Gazebos &amp; Architectural Trellises
-   │     ├── 08. Resort Cabanas &amp; Poolside Loungers
-   │     ├── 09. Wicker &amp; Cane Outdoor Swings
-   │     ├── 10. Modular Pre-Fab Cabins &amp; Guard Huts
-   │     ├── 11. Stainless Steel Bollards &amp; Barriers
-   │     └── 12. Smart City Street Lights &amp; Amenities
-   │
-   ├── [03. Technical Product Specification Sheet]
-   │     ├── Engineered Dimensions &amp; Structural Material Grades
-   │     ├── Weather Resistance Certifications (UV, Monsoon, Coastal Salt)
-   │     └── Downloadable CAD / PDF Data Sheets
-   │
-   └── [04. B2B Commercial RFP Engine]
-         ├── Multi-Item Specification Cart (Assemble Project Schedule)
-         ├── Drawing &amp; Blueprint File Upload (.dwg, .pdf, .jpg)
-         └── Direct Commercial Factory Bid Ingestion</pre>
-            </div>
+    <div style="margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; background: #eef2ff; color: #4338ca; padding: 0.25rem 0.6rem; border-radius: 4px; flex-shrink: 0; line-height: 1.4;">OBJ 04</span>
+        <div>
+            <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin: 0 0 0.25rem;">Dominate B2B Infrastructure Search Visibility</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #555555; margin: 0;">Implement a deep Schema.org graph linking OfferCatalog, LocalBusiness, and FAQPage schemas across all 12 product domains to outrank industrial aggregators.</p>
         </div>
-    </section>
+    </div>
   
+                    </div>
+                </div>
 
-        <!-- 8. UX & Product Thinking -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. UX &amp; PRODUCT THINKING</span>
-            <h2 class="csd-section-title">User Journey &amp; Operational Ergonomics</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 01</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Discovery</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A multi-column fullscreen mega-menu presents all 12 infrastructure categories with visual thumbnails, allowing landscape architects to jump directly to specific municipal amenities.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 02</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Navigation &amp; Structure</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Client-side category filtering and Lenis smooth scrolling allow fast, seamless exploration across extensive product collections without jarring page reloads.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 03</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Workflow &amp; Processing</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Architects review technical dimension tables, verify ISO 9001:2015 certifications, add items to their project schedule, and attach CAD site drawings (.dwg, .pdf) in one flow.</p>
-                </div>
-            </div>
-            <div class="csd-cards-grid-2" style="margin-top: 1.5rem;">
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 04</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Conversion &amp; Ingestion</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">The multi-item RFQ builder compiles the complete specification schedule and routes it directly to the Vasai manufacturing plant estimation team for commercial bidding.</p>
-                </div>
-                <div class="csd-card">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; font-weight: 700;">USER EXPERIENCE 05</span>
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0 0.75rem;">Mobile Ergonomics</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Technical data tables feature horizontal scroll indicators with `data-lenis-prevent` locks, ensuring site engineers can inspect assembly drawings on-site without scroll trapping.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 9. UX & Design System -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 07. UX &amp; DESIGN SYSTEM</span>
-            <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
-            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Design Direction &amp; Layout Grid</h3>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Aesthetic Thesis:</strong> Industrial precision, architectural authority, blueprint aesthetics, and clean technical data hierarchy.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Typography Hierarchy:</strong> Modern grotesk headings paired with monospaced dimension labels and clean tabular fonts for specification data.</p>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Layout &amp; Viewport Mechanics:</strong> High-density multi-column product grids with client-side category filtering and Lenis smooth scrolling with scroll-lock protection.</p>
-                </div>
-                <div class="csd-card">
-                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Key Engineered Components</h3>
-                    <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Fullscreen Mega-Menu: Multi-tier interactive navigation organizing all 12 categories with zero clutter.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Specification Data Table: Clear dimensional matrices detailing height, width, material grade, and weight.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Multi-Item RFQ Builder: Floating quote cart displaying accumulated specification items ready for proposal submission.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Landmark Case Study Cards: Grid highlighting verified installations across major corporate campuses.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Material Durability Badges: Visual indicators highlighting WPC, hot-dip galvanization, and powder-coat finishes.</li>
-                    </ul>
-                    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border: 1px solid #e9ecef;">
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: #111111;">Mobile &amp; Touch Ergonomics</h4>
-                        <p style="font-size: 0.9rem; line-height: 1.6; color: #555555; margin: 0;">The 12-category mega-menu collapses into a smooth accordion hierarchy. Technical specification tables feature horizontal scroll locks with visible scroll indicators for seamless on-site mobile review.</p>
+                <!-- Right: Structured Spec Matrix -->
+                <div style="background: #0f172a; color: #ffffff; padding: 2.25rem; border-radius: 14px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #C6FF00; letter-spacing: 0.05em; font-weight: 700; display: block; margin-bottom: 1.5rem;">PROJECT SNAPSHOT</span>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <span class="csd-snapshot-label">Client / Brand</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Urbanland Products LLP</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Industry &amp; Domain</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Architectural Outdoor Infrastructure &amp; Smart City Furniture</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Services Provided</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">B2B Information Architecture, Technical Catalogue Development, Quote Request Engine</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Hydrated Web Application Architecture (Vite/ESM)</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Verified Tech Stack</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">React, Vite, Lenis Smooth Scroll, Deep Schema.org OfferCatalog Graph</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Execution Scope</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">12-Category Technical Product Catalogue, Specification Download Engine, Commercial RFP Funnel</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Production Status</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">Live in Production</span>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+                            <span class="csd-snapshot-label">Live Platform / Access</span>
+                            <span class="csd-snapshot-val" style="display: block; margin-top: 0.2rem;">
+                                <a href="https://urbanlandproducts.com/" target="_blank" rel="noopener noreferrer">https://urbanlandproducts.com/ ↗</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -879,278 +869,420 @@
     </section>
   
 
-        <!-- 10. Key Features & Experiences -->
-        
-    <section class="csd-section-light">
+    <!-- CHAPTER 03: THE CHALLENGE & THE APPROACH -->
+    <section id="chapter-03" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. KEY FEATURES &amp; EXPERIENCES</span>
-            <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
-            <div style="max-width: 960px; margin-top: 3rem;">
-                
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 01</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">12-Category Technical Product Hierarchy</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Seamless classification spanning benches, bus stops, bollards, and pergolas, allowing architects to jump directly to specific municipal hardware.</p>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 03. THE CHALLENGE &amp; THE APPROACH</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction vs. Architectural Strategy</h2>
+            
+            <div class="csd-challenge-approach-grid" style="margin-top: 2.5rem;">
+                <!-- Left: The Challenge -->
+                <div class="csd-col-challenge">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #ff5252; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE VERIFIED CHALLENGE</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Real Constraints &amp; Friction</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        Structuring hundreds of heavy industrial products across 12 diverse categories into an intuitive, high-speed catalogue with direct RFP quotation capabilities.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Massive Product Variety &amp; Classification
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Organizing 12 distinct product domains (from cast-iron park benches to solar-powered smart bus shelters and modular cabins) without creating an impenetrable navigation maze.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 02</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">B2B Request for Quote (RFQ) Engine</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Specifiers assemble customized product lists and submit architectural drawings directly to the Vasai factory estimation team for formal bidding.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Technical Documentation Requirements
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Landscape architects require instant access to CAD drawings, structural load tolerances, and material specifications before including items in municipal tenders.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 03</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Technical Specification Download Center</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Instant access to dimensional engineering drawings, material performance ratings, and installation anchors for site contractors.</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            B2B Quote Request vs Immediate Checkout
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Traditional e-commerce shopping carts with retail price tags do not fit commercial bidding, where order volumes vary from 5 luxury resort cabanas to 500 municipal street benches.
+        </p>
     </div>
   
-    <div class="csd-card" style="margin-bottom: 2rem;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 04</span>
-        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Landmark Project Portfolio</h3>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Verified installation case studies demonstrating deployed amenities across high-profile developments (Lodha, Oberoi, Delhi Metro).</p>
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Search Visibility &amp; Category SEO
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Competing against legacy trade portals (IndiaMART, TradeIndia) required deep semantic search markup across every product classification.
+        </p>
     </div>
   
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">
+            Mobile Usability for Site Engineers
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            Site supervisors and project managers frequently inspect product specs and assembly details directly on construction sites via mobile smartphones.
+        </p>
+    </div>
+  
+                </div>
+
+                <!-- Right: The Approach -->
+                <div class="csd-col-approach">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #C6FF00; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">THE KAWAKI APPROACH</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Architectural Response</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 2rem;">
+                        We designed Urbanland&#39;s digital platform as an engineered technical specification hub. We replaced consumer shopping paradigms with a high-efficiency architectural catalogue that empowers specifiers to find, evaluate, and quote infrastructure components in minutes.
+                    </p>
+                    
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            12-Pillar Architectural Information Architecture
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We structured the catalogue into 12 definitive domains with standardized product cards featuring material tags, dimensional specs, and installation methods.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            B2B Request for Quote (RFQ) Cart
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We engineered a multi-item quotation builder allowing architects to assemble project schedules, upload architectural drawings, and request bulk manufacturing bids.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Fullscreen Multi-Column Mega-Menu
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            To make browsing effortless, we built an interactive fullscreen navigation menu categorizing all 12 product domains with visual thumbnails and quick-jump links.
+        </p>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.35rem;">
+            Deep Schema.org OfferCatalog Graph
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+            We implemented an exhaustive JSON-LD graph linking `OfferCatalog`, `LocalBusiness`, and `FAQPage` schemas to dominate organic search rankings for outdoor infrastructure keywords.
+        </p>
+    </div>
+  
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 11. Engineering & Architecture -->
-        
-    <section class="csd-section-dark">
+      <section id="chapter-04" class="csd-section-offwhite">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-muted">// 04. EXPERIENCE &amp; ARCHITECTURE</span>
+              <h2 class="csd-section-title">Catalog Taxonomy &amp; Conversion Ergonomics</h2>
+              <p style="font-size: 1.1rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 2.5rem;">
+                  Engineering high-conversion digital commerce requires balancing rich visual storytelling with frictionless product specification, instant filter feedback, and sub-100ms cart transitions.
+              </p>
+
+              <!-- Responsive Visual Node Flow -->
+              <div class="csd-flow-container" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STEP 01</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Visual Discovery</strong>
+                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Collections &amp; drops</span>
+                  </div>
+                  <span class="csd-flow-arrow" style="color: #0f172a;">&rarr;</span>
+                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STEP 02</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Taxonomy Filter</strong>
+                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Real-time facet sorting</span>
+                  </div>
+                  <span class="csd-flow-arrow" style="color: #0f172a;">&rarr;</span>
+                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STEP 03</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Rich Specification</strong>
+                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Material &amp; CAD details</span>
+                  </div>
+                  <span class="csd-flow-arrow" style="color: #0f172a;">&rarr;</span>
+                  <div class="csd-flow-node" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #0f172a;">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #64748b; font-weight: 700; display: block; margin-bottom: 0.25rem;">STEP 04</span>
+                      <strong style="font-family: 'Host Grotesk', sans-serif; font-size: 1.05rem;">Instant Checkout / Quote</strong>
+                      <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 0.35rem;">Zero-friction transaction</span>
+                  </div>
+              </div>
+
+              <!-- Commerce UX Pillars -->
+              <div class="csd-cards-grid-3" style="margin-top: 2rem;">
+                  <div class="csd-card">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">EXPERIENCE 01</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #111111;">Catalog Discovery</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">A multi-column fullscreen mega-menu presents all 12 infrastructure categories with visual thumbnails, allowing landscape architects to jump directly to specific municipal amenities.</p>
+                  </div>
+                  <div class="csd-card">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">EXPERIENCE 02</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #111111;">Workflow &amp; Processing</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Architects review technical dimension tables, verify ISO 9001:2015 certifications, add items to their project schedule, and attach CAD site drawings (.dwg, .pdf) in one flow.</p>
+                  </div>
+                  <div class="csd-card">
+                      <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">EXPERIENCE 03</span>
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.75rem; color: #111111;">Mobile Conversion Flow</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555; margin: 0;">Technical data tables feature horizontal scroll indicators with `data-lenis-prevent` locks, ensuring site engineers can inspect assembly drawings on-site without scroll trapping.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 05: FEATURED WORKFLOWS (Visual Showcase) -->
+    <section id="chapter-05" class="csd-section-dark" style="background: #08090b;">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. ENGINEERING &amp; ARCHITECTURE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
-                Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 05. FEATURED WORKFLOWS &amp; INTERFACES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Engineered Capabilities &amp; Production Walkthrough</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; max-width: 860px; margin-bottom: 3.5rem;">
+                A comprehensive walkthrough of the authentic user interfaces, operational flows, and customer touchpoints delivered for Urbanland Products.
             </p>
-            <div class="csd-cards-grid-3">
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Frontend Architecture</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Engineered using React and Vite with ESM production bundling. Clean component hydration ensures instant DOM interactivity without layout flickering.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Backend &amp; Serverless APIs</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">High-throughput serverless API routing handling multi-part RFQ form submissions and architectural drawing attachments.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">API &amp; Network Contracts</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Optimized REST quotation endpoints with email webhook dispatch to factory sales engineers.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Authentication &amp; Security</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Public architectural catalogue with rate-limited spam prevention on quote submission endpoints.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Data Persistence &amp; State</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Structured product relational schema linking material variants, dimensional tables, and sector applications.</p>
-                </div>
-                <div class="csd-card-dark">
-                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Performance &amp; Web Vitals</h4>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Lenis smooth scroll integration configured with `data-lenis-prevent` boundaries to avoid scroll trapping in nested data tables.</p>
-                </div>
-            </div>
-            <div class="csd-card-dark" style="margin-top: 2rem;">
-                <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Responsive Multi-Device Engineering</h4>
-                <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc; margin: 0;">Engineered with resilient CSS clamp scales and responsive image srcsets to deliver rapid loading over volatile mobile networks.</p>
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 12. Selected Screens & Walkthrough -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. SELECTED SCREENS &amp; WALKTHROUGH</span>
-            <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
-            <div style="margin-top: 3rem;">
+            <div>
                 
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/urbanland/hero-1.webp" alt="B2B Infrastructure Catalog Homepage" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">B2B Infrastructure Catalog Homepage</h4>
-            <p class="csd-screen-desc">High-density architectural product matrix displaying outdoor street furniture, smart city planters, and composite materials.</p>
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/urbanland/hero-1.webp" alt="B2B Infrastructure Catalog Homepage" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 01</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">B2B Infrastructure Catalog Homepage</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">High-density architectural product matrix displaying outdoor street furniture, smart city planters, and composite materials.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/urbanland/hero2.webp" alt="Commercial Spec Sheet &amp; Material Matrix" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Commercial Spec Sheet &amp; Material Matrix</h4>
-            <p class="csd-screen-desc">Engineered specification drawer allowing landscape architects to review tensile strength, UV resistance ratings, and architectural CAD downloads.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/urbanland/hero2.webp" alt="Commercial Spec Sheet &amp; Material Matrix" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 02</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Commercial Spec Sheet &amp; Material Matrix</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Engineered specification drawer allowing landscape architects to review tensile strength, UV resistance ratings, and architectural CAD downloads.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <div class="csd-screen-card">
-        <img src="/assets/images/case-studies/urbanland/hero3.webp" alt="Township &amp; Hospitality Solutions Discovery" class="csd-screen-img" loading="lazy" decoding="async" />
-        <div class="csd-screen-caption">
-            <h4 class="csd-screen-title">Township &amp; Hospitality Solutions Discovery</h4>
-            <p class="csd-screen-desc">Curated sector groupings showcasing deployments across municipal plazas, corporate campuses, and luxury hospitality courtyards.</p>
+      
+        <div class="csd-workflow-large csd-workflow-dark">
+            <div class="csd-workflow-media">
+                <img src="/assets/images/case-studies/urbanland/hero3.webp" alt="Township &amp; Hospitality Solutions Discovery" loading="lazy" decoding="async" />
+            </div>
+            <div class="csd-workflow-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #C6FF00; font-weight: 700;">FEATURED INTERFACE &middot; WORKFLOW 03</span>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b;">HIGH-RESOLUTION RENDER</span>
+                </div>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Township &amp; Hospitality Solutions Discovery</h3>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 1.25rem;">Curated sector groupings showcasing deployments across municipal plazas, corporate campuses, and luxury hospitality courtyards.</p>
+                <div class="csd-why-matters csd-why-matters-dark">
+                    <strong style="color: #C6FF00; display: block; font-size: 0.85rem; font-family: 'Space Mono', monospace; text-transform: uppercase; margin-bottom: 0.25rem;">Why This Matters</strong>
+                    Engineered to reduce cognitive load and eliminate friction, allowing users to complete mission-critical tasks in minimal interactions.
+                </div>
+            </div>
         </div>
-    </div>
-  
+      
             </div>
         </div>
     </section>
   
 
-        <!-- 13. Technical Deep Dive -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 11. TECHNICAL DEEP DIVE</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">B2B RFP Compilation &amp; Quotation Lifecycle</h2>
-            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
-                By decoupling the commercial quote assembly process from traditional e-commerce cart systems, architects can request customized bids for hundreds of items with blueprint attachments in one transaction.
-            </p>
-            <div class="csd-diagram-box">
-                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Landscape Architect: Browsing 12 Catalogs]
-                    │
-                    ▼
-[Action: Add Product Specification to RFQ Cart]
-                    │
-                    ▼
-[Client State: Reactive Schedule Storage]
-                    │
-    ┌───────────────┴───────────────┐
-    ▼ (Add More Items)              ▼ (Ready to Submit)
-[Select Bollards, Planters]     [Open RFQ Modal &amp; Attach CAD/PDF]
-                                    │
-                                    ▼ (Multipart POST Request)
-                        [Serverless API Ingestion Gateway]
-                                    │
-                        ┌───────────┴───────────┐
-                        ▼                       ▼
-            [Secure Storage Bucket]   [Lead Notification Webhook]
-            (Store .dwg / .pdf drawings) (Dispatch to Factory Sales)</pre>
-            </div>
-        </div>
-    </section>
-  
+      <section id="chapter-06" class="csd-section-light">
+          <div class="csd-container">
+              <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. ARCHITECTURAL CRAFT &amp; SPECIFICATION SYSTEM</span>
+              <h2 class="csd-section-title">Composite Material Engineering &amp; B2B Spec Matrix</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 2rem;">
+                  Commercial landscape architects and smart-city municipal planners require strict technical specification sheets before specifying products into construction tenders:
+              </p>
 
-        <!-- 14. Challenges & Solutions Table -->
-        
-    <section class="csd-section-light">
+              <table class="csd-spec-table">
+                  <thead>
+                      <tr>
+                          <th>Material Composite</th>
+                          <th>Tensile / Load Strength</th>
+                          <th>Weather Resistance</th>
+                          <th>Maintenance Cycle</th>
+                          <th>Architectural Application</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td><strong>Wood Polymer (WPC)</strong></td>
+                          <td>High Density Structural Load</td>
+                          <td>UV-Proof &amp; Monsoon Sealed</td>
+                          <td>Zero Annual Sealing Required</td>
+                          <td>Park Benches &amp; Public Seating</td>
+                      </tr>
+                      <tr>
+                          <td><strong>Natural Fiber (NFC)</strong></td>
+                          <td>Impact-Resistant Reclaimed Fiber</td>
+                          <td>Zero Rot, Termite &amp; Fungal Decay</td>
+                          <td>Wipe-Clean Non-Porous Finish</td>
+                          <td>Smart City Planters &amp; Bollards</td>
+                      </tr>
+                      <tr>
+                          <td><strong>Architectural Aluminium</strong></td>
+                          <td>Powder-Coated T6 Marine Grade</td>
+                          <td>Corrosion-Proof Salt Spray Tested</td>
+                          <td>Lifetime Structural Integrity</td>
+                          <td>Shade Pergolas &amp; Campus Fixtures</td>
+                      </tr>
+                  </tbody>
+              </table>
+
+              <div class="csd-cards-grid-2" style="margin-top: 2rem;">
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Catalog Architecture</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Engineered using React and Vite with ESM production bundling. Clean component hydration ensures instant DOM interactivity without layout flickering.</p>
+                  </div>
+                  <div class="csd-card">
+                      <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Quote &amp; CAD Specification Journey</h3>
+                      <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Optimized REST quotation endpoints with email webhook dispatch to factory sales engineers.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+
+    <!-- CHAPTER 07: OUTCOME & DELIVERABLES -->
+    <section id="chapter-07" class="csd-section-dark">
         <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 12. CHALLENGES &amp; SOLUTIONS</span>
-            <h2 class="csd-section-title">Architectural Friction Resolved</h2>
-            <div class="csd-table-wrapper">
-                <table class="csd-table">
-                    <thead>
-                        <tr>
-                            <th>Specific Project Challenge</th>
-                            <th>Kawaki's Architectural Solution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. PRODUCTION IMPACT &amp; DELIVERABLES</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Verified Outcomes &amp; Scope of Work</h2>
+            
+            <div class="csd-cards-grid-2" style="margin-top: 2.5rem; margin-bottom: 3.5rem;">
+                <!-- Qualitative Outcomes -->
+                <div class="csd-card-dark" style="border-top: 3px solid #C6FF00;">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">QUALITATIVE IMPACT</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Production Achievements</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.65; color: #e2e8f0; margin-bottom: 1.5rem;">A high-capacity B2B architectural catalogue establishing Urbanland Products as a premier manufacturing partner for smart city infrastructure.</p>
+                    
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Complete 12-domain technical catalogue organizing hundreds of outdoor infrastructure products.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Streamlined B2B RFP quotation pipeline allowing instant schedule compilation and drawing uploads.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">Deep Schema.org search visibility establishing authority across commercial outdoor furniture queries.</span>
+    </div>
+  
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+        <span style="color: #C6FF00; font-weight: 800; font-size: 1.1rem; line-height: 1;">&check;</span>
+        <span style="font-size: 1rem; line-height: 1.6; color: #ffffff;">High-performance architecture delivering sub-second page loads across both desktop and mobile devices.</span>
+    </div>
+  
+                </div>
+
+                <!-- Scope of Work Delivered -->
+                <div class="csd-card-dark">
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">SCOPE OF WORK</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Contracted Deliverables</h3>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                         
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Organizing 12 disparate product domains without confusing users or burying important product lines.</td>
-        <td style="width: 55%; color: #444444;">Engineered a fullscreen interactive mega-menu with clear category grouping and visual preview thumbnails.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">12-Category Technical Product Information Architecture</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Traditional shopping carts failed to capture multi-item architectural schedules requiring drawings.</td>
-        <td style="width: 55%; color: #444444;">Built a bespoke B2B Request for Quote cart supporting multi-item selection and blueprint file attachments.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Fullscreen Multi-Column Navigation Mega-Menu</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Generic website platforms struggled to rank against dominant industrial trade portals like IndiaMART.</td>
-        <td style="width: 55%; color: #444444;">Implemented an exhaustive Schema.org OfferCatalog and LocalBusiness graph indexing all 12 product domains.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">B2B Request for Quote (RFQ) Engine with File Upload Support</span>
+    </div>
   
-    <tr>
-        <td style="width: 45%; font-weight: 600; color: #111111;">Heavy technical data tables caused horizontal scroll trapping and layout stutter on mobile viewports.</td>
-        <td style="width: 55%; color: #444444;">Integrated Lenis smooth scrolling with scoped `data-lenis-prevent` containers and fluid responsive cards.</td>
-    </tr>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Technical Specification Sheets &amp; CAD Download Modules</span>
+    </div>
   
-                    </tbody>
-                </table>
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Lenis Smooth Scrolling with Protected Container Boundaries</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Comprehensive Schema.org OfferCatalog &amp; LocalBusiness Graph</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&bull;</span>
+        <span style="color: #cbd5e1;">Mobile-Optimized Interface for Construction Site Inspection</span>
+    </div>
+  
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 15. Outcome & Business Impact -->
-        
-    <section class="csd-section-offwhite">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 13. OUTCOME &amp; BUSINESS IMPACT</span>
-            <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
-            <div class="csd-card" style="margin-top: 2rem;">
-                <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
-                    A high-capacity B2B architectural catalogue establishing Urbanland Products as a premier manufacturing partner for smart city infrastructure.
-                </p>
-                <ul style="padding-left: 1.25rem;">
-                    <li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Complete 12-domain technical catalogue organizing hundreds of outdoor infrastructure products.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Streamlined B2B RFP quotation pipeline allowing instant schedule compilation and drawing uploads.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Deep Schema.org search visibility establishing authority across commercial outdoor furniture queries.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">High-performance architecture delivering sub-second page loads across both desktop and mobile devices.</li>
-                </ul>
+            <!-- Verified Tech Stack Badges -->
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.25rem; margin-bottom: 3.5rem;">
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #C6FF00; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 1rem;">VERIFIED TECHNOLOGY STACK</span>
+                <div class="csd-cards-grid-3">
+                    
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Frontend Core</span>
+        <div>
+            <span class="csd-tech-badge">React</span><span class="csd-tech-badge">Vite ESM Pipeline</span><span class="csd-tech-badge">Lenis Smooth Scroll</span><span class="csd-tech-badge">Modern Component Architecture</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">B2B Commerce &amp; Forms</span>
+        <div>
+            <span class="csd-tech-badge">RFQ Schedule Builder</span><span class="csd-tech-badge">Multipart Drawing Ingestion</span><span class="csd-tech-badge">Honeypot Validation</span><span class="csd-tech-badge">Email Webhooks</span>
+        </div>
+    </div>
+  
+    <div style="margin-bottom: 1.5rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.5rem;">Structured SEO</span>
+        <div>
+            <span class="csd-tech-badge">Schema.org OfferCatalog</span><span class="csd-tech-badge">LocalBusiness Graph</span><span class="csd-tech-badge">FAQPage Schema</span><span class="csd-tech-badge">Core Web Vitals Engine</span>
+        </div>
+    </div>
+  
+                </div>
             </div>
-        </div>
-    </section>
-  
 
-        <!-- 16. What We Delivered -->
-        
-    <section class="csd-section-dark">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 14. SCOPE OF WORK</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
-            <div class="csd-checklist">
-                
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">12-Category Technical Product Information Architecture</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Fullscreen Multi-Column Navigation Mega-Menu</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">B2B Request for Quote (RFQ) Engine with File Upload Support</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Technical Specification Sheets &amp; CAD Download Modules</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Lenis Smooth Scrolling with Protected Container Boundaries</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Comprehensive Schema.org OfferCatalog &amp; LocalBusiness Graph</span>
-    </div>
-  
-    <div class="csd-check-item">
-        <span class="csd-check-icon">&check;</span>
-        <span style="color: #ffffff;">Mobile-Optimized Interface for Construction Site Inspection</span>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-
-        <!-- 17. Project Gallery -->
-        
-    <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-accent">// 15. PROJECT GALLERY</span>
-            <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
-            <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
-                
+            <!-- Project Gallery -->
+            <div>
+                <span class="csd-section-eyebrow csd-eyebrow-accent" style="margin-bottom: 0.5rem;">CURATED ASSET ARCHIVE</span>
+                <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.65rem; font-weight: 800; color: #ffffff; margin-bottom: 2rem;">Additional High-Resolution Deliverables</h3>
+                <div class="csd-gallery-grid">
+                    
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/urbanland/wpc-main.webp" alt="Wood Polymer Composite Engineering Range" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Wood Polymer Composite Engineering Range</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Wood Polymer Composite Engineering Range</strong>
             <span>Heavy-duty weather-sealed composite benches engineered for zero maintenance in extreme monsoon and coastal climates.</span>
         </div>
     </div>
@@ -1158,7 +1290,7 @@
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/urbanland/nfc-main.webp" alt="Natural Fiber Composite Product Showcase" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Natural Fiber Composite Product Showcase</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Natural Fiber Composite Product Showcase</strong>
             <span>Sustainable biophilic bollards and architectural elements manufactured from reclaimed plant fiber polymers.</span>
         </div>
     </div>
@@ -1166,52 +1298,19 @@
     <div class="csd-gallery-item">
         <img src="/assets/images/case-studies/urbanland/aluminium-main.webp" alt="Architectural Aluminium Specification" loading="lazy" decoding="async" />
         <div class="csd-gallery-item-caption">
-            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Architectural Aluminium Specification</strong>
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Architectural Aluminium Specification</strong>
             <span>Precision powder-coated architectural aluminium planters and structural shade pergolas for modern corporate developments.</span>
         </div>
     </div>
   
+                </div>
             </div>
         </div>
     </section>
   
 
-        <!-- 18. Technology Stack -->
-        
-    <section class="csd-section-light">
-        <div class="csd-container">
-            <span class="csd-section-eyebrow csd-eyebrow-muted">// 16. TECHNOLOGY STACK</span>
-            <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
-            <div class="csd-cards-grid-3" style="margin-top: 2rem;">
-                
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Frontend Core</h4>
-        <div>
-            <span class="csd-tech-badge-light">React</span> <span class="csd-tech-badge-light">Vite ESM Pipeline</span> <span class="csd-tech-badge-light">Lenis Smooth Scroll</span> <span class="csd-tech-badge-light">Modern Component Architecture</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">B2B Commerce &amp; Forms</h4>
-        <div>
-            <span class="csd-tech-badge-light">RFQ Schedule Builder</span> <span class="csd-tech-badge-light">Multipart Drawing Ingestion</span> <span class="csd-tech-badge-light">Honeypot Validation</span> <span class="csd-tech-badge-light">Email Webhooks</span>
-        </div>
-    </div>
-  
-    <div class="csd-card">
-        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Structured SEO</h4>
-        <div>
-            <span class="csd-tech-badge-light">Schema.org OfferCatalog</span> <span class="csd-tech-badge-light">LocalBusiness Graph</span> <span class="csd-tech-badge-light">FAQPage Schema</span> <span class="csd-tech-badge-light">Core Web Vitals Engine</span>
-        </div>
-    </div>
-  
-            </div>
-        </div>
-    </section>
-  
-  
-        <!-- Related Kawaki Capabilities & Next Project -->
-        <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
+        <!-- CHAPTER 08: NEXT PROJECT & CTA -->
+        <section id="chapter-08" class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
                 
                 <!-- Related Projects in Capability Taxonomy -->
@@ -1265,11 +1364,11 @@
                     <div>
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
                         <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="/case-studies/pixza" style="color: #ffffff; text-decoration: none;">Pixza &rarr;</a>
+                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Pixza &rarr;</a>
                         </h4>
                         <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">AI & Digital Products &middot; Artificial Intelligence / Creative SaaS / Generative Image Platform</p>
                     </div>
-                    <a href="/case-studies/pixza" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
                 </div>
                 
             </div>
