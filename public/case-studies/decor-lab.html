@@ -8,22 +8,22 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Decor Lab — 33-Year Architecture & Parametric Studio Case Study | Kawaki Studios</title>
-    <meta name="description" content="How Kawaki Studios engineered Decor Lab's digital flagship, featuring Next.js, fullscreen background video kinematics, and parametric architectural galleries." />
+    <title>Decor Lab — 33-Year Architecture &amp; Parametric Studio Case Study | Kawaki Studios</title>
+    <meta name="description" content="How Kawaki Studios engineered Decor Lab&#39;s Next.js digital platform, incorporating hardware-accelerated video kinematics, Bartlett UCL parametric showcases, and horizontal galleries." />
     <link rel="canonical" href="https://www.kawaki.co.in/case-studies/decor-lab" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.kawaki.co.in/case-studies/decor-lab" />
-    <meta property="og:title" content="Decor Lab — 33-Year Architecture & Parametric Studio Case Study | Kawaki Studios" />
-    <meta property="og:description" content="How Kawaki Studios engineered Decor Lab's digital flagship, featuring Next.js, fullscreen background video kinematics, and parametric architectural galleries." />
+    <meta property="og:title" content="Decor Lab — 33-Year Architecture &amp; Parametric Studio Case Study | Kawaki Studios" />
+    <meta property="og:description" content="How Kawaki Studios engineered Decor Lab&#39;s Next.js digital platform, incorporating hardware-accelerated video kinematics, Bartlett UCL parametric showcases, and horizontal galleries." />
     <meta property="og:image" content="https://www.kawaki.co.in/assets/images/case-studies/decor-lab/hero.jpg" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
-    <meta name="twitter:title" content="Decor Lab — 33-Year Architecture & Parametric Studio Case Study | Kawaki Studios" />
-    <meta name="twitter:description" content="How Kawaki Studios engineered Decor Lab's digital flagship, featuring Next.js, fullscreen background video kinematics, and parametric architectural galleries." />
+    <meta name="twitter:title" content="Decor Lab — 33-Year Architecture &amp; Parametric Studio Case Study | Kawaki Studios" />
+    <meta name="twitter:description" content="How Kawaki Studios engineered Decor Lab&#39;s Next.js digital platform, incorporating hardware-accelerated video kinematics, Bartlett UCL parametric showcases, and horizontal galleries." />
     <meta name="twitter:image" content="https://www.kawaki.co.in/assets/images/case-studies/decor-lab/hero.jpg" />
 
     <!-- JSON-LD Schema -->
@@ -32,8 +32,8 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Decor Lab",
-  "headline": "Decor Lab: Immersive Digital Experience for a 33-Year Indian Architecture Practice",
-  "description": "How Kawaki Studios engineered Decor Lab's digital flagship, featuring Next.js, fullscreen background video kinematics, and parametric architectural galleries.",
+  "headline": "Decor Lab: Immersive Digital Flagship for a 33-Year Indian Architecture Practice",
+  "description": "How Kawaki Studios engineered Decor Lab's Next.js digital platform, incorporating hardware-accelerated video kinematics, Bartlett UCL parametric showcases, and horizontal galleries.",
   "url": "https://www.kawaki.co.in/case-studies/decor-lab",
   "image": "https://www.kawaki.co.in/assets/images/case-studies/decor-lab/hero.jpg",
   "creator": {
@@ -69,10 +69,19 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
     <style>
+        :root {
+            --cs-accent: #C6FF00;
+            --cs-dark: #0c0d10;
+            --cs-card-bg: #14161d;
+            --cs-border: rgba(255, 255, 255, 0.08);
+            --cs-text-muted: #8e929e;
+        }
+
+        /* Hero & Header elements */
         .csd-live-btn {
             display: inline-flex;
             align-items: center;
@@ -80,31 +89,29 @@
             background: #C6FF00;
             color: #111111;
             font-family: 'Host Grotesk', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            padding: 0.75rem 1.5rem;
+            padding: 0.85rem 1.75rem;
             border-radius: 9999px;
             text-decoration: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-top: 1.5rem;
         }
         .csd-live-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(198, 255, 0, 0.3);
+            box-shadow: 0 8px 24px rgba(198, 255, 0, 0.35);
         }
         .csd-disabled-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             background: rgba(255, 255, 255, 0.08);
-            color: #888888;
+            color: #aaaaaa;
             font-family: 'Space Mono', monospace;
             font-size: 0.85rem;
-            padding: 0.75rem 1.25rem;
+            padding: 0.85rem 1.5rem;
             border-radius: 9999px;
             border: 1px solid rgba(255, 255, 255, 0.12);
             cursor: not-allowed;
-            margin-top: 1.5rem;
         }
         .csd-logo-badge {
             display: inline-flex;
@@ -114,23 +121,214 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
         .csd-logo-badge img {
             max-height: 28px;
             width: auto;
             object-fit: contain;
         }
+
+        /* 2-Column Snapshot Grid */
+        .csd-snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            .csd-snapshot-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+        }
+        .csd-snapshot-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .csd-snapshot-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888888;
+        }
+        .csd-snapshot-val {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+        .csd-snapshot-val a {
+            color: #C6FF00;
+            text-decoration: none;
+        }
+        .csd-snapshot-val a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections common styling */
+        .csd-section-dark {
+            background: #0c0d10;
+            color: #ffffff;
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .csd-section-light {
+            background: #ffffff;
+            color: #111111;
+            padding: 6rem 2rem;
+            border-top: 1px solid #eeeeee;
+        }
+        .csd-section-offwhite {
+            background: #f8f9fa;
+            color: #111111;
+            padding: 6rem 2rem;
+            border-top: 1px solid #e9ecef;
+        }
+        .csd-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .csd-section-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        .csd-eyebrow-accent {
+            color: #C6FF00;
+        }
+        .csd-eyebrow-muted {
+            color: #666666;
+        }
+        .csd-section-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Cards & Grid Utilities */
+        .csd-cards-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .csd-cards-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .csd-cards-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .csd-cards-grid-2, .csd-cards-grid-3, .csd-cards-grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .csd-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .csd-card-dark {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        /* Diagrams & Code Blocks */
+        .csd-diagram-box {
+            background: #08090b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            color: #C6FF00;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 2rem 0;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        /* Tables */
+        .csd-table-wrapper {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+        .csd-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .csd-table th {
+            background: #f1f3f5;
+            color: #111111;
+            padding: 1rem 1.25rem;
+            font-family: 'Host Grotesk', sans-serif;
+            font-weight: 700;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .csd-table td {
+            padding: 1.2rem 1.25rem;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+            line-height: 1.6;
+            color: #444444;
+        }
+        .csd-table tr:last-child td {
+            border-bottom: none;
+        }
+        .csd-table td strong {
+            color: #111111;
+        }
+
+        /* Tech Badges */
         .csd-tech-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.06);
             color: #dddddd;
             font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
-            padding: 0.25rem 0.6rem;
+            padding: 0.35rem 0.75rem;
             border-radius: 4px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 0.2rem;
+            margin: 0.25rem;
+        }
+        .csd-tech-badge-light {
+            display: inline-block;
+            background: #eef1f5;
+            color: #333333;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #dde2e8;
+            margin: 0.25rem;
         }
         .csd-service-tag {
             display: inline-flex;
@@ -139,9 +337,9 @@
             background: #111111;
             color: #C6FF00;
             border: 1px solid rgba(198, 255, 0, 0.3);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 6px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-family: 'Host Grotesk', sans-serif;
             text-decoration: none;
             transition: all 0.2s ease;
@@ -149,6 +347,95 @@
         .csd-service-tag:hover {
             background: #C6FF00;
             color: #111111;
+        }
+
+        /* Screen Caption Cards */
+        .csd-screen-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.5rem;
+        }
+        .csd-screen-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #e5e7eb;
+            object-fit: cover;
+        }
+        .csd-screen-caption {
+            padding: 1.5rem 2rem;
+            background: #ffffff;
+        }
+        .csd-screen-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 0.4rem;
+        }
+        .csd-screen-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555555;
+        }
+
+        /* Gallery Grid */
+        .csd-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            .csd-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .csd-gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #14161d;
+        }
+        .csd-gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .csd-gallery-item:hover img {
+            transform: scale(1.02);
+        }
+        .csd-gallery-item-caption {
+            padding: 1.25rem;
+            font-size: 0.85rem;
+            color: #aaaaaa;
+            line-height: 1.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Deliverables Checklist */
+        .csd-checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .csd-check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .csd-check-icon {
+            color: #C6FF00;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            line-height: 1;
         }
     </style>
 </head>
@@ -230,33 +517,58 @@
                 
                 <div class="csd-logo-badge"><img src="/assets/images/case-studies/decor-lab/logo.webp" alt="Decor Lab Logo" loading="lazy" decoding="async" /><span>Decor Lab</span></div>
 
-                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Brand & Marketing Websites &middot; Architecture / Parametric Design Practice</div>
-                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 2rem;">
-                    Decor Lab: Immersive Digital Experience for a 33-Year Indian Architecture Practice
+                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Brand &amp; Marketing Websites &middot; Architecture / Luxury Interior Curation / Parametric &amp; Fluid Architecture &middot; Year 2024</div>
+                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;">
+                    Decor Lab: Immersive Digital Flagship for a 33-Year Indian Architecture Practice
                 </h1>
                 
-                <div class="csd-meta-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; padding: 2rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Client / Product</span>
-                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Decor Lab</span>
-                    </div>
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Discipline</span>
-                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Brand & Marketing Websites</span>
-                    </div>
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Kawaki's Role</span>
-                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Full-Stack Web Engineering & Kinematics (Next.js, Video Hero, Horizontal Project Showcase)</span>
-                    </div>
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Verified Technologies</span>
-                        <div style="margin-top: 0.25rem;"><span class="csd-tech-badge">Next.js</span> <span class="csd-tech-badge">Fullscreen Background Video</span> <span class="csd-tech-badge">Horizontal Gallery Kinematics</span> <span class="csd-tech-badge">Hardware Acceleration</span></div>
-                    </div>
-                </div>
+                <p style="font-size: 1.2rem; line-height: 1.6; color: #cccccc; max-width: 850px; margin-bottom: 2rem;">
+                    Full-Stack Web Engineering, Next.js Architecture, Video Kinematics, Horizontal Gallery Interaction
+                </p>
 
-                <div style="margin-top: 1.5rem;">
+                <div style="margin-bottom: 2.5rem;">
                     <a href="https://www.decorlabs.co.in/" target="_blank" rel="noopener noreferrer" class="csd-live-btn">Visit Live Project ↗</a>
                 </div>
+
+                <!-- 2. Project Snapshot Table -->
+                
+    <div class="csd-snapshot-grid">
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Client / Product</span>
+            <span class="csd-snapshot-val">Decor Lab (Decorlab)</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Industry &amp; Domain</span>
+            <span class="csd-snapshot-val">Parametric Architecture &amp; Spatial Curation</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Services Provided</span>
+            <span class="csd-snapshot-val">Next.js Engineering, Hardware-Accelerated Video Kinematics, Interactive Horizontal Gallery</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
+            <span class="csd-snapshot-val">Next.js App Router (SSR &amp; Edge)</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Core Technologies</span>
+            <span class="csd-snapshot-val">Next.js, React, Tailwind CSS, HTML5 Video Engine, Mix-Blend Cursor Layer</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Project Scope</span>
+            <span class="csd-snapshot-val">Digital Flagship, Parametric Portfolio Showcase, 33-Year Heritage Interactive Timeline</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Production Status</span>
+            <span class="csd-snapshot-val">Live in Production (Attribution in Footer: &#39;Site by Kawaki Studios&#39;)</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Live Platform / Access</span>
+            <span class="csd-snapshot-val">
+                <a href="https://www.decorlabs.co.in/" target="_blank" rel="noopener noreferrer">https://www.decorlabs.co.in/ ↗</a>
+            </span>
+        </div>
+    </div>
+  
             </div>
             
             <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
@@ -264,75 +576,522 @@
             </div>
         </section>
 
-        <!-- Challenge & Objective -->
-        <section class="csd-text-section" style="padding: 6rem 2rem; background: #ffffff; color: #111111;">
-            <div class="csd-text-inner" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem;">
-                <div class="csd-text-column">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// THE CHALLENGE</span>
-                    <h2 class="csd-text-heading" style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">The Engineering &amp; Operational Friction</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444;">Founded in 1993, Decor Lab has evolved from traditional architecture into an innovative parametric and fluid design studio. Their digital flagship needed to honor three decades of Indian architectural heritage while positioning them at the cutting edge of contemporary computational design.</p>
+        <!-- 3. The Context -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 01. THE CONTEXT</span>
+            <h2 class="csd-section-title">Institutional Background &amp; Strategic Mission</h2>
+            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Who the Client Is</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;">Established in 1993 by Raja Sinha and carried forward by Rajdip Sinha (The Bartlett School of Architecture, UCL), Decor Lab is a 33-year-old architectural institution headquartered in Kolkata. With more than 1,300 completed projects, a 275-member team, and commissions across 15 Indian cities, the firm bridges traditional craftsmanship with cutting-edge computational parametric design.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;">Decor Lab&#39;s landmark commissions include the Patna Penthouse (a double-height luxury duplex with custom marble inlays), the Santhaliya Residence in Kolkata (a raw plaster minimalist retreat), and the Jai Alankar Jewellers luxury showroom in Muzaffarpur. The studio&#39;s work has been recognized in the Blindwink India Design Awards, Forbes India, and GoodHomes.</p>
                 </div>
-                <div class="csd-text-column">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// THE OBJECTIVE</span>
-                    <h2 class="csd-text-heading" style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Target Architectural Outcomes</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444;">Engineer an immersive digital platform utilizing hardware-accelerated video kinematics, smooth horizontal project scrolling, and bespoke typography that communicates spatial innovation.</p>
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Target Audience &amp; Strategic Mandate</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Audience Profile:</strong> Ultra-high-net-worth residential homeowners, luxury retail brand founders, commercial real estate developers, and international architecture critics.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;"><strong>Digital Mandate:</strong> Decor Lab needed a digital experience that reflects their evolution from traditional architecture into an innovative parametric and fluid design studio. The site had to honor three decades of Indian architectural heritage while positioning them at the technological forefront of international computational design.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+  
 
-        <!-- Stats Bar -->
-        <section class="cs-stats">
-            <div class="cs-stats-inner">
+        <!-- 4. The Challenge -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 02. THE CHALLENGE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction &amp; Technical Constraints</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #cccccc; max-width: 800px; margin-bottom: 3rem;">
+                Balancing cinematic ambient video backdrops, horizontal spatial project sliders, and smooth cursor kinematics without causing device overheating or mobile lag.
+            </p>
+            <div class="csd-cards-grid-2">
                 
-    <div class="cs-stat">
-        <span class="cs-stat-num">Since 1993</span>
-        <span class="cs-stat-label">33-Year Studio Heritage</span>
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Existing Experience &amp; Narrative Fragmentation
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Prior web representations failed to communicate the studio&#39;s three design pillars: Functionality First, Material Innovation, and Fluid Parametric Architecture.
+        </p>
     </div>
-  <div class="cs-stat-divider"></div>
-    <div class="cs-stat">
-        <span class="cs-stat-num">Next.js</span>
-        <span class="cs-stat-label">Engineered by Kawaki Studios</span>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Technical Constraints of Video Delivery
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Full-bleed background video heroes often stutter, freeze DOM rendering, or drain mobile device batteries if not handled with GPU compositing and memory management.
+        </p>
     </div>
-  <div class="cs-stat-divider"></div>
-    <div class="cs-stat">
-        <span class="cs-stat-num">Video Hero</span>
-        <span class="cs-stat-label">Hardware Accelerated</span>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Horizontal Scroll Ergonomics
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Creating an intuitive horizontal spatial gallery that responds naturally to mouse wheel scrolling on desktop while preserving native vertical touch scrolling on mobile.
+        </p>
     </div>
-  <div class="cs-stat-divider"></div>
-    <div class="cs-stat">
-        <span class="cs-stat-num">Parametric</span>
-        <span class="cs-stat-label">Fluid Design Direction</span>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Parametric Visual Representation
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Communicating complex fluid curves and algorithmic geometries through clear typographic pacing, interactive project reels, and spatial photography.
+        </p>
+    </div>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Performance &amp; Cold Start Speeds
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Delivering heavy cinematic multimedia while keeping initial DOM loads under 1 second and adhering to strict Core Web Vitals thresholds.
+        </p>
     </div>
   
             </div>
-        </section>
+        </div>
+    </section>
+  
 
-        <!-- What Kawaki Built / Detailed Walkthrough -->
-        <section style="padding: 6rem 2rem; background: #fbfbfc; color: #111111; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee;">
-            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 4rem;">
-                <div>
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// WHAT WE BUILT</span>
-                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Engineered Capabilities &amp; Deliverables</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #555555; margin-bottom: 2rem;">Kawaki built the site using Next.js, incorporating a seamless background video hero and optimized project showcases. The production footer explicitly credits the technical craft: 'Site by Kawaki Studios — Made with precision in Kolkata, India.'</p>
-                    <ul style="padding-left: 1.25rem; color: #444444; font-size: 1rem;">
-                        <li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Hardware-Accelerated Video Kinematics:</strong> Fullscreen ambient video backdrop executing with zero layout shift and automated memory management.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Fluid Parametric Project Gallery:</strong> Dynamic architectural presentation highlighting residential penthouses, commercial jewelry flagships, and spatial renderings.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Design Philosophy Walkthrough:</strong> Clear articulation of Decor Lab's core pillars: Functionality First, Material Innovation, and Fluid Architecture.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Interactive Architectural Reel:</strong> Embedded high-definition video walkthroughs showcasing living room proportions and interior lighting studies.</li>
-                    </ul>
+        <!-- 5. The Approach -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. THE APPROACH</span>
+            <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
+                We envisioned the Decor Lab flagship as a living spatial environment. Just as parametric architecture creates organic, unbroken spatial transitions, the website&#39;s kinematics should flow seamlessly between video backdrops, horizontal project reveals, and tactile cursor feedback.
+            </p>
+            <div class="csd-cards-grid-2">
+                
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 01</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Next.js App Router Architecture</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We utilized Next.js with React Server Components (RSC) to render core page layouts statically at the edge, hydrating only interactive kinematic islands on the client.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 02</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Hardware-Accelerated Ambient Video Engine</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We engineered an optimized video container using CSS `translate3d` and GPU compositing, accompanied by intersection observers that automatically pause video playback when scrolled out of view.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 03</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Horizontal Spatial Project Slider</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We built a smooth, progress-tracked horizontal slider allowing visitors to glide through flagship commissions (Patna Penthouse, Santhaliya, Jai Alankar) with timeline indicators.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 04</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Interactive Mix-Blend Cursor Layer</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">A custom cursor layer with difference mix-blend modes provides subtle tactile feedback as visitors hover over interactive architectural imagery and navigation nodes.</p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 6. Information Architecture -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. INFORMATION ARCHITECTURE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
+            <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
+                A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
+            </p>
+            <div class="csd-diagram-box">
+                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Decor Lab — Parametric Digital Flagship]
+   │
+   ├── [01. Video Hero &amp; Spatial Introduction]
+   │     ├── Hardware-Accelerated Ambient Video Backdrop (DEN_1.mp4)
+   │     ├── Heritage Eyebrow (Founded 1993 | 33 Years of Practice)
+   │     └── Bartlett UCL Computational Design Manifesto
+   │
+   ├── [02. Architectural Philosophy Pillars]
+   │     ├── Pillar 01: Functionality First (Ergonomic Spatial Testing)
+   │     ├── Pillar 02: Material Innovation (Raw Plaster, Stone &amp; Timber)
+   │     └── Pillar 03: Fluid Architecture (Parametric Non-Box Geometries)
+   │
+   ├── [03. Horizontal Landmark Project Showcase]
+   │     ├── Patna Penthouse (Double-Height Duplex &amp; Marble Inlays)
+   │     ├── Santhaliya Residence (Minimalist Ombre Plaster Retreat)
+   │     ├── Jai Alankar Jewellers (High-End Retail Showroom)
+   │     ├── Rathi Residence (Tailored Wood Paneling &amp; Lighting)
+   │     └── Mahesh Soni Residence (Fluted Millwork Master Suite)
+   │
+   ├── [04. 33-Year Institutional Heritage Timeline]
+   │     ├── 1993: Foundation by Raja Sinha in Kolkata
+   │     ├── Expansion across 15 Indian Cities &amp; 1,300+ Sites
+   │     └── Bartlett UCL Computational Leadership (Rajdip Sinha)
+   │
+   └── [05. Direct Studio Consultation &amp; Footer]
+         ├── Kolkata Studio Headquarters Contact
+         ├── Pan-India Project Appointment Booking
+         └── Live Agency Attribution (&quot;Site by Kawaki Studios&quot;)</pre>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 7. UX & Design System -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 05. UX &amp; DESIGN SYSTEM</span>
+            <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
+            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Design Direction &amp; Layout Grid</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Aesthetic Thesis:</strong> Fluid luxury, dark ambient backgrounds, architectural precision, and computational sophistication.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Typography Hierarchy:</strong> Host Grotesk (Clean modern headings with geometric proportions) paired with Space Mono (Technical coordinates, timeline markers) and Plus Jakarta Sans (Narrative body).</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Layout &amp; Viewport Mechanics:</strong> Fluid clamp viewport scaling (`clamp()`) ensuring typography and section heights adapt organically to any screen width. Horizontal snap containers with custom scrollbar hiding.</p>
                 </div>
-                <div>
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// ARCHITECTURE &amp; RIGOR</span>
-                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Technical Implementation</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 2rem;">Engineered using CSS translate3d hardware acceleration and optimized video encoding, ensuring steady 60fps frame rates across desktop workstations and mobile browsers without device overheating.</p>
-                    <div style="padding: 2rem; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px;">
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">Core Engineering Highlights</h4>
-                        <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; color: #555555;">
-                            <div>&check; <strong>Verified Technology Stack:</strong> Zero simulated runtime libraries.</div>
-                            <div>&check; <strong>Performance Conscious:</strong> Strict DOM budgeting and responsive image pipelines.</div>
-                            <div>&check; <strong>Credibility First:</strong> Factual technical outcomes drawn from actual deliverables.</div>
-                        </div>
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Key Engineered Components</h3>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Fullscreen Video Frame: Zero layout-shift ambient video player with gradient contrast overlays.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Horizontal Spatial Slider: Smooth drag/wheel-scroll project cards with progress timeline bar.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Interactive Dual-Ring Cursor: Dynamic dot-and-ring cursor responding to hover targets with mix-blend inversions.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Pill Navigation Bar: Floating frosted-glass header with status indicators.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Heritage Metric Counter: 33-year milestone display with animated numerical counters.</li>
+                    </ul>
+                    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border: 1px solid #e9ecef;">
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: #111111;">Mobile &amp; Touch Ergonomics</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; color: #555555; margin: 0;">On mobile devices, the custom cursor gracefully disengages, horizontal sliders convert to buttery touch-swipe carousels, and ambient video streams in battery-conserving low-bitrate streams.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+  
+
+        <!-- 8. Key Features & Experiences -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. KEY FEATURES &amp; EXPERIENCES</span>
+            <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
+            <div style="max-width: 960px; margin-top: 3rem;">
+                
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 01</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Hardware-Accelerated Ambient Video Hero</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">A full-screen cinematic video sequence greets visitors, establishing the tactile atmosphere of Decor Lab&#39;s spaces with zero playback stutter and automated memory cleanup.</p>
+    </div>
+  
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 02</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Horizontal Spatial Showcase Slider</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">An interactive horizontal project timeline that maps natural vertical mouse-wheel input to smooth horizontal panning across landmark projects.</p>
+    </div>
+  
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 03</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Computational Architecture Narrative</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Dedicated sections detailing the Bartlett UCL parametric design methodology, articulating how mathematical curves translate into physical plaster, stone, and brass.</p>
+    </div>
+  
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 04</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Verified Kawaki Studios Engineering Attribution</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">The live production website footer carries verified attribution: &#39;Site by Kawaki Studios — Made with precision in Kolkata, India&#39;, demonstrating end-to-end delivery.</p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 9. Engineering & Architecture -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. ENGINEERING &amp; ARCHITECTURE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
+                Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
+            </p>
+            <div class="csd-cards-grid-3">
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Frontend Architecture</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Built with Next.js App Router, React Server Components, and Tailwind CSS. Client-side interactivity is encapsulated in isolated islands, ensuring minimal hydration overhead.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Backend &amp; Serverless APIs</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Edge-hosted SSR providing instantaneous static asset caching and dynamic server-rendered meta tags for rich social sharing and search bot indexation.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">API &amp; Network Contracts</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Optimized REST contact ingestion routing with encrypted client notifications.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Authentication &amp; Security</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Public architectural showcase with token-protected administrative staging branches.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Data Persistence &amp; State</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Headless content schemas allowing rapid updates to completed project galleries and architectural accolades.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Performance &amp; Web Vitals</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">60fps steady frame rate during complex horizontal scroll transforms through CSS `translate3d` hardware layers and passive event listeners.</p>
+                </div>
+            </div>
+            <div class="csd-card-dark" style="margin-top: 2rem;">
+                <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Responsive Multi-Device Engineering</h4>
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc; margin: 0;">Comprehensive multi-tier media queries and CSS clamp functions ensuring smooth visual scaling from compact mobile screens up to expansive 4K architectural drafting monitors.</p>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 10. Selected Screens & Walkthrough -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. SELECTED SCREENS &amp; WALKTHROUGH</span>
+            <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
+            <div style="margin-top: 3rem;">
+                
+    <div class="csd-screen-card">
+        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Cinematic Video Hero" class="csd-screen-img" loading="lazy" decoding="async" />
+        <div class="csd-screen-caption">
+            <h4 class="csd-screen-title">Cinematic Video Hero</h4>
+            <p class="csd-screen-desc">Full-screen ambient video background showcasing living room proportions, lighting studies, and the Bartlett architectural manifesto.</p>
+        </div>
+    </div>
+  
+    <div class="csd-screen-card">
+        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Horizontal Project Showcase" class="csd-screen-img" loading="lazy" decoding="async" />
+        <div class="csd-screen-caption">
+            <h4 class="csd-screen-title">Horizontal Project Showcase</h4>
+            <p class="csd-screen-desc">Interactive spatial slider presenting the Patna Penthouse and Santhaliya Residence with high-resolution details and material callouts.</p>
+        </div>
+    </div>
+  
+    <div class="csd-screen-card">
+        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Mobile Ergonomics &amp; Studio Heritage" class="csd-screen-img" loading="lazy" decoding="async" />
+        <div class="csd-screen-caption">
+            <h4 class="csd-screen-title">Mobile Ergonomics &amp; Studio Heritage</h4>
+            <p class="csd-screen-desc">Responsive mobile viewport showing fluid typography, touch carousel navigation, and the verified Kawaki Studios production credit.</p>
+        </div>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 11. Technical Deep Dive -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. TECHNICAL DEEP DIVE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Kinematic Animation &amp; GPU Compositing Pipeline</h2>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
+                By isolating DOM transformations into separate GPU composite layers and managing video playback through Intersection Observers, the page avoids triggering expensive browser reflows and repaints during rapid scrolling.
+            </p>
+            <div class="csd-diagram-box">
+                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[User Viewport Scroll / Wheel Event]
+                │
+                ▼ (Passive Event Listener)
+[Lenis Kinematic Interpolator]
+                │
+                ├── [Virtual Scroll Position Calculation]
+                │
+                ▼ (requestAnimationFrame)
+[GPU Compositor Layer: transform3d(x, 0, 0)]
+                │
+    ┌───────────┴───────────┐
+    ▼ (Horizontal Slider)   ▼ (Video Background)
+[Smooth Tile Offset]    [Viewport Intersection Check]
+    │                       │
+    │                       ├── In View: video.play()
+    │                       └── Out of View: video.pause()
+    │
+    ▼ (60 FPS Steady Frame Rate)
+[Zero Frame Drop Visual Experience]</pre>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 12. Challenges & Solutions Table -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. CHALLENGES &amp; SOLUTIONS</span>
+            <h2 class="csd-section-title">Architectural Friction Resolved</h2>
+            <div class="csd-table-wrapper">
+                <table class="csd-table">
+                    <thead>
+                        <tr>
+                            <th>Specific Project Challenge</th>
+                            <th>Kawaki's Architectural Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">Ambient full-bleed background video caused browser frame drops and high CPU usage on mid-tier laptops.</td>
+        <td style="width: 55%; color: #444444;">Configured GPU-accelerated video containers and an automated visibility observer that suspends playback when scrolled past.</td>
+    </tr>
+  
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">Horizontal scrolling often feels unnatural or clashes with standard mouse-wheel page scrolling.</td>
+        <td style="width: 55%; color: #444444;">Engineered a normalized wheel-to-translateX bridge with velocity smoothing and progress timeline bars.</td>
+    </tr>
+  
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">33 years of heritage and 1,300 projects risked overwhelming visitors with an unnavigable wall of content.</td>
+        <td style="width: 55%; color: #444444;">Curated a focused landmark showcase highlighting five signature residential and commercial commissions.</td>
+    </tr>
+  
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">Mobile touch screens suffered accidental scroll locking inside horizontal component containers.</td>
+        <td style="width: 55%; color: #444444;">Implemented directional gesture locks that distinguish horizontal swipe exploration from vertical page advancement.</td>
+    </tr>
+  
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 13. Outcome & Business Impact -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 11. OUTCOME &amp; BUSINESS IMPACT</span>
+            <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
+            <div class="csd-card" style="margin-top: 2rem;">
+                <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
+                    A sensory, high-performance architectural showcase honoring 33 years of Indian design heritage while celebrating modern parametric craft.
+                </p>
+                <ul style="padding-left: 1.25rem;">
+                    <li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Delivered an award-grade digital flagship verified live with Kawaki Studios production footer credit.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Hardware-accelerated video and horizontal scrolling executing with silky 60fps responsiveness.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Clear articulation of the studio&#39;s Bartlett UCL parametric and fluid architecture principles.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Flawless cross-device performance spanning smartphones, tablets, and large studio monitors.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 14. What We Delivered -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 12. SCOPE OF WORK</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
+            <div class="csd-checklist">
+                
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Next.js App Router Production Architecture</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Hardware-Accelerated Video Kinematics Engine</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Interactive Horizontal Project Slider with Progress Tracking</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Custom Interactive Mix-Blend Cursor Subsystem</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Fluid Viewport Clamp Responsive Design System</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Structured SEO &amp; Schema.org LocalBusiness Integration</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Production Cloudflare / Edge CDN Deployment</span>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 15. Project Gallery -->
+        
+    <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 13. PROJECT GALLERY</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
+            <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
+                
+    <div class="csd-gallery-item">
+        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Patna Penthouse Master Duplex" loading="lazy" decoding="async" />
+        <div class="csd-gallery-item-caption">
+            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Patna Penthouse Master Duplex</strong>
+            <span>Double-height luxury living volume with bookmatched Italian marble and custom ambient ceiling illumination.</span>
+        </div>
+    </div>
+  
+    <div class="csd-gallery-item">
+        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Jai Alankar Jewellers Showroom" loading="lazy" decoding="async" />
+        <div class="csd-gallery-item-caption">
+            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Jai Alankar Jewellers Showroom</strong>
+            <span>Commercial retail spatial design with curved fluted display counters and warm gold-leaf accents.</span>
+        </div>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 16. Technology Stack -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 14. TECHNOLOGY STACK</span>
+            <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
+            <div class="csd-cards-grid-3" style="margin-top: 2rem;">
+                
+    <div class="csd-card">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Framework &amp; Frontend</h4>
+        <div>
+            <span class="csd-tech-badge-light">Next.js App Router</span> <span class="csd-tech-badge-light">React Server Components</span> <span class="csd-tech-badge-light">Tailwind CSS</span> <span class="csd-tech-badge-light">HTML5 Video Engine</span>
+        </div>
+    </div>
+  
+    <div class="csd-card">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Kinematics &amp; Micro-UX</h4>
+        <div>
+            <span class="csd-tech-badge-light">GPU Compositor</span> <span class="csd-tech-badge-light">CSS translate3d</span> <span class="csd-tech-badge-light">Interactive Cursor Engine</span> <span class="csd-tech-badge-light">Lenis Smooth Scroll</span>
+        </div>
+    </div>
+  
+    <div class="csd-card">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Infrastructure &amp; Hosting</h4>
+        <div>
+            <span class="csd-tech-badge-light">Edge CDN Deployment</span> <span class="csd-tech-badge-light">Cache-Control Layer</span> <span class="csd-tech-badge-light">Structured Data Schema</span> <span class="csd-tech-badge-light">Sub-Second Asset Delivery</span>
+        </div>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
   
         <!-- Related Kawaki Capabilities & Next Project -->
         <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
@@ -346,15 +1105,15 @@
                 </div>
 
                 
-                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap: 2rem;">
+                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
                     <div>
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
                         <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Slix IPTV &rarr;</a>
+                            <a href="/case-studies/bazzaro" style="color: #ffffff; text-decoration: none;">BAZZARO &rarr;</a>
                         </h4>
-                        <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Mobile Applications &middot; Digital Media / Video Streaming / Entertainment</p>
+                        <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Commerce & B2B &middot; D2C E-Commerce / Designer Canvas Accessories / Fashion Goods</p>
                     </div>
-                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                    <a href="/case-studies/bazzaro" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
                 </div>
                 
             </div>

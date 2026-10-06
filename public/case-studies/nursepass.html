@@ -9,21 +9,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NursePass — Healthcare LMS for German Nursing Recognition Case Study | Kawaki Studios</title>
-    <meta name="description" content="How Kawaki Studios engineered NursePass, a professional healthcare LMS preparing international nurses for German licensing exams (Kenntnisprüfung & Anpassungslehrgang)." />
+    <meta name="description" content="How Kawaki Studios engineered NursePass, a professional healthcare LMS preparing international nurses for German licensing exams (Kenntnisprüfung &amp; Anpassungslehrgang)." />
     <link rel="canonical" href="https://www.kawaki.co.in/case-studies/nursepass" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.kawaki.co.in/case-studies/nursepass" />
     <meta property="og:title" content="NursePass — Healthcare LMS for German Nursing Recognition Case Study | Kawaki Studios" />
-    <meta property="og:description" content="How Kawaki Studios engineered NursePass, a professional healthcare LMS preparing international nurses for German licensing exams (Kenntnisprüfung & Anpassungslehrgang)." />
+    <meta property="og:description" content="How Kawaki Studios engineered NursePass, a professional healthcare LMS preparing international nurses for German licensing exams (Kenntnisprüfung &amp; Anpassungslehrgang)." />
     <meta property="og:image" content="https://www.kawaki.co.in/assets/images/case-studies/nursepass/hero.jpg" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="NursePass — Healthcare LMS for German Nursing Recognition Case Study | Kawaki Studios" />
-    <meta name="twitter:description" content="How Kawaki Studios engineered NursePass, a professional healthcare LMS preparing international nurses for German licensing exams (Kenntnisprüfung & Anpassungslehrgang)." />
+    <meta name="twitter:description" content="How Kawaki Studios engineered NursePass, a professional healthcare LMS preparing international nurses for German licensing exams (Kenntnisprüfung &amp; Anpassungslehrgang)." />
     <meta name="twitter:image" content="https://www.kawaki.co.in/assets/images/case-studies/nursepass/hero.jpg" />
 
     <!-- JSON-LD Schema -->
@@ -69,10 +69,19 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
     <style>
+        :root {
+            --cs-accent: #C6FF00;
+            --cs-dark: #0c0d10;
+            --cs-card-bg: #14161d;
+            --cs-border: rgba(255, 255, 255, 0.08);
+            --cs-text-muted: #8e929e;
+        }
+
+        /* Hero & Header elements */
         .csd-live-btn {
             display: inline-flex;
             align-items: center;
@@ -80,31 +89,29 @@
             background: #C6FF00;
             color: #111111;
             font-family: 'Host Grotesk', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            padding: 0.75rem 1.5rem;
+            padding: 0.85rem 1.75rem;
             border-radius: 9999px;
             text-decoration: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-top: 1.5rem;
         }
         .csd-live-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(198, 255, 0, 0.3);
+            box-shadow: 0 8px 24px rgba(198, 255, 0, 0.35);
         }
         .csd-disabled-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             background: rgba(255, 255, 255, 0.08);
-            color: #888888;
+            color: #aaaaaa;
             font-family: 'Space Mono', monospace;
             font-size: 0.85rem;
-            padding: 0.75rem 1.25rem;
+            padding: 0.85rem 1.5rem;
             border-radius: 9999px;
             border: 1px solid rgba(255, 255, 255, 0.12);
             cursor: not-allowed;
-            margin-top: 1.5rem;
         }
         .csd-logo-badge {
             display: inline-flex;
@@ -114,23 +121,214 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
         .csd-logo-badge img {
             max-height: 28px;
             width: auto;
             object-fit: contain;
         }
+
+        /* 2-Column Snapshot Grid */
+        .csd-snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            .csd-snapshot-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+        }
+        .csd-snapshot-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .csd-snapshot-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888888;
+        }
+        .csd-snapshot-val {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+        .csd-snapshot-val a {
+            color: #C6FF00;
+            text-decoration: none;
+        }
+        .csd-snapshot-val a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections common styling */
+        .csd-section-dark {
+            background: #0c0d10;
+            color: #ffffff;
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .csd-section-light {
+            background: #ffffff;
+            color: #111111;
+            padding: 6rem 2rem;
+            border-top: 1px solid #eeeeee;
+        }
+        .csd-section-offwhite {
+            background: #f8f9fa;
+            color: #111111;
+            padding: 6rem 2rem;
+            border-top: 1px solid #e9ecef;
+        }
+        .csd-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .csd-section-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        .csd-eyebrow-accent {
+            color: #C6FF00;
+        }
+        .csd-eyebrow-muted {
+            color: #666666;
+        }
+        .csd-section-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Cards & Grid Utilities */
+        .csd-cards-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .csd-cards-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .csd-cards-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .csd-cards-grid-2, .csd-cards-grid-3, .csd-cards-grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .csd-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .csd-card-dark {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        /* Diagrams & Code Blocks */
+        .csd-diagram-box {
+            background: #08090b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            color: #C6FF00;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 2rem 0;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        /* Tables */
+        .csd-table-wrapper {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+        .csd-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .csd-table th {
+            background: #f1f3f5;
+            color: #111111;
+            padding: 1rem 1.25rem;
+            font-family: 'Host Grotesk', sans-serif;
+            font-weight: 700;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .csd-table td {
+            padding: 1.2rem 1.25rem;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+            line-height: 1.6;
+            color: #444444;
+        }
+        .csd-table tr:last-child td {
+            border-bottom: none;
+        }
+        .csd-table td strong {
+            color: #111111;
+        }
+
+        /* Tech Badges */
         .csd-tech-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.06);
             color: #dddddd;
             font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
-            padding: 0.25rem 0.6rem;
+            padding: 0.35rem 0.75rem;
             border-radius: 4px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 0.2rem;
+            margin: 0.25rem;
+        }
+        .csd-tech-badge-light {
+            display: inline-block;
+            background: #eef1f5;
+            color: #333333;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #dde2e8;
+            margin: 0.25rem;
         }
         .csd-service-tag {
             display: inline-flex;
@@ -139,9 +337,9 @@
             background: #111111;
             color: #C6FF00;
             border: 1px solid rgba(198, 255, 0, 0.3);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 6px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-family: 'Host Grotesk', sans-serif;
             text-decoration: none;
             transition: all 0.2s ease;
@@ -149,6 +347,95 @@
         .csd-service-tag:hover {
             background: #C6FF00;
             color: #111111;
+        }
+
+        /* Screen Caption Cards */
+        .csd-screen-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.5rem;
+        }
+        .csd-screen-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #e5e7eb;
+            object-fit: cover;
+        }
+        .csd-screen-caption {
+            padding: 1.5rem 2rem;
+            background: #ffffff;
+        }
+        .csd-screen-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 0.4rem;
+        }
+        .csd-screen-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555555;
+        }
+
+        /* Gallery Grid */
+        .csd-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            .csd-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .csd-gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #14161d;
+        }
+        .csd-gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .csd-gallery-item:hover img {
+            transform: scale(1.02);
+        }
+        .csd-gallery-item-caption {
+            padding: 1.25rem;
+            font-size: 0.85rem;
+            color: #aaaaaa;
+            line-height: 1.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Deliverables Checklist */
+        .csd-checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .csd-check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .csd-check-icon {
+            color: #C6FF00;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            line-height: 1;
         }
     </style>
 </head>
@@ -230,33 +517,58 @@
                 
                 <div class="csd-logo-badge"><img src="/assets/images/case-studies/nursepass/logo.svg" alt="NursePass Logo" loading="lazy" decoding="async" /><span>NursePass Deutschland</span></div>
 
-                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Web Applications & Platforms &middot; Healthcare / EdTech / Professional LMS</div>
-                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 2rem;">
+                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Web Applications &amp; Platforms &middot; Healthcare / EdTech / Medical Accreditation Learning Platform &middot; Year 2024</div>
+                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;">
                     NursePass: Multilingual Professional LMS for Healthcare Certification in Germany
                 </h1>
                 
-                <div class="csd-meta-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; padding: 2rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Client / Product</span>
-                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">NursePass Deutschland</span>
-                    </div>
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Discipline</span>
-                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Web Applications & Platforms</span>
-                    </div>
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Kawaki's Role</span>
-                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Web Application Architecture, Multilingual LMS Engine, Examination Simulation Subsystem</span>
-                    </div>
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Verified Technologies</span>
-                        <div style="margin-top: 0.25rem;"><span class="csd-tech-badge">Laravel</span> <span class="csd-tech-badge">Modular LMS</span> <span class="csd-tech-badge">German Healthcare Curriculum</span> <span class="csd-tech-badge">Timed Examination Simulator</span> <span class="csd-tech-badge">Multilingual i18n</span></div>
-                    </div>
-                </div>
+                <p style="font-size: 1.2rem; line-height: 1.6; color: #cccccc; max-width: 850px; margin-bottom: 2rem;">
+                    Web Application Architecture, Multilingual LMS Engine, Examination Simulation Subsystem, Course Player
+                </p>
 
-                <div style="margin-top: 1.5rem;">
+                <div style="margin-bottom: 2.5rem;">
                     <a href="https://nursepass.de/" target="_blank" rel="noopener noreferrer" class="csd-live-btn">Visit Live Project ↗</a>
                 </div>
+
+                <!-- 2. Project Snapshot Table -->
+                
+    <div class="csd-snapshot-grid">
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Client / Product</span>
+            <span class="csd-snapshot-val">NursePass Deutschland</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Industry &amp; Domain</span>
+            <span class="csd-snapshot-val">Healthcare Accreditation &amp; Professional EdTech</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Services Provided</span>
+            <span class="csd-snapshot-val">Web Application Development, Modular LMS Architecture, Examination Simulator, Multilingual Content Delivery</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
+            <span class="csd-snapshot-val">Laravel Enterprise Web Application</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Core Technologies</span>
+            <span class="csd-snapshot-val">Laravel, Relational Database, Interactive Course Player, Timed Simulator, Multilingual i18n</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Project Scope</span>
+            <span class="csd-snapshot-val">Full-Stack LMS, German Medical Curriculum Engine, Hospital Partner Cohort Dashboard</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Production Status</span>
+            <span class="csd-snapshot-val">Live in Production</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Live Platform / Access</span>
+            <span class="csd-snapshot-val">
+                <a href="https://nursepass.de/ (Login Portal: nursepass.de/login)" target="_blank" rel="noopener noreferrer">https://nursepass.de/ (Login Portal: nursepass.de/login) ↗</a>
+            </span>
+        </div>
+    </div>
+  
             </div>
             
             <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
@@ -264,75 +576,528 @@
             </div>
         </section>
 
-        <!-- Challenge & Objective -->
-        <section class="csd-text-section" style="padding: 6rem 2rem; background: #ffffff; color: #111111;">
-            <div class="csd-text-inner" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem;">
-                <div class="csd-text-column">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// THE CHALLENGE</span>
-                    <h2 class="csd-text-heading" style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">The Engineering &amp; Operational Friction</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444;">Internationally qualified nurses migrating to Germany face rigorous state accreditation exams (Kenntnisprüfung and Anpassungslehrgang). Generic learning management systems lack the specialized workflows required for medical terminology, pharmacology drills, and German clinical case studies.</p>
+        <!-- 3. The Context -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 01. THE CONTEXT</span>
+            <h2 class="csd-section-title">Institutional Background &amp; Strategic Mission</h2>
+            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Who the Client Is</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;">Germany faces an acute shortage of nursing personnel, requiring thousands of internationally qualified nurses to migrate and achieve official state licensure (*Berufsurkunde*). NursePass is a specialized digital learning management platform engineered specifically to guide foreign healthcare workers through the rigorous German recognition procedure (*Anerkennungsverfahren*)—from initial deficit assessment to passing their state knowledge exams.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;">The platform delivers accredited digital coursework covering the oral and practical knowledge examination (*Kenntnisprüfung*), adaptation training curricula (*Anpassungslehrgang*), specialized clinical medical German (*Medizinisches Deutsch B2/C1*), and German hospital nursing protocols (*Deutsche Pflegepraxis*).</p>
                 </div>
-                <div class="csd-text-column">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// THE OBJECTIVE</span>
-                    <h2 class="csd-text-heading" style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Target Architectural Outcomes</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444;">Build a bespoke healthcare learning platform delivering structured curriculum modules, clinical case simulations, medical German vocabulary training, and timed mock examinations.</p>
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Target Audience &amp; Strategic Mandate</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Audience Profile:</strong> Internationally qualified nurses preparing for German state exams, German hospital employers sponsoring recruitment cohorts, and healthcare recruitment agencies.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;"><strong>Digital Mandate:</strong> Generic LMS platforms (Moodle, Teachable) lack the specialized workflows required for medical accreditation: clinical scenario testing, hospital shift handover drills, domain-specific pharmacology vocabulary, and multi-hospital cohort tracking. NursePass needed a bespoke web application combining distraction-free learning ergonomics with timed state examination simulations.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+  
 
-        <!-- Stats Bar -->
-        <section class="cs-stats">
-            <div class="cs-stats-inner">
+        <!-- 4. The Challenge -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 02. THE CHALLENGE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction &amp; Technical Constraints</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #cccccc; max-width: 800px; margin-bottom: 3rem;">
+                Designing a high-trust, distraction-free educational web application that translates complex German medical licensing regulations into structured, self-paced learning paths.
+            </p>
+            <div class="csd-cards-grid-2">
                 
-    <div class="cs-stat">
-        <span class="cs-stat-num">Healthcare</span>
-        <span class="cs-stat-label">Specialized Curriculum</span>
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Rigorous German Licensing Requirements
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Accreditation involves strict statutory requirements across 16 federal states (*Bundesländer*). Coursework had to align precisely with official medical curriculum standards.
+        </p>
     </div>
-  <div class="cs-stat-divider"></div>
-    <div class="cs-stat">
-        <span class="cs-stat-num">German</span>
-        <span class="cs-stat-label">Medical Language Training</span>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Specialized Medical Language (Fachsprache)
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Foreign nurses struggle most with clinical German: documenting patient handovers, interpreting pharmacology charts, and communicating with medical doctors under pressure.
+        </p>
     </div>
-  <div class="cs-stat-divider"></div>
-    <div class="cs-stat">
-        <span class="cs-stat-num">Simulation</span>
-        <span class="cs-stat-label">Timed Examination Engine</span>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Realistic Timed Exam Simulation
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Candidates required timed mock examination simulations mimicking real state oral and written tests, with instant score evaluations and diagnostic rationale breakdowns.
+        </p>
     </div>
-  <div class="cs-stat-divider"></div>
-    <div class="cs-stat">
-        <span class="cs-stat-num">Recognition</span>
-        <span class="cs-stat-label">Professional Adaptation</span>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Mobile Ergonomics for Shift Workers
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Working nurses study during irregular hospital breaks and commutes on mobile devices, demanding an interface that is readable, low-bandwidth, and distraction-free.
+        </p>
+    </div>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Institutional Partner Administration
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Hospital clinics and recruitment agencies funding candidate training needed administrative dashboards to monitor cohort study progress, quiz scores, and exam readiness.
+        </p>
     </div>
   
             </div>
-        </section>
+        </div>
+    </section>
+  
 
-        <!-- What Kawaki Built / Detailed Walkthrough -->
-        <section style="padding: 6rem 2rem; background: #fbfbfc; color: #111111; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee;">
-            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 4rem;">
-                <div>
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// WHAT WE BUILT</span>
-                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Engineered Capabilities &amp; Deliverables</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #555555; margin-bottom: 2rem;">Kawaki architected a clean, accessible learning management platform engineered with modular course progression. The UX emphasizes legibility, high contrast, and distraction-free study modes essential for working nurses balancing shifts with examination preparation.</p>
-                    <ul style="padding-left: 1.25rem; color: #444444; font-size: 1rem;">
-                        <li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Specialized Examination Simulator:</strong> Timed clinical multiple-choice and scenario exams mimicking official German state licensing formats.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Medical German Module:</strong> Domain-specific language training focused on hospital handovers, patient documentation, and clinical communication.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Structured Adaptation Track:</strong> Progress tracking tailored to the regulatory curriculum required by German state health authorities.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Institutional Administration:</strong> Dedicated dashboards for healthcare recruiters and hospital partners to monitor cohort progress.</li>
-                    </ul>
+        <!-- 5. The Approach -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. THE APPROACH</span>
+            <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
+                We designed NursePass around pedagogical clarity and medical authority. When nurses are studying after a 12-hour hospital shift, the interface must eliminate cognitive friction: clean typography, dark-accented course players, high-contrast vocabulary drills, and seamless mobile progress synchronization.
+            </p>
+            <div class="csd-cards-grid-2">
+                
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 01</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Laravel Modular LMS Core</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We engineered the platform using a modular Laravel backend architecture, organizing curriculum content into progressive learning tracks with granular progress states.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 02</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Timed Examination Simulation Engine</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We developed an interactive testing engine supporting scenario-based clinical multiple-choice questions, timed countdowns, and immediate post-test rationales.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 03</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Clinical Medical German Vocabulary Vault</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We built an interactive vocabulary tool focusing on hospital communication, patient admission handovers, and pharmaceutical terminology.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 04</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Accessible Distraction-Free Design System</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">Using NursePass&#39;s signature deep purple (`#5D33D5`) paired with clean neutral slates, we engineered an accessible, high-legibility interface optimized for extended study.</p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 6. Information Architecture -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. INFORMATION ARCHITECTURE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
+            <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
+                A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
+            </p>
+            <div class="csd-diagram-box">
+                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[NursePass Platform Index]
+   │
+   ├── [01. Core Curriculum Tracks]
+   │     ├── Kenntnisprüfung Preparation (Oral &amp; Practical State Exam Drills)
+   │     ├── Anpassungslehrgang Modules (Hospital Clinical Assignment Units)
+   │     ├── Medizinisches Deutsch (Clinical Vocabulary &amp; Handover Standards)
+   │     └── Deutsche Pflegepraxis (Hospital Hygiene, Consent &amp; Emergency Codes)
+   │
+   ├── [02. Interactive Course Player]
+   │     ├── Responsive Video Lecture Streaming
+   │     ├── Collapsible Lesson Outline &amp; Progress Checkmarks
+   │     ├── Downloadable Clinical Summary Sheets (PDF)
+   │     └── Note-Taking &amp; Section Bookmarking
+   │
+   ├── [03. Timed State Examination Simulator]
+   │     ├── Timed Scenario Multiple-Choice Engine
+   │     ├── Clinical Decision-Making Cases
+   │     └── Detailed Rationale &amp; Weakness Diagnosis Breakdown
+   │
+   ├── [04. Student Portal &amp; Dashboard]
+   │     ├── Overall Recognition Timeline Progress Tracker
+   │     ├── Active Course Enrollments &amp; Quiz Scores
+   │     └── Profile &amp; Certificate Verification
+   │
+   └── [05. Institutional Partner Administration]
+         ├── Hospital / Agency Cohort Progress Analytics
+         ├── Candidate Exam Readiness Scoring
+         └── Bulk License &amp; Seat Management</pre>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 7. UX & Design System -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 05. UX &amp; DESIGN SYSTEM</span>
+            <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
+            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Design Direction &amp; Layout Grid</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Aesthetic Thesis:</strong> Clinical authority, educational clarity, accessible high contrast, and distraction-free learning ergonomics.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Typography Hierarchy:</strong> Host Grotesk (Confident primary headings) paired with Plus Jakarta Sans (High-legibility medical reading body) and Space Mono (Timer countdowns, question indices).</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Layout &amp; Viewport Mechanics:</strong> Focused dual-column course player with collapsible sidebar, card-based curriculum tracks, and responsive modal quiz overlays.</p>
                 </div>
-                <div>
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// ARCHITECTURE &amp; RIGOR</span>
-                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Technical Implementation</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 2rem;">Built on a robust relational backend with optimized asset delivery across European CDNs, the application delivers smooth streaming of clinical lecture videos and rapid quiz state evaluation across desktop and mobile devices.</p>
-                    <div style="padding: 2rem; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px;">
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">Core Engineering Highlights</h4>
-                        <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; color: #555555;">
-                            <div>&check; <strong>Verified Technology Stack:</strong> Zero simulated runtime libraries.</div>
-                            <div>&check; <strong>Performance Conscious:</strong> Strict DOM budgeting and responsive image pipelines.</div>
-                            <div>&check; <strong>Credibility First:</strong> Factual technical outcomes drawn from actual deliverables.</div>
-                        </div>
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Key Engineered Components</h3>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Course Progression Bar: Visual indicator tracking completion percentages across modules and state requirements.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Interactive Video Player: Embedded player with variable playback speeds (0.75x–2.0x) and keyboard navigation.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Timed Quiz Card: Clean multiple-choice card with countdown timer, flag-for-review toggle, and instant rationale reveal.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Vocabulary Flashcard Deck: Interactive terminology flip cards with German audio pronunciation cues.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Cohort Performance Matrix: Institutional table displaying student quiz averages and module completion dates.</li>
+                    </ul>
+                    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border: 1px solid #e9ecef;">
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: #111111;">Mobile &amp; Touch Ergonomics</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; color: #555555; margin: 0;">Optimized for mobile learning on the go. The video player snaps to full width with sticky navigation, allowing nurses to review lecture modules and take practice quizzes effortlessly on smartphones.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+  
+
+        <!-- 8. Key Features & Experiences -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. KEY FEATURES &amp; EXPERIENCES</span>
+            <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
+            <div style="max-width: 960px; margin-top: 3rem;">
+                
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 01</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Specialized State Examination Simulator</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Timed clinical multiple-choice and scenario exams mimicking official German state licensing formats, complete with diagnostic scoring.</p>
+    </div>
+  
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 02</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Medical German (Fachsprache) Module</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Domain-specific clinical language training focusing on hospital handovers, patient documentation, and physician communication.</p>
+    </div>
+  
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 03</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Structured Accreditation Learning Paths</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Step-by-step digital curriculum mapping directly to the regulatory deficit notices issued by German state health authorities.</p>
+    </div>
+  
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 04</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Institutional Cohort Administration</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Dedicated management portals allowing healthcare employers and recruitment partners to monitor candidate study hours and pass readiness.</p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 9. Engineering & Architecture -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. ENGINEERING &amp; ARCHITECTURE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
+                Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
+            </p>
+            <div class="csd-cards-grid-3">
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Frontend Architecture</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Built with responsive HTML5, modern CSS custom properties, and lightweight JavaScript components, ensuring sub-second page transitions and minimal data consumption.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Backend &amp; Serverless APIs</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Robust Laravel backend managing user authentication, role-based course access, quiz scoring engines, and institutional reporting.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">API &amp; Network Contracts</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">RESTful JSON endpoints powering student progress updates, quiz state evaluations, and video playback bookmarking.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Authentication &amp; Security</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Secure session-based authentication with bcrypt password hashing and token-gated institutional access controls.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Data Persistence &amp; State</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Relational database schema storing structured course taxonomies, question banks, student answer logs, and cohort memberships.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Performance &amp; Web Vitals</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Optimized video asset delivery via European CDN edge caches, ensuring instant playback without buffering delays during hospital peak hours.</p>
+                </div>
+            </div>
+            <div class="csd-card-dark" style="margin-top: 2rem;">
+                <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Responsive Multi-Device Engineering</h4>
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc; margin: 0;">Mobile-first responsive layouts with fluid font sizing and high WCAG contrast ratios, ensuring effortless readability under fluorescent hospital lighting.</p>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 10. Selected Screens & Walkthrough -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. SELECTED SCREENS &amp; WALKTHROUGH</span>
+            <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
+            <div style="margin-top: 3rem;">
+                
+    <div class="csd-screen-card">
+        <img src="/assets/images/case-studies/nursepass/hero.jpg" alt="Curriculum Track &amp; Course Overview" class="csd-screen-img" loading="lazy" decoding="async" />
+        <div class="csd-screen-caption">
+            <h4 class="csd-screen-title">Curriculum Track &amp; Course Overview</h4>
+            <p class="csd-screen-desc">Student dashboard presenting the Kenntnisprüfung and Medical German modules with completion progress indicators.</p>
+        </div>
+    </div>
+  
+    <div class="csd-screen-card">
+        <img src="/assets/images/case-studies/nursepass/hero.jpg" alt="Timed Clinical Examination Simulator" class="csd-screen-img" loading="lazy" decoding="async" />
+        <div class="csd-screen-caption">
+            <h4 class="csd-screen-title">Timed Clinical Examination Simulator</h4>
+            <p class="csd-screen-desc">Interactive examination view featuring countdown timers, clinical scenario questions, and instant rationale explanations.</p>
+        </div>
+    </div>
+  
+    <div class="csd-screen-card">
+        <img src="/assets/images/case-studies/nursepass/hero.jpg" alt="Mobile Lesson Player Interface" class="csd-screen-img" loading="lazy" decoding="async" />
+        <div class="csd-screen-caption">
+            <h4 class="csd-screen-title">Mobile Lesson Player Interface</h4>
+            <p class="csd-screen-desc">Responsive mobile viewport showing distraction-free video playback and lesson notes optimized for shift workers.</p>
+        </div>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 11. Technical Deep Dive -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. TECHNICAL DEEP DIVE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Learning Session Request Lifecycle &amp; Exam Evaluation</h2>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
+                By isolating quiz session generation into atomic database transactions and streaming lecture videos through European CDN edge nodes, NursePass ensures rapid response times and zero exam state loss even over unstable mobile hospital Wi-Fi.
+            </p>
+            <div class="csd-diagram-box">
+                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Nurse Client: Mobile / Desktop Browser]
+                   │
+                   ▼ (HTTPS GET /quiz/kenntnispruefung/session)
+[Edge CDN &amp; SSL Termination]
+                   │
+                   ▼
+[Laravel Auth &amp; Course Permission Gate]
+                   │
+                   ▼
+[Quiz Session Engine: Fetch Shuffled Question Bank]
+                   │
+    ┌──────────────┴──────────────┐
+    ▼ (Stream Video / Audio)      ▼ (Interactive Exam Questions)
+[Fast CDN Edge Cache]         [Client Native Exam Timer]
+                                  │
+                                  ▼ (Submit Answers POST)
+                      [Atomic Score Evaluation Controller]
+                                  │
+                      ┌───────────┴───────────┐
+                      ▼                       ▼
+          [Update Student Progress] [Record Weakness Analytics]
+                      │                       │
+                      └───────────┬───────────┘
+                                  ▼
+                [Return Diagnostic Score &amp; Rationales]</pre>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 12. Challenges & Solutions Table -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. CHALLENGES &amp; SOLUTIONS</span>
+            <h2 class="csd-section-title">Architectural Friction Resolved</h2>
+            <div class="csd-table-wrapper">
+                <table class="csd-table">
+                    <thead>
+                        <tr>
+                            <th>Specific Project Challenge</th>
+                            <th>Kawaki's Architectural Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">International nurses found German medical certification bureaucracy overwhelming and confusing.</td>
+        <td style="width: 55%; color: #444444;">Structured course material into step-by-step modular paths aligned directly with official state deficit notices.</td>
+    </tr>
+  
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">Generic LMS quiz engines lacked scenario-based rationales essential for medical licensing exams.</td>
+        <td style="width: 55%; color: #444444;">Engineered a bespoke testing engine providing immediate clinical justifications and diagnostic score breakdowns.</td>
+    </tr>
+  
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">Working nurses study during irregular hospital breaks with limited time and fluctuating connectivity.</td>
+        <td style="width: 55%; color: #444444;">Built a distraction-free mobile web player with lightweight payloads and automatic lesson progress saving.</td>
+    </tr>
+  
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">Hospital partners funding nurse cohorts needed visibility into candidate exam readiness.</td>
+        <td style="width: 55%; color: #444444;">Developed an institutional analytics dashboard displaying cohort quiz averages and milestone completion dates.</td>
+    </tr>
+  
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 13. Outcome & Business Impact -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 11. OUTCOME &amp; BUSINESS IMPACT</span>
+            <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
+            <div class="csd-card" style="margin-top: 2rem;">
+                <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
+                    A specialized healthcare education platform accelerating German professional licensure for international nurses entering the medical workforce.
+                </p>
+                <ul style="padding-left: 1.25rem;">
+                    <li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Structured digital accreditation paths for Kenntnisprüfung, Anpassungslehrgang, and Medical German.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Interactive timed examination simulator delivering scenario testing and diagnostic score feedback.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Distraction-free mobile learning experience optimized for hospital shift workers on the go.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Institutional oversight tools empowering healthcare employers to track candidate qualification milestones.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 14. What We Delivered -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 12. SCOPE OF WORK</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
+            <div class="csd-checklist">
+                
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Laravel Healthcare LMS Core Architecture</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Interactive Course Player with Video &amp; PDF Modules</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Timed State Licensing Examination Simulation Engine</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Clinical Medical German (Fachsprache) Vocabulary Subsystem</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Student Recognition Progress &amp; Certification Dashboard</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Institutional Partner Cohort Management Portal</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">European CDN Streaming Optimization &amp; Security Deployment</span>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 15. Project Gallery -->
+        
+    <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 13. PROJECT GALLERY</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
+            <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
+                
+    <div class="csd-gallery-item">
+        <img src="/assets/images/case-studies/nursepass/hero.jpg" alt="Medical German Clinical Terminology Deck" loading="lazy" decoding="async" />
+        <div class="csd-gallery-item-caption">
+            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Medical German Clinical Terminology Deck</strong>
+            <span>Interactive vocabulary modules teaching clinical handovers, emergency protocols, and pharmacology terms.</span>
+        </div>
+    </div>
+  
+    <div class="csd-gallery-item">
+        <img src="/assets/images/case-studies/nursepass/hero.jpg" alt="Student Progress &amp; Exam Readiness Dashboard" loading="lazy" decoding="async" />
+        <div class="csd-gallery-item-caption">
+            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Student Progress &amp; Exam Readiness Dashboard</strong>
+            <span>Visual milestone tracker showing module completion and predicted state examination pass readiness.</span>
+        </div>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 16. Technology Stack -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 14. TECHNOLOGY STACK</span>
+            <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
+            <div class="csd-cards-grid-3" style="margin-top: 2rem;">
+                
+    <div class="csd-card">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Backend &amp; Core</h4>
+        <div>
+            <span class="csd-tech-badge-light">Laravel</span> <span class="csd-tech-badge-light">Relational Database</span> <span class="csd-tech-badge-light">Session Authentication</span> <span class="csd-tech-badge-light">RESTful APIs</span>
+        </div>
+    </div>
+  
+    <div class="csd-card">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">LMS &amp; Testing</h4>
+        <div>
+            <span class="csd-tech-badge-light">Timed Quiz Simulator</span> <span class="csd-tech-badge-light">Interactive Course Player</span> <span class="csd-tech-badge-light">i18n Multilingual Subsystem</span> <span class="csd-tech-badge-light">Cohort Analytics</span>
+        </div>
+    </div>
+  
+    <div class="csd-card">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Media &amp; Infrastructure</h4>
+        <div>
+            <span class="csd-tech-badge-light">European Video CDN</span> <span class="csd-tech-badge-light">Progress State Sync</span> <span class="csd-tech-badge-light">WCAG Accessible UI</span> <span class="csd-tech-badge-light">Mobile-First Design</span>
+        </div>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
   
         <!-- Related Kawaki Capabilities & Next Project -->
         <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
@@ -346,15 +1111,15 @@
                 </div>
 
                 
-                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap: 2rem;">
+                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
                     <div>
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
                         <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Multi-Role LMS & School Mobility Ecosystem &rarr;</a>
+                            <a href="/case-studies/lms-ecosystem" style="color: #ffffff; text-decoration: none;">Multi-Role LMS & School Mobility Ecosystem &rarr;</a>
                         </h4>
-                        <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Web Applications & Platforms &middot; Education / Fleet Mobility / Multi-Role Systems</p>
+                        <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Web Applications & Platforms &middot; Education / Fleet Mobility / Multi-Role Enterprise Systems</p>
                     </div>
-                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                    <a href="/case-studies/lms-ecosystem" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
                 </div>
                 
             </div>

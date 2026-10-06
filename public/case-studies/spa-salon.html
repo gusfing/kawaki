@@ -8,22 +8,22 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spa & Salon Management & Mobile Booking Platform Case Study | Kawaki Studios</title>
-    <meta name="description" content="Case study on Kawaki's Spa & Salon management platform: Flutter mobile appointment booking combined with a multi-branch Laravel operational control backend." />
+    <title>Spa &amp; Salon Management &amp; Mobile Booking Platform Case Study | Kawaki Studios</title>
+    <meta name="description" content="Case study on Kawaki&#39;s Spa &amp; Salon management platform: Flutter mobile appointment booking combined with a multi-branch Laravel operational control backend." />
     <link rel="canonical" href="https://www.kawaki.co.in/case-studies/spa-salon" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.kawaki.co.in/case-studies/spa-salon" />
-    <meta property="og:title" content="Spa & Salon Management & Mobile Booking Platform Case Study | Kawaki Studios" />
-    <meta property="og:description" content="Case study on Kawaki's Spa & Salon management platform: Flutter mobile appointment booking combined with a multi-branch Laravel operational control backend." />
+    <meta property="og:title" content="Spa &amp; Salon Management &amp; Mobile Booking Platform Case Study | Kawaki Studios" />
+    <meta property="og:description" content="Case study on Kawaki&#39;s Spa &amp; Salon management platform: Flutter mobile appointment booking combined with a multi-branch Laravel operational control backend." />
     <meta property="og:image" content="https://www.kawaki.co.in/assets/images/project_3_1787254295127.webp" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
-    <meta name="twitter:title" content="Spa & Salon Management & Mobile Booking Platform Case Study | Kawaki Studios" />
-    <meta name="twitter:description" content="Case study on Kawaki's Spa & Salon management platform: Flutter mobile appointment booking combined with a multi-branch Laravel operational control backend." />
+    <meta name="twitter:title" content="Spa &amp; Salon Management &amp; Mobile Booking Platform Case Study | Kawaki Studios" />
+    <meta name="twitter:description" content="Case study on Kawaki&#39;s Spa &amp; Salon management platform: Flutter mobile appointment booking combined with a multi-branch Laravel operational control backend." />
     <meta name="twitter:image" content="https://www.kawaki.co.in/assets/images/project_3_1787254295127.webp" />
 
     <!-- JSON-LD Schema -->
@@ -69,10 +69,19 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
     <style>
+        :root {
+            --cs-accent: #C6FF00;
+            --cs-dark: #0c0d10;
+            --cs-card-bg: #14161d;
+            --cs-border: rgba(255, 255, 255, 0.08);
+            --cs-text-muted: #8e929e;
+        }
+
+        /* Hero & Header elements */
         .csd-live-btn {
             display: inline-flex;
             align-items: center;
@@ -80,31 +89,29 @@
             background: #C6FF00;
             color: #111111;
             font-family: 'Host Grotesk', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            padding: 0.75rem 1.5rem;
+            padding: 0.85rem 1.75rem;
             border-radius: 9999px;
             text-decoration: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-top: 1.5rem;
         }
         .csd-live-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(198, 255, 0, 0.3);
+            box-shadow: 0 8px 24px rgba(198, 255, 0, 0.35);
         }
         .csd-disabled-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             background: rgba(255, 255, 255, 0.08);
-            color: #888888;
+            color: #aaaaaa;
             font-family: 'Space Mono', monospace;
             font-size: 0.85rem;
-            padding: 0.75rem 1.25rem;
+            padding: 0.85rem 1.5rem;
             border-radius: 9999px;
             border: 1px solid rgba(255, 255, 255, 0.12);
             cursor: not-allowed;
-            margin-top: 1.5rem;
         }
         .csd-logo-badge {
             display: inline-flex;
@@ -114,23 +121,214 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
         .csd-logo-badge img {
             max-height: 28px;
             width: auto;
             object-fit: contain;
         }
+
+        /* 2-Column Snapshot Grid */
+        .csd-snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            .csd-snapshot-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+        }
+        .csd-snapshot-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .csd-snapshot-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888888;
+        }
+        .csd-snapshot-val {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+        .csd-snapshot-val a {
+            color: #C6FF00;
+            text-decoration: none;
+        }
+        .csd-snapshot-val a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections common styling */
+        .csd-section-dark {
+            background: #0c0d10;
+            color: #ffffff;
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .csd-section-light {
+            background: #ffffff;
+            color: #111111;
+            padding: 6rem 2rem;
+            border-top: 1px solid #eeeeee;
+        }
+        .csd-section-offwhite {
+            background: #f8f9fa;
+            color: #111111;
+            padding: 6rem 2rem;
+            border-top: 1px solid #e9ecef;
+        }
+        .csd-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .csd-section-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        .csd-eyebrow-accent {
+            color: #C6FF00;
+        }
+        .csd-eyebrow-muted {
+            color: #666666;
+        }
+        .csd-section-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Cards & Grid Utilities */
+        .csd-cards-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .csd-cards-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .csd-cards-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .csd-cards-grid-2, .csd-cards-grid-3, .csd-cards-grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .csd-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .csd-card-dark {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        /* Diagrams & Code Blocks */
+        .csd-diagram-box {
+            background: #08090b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            color: #C6FF00;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 2rem 0;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        /* Tables */
+        .csd-table-wrapper {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+        .csd-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .csd-table th {
+            background: #f1f3f5;
+            color: #111111;
+            padding: 1rem 1.25rem;
+            font-family: 'Host Grotesk', sans-serif;
+            font-weight: 700;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .csd-table td {
+            padding: 1.2rem 1.25rem;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+            line-height: 1.6;
+            color: #444444;
+        }
+        .csd-table tr:last-child td {
+            border-bottom: none;
+        }
+        .csd-table td strong {
+            color: #111111;
+        }
+
+        /* Tech Badges */
         .csd-tech-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.06);
             color: #dddddd;
             font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
-            padding: 0.25rem 0.6rem;
+            padding: 0.35rem 0.75rem;
             border-radius: 4px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 0.2rem;
+            margin: 0.25rem;
+        }
+        .csd-tech-badge-light {
+            display: inline-block;
+            background: #eef1f5;
+            color: #333333;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #dde2e8;
+            margin: 0.25rem;
         }
         .csd-service-tag {
             display: inline-flex;
@@ -139,9 +337,9 @@
             background: #111111;
             color: #C6FF00;
             border: 1px solid rgba(198, 255, 0, 0.3);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 6px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-family: 'Host Grotesk', sans-serif;
             text-decoration: none;
             transition: all 0.2s ease;
@@ -149,6 +347,95 @@
         .csd-service-tag:hover {
             background: #C6FF00;
             color: #111111;
+        }
+
+        /* Screen Caption Cards */
+        .csd-screen-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.5rem;
+        }
+        .csd-screen-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #e5e7eb;
+            object-fit: cover;
+        }
+        .csd-screen-caption {
+            padding: 1.5rem 2rem;
+            background: #ffffff;
+        }
+        .csd-screen-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 0.4rem;
+        }
+        .csd-screen-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555555;
+        }
+
+        /* Gallery Grid */
+        .csd-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            .csd-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .csd-gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #14161d;
+        }
+        .csd-gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .csd-gallery-item:hover img {
+            transform: scale(1.02);
+        }
+        .csd-gallery-item-caption {
+            padding: 1.25rem;
+            font-size: 0.85rem;
+            color: #aaaaaa;
+            line-height: 1.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Deliverables Checklist */
+        .csd-checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .csd-check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .csd-check-icon {
+            color: #C6FF00;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            line-height: 1;
         }
     </style>
 </head>
@@ -230,109 +517,574 @@
                 
                 <div class="csd-logo-badge"><span>Wellness Solutions</span></div>
 
-                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Mobile Applications &middot; Wellness / Beauty & Aesthetics / Service Operations</div>
-                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 2rem;">
-                    Spa & Salon Management Platform: Mobile Booking Client & Multi-Branch Operations
+                <div class="cs-grid-eyebrow" style="color: #C6FF00; margin-bottom: 1rem; display: block;">Mobile Applications &middot; Wellness / Beauty &amp; Aesthetics / Service Operations / Mobile Booking &middot; Year 2024</div>
+                <h1 class="csd-title" style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;">
+                    Spa &amp; Salon Management Platform: Mobile Booking Client &amp; Multi-Branch Operations
                 </h1>
                 
-                <div class="csd-meta-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; padding: 2rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Client / Product</span>
-                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Wellness Solutions</span>
-                    </div>
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Discipline</span>
-                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Mobile Applications</span>
-                    </div>
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Kawaki's Role</span>
-                        <span class="csd-meta-value" style="font-weight: 600; color: #ffffff;">Mobile App Development (Flutter), Booking UX, Specialist Scheduling & Admin Backend</span>
-                    </div>
-                    <div class="csd-meta-item">
-                        <span class="csd-meta-label" style="display: block; font-family: 'Space Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: #888888; margin-bottom: 0.25rem;">Verified Technologies</span>
-                        <div style="margin-top: 0.25rem;"><span class="csd-tech-badge">Flutter</span> <span class="csd-tech-badge">Laravel Admin Core</span> <span class="csd-tech-badge">Dynamic Time-Slot Engine</span> <span class="csd-tech-badge">Multi-Branch Architecture</span> <span class="csd-tech-badge">Firebase Notifications</span></div>
-                    </div>
+                <p style="font-size: 1.2rem; line-height: 1.6; color: #cccccc; max-width: 850px; margin-bottom: 2rem;">
+                    Mobile Application Architecture (Flutter), Booking UX Design, Specialist Scheduling Engine, Laravel Operations Core
+                </p>
+
+                <div style="margin-bottom: 2.5rem;">
+                    <span class="csd-disabled-btn">● Private Enterprise Infrastructure Deployment</span>
                 </div>
 
-                <div style="margin-top: 1.5rem;">
-                    <span class="csd-disabled-btn">● Private Enterprise Deployment</span>
-                </div>
-            </div>
-            
-            <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-                <img src="/assets/images/project_3_1787254295127.webp" alt="Spa & Salon Management Platform Project Hero" width="1376" height="768" fetchpriority="high" decoding="async" style="width: 100%; height: auto; display: block; object-fit: cover;" />
-            </div>
-        </section>
-
-        <!-- Challenge & Objective -->
-        <section class="csd-text-section" style="padding: 6rem 2rem; background: #ffffff; color: #111111;">
-            <div class="csd-text-inner" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem;">
-                <div class="csd-text-column">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// THE CHALLENGE</span>
-                    <h2 class="csd-text-heading" style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">The Engineering &amp; Operational Friction</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444;">Appointment-driven wellness and luxury salon businesses lose significant revenue to phone tag, scheduling overlap errors, and unoptimized specialist downtime during service changeovers.</p>
-                </div>
-                <div class="csd-text-column">
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// THE OBJECTIVE</span>
-                    <h2 class="csd-text-heading" style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Target Architectural Outcomes</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444;">Develop a synchronized appointment booking system providing clients with a seamless 4-step mobile reservation flow while giving salon managers complete visibility over staff shifts, stations, and revenues.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Bar -->
-        <section class="cs-stats">
-            <div class="cs-stats-inner">
+                <!-- 2. Project Snapshot Table -->
                 
-    <div class="cs-stat">
-        <span class="cs-stat-num">Flutter</span>
-        <span class="cs-stat-label">Customer Mobile Client</span>
-    </div>
-  <div class="cs-stat-divider"></div>
-    <div class="cs-stat">
-        <span class="cs-stat-num">Laravel</span>
-        <span class="cs-stat-label">Operations Admin Backend</span>
-    </div>
-  <div class="cs-stat-divider"></div>
-    <div class="cs-stat">
-        <span class="cs-stat-num">Conflict-Free</span>
-        <span class="cs-stat-label">Dynamic Slot Calculation</span>
-    </div>
-  <div class="cs-stat-divider"></div>
-    <div class="cs-stat">
-        <span class="cs-stat-num">Multi-Branch</span>
-        <span class="cs-stat-label">Location & Specialist Roster</span>
+    <div class="csd-snapshot-grid">
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Client / Product</span>
+            <span class="csd-snapshot-val">Wellness Solutions</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Industry &amp; Domain</span>
+            <span class="csd-snapshot-val">Wellness, Luxury Aesthetics &amp; Service Operations</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Services Provided</span>
+            <span class="csd-snapshot-val">Mobile Application Development (Flutter), Booking UX, Dynamic Availability Engine, Laravel Admin Backend</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Platform &amp; Architecture</span>
+            <span class="csd-snapshot-val">Dual-Tier Platform: Flutter Mobile App (iOS/Android) + Laravel Operations Portal</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Core Technologies</span>
+            <span class="csd-snapshot-val">Flutter SDK, Laravel Admin Core, Relational Database, Dynamic Slot Engine, Firebase Cloud Messaging</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Project Scope</span>
+            <span class="csd-snapshot-val">Customer Mobile Booking Client, Multi-Branch Resource Scheduler, Specialist Roster &amp; Commission Engine</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Production Status</span>
+            <span class="csd-snapshot-val">Enterprise Client Deployment (Commercial White-Label)</span>
+        </div>
+        <div class="csd-snapshot-item">
+            <span class="csd-snapshot-label">Live Platform / Access</span>
+            <span class="csd-snapshot-val">
+                Private Commercial Deployment
+            </span>
+        </div>
     </div>
   
             </div>
+            
+            <div class="csd-hero-image" style="max-width: 1200px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                <img src="/assets/images/project_3_1787254295127.webp" alt="Spa &amp; Salon Management Platform Project Hero" width="1376" height="768" fetchpriority="high" decoding="async" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            </div>
         </section>
 
-        <!-- What Kawaki Built / Detailed Walkthrough -->
-        <section style="padding: 6rem 2rem; background: #fbfbfc; color: #111111; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee;">
-            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 4rem;">
-                <div>
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// WHAT WE BUILT</span>
-                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Engineered Capabilities &amp; Deliverables</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #555555; margin-bottom: 2rem;">Kawaki engineered a dual-tier solution: an intuitive Flutter mobile application for consumers and a centralized Laravel backend for salon operations, equipped with automated buffer-time calculations and push notification reminders.</p>
-                    <ul style="padding-left: 1.25rem; color: #444444; font-size: 1rem;">
-                        <li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Consumer Mobile Booking App:</strong> 4-step booking flow: Select Salon Branch → Browse Categorized Services → Select Specialist → Pick Verified Time Slot.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Dynamic Conflict-Free Time Slot Engine:</strong> Real-time availability calculation preventing double-bookings by dynamically mapping specialist working shifts and service durations.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Multi-Branch & Staff Administration:</strong> Central operations portal managing specialist commissions, room stations, operational holidays, and customer histories.</li><li style="margin-bottom: 1rem; line-height: 1.6;"><strong style="color: #111111;">Automated Reminder Subsystem:</strong> Automated push notifications and SMS alerts reducing client no-shows and confirming booking status transitions.</li>
-                    </ul>
+        <!-- 3. The Context -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 01. THE CONTEXT</span>
+            <h2 class="csd-section-title">Institutional Background &amp; Strategic Mission</h2>
+            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Who the Client Is</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;">The Spa &amp; Salon Operations &amp; Mobile Booking Platform is an end-to-end digital suite engineered to modernize appointment-driven beauty, wellness, and aesthetic businesses. It resolves traditional operational bottlenecks through a synchronized dual-tier system: a consumer-facing Flutter mobile booking app and a centralized Laravel administrative operations backend.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;">Deployed across luxury salon and wellness branches, the platform provides clients with an intuitive four-step mobile reservation flow while giving salon managers complete visibility over staff shifts, service room stations, product inventories, and commission accounting.</p>
                 </div>
-                <div>
-                    <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #666666; font-weight: 700; display: block; margin-bottom: 0.75rem;">// ARCHITECTURE &amp; RIGOR</span>
-                    <h2 style="font-family: 'Host Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;">Technical Implementation</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 2rem;">Engineered with modular REST APIs and relational database transactions, ensuring appointment creation is strictly atomic and protected against race conditions during peak holiday booking hours.</p>
-                    <div style="padding: 2rem; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px;">
-                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">Core Engineering Highlights</h4>
-                        <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; color: #555555;">
-                            <div>&check; <strong>Verified Technology Stack:</strong> Zero simulated runtime libraries.</div>
-                            <div>&check; <strong>Performance Conscious:</strong> Strict DOM budgeting and responsive image pipelines.</div>
-                            <div>&check; <strong>Credibility First:</strong> Factual technical outcomes drawn from actual deliverables.</div>
-                        </div>
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Target Audience &amp; Strategic Mandate</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin-bottom: 1.25rem;"><strong>Audience Profile:</strong> Salon clients booking hair, skincare, and spa treatments; salon owners managing multi-branch revenues; and certified aesthetic specialists tracking daily appointments.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #555555;"><strong>Digital Mandate:</strong> Appointment-driven wellness businesses lose significant revenue to phone tag, scheduling overlap errors, and unoptimized specialist downtime during service changeovers. The client required a synchronized booking platform capable of calculating real-time availability across branches and specialists while automating reminder notifications to slash no-shows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 4. The Challenge -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 02. THE CHALLENGE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Operational Friction &amp; Technical Constraints</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #cccccc; max-width: 800px; margin-bottom: 3rem;">
+                Preventing double-booking collisions and unoptimized specialist downtime across multi-branch locations with variable service durations.
+            </p>
+            <div class="csd-cards-grid-2">
+                
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Complex Multi-Service Booking Combinations
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Clients frequently bundle treatments with divergent durations (e.g. 45-min haircut + 90-min balayage color + 30-min blow dry). The engine had to coordinate consecutive slots seamlessly.
+        </p>
+    </div>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Specialist Shift Rosters &amp; Room Capacities
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Balancing individual staff working hours, lunch breaks, commission rates, and physical room/chair availability without double-booking equipment.
+        </p>
+    </div>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Mandatory Sanitization &amp; Buffer Windows
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Spa treatment rooms require 15-minute sanitization and preparation buffers between client appointments that must be automatically calculated into available slots.
+        </p>
+    </div>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            High Client No-Show Rates
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Unconfirmed appointments cause expensive specialist downtime. The platform needed an automated multi-channel reminder pipeline (push notifications, SMS).
+        </p>
+    </div>
+  
+    <div class="csd-card-dark" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+            Consumer Mobile Friction
+        </h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #aaaaaa;">
+            Clunky multi-page web forms cause high drop-offs. The consumer booking flow had to be streamlined into four thumb-friendly mobile steps.
+        </p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 5. The Approach -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 03. THE APPROACH</span>
+            <h2 class="csd-section-title">How Kawaki Architected the Solution</h2>
+            <p style="font-size: 1.15rem; line-height: 1.7; color: #444444; max-width: 860px; margin-bottom: 3rem;">
+                We approached the platform from both sides of the appointment counter. For clients, booking a luxury massage or hair styling should feel as relaxing and effortless as the service itself. For salon managers, the operational engine must enforce strict mathematical slot availability to maximize specialist utilization.
+            </p>
+            <div class="csd-cards-grid-2">
+                
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 01</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">4-Step Frictionless Mobile Booking Flow</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We structured the consumer app around four clear steps: Select Branch → Browse Services → Select Specialist → Pick Verified Time Slot.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 02</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Dynamic Conflict-Free Slot Engine</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We engineered a backend algorithm that calculates real-time availability by cross-referencing specialist working shifts, existing bookings, service durations, and sanitization buffer windows.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 03</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Multi-Branch &amp; Specialist Commission Management</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">The central Laravel backend manages multiple salon branches, custom service pricing tiers, room capacities, and automated staff commission payouts.</p>
+    </div>
+  
+    <div class="csd-card" style="position: relative;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #666666; display: block; margin-bottom: 0.5rem;">DECISION 04</span>
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: #111111; margin-bottom: 0.75rem;">Automated Reminder Subsystem</h4>
+        <p style="font-size: 0.95rem; line-height: 1.65; color: #555555;">We integrated Firebase Cloud Messaging to dispatch automated 24-hour and 2-hour appointment reminders, cutting client no-shows.</p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 6. Information Architecture -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 04. INFORMATION ARCHITECTURE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">System Taxonomy &amp; Application Navigation Tree</h2>
+            <p style="font-size: 1.05rem; line-height: 1.65; color: #aaaaaa; margin-bottom: 2rem;">
+                A structural breakdown of the user flows, role portals, and content hierarchy engineered for this project:
+            </p>
+            <div class="csd-diagram-box">
+                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Central Spa &amp; Salon Operations System]
+   │
+   ├──► [01. Consumer Mobile Booking Application (Flutter)]
+   │      ├── Step 1: Select Salon Branch (Location, Amenities, Hours)
+   │      ├── Step 2: Browse Categorized Menu (Hair, Skincare, Massage, Bundles)
+   │      ├── Step 3: Choose Certified Specialist (Ratings, Reviews, Portfolio)
+   │      ├── Step 4: Pick Verified Calendar Time Slot &amp; Instant Confirmation
+   │      └── Customer Account: Upcoming Visits, Reschedule Requests, Favorite Rebook
+   │
+   └──► [02. Salon Operations &amp; Administrative Backend (Laravel)]
+          ├── Multi-Branch Dashboard: Station Capacities &amp; Holiday Calendars
+          ├── Dynamic Availability Engine: Specialist Shift Rosters &amp; 15-Min Buffer Windows
+          ├── Multi-Service Duration Calculator (Consecutive Treatment Blocks)
+          ├── Staff Commission Accounting &amp; Payroll Summary
+          └── Automated Multi-Channel Notification Dispatch (FCM Push &amp; SMS)</pre>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 7. UX & Design System -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 05. UX &amp; DESIGN SYSTEM</span>
+            <h2 class="csd-section-title">Visual Ergonomics &amp; Component System</h2>
+            <div class="csd-cards-grid-2" style="margin-top: 2rem;">
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Design Direction &amp; Layout Grid</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Aesthetic Thesis:</strong> Warm luxury wellness, soft organic neutrals, calming typography, and clean calendar interfaces.</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #444444; margin-bottom: 1.5rem;"><strong>Typography Hierarchy:</strong> Host Grotesk (Modern studio headings) paired with Plus Jakarta Sans (Readable service descriptions, pricing) and Space Mono (Time slots, duration tags).</p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: #444444;"><strong>Layout &amp; Viewport Mechanics:</strong> Clean mobile card hierarchy with sticky bottom booking progress bars and responsive modal date pickers.</p>
+                </div>
+                <div class="csd-card">
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #111111;">Key Engineered Components</h3>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Service Treatment Card: High-resolution card displaying service name, duration badge, price, and add-to-cart action.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Specialist Avatar Card: Profile card showing specialist photo, specialty tag, customer review score, and select button.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Interactive Calendar Time Picker: Date selector with horizontally scrollable verified open time slots.</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Appointment Status Pill: Color-coded indicator (Pending, Confirmed, In-Service, Completed, Cancelled).</li><li style="margin-bottom: 0.6rem; color: #444444; line-height: 1.6;">Operations Dispatch Grid: Multi-staff calendar matrix displaying daily bookings, breaks, and room allocations.</li>
+                    </ul>
+                    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border: 1px solid #e9ecef;">
+                        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: #111111;">Mobile &amp; Touch Ergonomics</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; color: #555555; margin: 0;">Thumb-optimized navigation with bottom sheet selectors, instant haptic feedback on slot selection, and one-tap rebooking of past favorite services.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+  
+
+        <!-- 8. Key Features & Experiences -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 06. KEY FEATURES &amp; EXPERIENCES</span>
+            <h2 class="csd-section-title">Deep Dive into Delivered Product Capabilities</h2>
+            <div style="max-width: 960px; margin-top: 3rem;">
+                
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 01</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">4-Step Consumer Mobile Booking Flow</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Streamlined reservation flow guiding clients from branch discovery to verified time-slot confirmation in under two minutes.</p>
+    </div>
+  
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 02</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Dynamic Conflict-Free Time Slot Engine</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Real-time availability calculation cross-referencing specialist shifts, service durations, and 15-minute sanitization buffer windows to eliminate double-bookings.</p>
+    </div>
+  
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 03</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Multi-Branch &amp; Specialist Operations</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Centralized Laravel administrative dashboard managing staff commissions, treatment room capacities, and holiday schedules.</p>
+    </div>
+  
+    <div class="csd-card" style="margin-bottom: 2rem;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #888888; text-transform: uppercase;">EXPERIENCE MODULE 04</span>
+        <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111111; margin: 0.5rem 0 1rem;">Automated Reminder Subsystem</h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #444444; margin: 0;">Automated push notifications and SMS alerts via Firebase confirming bookings and reminding clients 24 hours prior to service.</p>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 9. Engineering & Architecture -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 07. ENGINEERING &amp; ARCHITECTURE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Technical Implementation &amp; Infrastructure</h2>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 800px; margin-bottom: 3rem;">
+                Strict technical assertions based exclusively on verified repository artifacts and live production network inspections.
+            </p>
+            <div class="csd-cards-grid-3">
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Frontend Architecture</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Engineered using Flutter cross-platform architecture targeting iOS and Android with unified UI ergonomics and offline-tolerant session caching.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Backend &amp; Serverless APIs</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Robust Laravel backend architecture with atomic database transactions preventing slot booking race conditions during peak hours.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">API &amp; Network Contracts</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">RESTful JSON endpoints powering real-time branch availability queries, multi-service cart checkouts, and appointment status transitions.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Authentication &amp; Security</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Token-based mobile authentication with secure customer profile vaults and administrative role gates.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Data Persistence &amp; State</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Relational database schema enforcing foreign-key integrity between salon branches, specialists, service menus, and calendar bookings.</p>
+                </div>
+                <div class="csd-card-dark">
+                    <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Performance &amp; Web Vitals</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc;">Availability query caching maintains sub-100ms response times even when calculating multi-specialist slot combinations across dozens of treatment rooms.</p>
+                </div>
+            </div>
+            <div class="csd-card-dark" style="margin-top: 2rem;">
+                <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #C6FF00; margin-bottom: 0.5rem;">Responsive Multi-Device Engineering</h4>
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #cccccc; margin: 0;">Universal Flutter layout tree adapting seamlessly from compact mobile viewports up to large in-salon iPad reception terminals.</p>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 10. Selected Screens & Walkthrough -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 08. SELECTED SCREENS &amp; WALKTHROUGH</span>
+            <h2 class="csd-section-title">Annotated UI &amp; Interaction Showcase</h2>
+            <div style="margin-top: 3rem;">
+                
+    <div class="csd-screen-card">
+        <img src="/assets/images/project_3_1787254295127.webp" alt="Service Menu &amp; Treatment Catalog" class="csd-screen-img" loading="lazy" decoding="async" />
+        <div class="csd-screen-caption">
+            <h4 class="csd-screen-title">Service Menu &amp; Treatment Catalog</h4>
+            <p class="csd-screen-desc">Consumer mobile interface displaying categorized wellness therapies, treatment durations, and clear pricing tags.</p>
+        </div>
+    </div>
+  
+    <div class="csd-screen-card">
+        <img src="/assets/images/project_3_1787254295127.webp" alt="Specialist &amp; Verified Calendar Time Picker" class="csd-screen-img" loading="lazy" decoding="async" />
+        <div class="csd-screen-caption">
+            <h4 class="csd-screen-title">Specialist &amp; Verified Calendar Time Picker</h4>
+            <p class="csd-screen-desc">Interactive booking screen showing specialist selection and verified conflict-free calendar time slots.</p>
+        </div>
+    </div>
+  
+    <div class="csd-screen-card">
+        <img src="/assets/images/project_3_1787254295127.webp" alt="Appointment Summary &amp; Live Status" class="csd-screen-img" loading="lazy" decoding="async" />
+        <div class="csd-screen-caption">
+            <h4 class="csd-screen-title">Appointment Summary &amp; Live Status</h4>
+            <p class="csd-screen-desc">Booking confirmation card displaying appointment reference codes, address details, and automated calendar export.</p>
+        </div>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 11. Technical Deep Dive -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 09. TECHNICAL DEEP DIVE</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Atomic Time-Slot Reservation &amp; Buffer Lifecycle</h2>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: #aaaaaa; max-width: 860px; margin-bottom: 2rem;">
+                By executing appointment confirmations inside atomic database transactions with row-level locks, the platform completely eliminates double-booking race conditions when multiple clients attempt to book the same specialist simultaneously.
+            </p>
+            <div class="csd-diagram-box">
+                <pre style="margin: 0; font-family: inherit; font-size: inherit; color: inherit;">[Customer Mobile App: Select Specialist &amp; Date]
+                     │
+                     ▼ (HTTPS GET /api/v1/availability)
+[Dynamic Slot Engine: Query Specialist Working Shift]
+                     │
+                     ├── [Fetch Existing Confirmed Bookings]
+                     ├── [Calculate Service Duration + 15-Min Buffer]
+                     └── [Exclude Breaks &amp; Station Collisions]
+                     │
+                     ▼
+[Return Verified Real-Time Open Time Slots]
+                     │
+                     ▼ (Customer Selects 14:00 &amp; Clicks Confirm)
+[Atomic Database Transaction Lock: BEGIN]
+                     │
+                     ├── [Re-Validate Slot Uniqueness (Prevent Race Condition)]
+                     ├── [Insert Appointment Record (Status: Confirmed)]
+                     └── [Lock Slot Across Branch Schedule]
+                     │
+                     ▼
+[COMMIT Database Transaction]
+                     │
+    ┌────────────────┴────────────────┐
+    ▼                                 ▼
+[FCM Push Alert: Client Phone]    [Notify Salon Admin Dashboard]</pre>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 12. Challenges & Solutions Table -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 10. CHALLENGES &amp; SOLUTIONS</span>
+            <h2 class="csd-section-title">Architectural Friction Resolved</h2>
+            <div class="csd-table-wrapper">
+                <table class="csd-table">
+                    <thead>
+                        <tr>
+                            <th>Specific Project Challenge</th>
+                            <th>Kawaki's Architectural Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">High volume of double-bookings and scheduling collisions during busy holiday booking seasons.</td>
+        <td style="width: 55%; color: #444444;">Engineered an atomic time-slot reservation engine with database row locking and automated buffer calculations.</td>
+    </tr>
+  
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">Clients struggled with clunky multi-step web forms, leading to high abandonment rates.</td>
+        <td style="width: 55%; color: #444444;">Streamlined reservation UX into a focused 4-step mobile flow with instant visual slot validation.</td>
+    </tr>
+  
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">Frequent client no-shows caused expensive specialist downtime and lost salon revenues.</td>
+        <td style="width: 55%; color: #444444;">Integrated automated Firebase push notifications and SMS reminders dispatched 24 hours prior to appointments.</td>
+    </tr>
+  
+    <tr>
+        <td style="width: 45%; font-weight: 600; color: #111111;">Managing multi-branch operations and disparate specialist commission tiers caused accounting headaches.</td>
+        <td style="width: 55%; color: #444444;">Built a centralized Laravel operations portal tracking branch capacities, service margins, and staff commissions.</td>
+    </tr>
+  
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 13. Outcome & Business Impact -->
+        
+    <section class="csd-section-offwhite">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 11. OUTCOME &amp; BUSINESS IMPACT</span>
+            <h2 class="csd-section-title">Verified Operational Results (Zero Fabricated Metrics)</h2>
+            <div class="csd-card" style="margin-top: 2rem;">
+                <p style="font-size: 1.15rem; line-height: 1.7; color: #111111; margin-bottom: 1.5rem; font-weight: 600;">
+                    A synchronized mobile booking and salon management suite eliminating scheduling friction and maximizing specialist utilization.
+                </p>
+                <ul style="padding-left: 1.25rem;">
+                    <li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Frictionless 4-step mobile booking flow for iOS and Android with verified time-slot selection.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Dynamic conflict-free slot calculation with automated sanitization buffer windows.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Centralized multi-branch Laravel operations core managing staff shifts, stations, and commissions.</li><li style="margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; color: #333333;">Automated push reminder pipeline drastically reducing client no-shows and lost revenue.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 14. What We Delivered -->
+        
+    <section class="csd-section-dark">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 12. SCOPE OF WORK</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">What Kawaki Studios Delivered</h2>
+            <div class="csd-checklist">
+                
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Customer-Facing Mobile Booking Application (Flutter for iOS &amp; Android)</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Multi-Branch Salon Operations &amp; Admin Core (Laravel)</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Dynamic Conflict-Free Availability &amp; Buffer Engine</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Specialist Shift Roster &amp; Commission Accounting Module</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Multi-Service Cart &amp; Consecutive Treatment Scheduler</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Firebase Cloud Messaging (FCM) Automated Reminder Pipeline</span>
+    </div>
+  
+    <div class="csd-check-item">
+        <span class="csd-check-icon">&check;</span>
+        <span style="color: #ffffff;">Commercial White-Label Enterprise Packaging</span>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 15. Project Gallery -->
+        
+    <section class="csd-section-dark" style="border-top: 1px solid rgba(255,255,255,0.06);">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-accent">// 13. PROJECT GALLERY</span>
+            <h2 class="csd-section-title" style="color: #ffffff;">Visual Deliverables &amp; Design Artifacts</h2>
+            <div class="csd-gallery-grid" style="margin-top: 2.5rem;">
+                
+    <div class="csd-gallery-item">
+        <img src="/assets/images/project_3_1787254295127.webp" alt="Specialist Portfolio &amp; Rating Card" loading="lazy" decoding="async" />
+        <div class="csd-gallery-item-caption">
+            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Specialist Portfolio &amp; Rating Card</strong>
+            <span>Staff profile screen displaying aesthetic certifications, verified client reviews, and active service specialties.</span>
+        </div>
+    </div>
+  
+    <div class="csd-gallery-item">
+        <img src="/assets/images/project_3_1787254295127.webp" alt="Operations Roster &amp; Salon Dispatch Grid" loading="lazy" decoding="async" />
+        <div class="csd-gallery-item-caption">
+            <strong style="color: #ffffff; display: block; margin-bottom: 0.25rem;">Operations Roster &amp; Salon Dispatch Grid</strong>
+            <span>Administrative calendar view displaying daily bookings, room allocations, and specialist breaks.</span>
+        </div>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
+
+        <!-- 16. Technology Stack -->
+        
+    <section class="csd-section-light">
+        <div class="csd-container">
+            <span class="csd-section-eyebrow csd-eyebrow-muted">// 14. TECHNOLOGY STACK</span>
+            <h2 class="csd-section-title">Verified Tools &amp; Production Infrastructure</h2>
+            <div class="csd-cards-grid-3" style="margin-top: 2rem;">
+                
+    <div class="csd-card">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Mobile Client</h4>
+        <div>
+            <span class="csd-tech-badge-light">Flutter SDK</span> <span class="csd-tech-badge-light">Dart</span> <span class="csd-tech-badge-light">Modular State Pattern</span> <span class="csd-tech-badge-light">Cached Network Image</span> <span class="csd-tech-badge-light">Mobile Ergonomics</span>
+        </div>
+    </div>
+  
+    <div class="csd-card">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Operations Backend</h4>
+        <div>
+            <span class="csd-tech-badge-light">Laravel Core</span> <span class="csd-tech-badge-light">Relational Database</span> <span class="csd-tech-badge-light">Atomic Transactions</span> <span class="csd-tech-badge-light">Commission Engine</span>
+        </div>
+    </div>
+  
+    <div class="csd-card">
+        <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111111; margin-bottom: 1rem;">Integrations &amp; Alerts</h4>
+        <div>
+            <span class="csd-tech-badge-light">Dynamic Slot Engine</span> <span class="csd-tech-badge-light">Firebase Cloud Messaging</span> <span class="csd-tech-badge-light">SMS Gateways</span> <span class="csd-tech-badge-light">Multi-Branch Architecture</span>
+        </div>
+    </div>
+  
+            </div>
+        </div>
+    </section>
+  
   
         <!-- Related Kawaki Capabilities & Next Project -->
         <section class="csd-related" style="padding: 5rem 2rem; background: #0c0d10; color: #ffffff; border-top: 1px solid rgba(255,255,255,0.08);">
@@ -346,15 +1098,15 @@
                 </div>
 
                 
-                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap: 2rem;">
+                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
                     <div>
                         <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; text-transform: uppercase; color: #888888;">Next Case Study</span>
                         <h4 style="font-family: 'Host Grotesk', sans-serif; font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">
-                            <a href="undefined" style="color: #ffffff; text-decoration: none;">Pixza &rarr;</a>
+                            <a href="/case-studies/kala-design" style="color: #ffffff; text-decoration: none;">Kala Design Co &rarr;</a>
                         </h4>
-                        <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">AI & Digital Products &middot; Artificial Intelligence / Creative SaaS</p>
+                        <p style="color: #888888; font-size: 0.95rem; margin-top: 0.25rem;">Brand & Marketing Websites &middot; Architecture / Luxury Interior Design / Spatial Curation</p>
                     </div>
-                    <a href="undefined" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
+                    <a href="/case-studies/kala-design" class="csd-live-btn" style="margin-top: 0;">Explore Project &rarr;</a>
                 </div>
                 
             </div>
