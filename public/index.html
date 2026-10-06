@@ -34,10 +34,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" media="print" onload="this.media='all'" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" media="print" onload="this.media='all'" />
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" />
     </noscript>
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="preload" as="style" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
@@ -46,6 +48,130 @@
         <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
     </noscript>
     <style>
+        /* ==========================================================================
+           VOLUME-INSPIRED UNIFIED DESIGN SYSTEM (ONE FIXED FONT STYLE)
+           ========================================================================== */
+        :root {
+            --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --color-bg: #FFFFFF;
+            --color-text-main: #111111;
+            --color-text-muted: #555555;
+            --color-text-light: #71717a;
+            --color-border: rgba(0, 0, 0, 0.08);
+            --color-accent: #ea580c; /* Warm Orange Accent from Volume */
+            --color-accent-hover: #c2410c;
+        }
+
+        /* Strict Single Font Rule across the entire document */
+        body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, span, a, li, div {
+            font-family: var(--font-primary) !important;
+        }
+
+        /* Eliminate all serif italic and monospace overrides */
+        .bs-serif-text, .serif-italic, em {
+            font-family: var(--font-primary) !important;
+            font-style: normal !important;
+            font-weight: inherit !important;
+        }
+
+        /* Volume Signature Eyebrow with Orange Brackets */
+        .vol-eyebrow, .sec-eyebrow, .about-eyebrow {
+            font-family: var(--font-primary) !important;
+            font-size: 0.78rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.14em !important;
+            text-transform: uppercase !important;
+            color: #666666 !important;
+            background: transparent !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0.35rem !important;
+            margin-bottom: 1.25rem !important;
+        }
+        .vol-bracket {
+            color: #ea580c !important;
+            font-weight: 700 !important;
+            transition: transform 0.3s ease;
+        }
+        .vol-eyebrow:hover .vol-bracket:first-child,
+        .sec-eyebrow:hover .vol-bracket:first-child {
+            transform: translateX(-3px);
+        }
+        .vol-eyebrow:hover .vol-bracket:last-child,
+        .sec-eyebrow:hover .vol-bracket:last-child {
+            transform: translateX(3px);
+        }
+
+        /* Standardized Section Headers */
+        .services-header.oth, .capabilities-sec .services-header.oth, .works-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto 3.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .header-title, .about-heading {
+            font-family: var(--font-primary) !important;
+            font-size: clamp(2.2rem, 4vw, 3.4rem) !important;
+            font-weight: 700 !important;
+            line-height: 1.15 !important;
+            letter-spacing: -0.025em !important;
+            color: #111111 !important;
+            margin: 0 !important;
+            text-align: left !important;
+        }
+        .another-span, .about-text {
+            font-family: var(--font-primary) !important;
+            font-size: 1rem !important;
+            line-height: 1.65 !important;
+            color: #555555 !important;
+        }
+
+        /* Buttons (Volume Style) */
+        .vol-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #111111;
+            color: #FFFFFF;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: background 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        }
+        .vol-btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(234, 88, 12, 0.3);
+        }
+        .vol-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: #111111;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .vol-btn-outline:hover {
+            border-color: #111111;
+            background: rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
         :root {
             --base-100: #ffffff;
             --base-200: #111111;
@@ -206,7 +332,7 @@
             bottom: 50px;
             right: 50px;
             transform: rotate(10deg);
-            color: #C6FF00; /* Brand orange color */
+            color: #ea580c; /* Brand orange color */
         }
 
         .doodle-4 {
@@ -412,7 +538,7 @@
         }
 
         .lama-touch-text {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -420,7 +546,7 @@
         }
 
         .lama-us-tag {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -439,7 +565,7 @@
         }
 
         .lama-us-tag:hover {
-            color: #C6FF00;
+            color: #ea580c;
             background: #FFFFFF;
             border-color: rgba(0, 0, 0, 0.15);
         }
@@ -524,11 +650,11 @@
         }
 
         .hero-lama-eyebrow {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: clamp(0.75rem, 1vw, 0.85rem);
             font-weight: 700;
             letter-spacing: 0.16em;
-            color: #C6FF00;
+            color: #ea580c;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
         }
@@ -547,14 +673,14 @@
         .hero-lama-title .serif-italic,
         .hero-lama-title em,
         .hero-lama-title .bs-serif-text {
-            font-family: 'Playfair Display', "Instrument Serif", Georgia, serif !important;
+            font-family: var(--font-primary) !important;
             font-style: italic !important;
             font-weight: 400 !important;
             color: #FFFFFF;
         }
 
         .hero-lama-title .hero-dot {
-            color: #C6FF00;
+            color: #ea580c;
         }
 
         .hero-lama-right {
@@ -593,7 +719,7 @@
             background: rgba(10, 8, 7, 0.35);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: clamp(0.7rem, 0.85vw, 0.8rem);
             letter-spacing: 0.08em;
             color: rgba(255, 255, 255, 0.75);
@@ -630,7 +756,7 @@
         }
 
         .lama-bottom-link:hover {
-            color: #C6FF00;
+            color: #ea580c;
         }
 
         .lama-lang-toggle {
@@ -656,7 +782,7 @@
         .lang-switch-toggle {
             width: 22px;
             height: 12px;
-            background: #C6FF00;
+            background: #ea580c;
             border-radius: 9999px;
             display: flex;
             align-items: center;
@@ -750,7 +876,7 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -767,7 +893,7 @@
         }
 
         .uclay-bio-block {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.8rem;
             line-height: 1.5;
             letter-spacing: 0.01em;
@@ -852,7 +978,7 @@
             color: #111111;
             padding: 0.65rem 1.35rem;
             border-radius: 9999px;
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -918,7 +1044,7 @@
         }
 
         .uclay-explore-link {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: clamp(0.85rem, 1.15vw, 1.05rem);
             color: #111111;
             text-decoration: none;
@@ -932,7 +1058,7 @@
         }
 
         .uclay-explore-link:hover {
-            color: #C6FF00;
+            color: #ea580c;
         }
 
         .uclay-arrow-svg {
@@ -946,7 +1072,7 @@
         .uclay-explore-link:hover ~ .uclay-arrow-svg,
         .uclay-brand-link-row:hover .uclay-arrow-svg {
             transform: translateX(10px);
-            stroke: #C6FF00;
+            stroke: #ea580c;
         }
 
         /* Right Sage Green Silhouette Banner */
@@ -961,7 +1087,7 @@
         }
 
         .uclay-right-idx {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.7);
             text-align: right;
@@ -1145,7 +1271,7 @@
             gap: 2rem;
             margin-top: 3rem;
             flex-wrap: wrap;
-            font-family: "Space Mono", "Roboto Mono", monospace, sans-serif;
+            font-family: var(--font-primary) ;
             font-size: 0.76rem;
             letter-spacing: 0.08em;
             color: #555555;
@@ -1153,7 +1279,7 @@
         }
 
         .hero-bottom-strip span.highlight {
-            color: #C6FF00;
+            color: #ea580c;
             font-weight: 700;
         }
 
@@ -1226,7 +1352,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            color: #C6FF00;
+            color: #ea580c;
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 0.15em;
@@ -1262,7 +1388,7 @@
             display: inline-block;
             width: 0.25em;
             height: 0.25em;
-            background-color: #C6FF00;
+            background-color: #ea580c;
             border-radius: 50%;
             margin-left: 0.05em;
         }
@@ -1533,7 +1659,7 @@
             font-weight: 800;
             letter-spacing: 0.08em;
             color: #111111;
-            background: #C6FF00;
+            background: #ea580c;
             padding: 2px 7px;
             border-radius: 4px;
             display: inline-block;
@@ -1571,7 +1697,7 @@
         .card-num {
             font-size: 0.8rem;
             font-weight: 800;
-            color: #C6FF00;
+            color: #ea580c;
             letter-spacing: 0.1em;
         }
 
@@ -1875,7 +2001,7 @@
         }
 
         .work-item:hover .work-item-link {
-            color: #C6FF00;
+            color: #ea580c;
         }
 
         .work-item-left {
@@ -1889,7 +2015,7 @@
             font-weight: 800;
             letter-spacing: 0.08em;
             color: #111111;
-            background: #C6FF00;
+            background: #ea580c;
             padding: 2px 7px;
             border-radius: 4px;
             display: inline-block;
@@ -1926,7 +2052,7 @@
         .work-item:hover .work-arrow {
             transform: translate(3px, -3px);
             opacity: 1;
-            color: #C6FF00;
+            color: #ea580c;
         }
 
         /* Floating hover image */
@@ -2014,7 +2140,7 @@
             right: 0;
         }
         .mega-col h4 {
-            font-family: "Barlow Condensed", sans-serif;
+            font-family: var(--font-primary) ;
             text-transform: uppercase;
             font-size: 0.9rem;
             letter-spacing: 0.05em;
@@ -2103,7 +2229,7 @@
         }
         .infs-scroll-text em {
             font-style: italic;
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: var(--font-primary) ;
             font-weight: 400;
         }
         .infs-dot {
@@ -2111,7 +2237,7 @@
             align-items: center;
             margin: 0 1.25rem;
             font-size: clamp(28px, 4.5vw, 54px);
-            color: #C6FF00;
+            color: #ea580c;
             vertical-align: middle;
         }
 
@@ -2140,7 +2266,7 @@
             margin: 0 0 1.25rem;
         }
         .bs-serif-text {
-            font-family: 'Playfair Display', Georgia, serif !important;
+            font-family: var(--font-primary) !important;
             font-style: italic;
             font-weight: 400;
         }
@@ -2171,7 +2297,7 @@
         .process-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
-            border-color: rgba(198, 255, 0, 0.4);
+            border-color: rgba(234, 88, 12, 0.4);
         }
         .process-num {
             display: inline-flex;
@@ -2181,12 +2307,12 @@
             height: 36px;
             border-radius: 8px;
             background: #111111;
-            color: #C6FF00;
+            color: #ea580c;
             font-size: 0.95rem;
             font-weight: 700;
             margin-bottom: 1.25rem;
             letter-spacing: 0.05em;
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
         }
         .process-title {
             font-size: 1.45rem;
@@ -2197,7 +2323,7 @@
             font-family: "Plus Jakarta Sans", sans-serif;
         }
         .process-title em {
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: var(--font-primary) ;
             font-style: italic;
             font-weight: 400;
         }
@@ -2253,10 +2379,10 @@
         .package-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-            border-color: rgba(198, 255, 0, 0.4);
+            border-color: rgba(234, 88, 12, 0.4);
         }
         .package-card.popular {
-            border: 2px solid #C6FF00;
+            border: 2px solid #ea580c;
             background: #ffffff;
             position: relative;
         }
@@ -2265,7 +2391,7 @@
             position: absolute;
             top: -14px;
             right: 24px;
-            background: #C6FF00;
+            background: #ea580c;
             color: #111111;
             font-size: 0.72rem;
             font-weight: 800;
@@ -2314,7 +2440,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #C6FF00;
+            background: #ea580c;
         }
         .feature-list {
             list-style: none;
@@ -2389,12 +2515,12 @@
             max-width: 720px;
         }
         .testimonials-header-left .sec-eyebrow {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.76rem;
             font-weight: 700;
             letter-spacing: 0.14em;
             color: #111111;
-            background: #C6FF00;
+            background: #ea580c;
             padding: 4px 10px;
             border-radius: 4px;
             display: inline-block;
@@ -2412,7 +2538,7 @@
             text-align: left;
         }
         .testimonials-title .bs-serif-text {
-            font-family: 'Playfair Display', Georgia, serif !important;
+            font-family: var(--font-primary) !important;
             font-style: italic;
             font-weight: 400;
         }
@@ -2465,7 +2591,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: #C6FF00;
+            background: #ea580c;
             opacity: 0;
             transform: scaleX(0.4);
             transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2490,7 +2616,7 @@
         .testimonial-metric-chip {
             display: inline-flex;
             align-items: center;
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -2507,12 +2633,12 @@
             gap: 6px;
         }
         .testimonial-stars {
-            color: #C6FF00;
+            color: #ea580c;
             font-size: 0.92rem;
             letter-spacing: 2px;
         }
         .testimonial-score {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.75rem;
             font-weight: 700;
             color: #595959;
@@ -2526,7 +2652,7 @@
             font-family: var(--font-primary, "Host Grotesk", sans-serif);
         }
         .testimonial-quote .italic-text {
-            font-family: "Instrument Serif", "Playfair Display", Georgia, serif;
+            font-family: var(--font-primary) ;
             font-style: italic;
             font-size: 1.32rem;
             color: #111111;
@@ -2623,7 +2749,7 @@
             text-align: left;
         }
         .container-faq .header-title .bs-serif-text {
-            font-family: 'Playfair Display', Georgia, serif !important;
+            font-family: var(--font-primary) !important;
             font-style: italic;
             font-weight: 400;
         }
@@ -2665,7 +2791,7 @@
             padding: 0;
         }
         .text-faq em {
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: var(--font-primary) ;
             font-style: italic;
             font-weight: 400;
         }
@@ -2691,7 +2817,7 @@
             margin-top: 4px;
         }
         .question-faq.active-faq .arrow-faq {
-            background: #C6FF00;
+            background: #ea580c;
             color: #111111;
             transform: rotate(90deg);
         }
@@ -2782,12 +2908,12 @@
             max-width: 720px;
         }
         .capabilities-header-left .sec-eyebrow {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.76rem;
             font-weight: 700;
             letter-spacing: 0.14em;
             color: #111111;
-            background: #C6FF00;
+            background: #ea580c;
             padding: 4px 10px;
             border-radius: 4px;
             display: inline-block;
@@ -2805,7 +2931,7 @@
             text-align: left;
         }
         .capabilities-sec .header-title .bs-serif-text {
-            font-family: 'Playfair Display', Georgia, serif !important;
+            font-family: var(--font-primary) !important;
             font-style: italic;
             font-weight: 400;
         }
@@ -2847,7 +2973,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: #C6FF00;
+            background: #ea580c;
             opacity: 0;
             transform: scaleX(0.4);
             transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2870,13 +2996,13 @@
             margin-bottom: 1.5rem;
         }
         .cap-num {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.88rem;
             font-weight: 700;
             color: #595959;
         }
         .cap-chip {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.68rem;
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -2897,7 +3023,7 @@
             letter-spacing: -0.02em;
         }
         .cap-title em {
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: var(--font-primary) ;
             font-style: italic;
             font-weight: 400;
         }
@@ -2915,7 +3041,7 @@
             margin-bottom: 1.5rem;
         }
         .cap-tag {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.68rem;
             font-weight: 600;
             color: #666666;
@@ -2931,7 +3057,7 @@
             border-top: 1px solid rgba(0, 0, 0, 0.06);
         }
         .cap-metric-val {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.72rem;
             font-weight: 700;
             color: #111111;
@@ -2940,7 +3066,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.75rem;
             font-weight: 700;
             color: #111111;
@@ -3054,8 +3180,8 @@
             left: 14px;
             background: rgba(17, 17, 17, 0.88);
             backdrop-filter: blur(8px);
-            color: #C6FF00;
-            font-family: "Space Mono", monospace;
+            color: #ea580c;
+            font-family: var(--font-primary) ;
             font-size: 0.72rem;
             font-weight: 700;
             padding: 5px 12px;
@@ -3076,7 +3202,7 @@
             margin-bottom: 1rem;
         }
         .showcase-role-tag {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.72rem;
             font-weight: 700;
             color: #595959;
@@ -3084,11 +3210,11 @@
             letter-spacing: 0.06em;
         }
         .showcase-year-tag {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.72rem;
             font-weight: 700;
             background: #111111;
-            color: #C6FF00;
+            color: #ea580c;
             padding: 2px 8px;
             border-radius: 4px;
         }
@@ -3112,7 +3238,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.8rem;
             font-weight: 700;
             color: #111111;
@@ -3177,7 +3303,7 @@
             margin: 0;
         }
         .philosophy-quote em {
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: var(--font-primary) ;
             font-style: italic;
             font-weight: 400;
             color: #111111;
@@ -3186,7 +3312,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.76rem;
             font-weight: 700;
             color: #555555;
@@ -3194,7 +3320,7 @@
             text-transform: uppercase;
         }
         .philosophy-coords-bullet {
-            color: #C6FF00;
+            color: #ea580c;
             background: #111111;
             padding: 2px 6px;
             border-radius: 4px;
@@ -3213,14 +3339,14 @@
             background: #111111;
             color: #FFFFFF;
             border-radius: 100px;
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.78rem;
             font-weight: 700;
             text-decoration: none;
             transition: all 0.25s ease;
         }
         .philosophy-btn-primary:hover {
-            background: #C6FF00;
+            background: #ea580c;
             color: #000000;
             transform: translateY(-2px);
         }
@@ -3233,7 +3359,7 @@
             color: #111111;
             border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 100px;
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.78rem;
             font-weight: 700;
             text-decoration: none;
@@ -3266,7 +3392,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
         }
         .pillar-idx {
-            font-family: "Space Mono", monospace;
+            font-family: var(--font-primary) ;
             font-size: 0.75rem;
             font-weight: 700;
             color: #595959;
@@ -3345,13 +3471,13 @@
         .preloader-shutter-top {
             top: 0;
             transform-origin: top center;
-            border-bottom: 1px solid rgba(198, 255, 0, 0.12);
+            border-bottom: 1px solid rgba(234, 88, 12, 0.12);
         }
 
         .preloader-shutter-bottom {
             bottom: 0;
             transform-origin: bottom center;
-            border-top: 1px solid rgba(198, 255, 0, 0.12);
+            border-top: 1px solid rgba(234, 88, 12, 0.12);
         }
 
         /* Ambient glows & blueprint grid */
@@ -3367,7 +3493,7 @@
         }
 
         .preloader-aura-lime {
-            background: #C6FF00;
+            background: #ea580c;
             top: -150px;
             right: -100px;
             animation: auraFloat 6s ease-in-out infinite alternate;
@@ -3415,7 +3541,7 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            font-family: "Space Mono", monospace, sans-serif;
+            font-family: var(--font-primary) ;
             font-size: 0.74rem;
             font-weight: 700;
             letter-spacing: 0.16em;
@@ -3433,15 +3559,15 @@
         .preloader-live-dot {
             width: 8px;
             height: 8px;
-            background: #C6FF00;
+            background: #ea580c;
             border-radius: 50%;
-            box-shadow: 0 0 14px #C6FF00;
+            box-shadow: 0 0 14px #ea580c;
             animation: pulseDot 1.2s infinite ease-in-out;
         }
 
         @keyframes pulseDot {
             0%, 100% { transform: scale(0.9); opacity: 0.7; }
-            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 20px #C6FF00; }
+            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 20px #ea580c; }
         }
 
         /* Central Stage */
@@ -3525,7 +3651,7 @@
         }
 
         .p-eyebrow {
-            font-family: "Space Mono", monospace, sans-serif;
+            font-family: var(--font-primary) ;
             font-size: clamp(0.72rem, 1vw, 0.88rem);
             font-weight: 700;
             letter-spacing: 0.22em;
@@ -3546,14 +3672,14 @@
         }
 
         .p-big-word em {
-            font-family: "Playfair Display", Georgia, serif;
+            font-family: var(--font-primary) ;
             font-style: italic;
             font-weight: 400;
         }
 
         .p-accent-lime em {
-            color: #C6FF00;
-            text-shadow: 0 0 50px rgba(198, 255, 0, 0.5);
+            color: #ea580c;
+            text-shadow: 0 0 50px rgba(234, 88, 12, 0.5);
         }
 
         .p-brand-word {
@@ -3562,8 +3688,8 @@
         }
 
         .p-brand-word span {
-            color: #C6FF00;
-            text-shadow: 0 0 35px rgba(198, 255, 0, 0.35);
+            color: #ea580c;
+            text-shadow: 0 0 35px rgba(234, 88, 12, 0.35);
         }
 
         /* Bottom Progress Rail */
@@ -3588,8 +3714,8 @@
         .preloader-bar-fill {
             height: 100%;
             width: 100%;
-            background: #C6FF00;
-            box-shadow: 0 0 16px #C6FF00, 0 0 30px rgba(198, 255, 0, 0.6);
+            background: #ea580c;
+            box-shadow: 0 0 16px #ea580c, 0 0 30px rgba(234, 88, 12, 0.6);
             border-radius: 100px;
             transform-origin: left center;
             transform: scaleX(0);
@@ -3600,110 +3726,52 @@
             display: none !important;
         }
     
-        /* --- ENHANCED HOW WE BUILD: ARCHITECTURAL PIPELINE --- */
-        .build-pipeline-track {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1340px;
+        
+        /* --- SECTION: ABOUT / MANIFESTO --- */
+        .about-statement {
+            padding: 6rem 2rem 5.5rem !important;
+            background: #ffffff;
+            border-bottom: 1px solid var(--color-border);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vol-about-grid {
+            max-width: 1400px;
             margin: 0 auto;
-            position: relative;
-        }
-        .build-step-node {
-            background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 16px;
-            padding: 2.25rem 1.75rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
-        }
-        .build-step-node::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: #111111;
-            border-radius: 16px 16px 0 0;
-            transition: background 0.3s ease;
-        }
-        .build-step-node:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.12);
-            border-color: rgba(198, 255, 0, 0.5);
-        }
-        .build-step-node:hover::before {
-            background: #C6FF00;
-        }
-        .step-header {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 4.5rem;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.25rem;
         }
-        .step-badge {
-            font-family: "Space Mono", monospace;
-            font-size: 0.75rem;
-            font-weight: 700;
-            background: #111111;
-            color: #C6FF00;
-            padding: 3px 8px;
-            border-radius: 4px;
+        .vol-about-media {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f8fafc;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            aspect-ratio: 16 / 10;
         }
-        .step-tag {
-            font-family: "Space Mono", monospace;
-            font-size: 0.68rem;
-            font-weight: 700;
-            color: #64748b;
-            letter-spacing: 0.06em;
+        .vol-about-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .step-title {
-            font-family: "Plus Jakarta Sans", sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.25;
-            color: #111111;
-            margin-bottom: 0.85rem;
-            letter-spacing: -0.02em;
-        }
-        .step-desc {
-            font-size: 0.92rem;
-            line-height: 1.65;
-            color: #555555;
-            margin-bottom: 1.75rem;
-            flex-grow: 1;
-        }
-        .step-output {
-            background: #F8FAFC;
-            border-left: 2px solid #C6FF00;
-            padding: 0.75rem 1rem;
-            border-radius: 0 8px 8px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-        }
-        .output-label {
-            font-family: "Space Mono", monospace;
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: #94a3b8;
-            text-transform: uppercase;
-        }
-        .output-val {
-            font-family: "Plus Jakarta Sans", sans-serif;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #1e293b;
+        .vol-about-media:hover .vol-about-img {
+            transform: scale(1.04);
         }
 
-        
-        /* --- VOLUME EDITORIAL CAPABILITIES GRID --- */
-        .volume-grid {
+        /* --- SECTION: PROCESS PIPELINE --- */
+        .how-we-build-sec {
+            padding: 6.5rem 2rem !important;
+            background: #ffffff;
+            border-bottom: 1px solid var(--color-border);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vol-process-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
@@ -3712,43 +3780,106 @@
             width: 100%;
             box-sizing: border-box;
         }
-
-        .volume-card {
+        .vol-process-card {
+            background: #FFFFFF;
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
+            padding: 2.25rem 1.75rem;
             display: flex;
             flex-direction: column;
-            text-align: left;
+            justify-content: space-between;
             position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+        }
+        .vol-process-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+            border-color: rgba(234, 88, 12, 0.4);
+        }
+        .vol-process-num {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #ea580c;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+        .vol-process-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #111111;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+        .vol-process-desc {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: #555555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .vol-process-output {
+            background: #F8FAFC;
+            border-left: 2px solid #ea580c;
+            padding: 0.75rem 1rem;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.82rem;
+            color: #334155;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* --- SECTION: SELECTED WORK --- */
+        .works-section {
+            padding: 6.5rem 2rem !important;
+            background: #ffffff;
+            border-bottom: 1px solid var(--color-border);
+            width: 100%;
             box-sizing: border-box;
         }
-
-        .volume-media-wrap {
+        .vol-work-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.25rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vol-work-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            background: #ffffff;
+        }
+        .vol-work-media {
             position: relative;
             width: 100%;
-            aspect-ratio: 1 / 1.16;
+            height: 340px;
             border-radius: 12px;
             overflow: hidden;
-            background: #f8fafc;
+            background: #0f172a;
             border: 1px solid rgba(0, 0, 0, 0.06);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             display: block;
             text-decoration: none;
-            transition: box-shadow 0.4s ease, border-color 0.3s ease;
         }
-
-        .volume-img {
+        .vol-work-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
             transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .volume-media-wrap:hover .volume-img,
-        .volume-card:hover .volume-img {
+        .vol-work-media:hover .vol-work-img,
+        .vol-work-card:hover .vol-work-img {
             transform: scale(1.05);
         }
-
-        .volume-pill {
+        .vol-work-pill {
             position: absolute;
             bottom: 1.15rem;
             right: 1.15rem;
@@ -3758,7 +3889,6 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             color: #111111;
-            font-family: 'Space Mono', monospace;
             font-size: 0.72rem;
             font-weight: 700;
             padding: 6px 14px;
@@ -3771,282 +3901,141 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             pointer-events: none;
         }
-
-        .volume-media-wrap:hover .volume-pill,
-        .volume-card:hover .volume-pill {
+        .vol-work-media:hover .vol-work-pill,
+        .vol-work-card:hover .vol-work-pill {
             background: #111111;
             color: #ffffff;
             border-color: #111111;
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
-
-        .volume-content {
-            padding-top: 1.5rem;
+        .vol-work-content {
+            padding-top: 1.25rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
-
-        .volume-title-lockup {
-            margin-bottom: 0.75rem;
-        }
-
-        .volume-num-tag {
-            font-family: 'Space Mono', monospace;
+        .vol-work-cat {
             font-size: 0.72rem;
-            font-weight: 700;
-            color: #ea580c;
-            letter-spacing: 0.08em;
-            display: inline-block;
-            margin-right: 0.4rem;
-        }
-
-        .volume-card-title {
-            margin: 0;
-            display: inline;
-        }
-
-        .volume-card-title a {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: #111111;
-            text-decoration: none;
-            display: inline-block;
-            border-bottom: 2px solid #ea580c;
-            padding-bottom: 4px;
-            line-height: 1.4;
-            transition: color 0.2s ease, border-color 0.2s ease;
-        }
-
-        .volume-card-title a:hover {
-            color: #ea580c;
-        }
-
-        .volume-card-sub {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.98rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin: 0.65rem 0 0.5rem 0;
-            line-height: 1.35;
-        }
-
-        .volume-desc {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.88rem;
-            line-height: 1.68;
-            color: #475569;
-            margin: 0 0 1.25rem 0;
-            flex-grow: 1;
-        }
-
-        .volume-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: auto;
-        }
-
-        .volume-tag {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.68rem;
-            color: #475569;
-            background: #f1f5f9;
-            padding: 3px 8px;
-            border-radius: 4px;
-            letter-spacing: 0.02em;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        .volume-card:hover .volume-tag {
-            background: #e2e8f0;
-            color: #0f172a;
-        }
-
-        @media (max-width: 1200px) {
-            .volume-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .volume-grid {
-                grid-template-columns: 1fr;
-                gap: 2.75rem;
-            }
-        }
-
-        /* --- EDITORIAL SELECTED WORK GRID --- */
-        .work-card-editorial {
-            background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        .work-card-editorial:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.12);
-            border-color: rgba(0, 0, 0, 0.16);
-        }
-        .work-card-thumb {
-            position: relative;
-            width: 100%;
-            height: 320px;
-            overflow: hidden;
-            background: #0C0E14;
-        }
-        .work-card-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .work-card-editorial:hover .work-card-thumb img {
-            transform: scale(1.05);
-        }
-        .work-card-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: rgba(12, 14, 20, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: #FFFFFF;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.68rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .work-card-info {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        .work-card-sub {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.72rem;
-            font-weight: 700;
             color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
         }
-        .work-card-name {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
+        .vol-work-cat span {
+            color: #ea580c;
+            font-weight: 700;
+        }
+        .vol-work-title {
+            font-size: 1.35rem;
+            font-weight: 700;
             color: #111111;
-            margin: 0.4rem 0 0.85rem;
+            margin: 0 0 0.5rem 0;
             letter-spacing: -0.02em;
         }
-        .work-card-summary {
-            font-size: 0.95rem;
+        .vol-work-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .vol-work-title a:hover {
+            color: #ea580c;
+        }
+        .vol-work-desc {
+            font-size: 0.88rem;
             line-height: 1.65;
             color: #555555;
-            margin-bottom: 1.5rem;
+            margin: 0 0 1rem 0;
             flex-grow: 1;
         }
-        .work-card-cta {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.82rem;
+        .vol-work-cta {
+            font-size: 0.78rem;
             font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             color: #111111;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            margin-top: auto;
             transition: color 0.2s ease, transform 0.2s ease;
         }
-        .work-card-cta:hover {
-            color: #556C58;
+        .vol-work-cta:hover {
+            color: #ea580c;
             transform: translateX(4px);
         }
 
-        /* --- BUILT FOR DIFFERENT STAGES OF GROWTH --- */
-        .stage-card {
+        /* --- SECTION: STAGES OF GROWTH --- */
+        .stages-sec {
+            padding: 6.5rem 2rem !important;
+            background: #ffffff;
+            border-bottom: 1px solid var(--color-border);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vol-stages-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vol-stage-card {
             background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 18px;
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
             padding: 2.5rem 2rem;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
-        .stage-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: #111111;
-            border-radius: 18px 18px 0 0;
-            transition: background 0.3s ease;
-        }
-        .stage-card:hover {
+        .vol-stage-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
-            border-color: rgba(198, 255, 0, 0.6);
+            border-color: rgba(234, 88, 12, 0.4);
         }
-        .stage-card:hover::before {
-            background: #C6FF00;
-        }
-        .stage-card-num {
-            font-family: 'Space Mono', monospace;
+        .vol-stage-num {
             font-size: 0.75rem;
             font-weight: 700;
-            color: #C6FF00;
-            background: #111111;
-            display: inline-block;
-            align-self: flex-start;
-            padding: 3px 8px;
-            border-radius: 4px;
+            color: #ea580c;
+            letter-spacing: 0.1em;
             margin-bottom: 1.25rem;
+            display: block;
         }
-        .stage-card-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 800;
+        .vol-stage-title {
+            font-size: 1.35rem;
+            font-weight: 700;
             color: #111111;
-            line-height: 1.2;
             margin-bottom: 0.75rem;
             letter-spacing: -0.02em;
         }
-        .stage-card-desc {
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .vol-stage-desc {
+            font-size: 0.92rem;
+            line-height: 1.65;
             color: #555555;
             margin-bottom: 1.75rem;
         }
-        .stage-focus-box {
+        .vol-stage-focus {
             background: #F8FAFC;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            border-radius: 12px;
-            padding: 1.25rem 1.25rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 10px;
+            padding: 1.25rem;
             flex-grow: 1;
         }
-        .stage-focus-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.68rem;
+        .vol-stage-focus-title {
+            font-size: 0.72rem;
             font-weight: 700;
             color: #64748b;
             letter-spacing: 0.1em;
             margin-bottom: 0.75rem;
+            text-transform: uppercase;
         }
-        .stage-focus-list {
+        .vol-stage-list {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -4054,142 +4043,248 @@
             flex-direction: column;
             gap: 0.5rem;
         }
-        .stage-focus-list li {
+        .vol-stage-list li {
             font-size: 0.88rem;
             color: #334155;
             position: relative;
-            padding-left: 1.25rem;
-            line-height: 1.4;
+            padding-left: 1.2rem;
+            line-height: 1.45;
         }
-        .stage-focus-list li::before {
+        .vol-stage-list li::before {
             content: '→';
             position: absolute;
             left: 0;
-            color: #C6FF00;
-            background: #111111;
-            width: 14px;
-            height: 14px;
-            border-radius: 3px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.65rem;
-            font-family: 'Space Mono', monospace;
+            color: #ea580c;
+            font-weight: 700;
         }
 
-        /* --- OUR ENGINEERING PRINCIPLES --- */
-        .principle-card {
+        /* --- SECTION: PRINCIPLES --- */
+        .principles-sec {
+            padding: 6.5rem 2rem !important;
+            background: #ffffff;
+            border-bottom: 1px solid var(--color-border);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vol-principles-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vol-principle-card {
             background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 18px;
-            padding: 2.75rem 2.25rem;
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
+            padding: 2.5rem 2.25rem;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
-        .principle-card:hover {
+        .vol-principle-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
-            border-color: rgba(0, 0, 0, 0.16);
+            border-color: rgba(234, 88, 12, 0.4);
         }
-        .principle-badge {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.72rem;
+        .vol-principle-num {
+            font-size: 0.75rem;
             font-weight: 700;
-            color: #64748b;
-            letter-spacing: 0.06em;
+            color: #ea580c;
+            letter-spacing: 0.1em;
             margin-bottom: 0.75rem;
+            display: block;
         }
-        .principle-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 800;
+        .vol-principle-title {
+            font-size: 1.45rem;
+            font-weight: 700;
             color: #111111;
-            margin-bottom: 1rem;
+            margin-bottom: 0.85rem;
             letter-spacing: -0.02em;
         }
-        .principle-body {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #475569;
+        .vol-principle-desc {
+            font-size: 0.95rem;
+            line-height: 1.68;
+            color: #555555;
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
-        .principle-note {
+        .vol-principle-note {
             background: #F8FAFC;
-            border-left: 3px solid #C6FF00;
+            border-left: 2px solid #ea580c;
             padding: 0.85rem 1.15rem;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.88rem;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.85rem;
             line-height: 1.55;
             color: #334155;
         }
 
-        /* --- WHY KAWAKI --- */
-        .why-kawaki-grid {
+        /* --- SECTION: WHY KAWAKI --- */
+        .why-kawaki-sec {
+            padding: 6.5rem 2rem !important;
+            background: #ffffff;
+            border-bottom: 1px solid var(--color-border);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vol-why-grid {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 1.5rem;
+            width: 100%;
+            box-sizing: border-box;
         }
-        .why-card {
+        .vol-why-card {
             background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
             padding: 2.25rem 1.5rem;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .why-card:hover {
+        .vol-why-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(198, 255, 0, 0.5);
+            border-color: rgba(234, 88, 12, 0.4);
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
         }
-        .why-idx {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
+        .vol-why-num {
+            font-size: 0.8rem;
             font-weight: 700;
-            color: #94a3b8;
+            color: #ea580c;
+            letter-spacing: 0.1em;
             margin-bottom: 1.25rem;
+            display: block;
         }
-        .why-card-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        .vol-why-title {
             font-size: 1.15rem;
             font-weight: 700;
             color: #111111;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
+            margin-bottom: 0.65rem;
+            line-height: 1.35;
         }
-        .why-card-desc {
-            font-size: 0.9rem;
+        .vol-why-desc {
+            font-size: 0.88rem;
             line-height: 1.6;
-            color: #64748b;
+            color: #555555;
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 1024px) {
-            .selected-work-grid {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
+        /* --- SECTION: FAQ --- */
+        .container-faq {
+            padding: 6.5rem 2rem !important;
+            background: #ffffff;
+            border-bottom: 1px solid var(--color-border);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vol-faq-list {
+            max-width: 1400px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+        }
+        .vol-faq-item {
+            border-bottom: 1px solid var(--color-border);
+        }
+        .vol-faq-item:first-child {
+            border-top: 1px solid var(--color-border);
+        }
+        .vol-faq-btn {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.75rem 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: color 0.2s ease;
+        }
+        .vol-faq-btn:hover .vol-faq-q {
+            color: #ea580c;
+        }
+        .vol-faq-q {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111111;
+            transition: color 0.2s ease;
+        }
+        .vol-faq-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 9999px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #111111;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+        .vol-faq-btn[aria-expanded="true"] .vol-faq-icon {
+            transform: rotate(45deg);
+            border-color: #ea580c;
+            color: #ea580c;
+        }
+        .vol-faq-ans {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+        }
+        .vol-faq-ans.active,
+        .vol-faq-btn[aria-expanded="true"] + .vol-faq-ans {
+            max-height: 500px;
+            padding-bottom: 1.75rem;
+        }
+        .vol-faq-ans p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555555;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .vol-about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
-            .stages-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem !important;
+            .vol-process-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .principles-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem !important;
+            .vol-work-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .why-kawaki-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
+            .vol-stages-grid {
+                grid-template-columns: 1fr;
+            }
+            .vol-principles-grid {
+                grid-template-columns: 1fr;
+            }
+            .vol-why-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         @media (max-width: 640px) {
-            .why-kawaki-grid {
-                grid-template-columns: 1fr !important;
+            .vol-process-grid {
+                grid-template-columns: 1fr;
+            }
+            .vol-work-grid {
+                grid-template-columns: 1fr;
+            }
+            .vol-why-grid {
+                grid-template-columns: 1fr;
             }
         }
+
 
 </style>
 
@@ -4608,7 +4703,7 @@
                         <a href="/contact" class="menu-cta-button">
                             <span>Schedule a Call</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                                <circle cx="8" cy="8" r="8" fill="#ea580c"></circle>
                                 <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
                             </svg>
                         </a>
@@ -4651,10 +4746,10 @@
                             We combine strategy, design and engineering to create digital products that look distinctive, perform reliably and remain maintainable long after launch.
                         </p>
                         <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <a href="/contact" class="bento-btn-neon" style="padding: 10px 20px; font-size: 0.78rem;">
+                            <a href="/contact" class="vol-btn-primary" style="padding: 10px 20px; font-size: 0.78rem;">
                                 <span>Start a Project &rarr;</span>
                             </a>
-                            <a href="#work" class="cap-link" style="font-family: 'Space Mono', monospace; font-size: 0.78rem; text-decoration: underline; text-underline-offset: 4px;">
+                            <a href="#work" class="cap-link" style="font-family: var(--font-primary) ; font-size: 0.78rem; text-decoration: underline; text-underline-offset: 4px;">
                                 <span>Explore Our Work &rarr;</span>
                             </a>
                         </div>
@@ -4682,110 +4777,59 @@
         
 
         <section class="about-statement" id="about-intro">
-            <div class="container-inner">
-                <div class="about-content">
-                    <div class="about-eyebrow">
-                        WE BUILD PRECISE, DURABLE WEB SYSTEMS
+            <div class="vol-about-grid">
+                <div class="vol-about-content">
+                    <div class="vol-eyebrow">
+                        <span class="vol-bracket">[</span> WHO WE ARE <span class="vol-bracket">]</span>
                     </div>
                     
-                    <h2 class="about-heading">
-                        Your website should be <br>more than a <span class="serif-italic">polished front end</span><span class="about-dot">.</span>
+                    <h2 class="about-heading" style="margin-bottom: 1.5rem;">
+                        We build precise, durable web systems<span style="color: #ea580c;">.</span>
                     </h2>
                     
-                    <p class="about-text" style="margin-bottom: 1rem;">
+                    <p class="about-text" style="margin-bottom: 1.25rem;">
                         Kawaki Studios designs and develops custom digital experiences around your business, audience and technical requirements &mdash; without relying on bloated templates or black-box systems.
                     </p>
                     
-                    <p class="about-text" style="margin-bottom: 1rem;">
+                    <p class="about-text" style="margin-bottom: 1.25rem;">
                         From marketing websites and Shopify storefronts to full-stack web applications and AI-powered workflows, we build with modern technologies and clean, maintainable code.
                     </p>
 
-                    <p class="about-text" style="font-weight: 600; color: #111111; margin-bottom: 1.75rem;">
+                    <p class="about-text" style="font-weight: 600; color: #111111; margin-bottom: 2.25rem;">
                         The result is a digital system your business can actually grow with.
                     </p>
                     
                     <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                        <a href="#process" class="about-btn">
-                            Read Our Process &rarr;
+                        <a href="#process" class="vol-btn-primary">
+                            <span>Read Our Process &rarr;</span>
                         </a>
-                        <a href="/about" class="about-btn" style="background: transparent; color: #111111; border: 1px solid rgba(0,0,0,0.15);">
-                            About Kawaki Studios &rarr;
+                        <a href="/about" class="vol-btn-outline">
+                            <span>About Kawaki Studios &rarr;</span>
                         </a>
                     </div>
                 </div>
 
-                <div class="about-media-card" style="position: relative;">
-                    <img src="/assets/images/about-studio.webp" alt="About Kawaki Studio" width="1376" height="768" loading="lazy" decoding="async" />
+                <div class="vol-about-media">
+                    <img src="/assets/images/about-studio.webp" alt="Kawaki Studios Web Engineering Studio" width="1376" height="768" class="vol-about-img" loading="lazy" decoding="async" />
                 </div>
             </div>
         </section>
 
         <!-- ============================ -->
-        <!-- Infinite Text Scroll Marquee 1 -->
-        <!-- ============================ -->
-        <div class="infs-marquee-container sections" data-section="Crafting legendary brands">
-            <div class="infs-scroll-wrapper infs-rtl">
-                <div class="infs-scroll-track">
-                    <span class="infs-scroll-text">we make brands <em>legendary</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">we make brands <em>timeless</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">we make brands <em>unforgettable</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">we make brands <em>relevant</em></span>
-                    <span class="infs-dot">&bull;</span>
-                </div>
-                <div class="infs-scroll-track" aria-hidden="true">
-                    <span class="infs-scroll-text">we make brands <em>legendary</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">we make brands <em>timeless</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">we make brands <em>unforgettable</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">we make brands <em>relevant</em></span>
-                    <span class="infs-dot">&bull;</span>
-                </div>
-            </div>
-            <div class="infs-scroll-wrapper infs-ltr">
-                <div class="infs-scroll-track">
-                    <span class="infs-scroll-text">crafted with <em>precision</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">crafted with <em>care</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">crafted with <em>vision</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">built to <em>last</em></span>
-                    <span class="infs-dot">&bull;</span>
-                </div>
-                <div class="infs-scroll-track" aria-hidden="true">
-                    <span class="infs-scroll-text">crafted with <em>precision</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">crafted with <em>care</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">crafted with <em>vision</em></span>
-                    <span class="infs-dot">&bull;</span>
-                    <span class="infs-scroll-text">built to <em>last</em></span>
-                    <span class="infs-dot">&bull;</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ============================ -->
-        <!-- Featured Projects Showcase Section -->
-        <!-- ============================ -->
-        <!-- ============================ -->
-        <!-- WHAT WE BUILD (CAPABILITIES) -->
+        <!-- 01 / WHAT WE BUILD (CAPABILITIES) -->
         <!-- ============================ -->
         <section class="capabilities-sec sections" id="capabilities" data-section="What We Build">
             <div class="services-header oth">
                 <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ 01 / CORE OFFERING &amp; DISCIPLINES ]</div>
-                    <h2 class="header-title">Custom Web Development &amp; <br><span class="bs-serif-text">Digital Products</span><span class="about-dot"></span></h2>
+                    <div class="vol-eyebrow">
+                        <span class="vol-bracket">[</span> 01 / WHAT WE BUILD <span class="vol-bracket">]</span>
+                    </div>
+                    <h2 class="header-title">Custom Web Development &amp; <br>Digital Products<span style="color: #ea580c;">.</span></h2>
                 </div>
                 <span class="another-span">Custom web development and digital product engineering form our primary craft, supported by specialized ecommerce, automation, and search systems.</span>
             </div>
 
-                        <div class="volume-grid">
+            <div class="volume-grid">
                 <!-- 01 Web Application Development -->
                 <article class="volume-card">
                     <a href="/services/custom-web-development" class="volume-media-wrap" aria-label="Explore Web Application Development">
@@ -4886,221 +4930,207 @@
         </section>
 
         <!-- ============================ -->
-        <!-- HOW WE BUILD (PROCESS) -->
+        <!-- 02 / HOW WE BUILD (PROCESS) -->
         <!-- ============================ -->
         <section class="how-we-build-sec sections" id="process" data-section="How We Build">
             <div class="services-header oth">
                 <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ 02 / STRUCTURED PROCESS ]</div>
-                    <h2 class="header-title">How <br><span class="bs-serif-text">We Build</span><span class="about-dot"></span></h2>
+                    <div class="vol-eyebrow">
+                        <span class="vol-bracket">[</span> 02 / STRUCTURED PROCESS <span class="vol-bracket">]</span>
+                    </div>
+                    <h2 class="header-title">How We Build<span style="color: #ea580c;">.</span></h2>
                 </div>
                 <div>
-                    <div style="font-family: 'Space Mono', monospace; font-size: 0.88rem; font-weight: 700; color: #111111; margin-bottom: 0.4rem; letter-spacing: 0.05em;">
-                        Strategy &rarr; Design &rarr; Engineering &rarr; Growth
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #111111; margin-bottom: 0.4rem; letter-spacing: 0.04em;">
+                        Strategy &rarr; Design &rarr; Engineering &rarr; Evolution
                     </div>
                     <span class="another-span">Every project follows a structured process designed to reduce uncertainty and create a stronger digital foundation.</span>
                 </div>
             </div>
 
-            <div class="build-pipeline-track">
+            <div class="vol-process-grid">
                 <!-- 01 Discovery -->
-                <div class="build-step-node">
-                    <div class="step-header">
-                        <span class="step-badge">01</span>
-                        <span class="step-tag">FOUNDATION</span>
+                <div class="vol-process-card">
+                    <div>
+                        <span class="vol-process-num">01 / DISCOVERY</span>
+                        <h3 class="vol-process-title">Discovery &amp; Architecture</h3>
+                        <p class="vol-process-desc">We understand your business, audience, competitors, and technical requirements before writing a single line of code.</p>
                     </div>
-                    <h3 class="step-title">Discovery</h3>
-                    <p class="step-desc">We understand your business, audience, competitors, goals and technical requirements before we start building.</p>
-                    <div class="step-output">
-                        <span class="output-label">OBJECTIVE:</span>
-                        <span class="output-val">Understand what needs to be solved before deciding how it should be built.</span>
+                    <div class="vol-process-output">
+                        <strong>Outcome:</strong> Technical scope, requirements map, and architectural foundation.
                     </div>
                 </div>
 
                 <!-- 02 Strategy & Experience -->
-                <div class="build-step-node">
-                    <div class="step-header">
-                        <span class="step-badge">02</span>
-                        <span class="step-tag">EXPERIENCE</span>
+                <div class="vol-process-card">
+                    <div>
+                        <span class="vol-process-num">02 / STRATEGY</span>
+                        <h3 class="vol-process-title">Strategy &amp; Experience</h3>
+                        <p class="vol-process-desc">We translate research into information architecture, user journeys, component structures, and refined visual direction.</p>
                     </div>
-                    <h3 class="step-title">Strategy &amp; Experience</h3>
-                    <p class="step-desc">We translate research into positioning, information architecture, user journeys and interface direction.</p>
-                    <div class="step-output">
-                        <span class="output-label">OBJECTIVE:</span>
-                        <span class="output-val">Every major design decision has a reason behind it.</span>
+                    <div class="vol-process-output">
+                        <strong>Outcome:</strong> Interactive prototypes, design tokens, and user-tested flows.
                     </div>
                 </div>
 
                 <!-- 03 Design & Development -->
-                <div class="build-step-node">
-                    <div class="step-header">
-                        <span class="step-badge">03</span>
-                        <span class="step-tag">ENGINEERING</span>
+                <div class="vol-process-card">
+                    <div>
+                        <span class="vol-process-num">03 / ENGINEERING</span>
+                        <h3 class="vol-process-title">Design &amp; Development</h3>
+                        <p class="vol-process-desc">Our designers and developers work together to turn the system into a polished, responsive, and robust digital product.</p>
                     </div>
-                    <h3 class="step-title">Design &amp; Development</h3>
-                    <p class="step-desc">Our designers and developers work together to turn the system into a polished, responsive digital experience.</p>
-                    <div class="step-output">
-                        <span class="output-label">OBJECTIVE:</span>
-                        <span class="output-val">Custom interfaces, reusable components and maintainable code rather than forcing your business into a template.</span>
+                    <div class="vol-process-output">
+                        <strong>Outcome:</strong> Strict TypeScript code, clean components, and maintainable APIs.
                     </div>
                 </div>
 
                 <!-- 04 Launch & Evolution -->
-                <div class="build-step-node">
-                    <div class="step-header">
-                        <span class="step-badge">04</span>
-                        <span class="step-tag">CONTINUITY</span>
+                <div class="vol-process-card">
+                    <div>
+                        <span class="vol-process-num">04 / EVOLUTION</span>
+                        <h3 class="vol-process-title">Launch &amp; Evolution</h3>
+                        <p class="vol-process-desc">Launch is just the beginning. We actively refine performance, optimize Core Web Vitals, and evolve the system as you grow.</p>
                     </div>
-                    <h3 class="step-title">Launch &amp; Evolution</h3>
-                    <p class="step-desc">Launch is not the end of the project. We help refine performance, resolve issues, introduce new features and evolve the system as your business grows.</p>
-                    <div class="step-output">
-                        <span class="output-label">OBJECTIVE:</span>
-                        <span class="output-val">Active performance refinement, issue resolution, and system evolution.</span>
+                    <div class="vol-process-output">
+                        <strong>Outcome:</strong> Continuous monitoring, performance optimization, and scaling.
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ============================ -->
-        <!-- SELECTED WORK (CASE STUDIES) -->
+        <!-- 03 / SELECTED WORK (CASE STUDIES) -->
         <!-- ============================ -->
         <section class="works-section sections" id="work" data-section="Selected Work">
-            <div class="works-header" style="max-width: 1340px; margin: 0 auto 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+            <div class="works-header">
                 <div>
-                    <div class="sec-eyebrow">[ 03 / PORTFOLIO ARCHIVE ]</div>
-                    <h2 class="header-title" style="margin-bottom: 0.5rem;">Selected <br><span class="bs-serif-text">Work</span><span class="about-dot"></span></h2>
-                    <p style="font-size: 1.05rem; color: #555555; max-width: 600px; margin-top: 0.5rem;">
-                        Digital products, platforms and experiences we've built. We work across web development, ecommerce, SaaS, education, architecture, lifestyle and mobile products.
+                    <div class="vol-eyebrow">
+                        <span class="vol-bracket">[</span> 03 / SELECTED WORK <span class="vol-bracket">]</span>
+                    </div>
+                    <h2 class="header-title" style="margin-bottom: 0.5rem;">Selected Work<span style="color: #ea580c;">.</span></h2>
+                    <p style="font-size: 1.05rem; color: #555555; max-width: 620px; margin-top: 0.5rem;">
+                        Digital products, platforms, and ecommerce experiences engineered for ambitious brands across technology, commerce, architecture, and education.
                     </p>
                 </div>
-                <a href="/case-studies" class="all-works-btn" style="padding: 12px 24px; border: 1px solid rgba(0,0,0,0.15); border-radius: 999px; text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #111111; transition: background 0.2s ease;">
-                    View All Case Studies &rarr;
+                <a href="/case-studies" class="vol-btn-outline">
+                    <span>View All Case Studies &rarr;</span>
                 </a>
             </div>
 
-            <div class="selected-work-grid" style="max-width: 1340px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem;">
+            <div class="vol-work-grid">
                 <!-- Project 1: Pixza -->
-                <div class="work-card-editorial">
-                    <div class="work-card-thumb">
-                        <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza AI Creative Studio" width="1376" height="768" loading="lazy" decoding="async" />
-                        <span class="work-card-badge">AI &middot; SaaS &middot; Digital Product</span>
+                <article class="vol-work-card">
+                    <a href="/case-studies/pixza" class="vol-work-media" aria-label="View Pixza Case Study">
+                        <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza AI Creative Studio" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
+                        <div class="vol-work-pill">View Project +</div>
+                    </a>
+                    <div class="vol-work-content">
+                        <div class="vol-work-cat"><span>[</span> AI &middot; SAAS &middot; PRODUCT <span>]</span></div>
+                        <h3 class="vol-work-title"><a href="/case-studies/pixza">Pixza</a></h3>
+                        <p class="vol-work-desc">An AI-powered creative production platform designed around product photography, social content, and automated advertising workflows.</p>
+                        <a href="/case-studies/pixza" class="vol-work-cta">View Case Study &rarr;</a>
                     </div>
-                    <div class="work-card-info">
-                        <div class="work-card-meta">
-                            <span class="work-card-sub">AI Creative Studio</span>
-                        </div>
-                        <h3 class="work-card-name">Pixza</h3>
-                        <p class="work-card-summary">An AI-powered creative production platform designed around product photography, social content, advertising workflows and video creation.</p>
-                        <a href="/case-studies/pixza" class="work-card-cta">View Case Study &rarr;</a>
-                    </div>
-                </div>
+                </article>
 
                 <!-- Project 2: Kala Design Co -->
-                <div class="work-card-editorial">
-                    <div class="work-card-thumb">
-                        <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architecture" width="1376" height="768" loading="lazy" decoding="async" />
-                        <span class="work-card-badge">Web Design &middot; Development &middot; Architecture</span>
+                <article class="vol-work-card">
+                    <a href="/case-studies/kala-design" class="vol-work-media" aria-label="View Kala Design Co Case Study">
+                        <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architecture" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
+                        <div class="vol-work-pill">View Project +</div>
+                    </a>
+                    <div class="vol-work-content">
+                        <div class="vol-work-cat"><span>[</span> ARCHITECTURE &middot; EDITORIAL <span>]</span></div>
+                        <h3 class="vol-work-title"><a href="/case-studies/kala-design">Kala Design Co</a></h3>
+                        <p class="vol-work-desc">A digital experience designed for an architectural studio through strong visual storytelling, structured projects, and refined editorial layouts.</p>
+                        <a href="/case-studies/kala-design" class="vol-work-cta">View Case Study &rarr;</a>
                     </div>
-                    <div class="work-card-info">
-                        <div class="work-card-meta">
-                            <span class="work-card-sub">Architecture &amp; Interior Design</span>
-                        </div>
-                        <h3 class="work-card-name">Kala Design Co</h3>
-                        <p class="work-card-summary">A digital experience designed to communicate an architecture and interior studio's work through strong visual storytelling, structured project presentation and a refined editorial interface.</p>
-                        <a href="/case-studies/kala-design" class="work-card-cta">View Case Study &rarr;</a>
-                    </div>
-                </div>
+                </article>
 
                 <!-- Project 3: NextSchool ERP -->
-                <div class="work-card-editorial">
-                    <div class="work-card-thumb">
-                        <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="NextSchool ERP Platform" width="1376" height="768" loading="lazy" decoding="async" />
-                        <span class="work-card-badge">EdTech &middot; ERP &middot; Web Application</span>
+                <article class="vol-work-card">
+                    <a href="/case-studies/nextschool" class="vol-work-media" aria-label="View NextSchool ERP Case Study">
+                        <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="NextSchool ERP Platform" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
+                        <div class="vol-work-pill">View Project +</div>
+                    </a>
+                    <div class="vol-work-content">
+                        <div class="vol-work-cat"><span>[</span> EDTECH &middot; ERP &middot; PLATFORM <span>]</span></div>
+                        <h3 class="vol-work-title"><a href="/case-studies/nextschool">NextSchool ERP</a></h3>
+                        <p class="vol-work-desc">A digital operating system designed for schools, connecting administration, teachers, students, parents, and campus workflows.</p>
+                        <a href="/case-studies/nextschool" class="vol-work-cta">View Case Study &rarr;</a>
                     </div>
-                    <div class="work-card-info">
-                        <div class="work-card-meta">
-                            <span class="work-card-sub">School Management &amp; ERP Platform</span>
-                        </div>
-                        <h3 class="work-card-name">NextSchool ERP</h3>
-                        <p class="work-card-summary">A digital platform designed around the operational needs of schools, connecting administration, teachers, students, parents and campus workflows.</p>
-                        <a href="/case-studies/nextschool" class="work-card-cta">View Case Study &rarr;</a>
-                    </div>
-                </div>
+                </article>
 
                 <!-- Project 4: BAZZARO -->
-                <div class="work-card-editorial">
-                    <div class="work-card-thumb">
-                        <img src="/assets/images/case-studies/bazzaro/hero.jpg" alt="BAZZARO D2C Ecommerce" width="1376" height="768" loading="lazy" decoding="async" />
-                        <span class="work-card-badge">E-Commerce &middot; Shopify &middot; D2C</span>
+                <article class="vol-work-card">
+                    <a href="/case-studies/bazzaro" class="vol-work-media" aria-label="View BAZZARO Case Study">
+                        <img src="/assets/images/case-studies/bazzaro/hero.jpg" alt="BAZZARO D2C Ecommerce" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
+                        <div class="vol-work-pill">View Project +</div>
+                    </a>
+                    <div class="vol-work-content">
+                        <div class="vol-work-cat"><span>[</span> SHOPIFY &middot; D2C ECOMMERCE <span>]</span></div>
+                        <h3 class="vol-work-title"><a href="/case-studies/bazzaro">BAZZARO</a></h3>
+                        <p class="vol-work-desc">A fashion and lifestyle ecommerce experience built around product discovery, collections, visual storytelling, and seamless direct-to-consumer checkout.</p>
+                        <a href="/case-studies/bazzaro" class="vol-work-cta">View Case Study &rarr;</a>
                     </div>
-                    <div class="work-card-info">
-                        <div class="work-card-meta">
-                            <span class="work-card-sub">D2C Ecommerce</span>
-                        </div>
-                        <h3 class="work-card-name">BAZZARO</h3>
-                        <p class="work-card-summary">A fashion and lifestyle ecommerce experience built around product discovery, collections, visual storytelling and direct-to-consumer shopping.</p>
-                        <a href="/case-studies/bazzaro" class="work-card-cta">View Case Study &rarr;</a>
-                    </div>
-                </div>
+                </article>
 
                 <!-- Project 5: Decor Lab -->
-                <div class="work-card-editorial">
-                    <div class="work-card-thumb">
-                        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Decor Lab Architecture" width="1376" height="768" loading="lazy" decoding="async" />
-                        <span class="work-card-badge">Web Development &middot; Architecture &middot; Design</span>
+                <article class="vol-work-card">
+                    <a href="/case-studies/decor-lab" class="vol-work-media" aria-label="View Decor Lab Case Study">
+                        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Decor Lab Architecture" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
+                        <div class="vol-work-pill">View Project +</div>
+                    </a>
+                    <div class="vol-work-content">
+                        <div class="vol-work-cat"><span>[</span> ARCHITECTURE &middot; DESIGN <span>]</span></div>
+                        <h3 class="vol-work-title"><a href="/case-studies/decor-lab">Decor Lab</a></h3>
+                        <p class="vol-work-desc">A bespoke digital platform for an architecture and landscape practice, combining monograph project storytelling and a structured content experience.</p>
+                        <a href="/case-studies/decor-lab" class="vol-work-cta">View Case Study &rarr;</a>
                     </div>
-                    <div class="work-card-info">
-                        <div class="work-card-meta">
-                            <span class="work-card-sub">Architecture &amp; Landscape Studio</span>
-                        </div>
-                        <h3 class="work-card-name">Decor Lab</h3>
-                        <p class="work-card-summary">A digital platform for an architecture and landscape practice, combining project storytelling, visual identity and a structured content experience.</p>
-                        <a href="/case-studies/decor-lab" class="work-card-cta">View Case Study &rarr;</a>
-                    </div>
-                </div>
+                </article>
 
                 <!-- Project 6: Urbanland Products -->
-                <div class="work-card-editorial">
-                    <div class="work-card-thumb">
-                        <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products B2B" width="1376" height="768" loading="lazy" decoding="async" />
-                        <span class="work-card-badge">B2B &middot; Product Catalogue &middot; Web Development</span>
+                <article class="vol-work-card">
+                    <a href="/case-studies/urbanland" class="vol-work-media" aria-label="View Urbanland Products Case Study">
+                        <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products B2B" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
+                        <div class="vol-work-pill">View Project +</div>
+                    </a>
+                    <div class="vol-work-content">
+                        <div class="vol-work-cat"><span>[</span> B2B &middot; CATALOG &middot; ARCHITECTURE <span>]</span></div>
+                        <h3 class="vol-work-title"><a href="/case-studies/urbanland">Urbanland Products</a></h3>
+                        <p class="vol-work-desc">A product-focused digital experience for an architectural infrastructure business, designed to make a broad commercial catalogue easier to explore and specify.</p>
+                        <a href="/case-studies/urbanland" class="vol-work-cta">View Case Study &rarr;</a>
                     </div>
-                    <div class="work-card-info">
-                        <div class="work-card-meta">
-                            <span class="work-card-sub">B2B Product Catalogue</span>
-                        </div>
-                        <h3 class="work-card-name">Urbanland Products</h3>
-                        <p class="work-card-summary">A product-focused digital experience for an architectural infrastructure and outdoor furniture business, designed to make a broad catalogue easier to explore and understand.</p>
-                        <a href="/case-studies/urbanland" class="work-card-cta">View Case Study &rarr;</a>
-                    </div>
-                </div>
+                </article>
             </div>
         </section>
 
         <!-- ============================ -->
-        <!-- BUILT FOR DIFFERENT STAGES OF GROWTH -->
+        <!-- 04 / BUILT FOR DIFFERENT STAGES OF GROWTH -->
         <!-- ============================ -->
         <section class="stages-sec sections" id="growth-stages" data-section="Stages of Growth">
             <div class="services-header oth">
                 <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ 04 / ENGAGEMENT TIERS ]</div>
-                    <h2 class="header-title">Built for Different <br><span class="bs-serif-text">Stages of Growth</span><span class="about-dot"></span></h2>
+                    <div class="vol-eyebrow">
+                        <span class="vol-bracket">[</span> 04 / ENGAGEMENT TIERS <span class="vol-bracket">]</span>
+                    </div>
+                    <h2 class="header-title">Built for Different <br>Stages of Growth<span style="color: #ea580c;">.</span></h2>
                 </div>
                 <span class="another-span">Not every business needs the same digital system. We architect solutions tailored to your operational complexity and growth velocity.</span>
             </div>
 
-            <div class="stages-grid" style="max-width: 1340px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <div class="vol-stages-grid">
                 <!-- Stage 1 -->
-                <div class="stage-card">
-                    <div class="stage-card-num">STAGE 01</div>
-                    <h3 class="stage-card-title">Starting Something New</h3>
-                    <p class="stage-card-desc">You need a strong digital foundation that communicates what you do and gives customers a reason to trust you.</p>
-                    <div class="stage-focus-box">
-                        <div class="stage-focus-label">FOCUS</div>
-                        <ul class="stage-focus-list">
+                <div class="vol-stage-card">
+                    <span class="vol-stage-num">STAGE 01</span>
+                    <h3 class="vol-stage-title">Starting Something New</h3>
+                    <p class="vol-stage-desc">You need a strong digital foundation that communicates what you do and gives customers a clear reason to trust you.</p>
+                    <div class="vol-stage-focus">
+                        <div class="vol-stage-focus-title">CORE FOCUS</div>
+                        <ul class="vol-stage-list">
                             <li>Custom marketing website</li>
                             <li>Brand and messaging direction</li>
-                            <li>Responsive UX</li>
+                            <li>Responsive, fluid UX</li>
                             <li>Technical SEO foundation</li>
                             <li>Conversion-focused information architecture</li>
                         </ul>
@@ -5108,37 +5138,35 @@
                 </div>
 
                 <!-- Stage 2 -->
-                <div class="stage-card">
-                    <div class="stage-card-num">STAGE 02</div>
-                    <h3 class="stage-card-title">Growing With Traction</h3>
-                    <p class="stage-card-desc">Your business is established and your digital presence needs to become easier to manage and scale.</p>
-                    <div class="stage-focus-box">
-                        <div class="stage-focus-label">FOCUS</div>
-                        <ul class="stage-focus-list">
-                            <li>Design systems</li>
-                            <li>CMS architecture</li>
-                            <li>Content and publishing systems</li>
-                            <li>Ecommerce</li>
-                            <li>Performance optimization</li>
-                            <li>Conversion-focused UX</li>
+                <div class="vol-stage-card">
+                    <span class="vol-stage-num">STAGE 02</span>
+                    <h3 class="vol-stage-title">Growing With Traction</h3>
+                    <p class="vol-stage-desc">Your business is established and your digital presence needs to become easier to manage, publish to, and scale.</p>
+                    <div class="vol-stage-focus">
+                        <div class="vol-stage-focus-title">CORE FOCUS</div>
+                        <ul class="vol-stage-list">
+                            <li>Design systems &amp; reusable UI components</li>
+                            <li>Headless CMS architecture</li>
+                            <li>Publishing workflows &amp; content operations</li>
+                            <li>Shopify &amp; custom commerce checkout</li>
+                            <li>Core Web Vitals performance optimization</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Stage 3 -->
-                <div class="stage-card">
-                    <div class="stage-card-num">STAGE 03</div>
-                    <h3 class="stage-card-title">Building Something Complex</h3>
-                    <p class="stage-card-desc">You need functionality that cannot be solved with an off-the-shelf website.</p>
-                    <div class="stage-focus-box">
-                        <div class="stage-focus-label">FOCUS</div>
-                        <ul class="stage-focus-list">
-                            <li>Custom web applications</li>
-                            <li>APIs and integrations</li>
-                            <li>Business automation</li>
-                            <li>SaaS architecture</li>
-                            <li>Advanced Next.js development</li>
-                            <li>Product strategy and technical consulting</li>
+                <div class="vol-stage-card">
+                    <span class="vol-stage-num">STAGE 03</span>
+                    <h3 class="vol-stage-title">Building Something Complex</h3>
+                    <p class="vol-stage-desc">You need custom functionality, APIs, and workflows that cannot be solved with an off-the-shelf website.</p>
+                    <div class="vol-stage-focus">
+                        <div class="vol-stage-focus-title">CORE FOCUS</div>
+                        <ul class="vol-stage-list">
+                            <li>Custom web applications &amp; dashboards</li>
+                            <li>APIs, webhooks, and third-party integrations</li>
+                            <li>Business workflow automation (n8n, Make)</li>
+                            <li>SaaS architecture &amp; user authentication</li>
+                            <li>Product strategy &amp; technical consulting</li>
                         </ul>
                     </div>
                 </div>
@@ -5146,247 +5174,202 @@
         </section>
 
         <!-- ============================ -->
-        <!-- OUR ENGINEERING PRINCIPLES -->
+        <!-- 05 / OUR ENGINEERING PRINCIPLES -->
         <!-- ============================ -->
         <section class="principles-sec sections" id="principles" data-section="Engineering Principles">
             <div class="services-header oth">
                 <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ 05 / ENGINEERING DISCIPLINE ]</div>
-                    <h2 class="header-title">Our <br><span class="bs-serif-text">Engineering Principles</span><span class="about-dot"></span></h2>
+                    <div class="vol-eyebrow">
+                        <span class="vol-bracket">[</span> 05 / ENGINEERING DISCIPLINE <span class="vol-bracket">]</span>
+                    </div>
+                    <h2 class="header-title">Our Engineering Principles<span style="color: #ea580c;">.</span></h2>
                 </div>
                 <span class="another-span">Rigorous architectural tenets that govern every line of code, data contract, and user interaction we deploy.</span>
             </div>
 
-            <div class="principles-grid" style="max-width: 1340px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+            <div class="vol-principles-grid">
                 <!-- Principle 1 -->
-                <div class="principle-card">
-                    <div class="principle-badge">01 &middot; ARCHITECTURE</div>
-                    <h3 class="principle-title">Architecture First</h3>
-                    <p class="principle-body">
-                        We build systems around clear structure, reusable components and maintainable code so future changes don't become expensive rebuilds.
+                <div class="vol-principle-card">
+                    <span class="vol-principle-num">01 / ARCHITECTURE</span>
+                    <h3 class="vol-principle-title">Architecture First</h3>
+                    <p class="vol-principle-desc">
+                        We build systems around clear structure, reusable components and maintainable code so future updates don't require expensive rebuilds.
                     </p>
-                    <div class="principle-note">
-                        <strong>Clean, maintainable code:</strong> Modern frameworks, predictable data flow and thoughtful architecture form the foundation of every project.
+                    <div class="vol-principle-note">
+                        <strong>Clean code:</strong> Modern frameworks, predictable data flow and thoughtful architecture form the foundation of every project.
                     </div>
                 </div>
 
                 <!-- Principle 2 -->
-                <div class="principle-card">
-                    <div class="principle-badge">02 &middot; PERFORMANCE</div>
-                    <h3 class="principle-title">Performance by Design</h3>
-                    <p class="principle-body">
-                        Performance is considered during architecture, design and development &mdash; not added as an afterthought.
+                <div class="vol-principle-card">
+                    <span class="vol-principle-num">02 / PERFORMANCE</span>
+                    <h3 class="vol-principle-title">Performance by Design</h3>
+                    <p class="vol-principle-desc">
+                        Performance is considered during architecture, design, and development &mdash; never tacked on as an afterthought.
                     </p>
-                    <div class="principle-note">
-                        Fast rendering, efficient assets, and stable layouts across devices.
+                    <div class="vol-principle-note">
+                        Fast rendering, lean asset payloads, and stable layouts across all modern devices.
                     </div>
                 </div>
 
                 <!-- Principle 3 -->
-                <div class="principle-card">
-                    <div class="principle-badge">03 &middot; ACCESSIBILITY</div>
-                    <h3 class="principle-title">Accessible Experiences</h3>
-                    <p class="principle-body">
-                        We design and develop interfaces that are usable across different devices, input methods and accessibility needs.
+                <div class="vol-principle-card">
+                    <span class="vol-principle-num">03 / ACCESSIBILITY</span>
+                    <h3 class="vol-principle-title">Accessible Experiences</h3>
+                    <p class="vol-principle-desc">
+                        We design and develop interfaces that are naturally usable across different screen sizes, input methods, and accessibility needs.
                     </p>
-                    <div class="principle-note">
-                        Accessibility is considered throughout the product rather than treated as a final checklist.
+                    <div class="vol-principle-note">
+                        Accessibility is woven into typography, contrast, and markup rather than treated as a checklist item.
                     </div>
                 </div>
 
                 <!-- Principle 4 -->
-                <div class="principle-card">
-                    <div class="principle-badge">04 &middot; DIRECT TECHNICAL OWNERSHIP</div>
-                    <h3 class="principle-title">Direct Technical Ownership</h3>
-                    <p class="principle-body">
-                        You work directly with the people building your product.
+                <div class="vol-principle-card">
+                    <span class="vol-principle-num">04 / OWNERSHIP</span>
+                    <h3 class="vol-principle-title">Direct Technical Ownership</h3>
+                    <p class="vol-principle-desc">
+                        You work directly with the senior engineers and designers building your product &mdash; not layers of account managers.
                     </p>
-                    <div class="principle-note">
-                        Clear communication, working demonstrations and transparent technical decisions keep projects moving without unnecessary layers between you and the work.
+                    <div class="vol-principle-note">
+                        Clear communication, live working demonstrations, and transparent technical decisions keep projects moving with speed.
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ============================ -->
-        <!-- WHY KAWAKI? -->
+        <!-- 06 / WHY KAWAKI? -->
         <!-- ============================ -->
         <section class="why-kawaki-sec sections" id="why-kawaki" data-section="Why Kawaki">
             <div class="services-header oth">
                 <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ 06 / VALUE PROPOSITION ]</div>
-                    <h2 class="header-title">Why <br><span class="bs-serif-text">Kawaki?</span><span class="about-dot"></span></h2>
+                    <div class="vol-eyebrow">
+                        <span class="vol-bracket">[</span> 06 / VALUE PROPOSITION <span class="vol-bracket">]</span>
+                    </div>
+                    <h2 class="header-title">Why Kawaki Studios?<span style="color: #ea580c;">.</span></h2>
                 </div>
                 <div>
-                    <div style="font-family: 'Space Mono', monospace; font-size: 0.95rem; font-weight: 700; color: #111111; margin-bottom: 0.4rem;">
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #111111; margin-bottom: 0.4rem;">
                         No unnecessary complexity. No generic templates.
                     </div>
                     <span class="another-span">We believe digital products should be distinctive without becoming difficult to maintain.</span>
                 </div>
             </div>
 
-            <div class="why-kawaki-grid" style="max-width: 1340px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem;">
-                <div class="why-card">
-                    <span class="why-idx">01</span>
-                    <h3 class="why-card-title">Strategy before execution</h3>
-                    <p class="why-card-desc">We understand the business problem before choosing the technology.</p>
+            <div class="vol-why-grid">
+                <div class="vol-why-card">
+                    <span class="vol-why-num">01</span>
+                    <h3 class="vol-why-title">Strategy before execution</h3>
+                    <p class="vol-why-desc">We understand the core business problem and objectives before choosing technology.</p>
                 </div>
-                <div class="why-card">
-                    <span class="why-idx">02</span>
-                    <h3 class="why-card-title">Custom where it matters</h3>
-                    <p class="why-card-desc">We don't force unique businesses into generic templates.</p>
+                <div class="vol-why-card">
+                    <span class="vol-why-num">02</span>
+                    <h3 class="vol-why-title">Custom where it matters</h3>
+                    <p class="vol-why-desc">We don't force unique businesses into generic templates or restrictive site builders.</p>
                 </div>
-                <div class="why-card">
-                    <span class="why-idx">03</span>
-                    <h3 class="why-card-title">Modern engineering</h3>
-                    <p class="why-card-desc">We use current frameworks and development practices to create maintainable digital systems.</p>
+                <div class="vol-why-card">
+                    <span class="vol-why-num">03</span>
+                    <h3 class="vol-why-title">Modern engineering</h3>
+                    <p class="vol-why-desc">We use current frameworks and maintainable development practices to build durable systems.</p>
                 </div>
-                <div class="why-card">
-                    <span class="why-idx">04</span>
-                    <h3 class="why-card-title">Design &amp; engineering together</h3>
-                    <p class="why-card-desc">A beautiful interface means little if the underlying system cannot support it.</p>
+                <div class="vol-why-card">
+                    <span class="vol-why-num">04</span>
+                    <h3 class="vol-why-title">Design &amp; engineering together</h3>
+                    <p class="vol-why-desc">A beautiful interface means little if the underlying architecture cannot support it.</p>
                 </div>
-                <div class="why-card">
-                    <span class="why-idx">05</span>
-                    <h3 class="why-card-title">Built for what's next</h3>
-                    <p class="why-card-desc">Your website or application should have room to evolve with your business.</p>
+                <div class="vol-why-card">
+                    <span class="vol-why-num">05</span>
+                    <h3 class="vol-why-title">Built for what's next</h3>
+                    <p class="vol-why-desc">Your digital presence is architected with room to evolve alongside your business.</p>
                 </div>
             </div>
         </section>
 
         <!-- ============================ -->
-        <!-- FREQUENTLY ASKED QUESTIONS -->
+        <!-- 07 / FREQUENTLY ASKED QUESTIONS -->
         <!-- ============================ -->
         <section class="sections container-faq animate-section" id="faq" data-section="Got question?">
             <div class="services-header oth">
                 <div class="capabilities-header-left">
-                    <div class="sec-eyebrow">[ 07 / FREQUENTLY ASKED QUESTIONS ]</div>
-                    <h2 class="header-title">Got questions?<br><span class="bs-serif-text">Here are answers</span><span class="about-dot"></span></h2>
+                    <div class="vol-eyebrow">
+                        <span class="vol-bracket">[</span> 07 / FREQUENTLY ASKED QUESTIONS <span class="vol-bracket">]</span>
+                    </div>
+                    <h2 class="header-title">Got questions? <br>Here are answers<span style="color: #ea580c;">.</span></h2>
                 </div>
                 <span class="another-span">Straightforward answers about our capabilities, timelines, engineering methodology, and commercial models.</span>
             </div>
 
-            <ul class="list-faq">
+            <ul class="vol-faq-list">
                 <!-- FAQ 1 -->
-                <li class="item-faq">
-                    <button class="question-faq" id="faq-btn-1" data-faq-target="faq-answer-1" type="button" aria-expanded="false" aria-controls="faq-answer-1">
-                        <span class="text-faq">What does Kawaki Studios do?
-                            <p>Studio scope and core offerings.</p>
-                        </span>
-                        <span class="arrow-faq">
-                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
-                        </span>
+                <li class="vol-faq-item">
+                    <button class="vol-faq-btn" id="faq-btn-1" aria-expanded="false" aria-controls="faq-ans-1" type="button">
+                        <span class="vol-faq-q">What does Kawaki Studios do?</span>
+                        <span class="vol-faq-icon">+</span>
                     </button>
-                    <div class="answer-faq" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1">
-                        <div class="content-faq">
-                            Kawaki Studios is a digital product and web development studio based in Delhi, India. We design and develop custom websites, web applications, Shopify stores, ecommerce experiences and AI-powered automation systems for businesses worldwide.
-                        </div>
+                    <div class="vol-faq-ans" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1">
+                        <p>Kawaki Studios is an independent web development and digital product studio. We specialize in custom web development, Shopify storefronts, full-stack web applications, AI automation workflows and technical search optimization. We work with ambitious founders, established businesses, and design-forward agencies globally.</p>
                     </div>
                 </li>
 
                 <!-- FAQ 2 -->
-                <li class="item-faq">
-                    <button class="question-faq" id="faq-btn-2" data-faq-target="faq-answer-2" type="button" aria-expanded="false" aria-controls="faq-answer-2">
-                        <span class="text-faq">How long does a website or web application take?
-                            <p>Timelines and milestone sequencing.</p>
-                        </span>
-                        <span class="arrow-faq">
-                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
-                        </span>
+                <li class="vol-faq-item">
+                    <button class="vol-faq-btn" id="faq-btn-2" aria-expanded="false" aria-controls="faq-ans-2" type="button">
+                        <span class="vol-faq-q">How is Kawaki Studios different from a traditional web agency?</span>
+                        <span class="vol-faq-icon">+</span>
                     </button>
-                    <div class="answer-faq" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2">
-                        <div class="content-faq">
-                            Project timelines depend on the scope, number of pages, functionality, integrations and content requirements. After understanding your requirements, we provide a realistic project timeline before development begins.
-                        </div>
+                    <div class="vol-faq-ans" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2">
+                        <p>We operate as a focused engineering and digital product studio, not a bloated agency with layers of non-technical account managers. You work directly with the senior engineers and designers building your system. We do not use generic themes, cookie-cutter templates or low-code crutches &mdash; every line of code is structured, accessible, and built to last.</p>
                     </div>
                 </li>
 
                 <!-- FAQ 3 -->
-                <li class="item-faq">
-                    <button class="question-faq" id="faq-btn-3" data-faq-target="faq-answer-3" type="button" aria-expanded="false" aria-controls="faq-answer-3">
-                        <span class="text-faq">How much does a custom website cost?
-                            <p>Pricing, investment, and deliverables.</p>
-                        </span>
-                        <span class="arrow-faq">
-                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
-                        </span>
+                <li class="vol-faq-item">
+                    <button class="vol-faq-btn" id="faq-btn-3" aria-expanded="false" aria-controls="faq-ans-3" type="button">
+                        <span class="vol-faq-q">What technologies and frameworks do you build with?</span>
+                        <span class="vol-faq-icon">+</span>
                     </button>
-                    <div class="answer-faq" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3">
-                        <div class="content-faq">
-                            There is no single price for a custom digital product. The investment depends on the design complexity, functionality, integrations, content requirements and technical architecture. Contact us with your requirements and we'll recommend the right approach.
-                        </div>
+                    <div class="vol-faq-ans" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3">
+                        <p>Our core stack is centered on modern JavaScript and TypeScript &mdash; including Next.js, React, Node.js, and edge computing environments. For ecommerce, we build custom Shopify themes with Liquid and headless architectures via the Storefront API. For automation, we architect deterministic workflows and AI pipelines using n8n, Make, and custom API microservices.</p>
                     </div>
                 </li>
 
                 <!-- FAQ 4 -->
-                <li class="item-faq">
-                    <button class="question-faq" id="faq-btn-4" data-faq-target="faq-answer-4" type="button" aria-expanded="false" aria-controls="faq-answer-4">
-                        <span class="text-faq">Do you build fully custom websites?
-                            <p>Bespoke architecture vs templates.</p>
-                        </span>
-                        <span class="arrow-faq">
-                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
-                        </span>
+                <li class="vol-faq-item">
+                    <button class="vol-faq-btn" id="faq-btn-4" aria-expanded="false" aria-controls="faq-ans-4" type="button">
+                        <span class="vol-faq-q">How long does a typical project take?</span>
+                        <span class="vol-faq-icon">+</span>
                     </button>
-                    <div class="answer-faq" id="faq-answer-4" role="region" aria-labelledby="faq-btn-4">
-                        <div class="content-faq">
-                            Yes. We specialize in custom web development and do not rely on a one-size-fits-all approach. We can build from an existing brand system or develop the digital experience from the ground up.
-                        </div>
+                    <div class="vol-faq-ans" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4">
+                        <p>A focused custom marketing website or tailored Shopify storefront typically takes 3 to 6 weeks from discovery to deployment. More complex custom web applications, SaaS platforms or multi-system automation workflows range from 6 to 12 weeks depending on technical requirements, third-party integrations, and testing scope.</p>
                     </div>
                 </li>
 
                 <!-- FAQ 5 -->
-                <li class="item-faq">
-                    <button class="question-faq" id="faq-btn-5" data-faq-target="faq-answer-5" type="button" aria-expanded="false" aria-controls="faq-answer-5">
-                        <span class="text-faq">Do you develop Shopify stores?
-                            <p>Liquid, themes, and headless ecommerce.</p>
-                        </span>
-                        <span class="arrow-faq">
-                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
-                        </span>
+                <li class="vol-faq-item">
+                    <button class="vol-faq-btn" id="faq-btn-5" aria-expanded="false" aria-controls="faq-ans-5" type="button">
+                        <span class="vol-faq-q">Where is Kawaki Studios located and do you work with international clients?</span>
+                        <span class="vol-faq-icon">+</span>
                     </button>
-                    <div class="answer-faq" id="faq-answer-5" role="region" aria-labelledby="faq-btn-5">
-                        <div class="content-faq">
-                            Yes. We build custom Shopify storefronts, develop custom Liquid sections, customize themes, work with the Storefront API and support ecommerce migrations and integrations.
-                        </div>
+                    <div class="vol-faq-ans" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5">
+                        <p>We are headquartered in New Delhi, India, and partner with clients worldwide &mdash; including North America, Europe, Australia, and the Middle East. Our workflows, discovery sessions, and async delivery cadence are designed for seamless collaboration across international time zones.</p>
                     </div>
                 </li>
 
                 <!-- FAQ 6 -->
-                <li class="item-faq">
-                    <button class="question-faq" id="faq-btn-6" data-faq-target="faq-answer-6" type="button" aria-expanded="false" aria-controls="faq-answer-6">
-                        <span class="text-faq">Can you build web applications and SaaS products?
-                            <p>Fullstack applications, dashboards, and APIs.</p>
-                        </span>
-                        <span class="arrow-faq">
-                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
-                        </span>
+                <li class="vol-faq-item">
+                    <button class="vol-faq-btn" id="faq-btn-6" aria-expanded="false" aria-controls="faq-ans-6" type="button">
+                        <span class="vol-faq-q">Do you offer post-launch support and long-term maintenance?</span>
+                        <span class="vol-faq-icon">+</span>
                     </button>
-                    <div class="answer-faq" id="faq-answer-6" role="region" aria-labelledby="faq-btn-6">
-                        <div class="content-faq">
-                            Yes. We develop custom web applications and digital products using modern technologies such as Next.js, React and TypeScript, with custom APIs, data systems and integrations where required.
-                        </div>
-                    </div>
-                </li>
-
-                <!-- FAQ 7 -->
-                <li class="item-faq">
-                    <button class="question-faq" id="faq-btn-7" data-faq-target="faq-answer-7" type="button" aria-expanded="false" aria-controls="faq-answer-7">
-                        <span class="text-faq">Do you work with businesses outside Delhi?
-                            <p>Global collaboration and remote delivery.</p>
-                        </span>
-                        <span class="arrow-faq">
-                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
-                        </span>
-                    </button>
-                    <div class="answer-faq" id="faq-answer-7" role="region" aria-labelledby="faq-btn-7">
-                        <div class="content-faq">
-                            Yes. Kawaki Studios is based in New Delhi and works with businesses and teams globally across time zones.
-                        </div>
+                    <div class="vol-faq-ans" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6">
+                        <p>Yes. Launch is the beginning of your system's life cycle. We offer flexible ongoing partnerships covering performance monitoring, security hardening, feature evolution, and technical maintenance so your digital product remains reliable and fast as your business scales.</p>
                     </div>
                 </li>
             </ul>
         </section>
+
+        
 
         <footer class="sections global-site-footer">
             <!-- Top Availability Pill -->
@@ -5400,7 +5383,7 @@
             <!-- Big Impact Headline & Magnetic CTA -->
             <div class="services-header-2">
                 <div class="footer-headline-group" style="max-width: 650px;">
-                    <h3 class="services-title-2" style="margin-bottom: 0.5rem;">Let's Build Something <br><em><span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">Worth Keeping.</span></em></h3>
+                    <h3 class="services-title-2" style="font-family: var(--font-primary) !important; font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 700; color: #111111; line-height: 1.15; margin-bottom: 0.5rem; letter-spacing: -0.025em;">Let's Build Something <br><span style="border-bottom: 2px solid #ea580c; padding-bottom: 4px;">Worth Keeping.</span></h3>
                     <p style="font-size: 1.05rem; line-height: 1.6; color: #555555; margin-top: 1rem;">
                         Have a website, digital product or business system that needs to be built properly? Tell us what you're working on, what you're trying to achieve and where you're stuck. We'll help you figure out what needs to be built &mdash; and the right way to build it.
                     </p>
@@ -5408,7 +5391,7 @@
                 <a href="/contact" class="footer-cta-card-btn">
                     <span>Start a Project &rarr;</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                        <circle cx="8" cy="8" r="8" fill="#ea580c"></circle>
                         <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
                     </svg>
                 </a>
@@ -5516,7 +5499,7 @@
                     <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                     <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                     <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                    <li><a href="/terminal" style="color: #C6FF00; font-family: monospace; font-weight: 700;">[ CLI Terminal ]</a></li>
+                    <li><a href="/terminal" style="color: #ea580c; font-family: var(--font-primary); font-weight: 700;">[ CLI Terminal ]</a></li>
                     </ul>
                 <button class="footer-back-to-top" id="backToTop" aria-label="Back to Top">
                     <span>Back to Top</span>
@@ -5868,6 +5851,26 @@
     </script>
     <script src="/assets/js/main.js?v=20260919_v1" defer></script>
     <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
+
+    <script>
+        // Interactive Volume FAQ Accordion
+        document.querySelectorAll('.vol-faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                document.querySelectorAll('.vol-faq-btn').forEach(otherBtn => {
+                    otherBtn.setAttribute('aria-expanded', 'false');
+                    const icon = otherBtn.querySelector('.vol-faq-icon');
+                    if (icon) icon.textContent = '+';
+                });
+                if (!isExpanded) {
+                    btn.setAttribute('aria-expanded', 'true');
+                    const icon = btn.querySelector('.vol-faq-icon');
+                    if (icon) icon.textContent = '✕';
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
