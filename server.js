@@ -313,7 +313,7 @@ function serveLocalFile(filePath, res) {
   stream.on('open', () => {
     const isHTML = filePath.endsWith('.html');
     const cacheControl = isHTML
-      ? 'no-cache, no-store, must-revalidate'
+      ? 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400'
       : 'public, max-age=31536000, immutable';
 
     const headers = {
@@ -321,11 +321,6 @@ function serveLocalFile(filePath, res) {
       'Access-Control-Allow-Origin': '*',
       'Cache-Control': cacheControl
     };
-
-    if (isHTML) {
-      headers['Pragma'] = 'no-cache';
-      headers['Expires'] = '0';
-    }
 
     res.writeHead(200, headers);
     stream.pipe(res);

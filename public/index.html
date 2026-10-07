@@ -12,6 +12,7 @@
     <meta name="description" content="Kawaki Studios is a Delhi-based digital product and web development studio building custom websites, web applications, ecommerce experiences, and AI-powered systems." />
     <meta name="keywords" content="custom web development, shopify development, custom web applications, ai automation, ai search optimization, wordpress malware removal" />
     <link rel="canonical" href="https://www.kawaki.co.in/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <title>Kawaki Studios — Custom Web Development &amp; Digital Products</title>
 
     <!-- Open Graph / Facebook -->
@@ -3733,235 +3734,248 @@
         }
     
         
-        /* --- SECTION: ABOUT / MANIFESTO --- */
+        /* --- SECTION: ABOUT / MANIFESTO (FULLSCREEN 50/50 SPLIT) --- */
         .about-statement {
-            padding: 6rem 2rem 5.5rem !important;
+            padding: 0 !important;
             background: #ffffff;
             border-bottom: 1px solid var(--color-border);
             width: 100%;
             box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 1024px) {
+            .about-statement {
+                min-height: 100vh;
+                display: flex;
+                align-items: stretch;
+            }
         }
         .vol-about-grid {
-            max-width: 1400px;
-            margin: 0 auto;
+            max-width: none !important;
+            margin: 0 !important;
+            width: 100%;
             display: grid;
-            grid-template-columns: 1.15fr 1fr;
-            gap: 4.5rem;
-            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 !important;
+            align-items: stretch;
+        }
+        @media (min-width: 1024px) {
+            .vol-about-grid {
+                min-height: 100vh;
+            }
+        }
+        .vol-about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem 6vw 5rem 8vw;
+            box-sizing: border-box;
+            background: #ffffff;
+        }
+        .vol-about-content .vol-eyebrow {
+            margin-bottom: 1.5rem;
+        }
+        .vol-about-content .about-heading {
+            font-size: clamp(2rem, 2.75vw, 2.75rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            color: #111111;
+            margin-bottom: 1.5rem;
+        }
+        .vol-about-content .about-text {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: #555555;
+            max-width: 480px;
         }
         .vol-about-media {
             position: relative;
-            border-radius: 14px;
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            border-radius: 0 !important;
             overflow: hidden;
-            background: #f8fafc;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            aspect-ratio: 16 / 10;
+            background: #0d1117;
+            border: none !important;
+            box-shadow: none !important;
+            aspect-ratio: unset !important;
+        }
+        @media (min-width: 1024px) {
+            .vol-about-media {
+                min-height: 100vh;
+            }
         }
         .vol-about-img {
             width: 100%;
             height: 100%;
+            min-height: 100%;
             object-fit: cover;
+            object-position: center center;
             display: block;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 0 !important;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .vol-about-media:hover .vol-about-img {
-            transform: scale(1.04);
+            transform: scale(1.03);
+        }
+        @media (max-width: 1023px) {
+            .vol-about-grid {
+                grid-template-columns: 1fr;
+            }
+            .vol-about-content {
+                padding: 4.5rem 1.5rem 3.5rem;
+                max-width: 100%;
+            }
+            .vol-about-media {
+                min-height: 50vh;
+                height: 50vh;
+            }
         }
 
         
-        /* --- SECTION: CORE OFFERINGS & DISCIPLINES (VOLUME 4-COL GALLERY) --- */
+        
+        /* --- SECTION: WHAT WE BUILD (EDITORIAL VALUES REFERENCE STYLE) --- */
         .capabilities-sec {
-            padding: 6.5rem 2rem 6rem !important;
-            background: #ffffff;
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-            width: 100%;
+            background-color: #E7E3D9 !important; /* Warm architectural linen matching reference */
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 5rem 4vw !important;
             box-sizing: border-box;
+            width: 100%;
         }
 
-        .volume-grid {
+        @media (min-width: 1024px) {
+            .capabilities-sec {
+                min-height: 100vh;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+        }
+
+        .values-header {
+            max-width: 680px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .values-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #ea580c;
+            margin-bottom: 0.85rem;
+        }
+
+        .values-title {
+            font-family: var(--font-primary) !important;
+            font-size: clamp(2rem, 3.2vw, 2.85rem) !important;
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+            letter-spacing: -0.025em !important;
+            color: #1A1A1A !important;
+            margin: 0 0 1rem 0 !important;
+        }
+
+        .values-desc {
+            font-size: 0.96rem;
+            line-height: 1.65;
+            color: #55524B;
+            margin: 0;
+            max-width: 560px;
+        }
+
+        .values-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2.25rem;
+            gap: 1.5rem;
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
             box-sizing: border-box;
         }
 
-        .volume-card {
+        .values-card {
             display: flex;
             flex-direction: column;
-            text-align: left;
-            position: relative;
-            box-sizing: border-box;
+            text-decoration: none !important;
+            color: inherit;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .volume-media-wrap {
+        .values-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .values-img-wrap {
             position: relative;
             width: 100%;
-            aspect-ratio: 1 / 1.16;
-            border-radius: 14px;
+            aspect-ratio: 1 / 1; /* Clean square matching reference */
             overflow: hidden;
-            background: #f8fafc;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #D8D2C5;
+            border-radius: 0; /* Flush architectural cut */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            display: block;
-            text-decoration: none !important;
-            transition: box-shadow 0.4s ease, border-color 0.3s ease;
         }
 
-        .volume-img {
+        .values-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .volume-media-wrap:hover .volume-img,
-        .volume-card:hover .volume-img {
+        .values-card:hover .values-img {
             transform: scale(1.05);
         }
 
-        .volume-pill {
-            position: absolute;
-            bottom: 1.15rem;
-            right: 1.15rem;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.85);
-            color: #111111 !important;
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            letter-spacing: 0.04em;
-            text-decoration: none !important;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            pointer-events: none;
-        }
-
-        .volume-media-wrap:hover .volume-pill,
-        .volume-card:hover .volume-pill {
-            background: #111111;
-            color: #ffffff !important;
-            border-color: #111111;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .volume-content {
-            padding-top: 1.5rem;
+        .values-info {
+            padding-top: 1.15rem;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            text-align: left;
         }
 
-        .volume-title-lockup {
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .volume-num-tag {
-            font-size: 0.75rem;
+        .values-name {
+            font-family: var(--font-primary);
+            font-size: 0.85rem;
             font-weight: 700;
-            color: #ea580c;
             letter-spacing: 0.08em;
-            display: inline-block;
+            text-transform: uppercase;
+            color: #1A1A1A;
+            margin: 0 0 0.4rem 0;
+            transition: color 0.2s ease;
         }
 
-        .volume-card-title {
+        .values-card:hover .values-name {
+            color: #ea580c;
+        }
+
+        .values-sub {
+            font-size: 0.84rem;
+            line-height: 1.55;
+            color: #55524B;
             margin: 0;
-            display: inline-block;
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
         }
 
-        .volume-card-title a {
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #111111 !important;
-            text-decoration: none !important;
-            display: inline-block;
-            border-bottom: 2px solid #ea580c !important;
-            padding-bottom: 4px;
-            line-height: 1.4;
-            transition: color 0.2s ease, border-color 0.2s ease;
-        }
-
-        .volume-card-title a:hover {
-            color: #ea580c !important;
-        }
-
-        .volume-card-sub {
-            font-size: 0.98rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin: 0.65rem 0 0.5rem 0;
-            line-height: 1.35;
-        }
-
-        .volume-desc {
-            font-size: 0.88rem;
-            line-height: 1.68;
-            color: #475569;
-            margin: 0 0 1.25rem 0;
-            flex-grow: 1;
-        }
-
-        .volume-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: auto;
-        }
-
-        .volume-tag {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #475569;
-            background: #f1f5f9;
-            padding: 4px 10px;
-            border-radius: 4px;
-            letter-spacing: 0.02em;
-            display: inline-block;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        .volume-card:hover .volume-tag {
-            background: #e2e8f0;
-            color: #0f172a;
-        }
-
-        @media (max-width: 1200px) {
-            .volume-grid {
+        @media (max-width: 1024px) {
+            .values-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
             }
         }
 
         @media (max-width: 640px) {
-            .volume-grid {
+            .values-grid {
                 grid-template-columns: 1fr;
-                gap: 2.75rem;
-            }
-            .volume-media-wrap {
-                aspect-ratio: 4 / 3.5;
+                gap: 2rem;
             }
         }
 
@@ -4452,6 +4466,40 @@
             line-height: 1.7;
             color: #555555;
             margin: 0;
+        }
+
+        
+        /* --- GLOBAL FULLSCREEN SECTIONS EXPERIENCE (STARTING FROM ABOUT) --- */
+        @media (min-width: 1024px) {
+            .capabilities-sec,
+            .how-we-build-sec,
+            .works-section,
+            .stages-sec,
+            .principles-sec,
+            .why-kawaki-sec,
+            .container-faq {
+                min-height: 100vh;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                padding-top: 4.5rem !important;
+                padding-bottom: 4.5rem !important;
+                box-sizing: border-box !important;
+            }
+            .global-site-footer {
+                min-height: 100vh;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                padding-top: 4.5rem !important;
+                padding-bottom: 2.5rem !important;
+                box-sizing: border-box !important;
+            }
+            .services-header.oth, 
+            .capabilities-sec .services-header.oth, 
+            .works-header {
+                margin: 0 auto 2.25rem !important;
+            }
         }
 
         /* Responsive */
@@ -4977,7 +5025,55 @@
             </div>
         </section>
 
-        
+        <!-- ============================ -->
+        <!-- Infinite Text Scroll Marquee -->
+        <!-- ============================ -->
+        <div class="infs-marquee-container sections" data-section="Crafting legendary brands">
+            <div class="infs-scroll-wrapper infs-rtl">
+                <div class="infs-scroll-track">
+                    <span class="infs-scroll-text">we make brands <em>legendary</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">we make brands <em>timeless</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">we make brands <em>unforgettable</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">we make brands <em>relevant</em></span>
+                    <span class="infs-dot">&bull;</span>
+                </div>
+                <div class="infs-scroll-track" aria-hidden="true">
+                    <span class="infs-scroll-text">we make brands <em>legendary</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">we make brands <em>timeless</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">we make brands <em>unforgettable</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">we make brands <em>relevant</em></span>
+                    <span class="infs-dot">&bull;</span>
+                </div>
+            </div>
+            <div class="infs-scroll-wrapper infs-ltr">
+                <div class="infs-scroll-track">
+                    <span class="infs-scroll-text">crafted with <em>precision</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">crafted with <em>care</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">crafted with <em>vision</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">built to <em>last</em></span>
+                    <span class="infs-dot">&bull;</span>
+                </div>
+                <div class="infs-scroll-track" aria-hidden="true">
+                    <span class="infs-scroll-text">crafted with <em>precision</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">crafted with <em>care</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">crafted with <em>vision</em></span>
+                    <span class="infs-dot">&bull;</span>
+                    <span class="infs-scroll-text">built to <em>last</em></span>
+                    <span class="infs-dot">&bull;</span>
+                </div>
+            </div>
+        </div>
 
         <section class="about-statement" id="about-intro">
             <div class="vol-about-grid">
@@ -5022,113 +5118,58 @@
         <!-- 01 / WHAT WE BUILD (CAPABILITIES) -->
         <!-- ============================ -->
         <section class="capabilities-sec sections" id="capabilities" data-section="What We Build">
-            <div class="services-header oth">
-                <div class="capabilities-header-left">
-                    <div class="vol-eyebrow">
-                        <span class="vol-bracket">[</span> 01 / WHAT WE BUILD <span class="vol-bracket">]</span>
-                    </div>
-                    <h2 class="header-title">Custom Web Development &amp; <br>Digital Products<span style="color: #ea580c;">.</span></h2>
-                </div>
-                <span class="another-span">Custom web development and digital product engineering form our primary craft, supported by specialized ecommerce, automation, and search systems.</span>
+            <div class="values-header">
+                <div class="values-eyebrow">[ 01 / WHAT WE BUILD ]</div>
+                <h2 class="values-title">Custom Web Development &amp; Digital Products<span style="color: #ea580c;">.</span></h2>
+                <p class="values-desc">
+                    Custom web development and digital product engineering form our primary craft, supported by specialized ecommerce, automation, and search systems.
+                </p>
             </div>
 
-            <div class="volume-grid">
+            <div class="values-grid">
                 <!-- 01 Web Application Development -->
-                <article class="volume-card">
-                    <a href="/services/custom-web-development" class="volume-media-wrap" aria-label="Explore Web Application Development">
-                        <img src="/assets/images/hero_agency_showcase.webp" alt="Web Application Development &amp; Custom Platforms by Kawaki Studios" width="600" height="700" class="volume-img" loading="lazy" decoding="async">
-                        <div class="volume-pill">Explore +</div>
-                    </a>
-                    <div class="volume-content">
-                        <div class="volume-title-lockup">
-                            <span class="volume-num-tag">[ 01 ]</span>
-                            <h3 class="volume-card-title"><a href="/services/custom-web-development">WEB APPLICATION DEVELOPMENT</a></h3>
-                        </div>
-                        <h4 class="volume-card-sub">Custom web applications &amp; digital platforms</h4>
-                        <p class="volume-desc">
-                            We design and develop scalable web applications around real business workflows &mdash; from customer-facing platforms to internal operational systems and SaaS products. Built with strict TypeScript, clean component architecture, and modern full-stack systems.
-                        </p>
-                        <div class="volume-tags">
-                            <span class="volume-tag">Next.js</span>
-                            <span class="volume-tag">TypeScript</span>
-                            <span class="volume-tag">React</span>
-                            <span class="volume-tag">APIs</span>
-                            <span class="volume-tag">Headless CMS</span>
-                        </div>
+                <a href="/services/custom-web-development" class="values-card" aria-label="Web Application Development">
+                    <div class="values-img-wrap">
+                        <img src="/assets/images/hero_agency_showcase.webp" alt="Web Application Development" class="values-img" loading="lazy" decoding="async">
                     </div>
-                </article>
+                    <div class="values-info">
+                        <h3 class="values-name">WEB APPLICATION DEV</h3>
+                        <p class="values-sub">Custom web applications, platforms &amp; SaaS architectures built with strict TypeScript.</p>
+                    </div>
+                </a>
 
-                <!-- 02 Shopify & E-Commerce Development -->
-                <article class="volume-card">
-                    <a href="/services/shopify-development" class="volume-media-wrap" aria-label="Explore Shopify &amp; E-Commerce Development">
-                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="Shopify &amp; Custom E-Commerce Storefront Development by Kawaki Studios" width="600" height="700" class="volume-img" loading="lazy" decoding="async">
-                        <div class="volume-pill">Explore +</div>
-                    </a>
-                    <div class="volume-content">
-                        <div class="volume-title-lockup">
-                            <span class="volume-num-tag">[ 02 ]</span>
-                            <h3 class="volume-card-title"><a href="/services/shopify-development">SHOPIFY &amp; E-COMMERCE</a></h3>
-                        </div>
-                        <h4 class="volume-card-sub">Custom Shopify stores built around your brand</h4>
-                        <p class="volume-desc">
-                            We build Shopify storefronts that go far beyond off-the-shelf templates. Custom Liquid sections, Storefront API integrations, product architecture and catalog migrations crafted around real buying psychology and measurable conversion velocity.
-                        </p>
-                        <div class="volume-tags">
-                            <span class="volume-tag">Shopify</span>
-                            <span class="volume-tag">Liquid</span>
-                            <span class="volume-tag">Storefront API</span>
-                            <span class="volume-tag">Custom Themes</span>
-                        </div>
+                <!-- 02 Shopify & E-Commerce -->
+                <a href="/services/shopify-development" class="values-card" aria-label="Shopify & E-Commerce">
+                    <div class="values-img-wrap">
+                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="Shopify & E-Commerce" class="values-img" loading="lazy" decoding="async">
                     </div>
-                </article>
+                    <div class="values-info">
+                        <h3 class="values-name">SHOPIFY &amp; E-COMMERCE</h3>
+                        <p class="values-sub">Bespoke Shopify storefronts engineered for conversion velocity and brand prestige.</p>
+                    </div>
+                </a>
 
                 <!-- 03 AI & Automation Systems -->
-                <article class="volume-card">
-                    <a href="/services/ai-automation" class="volume-media-wrap" aria-label="Explore AI &amp; Automation Systems">
-                        <img src="/assets/images/case-studies/pixza/hero.jpg" alt="AI Agents &amp; Intelligent Workflow Automation Systems by Kawaki Studios" width="600" height="700" class="volume-img" loading="lazy" decoding="async">
-                        <div class="volume-pill">Explore +</div>
-                    </a>
-                    <div class="volume-content">
-                        <div class="volume-title-lockup">
-                            <span class="volume-num-tag">[ 03 ]</span>
-                            <h3 class="volume-card-title"><a href="/services/ai-automation">AI &amp; AUTOMATION SYSTEMS</a></h3>
-                        </div>
-                        <h4 class="volume-card-sub">Intelligent workflows for operational speed</h4>
-                        <p class="volume-desc">
-                            We deploy deterministic automation and AI agent pipelines to eliminate repetitive manual overhead and connect your core business tools. Workflow automation, data pipelines, and CRM synchronization built with n8n, Make, and custom endpoints.
-                        </p>
-                        <div class="volume-tags">
-                            <span class="volume-tag">AI Agents</span>
-                            <span class="volume-tag">n8n</span>
-                            <span class="volume-tag">Make</span>
-                            <span class="volume-tag">Data Pipelines</span>
-                        </div>
+                <a href="/services/ai-automation" class="values-card" aria-label="AI & Automation Systems">
+                    <div class="values-img-wrap">
+                        <img src="/assets/images/case-studies/pixza/hero.jpg" alt="AI & Automation Systems" class="values-img" loading="lazy" decoding="async">
                     </div>
-                </article>
+                    <div class="values-info">
+                        <h3 class="values-name">AI &amp; AUTOMATION</h3>
+                        <p class="values-sub">Deterministic automation pipelines &amp; AI agents connecting your core business operations.</p>
+                    </div>
+                </a>
 
-                <!-- 04 Search, SEO & Technical Recovery -->
-                <article class="volume-card">
-                    <a href="/services/ai-search-optimization" class="volume-media-wrap" aria-label="Explore Search, SEO &amp; Technical Recovery">
-                        <img src="/assets/images/station_infra_system.webp" alt="Search Engine Optimization, GEO and Technical Recovery by Kawaki Studios" width="600" height="700" class="volume-img" loading="lazy" decoding="async">
-                        <div class="volume-pill">Explore +</div>
-                    </a>
-                    <div class="volume-content">
-                        <div class="volume-title-lockup">
-                            <span class="volume-num-tag">[ 04 ]</span>
-                            <h3 class="volume-card-title"><a href="/services/ai-search-optimization">SEARCH, SEO &amp; RECOVERY</a></h3>
-                        </div>
-                        <h4 class="volume-card-sub">Engineered visibility &amp; platform hardening</h4>
-                        <p class="volume-desc">
-                            We build technically strong architectures with structured data and content foundations optimized for traditional search engines and emerging AI answer engines (GEO &amp; AEO) &mdash; alongside rapid incident response and malware sanitization.
-                        </p>
-                        <div class="volume-tags">
-                            <span class="volume-tag">Technical SEO</span>
-                            <span class="volume-tag">AEO</span>
-                            <span class="volume-tag">GEO</span>
-                            <span class="volume-tag">Security Hardening</span>
-                        </div>
+                <!-- 04 Search, SEO & Recovery -->
+                <a href="/services/ai-search-optimization" class="values-card" aria-label="Search, SEO & Technical Recovery">
+                    <div class="values-img-wrap">
+                        <img src="/assets/images/station_infra_system.webp" alt="Search, SEO & Technical Recovery" class="values-img" loading="lazy" decoding="async">
                     </div>
-                </article>
+                    <div class="values-info">
+                        <h3 class="values-name">SEARCH &amp; RECOVERY</h3>
+                        <p class="values-sub">Engineered visibility for traditional search and AI answer engines, plus platform hardening.</p>
+                    </div>
+                </a>
             </div>
         </section>
 
