@@ -15,8 +15,8 @@
     "start": "node scripts/start-all.js",
     "backend": "cd admin-dashboard/backend && npx tsx src/index.ts",
     "build:admin": "cd admin-dashboard/frontend && npm run build && node -e \"const fs = require('fs'); fs.cpSync('dist', '../../public/admin', { recursive: true });\"",
-    "build": "node scripts/build-blog.js && node scripts/build-seo-pages.js && node scripts/audit-seo-pages.js && node scripts/validate-sitemap.js && node scripts/build-for-vercel.js",
-    "vercel-build": "node scripts/build-blog.js && node scripts/build-seo-pages.js && node scripts/audit-seo-pages.js && node scripts/validate-sitemap.js && node scripts/build-for-vercel.js",
+    "build": "node scripts/build-blog.js && node scripts/build-seo-pages.js && node scripts/audit-seo-pages.js && node scripts/audit-seo-content-quality.js && node scripts/validate-sitemap.js && node scripts/build-for-vercel.js",
+    "vercel-build": "node scripts/build-blog.js && node scripts/build-seo-pages.js && node scripts/audit-seo-pages.js && node scripts/audit-seo-content-quality.js && node scripts/validate-sitemap.js && node scripts/build-for-vercel.js",
     "indexnow": "node scripts/submit-indexnow.js",
     "lint": "eslint"
   },

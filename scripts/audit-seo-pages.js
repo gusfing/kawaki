@@ -143,9 +143,10 @@ for (const entry of registry) {
   }
 
   // 6. Content-Quality & Unsupported Claims Audit
-  const lowerHtml = html.toLowerCase();
   for (const claim of facts.disallowedClaims) {
-    if (lowerHtml.includes(claim.toLowerCase())) {
+    const escaped = claim.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp('\\b' + escaped + '\\b', 'i');
+    if (re.test(html)) {
       console.error(`❌ Disallowed claim found on ${entry.kawakiUrl}: "${claim}"`);
       disallowedClaimViolations++;
     }
@@ -200,7 +201,7 @@ if (
   disallowedClaimViolations === 0 &&
   sitemapMissingCount === 0
 ) {
-  console.log('🎉 [QA SEO Crawler] 100% PERFECT AUDIT: ALL 226 DISTINCT PAGES FULLY VERIFIED!\n');
+  console.log('🎉 [QA SEO Crawler] Technical SEO & Architecture Audit Passed: All 226 distinct pages verified.\n');
   process.exit(0);
 } else {
   console.error('❌ [QA SEO Crawler] Audit Failed. Issues detected.');
