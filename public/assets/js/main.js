@@ -312,33 +312,7 @@ function initGlobalNav() {
     updateStudioClock();
     setInterval(updateStudioClock, 1000);
 
-    // World Clocks Updater for Footer
-    function updateWorldClocks() {
-        const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
-        
-        const delhiEl = document.getElementById('footerTimeDelhi');
-        if (delhiEl) {
-            delhiEl.textContent = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'Asia/Kolkata' }).format(new Date()) + ' IST';
-        }
 
-        const tokyoEl = document.getElementById('footerTimeTokyo');
-        if (tokyoEl) {
-            tokyoEl.textContent = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'Asia/Tokyo' }).format(new Date()) + ' JST';
-        }
-
-        const londonEl = document.getElementById('footerTimeLondon');
-        if (londonEl) {
-            londonEl.textContent = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'Europe/London' }).format(new Date()) + ' GMT';
-        }
-
-        const nyEl = document.getElementById('footerTimeNY');
-        if (nyEl) {
-            nyEl.textContent = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'America/New_York' }).format(new Date()) + ' EST';
-        }
-    }
-
-    updateWorldClocks();
-    setInterval(updateWorldClocks, 1000);
 
     // Back to top button listener
     document.querySelectorAll('#backToTop, .footer-back-to-top').forEach(btn => {

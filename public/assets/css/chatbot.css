@@ -8,7 +8,7 @@
   --kawaki-chat-card: #1c1e22;
   --kawaki-chat-bubble-user: #26292e;
   --kawaki-chat-bubble-ai: transparent;
-  --kawaki-chat-accent: #C6FF00;
+  --kawaki-chat-accent: #ea580c;
   --kawaki-chat-text: #FFFFFF;
   --kawaki-chat-muted: #9CA3AF;
   --kawaki-chat-border: rgba(255, 255, 255, 0.1);
@@ -463,4 +463,155 @@
   .launcher-pill-text {
     font-size: 0.88rem;
   }
+}
+
+
+/* Podcast Text-to-Speech Player Card inside Chat */
+.kawaki-podcast-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+.podcast-card-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.podcast-icon-bubble {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(234, 88, 12, 0.2);
+  border: 1px solid rgba(234, 88, 12, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+.podcast-card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+.podcast-card-status {
+  font-size: 0.74rem;
+  color: #9CA3AF;
+  margin-top: 3px;
+}
+.podcast-play-btn {
+  background: #ea580c;
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.podcast-play-btn:hover {
+  background: #f97316;
+  transform: scale(1.03);
+}
+.podcast-play-btn.playing {
+  background: #ef4444;
+  animation: podcastPulse 1.5s infinite;
+}
+@keyframes podcastPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+
+/* Launcher Quick Podcast Button */
+.launcher-podcast-quick-btn {
+  background: rgba(234, 88, 12, 0.12);
+  border: 1px solid rgba(234, 88, 12, 0.35);
+  color: #ea580c;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.launcher-podcast-quick-btn:hover {
+  background: #ea580c;
+  color: #FFFFFF;
+  transform: scale(1.04);
+}
+.launcher-podcast-quick-btn.playing {
+  background: #ef4444;
+  color: #FFFFFF;
+  border-color: #ef4444;
+}
+
+/* Pinned Podcast Hero Banner in Chat Window */
+.kawaki-chat-podcast-hero {
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.12) 0%, rgba(20, 22, 25, 0.8) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.podcast-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.podcast-hero-icon {
+  font-size: 1.35rem;
+}
+.podcast-hero-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+.podcast-hero-desc {
+  font-size: 0.72rem;
+  color: #9CA3AF;
+  margin-top: 2px;
+}
+.podcast-hero-btn {
+  background: #ea580c;
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.podcast-hero-btn:hover {
+  background: #f97316;
+  transform: scale(1.04);
+}
+.podcast-hero-btn.playing {
+  background: #ef4444;
 }

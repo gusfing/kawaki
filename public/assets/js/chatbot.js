@@ -19,19 +19,10 @@
   let recognition = null;
   let isListening = false;
 
-  // Initialize non-blocking after main thread is idle
-  function scheduleInitChatbot() {
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(initChatbot, { timeout: 2500 });
-    } else {
-      setTimeout(initChatbot, 150);
-    }
-  }
-
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', scheduleInitChatbot);
+    document.addEventListener('DOMContentLoaded', initChatbot);
   } else {
-    scheduleInitChatbot();
+    initChatbot();
   }
 
   
@@ -40,7 +31,7 @@
     if (document.getElementById('kawaki-exit-popup-script')) return;
     const script = document.createElement('script');
     script.id = 'kawaki-exit-popup-script';
-    script.src = '/assets/js/exit-popup.js';
+    script.src = '/assets/js/exit-popup.js?v=20261007_light_v1';
     script.defer = true;
     document.body.appendChild(script);
   }
@@ -69,6 +60,9 @@
           <span class="launcher-pill-dot"></span>
           <span class="launcher-pill-text">Ask Kawaki AI</span>
         </div>
+        <button class="launcher-podcast-quick-btn" id="launcherPodcastQuickBtn" type="button" title="Listen to this page as an audio podcast">
+          <span id="launcherPodcastQuickLabel">🎙️ Page Podcast</span>
+        </button>
         <div class="launcher-pill-circle" id="launcherPillBtn">
           <svg class="launcher-arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="19" x2="12" y2="5"></line>
@@ -110,18 +104,35 @@
           </div>
         </div>
 
+        <!-- Pinned Podcast Feature Banner -->
+        <div class="kawaki-chat-podcast-hero">
+          <div class="podcast-hero-left">
+            <span class="podcast-hero-icon">🎙️</span>
+            <div>
+              <div class="podcast-hero-title">Page-to-Podcast (Text to Speech)</div>
+              <div class="podcast-hero-desc" id="podcastHeroStatus">Listen to an AI audio briefing of this page</div>
+            </div>
+          </div>
+          <button class="podcast-hero-btn" id="podcastHeroPlayBtn" type="button">
+            <span id="podcastHeroBtnLabel">▶ Listen</span>
+          </button>
+        </div>
+
         <!-- Messages Feed -->
         <div class="kawaki-chat-messages" id="kawakiChatMessages">
           
           <!-- Default AI Greeting -->
           <div class="kawaki-chat-msg ai">
             <div class="kawaki-chat-msg-text">
-              Hi there, you're speaking with Kawaki's AI Agent. How can I help you today? Speak or type below.
+              Hi there! I'm Kawaki's Studio AI Agent. **Did you know?** I can turn this entire page into an audio podcast briefing with built-in Text-to-Speech! Tap below or speak to listen.
             </div>
           </div>
 
           <!-- Quick Suggestions Chips -->
           <div class="kawaki-chat-suggestions" id="kawakiChatSuggestions">
+            <button class="kawaki-chat-chip" data-query="Turn this page into a podcast">
+              🎙️ Turn page into a podcast (TTS)
+            </button>
             <button class="kawaki-chat-chip" data-query="What are Kawaki's top features and services?">
               What are Kawaki's top AI & web features?
             </button>
@@ -178,6 +189,24 @@
      2. EVENT HANDLING
      -------------------------------------------------------------------------- */
   function setupChatEvents() {
+    // Quick Podcast Button on floating launcher
+    const quickPodcastBtn = document.getElementById('launcherPodcastQuickBtn');
+    if (quickPodcastBtn) {
+      quickPodcastBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Don't toggle chat window
+        playPagePodcast();
+      });
+    }
+
+    // Pinned Podcast Hero Button in chat
+    const heroPlayBtn = document.getElementById('podcastHeroPlayBtn');
+    if (heroPlayBtn) {
+      heroPlayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playPagePodcast();
+      });
+    }
+
     const launcher = document.getElementById('kawakiChatLauncher');
     const windowEl = document.getElementById('kawakiChatWindow');
     const minimizeBtn = document.getElementById('kawakiChatMinimizeBtn');
@@ -324,6 +353,152 @@
      3. CONVERSATIONAL LOGIC & STUDIO ENGINE
      -------------------------------------------------------------------------- */
   
+  
+  /* --------------------------------------------------------------------------
+     PODCAST TEXT-TO-SPEECH (PAGE-TO-AUDIO) ENGINE
+     -------------------------------------------------------------------------- */
+  let currentPodcastUtterance = null;
+  let isPodcastPlaying = false;
+
+  function generatePodcastScript() {
+    const rawTitle = document.title || 'Kawaki Studios';
+    const pageTitle = rawTitle.split('—')[0].replace('Kawaki Studios', '').trim() || 'Custom Web Development';
+    const mainHeading = document.querySelector('h1') ? document.querySelector('h1').innerText.replace(/[\n\r]+/g, ' ').trim() : 'Custom Web Development and Digital Products';
+    const metaTag = document.querySelector('meta[name="description"]');
+    const metaDesc = metaTag ? metaTag.getAttribute('content') : '';
+    
+    // Extract key headings from page
+    const headings = Array.from(document.querySelectorAll('main h2, main h3'))
+      .map(h => h.innerText.replace(/[\n\r]+/g, ' ').trim())
+      .filter(t => t.length > 5 && !t.includes('Menu') && !t.includes('Navigation') && !t.includes('Kawaki Support'))
+      .slice(0, 4);
+
+    return 'Welcome to the Kawaki Studios Audio Briefing for ' + pageTitle + '. ' + mainHeading + '. ' + metaDesc + '. Key disciplines and focus areas covered on this page include: ' + headings.join(', ') + '. At Kawaki Studios, we combine strategy, design, and engineering to build durable digital systems that look distinctive, perform reliably, and scale without technical debt. To discuss your project or schedule an architectural consultation, contact our senior team at hello at kawaki studios dot com.';
+  }
+
+  function playPagePodcast() {
+    if (!('speechSynthesis' in window)) {
+      sendMessage("Sorry, your browser does not support the Web SpeechSynthesis API.", 'ai');
+      return;
+    }
+
+    if (isPodcastPlaying) {
+      window.speechSynthesis.cancel();
+      isPodcastPlaying = false;
+      updatePodcastUI(false);
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const script = generatePodcastScript();
+    const utterance = new SpeechSynthesisUtterance(script);
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+
+    const voices = window.speechSynthesis.getVoices();
+    const selectedVoice = voices.find(v => v.lang && v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Daniel') || v.name.includes('David') || v.name.includes('Alex')));
+    if (selectedVoice) utterance.voice = selectedVoice;
+
+    utterance.onstart = () => {
+      isPodcastPlaying = true;
+      updatePodcastUI(true);
+    };
+
+    utterance.onend = () => {
+      isPodcastPlaying = false;
+      updatePodcastUI(false);
+    };
+
+    utterance.onerror = () => {
+      isPodcastPlaying = false;
+      updatePodcastUI(false);
+    };
+
+    currentPodcastUtterance = utterance;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function renderPodcastPlayerCard() {
+    const feed = document.getElementById('kawakiChatMessages');
+    if (!feed) return;
+
+    const existing = document.getElementById('kawakiPodcastCard');
+    if (existing) existing.remove();
+
+    const rawTitle = document.title || 'Kawaki Studios';
+    const pageTitle = rawTitle.split('—')[0].replace('Kawaki Studios', '').trim() || 'Executive Audio';
+
+    const card = document.createElement('div');
+    card.id = 'kawakiPodcastCard';
+    card.className = 'kawaki-podcast-card';
+    card.innerHTML = 
+      '<div class="podcast-card-left">' +
+        '<div class="podcast-icon-bubble">🎙️</div>' +
+        '<div>' +
+          '<div class="podcast-card-title">' + escapeHtml(pageTitle) + ' Podcast</div>' +
+          '<div class="podcast-card-status" id="podcastStatusText">Ready to Play &bull; Text to Speech</div>' +
+        '</div>' +
+      '</div>' +
+      '<button class="podcast-play-btn" id="podcastToggleBtn" type="button">' +
+        '<span id="podcastBtnLabel">▶ Play Podcast</span>' +
+      '</button>';
+
+    feed.appendChild(card);
+    feed.scrollTop = feed.scrollHeight;
+
+    const btn = card.querySelector('#podcastToggleBtn');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        playPagePodcast();
+      });
+    }
+  }
+
+  function updatePodcastUI(playing) {
+    const heroStatus = document.getElementById('podcastHeroStatus');
+    const heroBtnLabel = document.getElementById('podcastHeroBtnLabel');
+    const heroPlayBtn = document.getElementById('podcastHeroPlayBtn');
+    const quickBtn = document.getElementById('launcherPodcastQuickBtn');
+    const quickLabel = document.getElementById('launcherPodcastQuickLabel');
+
+    if (heroStatus) {
+      heroStatus.textContent = playing ? '🔊 Narrating page briefing...' : 'Listen to an AI audio briefing of this page';
+    }
+    if (heroBtnLabel) {
+      heroBtnLabel.textContent = playing ? '⏹ Stop' : '▶ Listen';
+    }
+    if (heroPlayBtn) {
+      if (playing) heroPlayBtn.classList.add('playing');
+      else heroPlayBtn.classList.remove('playing');
+    }
+    if (quickBtn) {
+      if (playing) {
+        quickBtn.classList.add('playing');
+        if (quickLabel) quickLabel.textContent = '⏹ Stop Audio';
+      } else {
+        quickBtn.classList.remove('playing');
+        if (quickLabel) quickLabel.textContent = '🎙️ Page Podcast';
+      }
+    }
+
+    const statusText = document.getElementById('podcastStatusText');
+    const btnLabel = document.getElementById('podcastBtnLabel');
+    const toggleBtn = document.getElementById('podcastToggleBtn');
+    if (statusText) {
+      statusText.textContent = playing ? '🔊 Narrating page briefing...' : 'Paused &bull; Text to Speech';
+    }
+    if (btnLabel) {
+      btnLabel.textContent = playing ? '⏹ Stop Podcast' : '▶ Play Podcast';
+    }
+    if (toggleBtn) {
+      if (playing) {
+        toggleBtn.classList.add('playing');
+      } else {
+        toggleBtn.classList.remove('playing');
+      }
+    }
+  }
+
   function syncChatbotLead() {
     if (!leadData.email) return;
     const conversationSummary = leadData.messages
@@ -363,9 +538,17 @@
       reply = `Thanks for sharing your email (${leadData.email})! Our partners at Kawaki Studios will reach out with project architecture notes. What company or brand are you building with?`;
     }
     // Features / Capabilities
-    else if (lower.includes('feature') || lower.includes('top feature') || lower.includes('what can you do')) {
-      reply = "Kawaki Studios specializes in three core flagship capabilities:\n\n1. ⚡ **Headless Commerce & Shopify Plus**: Sub-second catalog transitions and custom checkouts.\n2. 🪐 **3D & Spatial Web Experiences**: Bespoke Three.js/WebGL interactive rendering and physics.\n3. 🏛️ **Editorial Engineering**: High-performance publishing platforms with custom CMS architecture.\n\nWould you like to explore our case studies or get a project estimate?";
+    // Podcast / Text-to-Speech intent
+    else if (lower.includes('podcast') || lower.includes('text to speech') || lower.includes('tts') || lower.includes('audio') || lower.includes('speech') || lower.includes('listen') || lower.includes('read page')) {
+      reply = "🎙️ **Page-to-Podcast (Text-to-Speech) Generated!**\n\nI've generated a conversational audio briefing summarizing this page. Click below to start or pause the audio narration:";
+      renderPodcastPlayerCard();
+      setTimeout(playPagePodcast, 500);
     }
+    // Features / Capabilities
+    else if (lower.includes('feature') || lower.includes('top feature') || lower.includes('what can you do')) {
+      reply = "Here are Kawaki's top studio features & capabilities:\n\n🎙️ **Page-to-Podcast (Text-to-Speech)**: You can turn any page on this site into a narrated audio briefing! Just tap **'Turn page into a podcast'** below.\n⚡ **Custom Web & Next.js Platforms**: Scalable, high-velocity digital engineering.\n🛍️ **Headless Shopify & Commerce**: Sub-second catalog transitions and custom checkouts.\n🤖 **AI Agents & Automated Workflows**: Deterministic AI pipelines that eliminate operational overhead.\n\nWould you like to listen to the audio briefing for this page?";
+    }
+      
     // Services / Capabilities
     else if (lower.includes('service') || lower.includes('what do you build') || lower.includes('what do you do')) {
       reply = "We craft end-to-end digital flagship systems: from Next.js web platforms and headless Shopify architectures to 3D product visualizers and brand identity systems. Tell me a bit about what you're looking to create!";

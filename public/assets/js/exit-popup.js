@@ -1,21 +1,15 @@
 /**
- * KAWAKI STUDIOS — EXIT INTENT & DISCOVERY POPUP
- * Captures high-intent visitors before departure with a sleek glassmorphic modal.
- * Submits directly to /api/contact and SQLite leads table.
+ * KAWAKI STUDIOS — DISCOVERY & ENGAGEMENT MODAL
+ * Clean, minimal editorial light aesthetic matching the rest of the website.
+ * Handles both exit-intent detection and manual trigger via window.openKawakiPopup().
  */
 (function () {
   'use strict';
 
-  // Prevent multiple initializations or execution if already submitted in session
-  if (window.__kawakiExitPopupLoaded || sessionStorage.getItem('kawaki_exit_popup_dismissed')) {
-    return;
-  }
-  window.__kawakiExitPopupLoaded = true;
-
   let hasTriggered = false;
   let scrollEngaged = false;
 
-  // Track scroll depth to avoid triggering for accidental immediate bounces
+  // Track scroll depth
   window.addEventListener('scroll', function onFirstScroll() {
     if (window.scrollY > 300) {
       scrollEngaged = true;
@@ -32,10 +26,10 @@
       .kawaki-popup-backdrop {
         position: fixed;
         inset: 0;
-        z-index: 99998;
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        z-index: 99999;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
@@ -43,6 +37,7 @@
         align-items: center;
         justify-content: center;
         padding: 1.25rem;
+        box-sizing: border-box;
       }
       .kawaki-popup-backdrop.active {
         opacity: 1;
@@ -52,206 +47,212 @@
         position: relative;
         width: 100%;
         max-width: 520px;
-        background: #0E0E14;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px rgba(198, 255, 0, 0.08);
-        border-radius: 18px;
-        padding: 2.25rem;
-        color: #FFFFFF;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        transform: scale(0.92) translateY(12px);
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 35px 80px rgba(0, 0, 0, 0.28), 0 4px 16px rgba(0, 0, 0, 0.08);
+        border-radius: 24px;
+        color: #111111;
+        font-family: var(--font-primary, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+        transform: scale(0.94) translateY(16px);
         transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         overflow: hidden;
+        box-sizing: border-box;
       }
       .kawaki-popup-backdrop.active .kawaki-popup-modal {
         transform: scale(1) translateY(0);
       }
-      .kawaki-popup-glow {
-        position: absolute;
-        top: -60px;
-        right: -60px;
-        width: 180px;
-        height: 180px;
-        background: radial-gradient(circle, rgba(198, 255, 0, 0.18) 0%, rgba(198, 255, 0, 0) 70%);
-        pointer-events: none;
+      .kawaki-popup-banner {
+        width: 100%;
+        height: 195px;
+        object-fit: cover;
+        display: block;
+        border-radius: 24px 24px 0 0;
       }
-      .kawaki-popup-close {
-        position: absolute;
-        top: 1.25rem;
-        right: 1.25rem;
-        width: 32px;
-        height: 32px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        color: #A1A1AA;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        font-size: 1.1rem;
-        line-height: 1;
-      }
-      .kawaki-popup-close:hover {
-        background: rgba(255, 255, 255, 0.15);
-        color: #FFFFFF;
-        transform: scale(1.05);
-      }
-      .kawaki-popup-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 10px;
-        border-radius: 9999px;
-        background: rgba(198, 255, 0, 0.1);
-        border: 1px solid rgba(198, 255, 0, 0.3);
-        color: #C6FF00;
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-bottom: 0.85rem;
-      }
-      .kawaki-popup-badge span.dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #C6FF00;
-        box-shadow: 0 0 6px #C6FF00;
+      .kawaki-popup-content {
+        padding: 1.75rem 2rem 2rem;
+        box-sizing: border-box;
       }
       .kawaki-popup-title {
-        font-size: 1.55rem;
-        font-weight: 800;
-        line-height: 1.2;
+        font-size: 1.45rem;
+        font-weight: 700;
+        line-height: 1.25;
         letter-spacing: -0.02em;
-        margin-bottom: 0.45rem;
-        color: #FFFFFF;
-      }
-      .kawaki-popup-title em {
-        font-style: italic;
-        color: #C6FF00;
+        margin: 0 0 0.5rem 0;
+        color: #111111;
       }
       .kawaki-popup-desc {
         font-size: 0.88rem;
-        color: #A1A1AA;
-        line-height: 1.45;
-        margin-bottom: 1.35rem;
+        color: #555555;
+        line-height: 1.6;
+        margin: 0 0 1.5rem 0;
       }
-      .kawaki-popup-form {
+      .kawaki-popup-section-title {
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #111111;
+        margin: 0 0 1rem 0;
+      }
+      .kpop-checklist {
         display: flex;
         flex-direction: column;
         gap: 0.85rem;
+        margin-bottom: 1.85rem;
       }
-      .kawaki-popup-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+      .kpop-check-item {
+        display: flex;
+        align-items: flex-start;
         gap: 0.75rem;
       }
-      @media (max-width: 480px) {
-        .kawaki-popup-grid { grid-template-columns: 1fr; }
-        .kawaki-popup-modal { padding: 1.6rem; }
+      .kpop-check-icon {
+        color: #ea580c;
+        flex-shrink: 0;
+        margin-top: 2px;
       }
-      .kawaki-popup-input, .kawaki-popup-select, .kawaki-popup-textarea {
+      .kpop-check-title {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #111111;
+        margin-bottom: 2px;
+      }
+      .kpop-check-desc {
+        font-size: 0.8rem;
+        color: #64748b;
+        line-height: 1.45;
+      }
+      .kpop-btn-row {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
         width: 100%;
-        box-sizing: border-box;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        padding: 0.7rem 0.9rem;
+      }
+      .kpop-btn-close {
+        flex: 1;
+        height: 46px;
+        border-radius: 9999px;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        color: #475569;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+      .kpop-btn-close:hover {
+        background: #e2e8f0;
+        color: #0f172a;
+      }
+      .kpop-btn-primary {
+        flex: 1.35;
+        height: 46px;
+        border-radius: 9999px;
+        background: #111111;
+        border: none;
         color: #FFFFFF;
         font-size: 0.85rem;
-        outline: none;
-        transition: border-color 0.2s, background 0.2s;
-        font-family: inherit;
-      }
-      .kawaki-popup-input:focus, .kawaki-popup-select:focus, .kawaki-popup-textarea:focus {
-        border-color: #C6FF00;
-        background: rgba(255, 255, 255, 0.08);
-      }
-      .kawaki-popup-input::placeholder, .kawaki-popup-textarea::placeholder {
-        color: #71717A;
-      }
-      .kawaki-popup-select option {
-        background: #181822;
-        color: #FFFFFF;
-      }
-      .kawaki-popup-textarea {
-        resize: vertical;
-        min-height: 70px;
-      }
-      .kawaki-popup-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        width: 100%;
-        background: #C6FF00;
-        color: #0E0E14;
-        border: none;
-        border-radius: 10px;
-        padding: 0.85rem 1rem;
-        font-size: 0.92rem;
         font-weight: 700;
         cursor: pointer;
-        transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
-        margin-top: 0.35rem;
-        box-shadow: 0 4px 18px rgba(198, 255, 0, 0.25);
-      }
-      .kawaki-popup-btn:hover:not(:disabled) {
-        background: #B3E600;
-        transform: translateY(-1px);
-        box-shadow: 0 6px 22px rgba(198, 255, 0, 0.35);
-      }
-      .kawaki-popup-btn:disabled {
-        opacity: 0.65;
-        cursor: not-allowed;
-      }
-      .kawaki-popup-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 0.85rem;
-        font-size: 0.76rem;
-        color: #71717A;
-      }
-      .kawaki-popup-footer a {
-        color: #A1A1AA;
-        text-decoration: underline;
-        transition: color 0.2s;
-      }
-      .kawaki-popup-footer a:hover {
-        color: #C6FF00;
-      }
-      .kawaki-popup-success {
-        display: none;
-        text-align: center;
-        padding: 1.5rem 0.5rem;
-      }
-      .kawaki-popup-success.active {
-        display: block;
-      }
-      .kawaki-popup-success-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: rgba(198, 255, 0, 0.15);
-        border: 1px solid rgba(198, 255, 0, 0.4);
-        color: #C6FF00;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 1rem;
+        transition: transform 0.15s ease, background 0.2s ease;
+        text-decoration: none;
       }
-      .kawaki-popup-success h3 {
+      .kpop-btn-primary:hover {
+        background: #ea580c;
+        color: #FFFFFF;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px rgba(234, 88, 12, 0.25);
+      }
+
+      /* Step 2 Form Drawer */
+      .kpop-form-step {
+        display: none;
+        animation: kpopFadeIn 0.3s ease;
+      }
+      .kpop-form-step.active {
+        display: block;
+      }
+      @keyframes kpopFadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .kpop-input-field {
+        width: 100%;
+        box-sizing: border-box;
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        color: #0f172a;
+        font-size: 0.88rem;
+        outline: none;
+        margin-bottom: 0.75rem;
+        font-family: inherit;
+        transition: border-color 0.2s, background 0.2s;
+      }
+      .kpop-input-field:focus {
+        border-color: #ea580c;
+        background: #ffffff;
+      }
+      .kpop-input-field::placeholder {
+        color: #94a3b8;
+      }
+      .kpop-select-field {
+        width: 100%;
+        box-sizing: border-box;
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        color: #0f172a;
+        font-size: 0.88rem;
+        outline: none;
+        margin-bottom: 1.25rem;
+        font-family: inherit;
+        transition: border-color 0.2s;
+      }
+      .kpop-select-field:focus {
+        border-color: #ea580c;
+        background: #ffffff;
+      }
+
+      /* Success Step */
+      .kpop-success-step {
+        display: none;
+        text-align: center;
+        padding: 2.5rem 1.5rem;
+      }
+      .kpop-success-step.active {
+        display: block;
+      }
+      .kpop-success-circle {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: rgba(234, 88, 12, 0.1);
+        border: 1px solid rgba(234, 88, 12, 0.25);
+        color: #ea580c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.25rem;
+      }
+      .kpop-success-title {
         font-size: 1.35rem;
         font-weight: 700;
-        margin-bottom: 0.5rem;
+        margin: 0 0 0.5rem 0;
+        color: #111111;
       }
-      .kawaki-popup-success p {
+      .kpop-success-desc {
         font-size: 0.88rem;
-        color: #A1A1AA;
+        color: #555555;
         line-height: 1.5;
+        margin: 0;
       }
     `;
     document.head.appendChild(style);
@@ -266,185 +267,221 @@
     backdrop.id = 'kawakiExitModal';
 
     backdrop.innerHTML = `
-      <div class="kawaki-popup-modal" role="dialog" aria-modal="true" aria-labelledby="kawaki-popup-title">
-        <div class="kawaki-popup-glow"></div>
-        <button class="kawaki-popup-close" id="kawakiPopupClose" aria-label="Close modal">&times;</button>
-        
-        <div id="kawakiPopupBody">
-          <div class="kawaki-popup-badge">
-            <span class="dot"></span>
-            <span>Discovery Intake</span>
-          </div>
-          <h2 class="kawaki-popup-title" id="kawaki-popup-title">
-            Before You Go — <em>Let's Build.</em>
-          </h2>
-          <p class="kawaki-popup-desc">
-            Directly connect with our engineering partners for project estimates, architectural reviews, or a 15-minute intro call.
-          </p>
+      <div class="kawaki-popup-modal" role="dialog" aria-modal="true" aria-labelledby="kpopTitle">
+        <!-- Top Studio Visual -->
+        <img 
+          src="/assets/images/about-studio.webp" 
+          alt="Kawaki Studios Discovery & Scoping" 
+          class="kawaki-popup-banner"
+          width="800"
+          height="320"
+        />
 
-          <form class="kawaki-popup-form" id="kawakiPopupForm">
-            <div class="kawaki-popup-grid">
-              <input type="text" id="kpop-name" class="kawaki-popup-input" placeholder="Your Name *" required />
-              <input type="email" id="kpop-email" class="kawaki-popup-input" placeholder="Work Email *" required />
+        <div class="kawaki-popup-content">
+          <!-- Step 1: Overview & Checklist -->
+          <div class="kpop-overview-step" id="kpopStep1">
+            <h3 class="kawaki-popup-title" id="kpopTitle">Discovery &amp; Project Scoping</h3>
+            <p class="kawaki-popup-desc">
+              We evaluate your business requirements, architecture complexity, and growth goals to design a high-performance web system built to last.
+            </p>
+
+            <div class="kawaki-popup-section-title">What We Assess &amp; Deliver</div>
+
+            <div class="kpop-checklist">
+              <div class="kpop-check-item">
+                <svg class="kpop-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+                <div>
+                  <div class="kpop-check-title">System &amp; Scope Architecture</div>
+                  <div class="kpop-check-desc">Technical stack selection, performance boundaries, and scalability.</div>
+                </div>
+              </div>
+
+              <div class="kpop-check-item">
+                <svg class="kpop-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+                <div>
+                  <div class="kpop-check-title">Conversion &amp; UX Engineering</div>
+                  <div class="kpop-check-desc">Visual hierarchy, buying psychology, and responsive velocity.</div>
+                </div>
+              </div>
+
+              <div class="kpop-check-item">
+                <svg class="kpop-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+                <div>
+                  <div class="kpop-check-title">Integrations &amp; Data Flow</div>
+                  <div class="kpop-check-desc">APIs, headless endpoints, CMS schemas, and automations.</div>
+                </div>
+              </div>
+
+              <div class="kpop-check-item">
+                <svg class="kpop-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+                <div>
+                  <div class="kpop-check-title">Execution Timeline &amp; Fixed Estimate</div>
+                  <div class="kpop-check-desc">Transparent sprint milestones with zero scope creep.</div>
+                </div>
+              </div>
             </div>
 
-            <div class="kawaki-popup-grid">
-              <select id="kpop-service" class="kawaki-popup-select">
-                <option value="Custom Web App">Custom Web App & Next.js</option>
-                <option value="Headless Shopify">Headless Shopify & Commerce</option>
-                <option value="AI Automation">AI Agents & Workflow Automation</option>
-                <option value="AI Search Optimization">AI Search & GEO Optimization</option>
-                <option value="Website Redesign">Flagship Redesign</option>
-                <option value="Security Hardening">Security & Performance</option>
+            <div class="kpop-btn-row">
+              <button class="kpop-btn-close" id="kpopCloseBtn" type="button">Close</button>
+              <button class="kpop-btn-primary" id="kpopStartBtn" type="button">Start Discovery Call</button>
+            </div>
+          </div>
+
+          <!-- Step 2: 2-Field Lead Capture Form -->
+          <div class="kpop-form-step" id="kpopStep2">
+            <h3 class="kawaki-popup-title">Book Architecture Briefing</h3>
+            <p class="kawaki-popup-desc">Enter your details and our senior engineering team will prepare your project estimate.</p>
+
+            <form id="kpopLeadForm">
+              <input type="text" class="kpop-input-field" id="kpopName" placeholder="Your Name or Studio" required autocomplete="name" />
+              <input type="email" class="kpop-input-field" id="kpopEmail" placeholder="Work Email Address" required autocomplete="email" />
+              <select class="kpop-select-field" id="kpopService">
+                <option value="Custom Web Development">Custom Web Development</option>
+                <option value="Shopify & Headless Commerce">Shopify &amp; Headless Commerce</option>
+                <option value="Full-Stack Web Application">Full-Stack Web Application</option>
+                <option value="AI Workflow Automation">AI Workflow Automation</option>
+                <option value="Performance & Security Hardening">Performance &amp; Security Hardening</option>
               </select>
-              <input type="text" id="kpop-contact" class="kawaki-popup-input" placeholder="Telegram / WhatsApp" />
-            </div>
 
-            <textarea id="kpop-notes" class="kawaki-popup-textarea" placeholder="Tell us briefly what you are planning to build or optimize..."></textarea>
+              <div class="kpop-btn-row">
+                <button class="kpop-btn-close" id="kpopBackBtn" type="button">Back</button>
+                <button class="kpop-btn-primary" id="kpopSubmitBtn" type="submit">Submit Brief &rarr;</button>
+              </div>
+            </form>
+          </div>
 
-            <button type="submit" class="kawaki-popup-btn" id="kpop-submit">
-              <span>Request Discovery Brief</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+          <!-- Step 3: Success State -->
+          <div class="kpop-success-step" id="kpopStep3">
+            <div class="kpop-success-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-            </button>
-          </form>
-
-          <div class="kawaki-popup-footer">
-            <span>Direct partner response within 24h</span>
-            <a href="https://t.me/kawakistudios" target="_blank" rel="noopener noreferrer">Or chat on Telegram &rarr;</a>
+            </div>
+            <h3 class="kpop-success-title">Brief Received</h3>
+            <p class="kpop-success-desc">
+              Thank you. Our partners have received your project scope. We'll review your requirements and reach out within 24 hours.
+            </p>
           </div>
-        </div>
-
-        <div class="kawaki-popup-success" id="kawakiPopupSuccess">
-          <div class="kawaki-popup-success-icon">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-          <h3>Inquiry Received!</h3>
-          <p id="kpop-success-msg">
-            Thank you! Your project brief has been routed directly to our engineering partners. We will follow up with technical architecture notes shortly.
-          </p>
         </div>
       </div>
     `;
 
     document.body.appendChild(backdrop);
+    setupEvents(backdrop);
+  }
 
-    // Close logic
-    const closeBtn = document.getElementById('kawakiPopupClose');
-    closeBtn.addEventListener('click', closeModal);
+  // 3. Setup Events
+  function setupEvents(backdrop) {
+    const closeBtn = backdrop.querySelector('#kpopCloseBtn');
+    const startBtn = backdrop.querySelector('#kpopStartBtn');
+    const backBtn = backdrop.querySelector('#kpopBackBtn');
+    const leadForm = backdrop.querySelector('#kpopLeadForm');
+    const step1 = backdrop.querySelector('#kpopStep1');
+    const step2 = backdrop.querySelector('#kpopStep2');
+    const step3 = backdrop.querySelector('#kpopStep3');
 
-    backdrop.addEventListener('click', function (e) {
+    function closeModal() {
+      backdrop.classList.remove('active');
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e) => {
       if (e.target === backdrop) closeModal();
     });
 
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && backdrop.classList.contains('active')) {
-        closeModal();
-      }
-    });
-
-    // Form submission
-    const form = document.getElementById('kawakiPopupForm');
-    form.addEventListener('submit', handlePopupSubmit);
-
-    return backdrop;
-  }
-
-  function openModal() {
-    if (hasTriggered) return;
-    hasTriggered = true;
-    sessionStorage.setItem('kawaki_exit_popup_dismissed', 'true');
-
-    let backdrop = document.getElementById('kawakiExitModal') || createModal();
-    requestAnimationFrame(() => {
-      backdrop.classList.add('active');
-    });
-  }
-
-  function closeModal() {
-    const backdrop = document.getElementById('kawakiExitModal');
-    if (backdrop) {
-      backdrop.classList.remove('active');
-    }
-  }
-
-  async function handlePopupSubmit(e) {
-    e.preventDefault();
-    const nameInput = document.getElementById('kpop-name');
-    const emailInput = document.getElementById('kpop-email');
-    const contactInput = document.getElementById('kpop-contact');
-    const serviceInput = document.getElementById('kpop-service');
-    const notesInput = document.getElementById('kpop-notes');
-    const submitBtn = document.getElementById('kpop-submit');
-
-    if (!nameInput.value.trim() || !emailInput.value.trim()) {
-      alert('Please provide your name and work email.');
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.querySelector('span').textContent = 'Submitting...';
-
-    const payload = {
-      name: nameInput.value.trim(),
-      email: emailInput.value.trim(),
-      contact: contactInput.value.trim() || 'Exit Intent Popup',
-      service: serviceInput.value || 'General Inquiry',
-      stage: 'Exit-Intent Lead',
-      budget: 'Flexible',
-      notes: notesInput.value.trim() || 'Inquiry initiated via exit-intent popup modal.',
-      slot_date: new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
-      slot_time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-    };
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+    if (startBtn) {
+      startBtn.addEventListener('click', () => {
+        step1.style.display = 'none';
+        step2.classList.add('active');
+        const nameInput = backdrop.querySelector('#kpopName');
+        if (nameInput) nameInput.focus();
       });
+    }
 
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok && !data.success) {
-        throw new Error(data.error || 'Submission failed');
-      }
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        step2.classList.remove('active');
+        step1.style.display = 'block';
+      });
+    }
 
-      document.getElementById('kawakiPopupBody').style.display = 'none';
-      document.getElementById('kawakiPopupSuccess').classList.add('active');
+    if (leadForm) {
+      leadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = backdrop.querySelector('#kpopSubmitBtn');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+        }
 
-      setTimeout(closeModal, 4000);
-    } catch (err) {
-      console.error('Exit popup submission error:', err);
-      alert('Could not submit brief. Please message us directly on Telegram @kawakistudios.');
-      submitBtn.disabled = false;
-      submitBtn.querySelector('span').textContent = 'Request Discovery Brief';
+        const name = (backdrop.querySelector('#kpopName') || {}).value || '';
+        const email = (backdrop.querySelector('#kpopEmail') || {}).value || '';
+        const service = (backdrop.querySelector('#kpopService') || {}).value || '';
+
+        fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            service,
+            stage: 'Discovery Popup Lead',
+            notes: 'Captured via Exit / Discovery Scoping Modal'
+          })
+        })
+        .then(() => {
+          step2.classList.remove('active');
+          step3.classList.add('active');
+          setTimeout(closeModal, 3500);
+        })
+        .catch(() => {
+          step2.classList.remove('active');
+          step3.classList.add('active');
+          setTimeout(closeModal, 3500);
+        });
+      });
     }
   }
 
-  // 3. Trigger Detection
-  function initTriggerWatchers() {
-    // Desktop mouse exit intent
-    document.addEventListener('mouseleave', function (e) {
-      if (e.clientY <= 15 && (scrollEngaged || window.scrollY > 200)) {
-        openModal();
-      }
-    });
+  // 4. Trigger Modal
+  window.openKawakiPopup = function () {
+    let backdrop = document.getElementById('kawakiExitModal');
+    if (!backdrop) {
+      createModal();
+      backdrop = document.getElementById('kawakiExitModal');
+    }
+    if (backdrop) {
+      backdrop.classList.add('active');
+    }
+  };
 
-    // Time on page fallback: after 45 seconds if user has engaged
-    setTimeout(function () {
-      if (scrollEngaged) {
-        openModal();
-      }
-    }, 45000);
-  }
+  // 5. Exit-intent detection
+  document.addEventListener('mouseleave', function onMouseLeave(e) {
+    if (e.clientY <= 12 && !hasTriggered && scrollEngaged) {
+      hasTriggered = true;
+      sessionStorage.setItem('kawaki_exit_seen', 'true');
+      window.openKawakiPopup();
+    }
+  });
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTriggerWatchers);
-  } else {
-    initTriggerWatchers();
-  }
+  // Wire buttons with [data-open-discovery="true"]
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-open-discovery="true"], a[href="#discovery"]');
+    if (trigger) {
+      e.preventDefault();
+      window.openKawakiPopup();
+    }
+  });
 })();

@@ -43,10 +43,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" />
     </noscript>
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
-    <link rel="preload" as="style" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
-    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" media="print" onload="this.media='all'" />
+    <link rel="preload" as="style" href="/assets/css/chatbot.css?v=20261007_podcast_v99" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20261007_podcast_v99" media="print" onload="this.media='all'" />
     <noscript>
-        <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
+        <link rel="stylesheet" href="/assets/css/chatbot.css?v=20261007_podcast_v99" />
     </noscript>
     <style>
         /* ==========================================================================
@@ -81,50 +81,48 @@
             font-weight: inherit !important;
         }
 
-        /* Volume Signature Eyebrow with Orange Brackets */
-        .vol-eyebrow, .sec-eyebrow, .about-eyebrow {
+        /* Human Editorial Eyebrow (No Robotic Brackets) */
+        .vol-eyebrow, .sec-eyebrow, .about-eyebrow, .bento-eyebrow, .hz-intro-eyebrow, .hz-mobile-eyebrow {
             font-family: var(--font-primary) !important;
-            font-size: 0.78rem !important;
+            font-size: 0.76rem !important;
             font-weight: 600 !important;
-            letter-spacing: 0.14em !important;
+            letter-spacing: 0.12em !important;
             text-transform: uppercase !important;
-            color: #666666 !important;
+            color: #64748b !important;
             background: transparent !important;
             padding: 0 !important;
             border-radius: 0 !important;
             display: inline-flex !important;
             align-items: center !important;
-            gap: 0.35rem !important;
-            margin-bottom: 1.25rem !important;
+            gap: 0.45rem !important;
+            margin-bottom: 1.15rem !important;
         }
         .vol-bracket {
+            display: none !important;
+        }
+        .eyebrow-accent {
             color: #ea580c !important;
             font-weight: 700 !important;
-            transition: transform 0.3s ease;
-        }
-        .vol-eyebrow:hover .vol-bracket:first-child,
-        .sec-eyebrow:hover .vol-bracket:first-child {
-            transform: translateX(-3px);
-        }
-        .vol-eyebrow:hover .vol-bracket:last-child,
-        .sec-eyebrow:hover .vol-bracket:last-child {
-            transform: translateX(3px);
         }
 
-        /* Standardized Section Headers */
-        .services-header.oth, .capabilities-sec .services-header.oth, .works-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto 3.5rem;
-            width: 100%;
-            box-sizing: border-box;
+        /* Standardized Section Headers (Pixel-Perfect Alignment) */
+        .services-header.oth, .capabilities-sec .services-header.oth, .works-header, .bento-header {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: flex-end !important;
+            gap: 2.5rem !important;
+            max-width: 1400px !important;
+            margin: 0 auto 3.5rem !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .capabilities-header-left {
+            max-width: 720px !important;
+            text-align: left !important;
         }
         .header-title, .about-heading {
             font-family: var(--font-primary) !important;
-            font-size: clamp(2.2rem, 4vw, 3.4rem) !important;
+            font-size: clamp(2.2rem, 3.8vw, 3.4rem) !important;
             font-weight: 700 !important;
             line-height: 1.15 !important;
             letter-spacing: -0.025em !important;
@@ -134,9 +132,13 @@
         }
         .another-span, .about-text {
             font-family: var(--font-primary) !important;
-            font-size: 1rem !important;
+            font-size: 1.02rem !important;
             line-height: 1.65 !important;
             color: #555555 !important;
+            text-align: left !important; /* Left-aligned, no awkward right alignment */
+            max-width: 480px !important;
+            display: block !important;
+            margin: 0 !important;
         }
 
         /* Buttons (Volume Style) */
@@ -2257,12 +2259,7 @@
             border-top: 1px solid rgba(0, 0, 0, 0.06);
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
-        .services-header.oth {
-            margin-bottom: 3.5rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* .services-header.oth standardized to 1400px */
         .services-header .header-title {
             font-family: "Plus Jakarta Sans", "Host Grotesk", sans-serif;
             font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -2729,7 +2726,7 @@
         .container-faq {
             position: relative;
             z-index: 5;
-            padding: 8rem 2rem 7rem !important;
+            padding: 6.5rem 4vw !important;
             background: #ffffff;
             border-top: 1px solid rgba(0, 0, 0, 0.06);
             width: 100%;
@@ -2846,7 +2843,7 @@
 
         @media (max-width: 768px) {
             .container-faq {
-                padding: 5rem 1.25rem 4rem !important;
+                padding: 6.5rem 4vw !important;
             }
             .container-faq .services-header.oth {
                 flex-direction: column;
@@ -3836,146 +3833,679 @@
 
         
         
-        /* --- SECTION: WHAT WE BUILD (EDITORIAL VALUES REFERENCE STYLE) --- */
-        .capabilities-sec {
-            background-color: #E7E3D9 !important; /* Warm architectural linen matching reference */
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 5rem 4vw !important;
-            box-sizing: border-box;
-            width: 100%;
-        }
-
-        @media (min-width: 1024px) {
-            .capabilities-sec {
-                min-height: 100vh;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-            }
-        }
-
-        .values-header {
-            max-width: 680px;
-            margin: 0 auto 3rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .values-eyebrow {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: #ea580c;
-            margin-bottom: 0.85rem;
-        }
-
-        .values-title {
-            font-family: var(--font-primary) !important;
-            font-size: clamp(2rem, 3.2vw, 2.85rem) !important;
-            font-weight: 600 !important;
-            line-height: 1.2 !important;
-            letter-spacing: -0.025em !important;
-            color: #1A1A1A !important;
-            margin: 0 0 1rem 0 !important;
-        }
-
-        .values-desc {
-            font-size: 0.96rem;
-            line-height: 1.65;
-            color: #55524B;
-            margin: 0;
-            max-width: 560px;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .values-card {
-            display: flex;
-            flex-direction: column;
-            text-decoration: none !important;
-            color: inherit;
-            cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .values-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .values-img-wrap {
+        
+        
+        
+        /* --- SECTION: WHAT WE BUILD (RESPONSIVE FULLSCREEN HORIZONTAL SCROLL) --- */
+        .capabilities-sec-wrap {
             position: relative;
             width: 100%;
-            aspect-ratio: 1 / 1; /* Clean square matching reference */
-            overflow: hidden;
-            background: #D8D2C5;
-            border-radius: 0; /* Flush architectural cut */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            background: #ffffff;
+            box-sizing: border-box;
         }
 
-        .values-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        /* Desktop: Pinned 100vh Viewport */
+        @media (min-width: 1024px) {
+            .capabilities-sec-wrap {
+                height: 420vh; /* Smooth pinned scroll distance */
+            }
 
-        .values-card:hover .values-img {
-            transform: scale(1.05);
-        }
+            .capabilities-sticky-viewport {
+                position: sticky;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                max-height: 100vh;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                background: #ffffff;
+                border-top: 1px solid var(--color-border);
+                border-bottom: 1px solid var(--color-border);
+                box-sizing: border-box;
+            }
 
-        .values-info {
-            padding-top: 1.15rem;
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
+            .capabilities-hz-track {
+                display: flex;
+                height: 100%;
+                width: max-content;
+                will-change: transform;
+                transition: transform 0.05s linear;
+            }
 
-        .values-name {
-            font-family: var(--font-primary);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #1A1A1A;
-            margin: 0 0 0.4rem 0;
-            transition: color 0.2s ease;
-        }
+            .hz-mobile-header,
+            .hz-mobile-controls {
+                display: none !important;
+            }
 
-        .values-card:hover .values-name {
-            color: #ea580c;
-        }
+            /* Desktop Panels */
+            .hz-panel {
+                height: 100%;
+                display: flex;
+                box-sizing: border-box;
+                border-right: 1px solid var(--color-border);
+                background: #ffffff;
+                flex-shrink: 0;
+                position: relative;
+            }
 
-        .values-sub {
-            font-size: 0.84rem;
-            line-height: 1.55;
-            color: #55524B;
-            margin: 0;
-        }
+            .hz-panel-intro {
+                width: 65vw;
+                min-width: 520px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: clamp(3rem, 6vh, 6rem) clamp(3rem, 5vw, 6rem);
+                background: #fafafa;
+            }
 
-        @media (max-width: 1024px) {
-            .values-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
+            .hz-intro-eyebrow {
+                font-size: 0.8rem;
+                font-weight: 700;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: #ea580c;
+                margin-bottom: clamp(1rem, 2vh, 1.5rem);
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .hz-intro-title {
+                font-family: var(--font-primary) !important;
+                font-size: clamp(2.2rem, 3.8vw, 3.8rem) !important;
+                font-weight: 700 !important;
+                line-height: 1.15 !important;
+                letter-spacing: -0.03em !important;
+                color: #111111 !important;
+                margin: 0 0 clamp(1rem, 2vh, 1.5rem) 0 !important;
+            }
+
+            .hz-intro-desc {
+                font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+                line-height: 1.7;
+                color: #555555;
+                margin: 0 0 clamp(1.5rem, 3vh, 2.5rem) 0;
+                max-width: 520px;
+            }
+
+            .hz-scroll-prompt {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 0.82rem;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: #111111;
+            }
+
+            .hz-scroll-indicator {
+                width: 40px;
+                height: 40px;
+                border-radius: 9999px;
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #ea580c;
+                animation: hzPulseArrow 2s infinite ease-in-out;
+            }
+
+            @keyframes hzPulseArrow {
+                0%, 100% { transform: translateX(0); }
+                50% { transform: translateX(8px); }
+            }
+
+            /* Desktop Service Panels */
+            .hz-panel-service {
+                width: 85vw;
+                min-width: 850px;
+                display: grid;
+                grid-template-columns: 1fr 1.15fr;
+                height: 100%;
+            }
+
+            .hz-service-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: clamp(2.5rem, 5vh, 4.5rem) clamp(2.5rem, 4vw, 4.5rem);
+                box-sizing: border-box;
+                background: #ffffff;
+                border-right: 1px solid var(--color-border);
+            }
+
+            .hz-service-meta {
+                display: flex;
+                align-items: center;
+                gap: 1.25rem;
+                margin-bottom: clamp(0.75rem, 1.5vh, 1.25rem);
+            }
+
+            .hz-service-num {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: #ea580c;
+                letter-spacing: 0.1em;
+            }
+
+            .hz-service-discipline {
+                font-size: 0.72rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: #94a3b8;
+            }
+
+            .hz-service-title {
+                font-family: var(--font-primary);
+                font-size: clamp(1.65rem, 2.2vw, 2.25rem);
+                font-weight: 700;
+                line-height: 1.2;
+                letter-spacing: -0.02em;
+                color: #111111;
+                margin: 0 0 clamp(0.5rem, 1vh, 0.75rem) 0;
+            }
+
+            .hz-service-sub {
+                font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+                font-weight: 600;
+                color: #ea580c;
+                margin: 0 0 clamp(0.5rem, 1vh, 0.75rem) 0;
+                line-height: 1.4;
+            }
+
+            .hz-service-desc {
+                font-size: clamp(0.85rem, 0.95vw, 0.94rem);
+                line-height: 1.65;
+                color: #555555;
+                margin: 0 0 clamp(1rem, 2vh, 1.5rem) 0;
+                max-width: 480px;
+            }
+
+            .hz-service-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.45rem;
+                margin-bottom: clamp(1.25rem, 2.5vh, 1.8rem);
+            }
+
+            .hz-service-tag {
+                font-size: 0.72rem;
+                font-weight: 600;
+                color: #475569;
+                background: #f8fafc;
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                padding: 4px 11px;
+                border-radius: 4px;
+                letter-spacing: 0.02em;
+            }
+
+            .hz-service-cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: #111111;
+                color: #ffffff !important;
+                font-size: 0.82rem;
+                font-weight: 700;
+                padding: clamp(9px, 1.2vh, 12px) clamp(18px, 1.8vw, 22px);
+                border-radius: 9999px;
+                text-decoration: none !important;
+                letter-spacing: 0.04em;
+                width: fit-content;
+                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .hz-service-cta:hover {
+                background: #ea580c;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(234, 88, 12, 0.25);
+            }
+
+            .hz-service-media {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                background: #0f172a;
+                overflow: hidden;
+            }
+
+            .hz-service-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
+                display: block;
+                transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .hz-panel-service:hover .hz-service-img {
+                transform: scale(1.04);
+            }
+
+            .hz-media-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.15) 40%, transparent 70%);
+                pointer-events: none;
+            }
+
+            .hz-media-badge {
+                position: absolute;
+                bottom: 2rem;
+                left: 2rem;
+                right: 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                z-index: 5;
+                color: #ffffff;
+                pointer-events: none;
+            }
+
+            .hz-badge-meta {
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+
+            .hz-badge-tag {
+                font-size: 0.72rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                color: #ea580c;
+                text-transform: uppercase;
+            }
+
+            .hz-badge-title {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #ffffff;
+                margin: 0;
+                letter-spacing: -0.015em;
+            }
+
+            .hz-badge-pill {
+                background: rgba(255, 255, 255, 0.94);
+                backdrop-filter: blur(10px);
+                color: #111111;
+                font-size: 0.75rem;
+                font-weight: 700;
+                padding: 6px 14px;
+                border-radius: 9999px;
+                letter-spacing: 0.04em;
+            }
+
+            .hz-hud-bar {
+                position: absolute;
+                bottom: clamp(1rem, 2.5vh, 2rem);
+                left: clamp(1.5rem, 3vw, 3rem);
+                right: clamp(1.5rem, 3vw, 3rem);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 20;
+                pointer-events: none;
+            }
+
+            .hz-hud-tag {
+                font-size: 0.72rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: #94a3b8;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 6px 14px;
+                border-radius: 9999px;
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                backdrop-filter: blur(8px);
+            }
+
+            .hz-hud-progress-wrap {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                background: rgba(255, 255, 255, 0.92);
+                padding: 8px 18px;
+                border-radius: 9999px;
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                backdrop-filter: blur(8px);
+                pointer-events: auto;
+            }
+
+            .hz-progress-track {
+                width: 140px;
+                height: 3px;
+                background: #e2e8f0;
+                border-radius: 9999px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .hz-progress-bar {
+                height: 100%;
+                width: 0%;
+                background: #ea580c;
+                border-radius: 9999px;
+                transition: width 0.1s linear;
+            }
+
+            .hz-hud-counter {
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #111111;
+                font-variant-numeric: tabular-nums;
+                letter-spacing: 0.06em;
+            }
+
+            .hz-hud-arrows {
+                display: flex;
+                gap: 6px;
+            }
+
+            .hz-nav-btn {
+                width: 32px;
+                height: 32px;
+                border-radius: 9999px;
+                border: 1px solid rgba(0, 0, 0, 0.12);
+                background: #ffffff;
+                color: #111111;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.95rem;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+            .hz-nav-btn:hover {
+                background: #111111;
+                color: #ffffff;
+                border-color: #111111;
             }
         }
 
-        @media (max-width: 640px) {
-            .values-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+        /* Tablet & Mobile (< 1024px): Touch Carousel */
+        @media (max-width: 1023px) {
+            .capabilities-sec-wrap {
+                height: auto !important;
+                padding: 3.5rem 0 2rem;
+                border-top: 1px solid var(--color-border);
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            .hz-mobile-header {
+                display: block !important;
+                padding: 0 1.5rem 2rem;
+                box-sizing: border-box;
+            }
+
+            .hz-mobile-eyebrow {
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: #ea580c;
+                margin-bottom: 0.65rem;
+            }
+
+            .hz-mobile-title {
+                font-family: var(--font-primary) !important;
+                font-size: clamp(2rem, 6vw, 2.75rem) !important;
+                font-weight: 700 !important;
+                line-height: 1.15 !important;
+                letter-spacing: -0.025em !important;
+                color: #111111 !important;
+                margin: 0 0 0.85rem 0 !important;
+            }
+
+            .hz-mobile-desc {
+                font-size: 0.95rem;
+                line-height: 1.65;
+                color: #555555;
+                margin: 0;
+                max-width: 580px;
+            }
+
+            .capabilities-sticky-viewport {
+                position: relative;
+                height: auto;
+                width: 100%;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Hide scrollbar for clean look */
+                padding: 0 1.5rem;
+                box-sizing: border-box;
+            }
+
+            .capabilities-sticky-viewport::-webkit-scrollbar {
+                display: none;
+            }
+
+            .capabilities-hz-track {
+                display: flex;
+                width: max-content;
+                gap: 1.25rem;
+                transform: none !important;
+            }
+
+            /* Hide Desktop Intro on Mobile */
+            .hz-panel-intro {
+                display: none !important;
+            }
+
+            /* Mobile Service Cards */
+            .hz-panel-service {
+                width: 84vw;
+                max-width: 440px;
+                min-width: 290px;
+                display: flex;
+                flex-direction: column;
+                background: #ffffff;
+                border: 1px solid var(--color-border);
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+                scroll-snap-align: center;
+                flex-shrink: 0;
+            }
+
+            .hz-service-media {
+                width: 100%;
+                height: 220px;
+                position: relative;
+                overflow: hidden;
+                background: #0f172a;
+            }
+
+            .hz-service-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .hz-media-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to top, rgba(15, 23, 42, 0.75) 0%, transparent 60%);
+            }
+
+            .hz-media-badge {
+                position: absolute;
+                bottom: 1rem;
+                left: 1rem;
+                right: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 5;
+            }
+
+            .hz-badge-meta {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .hz-badge-tag {
+                font-size: 0.65rem;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                color: #ea580c;
+                text-transform: uppercase;
+            }
+
+            .hz-badge-title {
+                font-size: 1rem;
+                font-weight: 700;
+                color: #ffffff;
+                margin: 0;
+            }
+
+            .hz-badge-pill {
+                display: none;
+            }
+
+            .hz-service-info {
+                padding: 1.5rem 1.25rem 1.75rem;
+                display: flex;
+                flex-direction: column;
+                background: #ffffff;
+            }
+
+            .hz-service-meta {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .hz-service-num {
+                font-size: 0.8rem;
+                font-weight: 700;
+                color: #ea580c;
+            }
+
+            .hz-service-discipline {
+                font-size: 0.68rem;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: #94a3b8;
+            }
+
+            .hz-service-title {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #111111;
+                margin: 0 0 0.4rem 0;
+                line-height: 1.25;
+            }
+
+            .hz-service-sub {
+                font-size: 0.88rem;
+                font-weight: 600;
+                color: #ea580c;
+                margin: 0 0 0.6rem 0;
+                line-height: 1.35;
+            }
+
+            .hz-service-desc {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                color: #555555;
+                margin: 0 0 1rem 0;
+            }
+
+            .hz-service-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.35rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .hz-service-tag {
+                font-size: 0.68rem;
+                font-weight: 600;
+                color: #475569;
+                background: #f1f5f9;
+                padding: 3px 8px;
+                border-radius: 4px;
+            }
+
+            .hz-service-cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: #111111;
+                color: #ffffff !important;
+                font-size: 0.78rem;
+                font-weight: 700;
+                padding: 10px 18px;
+                border-radius: 9999px;
+                text-decoration: none !important;
+                width: fit-content;
+            }
+
+            .hz-hud-bar {
+                display: none !important;
+            }
+
+            /* Mobile Pagination & Navigation Bar */
+            .hz-mobile-controls {
+                display: flex !important;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1.25rem 1.5rem 0.5rem;
+                box-sizing: border-box;
+            }
+
+            .hz-mobile-dots {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .hz-mobile-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 9999px;
+                background: #cbd5e1;
+                transition: all 0.3s ease;
+            }
+
+            .hz-mobile-dot.active {
+                width: 24px;
+                background: #ea580c;
+            }
+
+            .hz-mobile-arrows {
+                display: flex;
+                gap: 8px;
+            }
+
+            .hz-mobile-btn {
+                width: 36px;
+                height: 36px;
+                border-radius: 9999px;
+                border: 1px solid rgba(0, 0, 0, 0.12);
+                background: #ffffff;
+                color: #111111;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                cursor: pointer;
+            }
+
+            .hz-mobile-btn:active {
+                background: #111111;
+                color: #ffffff;
             }
         }
 
@@ -4048,150 +4578,442 @@
             font-weight: 500;
         }
 
-        /* --- SECTION: SELECTED WORK --- */
+        
+        
+        /* --- SECTION: SELECTED WORK (NEXORA-STYLE BENTO GRID - WHITE BACKGROUND) --- */
         .works-section {
-            padding: 6.5rem 2rem !important;
-            background: #ffffff;
-            border-bottom: 1px solid var(--color-border);
+            padding: 7rem 4vw 7.5rem !important;
+            background: #ffffff !important; /* Pure crisp white canvas */
+            color: #111111 !important;
             width: 100%;
             box-sizing: border-box;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
         }
-        .vol-work-grid {
+
+        .bento-work-container {
             max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.25rem;
             width: 100%;
             box-sizing: border-box;
         }
-        .vol-work-card {
+
+        /* Top Header */
+        .bento-header {
             display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: inherit;
-            position: relative;
-            background: #ffffff;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
         }
-        .vol-work-media {
-            position: relative;
+
+        .bento-header-left {
+            max-width: 780px;
+        }
+
+        .bento-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #ea580c;
+            margin-bottom: 0.85rem;
+        }
+
+        .bento-title-main {
+            font-family: var(--font-primary) !important;
+            font-size: clamp(2.2rem, 3.8vw, 3.4rem) !important;
+            font-weight: 700 !important;
+            line-height: 1.15 !important;
+            letter-spacing: -0.025em !important;
+            color: #111111 !important;
+            margin: 0 0 0.5rem 0 !important;
+        }
+
+        .bento-title-sub {
+            font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+            font-weight: 400;
+            line-height: 1.4;
+            color: #64748b;
+            margin: 0;
+            letter-spacing: -0.015em;
+        }
+
+        .bento-all-btn {
+            background: #111111;
+            border: 1px solid #111111;
+            color: #ffffff !important;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            padding: 11px 24px;
+            border-radius: 9999px;
+            text-decoration: none !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            height: fit-content;
+        }
+
+        .bento-all-btn:hover {
+            background: #ea580c;
+            border-color: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(234, 88, 12, 0.25);
+        }
+
+        /* 2-Column Asymmetric Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 0.95fr 1.35fr;
+            gap: 1.35rem;
             width: 100%;
-            height: 340px;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #0f172a;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            display: block;
-            text-decoration: none;
+            box-sizing: border-box;
         }
-        .vol-work-img {
+
+        /* Common Card Style */
+        .bento-card {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background: #0f172a;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            text-decoration: none !important;
+            color: inherit !important;
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .bento-card:hover {
+            border-color: rgba(0, 0, 0, 0.16);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
+        }
+
+        .bento-card-bg-img {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             display: block;
-            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .vol-work-media:hover .vol-work-img,
-        .vol-work-card:hover .vol-work-img {
-            transform: scale(1.05);
+
+        .bento-card:hover .bento-card-bg-img {
+            transform: scale(1.04);
         }
-        .vol-work-pill {
+
+        /* Card 01: Left Tall Vertical Card (Row Span 2) */
+        .bento-card-tall {
+            grid-row: span 2;
+            min-height: 640px;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bento-tall-overlay {
             position: absolute;
-            bottom: 1.15rem;
-            right: 1.15rem;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            color: #111111;
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            letter-spacing: 0.04em;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.15) 40%, rgba(15, 23, 42, 0.88) 80%, rgba(15, 23, 42, 0.98) 100%);
+            z-index: 1;
             pointer-events: none;
         }
-        .vol-work-media:hover .vol-work-pill,
-        .vol-work-card:hover .vol-work-pill {
-            background: #111111;
-            color: #ffffff;
-            border-color: #111111;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+        .bento-card-top {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 2.25rem;
+            width: 100%;
+            box-sizing: border-box;
         }
-        .vol-work-content {
-            padding-top: 1.25rem;
+
+        .bento-index {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 0.04em;
+        }
+
+        .bento-category {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 0.02em;
+        }
+
+        .bento-tall-bottom {
+            position: relative;
+            z-index: 2;
+            padding: 2.25rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .bento-tall-title {
+            font-family: var(--font-primary);
+            font-size: clamp(1.45rem, 1.9vw, 1.85rem);
+            font-weight: 600;
+            line-height: 1.25;
+            color: #ffffff;
+            margin: 0 0 0.75rem 0;
+            letter-spacing: -0.015em;
+            transition: color 0.3s ease;
+        }
+
+        .bento-card:hover .bento-tall-title {
+            color: #ea580c;
+        }
+
+        .bento-tall-desc {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+            max-width: 420px;
+        }
+
+        /* Right Column Layout */
+        .bento-right-col {
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            gap: 1.35rem;
+            height: 100%;
         }
-        .vol-work-cat {
-            font-size: 0.72rem;
+
+        /* Card 02: Wide Panoramic Top Card */
+        .bento-card-wide {
+            min-height: 290px;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem 2.25rem;
+            box-sizing: border-box;
+        }
+
+        .bento-wide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.25) 50%, rgba(15, 23, 42, 0.9) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bento-wide-header {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .bento-wide-title {
+            font-family: var(--font-primary);
+            font-size: clamp(1.4rem, 1.8vw, 1.75rem);
             font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #64748b;
-            margin-bottom: 0.4rem;
-        }
-        .vol-work-cat span {
-            color: #ea580c;
-            font-weight: 700;
-        }
-        .vol-work-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #111111;
-            margin: 0 0 0.5rem 0;
+            color: #ffffff;
+            margin: 0;
             letter-spacing: -0.02em;
+            max-width: 480px;
+            line-height: 1.25;
+            transition: color 0.3s ease;
         }
-        .vol-work-title a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        .vol-work-title a:hover {
+
+        .bento-card:hover .bento-wide-title {
             color: #ea580c;
         }
-        .vol-work-desc {
-            font-size: 0.88rem;
-            line-height: 1.65;
-            color: #555555;
-            margin: 0 0 1rem 0;
+
+        .bento-wide-bottom {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .bento-wide-desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+            max-width: 480px;
+            line-height: 1.55;
+        }
+
+        /* Bottom Row with 2 Split Cards */
+        .bento-bottom-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.35rem;
             flex-grow: 1;
         }
-        .vol-work-cta {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #111111;
-            text-decoration: none;
+
+        /* Card 03: The Deep Slate / Petrol Minimalist Card */
+        .bento-card-slate {
+            background: #0f172a !important; /* Deep luxury navy slate matching reference */
+            min-height: 320px;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.85rem 2rem;
+            box-sizing: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .bento-card-slate:hover {
+            background: #1e293b !important;
+        }
+
+        .bento-slate-body {
+            position: relative;
+            z-index: 2;
+            margin: auto 0;
+        }
+
+        .bento-slate-title {
+            font-family: var(--font-primary);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .bento-card:hover .bento-slate-title {
+            color: #ea580c;
+        }
+
+        .bento-slate-desc {
+            font-size: 0.84rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .bento-pill-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 9px 20px;
+            border-radius: 9999px;
+            width: fit-content;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-top: auto;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-        .vol-work-cta:hover {
-            color: #ea580c;
-            transform: translateX(4px);
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
         }
 
-        /* --- SECTION: STAGES OF GROWTH --- */
-        .stages-sec {
-            padding: 6.5rem 2rem !important;
+        .bento-card:hover .bento-pill-btn {
             background: #ffffff;
+            color: #0f172a;
+            border-color: #ffffff;
+        }
+
+        /* Card 04: Bottom-Right Atmospheric Visual Card */
+        .bento-card-compact {
+            min-height: 320px;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.85rem 2rem;
+            box-sizing: border-box;
+        }
+
+        .bento-compact-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.2) 40%, rgba(15, 23, 42, 0.92) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bento-compact-bottom {
+            position: relative;
+            z-index: 2;
+            margin-top: auto;
+        }
+
+        .bento-compact-title {
+            font-family: var(--font-primary);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .bento-card:hover .bento-compact-title {
+            color: #ea580c;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1023px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .bento-card-tall {
+                grid-row: auto;
+                min-height: 480px;
+            }
+            .bento-bottom-row {
+                grid-template-columns: 1fr;
+            }
+            .bento-header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .works-section {
+                padding: 4.5rem 1.25rem 5rem !important;
+            }
+            .bento-card-top,
+            .bento-tall-bottom,
+            .bento-card-wide,
+            .bento-card-slate,
+            .bento-card-compact {
+                padding: 1.5rem !important;
+            }
+            .bento-card-tall {
+                min-height: 420px;
+            }
+            .bento-card-wide,
+            .bento-card-slate,
+            .bento-card-compact {
+                min-height: 260px;
+            }
+        }
+
+
+        
+        /* ==========================================================================
+           SECTIONS 04, 05, 06 — MINIMAL & IMAGE-DRIVEN EDITORIAL DESIGN
+           ========================================================================== */
+
+        /* --- SECTION 04: ENGAGEMENT MODELS --- */
+        .stages-sec {
+            padding: 6.5rem 4vw 7rem !important;
+            background: #ffffff !important;
             border-bottom: 1px solid var(--color-border);
             width: 100%;
             box-sizing: border-box;
         }
+
         .vol-stages-grid {
             max-width: 1400px;
             margin: 0 auto;
@@ -4201,200 +5023,371 @@
             width: 100%;
             box-sizing: border-box;
         }
+
         .vol-stage-card {
-            background: #FFFFFF;
+            background: #ffffff;
             border: 1px solid var(--color-border);
-            border-radius: 14px;
-            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
         }
+
         .vol-stage-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
-            border-color: rgba(234, 88, 12, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.16);
         }
-        .vol-stage-num {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #ea580c;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.25rem;
+
+        .vol-stage-media {
+            width: 100%;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            background: #0f172a;
+        }
+
+        .vol-stage-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        .vol-stage-card:hover .vol-stage-img {
+            transform: scale(1.05);
+        }
+
+        .vol-stage-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, transparent 40%, rgba(15, 23, 42, 0.8) 100%);
+            pointer-events: none;
+        }
+
+        .vol-stage-badge {
+            position: absolute;
+            bottom: 1rem;
+            left: 1.25rem;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #111111;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 9999px;
+        }
+
+        .vol-stage-body {
+            padding: 2rem 2.25rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            box-sizing: border-box;
+        }
+
         .vol-stage-title {
+            font-family: var(--font-primary);
             font-size: 1.35rem;
             font-weight: 700;
             color: #111111;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.02em;
+            margin: 0 0 0.65rem 0;
+            letter-spacing: -0.015em;
         }
+
         .vol-stage-desc {
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             line-height: 1.65;
             color: #555555;
-            margin-bottom: 1.75rem;
-        }
-        .vol-stage-focus {
-            background: #F8FAFC;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            border-radius: 10px;
-            padding: 1.25rem;
+            margin: 0 0 1.5rem 0;
             flex-grow: 1;
         }
-        .vol-stage-focus-title {
+
+        .vol-stage-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .vol-stage-pill {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #475569;
+            background: #f8fafc;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* --- SECTION 05: ENGINEERING PRINCIPLES --- */
+        .principles-sec {
+            padding: 6.5rem 4vw 7rem !important;
+            background: #fafafa !important;
+            border-bottom: 1px solid var(--color-border);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .principles-split-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 3.5rem;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .principles-visual-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #0f172a;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+        }
+
+        .principles-visual-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .principles-visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.85) 100%);
+        }
+
+        .principles-visual-badge {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            color: #ffffff;
+        }
+
+        .principles-badge-tag {
             font-size: 0.72rem;
             font-weight: 700;
-            color: #64748b;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.75rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-        }
-        .vol-stage-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .vol-stage-list li {
-            font-size: 0.88rem;
-            color: #334155;
-            position: relative;
-            padding-left: 1.2rem;
-            line-height: 1.45;
-        }
-        .vol-stage-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
             color: #ea580c;
-            font-weight: 700;
         }
 
-        /* --- SECTION: PRINCIPLES --- */
-        .principles-sec {
-            padding: 6.5rem 2rem !important;
-            background: #ffffff;
-            border-bottom: 1px solid var(--color-border);
-            width: 100%;
-            box-sizing: border-box;
+        .principles-badge-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            color: #ffffff;
         }
-        .vol-principles-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .vol-principle-card {
-            background: #FFFFFF;
-            border: 1px solid var(--color-border);
-            border-radius: 14px;
-            padding: 2.5rem 2.25rem;
+
+        .principles-list {
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            gap: 1.75rem;
         }
-        .vol-principle-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
-            border-color: rgba(234, 88, 12, 0.4);
+
+        .principle-item {
+            padding-bottom: 1.75rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 1.5rem;
         }
-        .vol-principle-num {
-            font-size: 0.75rem;
+
+        .principle-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .principle-num {
+            font-size: 0.85rem;
             font-weight: 700;
             color: #ea580c;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.75rem;
-            display: block;
+            letter-spacing: 0.08em;
+            flex-shrink: 0;
+            padding-top: 2px;
         }
-        .vol-principle-title {
-            font-size: 1.45rem;
+
+        .principle-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .principle-title {
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
             font-weight: 700;
             color: #111111;
-            margin-bottom: 0.85rem;
-            letter-spacing: -0.02em;
-        }
-        .vol-principle-desc {
-            font-size: 0.95rem;
-            line-height: 1.68;
-            color: #555555;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-        .vol-principle-note {
-            background: #F8FAFC;
-            border-left: 2px solid #ea580c;
-            padding: 0.85rem 1.15rem;
-            border-radius: 0 6px 6px 0;
-            font-size: 0.85rem;
-            line-height: 1.55;
-            color: #334155;
+            margin: 0;
+            letter-spacing: -0.01em;
         }
 
-        /* --- SECTION: WHY KAWAKI --- */
+        .principle-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #555555;
+            margin: 0;
+        }
+
+        /* --- SECTION 06: WHY KAWAKI --- */
         .why-kawaki-sec {
-            padding: 6.5rem 2rem !important;
-            background: #ffffff;
+            padding: 6.5rem 4vw 7rem !important;
+            background: #ffffff !important;
             border-bottom: 1px solid var(--color-border);
             width: 100%;
             box-sizing: border-box;
         }
-        .vol-why-grid {
+
+        .why-split-grid {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
             width: 100%;
             box-sizing: border-box;
         }
-        .vol-why-card {
-            background: #FFFFFF;
-            border: 1px solid var(--color-border);
-            border-radius: 14px;
-            padding: 2.25rem 1.5rem;
+
+        .why-list {
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            gap: 1.5rem;
         }
-        .vol-why-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(234, 88, 12, 0.4);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+
+        .why-item {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            gap: 1.5rem;
         }
-        .vol-why-num {
-            font-size: 0.8rem;
+
+        .why-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .why-num {
+            font-size: 0.85rem;
             font-weight: 700;
             color: #ea580c;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.25rem;
-            display: block;
+            flex-shrink: 0;
+            padding-top: 2px;
         }
-        .vol-why-title {
+
+        .why-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .why-title {
+            font-family: var(--font-primary);
             font-size: 1.15rem;
             font-weight: 700;
             color: #111111;
-            margin-bottom: 0.65rem;
-            line-height: 1.35;
+            margin: 0;
+            letter-spacing: -0.01em;
         }
-        .vol-why-desc {
+
+        .why-desc {
             font-size: 0.88rem;
             line-height: 1.6;
             color: #555555;
+            margin: 0;
         }
+
+        .why-visual-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #0f172a;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+        }
+
+        .why-visual-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .why-visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.85) 100%);
+        }
+
+        .why-visual-badge {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            color: #ffffff;
+        }
+
+        .why-badge-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #ea580c;
+        }
+
+        .why-badge-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1023px) {
+            .vol-stages-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .principles-split-grid,
+            .why-split-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .principles-visual-wrap,
+            .why-visual-wrap {
+                min-height: 360px;
+            }
+        }
+
 
         /* --- SECTION: FAQ --- */
         .container-faq {
-            padding: 6.5rem 2rem !important;
+            padding: 6.5rem 4vw !important;
             background: #ffffff;
             border-bottom: 1px solid var(--color-border);
             width: 100%;
@@ -4486,15 +5479,7 @@
                 padding-bottom: 4.5rem !important;
                 box-sizing: border-box !important;
             }
-            .global-site-footer {
-                min-height: 100vh;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-                padding-top: 4.5rem !important;
-                padding-bottom: 2.5rem !important;
-                box-sizing: border-box !important;
-            }
+            /* Removed 100vh lock on footer */
             .services-header.oth, 
             .capabilities-sec .services-header.oth, 
             .works-header {
@@ -4537,7 +5522,343 @@
         }
 
 
-</style>
+
+        /* ==========================================================================
+           MODERN EDITORIAL FOOTER (VOLUME & STUDIO STANDARD)
+           ========================================================================== */
+        .global-site-footer {
+            position: relative;
+            background-color: #ffffff !important;
+            color: #111111 !important;
+            padding: 8rem 4vw 4rem !important; /* Generous top breathing room so floating nav never overlaps */
+            border-top: 1px solid var(--color-border) !important;
+            box-sizing: border-box !important;
+            width: 100% !important;
+            font-family: var(--font-primary) !important;
+            min-height: auto !important; /* Never force 100vh lock */
+            display: block !important;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Top Availability Pill */
+        .footer-top-strip {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8fafc;
+            border: 1px solid var(--color-border);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #475569 !important;
+        }
+
+        .footer-status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
+            animation: footerDotPulse 2s infinite;
+        }
+
+        @keyframes footerDotPulse {
+            0%, 100% { opacity: 0.8; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.15); }
+        }
+
+        /* Big Headline & CTA */
+        .footer-cta-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 3rem;
+            margin-bottom: 5.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-headline-group {
+            max-width: 720px;
+        }
+
+        .footer-main-title {
+            font-family: var(--font-primary) !important;
+            font-size: clamp(2.6rem, 5.2vw, 4.4rem) !important;
+            font-weight: 700 !important;
+            line-height: 1.1 !important;
+            letter-spacing: -0.03em !important;
+            color: #111111 !important;
+            margin: 0 0 1.25rem 0 !important;
+        }
+
+        .footer-sub-text {
+            font-size: clamp(1rem, 1.3vw, 1.15rem);
+            line-height: 1.65;
+            color: #555555;
+            margin: 0;
+            max-width: 620px;
+        }
+
+        .footer-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #111111;
+            color: #ffffff !important;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            padding: 16px 32px;
+            border-radius: 9999px;
+            text-decoration: none !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            height: fit-content;
+            white-space: nowrap;
+        }
+
+        .footer-action-btn:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(234, 88, 12, 0.25);
+        }
+
+        /* 4-Column Directory Grid */
+        .footer-grid-directory {
+            display: grid;
+            grid-template-columns: 1fr 1.35fr 1.25fr 0.9fr;
+            gap: 3.5rem;
+            padding: 4rem 0;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .footer-col-header {
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .footer-links-list li a {
+            color: #334155;
+            font-size: 0.92rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .footer-links-list li a:hover {
+            color: #ea580c;
+            transform: translateX(3px);
+        }
+
+        .nav-idx {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .footer-contact-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .footer-contact-val {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #111111;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-contact-val:hover {
+            color: #ea580c;
+        }
+
+        .footer-time-badge {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-time-badge:last-child {
+            border-bottom: none;
+        }
+
+        .footer-time-city {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #334155;
+        }
+
+        .footer-time-clock {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748b;
+            font-variant-numeric: tabular-nums;
+            background: #f8fafc;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .footer-partner-badge {
+            display: inline-block;
+            margin-top: 0.5rem;
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-partner-badge:hover {
+            opacity: 1;
+        }
+
+        .footer-partner-badge img {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Bottom Legal & Meta Bar */
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.82rem;
+            color: #64748b;
+        }
+
+        .copyright {
+            font-size: 0.82rem;
+            color: #64748b;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-links li a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-bottom-links li a:hover {
+            color: #ea580c;
+        }
+
+        .footer-back-to-top {
+            background: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: 9999px;
+            padding: 6px 14px;
+            color: #475569;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .footer-back-to-top:hover {
+            background: #111111;
+            color: #ffffff;
+            border-color: #111111;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1023px) {
+            .global-site-footer {
+                padding: 6rem 1.5rem 3rem !important;
+            }
+            .footer-cta-block {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+                margin-bottom: 3.5rem;
+            }
+            .footer-grid-directory {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+                padding: 3rem 0;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-grid-directory {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+    </style>
 
     <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
@@ -4947,11 +6268,8 @@
 
                     <!-- Info Block -->
                     <div class="menu-info-block">
-                        <div class="menu-status-pill">
-                            <span class="status-dot"></span>
-                            <span>Available for Select Projects</span>
-                        </div>
-                        <a href="/contact" class="menu-cta-button">
+                        
+                        <a href="#discovery" data-open-discovery="true" class="menu-cta-button">
                             <span>Schedule a Call</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <circle cx="8" cy="8" r="8" fill="#ea580c"></circle>
@@ -4997,7 +6315,7 @@
                             We combine strategy, design and engineering to create digital products that look distinctive, perform reliably and remain maintainable long after launch.
                         </p>
                         <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <a href="/contact" class="vol-btn-primary" style="padding: 10px 20px; font-size: 0.78rem;">
+                            <a href="#discovery" data-open-discovery="true" class="vol-btn-primary" style="padding: 10px 20px; font-size: 0.78rem;">
                                 <span>Start a Project &rarr;</span>
                             </a>
                             <a href="#work" class="cap-link" style="font-family: var(--font-primary) ; font-size: 0.78rem; text-decoration: underline; text-underline-offset: 4px;">
@@ -5079,7 +6397,7 @@
             <div class="vol-about-grid">
                 <div class="vol-about-content">
                     <div class="vol-eyebrow">
-                        <span class="vol-bracket">[</span> WHO WE ARE <span class="vol-bracket">]</span>
+                        <span class="eyebrow-accent">01 &mdash;</span> Who We Are
                     </div>
                     
                     <h2 class="about-heading" style="margin-bottom: 1.5rem;">
@@ -5117,59 +6435,195 @@
         <!-- ============================ -->
         <!-- 01 / WHAT WE BUILD (CAPABILITIES) -->
         <!-- ============================ -->
-        <section class="capabilities-sec sections" id="capabilities" data-section="What We Build">
-            <div class="values-header">
-                <div class="values-eyebrow">[ 01 / WHAT WE BUILD ]</div>
-                <h2 class="values-title">Custom Web Development &amp; Digital Products<span style="color: #ea580c;">.</span></h2>
-                <p class="values-desc">
+        <section class="capabilities-sec-wrap sections" id="capabilities" data-section="What We Build">
+            <!-- Mobile-Only Section Header -->
+            <div class="hz-mobile-header">
+                <div class="hz-mobile-eyebrow"><span class="eyebrow-accent">01 &mdash;</span> What We Build</div>
+                <h2 class="hz-mobile-title">Custom Web Development &amp; <br>Digital Products<span style="color: #ea580c;">.</span></h2>
+                <p class="hz-mobile-desc">
                     Custom web development and digital product engineering form our primary craft, supported by specialized ecommerce, automation, and search systems.
                 </p>
             </div>
 
-            <div class="values-grid">
-                <!-- 01 Web Application Development -->
-                <a href="/services/custom-web-development" class="values-card" aria-label="Web Application Development">
-                    <div class="values-img-wrap">
-                        <img src="/assets/images/hero_agency_showcase.webp" alt="Web Application Development" class="values-img" loading="lazy" decoding="async">
+            <div class="capabilities-sticky-viewport" id="hzCapabilitiesViewport">
+                <div class="capabilities-hz-track" id="hzCapabilitiesTrack">
+                    <!-- Panel 0: Editorial Intro Card (Desktop Only) -->
+                    <div class="hz-panel hz-panel-intro">
+                        <div class="hz-intro-eyebrow">
+                            <span class="eyebrow-accent">01 &mdash;</span> What We Build
+                        </div>
+                        <h2 class="hz-intro-title">Custom Web Development &amp;<br><span style="color: #ea580c;">Digital Products.</span></h2>
+                        <p class="hz-intro-desc">
+                            Custom web development and digital product engineering form our primary craft, supported by specialized ecommerce, automation, and search systems.
+                        </p>
+                        <div class="hz-scroll-prompt">
+                            <span>Scroll Horizontally to Explore</span>
+                            <div class="hz-scroll-indicator">&rarr;</div>
+                        </div>
                     </div>
-                    <div class="values-info">
-                        <h3 class="values-name">WEB APPLICATION DEV</h3>
-                        <p class="values-sub">Custom web applications, platforms &amp; SaaS architectures built with strict TypeScript.</p>
-                    </div>
-                </a>
 
-                <!-- 02 Shopify & E-Commerce -->
-                <a href="/services/shopify-development" class="values-card" aria-label="Shopify & E-Commerce">
-                    <div class="values-img-wrap">
-                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="Shopify & E-Commerce" class="values-img" loading="lazy" decoding="async">
+                    <!-- Panel 1: Web Application Development -->
+                    <div class="hz-panel hz-panel-service" id="hzPanel1">
+                        <div class="hz-service-media">
+                            <img src="/assets/images/hero_agency_showcase.webp" alt="Web Application Development Platform" width="1200" height="900" class="hz-service-img" loading="lazy" decoding="async">
+                            <div class="hz-media-overlay"></div>
+                            <div class="hz-media-badge">
+                                <div class="hz-badge-meta">
+                                    <span class="hz-badge-tag">01 &middot; Scalable Platforms</span>
+                                    <h5 class="hz-badge-title">Enterprise Web Architecture</h5>
+                                </div>
+                                <div class="hz-badge-pill">TypeScript &bull; Next.js</div>
+                            </div>
+                        </div>
+                        <div class="hz-service-info">
+                            <div class="hz-service-meta">
+                                <span class="hz-service-num">01 / 04</span>
+                                <span class="hz-service-discipline">FULLSTACK &middot; ARCHITECTURE</span>
+                            </div>
+                            <h3 class="hz-service-title">Web Application Development</h3>
+                            <h4 class="hz-service-sub">Custom web applications &amp; digital platforms</h4>
+                            <p class="hz-service-desc">
+                                We design and develop scalable web applications around real business workflows &mdash; from customer-facing platforms to internal operational systems and SaaS products. Built with strict TypeScript, clean component architecture, and modern full-stack systems.
+                            </p>
+                            <div class="hz-service-tags">
+                                <span class="hz-service-tag">Next.js</span>
+                                <span class="hz-service-tag">TypeScript</span>
+                                <span class="hz-service-tag">React</span>
+                                <span class="hz-service-tag">APIs</span>
+                                <span class="hz-service-tag">Headless CMS</span>
+                            </div>
+                            <a href="/services/custom-web-development" class="hz-service-cta">Explore Service &rarr;</a>
+                        </div>
                     </div>
-                    <div class="values-info">
-                        <h3 class="values-name">SHOPIFY &amp; E-COMMERCE</h3>
-                        <p class="values-sub">Bespoke Shopify storefronts engineered for conversion velocity and brand prestige.</p>
-                    </div>
-                </a>
 
-                <!-- 03 AI & Automation Systems -->
-                <a href="/services/ai-automation" class="values-card" aria-label="AI & Automation Systems">
-                    <div class="values-img-wrap">
-                        <img src="/assets/images/case-studies/pixza/hero.jpg" alt="AI & Automation Systems" class="values-img" loading="lazy" decoding="async">
+                    <!-- Panel 2: Shopify & E-Commerce -->
+                    <div class="hz-panel hz-panel-service" id="hzPanel2">
+                        <div class="hz-service-media">
+                            <img src="/assets/images/case-studies/bazzaro/hero.png" alt="Shopify &amp; Luxury E-Commerce Storefront" width="1200" height="900" class="hz-service-img" loading="lazy" decoding="async">
+                            <div class="hz-media-overlay"></div>
+                            <div class="hz-media-badge">
+                                <div class="hz-badge-meta">
+                                    <span class="hz-badge-tag">02 &middot; Bespoke Commerce</span>
+                                    <h5 class="hz-badge-title">High-Velocity Storefronts</h5>
+                                </div>
+                                <div class="hz-badge-pill">Liquid &bull; 0.9s Load</div>
+                            </div>
+                        </div>
+                        <div class="hz-service-info">
+                            <div class="hz-service-meta">
+                                <span class="hz-service-num">02 / 04</span>
+                                <span class="hz-service-discipline">COMMERCE &middot; STOREFRONTS</span>
+                            </div>
+                            <h3 class="hz-service-title">Shopify &amp; E-Commerce</h3>
+                            <h4 class="hz-service-sub">Custom Shopify stores built around your brand</h4>
+                            <p class="hz-service-desc">
+                                We build Shopify storefronts that go far beyond off-the-shelf templates. Custom Liquid sections, Storefront API integrations, product architecture and catalog migrations crafted around real buying psychology and measurable conversion velocity.
+                            </p>
+                            <div class="hz-service-tags">
+                                <span class="hz-service-tag">Shopify</span>
+                                <span class="hz-service-tag">Liquid</span>
+                                <span class="hz-service-tag">Storefront API</span>
+                                <span class="hz-service-tag">Custom Themes</span>
+                            </div>
+                            <a href="/services/shopify-development" class="hz-service-cta">Explore Service &rarr;</a>
+                        </div>
                     </div>
-                    <div class="values-info">
-                        <h3 class="values-name">AI &amp; AUTOMATION</h3>
-                        <p class="values-sub">Deterministic automation pipelines &amp; AI agents connecting your core business operations.</p>
-                    </div>
-                </a>
 
-                <!-- 04 Search, SEO & Recovery -->
-                <a href="/services/ai-search-optimization" class="values-card" aria-label="Search, SEO & Technical Recovery">
-                    <div class="values-img-wrap">
-                        <img src="/assets/images/station_infra_system.webp" alt="Search, SEO & Technical Recovery" class="values-img" loading="lazy" decoding="async">
+                    <!-- Panel 3: AI & Automation Systems -->
+                    <div class="hz-panel hz-panel-service" id="hzPanel3">
+                        <div class="hz-service-media">
+                            <img src="/assets/images/ai-automation-canvas.jpg" alt="AI Agent Workflow &amp; Deterministic Pipeline" width="1200" height="900" class="hz-service-img" loading="lazy" decoding="async">
+                            <div class="hz-media-overlay"></div>
+                            <div class="hz-media-badge">
+                                <div class="hz-badge-meta">
+                                    <span class="hz-badge-tag">03 &middot; Agentic Workflows</span>
+                                    <h5 class="hz-badge-title">Deterministic Pipelines</h5>
+                                </div>
+                                <div class="hz-badge-pill">n8n &bull; LLM APIs</div>
+                            </div>
+                        </div>
+                        <div class="hz-service-info">
+                            <div class="hz-service-meta">
+                                <span class="hz-service-num">03 / 04</span>
+                                <span class="hz-service-discipline">INTELLIGENCE &middot; AUTOMATION</span>
+                            </div>
+                            <h3 class="hz-service-title">AI &amp; Automation Systems</h3>
+                            <h4 class="hz-service-sub">Intelligent workflows for operational speed</h4>
+                            <p class="hz-service-desc">
+                                We deploy deterministic automation and AI agent pipelines to eliminate repetitive manual overhead and connect your core business tools. Workflow automation, data pipelines, and CRM synchronization built with n8n, Make, and custom endpoints.
+                            </p>
+                            <div class="hz-service-tags">
+                                <span class="hz-service-tag">AI Agents</span>
+                                <span class="hz-service-tag">n8n</span>
+                                <span class="hz-service-tag">Make</span>
+                                <span class="hz-service-tag">Data Pipelines</span>
+                            </div>
+                            <a href="/services/ai-automation" class="hz-service-cta">Explore Service &rarr;</a>
+                        </div>
                     </div>
-                    <div class="values-info">
-                        <h3 class="values-name">SEARCH &amp; RECOVERY</h3>
-                        <p class="values-sub">Engineered visibility for traditional search and AI answer engines, plus platform hardening.</p>
+
+                    <!-- Panel 4: Search, SEO & Recovery -->
+                    <div class="hz-panel hz-panel-service" id="hzPanel4">
+                        <div class="hz-service-media">
+                            <img src="/assets/images/station_infra_system.webp" alt="Technical SEO &amp; Security Infrastructure" width="1200" height="900" class="hz-service-img" loading="lazy" decoding="async">
+                            <div class="hz-media-overlay"></div>
+                            <div class="hz-media-badge">
+                                <div class="hz-badge-meta">
+                                    <span class="hz-badge-tag">04 &middot; Resilient Infra</span>
+                                    <h5 class="hz-badge-title">Zero Downtime Systems</h5>
+                                </div>
+                                <div class="hz-badge-pill">GEO &bull; Hardening</div>
+                            </div>
+                        </div>
+                        <div class="hz-service-info">
+                            <div class="hz-service-meta">
+                                <span class="hz-service-num">04 / 04</span>
+                                <span class="hz-service-discipline">VISIBILITY &middot; SECURITY</span>
+                            </div>
+                            <h3 class="hz-service-title">Search, SEO &amp; Recovery</h3>
+                            <h4 class="hz-service-sub">Engineered visibility &amp; platform hardening</h4>
+                            <p class="hz-service-desc">
+                                We build technically strong architectures with structured data and content foundations optimized for traditional search engines and emerging AI answer engines (GEO &amp; AEO) &mdash; alongside rapid incident response and malware sanitization.
+                            </p>
+                            <div class="hz-service-tags">
+                                <span class="hz-service-tag">Technical SEO</span>
+                                <span class="hz-service-tag">AEO</span>
+                                <span class="hz-service-tag">GEO</span>
+                                <span class="hz-service-tag">Security Hardening</span>
+                            </div>
+                            <a href="/services/ai-search-optimization" class="hz-service-cta">Explore Service &rarr;</a>
+                        </div>
                     </div>
-                </a>
+                </div>
+
+                <!-- Floating HUD Control Bar (Desktop) -->
+                <div class="hz-hud-bar">
+                    <div class="hz-hud-tag"><span class="eyebrow-accent">01 &mdash;</span> What We Build</div>
+                    <div class="hz-hud-progress-wrap">
+                        <div class="hz-progress-track">
+                            <div class="hz-progress-bar" id="hzProgressBar"></div>
+                        </div>
+                        <span class="hz-hud-counter" id="hzHudCounter">01 / 04</span>
+                        <div class="hz-hud-arrows">
+                            <button class="hz-nav-btn" id="hzPrevBtn" aria-label="Previous capability">&larr;</button>
+                            <button class="hz-nav-btn" id="hzNextBtn" aria-label="Next capability">&rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Controls Bar (Dots & Arrows) -->
+            <div class="hz-mobile-controls">
+                <div class="hz-mobile-dots" id="hzMobileDots">
+                    <span class="hz-mobile-dot active" data-dot="0"></span>
+                    <span class="hz-mobile-dot" data-dot="1"></span>
+                    <span class="hz-mobile-dot" data-dot="2"></span>
+                    <span class="hz-mobile-dot" data-dot="3"></span>
+                </div>
+                <div class="hz-mobile-arrows">
+                    <button class="hz-mobile-btn" id="hzMobilePrevBtn" aria-label="Previous">&larr;</button>
+                    <button class="hz-mobile-btn" id="hzMobileNextBtn" aria-label="Next">&rarr;</button>
+                </div>
             </div>
         </section>
 
@@ -5180,7 +6634,7 @@
             <div class="services-header oth">
                 <div class="capabilities-header-left">
                     <div class="vol-eyebrow">
-                        <span class="vol-bracket">[</span> 02 / STRUCTURED PROCESS <span class="vol-bracket">]</span>
+                        <span class="eyebrow-accent">02 &mdash;</span> Our Process
                     </div>
                     <h2 class="header-title">How We Build<span style="color: #ea580c;">.</span></h2>
                 </div>
@@ -5247,108 +6701,88 @@
         <!-- 03 / SELECTED WORK (CASE STUDIES) -->
         <!-- ============================ -->
         <section class="works-section sections" id="work" data-section="Selected Work">
-            <div class="works-header">
-                <div>
-                    <div class="vol-eyebrow">
-                        <span class="vol-bracket">[</span> 03 / SELECTED WORK <span class="vol-bracket">]</span>
+            <div class="bento-work-container">
+                <!-- Top Header -->
+                <div class="bento-header">
+                    <div class="bento-header-left">
+                        <div class="bento-eyebrow"><span class="eyebrow-accent">03 &mdash;</span> Selected Work</div>
+                        <h2 class="bento-title-main">Digital products, platforms, and ecommerce<span style="color: #ea580c;">.</span></h2>
+                        <p class="bento-title-sub">Engineered for ambitious brands. Built to last.</p>
                     </div>
-                    <h2 class="header-title" style="margin-bottom: 0.5rem;">Selected Work<span style="color: #ea580c;">.</span></h2>
-                    <p style="font-size: 1.05rem; color: #555555; max-width: 620px; margin-top: 0.5rem;">
-                        Digital products, platforms, and ecommerce experiences engineered for ambitious brands across technology, commerce, architecture, and education.
-                    </p>
+                    <a href="/case-studies" class="bento-all-btn">
+                        <span>All Case Studies &rarr;</span>
+                    </a>
                 </div>
-                <a href="/case-studies" class="vol-btn-outline">
-                    <span>View All Case Studies &rarr;</span>
-                </a>
-            </div>
 
-            <div class="vol-work-grid">
-                <!-- Project 1: Pixza -->
-                <article class="vol-work-card">
-                    <a href="/case-studies/pixza" class="vol-work-media" aria-label="View Pixza Case Study">
-                        <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza AI Creative Studio" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
-                        <div class="vol-work-pill">View Project +</div>
+                <!-- Bento Grid -->
+                <div class="bento-grid">
+                    <!-- Left: Card 01 Tall (Kala Design Co) -->
+                    <a href="/case-studies/kala-design" class="bento-card bento-card-tall" aria-label="View Kala Design Co Case Study">
+                        <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architectural Studio" width="1200" height="900" class="bento-card-bg-img" loading="lazy" decoding="async">
+                        <div class="bento-tall-overlay"></div>
+                        <div class="bento-card-top">
+                            <span class="bento-index">01/</span>
+                            <span class="bento-category">Architecture &middot; Editorial</span>
+                        </div>
+                        <div class="bento-tall-bottom">
+                            <h3 class="bento-tall-title">Kala Design Co &mdash; Architecture Studio Flagship</h3>
+                            <p class="bento-tall-desc">A bespoke digital monograph experience designed around visual storytelling, structured project archives, and architectural minimalism.</p>
+                        </div>
                     </a>
-                    <div class="vol-work-content">
-                        <div class="vol-work-cat"><span>[</span> AI &middot; SAAS &middot; PRODUCT <span>]</span></div>
-                        <h3 class="vol-work-title"><a href="/case-studies/pixza">Pixza</a></h3>
-                        <p class="vol-work-desc">An AI-powered creative production platform designed around product photography, social content, and automated advertising workflows.</p>
-                        <a href="/case-studies/pixza" class="vol-work-cta">View Case Study &rarr;</a>
-                    </div>
-                </article>
 
-                <!-- Project 2: Kala Design Co -->
-                <article class="vol-work-card">
-                    <a href="/case-studies/kala-design" class="vol-work-media" aria-label="View Kala Design Co Case Study">
-                        <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architecture" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
-                        <div class="vol-work-pill">View Project +</div>
-                    </a>
-                    <div class="vol-work-content">
-                        <div class="vol-work-cat"><span>[</span> ARCHITECTURE &middot; EDITORIAL <span>]</span></div>
-                        <h3 class="vol-work-title"><a href="/case-studies/kala-design">Kala Design Co</a></h3>
-                        <p class="vol-work-desc">A digital experience designed for an architectural studio through strong visual storytelling, structured projects, and refined editorial layouts.</p>
-                        <a href="/case-studies/kala-design" class="vol-work-cta">View Case Study &rarr;</a>
-                    </div>
-                </article>
+                    <!-- Right Column: Card 02 (Wide) + Cards 03 & 04 (Bottom Row) -->
+                    <div class="bento-right-col">
+                        <!-- Card 02: Wide Top Card (NextSchool ERP) -->
+                        <a href="/case-studies/nextschool-erp" class="bento-card bento-card-wide" aria-label="View NextSchool ERP Case Study">
+                            <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="NextSchool ERP Platform" width="1376" height="768" class="bento-card-bg-img" loading="lazy" decoding="async">
+                            <div class="bento-wide-overlay"></div>
+                            <div class="bento-wide-header">
+                                <h3 class="bento-wide-title">NextSchool ERP &mdash; Digital Campus Operating System</h3>
+                                <span class="bento-index">02/</span>
+                            </div>
+                            <div class="bento-wide-bottom">
+                                <p class="bento-wide-desc">EdTech &bull; Multi-role management ecosystem connecting administration, teachers, students, and parent portals.</p>
+                            </div>
+                        </a>
 
-                <!-- Project 3: NextSchool ERP -->
-                <article class="vol-work-card">
-                    <a href="/case-studies/nextschool" class="vol-work-media" aria-label="View NextSchool ERP Case Study">
-                        <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="NextSchool ERP Platform" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
-                        <div class="vol-work-pill">View Project +</div>
-                    </a>
-                    <div class="vol-work-content">
-                        <div class="vol-work-cat"><span>[</span> EDTECH &middot; ERP &middot; PLATFORM <span>]</span></div>
-                        <h3 class="vol-work-title"><a href="/case-studies/nextschool">NextSchool ERP</a></h3>
-                        <p class="vol-work-desc">A digital operating system designed for schools, connecting administration, teachers, students, parents, and campus workflows.</p>
-                        <a href="/case-studies/nextschool" class="vol-work-cta">View Case Study &rarr;</a>
-                    </div>
-                </article>
+                        <!-- Bottom Row: Split 2 Cards (03 & 04) -->
+                        <div class="bento-bottom-row">
+                            <!-- Card 03: The Deep Slate Minimalist Card (BAZZARO) -->
+                            <a href="/case-studies/bazzaro" class="bento-card bento-card-slate" aria-label="View BAZZARO Case Study">
+                                <div class="bento-card-top" style="padding: 0;">
+                                    <span class="bento-category">Shopify &middot; D2C</span>
+                                    <span class="bento-index">03/</span>
+                                </div>
+                                <div class="bento-slate-body">
+                                    <h3 class="bento-slate-title">BAZZARO &mdash; Luxury Direct-to-Consumer</h3>
+                                    <p class="bento-slate-desc">From bespoke collections discovery to lightning-fast 0.9s checkout, engineered for measurable conversion velocity.</p>
+                                </div>
+                                <div class="bento-pill-btn">
+                                    <span>Explore Storefront &rarr;</span>
+                                </div>
+                            </a>
 
-                <!-- Project 4: BAZZARO -->
-                <article class="vol-work-card">
-                    <a href="/case-studies/bazzaro" class="vol-work-media" aria-label="View BAZZARO Case Study">
-                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="BAZZARO D2C Ecommerce" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
-                        <div class="vol-work-pill">View Project +</div>
-                    </a>
-                    <div class="vol-work-content">
-                        <div class="vol-work-cat"><span>[</span> SHOPIFY &middot; D2C ECOMMERCE <span>]</span></div>
-                        <h3 class="vol-work-title"><a href="/case-studies/bazzaro">BAZZARO</a></h3>
-                        <p class="vol-work-desc">A fashion and lifestyle ecommerce experience built around product discovery, collections, visual storytelling, and seamless direct-to-consumer checkout.</p>
-                        <a href="/case-studies/bazzaro" class="vol-work-cta">View Case Study &rarr;</a>
+                            <!-- Card 04: Atmospheric Visual Card (Pixza AI) -->
+                            <a href="/case-studies/pixza" class="bento-card bento-card-compact" aria-label="View Pixza Case Study">
+                                <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza AI Creative Studio" width="1200" height="900" class="bento-card-bg-img" loading="lazy" decoding="async">
+                                <div class="bento-compact-overlay"></div>
+                                <div class="bento-card-top" style="padding: 0;">
+                                    <span class="bento-category">AI &middot; Creative SaaS</span>
+                                    <span class="bento-index">04/</span>
+                                </div>
+                                <div class="bento-compact-bottom">
+                                    <h3 class="bento-compact-title">Pixza &mdash; Automated Creative Production Engine</h3>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </article>
-
-                <!-- Project 5: Decor Lab -->
-                <article class="vol-work-card">
-                    <a href="/case-studies/decor-lab" class="vol-work-media" aria-label="View Decor Lab Case Study">
-                        <img src="/assets/images/case-studies/decor-lab/hero.jpg" alt="Decor Lab Architecture" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
-                        <div class="vol-work-pill">View Project +</div>
-                    </a>
-                    <div class="vol-work-content">
-                        <div class="vol-work-cat"><span>[</span> ARCHITECTURE &middot; DESIGN <span>]</span></div>
-                        <h3 class="vol-work-title"><a href="/case-studies/decor-lab">Decor Lab</a></h3>
-                        <p class="vol-work-desc">A bespoke digital platform for an architecture and landscape practice, combining monograph project storytelling and a structured content experience.</p>
-                        <a href="/case-studies/decor-lab" class="vol-work-cta">View Case Study &rarr;</a>
-                    </div>
-                </article>
-
-                <!-- Project 6: Urbanland Products -->
-                <article class="vol-work-card">
-                    <a href="/case-studies/urbanland" class="vol-work-media" aria-label="View Urbanland Products Case Study">
-                        <img src="/assets/images/case-studies/urbanland/hero.jpg" alt="Urbanland Products B2B" width="1376" height="768" class="vol-work-img" loading="lazy" decoding="async" />
-                        <div class="vol-work-pill">View Project +</div>
-                    </a>
-                    <div class="vol-work-content">
-                        <div class="vol-work-cat"><span>[</span> B2B &middot; CATALOG &middot; ARCHITECTURE <span>]</span></div>
-                        <h3 class="vol-work-title"><a href="/case-studies/urbanland">Urbanland Products</a></h3>
-                        <p class="vol-work-desc">A product-focused digital experience for an architectural infrastructure business, designed to make a broad commercial catalogue easier to explore and specify.</p>
-                        <a href="/case-studies/urbanland" class="vol-work-cta">View Case Study &rarr;</a>
-                    </div>
-                </article>
+                </div>
             </div>
         </section>
 
+        <!-- ============================ -->
+        <!-- 04 / BUILT FOR DIFFERENT STAGES OF GROWTH -->
+        <!-- ============================ -->
         <!-- ============================ -->
         <!-- 04 / BUILT FOR DIFFERENT STAGES OF GROWTH -->
         <!-- ============================ -->
@@ -5356,7 +6790,7 @@
             <div class="services-header oth">
                 <div class="capabilities-header-left">
                     <div class="vol-eyebrow">
-                        <span class="vol-bracket">[</span> 04 / ENGAGEMENT TIERS <span class="vol-bracket">]</span>
+                        <span class="eyebrow-accent">04 &mdash;</span> Engagement Models
                     </div>
                     <h2 class="header-title">Built for Different <br>Stages of Growth<span style="color: #ea580c;">.</span></h2>
                 </div>
@@ -5366,52 +6800,55 @@
             <div class="vol-stages-grid">
                 <!-- Stage 1 -->
                 <div class="vol-stage-card">
-                    <span class="vol-stage-num">STAGE 01</span>
-                    <h3 class="vol-stage-title">Starting Something New</h3>
-                    <p class="vol-stage-desc">You need a strong digital foundation that communicates what you do and gives customers a clear reason to trust you.</p>
-                    <div class="vol-stage-focus">
-                        <div class="vol-stage-focus-title">CORE FOCUS</div>
-                        <ul class="vol-stage-list">
-                            <li>Custom marketing website</li>
-                            <li>Brand and messaging direction</li>
-                            <li>Responsive, fluid UX</li>
-                            <li>Technical SEO foundation</li>
-                            <li>Conversion-focused information architecture</li>
-                        </ul>
+                    <div class="vol-stage-media">
+                        <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Starting Something New" width="800" height="500" class="vol-stage-img" loading="lazy" decoding="async" />
+                        <div class="vol-stage-overlay"></div>
+                        <span class="vol-stage-badge">Stage 01 &middot; Foundation</span>
+                    </div>
+                    <div class="vol-stage-body">
+                        <h3 class="vol-stage-title">Starting Something New</h3>
+                        <p class="vol-stage-desc">You need a strong digital foundation that communicates what you do and gives customers a clear reason to trust you.</p>
+                        <div class="vol-stage-pills">
+                            <span class="vol-stage-pill">Custom Website</span>
+                            <span class="vol-stage-pill">Brand &amp; Messaging</span>
+                            <span class="vol-stage-pill">Technical SEO</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Stage 2 -->
                 <div class="vol-stage-card">
-                    <span class="vol-stage-num">STAGE 02</span>
-                    <h3 class="vol-stage-title">Growing With Traction</h3>
-                    <p class="vol-stage-desc">Your business is established and your digital presence needs to become easier to manage, publish to, and scale.</p>
-                    <div class="vol-stage-focus">
-                        <div class="vol-stage-focus-title">CORE FOCUS</div>
-                        <ul class="vol-stage-list">
-                            <li>Design systems &amp; reusable UI components</li>
-                            <li>Headless CMS architecture</li>
-                            <li>Publishing workflows &amp; content operations</li>
-                            <li>Shopify &amp; custom commerce checkout</li>
-                            <li>Core Web Vitals performance optimization</li>
-                        </ul>
+                    <div class="vol-stage-media">
+                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="Growing With Traction" width="800" height="500" class="vol-stage-img" loading="lazy" decoding="async" />
+                        <div class="vol-stage-overlay"></div>
+                        <span class="vol-stage-badge">Stage 02 &middot; Scaling</span>
+                    </div>
+                    <div class="vol-stage-body">
+                        <h3 class="vol-stage-title">Growing With Traction</h3>
+                        <p class="vol-stage-desc">Your business is established and your digital presence needs to become easier to manage, publish to, and scale.</p>
+                        <div class="vol-stage-pills">
+                            <span class="vol-stage-pill">Design Systems</span>
+                            <span class="vol-stage-pill">Headless CMS</span>
+                            <span class="vol-stage-pill">Shopify Storefronts</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Stage 3 -->
                 <div class="vol-stage-card">
-                    <span class="vol-stage-num">STAGE 03</span>
-                    <h3 class="vol-stage-title">Building Something Complex</h3>
-                    <p class="vol-stage-desc">You need custom functionality, APIs, and workflows that cannot be solved with an off-the-shelf website.</p>
-                    <div class="vol-stage-focus">
-                        <div class="vol-stage-focus-title">CORE FOCUS</div>
-                        <ul class="vol-stage-list">
-                            <li>Custom web applications &amp; dashboards</li>
-                            <li>APIs, webhooks, and third-party integrations</li>
-                            <li>Business workflow automation (n8n, Make)</li>
-                            <li>SaaS architecture &amp; user authentication</li>
-                            <li>Product strategy &amp; technical consulting</li>
-                        </ul>
+                    <div class="vol-stage-media">
+                        <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="Building Something Complex" width="800" height="500" class="vol-stage-img" loading="lazy" decoding="async" />
+                        <div class="vol-stage-overlay"></div>
+                        <span class="vol-stage-badge">Stage 03 &middot; Enterprise</span>
+                    </div>
+                    <div class="vol-stage-body">
+                        <h3 class="vol-stage-title">Building Something Complex</h3>
+                        <p class="vol-stage-desc">You need custom functionality, APIs, and workflows that cannot be solved with an off-the-shelf website.</p>
+                        <div class="vol-stage-pills">
+                            <span class="vol-stage-pill">Web Applications</span>
+                            <span class="vol-stage-pill">API Integrations</span>
+                            <span class="vol-stage-pill">AI Automation</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -5424,59 +6861,56 @@
             <div class="services-header oth">
                 <div class="capabilities-header-left">
                     <div class="vol-eyebrow">
-                        <span class="vol-bracket">[</span> 05 / ENGINEERING DISCIPLINE <span class="vol-bracket">]</span>
+                        <span class="eyebrow-accent">05 &mdash;</span> Engineering Discipline
                     </div>
                     <h2 class="header-title">Our Engineering Principles<span style="color: #ea580c;">.</span></h2>
                 </div>
                 <span class="another-span">Rigorous architectural tenets that govern every line of code, data contract, and user interaction we deploy.</span>
             </div>
 
-            <div class="vol-principles-grid">
-                <!-- Principle 1 -->
-                <div class="vol-principle-card">
-                    <span class="vol-principle-num">01 / ARCHITECTURE</span>
-                    <h3 class="vol-principle-title">Architecture First</h3>
-                    <p class="vol-principle-desc">
-                        We build systems around clear structure, reusable components and maintainable code so future updates don't require expensive rebuilds.
-                    </p>
-                    <div class="vol-principle-note">
-                        <strong>Clean code:</strong> Modern frameworks, predictable data flow and thoughtful architecture form the foundation of every project.
+            <div class="principles-split-grid">
+                <!-- Left: Architectural Visual -->
+                <div class="principles-visual-wrap">
+                    <img src="/assets/images/station_infra_system.webp" alt="Engineering Principles & Architecture" width="1000" height="800" class="principles-visual-img" loading="lazy" decoding="async" />
+                    <div class="principles-visual-overlay"></div>
+                    <div class="principles-visual-badge">
+                        <span class="principles-badge-tag">ENGINEERING INTEGRITY</span>
+                        <h3 class="principles-badge-title">Strict TypeScript &bull; Modular Systems</h3>
                     </div>
                 </div>
 
-                <!-- Principle 2 -->
-                <div class="vol-principle-card">
-                    <span class="vol-principle-num">02 / PERFORMANCE</span>
-                    <h3 class="vol-principle-title">Performance by Design</h3>
-                    <p class="vol-principle-desc">
-                        Performance is considered during architecture, design, and development &mdash; never tacked on as an afterthought.
-                    </p>
-                    <div class="vol-principle-note">
-                        Fast rendering, lean asset payloads, and stable layouts across all modern devices.
+                <!-- Right: Principles List -->
+                <div class="principles-list">
+                    <div class="principle-item">
+                        <span class="principle-num">01</span>
+                        <div class="principle-body">
+                            <h3 class="principle-title">Architecture First</h3>
+                            <p class="principle-desc">We build systems around clear structure, reusable components and maintainable code so future updates don't require expensive rebuilds.</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Principle 3 -->
-                <div class="vol-principle-card">
-                    <span class="vol-principle-num">03 / ACCESSIBILITY</span>
-                    <h3 class="vol-principle-title">Accessible Experiences</h3>
-                    <p class="vol-principle-desc">
-                        We design and develop interfaces that are naturally usable across different screen sizes, input methods, and accessibility needs.
-                    </p>
-                    <div class="vol-principle-note">
-                        Accessibility is woven into typography, contrast, and markup rather than treated as a checklist item.
+                    <div class="principle-item">
+                        <span class="principle-num">02</span>
+                        <div class="principle-body">
+                            <h3 class="principle-title">Performance by Design</h3>
+                            <p class="principle-desc">Performance is considered during architecture, design, and development &mdash; never tacked on as an afterthought.</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Principle 4 -->
-                <div class="vol-principle-card">
-                    <span class="vol-principle-num">04 / OWNERSHIP</span>
-                    <h3 class="vol-principle-title">Direct Technical Ownership</h3>
-                    <p class="vol-principle-desc">
-                        You work directly with the senior engineers and designers building your product &mdash; not layers of account managers.
-                    </p>
-                    <div class="vol-principle-note">
-                        Clear communication, live working demonstrations, and transparent technical decisions keep projects moving with speed.
+                    <div class="principle-item">
+                        <span class="principle-num">03</span>
+                        <div class="principle-body">
+                            <h3 class="principle-title">Accessible Experiences</h3>
+                            <p class="principle-desc">We design and develop interfaces that are naturally usable across different screen sizes, input methods, and accessibility needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="principle-item">
+                        <span class="principle-num">04</span>
+                        <div class="principle-body">
+                            <h3 class="principle-title">Direct Technical Ownership</h3>
+                            <p class="principle-desc">You work directly with the senior engineers and designers building your product &mdash; not layers of account managers.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -5489,7 +6923,7 @@
             <div class="services-header oth">
                 <div class="capabilities-header-left">
                     <div class="vol-eyebrow">
-                        <span class="vol-bracket">[</span> 06 / VALUE PROPOSITION <span class="vol-bracket">]</span>
+                        <span class="eyebrow-accent">06 &mdash;</span> Why Kawaki
                     </div>
                     <h2 class="header-title">Why Kawaki Studios?<span style="color: #ea580c;">.</span></h2>
                 </div>
@@ -5501,43 +6935,67 @@
                 </div>
             </div>
 
-            <div class="vol-why-grid">
-                <div class="vol-why-card">
-                    <span class="vol-why-num">01</span>
-                    <h3 class="vol-why-title">Strategy before execution</h3>
-                    <p class="vol-why-desc">We understand the core business problem and objectives before choosing technology.</p>
+            <div class="why-split-grid">
+                <!-- Left: 5 Tenets List -->
+                <div class="why-list">
+                    <div class="why-item">
+                        <span class="why-num">01</span>
+                        <div class="why-body">
+                            <h3 class="why-title">Strategy before execution</h3>
+                            <p class="why-desc">We understand the core business problem and objectives before choosing technology.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <span class="why-num">02</span>
+                        <div class="why-body">
+                            <h3 class="why-title">Custom where it matters</h3>
+                            <p class="why-desc">We don't force unique businesses into generic templates or restrictive site builders.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <span class="why-num">03</span>
+                        <div class="why-body">
+                            <h3 class="why-title">Modern engineering</h3>
+                            <p class="why-desc">We use current frameworks and maintainable development practices to build durable systems.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <span class="why-num">04</span>
+                        <div class="why-body">
+                            <h3 class="why-title">Design &amp; engineering together</h3>
+                            <p class="why-desc">A beautiful interface means little if the underlying architecture cannot support it.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <span class="why-num">05</span>
+                        <div class="why-body">
+                            <h3 class="why-title">Built for what's next</h3>
+                            <p class="why-desc">Your digital presence is architected with room to evolve alongside your business.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="vol-why-card">
-                    <span class="vol-why-num">02</span>
-                    <h3 class="vol-why-title">Custom where it matters</h3>
-                    <p class="vol-why-desc">We don't force unique businesses into generic templates or restrictive site builders.</p>
-                </div>
-                <div class="vol-why-card">
-                    <span class="vol-why-num">03</span>
-                    <h3 class="vol-why-title">Modern engineering</h3>
-                    <p class="vol-why-desc">We use current frameworks and maintainable development practices to build durable systems.</p>
-                </div>
-                <div class="vol-why-card">
-                    <span class="vol-why-num">04</span>
-                    <h3 class="vol-why-title">Design &amp; engineering together</h3>
-                    <p class="vol-why-desc">A beautiful interface means little if the underlying architecture cannot support it.</p>
-                </div>
-                <div class="vol-why-card">
-                    <span class="vol-why-num">05</span>
-                    <h3 class="vol-why-title">Built for what's next</h3>
-                    <p class="vol-why-desc">Your digital presence is architected with room to evolve alongside your business.</p>
+
+                <!-- Right: Studio Visual Showcase -->
+                <div class="why-visual-wrap">
+                    <img src="/assets/images/about-studio.webp" alt="Kawaki Studios Artisans" width="1000" height="800" class="why-visual-img" loading="lazy" decoding="async" />
+                    <div class="why-visual-overlay"></div>
+                    <div class="why-visual-badge">
+                        <span class="why-badge-tag">STUDIO POSITIONING</span>
+                        <h3 class="why-badge-title">15+ Digital Artisans &bull; New Delhi &amp; Global</h3>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============================ -->
-        <!-- 07 / FREQUENTLY ASKED QUESTIONS -->
-        <!-- ============================ -->
         <section class="sections container-faq animate-section" id="faq" data-section="Got question?">
             <div class="services-header oth">
                 <div class="capabilities-header-left">
                     <div class="vol-eyebrow">
-                        <span class="vol-bracket">[</span> 07 / FREQUENTLY ASKED QUESTIONS <span class="vol-bracket">]</span>
+                        <span class="eyebrow-accent">07 &mdash;</span> Common Questions
                     </div>
                     <h2 class="header-title">Got questions? <br>Here are answers<span style="color: #ea580c;">.</span></h2>
                 </div>
@@ -5615,140 +7073,108 @@
 
         
 
-        <footer class="sections global-site-footer">
-            <!-- Top Availability Pill -->
-            <div class="footer-top-strip">
-                <div class="footer-status-pill">
-                    <span class="footer-status-dot"></span>
-                    <span>Available for Select Projects</span>
-                </div>
-            </div>
+        <footer class="global-site-footer">
+            <div class="footer-inner">
+                
 
-            <!-- Big Impact Headline & Magnetic CTA -->
-            <div class="services-header-2">
-                <div class="footer-headline-group" style="max-width: 650px;">
-                    <h3 class="services-title-2" style="font-family: var(--font-primary) !important; font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 700; color: #111111; line-height: 1.15; margin-bottom: 0.5rem; letter-spacing: -0.025em;">Let's Build Something <br><span style="border-bottom: 2px solid #ea580c; padding-bottom: 4px;">Worth Keeping.</span></h3>
-                    <p style="font-size: 1.05rem; line-height: 1.6; color: #555555; margin-top: 1rem;">
-                        Have a website, digital product or business system that needs to be built properly? Tell us what you're working on, what you're trying to achieve and where you're stuck. We'll help you figure out what needs to be built &mdash; and the right way to build it.
-                    </p>
+                <!-- Big Impact Headline & Action Button -->
+                <div class="footer-cta-block">
+                    <div class="footer-headline-group">
+                        <h2 class="footer-main-title">Let's Build Something <br>Worth Keeping<span style="color: #ea580c;">.</span></h2>
+                        <p class="footer-sub-text">
+                            Have a website, digital platform, or business system that needs to be engineered properly? Tell us about your objectives &mdash; we'll help architect the right system to grow with.
+                        </p>
+                    </div>
+                    <a href="#discovery" data-open-discovery="true" class="footer-action-btn">
+                        <span>Start a Project &rarr;</span>
+                    </a>
                 </div>
-                <a href="/contact" class="footer-cta-card-btn">
-                    <span>Start a Project &rarr;</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" fill="#ea580c"></circle>
-                        <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
-                    </svg>
-                </a>
-            </div>
 
-            <!-- 4-Column Directory Grid -->
-            <div class="footer-grid-directory">
-                <!-- Column 1: Navigation -->
-                <div class="footer-col">
-                    <div class="footer-col-header">// DIRECTORY</div>
-                    <ul class="footer-links-list">
-                        <li><a href="/"><span>Home</span> <span class="nav-idx">01</span></a></li>
-                        <li><a href="/about"><span>About Studio</span> <span class="nav-idx">02</span></a></li>
-                        <li><a href="/services"><span>Services & Systems</span> <span class="nav-idx">03</span></a></li>
-                        <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
-                        <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
-                        <li><a href="/contact"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                <!-- 4-Column Directory Grid -->
+                <div class="footer-grid-directory">
+                    <!-- Column 1: Navigation -->
+                    <div class="footer-col">
+                        <div class="footer-col-header">Navigation</div>
+                        <ul class="footer-links-list">
+                            <li><a href="/"><span>Home</span> <span class="nav-idx">01</span></a></li>
+                            <li><a href="/about"><span>About Studio</span> <span class="nav-idx">02</span></a></li>
+                            <li><a href="/services"><span>Services &amp; Systems</span> <span class="nav-idx">03</span></a></li>
+                            <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
+                            <li><a href="/blog"><span>Journal &amp; Insights</span> <span class="nav-idx">05</span></a></li>
+                            <li><a href="/contact"><span>Discovery &amp; Booking</span> <span class="nav-idx">06</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2: Disciplines -->
+                    <div class="footer-col">
+                        <div class="footer-col-header">Disciplines</div>
+                        <ul class="footer-links-list">
+                            <li><a href="/services/custom-web-development"><span>Custom Web Development</span></a></li>
+                            <li><a href="/services/web-application-development"><span>Web Applications &amp; Next.js</span></a></li>
+                            <li><a href="/services/shopify-development"><span>Headless Shopify &amp; Commerce</span></a></li>
+                            <li><a href="/services/ai-automation"><span>AI Automation &amp; Agents</span></a></li>
+                            <li><a href="/services/website-performance-optimization"><span>Performance &amp; Technical SEO</span></a></li>
+                            <li><a href="/services/wordpress-malware-removal"><span>Security &amp; Hardening</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Studio & Inquiries -->
+                    <div class="footer-col">
+                        <div class="footer-col-header">Studio &amp; Inquiries</div>
+                        <div class="footer-contact-item">
+                            <span class="footer-contact-label">Location</span>
+                            <span style="font-size: 0.92rem; font-weight: 500; color: #334155;">New Delhi, India &bull; Global Remote</span>
+                        </div>
+                        <div class="footer-contact-item" style="margin-top: 0.6rem;">
+                            <span class="footer-contact-label">New Business</span>
+                            <a href="mailto:hello@kawakistudios.com" class="footer-contact-val">
+                                hello@kawakistudios.com
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                        <div class="footer-contact-item" style="margin-top: 0.6rem;">
+                            <span class="footer-contact-label">Partnerships</span>
+                            <a href="mailto:partners@kawakistudios.com" class="footer-contact-val">
+                                partners@kawakistudios.com
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                        <div class="footer-contact-item" style="margin-top: 0.85rem;">
+                            <span class="footer-contact-label">Cloud Infrastructure</span>
+                            <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Infrastructure Partner">
+                                <img src="/assets/images/hostinger-partner-dark.png" alt="Hostinger Official Infrastructure Partner" width="140" height="42" loading="lazy" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Column 4: Connect -->
+                    <div class="footer-col">
+                        <div class="footer-col-header">Connect</div>
+                        <ul class="footer-links-list">
+                            <li><a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener"><span>Instagram</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                            <li><a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                            <li><a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                            <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                            <li><a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener"><span>GitHub</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bottom Legal & Metadata Bar -->
+                <div class="footer-bottom">
+                    <div class="copyright">&copy; 2026 Kawaki Studios. All rights reserved. New Delhi &middot; Global.</div>
+                    <ul class="footer-bottom-links">
+                        <li><a href="/about">Privacy</a></li>
+                        <li><a href="/about">Terms</a></li>
+                        <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
+                        <li><a href="/robots.txt" target="_blank" rel="noopener">Robots</a></li>
+                        <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
+                        <li><a href="/terminal" style="color: #ea580c; font-weight: 700;">Terminal</a></li>
                     </ul>
+                    <button class="footer-back-to-top" id="backToTop" aria-label="Back to Top">
+                        <span>Top &uarr;</span>
+                    </button>
                 </div>
-
-                <!-- Column 2: Direct Contact -->
-                <div class="footer-col">
-                    <div class="footer-col-header">// DIRECT CHANNELS</div>
-                    <div class="footer-contact-item">
-                        <span class="footer-contact-label">New Business & Inquiries</span>
-                        <a href="mailto:hello@kawakistudios.com" class="footer-contact-val">
-                            hello@kawakistudios.com
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                    <div class="footer-contact-item" style="margin-top: 0.5rem;">
-                        <span class="footer-contact-label">Partnerships & Co-Ventures</span>
-                        <a href="mailto:partners@kawakistudios.com" class="footer-contact-val">
-                            partners@kawakistudios.com
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
-                    </div>
-                    <div class="footer-contact-item" style="margin-top: 0.5rem;">
-                        <span class="footer-contact-label">Direct Founder Calendar</span>
-                        <a href="/contact" class="footer-contact-val" style="color: #111111; font-weight: 600;">
-                            Book 15-Min Briefing ↗
-                        </a>
-                    </div>
-                    <div class="footer-contact-item" style="margin-top: 0.75rem;">
-                        <span class="footer-contact-label">Infrastructure Partner</span>
-                        <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Partner — Cloud & Hosting Infrastructure">
-                            <img src="/assets/images/hostinger-partner-dark.png" alt="Hostinger Partner" width="160" height="60" loading="lazy" />
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Column 3: Global Time Zones -->
-                <div class="footer-col">
-                    <div class="footer-col-header">// CLIENT TIME ZONES</div>
-                <div class="footer-time-badge">
-                    <div class="footer-time-city">
-                        <span>New Delhi — Studio HQ</span>
-                        <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
-                    </div>
-                </div>
-                <div class="footer-time-badge">
-                    <div class="footer-time-city">
-                        <span>Tokyo — Client Time Zone</span>
-                        <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
-                    </div>
-                </div>
-                <div class="footer-time-badge">
-                    <div class="footer-time-city">
-                        <span>London — Client Time Zone</span>
-                        <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
-                    </div>
-                </div>
-                <div class="footer-time-badge">
-                    <div class="footer-time-city">
-                        <span>New York — Client Time Zone</span>
-                        <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Column 4: Social Index -->
-                <div class="footer-col">
-                    <div class="footer-col-header">// SOCIAL INDEX</div>
-                    <ul class="footer-links-list">
-                        <li><a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener"><span>Instagram</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
-                        <li><a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
-                        <li><a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
-                        <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
-                        <li><a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Giant Architectural Watermark -->
-            <div class="footer-giant-watermark">
-                <span>KAWAKI</span>
-            </div>
-
-            <!-- Bottom Metadata & Legal Bar -->
-            <div class="footer-bottom">
-                <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
-                <ul class="footer-bottom-links">
-                    <li><a href="/about">Privacy Policy</a></li>
-                    <li><a href="/about">Terms of Service</a></li>
-                    <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
-                    <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
-                    <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                    <li><a href="/terminal" style="color: #ea580c; font-family: var(--font-primary); font-weight: 700;">[ CLI Terminal ]</a></li>
-                    </ul>
-                <button class="footer-back-to-top" id="backToTop" aria-label="Back to Top">
-                    <span>Back to Top</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                </button>
             </div>
         </footer>
     </main>
@@ -6094,7 +7520,7 @@
         })();
     </script>
     <script src="/assets/js/main.js?v=20260919_v1" defer></script>
-    <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
+    <script src="/assets/js/chatbot.js?v=20261007_podcast_v99" defer></script>
 
     <script>
         // Interactive Volume FAQ Accordion
@@ -6113,6 +7539,128 @@
                 }
             });
         });
+    </script>
+
+
+    
+
+
+    
+
+
+    <!-- Responsive Horizontal Scroll Engine -->
+    <script>
+    (function initResponsiveHorizontalCapabilities() {
+        const wrap = document.querySelector('.capabilities-sec-wrap');
+        const viewport = document.getElementById('hzCapabilitiesViewport');
+        const track = document.getElementById('hzCapabilitiesTrack');
+        const progressBar = document.getElementById('hzProgressBar');
+        const counter = document.getElementById('hzHudCounter');
+        const prevBtn = document.getElementById('hzPrevBtn');
+        const nextBtn = document.getElementById('hzNextBtn');
+
+        // Mobile elements
+        const mobileDots = document.querySelectorAll('.hz-mobile-dot');
+        const mobilePrevBtn = document.getElementById('hzMobilePrevBtn');
+        const mobileNextBtn = document.getElementById('hzMobileNextBtn');
+        const servicePanels = document.querySelectorAll('.hz-panel-service');
+
+        if (!wrap || !viewport || !track) return;
+
+        let maxTranslate = 0;
+
+        function updateDimensions() {
+            if (window.innerWidth < 1024) {
+                track.style.transform = 'none';
+                return;
+            }
+            maxTranslate = track.scrollWidth - window.innerWidth;
+        }
+
+        // Desktop Scroll Handler
+        function onDesktopScroll() {
+            if (window.innerWidth < 1024) return;
+
+            const wrapRect = wrap.getBoundingClientRect();
+            const totalScrollable = wrap.offsetHeight - window.innerHeight;
+            
+            if (totalScrollable <= 0) return;
+
+            const progress = Math.max(0, Math.min(1, -wrapRect.top / totalScrollable));
+            const currentTranslate = progress * maxTranslate;
+
+            track.style.transform = 'translateX(-' + currentTranslate + 'px)';
+
+            if (progressBar) {
+                progressBar.style.width = (progress * 100) + '%';
+            }
+
+            if (counter) {
+                const step = Math.min(4, Math.max(1, Math.ceil(progress * 4) || 1));
+                counter.textContent = '0' + step + ' / 04';
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            updateDimensions();
+            onDesktopScroll();
+        });
+
+        window.addEventListener('scroll', onDesktopScroll, { passive: true });
+
+        // Desktop Arrow Navigation
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                const currentScroll = window.scrollY;
+                const step = (wrap.offsetHeight - window.innerHeight) / 4;
+                window.scrollTo({ top: currentScroll - step, behavior: 'smooth' });
+            });
+            nextBtn.addEventListener('click', () => {
+                const currentScroll = window.scrollY;
+                const step = (wrap.offsetHeight - window.innerHeight) / 4;
+                window.scrollTo({ top: currentScroll + step, behavior: 'smooth' });
+            });
+        }
+
+        // Mobile Touch Scroll & Dot Synchronization
+        if (viewport && mobileDots.length) {
+            viewport.addEventListener('scroll', () => {
+                if (window.innerWidth >= 1024) return;
+                const scrollLeft = viewport.scrollLeft;
+                const cardWidth = servicePanels[0] ? servicePanels[0].offsetWidth : 300;
+                const activeIdx = Math.min(mobileDots.length - 1, Math.max(0, Math.round(scrollLeft / cardWidth)));
+
+                mobileDots.forEach((dot, idx) => {
+                    if (idx === activeIdx) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                });
+            }, { passive: true });
+
+            // Mobile Prev / Next Buttons
+            if (mobilePrevBtn && mobileNextBtn) {
+                mobilePrevBtn.addEventListener('click', () => {
+                    const cardWidth = servicePanels[0] ? servicePanels[0].offsetWidth + 20 : 320;
+                    viewport.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                });
+                mobileNextBtn.addEventListener('click', () => {
+                    const cardWidth = servicePanels[0] ? servicePanels[0].offsetWidth + 20 : 320;
+                    viewport.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                });
+            }
+
+            // Click dots to navigate
+            mobileDots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    if (servicePanels[idx]) {
+                        servicePanels[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                });
+            });
+        }
+
+        updateDimensions();
+        onDesktopScroll();
+    })();
     </script>
 
 </body>

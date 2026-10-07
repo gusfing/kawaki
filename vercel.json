@@ -26,7 +26,11 @@
     }
   ],
   "redirects": [
-
+    {
+      "source": "/case-studies/nextschool",
+      "destination": "/case-studies/nextschool-erp",
+      "permanent": true
+    },
     {
       "source": "/blog/core-web-vitals-checklist",
       "destination": "/blog/nextjs-performance-architecture",

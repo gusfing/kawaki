@@ -222,6 +222,13 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 3a. NextSchool Case Study slug normalization
+  if (reqPath === '/case-studies/nextschool' || reqPath === '/case-studies/nextschool/') {
+    res.writeHead(301, { Location: '/case-studies/nextschool-erp' });
+    res.end();
+    return;
+  }
+
   // 3b. Legacy /blog-post redirect to clean /blog/:slug (Phase 3.3D)
   if (reqPath === '/blog-post' || reqPath === '/blog-post/' || reqPath === '/blog-post.html') {
     const legacyRedirectHandler = require('./api/legacy-blog-redirect.js');

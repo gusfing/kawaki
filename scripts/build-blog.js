@@ -291,6 +291,27 @@ function generateArticleHtml(article) {
     ]
   };
 
+  const BLOG_SEO_TITLES = {
+    'ai-automation-architecture': 'AI Automation Architecture & Workflows',
+    'ai-agent-reliability-evaluation': 'AI Agent Reliability & Evaluation',
+    'ai-automation-vs-ai-agents': 'AI Automation vs AI Agents Guide',
+    'custom-web-development-vs-no-code': 'Custom Web Development vs No-Code',
+    'what-is-editorial-engineering': 'What is Editorial Engineering? Guide',
+    'headless-shopify-development-guide': 'Headless Shopify Development Guide',
+    'how-ai-search-engines-cite-sources': 'How AI Search Engines Cite Sources',
+    'japanese-keyword-hack-wordpress': 'Japanese Keyword Hack Cleanup Guide',
+    'nextjs-performance-architecture': 'Next.js Performance Architecture Guide',
+    'nextjs-server-vs-client-components': 'Next.js Server vs Client Components',
+    'nextjs-state-management-api-boundaries': 'Next.js State Management & API Flow',
+    'shopify-liquid-vs-headless': 'Shopify Liquid vs Headless Shopify',
+    'webflow-vs-custom-development': 'Webflow vs Custom Web Development',
+    'wordpress-backdoors-stealth-web-shells': 'WordPress Backdoor & Shell Removal',
+    'wordpress-malicious-redirects-cleanup': 'WordPress Malicious Redirect Cleanup'
+  };
+
+  const conciseTitle = BLOG_SEO_TITLES[slug] || (title.length > 40 ? title.split(':')[0] : title);
+  const metaTitle = `${conciseTitle} — Kawaki Studios`;
+
   return `<!DOCTYPE html>
 <html lang="en">
 
@@ -301,7 +322,7 @@ function generateArticleHtml(article) {
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${title} — Kawaki Studios</title>
+    <title>${metaTitle}</title>
     <meta name="description" content="${seoDesc}" />
     <meta name="generator" content="Kawaki Blog Engine" />
     <link rel="canonical" href="${canonicalUrl}" />
@@ -309,7 +330,7 @@ function generateArticleHtml(article) {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="${canonicalUrl}" />
-    <meta property="og:title" content="${title} | Kawaki Studios" />
+    <meta property="og:title" content="${metaTitle}" />
     <meta property="og:description" content="${seoDesc}" />
     <meta property="og:image" content="${featuredImage}" />
     <meta property="og:image:width" content="1200" />
@@ -318,7 +339,7 @@ function generateArticleHtml(article) {
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
-    <meta name="twitter:title" content="${title} | Kawaki Studios" />
+    <meta name="twitter:title" content="${metaTitle}" />
     <meta name="twitter:description" content="${seoDesc}" />
     <meta name="twitter:image" content="${featuredImage}" />
 

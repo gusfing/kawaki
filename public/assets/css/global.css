@@ -4534,9 +4534,9 @@ body.menu-is-open #menu-toggle-icon .bar-bottom,
   font-family: var(--font-primary, sans-serif);
   font-size: 1rem;
   color: #555555;
-  max-width: 420px;
+  max-width: 480px;
   line-height: 1.6;
-  text-align: right;
+  text-align: left;
 }
 .blogs-grid {
   display: grid;
