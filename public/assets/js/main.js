@@ -312,6 +312,23 @@ function initGlobalNav() {
     updateStudioClock();
     setInterval(updateStudioClock, 1000);
 
+    // Global Footer Time Zones Clock
+    function updateFooterClocks() {
+        const now = new Date();
+        const opt = (tz) => ({ timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: true });
+        const elDelhi = document.getElementById('footerTimeDelhi');
+        const elTokyo = document.getElementById('footerTimeTokyo');
+        const elLondon = document.getElementById('footerTimeLondon');
+        const elNY = document.getElementById('footerTimeNY');
+        if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
+        if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
+        if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
+        if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+    }
+
+    updateFooterClocks();
+    setInterval(updateFooterClocks, 10000);
+
 
 
     // Back to top button listener

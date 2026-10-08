@@ -95,10 +95,14 @@ for (const entry of registry) {
 
   const rawHtml = fs.readFileSync(filePath, 'utf8');
 
-  // Strip boilerplate: header, footer, nav, breadcrumb, style, script
+  // Strip boilerplate: header, footer, nav, breadcrumb, style, script, fullscreen menu
   let substantiveHtml = rawHtml
     .replace(/<header[\s\S]*?<\/header>/gi, '')
     .replace(/<footer[\s\S]*?<\/footer>/gi, '')
+    .replace(/<svg style="display: none;"[\s\S]*?<\/svg>/gi, '')
+    .replace(/<!-- SVG LIQUID LENS FILTER -->[\s\S]*?<\/svg>/gi, '')
+    .replace(/<div class="nav-wrapper"[\s\S]*?<\/nav>\s*<\/div>/gi, '')
+    .replace(/<div class="fullscreen-menu"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/div>/gi, '')
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replace(/<style[\s\S]*?<\/style>/gi, '')
     .replace(/<div class="seo-breadcrumb-nav"[\s\S]*?<\/div>\s*<\/div>/gi, '')

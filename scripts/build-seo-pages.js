@@ -135,106 +135,369 @@ const CITY_PROFILES = {
   }
 };
 
-// Reusable Header
+// Reusable Universal Header (Standardized from public/about.html)
 function renderHeader() {
   return `
-  <header class="site-header" style="position: sticky; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.08);">
-    <div class="seo-container" style="display: flex; align-items: center; justify-content: space-between; height: 72px;">
-      <a href="/" class="site-logo" style="text-decoration: none; display: flex; align-items: center; gap: 0.6rem; color: #111111; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em;">
-        <span style="display: inline-block; width: 10px; height: 10px; background: #ea580c; border-radius: 50%;"></span>
-        KAWAKI STUDIOS
-      </a>
-      <nav class="site-nav" style="display: flex; align-items: center; gap: 2rem;">
-        <a href="/services" style="color: #444444; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.15s ease;">Services</a>
-        <a href="/solutions" style="color: #444444; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.15s ease;">Solutions</a>
-        <a href="/case-studies" style="color: #444444; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.15s ease;">Selected Work</a>
-        <a href="/about" style="color: #444444; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.15s ease;">About</a>
-        <a href="/blog" style="color: #444444; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.15s ease;">Insights</a>
-        <a href="/contact" style="background: #111111; color: #FFFFFF; text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 0.6rem 1.25rem; border-radius: 9999px; transition: background 0.15s ease;">Start a Project &rarr;</a>
-      </nav>
+    <!-- SVG LIQUID LENS FILTER -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid-lens">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.03" numOctaves="1" result="turbulence"></feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" xChannelSelector="R" yChannelSelector="G" result="displacement"></feDisplacementMap>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- GLOBAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper" id="globalNav">
+        <nav>
+            <a href="/" class="nav-left" aria-label="Kawaki Studios">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" width="947" height="242" decoding="async" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
+            <div class="nav-right" id="menuToggleBtn" aria-label="Open Menu">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
+            </div>
+        </nav>
     </div>
-  </header>`;
+
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links" id="mainMenuPrimary">
+                        <ul>
+                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home — Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
+                                <a href="/">
+                                    <span class="menu-idx">01</span>
+                                    <span class="menu-text">Home <em>Index</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us — Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
+                                <a href="/about">
+                                    <span class="menu-idx">02</span>
+                                    <span class="menu-text">About <em>Kawaki Studios</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Capabilities &amp; Architecture" data-desc="Five Core Engineering &amp; Recovery Pillars">
+                                <a href="/services" id="menuServicesTrigger" class="menu-services-trigger" aria-haspopup="true" aria-expanded="false">
+                                    <span class="menu-idx">03</span>
+                                    <span class="menu-text">Explore <em>Our Services</em></span>
+                                    <span class="menu-expand-badge" title="Expand services">+</span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Architectural Concepts" data-desc="Reference Designs &amp; Engineering Blueprints">
+                                <a href="/case-studies">
+                                    <span class="menu-idx">04</span>
+                                    <span class="menu-text">Selected <em>Concepts &amp; Blueprints</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/station_drag_prism.webp" data-tag="Engineering &amp; Design Notes" data-desc="Essays on Web Engineering &amp; Performance">
+                                <a href="/blog">
+                                    <span class="menu-idx">05</span>
+                                    <span class="menu-text">Blogs &amp; <em>Insights</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about-studio.webp" data-tag="15-Min Strategy Session" data-desc="Schedule a Technical Discovery Call">
+                                <a href="/contact">
+                                    <span class="menu-idx">06</span>
+                                    <span class="menu-text">Discovery <em>Call</em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- EXPANDED SERVICES SUB-NAVIGATION MEGA-MENU -->
+                    <div class="main-menu-services" id="mainMenuServices" style="display: none; opacity: 0;">
+                        <div class="menu-services-topbar">
+                            <button type="button" class="menu-services-back-btn" id="menuServicesBackBtn" aria-label="Back to main menu">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                                <span>Back to Menu</span>
+                            </button>
+                            <span class="menu-services-header-title">EXPLORE OUR SERVICES</span>
+                            <a href="/services" class="menu-services-hub-link">
+                                <span>All Services</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+
+                        <div class="menu-services-grid">
+                            <!-- WEB & COMMERCE -->
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// WEB &amp; COMMERCE</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/project_1.jpg" data-tag="Web Engineering" data-desc="Custom Websites &amp; Next.js Web Applications">
+                                        <a href="/services/custom-web-development">
+                                            <span class="sub-idx">01</span>
+                                            <span class="sub-name">Custom Web Development</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Commerce Engineering" data-desc="Custom Storefronts &amp; Theme Customization">
+                                        <a href="/services/shopify-development">
+                                            <span class="sub-idx">02</span>
+                                            <span class="sub-name">Shopify Development</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- AI & AUTOMATION -->
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// AI &amp; AUTOMATION</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/station_drag_prism.webp" data-tag="Intelligent Systems" data-desc="n8n, Make &amp; Deterministic AI Agent Workflows">
+                                        <a href="/services/ai-automation">
+                                            <span class="sub-idx">03</span>
+                                            <span class="sub-name">AI Automation</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Search Engineering" data-desc="AI Search Optimization, AEO &amp; GEO Architecture">
+                                        <a href="/services/ai-search-optimization">
+                                            <span class="sub-idx">04</span>
+                                            <span class="sub-name">AI Search Optimization</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- SECURITY & RECOVERY -->
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// SECURITY &amp; RECOVERY</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Security &amp; Recovery" data-desc="Hacked Site Cleanup &amp; Database Sanitization">
+                                        <a href="/services/wordpress-malware-removal">
+                                            <span class="sub-idx">05</span>
+                                            <span class="sub-name">WordPress Malware Removal</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- CREATIVE & SPECIALIST -->
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// CREATIVE &amp; SPECIALIST</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="Brand &amp; Creative" data-desc="Social Presence &amp; Content Architecture">
+                                        <a href="/services">
+                                            <span class="sub-idx">06</span>
+                                            <span class="sub-name">Social Media Management</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/about-studio.webp" data-tag="Motion Design" data-desc="Short-Form Video &amp; Editorial Motion Content">
+                                        <a href="/services">
+                                            <span class="sub-idx">07</span>
+                                            <span class="sub-name">Reel Editing</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/kw-project-ecomm.webp" data-tag="Spatial &amp; 3D" data-desc="Visual Product Modeling &amp; 3D Interactive Assets">
+                                        <a href="/services">
+                                            <span class="sub-idx">08</span>
+                                            <span class="sub-name">3D Design</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/project_3_1787254295127.webp" data-tag="Spatial Planning" data-desc="Architectural Modeling &amp; Environmental Visualization">
+                                        <a href="/services">
+                                            <span class="sub-idx">09</span>
+                                            <span class="sub-name">Architecture Planning</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-col menu-col-right">
+                    <!-- Interactive Preview Card -->
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/hero_slide_2_clean.webp" alt="Preview" width="1024" height="1024" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">About Us — Studio Overview</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">Custom Web Design &amp; Development</span>
+                        </div>
+                    </div>
+
+                    <!-- Info Block -->
+                    <div class="menu-info-block">
+                        <a href="/contact" class="menu-cta-button">
+                            <span>Schedule a Call</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                                <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <div class="social-tags">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram ↗</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  `;
 }
 
-// Reusable Footer
+// Reusable Universal Footer (Standardized from public/about.html)
 function renderFooter() {
   return `
-  <footer class="site-footer" style="background: #FAFAFA; border-top: 1px solid rgba(0, 0, 0, 0.08); padding: 5rem 0 3rem; margin-top: 4rem;">
-    <div class="seo-container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
-        <div>
-          <div style="font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; color: #111111; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="display: inline-block; width: 8px; height: 8px; background: #ea580c; border-radius: 50%;"></span>
-            KAWAKI STUDIOS
-          </div>
-          <p style="font-size: 0.88rem; color: #666666; line-height: 1.6; margin: 0 0 1.5rem 0;">
-            New Delhi-based digital product and web engineering studio. Engineering bespoke websites, web applications, headless commerce storefronts, and automated workflows.
-          </p>
-          <div style="font-size: 0.82rem; color: #888888;">
-            Central Engineering Studio: New Delhi, India<br />
-            Remote Collaboration Across India &amp; Internationally
-          </div>
+    <!-- UNIVERSAL GLOBAL FOOTER -->
+    <footer class="sections global-site-footer">
+        <!-- Big Impact Headline & Magnetic CTA -->
+        <div class="services-header-2">
+            <div class="footer-headline-group">
+                <h3 class="services-title-2">Ready to talk?</h3>
+                <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+            </div>
+            <a href="/contact" class="footer-cta-card-btn">
+                <span>Schedule Intro Call</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                    <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                </svg>
+            </a>
         </div>
 
-        <div>
-          <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #111111; margin-bottom: 1.2rem;">Engineering Disciplines</div>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
-            <li><a href="/services/custom-web-development" style="color: #555555; text-decoration: none;">Custom Web Development</a></li>
-            <li><a href="/services/web-application-development" style="color: #555555; text-decoration: none;">Web Applications</a></li>
-            <li><a href="/services/shopify-development" style="color: #555555; text-decoration: none;">Shopify &amp; Headless Commerce</a></li>
-            <li><a href="/services/ai-automation" style="color: #555555; text-decoration: none;">AI Automation &amp; Agents</a></li>
-            <li><a href="/services/ai-search-optimization" style="color: #555555; text-decoration: none;">AI Search &amp; GEO</a></li>
-            <li><a href="/services/website-security-hardening" style="color: #555555; text-decoration: none;">Website Security Hardening</a></li>
-          </ul>
+        <!-- 4-Column Directory Grid -->
+        <div class="footer-grid-directory">
+            <!-- Column 1: Navigation -->
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECTORY</div>
+                <ul class="footer-links-list">
+                    <li><a href="/"><span>Home</span> <span class="nav-idx">01</span></a></li>
+                    <li><a href="/about"><span>About Studio</span> <span class="nav-idx">02</span></a></li>
+                    <li><a href="/services"><span>Services & Systems</span> <span class="nav-idx">03</span></a></li>
+                    <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
+                    <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
+                    <li><a href="/contact"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Direct Contact -->
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECT CHANNELS</div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-label">New Business & Inquiries</span>
+                    <a href="mailto:hello@kawakistudios.com" class="footer-contact-val">
+                        hello@kawakistudios.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                    <span class="footer-contact-label">Partnerships & Co-Ventures</span>
+                    <a href="mailto:partners@kawakistudios.com" class="footer-contact-val">
+                        partners@kawakistudios.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                    <span class="footer-contact-label">Direct Founder Calendar</span>
+                    <a href="/contact" class="footer-contact-val" style="color: #111111; font-weight: 600;">
+                        Book 15-Min Briefing ↗
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.75rem;">
+                    <span class="footer-contact-label">Infrastructure Partner</span>
+                    <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Partner — Cloud & Hosting Infrastructure">
+                        <img src="/assets/images/hostinger-partner-dark.png" alt="Hostinger Partner" width="160" height="60" loading="lazy" />
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 3: Global Time Zones -->
+            <div class="footer-col">
+                <div class="footer-col-header">// CLIENT TIME ZONES</div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New Delhi — Studio HQ</span>
+                        <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>Tokyo — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>London — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New York — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 4: Social Index -->
+            <div class="footer-col">
+                <div class="footer-col-header">// SOCIAL INDEX</div>
+                <ul class="footer-links-list">
+                    <li><a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener"><span>Instagram</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                </ul>
+            </div>
         </div>
 
-        <div>
-          <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #111111; margin-bottom: 1.2rem;">Regional Focus</div>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
-            <li><a href="/delhi" style="color: #555555; text-decoration: none;">New Delhi (Studio HQ)</a></li>
-            <li><a href="/bangalore" style="color: #555555; text-decoration: none;">Bangalore (Tech Hub)</a></li>
-            <li><a href="/mumbai" style="color: #555555; text-decoration: none;">Mumbai (Enterprise &amp; D2C)</a></li>
-            <li><a href="/pune" style="color: #555555; text-decoration: none;">Pune (Software &amp; Industry)</a></li>
-            <li><a href="/hyderabad" style="color: #555555; text-decoration: none;">Hyderabad (IT &amp; Healthcare)</a></li>
-            <li><a href="/locations" style="color: #ea580c; text-decoration: none; font-weight: 600;">All Locations &rarr;</a></li>
-          </ul>
+        <!-- Giant Architectural Watermark -->
+        <div class="footer-giant-watermark">
+            <span>KAWAKI</span>
         </div>
 
-        <div>
-          <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #111111; margin-bottom: 1.2rem;">Resources &amp; System Hubs</div>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
-            <li><a href="/solutions" style="color: #555555; text-decoration: none;">Domain Solutions Directory</a></li>
-            <li><a href="/pricing" style="color: #555555; text-decoration: none;">Studio Engagement Models</a></li>
-            <li><a href="/technical-audit" style="color: #555555; text-decoration: none;">Technical Architecture Audit</a></li>
-            <li><a href="/resources" style="color: #555555; text-decoration: none;">Engineering Resources</a></li>
-            <li><a href="/privacy-policy" style="color: #555555; text-decoration: none;">Privacy Policy</a></li>
-            <li><a href="/terms-of-service" style="color: #555555; text-decoration: none;">Terms of Service</a></li>
-          </ul>
+        <!-- Bottom Metadata & Legal Bar -->
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
+            <ul class="footer-bottom-links">
+                <li><a href="/about">Privacy Policy</a></li>
+                <li><a href="/about">Terms of Service</a></li>
+                <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
+                <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
+                <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
+            </ul>
+            <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
+                <span>Back to Top</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            </button>
         </div>
-      </div>
+    </footer>
 
-      <div style="border-top: 1px solid rgba(0, 0, 0, 0.08); padding-top: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: #888888;">
-        <div>&copy; 2026 Kawaki Studios LLP. All rights reserved. Clean, maintainable web systems.</div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener" style="color: #888888; text-decoration: none;">GitHub</a>
-          <a href="https://x.com/kawakistudios" target="_blank" rel="noopener" style="color: #888888; text-decoration: none;">Twitter</a>
-          <a href="/sitemap.xml" style="color: #888888; text-decoration: none;">Sitemap</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  
-  <script src="/assets/js/chatbot.js?v=20261008_v2" defer></script>
-  <script>
-    document.querySelectorAll('.seo-faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.seo-faq-item');
-        const isActive = item.classList.contains('active');
-        document.querySelectorAll('.seo-faq-item').forEach(other => other.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script src="/assets/js/chatbot.js?v=20261008_v2" defer></script>
+    <script>
+      document.querySelectorAll('.seo-faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.seo-faq-item');
+          const isActive = item.classList.contains('active');
+          document.querySelectorAll('.seo-faq-item').forEach(other => other.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
+        });
       });
-    });
-  </script>`;
+    </script>
+  `;
 }
 
 // Generate Differentiated Content for Every Page Archetype
@@ -713,11 +976,10 @@ function renderPage(entry) {
     <!-- Fonts & Core Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="/assets/css/global.css?v=20261008_v2" />
-    <link rel="stylesheet" href="/assets/css/seo-pages.css?v=20261008_v2" />
-    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20261008_v2" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
+    <link rel="stylesheet" href="/assets/css/seo-pages.css?v=20261008_v3" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
