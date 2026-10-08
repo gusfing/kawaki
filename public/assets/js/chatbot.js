@@ -60,15 +60,27 @@
           <span class="launcher-pill-dot"></span>
           <span class="launcher-pill-text">Ask Kawaki AI</span>
         </div>
-        <button class="launcher-podcast-quick-btn" id="launcherPodcastQuickBtn" type="button" title="Listen to this page as an audio podcast">
-          <span id="launcherPodcastQuickLabel">🎙️ Page Podcast</span>
+        <button class="launcher-podcast-quick-btn" id="launcherPodcastQuickBtn" type="button" title="Listen to this page as an audio briefing">
+          <span class="podcast-btn-icon" id="launcherPodcastIcon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+            </svg>
+          </span>
+          <span class="podcast-btn-label" id="launcherPodcastQuickLabel">Page Podcast</span>
+          <span class="podcast-bars" id="launcherPodcastBars">
+            <span class="pbar"></span>
+            <span class="pbar"></span>
+            <span class="pbar"></span>
+          </span>
         </button>
-        <div class="launcher-pill-circle" id="launcherPillBtn">
-          <svg class="launcher-arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <div class="launcher-pill-circle" id="launcherPillBtn" aria-label="Open AI Assistant">
+          <svg class="launcher-arrow-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="19" x2="12" y2="5"></line>
             <polyline points="5 12 12 5 19 12"></polyline>
           </svg>
-          <svg class="launcher-close-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="launcher-close-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
@@ -107,7 +119,13 @@
         <!-- Pinned Podcast Feature Banner -->
         <div class="kawaki-chat-podcast-hero">
           <div class="podcast-hero-left">
-            <span class="podcast-hero-icon">🎙️</span>
+            <span class="podcast-hero-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+              </svg>
+            </span>
             <div>
               <div class="podcast-hero-title">Page-to-Podcast (Text to Speech)</div>
               <div class="podcast-hero-desc" id="podcastHeroStatus">Listen to an AI audio briefing of this page</div>
@@ -131,7 +149,7 @@
           <!-- Quick Suggestions Chips -->
           <div class="kawaki-chat-suggestions" id="kawakiChatSuggestions">
             <button class="kawaki-chat-chip" data-query="Turn this page into a podcast">
-              🎙️ Turn page into a podcast (TTS)
+              🎧 Turn page into an audio briefing (TTS)
             </button>
             <button class="kawaki-chat-chip" data-query="What are Kawaki's top features and services?">
               What are Kawaki's top AI & web features?
@@ -433,7 +451,9 @@
     card.className = 'kawaki-podcast-card';
     card.innerHTML = 
       '<div class="podcast-card-left">' +
-        '<div class="podcast-icon-bubble">🎙️</div>' +
+        '<div class="podcast-icon-bubble">' +
+          '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>' +
+        '</div>' +
         '<div>' +
           '<div class="podcast-card-title">' + escapeHtml(pageTitle) + ' Podcast</div>' +
           '<div class="podcast-card-status" id="podcastStatusText">Ready to Play &bull; Text to Speech</div>' +
@@ -474,10 +494,10 @@
     if (quickBtn) {
       if (playing) {
         quickBtn.classList.add('playing');
-        if (quickLabel) quickLabel.textContent = '⏹ Stop Audio';
+        if (quickLabel) quickLabel.textContent = 'Stop Audio';
       } else {
         quickBtn.classList.remove('playing');
-        if (quickLabel) quickLabel.textContent = '🎙️ Page Podcast';
+        if (quickLabel) quickLabel.textContent = 'Page Podcast';
       }
     }
 
