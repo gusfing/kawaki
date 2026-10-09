@@ -1079,7 +1079,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
             }
         });
     </script>
-    <script src="/assets/js/chatbot.js?v=20260902_pill_v3" defer></script>
+    <script src="/assets/js/chatbot.js" defer></script>
 </body>
 </html>
 `;
