@@ -26,7 +26,7 @@ if (!indexNowKey) {
 }
 
 console.log(`⚡ [IndexNow] Using Key: ${indexNowKey}`);
-console.log(`   Key Location: https://www.kawaki.co.in/${indexNowKey}.txt`);
+console.log(`   Key Location: https://kawaki.co.in/${indexNowKey}.txt`);
 
 // 2. Read Canonical URLs from sitemap.xml
 if (!fs.existsSync(sitemapPath)) {
@@ -37,16 +37,16 @@ if (!fs.existsSync(sitemapPath)) {
 const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
 const locMatches = [...sitemapContent.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].trim());
 
-// Allow filtering by argument if specified (e.g. node submit-indexnow.js https://www.kawaki.co.in/)
+// Allow filtering by argument if specified (e.g. node submit-indexnow.js https://kawaki.co.in/)
 const passedUrls = process.argv.slice(2).filter(u => u.startsWith('http'));
 const urlsToSubmit = passedUrls.length > 0 ? passedUrls : locMatches;
 
 console.log(`   Submitting ${urlsToSubmit.length} canonical URLs to https://api.indexnow.org/indexnow ...`);
 
 const payload = JSON.stringify({
-  host: 'www.kawaki.co.in',
+  host: 'kawaki.co.in',
   key: indexNowKey,
-  keyLocation: `https://www.kawaki.co.in/${indexNowKey}.txt`,
+  keyLocation: `https://kawaki.co.in/${indexNowKey}.txt`,
   urlList: urlsToSubmit
 });
 
@@ -64,7 +64,7 @@ const req = https.request('https://api.indexnow.org/indexnow', {
     if (res.statusCode === 200) {
       console.log('✓ [IndexNow] SUCCESS (200 OK): URLs submitted and acknowledged by IndexNow network.');
     } else if (res.statusCode === 202) {
-      console.log('✓ [IndexNow] ACCEPTED (202): URLs received. Search engine will validate key at https://www.kawaki.co.in/' + indexNowKey + '.txt once deployed.');
+      console.log('✓ [IndexNow] ACCEPTED (202): URLs received. Search engine will validate key at https://kawaki.co.in/' + indexNowKey + '.txt once deployed.');
     } else {
       console.log(`⚠️ [IndexNow] Response (${res.statusCode}): ${responseBody}`);
     }

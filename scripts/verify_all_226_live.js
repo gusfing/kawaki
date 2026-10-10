@@ -52,7 +52,7 @@ async function fetchUrl(route) {
     const results = await Promise.all(chunk.map(item => fetchUrl(item.kawakiUrl)));
 
     for (const res of results) {
-      const expectedCanonical = 'https://www.kawaki.co.in' + (res.route === '/' ? '/' : res.route);
+      const expectedCanonical = 'https://kawaki.co.in' + (res.route === '/' ? '/' : res.route);
 
       if (res.statusCode === 200) {
         stats.status200++;

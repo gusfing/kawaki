@@ -166,7 +166,7 @@ if (fs.existsSync(sitemapFile)) {
   const sitemapContent = fs.readFileSync(sitemapFile, 'utf8');
   for (const entry of registry) {
     if (entry.indexable && entry.kawakiUrl) {
-      const fullLoc = `https://www.kawaki.co.in${entry.kawakiUrl === '/' ? '/' : entry.kawakiUrl}`;
+      const fullLoc = `https://kawaki.co.in${entry.kawakiUrl === '/' ? '/' : entry.kawakiUrl}`;
       if (!sitemapContent.includes(`<loc>${fullLoc}</loc>`)) {
         console.error(`❌ Missing in sitemap.xml: ${fullLoc}`);
         sitemapMissingCount++;

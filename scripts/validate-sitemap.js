@@ -75,11 +75,11 @@ while ((match = urlBlockRegex.exec(content)) !== null) {
   const locUrl = locMatch[1].trim();
 
   // Validate canonical URL format
-  if (!locUrl.startsWith('https://www.kawaki.co.in/')) {
-    malformedUrls.push(`${locUrl} (must start with https://www.kawaki.co.in/)`);
+  if (!locUrl.startsWith('https://kawaki.co.in/')) {
+    malformedUrls.push(`${locUrl} (must start with https://kawaki.co.in/)`);
   } else if (locUrl.includes('?') || locUrl.includes('#') || locUrl.includes(' ') || locUrl.includes('.html')) {
     malformedUrls.push(`${locUrl} (contains query, fragment, space, or .html extension)`);
-  } else if (locUrl !== 'https://www.kawaki.co.in/' && locUrl.endsWith('/')) {
+  } else if (locUrl !== 'https://kawaki.co.in/' && locUrl.endsWith('/')) {
     malformedUrls.push(`${locUrl} (trailing slash on non-root URL)`);
   }
 
@@ -111,7 +111,7 @@ const redirectSources = new Map();
 
 const sitemapRedirectConflicts = [];
 sitemapUrls.forEach(locUrl => {
-  const route = locUrl.replace('https://www.kawaki.co.in', '') || '/';
+  const route = locUrl.replace('https://kawaki.co.in', '') || '/';
   if (redirectSources.has(route)) {
     sitemapRedirectConflicts.push({
       locUrl,
@@ -134,7 +134,7 @@ const missingRegistryUrls = [];
 
 indexableRegistry.forEach(entry => {
   const route = entry.kawakiUrl === '' ? '/' : entry.kawakiUrl;
-  const expectedLoc = `https://www.kawaki.co.in${route === '/' ? '/' : route}`;
+  const expectedLoc = `https://kawaki.co.in${route === '/' ? '/' : route}`;
 
   if (redirectSources.has(route)) {
     registryRedirectConflicts.push({
@@ -167,7 +167,7 @@ if (missingRegistryUrls.length > 0) {
 const canonicalMismatchErrors = [];
 
 sitemapUrls.forEach(locUrl => {
-  const routePath = locUrl.replace('https://www.kawaki.co.in', '') || '/';
+  const routePath = locUrl.replace('https://kawaki.co.in', '') || '/';
   const relFile = routePath === '/' ? 'index.html' : routePath.replace(/^\//, '') + '.html';
   const physicalPath = path.resolve(publicDir, relFile);
 

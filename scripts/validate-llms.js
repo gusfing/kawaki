@@ -78,7 +78,7 @@ for (const item of filesToValidate) {
   ];
   let missingServices = [];
   for (const s of requiredServices) {
-    if (!content.includes(`https://www.kawaki.co.in/services/${s}`)) {
+    if (!content.includes(`https://kawaki.co.in/services/${s}`)) {
       missingServices.push(s);
     }
   }
@@ -102,7 +102,7 @@ for (const item of filesToValidate) {
   ];
   let missingSub = [];
   for (const s of requiredSub) {
-    if (!content.includes(`https://www.kawaki.co.in/services/${s}`)) {
+    if (!content.includes(`https://kawaki.co.in/services/${s}`)) {
       missingSub.push(s);
     }
   }

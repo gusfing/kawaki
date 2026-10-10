@@ -222,7 +222,7 @@ function getContextualService(article) {
 function generateArticleHtml(article) {
   const slug = article.slug;
   const title = article.title;
-  const canonicalUrl = `https://www.kawaki.co.in/blog/${slug}`;
+  const canonicalUrl = `https://kawaki.co.in/blog/${slug}`;
   const excerpt = article.excerpt || article.seoDescription || `Read ${title} by Kawaki Studios.`;
   const seoDesc = article.seoDescription || excerpt;
   const author = article.author || 'Kunal Sharma';
@@ -255,10 +255,10 @@ function generateArticleHtml(article) {
     },
     "publisher": {
       "@type": "Organization",
-      "@id": "https://www.kawaki.co.in/#organization",
+      "@id": "https://kawaki.co.in/#organization",
       "name": "Kawaki Studios",
-      "url": "https://www.kawaki.co.in",
-      "logo": "https://www.kawaki.co.in/assets/images/kawaki-logo.png"
+      "url": "https://kawaki.co.in",
+      "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png"
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -274,13 +274,13 @@ function generateArticleHtml(article) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.kawaki.co.in/"
+        "item": "https://kawaki.co.in/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://www.kawaki.co.in/blog"
+        "item": "https://kawaki.co.in/blog"
       },
       {
         "@type": "ListItem",

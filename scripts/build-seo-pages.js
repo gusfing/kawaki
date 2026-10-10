@@ -864,7 +864,7 @@ function generateDifferentiatedContent(entry) {
 // Generate Complete Page HTML
 function renderPage(entry) {
   const content = generateDifferentiatedContent(entry);
-  const canonicalUrl = `https://www.kawaki.co.in${entry.kawakiUrl}`;
+  const canonicalUrl = `https://kawaki.co.in${entry.kawakiUrl}`;
   
   // Matched real case studies
   const matchedStudies = (entry.relatedCaseStudies || ['bazzaro', 'kala-design'])
@@ -874,18 +874,18 @@ function renderPage(entry) {
 
   // Determine accurate Breadcrumb category & URL
   let breadcrumbName = 'Services';
-  let breadcrumbUrl = 'https://www.kawaki.co.in/services';
+  let breadcrumbUrl = 'https://kawaki.co.in/services';
   let ogType = 'website';
 
   if (entry.pageType.includes('location')) {
     breadcrumbName = 'Locations';
-    breadcrumbUrl = 'https://www.kawaki.co.in/locations';
+    breadcrumbUrl = 'https://kawaki.co.in/locations';
   } else if (entry.pageType === 'solution') {
     breadcrumbName = 'Solutions';
-    breadcrumbUrl = 'https://www.kawaki.co.in/solutions';
+    breadcrumbUrl = 'https://kawaki.co.in/solutions';
   } else if (entry.pageType === 'resource') {
     breadcrumbName = 'Resources';
-    breadcrumbUrl = 'https://www.kawaki.co.in/resources';
+    breadcrumbUrl = 'https://kawaki.co.in/resources';
     ogType = 'article';
   }
 
@@ -899,10 +899,10 @@ function renderPage(entry) {
       "description": entry.metaDescription,
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.kawaki.co.in/#organization",
+        "@id": "https://kawaki.co.in/#organization",
         "name": "Kawaki Studios",
-        "url": "https://www.kawaki.co.in",
-        "logo": "https://www.kawaki.co.in/assets/images/kawaki-logo.png"
+        "url": "https://kawaki.co.in",
+        "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png"
       },
       "serviceType": entry.service
     },
@@ -914,7 +914,7 @@ function renderPage(entry) {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://www.kawaki.co.in"
+          "item": "https://kawaki.co.in"
         },
         {
           "@type": "ListItem",
@@ -963,7 +963,7 @@ function renderPage(entry) {
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:title" content="${entry.title.replace(/"/g, '&quot;')}" />
     <meta property="og:description" content="${entry.metaDescription.replace(/"/g, '&quot;')}" />
-    <meta property="og:image" content="https://www.kawaki.co.in/assets/images/about_hero_bg.jpg" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/about_hero_bg.jpg" />
     <meta property="og:site_name" content="Kawaki Studios" />
 
     <!-- Twitter -->
@@ -971,7 +971,7 @@ function renderPage(entry) {
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="${entry.title.replace(/"/g, '&quot;')}" />
     <meta name="twitter:description" content="${entry.metaDescription.replace(/"/g, '&quot;')}" />
-    <meta name="twitter:image" content="https://www.kawaki.co.in/assets/images/about_hero_bg.jpg" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/about_hero_bg.jpg" />
 
     <!-- Fonts & Core Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -996,7 +996,7 @@ function renderPage(entry) {
         <ul class="seo-breadcrumb-list" aria-label="Breadcrumb">
           <li class="seo-breadcrumb-item"><a href="/">Home</a></li>
           <li class="seo-breadcrumb-sep">/</li>
-          <li class="seo-breadcrumb-item"><a href="${breadcrumbUrl.replace('https://www.kawaki.co.in', '')}">${breadcrumbName}</a></li>
+          <li class="seo-breadcrumb-item"><a href="${breadcrumbUrl.replace('https://kawaki.co.in', '')}">${breadcrumbName}</a></li>
           <li class="seo-breadcrumb-sep">/</li>
           <li class="seo-breadcrumb-item active" aria-current="page">${entry.service}</li>
         </ul>

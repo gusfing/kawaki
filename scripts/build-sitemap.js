@@ -56,7 +56,7 @@ allHtmlFiles.forEach(filePath => {
 
   // Verify self-referencing canonical tag
   const html = fs.readFileSync(filePath, 'utf8');
-  const expectedCanonical = 'https://www.kawaki.co.in' + (routePath ? '/' + routePath : '/');
+  const expectedCanonical = 'https://kawaki.co.in' + (routePath ? '/' + routePath : '/');
   const canMatch = html.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["']/i) ||
                    html.match(/<link[^>]*href=["']([^"']*)["'][^>]*rel=["']canonical["']/i);
 
