@@ -1185,41 +1185,11 @@ console.log(`✓ Generated ${createdCount} static HTML pages in public/ director
 
 // 2. Synchronize sitemap.xml
 console.log('\n🚀 [2/3] Synchronizing public/sitemap.xml...');
-if (fs.existsSync(sitemapFile)) {
-  let sitemapContent = fs.readFileSync(sitemapFile, 'utf8');
-
-  const existingMatches = sitemapContent.match(/<loc>(.*?)<\/loc>/g) || [];
-  const existingSet = new Set(existingMatches.map(m => m.replace(/<\/?loc>/g, '').trim()));
-
-  let addedSitemap = 0;
-  let newXml = '';
-
-  const solutionsLoc = 'https://www.kawaki.co.in/solutions';
-  if (!existingSet.has(solutionsLoc)) {
-    newXml += `  <url>\n    <loc>${solutionsLoc}</loc>\n    <lastmod>2026-10-08</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
-    existingSet.add(solutionsLoc);
-    addedSitemap++;
-  }
-
-  for (const u of allPublishedUrls) {
-    const fullLoc = `https://www.kawaki.co.in${u.replace(/\/$/, '') || '/'}`;
-    if (!existingSet.has(fullLoc) && fullLoc !== 'https://www.kawaki.co.in/blog/:slug') {
-      newXml += `  <url>\n    <loc>${fullLoc}</loc>\n    <lastmod>2026-10-08</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
-      existingSet.add(fullLoc);
-      addedSitemap++;
-    }
-  }
-
-  if (addedSitemap > 0) {
-    const closeIdx = sitemapContent.lastIndexOf('</urlset>');
-    if (closeIdx !== -1) {
-      sitemapContent = sitemapContent.slice(0, closeIdx) + newXml + sitemapContent.slice(closeIdx);
-      fs.writeFileSync(sitemapFile, sitemapContent, 'utf8');
-      console.log(`✓ Added ${addedSitemap} new canonical URLs to sitemap.xml.`);
-    }
-  } else {
-    console.log('✓ sitemap.xml is up to date.');
-  }
+try {
+  const { execSync } = require('child_process');
+  execSync('node scripts/build-sitemap.js', { stdio: 'inherit', cwd: rootDir });
+} catch (err) {
+  console.warn('⚠️ Warning updating sitemap via build-sitemap.js:', err.message);
 }
 
 // 3. Vercel Redirects

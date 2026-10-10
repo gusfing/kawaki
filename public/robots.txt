@@ -3,156 +3,136 @@
 
 User-agent: *
 Allow: /
-# Allow stylesheets and visual assets for proper layout rendering
+# Allow stylesheets, scripts, and visual assets for proper layout rendering & DOM hydration
 Allow: /assets/css/
+Allow: /assets/js/
 Allow: /assets/images/
-# Disallow scripts, media files, and internal assets from crawler traversal & indexing
-Disallow: /assets/js/
-Disallow: /assets/audio/
-Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
+# Disallow private administration, API endpoints, parameterized queries, and raw media assets
+Disallow: /admin/
+Disallow: /api/
 Disallow: /cdn-cgi/
 Disallow: /*?service=*
 Disallow: /*?package=*
-Disallow: /admin/
-Disallow: /api/
-
-# Explicit permissions for AI & LLM Search Crawlers (content indexing only)
-User-agent: GPTBot
-Allow: /
-Allow: /assets/css/
-Allow: /assets/images/
-Disallow: /assets/js/
 Disallow: /assets/audio/
 Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
-Disallow: /cdn-cgi/
-Disallow: /*?service=*
-Disallow: /*?package=*
-Disallow: /admin/
-Disallow: /api/
 
-User-agent: ChatGPT-User
-Allow: /
-Allow: /assets/css/
-Allow: /assets/images/
-Disallow: /assets/js/
-Disallow: /assets/audio/
-Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
-Disallow: /cdn-cgi/
-Disallow: /*?service=*
-Disallow: /*?package=*
-Disallow: /admin/
-Disallow: /api/
-
-User-agent: Claude-Web
-Allow: /
-Allow: /assets/css/
-Allow: /assets/images/
-Disallow: /assets/js/
-Disallow: /assets/audio/
-Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
-Disallow: /cdn-cgi/
-Disallow: /*?service=*
-Disallow: /*?package=*
-Disallow: /admin/
-Disallow: /api/
-
-User-agent: ClaudeBot
-Allow: /
-Allow: /assets/css/
-Allow: /assets/images/
-Disallow: /assets/js/
-Disallow: /assets/audio/
-Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
-Disallow: /cdn-cgi/
-Disallow: /*?service=*
-Disallow: /*?package=*
-Disallow: /admin/
-Disallow: /api/
-
-User-agent: anthropic-ai
-Allow: /
-Allow: /assets/css/
-Allow: /assets/images/
-Disallow: /assets/js/
-Disallow: /assets/audio/
-Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
-Disallow: /cdn-cgi/
-Disallow: /*?service=*
-Disallow: /*?package=*
-Disallow: /admin/
-Disallow: /api/
-
+# Explicit permissions for Search & AI/LLM Crawlers (full rendering allowed)
 User-agent: Googlebot
 Allow: /
 Allow: /assets/css/
+Allow: /assets/js/
 Allow: /assets/images/
-Disallow: /assets/js/
-Disallow: /assets/audio/
-Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
+Disallow: /admin/
+Disallow: /api/
 Disallow: /cdn-cgi/
 Disallow: /*?service=*
 Disallow: /*?package=*
-Disallow: /admin/
-Disallow: /api/
+Disallow: /assets/audio/
+Disallow: /assets/videos/
 
 User-agent: Bingbot
 Allow: /
 Allow: /assets/css/
+Allow: /assets/js/
 Allow: /assets/images/
-Disallow: /assets/js/
-Disallow: /assets/audio/
-Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
+Disallow: /admin/
+Disallow: /api/
 Disallow: /cdn-cgi/
 Disallow: /*?service=*
 Disallow: /*?package=*
+Disallow: /assets/audio/
+Disallow: /assets/videos/
+
+User-agent: GPTBot
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
 Disallow: /admin/
 Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /*?service=*
+Disallow: /*?package=*
+Disallow: /assets/audio/
+Disallow: /assets/videos/
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /*?service=*
+Disallow: /*?package=*
+Disallow: /assets/audio/
+Disallow: /assets/videos/
+
+User-agent: Claude-Web
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /*?service=*
+Disallow: /*?package=*
+Disallow: /assets/audio/
+Disallow: /assets/videos/
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /*?service=*
+Disallow: /*?package=*
+Disallow: /assets/audio/
+Disallow: /assets/videos/
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /*?service=*
+Disallow: /*?package=*
+Disallow: /assets/audio/
+Disallow: /assets/videos/
 
 User-agent: PerplexityBot
 Allow: /
 Allow: /assets/css/
+Allow: /assets/js/
 Allow: /assets/images/
-Disallow: /assets/js/
-Disallow: /assets/audio/
-Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
+Disallow: /admin/
+Disallow: /api/
 Disallow: /cdn-cgi/
 Disallow: /*?service=*
 Disallow: /*?package=*
-Disallow: /admin/
-Disallow: /api/
+Disallow: /assets/audio/
+Disallow: /assets/videos/
 
 User-agent: Google-Extended
 Allow: /
 Allow: /assets/css/
+Allow: /assets/js/
 Allow: /assets/images/
-Disallow: /assets/js/
-Disallow: /assets/audio/
-Disallow: /assets/videos/
-Disallow: /*.js$
-Disallow: /*.js?*
+Disallow: /admin/
+Disallow: /api/
 Disallow: /cdn-cgi/
 Disallow: /*?service=*
 Disallow: /*?package=*
-Disallow: /admin/
-Disallow: /api/
+Disallow: /assets/audio/
+Disallow: /assets/videos/
 
 # Canonical Sitemap & LLM manifest
 Sitemap: https://www.kawaki.co.in/sitemap.xml

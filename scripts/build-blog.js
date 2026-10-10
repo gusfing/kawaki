@@ -1183,40 +1183,12 @@ function updateBlogIndexHtml(articles) {
 
 // 6. Update sitemap.xml with Clean URLs
 function updateSitemap(articles) {
-  let content = fs.readFileSync(sitemapFile, 'utf8');
-
-  // Replace or build the Published High-Authority Articles block
-  const sitemapArticlesXml = articles.map(b => {
-    let lastmodTag = '';
-    const dateVal = b.updatedAt || b.createdAt;
-    if (dateVal) {
-      const d = new Date(dateVal);
-      if (!isNaN(d.getTime())) {
-        const yyyy = d.getUTCFullYear();
-        const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
-        const dd = String(d.getUTCDate()).padStart(2, '0');
-        lastmodTag = `\n    <lastmod>${yyyy}-${mm}-${dd}</lastmod>`;
-      }
-    }
-    return `  <url>
-    <loc>https://www.kawaki.co.in/blog/${b.slug}</loc>${lastmodTag}
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>`;
-  }).join('\n');
-
-  // Match existing blog URLs block
-  const blockRegex = /(<!-- Published High-Authority Articles -->)([\s\S]*?)(<\/urlset>)/i;
-  if (blockRegex.test(content)) {
-    content = content.replace(blockRegex, `$1\n${sitemapArticlesXml}\n$3`);
-  } else {
-    // If block comment not present, replace any /blog-post?slug= URLs
-    content = content.replace(/(  <url>[\s\S]*?<loc>https:\/\/www\.kawaki\.co\.in\/blog-post\?slug=[^<]+<\/loc>[\s\S]*?<\/url>\n?)+/g, '');
-    content = content.replace('</urlset>', `  <!-- Published High-Authority Articles -->\n${sitemapArticlesXml}\n</urlset>`);
+  try {
+    const { execSync } = require('child_process');
+    execSync('node scripts/build-sitemap.js', { stdio: 'inherit', cwd: rootDir });
+  } catch (err) {
+    console.warn('⚠️ Warning updating sitemap via build-sitemap.js:', err.message);
   }
-
-  fs.writeFileSync(sitemapFile, content, 'utf8');
-  console.log(`✓ Updated public/sitemap.xml with ${articles.length} clean /blog/:slug URLs.`);
 }
 
 // 7. Stale Article Reconciliation & Cleanup (Tightened Generator Ownership Boundary)
