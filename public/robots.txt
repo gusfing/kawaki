@@ -64,7 +64,52 @@ Disallow: /*?package=*
 Disallow: /admin/
 Disallow: /api/
 
+User-agent: ClaudeBot
+Allow: /
+Allow: /assets/css/
+Allow: /assets/images/
+Disallow: /assets/js/
+Disallow: /assets/audio/
+Disallow: /assets/videos/
+Disallow: /*.js$
+Disallow: /*.js?*
+Disallow: /cdn-cgi/
+Disallow: /*?service=*
+Disallow: /*?package=*
+Disallow: /admin/
+Disallow: /api/
+
 User-agent: anthropic-ai
+Allow: /
+Allow: /assets/css/
+Allow: /assets/images/
+Disallow: /assets/js/
+Disallow: /assets/audio/
+Disallow: /assets/videos/
+Disallow: /*.js$
+Disallow: /*.js?*
+Disallow: /cdn-cgi/
+Disallow: /*?service=*
+Disallow: /*?package=*
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
+Allow: /assets/css/
+Allow: /assets/images/
+Disallow: /assets/js/
+Disallow: /assets/audio/
+Disallow: /assets/videos/
+Disallow: /*.js$
+Disallow: /*.js?*
+Disallow: /cdn-cgi/
+Disallow: /*?service=*
+Disallow: /*?package=*
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Bingbot
 Allow: /
 Allow: /assets/css/
 Allow: /assets/images/
