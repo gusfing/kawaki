@@ -57,6 +57,11 @@ function handleApiProxyOrDirect(req, res, parsedUrl) {
       }
     }
 
+    // Direct database handling for leads & contact inquiries (stores in SQLite data.db)
+    if (req.url.startsWith('/api/leads') || req.url.startsWith('/api/contact')) {
+      return handleApiRequest(req, res, parsedUrl, jsonBody);
+    }
+
     const options = {
       hostname: '127.0.0.1',
       port: BACKEND_PORT,
@@ -225,6 +230,13 @@ const server = http.createServer((req, res) => {
   // 3a. NextSchool Case Study slug normalization
   if (reqPath === '/case-studies/nextschool' || reqPath === '/case-studies/nextschool/') {
     res.writeHead(301, { Location: '/case-studies/nextschool-erp' });
+    res.end();
+    return;
+  }
+
+  // 3a-2. Redirect legacy /homepage-v2 to root /
+  if (reqPath === '/homepage-v2' || reqPath === '/homepage-v2/' || reqPath === '/homepage-v2.html') {
+    res.writeHead(301, { Location: '/' });
     res.end();
     return;
   }

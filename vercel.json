@@ -27,6 +27,11 @@
   ],
   "redirects": [
     {
+      "source": "/homepage-v2",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/case-studies/nextschool",
       "destination": "/case-studies/nextschool-erp",
       "permanent": true
