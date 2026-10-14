@@ -4,16 +4,9 @@
  * Bypasses Google Search Console manual queue delays by publishing URL_UPDATED
  * events directly to Google's Indexing API v3.
  * 
- * Prerequisites:
- * 1. Create a Service Account in Google Cloud Console.
- * 2. Enable "Web Search Indexing API" in Google Cloud Console.
- * 3. Add the Service Account email (e.g. `your-sa@project.iam.gserviceaccount.com`)
- *    as an Owner in Google Search Console for `https://kawaki.co.in/`.
- * 4. Save your service account credentials as `service-account.json` in the project root.
- * 
  * Usage:
- *   node scripts/speed-index.js
- *   node scripts/speed-index.js --all   (indexes all canonical URLs from sitemap.xml)
+ *   npm run index:google         (indexes priority flagship and service pages)
+ *   npm run index:google:all     (indexes canonical URLs from sitemap.xml)
  */
 
 const fs = require('fs');
@@ -55,7 +48,7 @@ function getUrlsToIndex() {
             const matches = xml.match(/<loc>(https:\/\/[^<]+)<\/loc>/g) || [];
             const urls = matches.map(m => m.replace(/<\/?loc>/g, '').trim());
             console.log(`📋 Loaded ${urls.length} canonical URLs from sitemap.xml`);
-            // Google Indexing API daily quota is typically 200 publishes/day
+            // Google Indexing API daily quota is 200 publishes/day
             return urls.slice(0, 200);
         }
     }
@@ -70,32 +63,25 @@ async function triggerRapidCrawl() {
         console.log('\n📖 Quick Setup Guide:');
         console.log('1. Go to Google Cloud Console: https://console.cloud.google.com/');
         console.log('2. Create a project and enable the "Web Search Indexing API"');
-        console.log('3. Create a Service Account under IAM & Admin → Service Accounts');
-        console.log('4. Create a JSON key and download it as "service-account.json" to this project folder');
-        console.log('5. In Google Search Console (https://search.google.com/search-console):');
-        console.log('   Settings → Users and permissions → Add User → paste your service account email → set Permission to "Owner"');
-        console.log('6. Run this command again: node scripts/speed-index.js\n');
+        console.log('3. In IAM & Admin → Service Accounts → download the JSON key as "service-account.json"');
+        console.log('4. In Google Search Console: add service account email as Owner');
+        console.log('5. Run again: npm run index:google\n');
         process.exit(1);
     }
 
     const keyData = JSON.parse(fs.readFileSync(KEY_FILE, 'utf8'));
-    console.log(`✓ Authenticating as Service Account: ${keyData.client_email}`);
+    console.log(`✓ Authenticated as: ${keyData.client_email}`);
 
-    // Official Google Web Search Indexing OAuth scope
     const SCOPES = ['https://www.googleapis.com/auth/indexing'];
 
-    const jwtClient = new google.auth.JWT(
-        keyData.client_email,
-        null,
-        keyData.private_key,
-        SCOPES
-    );
-
     try {
-        await jwtClient.authorize();
-        console.log('✓ Successfully authorized with Google Cloud API.');
+        const auth = new google.auth.GoogleAuth({
+            keyFile: KEY_FILE,
+            scopes: SCOPES
+        });
 
-        const indexing = google.indexing({ version: 'v3', auth: jwtClient });
+        const authClient = await auth.getClient();
+        const indexing = google.indexing({ version: 'v3', auth: authClient });
         const urls = getUrlsToIndex();
 
         console.log(`\n🚀 Publishing URL_UPDATED signals for ${urls.length} URLs...\n`);
@@ -113,15 +99,15 @@ async function triggerRapidCrawl() {
                 });
                 console.log(`✓ [200 OK] Rapid crawl queued: ${url}`);
                 successCount++;
-                // Small 120ms throttle to prevent rate-limit spikes
-                await new Promise(r => setTimeout(r, 120));
+                // 150ms gentle throttle between requests
+                await new Promise(r => setTimeout(r, 150));
             } catch (err) {
                 console.error(`❌ [${err.code || 'ERR'}] Failed for: ${url} -> ${err.message}`);
                 failCount++;
             }
         }
 
-        console.log(`\n🎉 Indexing API Complete: ${successCount} queued, ${failCount} failed.`);
+        console.log(`\n🎉 Google Indexing API Complete: ${successCount} queued successfully, ${failCount} failed.`);
     } catch (error) {
         console.error('❌ Authorization or API error:', error.message);
     }
