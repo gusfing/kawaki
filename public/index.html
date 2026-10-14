@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <!-- Search Crawler & Inspection Tool Detection: instant preloader bypass for GSC -->
+    <script>
+        (function() {
+            var ua = navigator.userAgent || '';
+            if (/googlebot|bingbot|yandex|baiduspider|duckduckbot|slurp|crawler|spider|robot|headlesschrome|google-inspectiontool/i.test(ua) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+                document.documentElement.classList.add('is-crawler');
+            }
+        })();
+    </script>
+
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -1434,6 +1444,17 @@
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
+        }
+
+        /* Immediate search bot bypass: Never show preloader to Googlebot or headless crawlers */
+        html.is-crawler .kawaki-minimal-preloader,
+        @media (prefers-reduced-motion: reduce) {
+            .kawaki-minimal-preloader {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
         }
 
         .min-preloader-inner {
@@ -3272,6 +3293,13 @@
             const bar = document.getElementById('minPreloaderBar');
             const counter = document.getElementById('minPreloaderCounter');
             if (!preloader || !bar || !counter) return;
+
+            // Instant dismiss for Search Console live tests & web crawlers
+            if (/googlebot|bingbot|yandex|baiduspider|duckduckbot|slurp|crawler|spider|robot|headlesschrome|google-inspectiontool/i.test(navigator.userAgent || '') || document.documentElement.classList.contains('is-crawler')) {
+                preloader.classList.add('is-loaded');
+                preloader.style.display = 'none';
+                return;
+            }
 
             let progress = 0;
             const startTime = performance.now();

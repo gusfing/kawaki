@@ -48,7 +48,8 @@ scratch/
 *.db-shm
 *.db-wal
 
-# local agent config
-.claude/
+# google service accounts
+service-account.json
+*service-account*.json
 
 
