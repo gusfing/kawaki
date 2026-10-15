@@ -1609,7 +1609,7 @@
 
     
         /* ==========================================================================
-           SELECTED WORK BENTO GRID (MONOCHROME EDITORIAL SHOWCASE)
+           SELECTED WORK — EDITORIAL PROJECT SHOWCASE (CLEAN STUDIO LUXURY)
            ========================================================================== */
         .selected-work-section {
             padding-top: var(--section-padding-y, 80px);
@@ -1618,172 +1618,190 @@
             color: #111111;
         }
 
-        .selected-work-bento {
+        .editorial-work-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3.5rem 2.5rem;
             width: 100%;
         }
 
-        .bento-work-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            background: #0d0d0d;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            text-decoration: none;
-            color: #ffffff;
+        .editorial-project-card {
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            min-height: 440px;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+            gap: 1.25rem;
+            position: relative;
         }
 
-        .bento-work-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.18);
-            border-color: rgba(0, 0, 0, 0.25);
-        }
-
-        .bento-card-kala {
-            grid-column: span 7;
-            min-height: 520px;
-        }
-
-        .bento-card-nextschool {
-            grid-column: span 5;
-            min-height: 520px;
-        }
-
-        .bento-card-bazzaro {
-            grid-column: span 6;
-            min-height: 460px;
-        }
-
-        .bento-card-nursepass {
-            grid-column: span 6;
-            min-height: 460px;
-        }
-
-        .bento-work-bg-wrap {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
+        .editorial-project-media-wrap {
+            display: block;
+            text-decoration: none;
             overflow: hidden;
-            z-index: 1;
+            border-radius: 16px;
+            background: #f4f3ef;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: box-shadow 0.4s ease, border-color 0.4s ease;
         }
 
-        .bento-work-bg-img {
+        .editorial-project-media-wrap:hover {
+            border-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        .editorial-project-image-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #eae8e2;
+        }
+
+        .editorial-project-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
-            filter: brightness(0.85);
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .bento-work-card:hover .bento-work-bg-img {
-            transform: scale(1.04);
-            filter: brightness(0.95);
+        .editorial-project-media-wrap:hover .editorial-project-img {
+            transform: scale(1.035);
         }
 
-        .bento-work-overlay {
+        .editorial-project-hover-badge {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(8, 8, 8, 0.2) 0%, rgba(8, 8, 8, 0.4) 40%, rgba(8, 8, 8, 0.92) 100%);
-            z-index: 2;
-            transition: background 0.4s ease;
-        }
-
-        .bento-work-card:hover .bento-work-overlay {
-            background: linear-gradient(180deg, rgba(8, 8, 8, 0.1) 0%, rgba(8, 8, 8, 0.3) 40%, rgba(8, 8, 8, 0.95) 100%);
-        }
-
-        .bento-work-top {
-            position: absolute;
-            top: 24px;
-            left: 24px;
-            right: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 3;
-        }
-
-        .bento-badge-tag {
-            font-family: var(--font-primary);
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #ffffff;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(12px);
-            padding: 6px 14px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .bento-arrow-btn {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-size: 1rem;
-            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
-        }
-
-        .bento-work-card:hover .bento-arrow-btn {
-            transform: translate(3px, -3px) rotate(45deg);
-            background: #ffffff;
-            color: #000000;
-        }
-
-        .bento-work-body {
-            position: relative;
-            z-index: 3;
-            padding: 30px;
-        }
-
-        .bento-work-title {
-            font-family: var(--font-primary);
-            font-size: clamp(1.25rem, 1.8vw, 1.65rem);
-            font-weight: 600;
-            color: #ffffff;
-            margin: 0 0 10px 0;
-            line-height: 1.25;
-            letter-spacing: -0.01em;
-        }
-
-        .bento-work-desc {
-            font-family: var(--font-primary);
-            font-size: 0.92rem;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.75);
-            margin: 0 0 18px 0;
-            max-width: 90%;
-        }
-
-        .bento-metric-pill {
+            bottom: 18px;
+            right: 18px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-family: 'Space Mono', Menlo, monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.05em;
+            padding: 8px 16px;
+            background: rgba(17, 17, 17, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 5px 12px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            font-family: var(--font-primary, sans-serif);
+            font-size: 0.76rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .editorial-project-media-wrap:hover .editorial-project-hover-badge {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .editorial-project-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .editorial-project-meta-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-primary, sans-serif);
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #888888;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .editorial-project-num {
+            color: #111111;
+            font-weight: 800;
+        }
+
+        .editorial-project-category {
+            flex: 1;
+            margin-left: 0.85rem;
+        }
+
+        .editorial-project-year {
+            color: #aaaaaa;
+            font-weight: 500;
+        }
+
+        .editorial-project-title {
+            font-family: var(--font-primary, sans-serif);
+            font-size: clamp(1.4rem, 2vw, 1.85rem);
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin: 0;
+            color: #111111;
+        }
+
+        .editorial-project-title a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .editorial-project-title a:hover {
+            color: #555555;
+        }
+
+        .editorial-project-title em {
+            font-family: var(--font-serif, serif);
+            font-style: italic;
+            font-weight: 400;
+            color: #666666;
+            margin-left: 0.35rem;
+        }
+
+        .editorial-project-desc {
+            font-family: var(--font-primary, sans-serif);
+            font-size: 0.95rem;
+            line-height: 1.55;
+            color: #555555;
+            margin: 0;
+            max-width: 96%;
+        }
+
+        .editorial-project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 0.35rem;
+        }
+
+        .editorial-project-tags span {
+            font-family: var(--font-primary, sans-serif);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: #666666;
+            background: #f7f6f2;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 4px 10px;
+            border-radius: 999px;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .editorial-project-card:hover .editorial-project-tags span {
+            border-color: rgba(0, 0, 0, 0.14);
+            color: #222222;
+        }
+
+        @media (max-width: 900px) {
+            .editorial-work-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .editorial-project-hover-badge {
+                display: none;
+            }
         }
 
         /* ==========================================================================
@@ -1897,14 +1915,6 @@
         }
 
         @media (max-width: 1024px) {
-            .bento-card-kala,
-            .bento-card-nextschool,
-            .bento-card-bazzaro,
-            .bento-card-nursepass {
-                grid-column: span 12;
-                min-height: 420px;
-            }
-
             .process-grid-4 {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -2538,12 +2548,12 @@
 
         
         <!-- ==========================================================================
-             01 / SELECTED WORK & FLAGSHIP CASE STUDIES (VISUAL BENTO GRID)
+             01 / SELECTED WORK & FLAGSHIP CASE STUDIES (EDITORIAL SHOWCASE)
              ========================================================================== -->
         <section class="section selected-work-section" id="selected-work">
             <div class="services-header">
                 <div>
-                    <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #888888; display: block; margin-bottom: 0.5rem;">// Flagship Case Studies</span>
+                    <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #888888; display: block; margin-bottom: 0.5rem;">// Featured Projects</span>
                     <h2 class="header-title">Selected <em>Work &amp; Flagships</em></h2>
                 </div>
                 <a href="/case-studies" style="text-decoration:none;">
@@ -2557,74 +2567,130 @@
                 </a>
             </div>
 
-            <div class="selected-work-bento">
-                <!-- 1. KALA DESIGN CO (Large Left Feature) -->
-                <a href="/case-studies/kala-design" class="bento-work-card bento-card-kala" aria-label="View Kala Design Co Case Study">
-                    <div class="bento-work-bg-wrap">
-                        <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architectural Flagship" class="bento-work-bg-img" width="800" height="500" loading="lazy" decoding="async">
-                        <div class="bento-work-overlay"></div>
+            <div class="editorial-work-grid">
+                <!-- 01. KALA DESIGN CO -->
+                <article class="editorial-project-card">
+                    <a href="/case-studies/kala-design" class="editorial-project-media-wrap" aria-label="View Kala Design Co Case Study">
+                        <div class="editorial-project-image-box">
+                            <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architectural Flagship" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
+                            <div class="editorial-project-hover-badge">
+                                <span>Explore Case Study</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="editorial-project-content">
+                        <div class="editorial-project-meta-line">
+                            <span class="editorial-project-num">01</span>
+                            <span class="editorial-project-category">Architecture &middot; Digital Monograph</span>
+                            <span class="editorial-project-year">2026</span>
+                        </div>
+                        <h3 class="editorial-project-title">
+                            <a href="/case-studies/kala-design">Kala Design Co. <em>Architecture Studio</em></a>
+                        </h3>
+                        <p class="editorial-project-desc">A bespoke digital monograph experience designed around visual storytelling, structured project archives, and architectural minimalism.</p>
+                        <div class="editorial-project-tags">
+                            <span>Bespoke Platform</span>
+                            <span>Editorial UI/UX</span>
+                            <span>Digital Archive</span>
+                        </div>
                     </div>
-                    <div class="bento-work-top">
-                        <span class="bento-badge-tag">ARCHITECTURE &middot; DIGITAL MONOGRAPH</span>
-                        <div class="bento-arrow-btn">&rarr;</div>
-                    </div>
-                    <div class="bento-work-body">
-                        <h3 class="bento-work-title">Kala Design Co &mdash; Architecture Studio Flagship</h3>
-                        <p class="bento-work-desc">A bespoke digital monograph experience designed around visual storytelling, structured project archives, and architectural minimalism.</p>
-                        <span class="bento-metric-pill">100% BESPOKE ARCHITECTURE &bull; SUB-0.8S LCP</span>
-                    </div>
-                </a>
+                </article>
 
-                <!-- 2. NEXTSCHOOL ERP (Right Top Feature) -->
-                <a href="/case-studies/nextschool-erp" class="bento-work-card bento-card-nextschool" aria-label="View NextSchool ERP Case Study">
-                    <div class="bento-work-bg-wrap">
-                        <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="NextSchool ERP Platform" class="bento-work-bg-img" width="600" height="400" loading="lazy" decoding="async">
-                        <div class="bento-work-overlay"></div>
+                <!-- 02. BAZZARO -->
+                <article class="editorial-project-card">
+                    <a href="/case-studies/bazzaro" class="editorial-project-media-wrap" aria-label="View BAZZARO Case Study">
+                        <div class="editorial-project-image-box">
+                            <img src="/assets/images/case-studies/bazzaro/hero.png" alt="BAZZARO Luxury Direct-to-Consumer" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
+                            <div class="editorial-project-hover-badge">
+                                <span>Explore Case Study</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="editorial-project-content">
+                        <div class="editorial-project-meta-line">
+                            <span class="editorial-project-num">02</span>
+                            <span class="editorial-project-category">Headless Shopify &middot; Luxury Commerce</span>
+                            <span class="editorial-project-year">2026</span>
+                        </div>
+                        <h3 class="editorial-project-title">
+                            <a href="/case-studies/bazzaro">BAZZARO <em>Sub-Second Flagship</em></a>
+                        </h3>
+                        <p class="editorial-project-desc">High-velocity luxury direct-to-consumer digital storefront engineered with sub-second catalog discovery and bespoke checkout flows.</p>
+                        <div class="editorial-project-tags">
+                            <span>Headless Shopify</span>
+                            <span>Luxury D2C</span>
+                            <span>Conversion Velocity</span>
+                        </div>
                     </div>
-                    <div class="bento-work-top">
-                        <span class="bento-badge-tag">EDTECH &middot; CAMPUS OS</span>
-                        <div class="bento-arrow-btn">&rarr;</div>
-                    </div>
-                    <div class="bento-work-body">
-                        <h3 class="bento-work-title">NextSchool ERP &mdash; Digital Campus Operating System</h3>
-                        <p class="bento-work-desc">Multi-tenant school and mobility management ecosystem connecting administration, teachers, students, and parent portals.</p>
-                        <span class="bento-metric-pill">MULTI-TENANT &bull; 99.98% UPTIME</span>
-                    </div>
-                </a>
+                </article>
 
-                <!-- 3. BAZZARO (Bottom Left Feature) -->
-                <a href="/case-studies/bazzaro" class="bento-work-card bento-card-bazzaro" aria-label="View BAZZARO Case Study">
-                    <div class="bento-work-bg-wrap">
-                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="BAZZARO Luxury Direct-to-Consumer" class="bento-work-bg-img" width="600" height="400" loading="lazy" decoding="async">
-                        <div class="bento-work-overlay"></div>
+                <!-- 03. NEXTSCHOOL ERP -->
+                <article class="editorial-project-card">
+                    <a href="/case-studies/nextschool-erp" class="editorial-project-media-wrap" aria-label="View NextSchool ERP Case Study">
+                        <div class="editorial-project-image-box">
+                            <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="NextSchool ERP Platform" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
+                            <div class="editorial-project-hover-badge">
+                                <span>Explore Case Study</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="editorial-project-content">
+                        <div class="editorial-project-meta-line">
+                            <span class="editorial-project-num">03</span>
+                            <span class="editorial-project-category">EdTech &middot; Campus Operating System</span>
+                            <span class="editorial-project-year">2026</span>
+                        </div>
+                        <h3 class="editorial-project-title">
+                            <a href="/case-studies/nextschool-erp">NextSchool <em>Digital Campus OS</em></a>
+                        </h3>
+                        <p class="editorial-project-desc">Multi-tenant school and mobility management ecosystem connecting administration, teachers, students, and parent portals.</p>
+                        <div class="editorial-project-tags">
+                            <span>Cloud Architecture</span>
+                            <span>Web Application</span>
+                            <span>Multi-Tenant</span>
+                        </div>
                     </div>
-                    <div class="bento-work-top">
-                        <span class="bento-badge-tag">HEADLESS SHOPIFY &middot; LUXURY D2C</span>
-                        <div class="bento-arrow-btn">&rarr;</div>
-                    </div>
-                    <div class="bento-work-body">
-                        <h3 class="bento-work-title">BAZZARO &mdash; Sub-Second Luxury Commerce</h3>
-                        <p class="bento-work-desc">From bespoke collection discovery to lightning-fast 0.9s checkout, engineered for measurable conversion velocity.</p>
-                        <span class="bento-metric-pill">+340% CONVERSIONS &bull; 0.9S LCP</span>
-                    </div>
-                </a>
+                </article>
 
-                <!-- 4. NURSEPASS (Bottom Right Feature) -->
-                <a href="/case-studies/nursepass" class="bento-work-card bento-card-nursepass" aria-label="View NursePass Case Study">
-                    <div class="bento-work-bg-wrap">
-                        <img src="/assets/images/case-studies/nursepass/hero.jpg" alt="NursePass Healthcare Application" class="bento-work-bg-img" width="600" height="400" loading="lazy" decoding="async">
-                        <div class="bento-work-overlay"></div>
+                <!-- 04. NURSEPASS -->
+                <article class="editorial-project-card">
+                    <a href="/case-studies/nursepass" class="editorial-project-media-wrap" aria-label="View NursePass Case Study">
+                        <div class="editorial-project-image-box">
+                            <img src="/assets/images/case-studies/nursepass/hero.jpg" alt="NursePass Healthcare Application" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
+                            <div class="editorial-project-hover-badge">
+                                <span>Explore Case Study</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="editorial-project-content">
+                        <div class="editorial-project-meta-line">
+                            <span class="editorial-project-num">04</span>
+                            <span class="editorial-project-category">Healthcare &middot; Clinical Application</span>
+                            <span class="editorial-project-year">2026</span>
+                        </div>
+                        <h3 class="editorial-project-title">
+                            <a href="/case-studies/nursepass">NursePass <em>Clinical Platform</em></a>
+                        </h3>
+                        <p class="editorial-project-desc">Medical certification examination platform engineered with adaptive assessment engines, live analytics, and resilient API pipelines.</p>
+                        <div class="editorial-project-tags">
+                            <span>Web Application</span>
+                            <span>HealthTech</span>
+                            <span>Assessment Engine</span>
+                        </div>
                     </div>
-                    <div class="bento-work-top">
-                        <span class="bento-badge-tag">HEALTHCARE &middot; WEB APPLICATION</span>
-                        <div class="bento-arrow-btn">&rarr;</div>
-                    </div>
-                    <div class="bento-work-body">
-                        <h3 class="bento-work-title">NursePass &mdash; Clinical Examination Platform</h3>
-                        <p class="bento-work-desc">High-concurrency medical certification platform engineered with adaptive assessment engines and resilient API pipelines.</p>
-                        <span class="bento-metric-pill">HIGH CONCURRENCY &bull; RESILIENT APIS</span>
-                    </div>
-                </a>
+                </article>
             </div>
         </section>
 
