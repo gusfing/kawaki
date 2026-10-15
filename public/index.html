@@ -280,6 +280,8 @@
 
         html {
             background-color: #ffffff;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -292,6 +294,31 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            max-width: 100vw;
+            width: 100%;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-width: 92vw;
+                --section-padding-y: 52px;
+            }
+        }
+
+        /* Strict Horizontal Overflow Clipping for Animated Banners */
+        .infs-marquee-container {
+            max-width: 100vw;
+            width: 100%;
+            overflow-x: clip;
+            overflow: hidden;
+            contain: paint;
+        }
+
+        .infs-scroll-wrapper {
+            max-width: 100%;
+            overflow: hidden;
+            contain: paint;
         }
 
         /* Monochrome Marquee Dots Override */
@@ -637,6 +664,13 @@
             align-items: start;
         }
 
+        @media (max-width: 992px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
         .story-title h2 {
             font-size: clamp(2rem, 3.5vw, 3.5rem);
             line-height: 1.1;
@@ -673,6 +707,15 @@
             align-items: flex-end;
             margin-bottom: 50px !important;
             width: 100%;
+        }
+
+        @media (max-width: 640px) {
+            .services-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.25rem;
+                margin-bottom: 2rem !important;
+            }
         }
 
         .header-title {
@@ -902,6 +945,29 @@
 
         .works-card:hover .works-card-tags {
             opacity: 0.85;
+        }
+
+        @media (max-width: 992px) {
+            .works-grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .works-grid-container {
+                grid-template-columns: 1fr;
+                border-right: 1px solid rgba(26, 26, 26, 0.1);
+            }
+
+            .works-card {
+                min-height: auto;
+                padding: 1.75rem 1.25rem;
+                border-right: none;
+            }
+
+            .works-card-title {
+                font-size: 1.6rem;
+            }
         }
 
         /* TEAM & FOUNDER SECTION */
@@ -1252,6 +1318,28 @@
         .content-faq em {
             font-family: var(--font-serif);
             font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .arrow-faq {
+                width: 44px;
+                height: 44px;
+            }
+            .arrow-faq svg {
+                width: 20px;
+                height: 20px;
+            }
+            .question-faq {
+                min-height: auto;
+                padding: 14px 0;
+                gap: 12px;
+            }
+            .text-faq {
+                font-size: 1.15rem;
+            }
+            .content-faq {
+                font-size: 0.95rem;
+            }
         }
 
         /* ==========================================================================
@@ -2278,17 +2366,14 @@
 
                 <div class="hero-lama-right">
                     <div class="hero-lama-desc-box">
-                        <p style="margin-bottom: 0.85rem;">
-                            Kawaki Studios is a Delhi-based digital product and web development studio building custom websites, web applications, ecommerce experiences and AI-powered systems for ambitious businesses worldwide.
-                        </p>
-                        <p style="font-size: 0.95rem; color: #888888; margin-bottom: 1.5rem;">
-                            We combine strategy, design and engineering to create digital products that look distinctive, perform reliably and remain maintainable long after launch.
+                        <p style="margin-bottom: 1.25rem; font-size: clamp(0.95rem, 1.1vw, 1.1rem); line-height: 1.55; color: rgba(255, 255, 255, 0.85);">
+                            We engineer custom websites, scalable web applications, and AI systems for ambitious brands worldwide.
                         </p>
                         <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <a href="/contact" class="vol-btn-primary" style="padding: 10px 20px; font-size: 0.78rem;">
+                            <a href="/contact" class="vol-btn-primary" style="padding: 11px 22px; font-size: 0.82rem;">
                                 <span>Start a Project &rarr;</span>
                             </a>
-                            <a href="/case-studies" class="cap-link" style="font-family: var(--font-primary); font-size: 0.78rem; text-decoration: underline; text-underline-offset: 4px; color: #FFFFFF;">
+                            <a href="/case-studies" class="cap-link" style="font-family: var(--font-primary); font-size: 0.8rem; text-decoration: underline; text-underline-offset: 4px; color: #FFFFFF;">
                                 <span>Explore Our Work &rarr;</span>
                             </a>
                         </div>
