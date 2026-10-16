@@ -292,6 +292,7 @@ function generateArticleHtml(article) {
   };
 
   const BLOG_SEO_TITLES = {
+    'what-to-prepare-before-hiring-web-development-agency': 'What to Prepare Before Hiring a Web Agency',
     'ai-automation-architecture': 'AI Automation Architecture & Workflows',
     'ai-agent-reliability-evaluation': 'AI Agent Reliability & Evaluation',
     'ai-automation-vs-ai-agents': 'AI Automation vs AI Agents Guide',
@@ -316,6 +317,14 @@ function generateArticleHtml(article) {
 <html lang="en">
 
 <head>
+    <!-- Clarity tracking code for https://kawaki.co.in/ -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "yyqy7vt939");
+    </script>
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />

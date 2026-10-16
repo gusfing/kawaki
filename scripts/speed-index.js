@@ -40,6 +40,10 @@ const CORE_URLS = [
 ];
 
 function getUrlsToIndex() {
+    const passed = process.argv.slice(2).filter(a => a.startsWith('http'));
+    if (passed.length > 0) {
+        return passed;
+    }
     const isAll = process.argv.includes('--all') || process.argv.includes('-a');
     if (isAll) {
         const sitemapPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
