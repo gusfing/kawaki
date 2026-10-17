@@ -70,15 +70,22 @@ function doPost(e) {
     var status = String(data.status || "new").trim();
     var notes = String(data.notes || "").trim();
 
+    function safeVal(val) {
+      if (!val) return "";
+      var str = String(val).trim();
+      if (/^[+=@\-]/.test(str)) return "'" + str;
+      return str;
+    }
+
     // Append lead to spreadsheet
     sheet.appendRow([
       timestamp,
       name,
       email,
-      contact,
+      safeVal(contact),
       service,
       stage,
-      budget,
+      safeVal(budget),
       slotDate,
       slotTime,
       status,
