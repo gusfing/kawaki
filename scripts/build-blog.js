@@ -363,7 +363,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 
@@ -1122,7 +1122,7 @@ function updateBlogIndexHtml(articles) {
                     <div class="card-image-wrapper">
                         <img src="${imgSrc}" alt="${b.title}" width="800" height="450" loading="lazy" decoding="async" onerror="this.src='${fallbackImages[0]}'">
                     </div>
-                    <h3 class="card-title">${b.title}</h3>
+                    <h2 class="card-title">${b.title}</h2>
                 </a>`;
   }).join('\n');
 
