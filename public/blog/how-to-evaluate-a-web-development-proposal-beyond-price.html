@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Clarity tracking code for https://kawaki.co.in/ -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "yyqy7vt939");
+    </script>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Evaluate a Web Development Proposal Beyond Price — Kawaki Studios</title>
+    <meta name="description" content="A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs." />
+    <meta name="generator" content="Kawaki Blog Engine" />
+    <link rel="canonical" href="https://kawaki.co.in/blog/how-to-evaluate-a-web-development-proposal-beyond-price" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kawaki.co.in/blog/how-to-evaluate-a-web-development-proposal-beyond-price" />
+    <meta property="og:title" content="How to Evaluate a Web Development Proposal Beyond Price — Kawaki Studios" />
+    <meta property="og:description" content="A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs." />
+    <meta property="og:image" content="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" content="How to Evaluate a Web Development Proposal Beyond Price — Kawaki Studios" />
+    <meta name="twitter:description" content="A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs." />
+    <meta name="twitter:image" content="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide",
+    "description": "A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs.",
+    "image": "/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp",
+    "datePublished": "2026-10-19T19:10:00.000Z",
+    "dateModified": "2026-10-19T19:10:00.000Z",
+    "author": {
+        "@type": "Person",
+        "name": "Kunal Sharma"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "@id": "https://kawaki.co.in/#organization",
+        "name": "Kawaki Studios",
+        "url": "https://kawaki.co.in",
+        "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://kawaki.co.in/blog/how-to-evaluate-a-web-development-proposal-beyond-price"
+    }
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kawaki.co.in/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://kawaki.co.in/blog"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide",
+            "item": "https://kawaki.co.in/blog/how-to-evaluate-a-web-development-proposal-beyond-price"
+        }
+    ]
+}
+    </script>
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
+
+    <style>
+        :root {
+            --color-bg: #FFFFFF;
+            --color-text: #12100E;
+            --color-muted: #6B7280;
+            --color-accent: #C6FF00;
+            --font-sans: "Plus Jakarta Sans", sans-serif;
+            --font-serif: "Instrument Serif", serif;
+            --font-mono: "JetBrains Mono", monospace;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            font-size: 17px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        em {
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+
+        .article-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 130px 24px 80px;
+        }
+
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+            margin-bottom: 1.5rem;
+        }
+        .article-breadcrumb a {
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .article-breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+        .article-breadcrumb .bc-sep {
+            color: rgba(0,0,0,0.3);
+        }
+        .article-breadcrumb .bc-current {
+            color: var(--color-text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 420px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-muted);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .article-meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .article-header-title {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin: 0 0 1.5rem;
+            color: #111111;
+        }
+
+        .article-info-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 1.25rem 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .author-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #111111;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .article-hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+        }
+
+        .article-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #2D2A26;
+        }
+
+        .article-content h1, 
+        .article-content h2, 
+        .article-content h3 {
+            color: #111111;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 2.5rem 0 1rem;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+        .article-content h3 {
+            font-size: 1.35rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content a {
+            color: #111111;
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent);
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .article-content a:hover {
+            color: #000000;
+        }
+
+        .article-content pre {
+            background: #111116;
+            color: #F4F4F5;
+            padding: 1.25rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            margin: 1.5rem 0;
+        }
+
+        .article-content code {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            background: rgba(0,0,0,0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .article-content pre code {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            color: inherit;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1.25rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #4A4640;
+        }
+
+        .article-content figure {
+            margin: 2.5rem 0;
+            padding: 0;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-content figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: rgba(0,0,0,0.05);
+            font-size: 12px;
+            font-weight: 600;
+            color: #4A4640;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .rlvnt-btn {
+            position: relative;
+            display: inline-flex;
+            gap: 8px;
+            border: 1px solid var(--color-text);
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-style: italic;
+            background: transparent;
+            color: var(--color-text);
+            font-size: 1rem;
+            overflow: hidden;
+            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .rlvnt-btn.max-content {
+            width: max-content;
+            height: max-content;
+            font-size: 20px;
+            padding: 8px 16px;
+        }
+        .rlvnt-btn:hover {
+            background-color: var(--color-text);
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- SVG LIQUID LENS FILTER -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid-lens">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.03" numOctaves="1" result="turbulence"></feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="40" xChannelSelector="R" yChannelSelector="G" result="displacement"></feDisplacementMap>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- GLOBAL FLOATING PILL NAVBAR -->
+    <div class="nav-wrapper" id="globalNav">
+        <nav>
+            <a href="/" class="nav-left" aria-label="Kawaki Studios">
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" width="947" height="242" decoding="async" />
+            </a>
+            <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
+            <div class="nav-right" id="menuToggleBtn" aria-label="Open Menu">
+                <span id="menu-toggle-text">MENU</span>
+                <div id="menu-toggle-icon">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-bottom"></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- FULLSCREEN OVERLAY MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu"><em>kawaki</em></span>
+            <div class="menu-layout">
+                <div class="menu-col menu-col-left">
+                    <div class="main-menu-links" id="mainMenuPrimary">
+                        <ul>
+                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home — Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
+                                <a href="/">
+                                    <span class="menu-idx">01</span>
+                                    <span class="menu-text">Home <em>Index</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us — Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
+                                <a href="/about">
+                                    <span class="menu-idx">02</span>
+                                    <span class="menu-text">About <em>Kawaki Studios</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Capabilities &amp; Architecture" data-desc="Five Core Engineering &amp; Recovery Pillars">
+                                <a href="/services" id="menuServicesTrigger" class="menu-services-trigger" aria-haspopup="true" aria-expanded="false">
+                                    <span class="menu-idx">03</span>
+                                    <span class="menu-text">Explore <em>Our Services</em></span>
+                                    <span class="menu-expand-badge" title="Expand services">+</span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Architectural Concepts" data-desc="Reference Designs &amp; Engineering Blueprints">
+                                <a href="/case-studies">
+                                    <span class="menu-idx">04</span>
+                                    <span class="menu-text">Selected <em>Concepts &amp; Blueprints</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/station_drag_prism.webp" data-tag="Engineering &amp; Design Notes" data-desc="Essays on Web Engineering &amp; Performance">
+                                <a href="/blog">
+                                    <span class="menu-idx">05</span>
+                                    <span class="menu-text">Blogs &amp; <em>Insights</em></span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/about-studio.webp" data-tag="15-Min Strategy Session" data-desc="Schedule a Technical Discovery Call">
+                                <a href="/contact">
+                                    <span class="menu-idx">06</span>
+                                    <span class="menu-text">Discovery <em>Call</em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- EXPANDED SERVICES SUB-NAVIGATION MEGA-MENU -->
+                    <div class="main-menu-services" id="mainMenuServices" style="display: none; opacity: 0;">
+                        <div class="menu-services-topbar">
+                            <button type="button" class="menu-services-back-btn" id="menuServicesBackBtn" aria-label="Back to main menu">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                                <span>Back to Menu</span>
+                            </button>
+                            <span class="menu-services-header-title">EXPLORE OUR SERVICES</span>
+                            <a href="/services" class="menu-services-hub-link">
+                                <span>All Services</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+
+                        <div class="menu-services-grid">
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// WEB &amp; COMMERCE</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/project_1.jpg" data-tag="Web Engineering" data-desc="Custom Websites &amp; Next.js Web Applications">
+                                        <a href="/services/custom-web-development">
+                                            <span class="sub-idx">01</span>
+                                            <span class="sub-name">Custom Web Development</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/about_hero_bg.jpg" data-tag="Commerce Engineering" data-desc="Custom Storefronts &amp; Theme Customization">
+                                        <a href="/services/shopify-development">
+                                            <span class="sub-idx">02</span>
+                                            <span class="sub-name">Shopify Development</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// AI &amp; AUTOMATION</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/station_drag_prism.webp" data-tag="Intelligent Systems" data-desc="n8n, Make &amp; Deterministic AI Agent Workflows">
+                                        <a href="/services/ai-automation">
+                                            <span class="sub-idx">03</span>
+                                            <span class="sub-name">AI Automation</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/hero_slide_3_clean.webp" data-tag="Search Engineering" data-desc="AI Search Optimization, AEO &amp; GEO Architecture">
+                                        <a href="/services/ai-search-optimization">
+                                            <span class="sub-idx">04</span>
+                                            <span class="sub-name">AI Search Optimization</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// SECURITY &amp; RECOVERY</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Security &amp; Recovery" data-desc="Hacked Site Cleanup &amp; Database Sanitization">
+                                        <a href="/services/wordpress-malware-removal">
+                                            <span class="sub-idx">05</span>
+                                            <span class="sub-name">WordPress Malware Removal</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-services-group">
+                                <div class="menu-services-cat-title">// CREATIVE &amp; SPECIALIST</div>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="Brand &amp; Creative" data-desc="Social Presence &amp; Content Architecture">
+                                        <a href="/services">
+                                            <span class="sub-idx">06</span>
+                                            <span class="sub-name">Social Media Management</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/about-studio.webp" data-tag="Motion Design" data-desc="Short-Form Video &amp; Editorial Motion Content">
+                                        <a href="/services">
+                                            <span class="sub-idx">07</span>
+                                            <span class="sub-name">Reel Editing</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/kw-project-ecomm.webp" data-tag="Spatial &amp; 3D" data-desc="Visual Product Modeling &amp; 3D Interactive Assets">
+                                        <a href="/services">
+                                            <span class="sub-idx">08</span>
+                                            <span class="sub-name">3D Design</span>
+                                        </a>
+                                    </li>
+                                    <li data-img="/assets/images/project_3_1787254295127.webp" data-tag="Spatial Planning" data-desc="Architectural Modeling &amp; Environmental Visualization">
+                                        <a href="/services">
+                                            <span class="sub-idx">09</span>
+                                            <span class="sub-name">Architecture Planning</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-col menu-col-right">
+                    <div class="menu-preview-card" id="menuPreviewCard">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/station_drag_prism.webp" alt="Preview" width="1376" height="768" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">Engineering &amp; Design Notes</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">Custom Web Design &amp; Development</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-info-block">
+                        <div class="menu-status-pill">
+                            <span class="status-dot"></span>
+                            <span>Available for Select Projects</span>
+                        </div>
+                        <a href="/contact" class="menu-cta-button">
+                            <span>Schedule a Call</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                                <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" class="menu-email-link">hello@kawakistudios.com</a>
+                    </div>
+
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <div class="social-tags">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram ↗</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN ARTICLE BODY -->
+    <main class="article-container">
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+            <a href="/">Home</a>
+            <span class="bc-sep">/</span>
+            <a href="/blog">Blog</a>
+            <span class="bc-sep">/</span>
+            <span class="bc-current">How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide</span>
+        </nav>
+
+        <a href="/blog" class="back-link">
+            ← Back to all stories
+        </a>
+
+        <article id="articleWrapper">
+            <div class="article-meta-badge" id="articleCategory">
+                ● Web Development
+            </div>
+            
+            <h1 class="article-header-title" id="articleTitle">
+                How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide
+            </h1>
+
+            <div class="article-info-bar">
+                <div class="author-box">
+                    <div class="author-avatar" id="authorInitial">KS</div>
+                    <div>
+                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
+                        <div style="font-size: 12px;" id="articleDate">19 Oct 2026</div>
+                    </div>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
+                    125 reads
+                </div>
+            </div>
+
+            <img id="articleImage" src="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" alt="How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+
+            <div class="article-content" id="articleContent">
+                <p>You have prepared your project requirements, distributed your brief, and received three to five agency proposals. On paper, they all promise a "modern, responsive, high-performance website." </p>
+<p>Then you look at the commercial estimates:</p>
+<ul>
+<li><strong>Agency A:</strong> $6,500 (Delivery in 3 weeks)</li>
+<li><strong>Agency B:</strong> $22,000 (Delivery in 8 weeks)</li>
+<li><strong>Agency C:</strong> $54,000 (Delivery in 14 weeks)</li>
+</ul>
+<p>For founders, CTOs, and marketing executives, this wide variance creates immediate paralysis. How can three professional firms looking at the exact same project brief arrive at numbers separated by an order of magnitude? More critically: <strong>Is Agency A an incredible value, or an existential trap? Is Agency C charging enterprise bloat, or are they the only team that truly understood your architectural scope?</strong></p>
+<p>The reality of digital product engineering is that <strong>price is a lagging indicator of architectural decisions.</strong> </p>
+<p>An agency quoting $6,500 is almost certainly not delivering the same digital product as an agency quoting $25,000. One is assembling pre-made commercial WordPress templates with thirty third-party plugins that collapse under load. The other is engineering a clean, bespoke <a href="/blog/nextjs-performance-architecture">Next.js or React architecture</a> with automated CI/CD pipelines, componentized design systems, and sub-second Core Web Vitals.</p>
+<blockquote>
+<p><strong>Evaluating a web development proposal on price alone is like buying a commercial building based on paint color while ignoring the foundation, seismic rating, and zoning permits. The cheapest bid upfront is routinely the most expensive software a company ever purchases.</strong></p>
+</blockquote>
+<p>Building directly on our previous guide on <a href="/blog/what-to-prepare-before-hiring-web-development-agency">what to prepare before hiring a web development agency</a>, this guide provides an actionable, technical framework to evaluate competing proposals, dissect hidden assumptions, audit architecture, and select the right engineering partner.</p>
+<hr />
+<h2>1. The Cost Illusion: The Anatomy of an Underbid</h2>
+<p>To understand why proposals vary so drastically, you must understand how low-tier agencies operate. In the agency ecosystem, low bids are rarely a sign of engineering efficiency; they are a customer-acquisition tactic.</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/web-development-proposal-evaluation-framework.webp" alt="Web Development Proposal Evaluation Matrix showing the 5 core pillars of Technical Architecture, Scope Precision, Code &amp; IP Governance, Milestone Protocol, and Total Cost of Ownership" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: The 5-Pillar Technical Proposal Evaluation Matrix.</figcaption>
+</figure><p>When a vendor drastically underbids a project, they survive through one of three mechanisms:</p>
+<h3>1. The "Change-Order" Ambush</h3>
+<p>The vendor intentionally submits a vague, low-priced proposal that covers only a superficial "happy path." Once you sign the contract and pay the 50% deposit, every necessary technical reality—mobile form validation, third-party webhook error handling, staging environments, transactional email templates, or basic SEO redirects—is classified as "out of scope." You are hit with aggressive, non-negotiable change-order invoices at $150/hour when your launch deadline is already committed to investors or customers.</p>
+<h3>2. The Commercial Template Reseller</h3>
+<p>The vendor does not actually write custom code. Instead, they purchase a $59 ThemeForest theme, install 40+ unvetted third-party plugins (page builders, slider tools, mega-menu add-ons), and swap in your logo. </p>
+<ul>
+<li><strong>The Immediate Result:</strong> The site looks passable on desktop during launch week.</li>
+<li><strong>The Long-Term Cost:</strong> Mobile page loads exceed 4.5 seconds (failing Core Web Vitals), database queries spike to 200+ per page load, plugin conflicts break checkout, and unpatched security vulnerabilities invite <a href="/blog/wordpress-malicious-redirects-cleanup">malicious script injections</a> or stealth web shells within six months.</li>
+</ul>
+<h3>3. The Offshore Subcontractor Arbitrage</h3>
+<p>You interview a polished Western or metro-based account executive who promises high-touch collaboration. Once the contract is signed, your project is handed over to junior, white-label offshore subcontractors who were never in the room, have no context on your brand, and lack architectural leadership. Progress stalls, communication deteriorates across time zones, and the resulting codebase is unmaintainable spaghetti.</p>
+<hr />
+<h2>2. The 5-Pillar Proposal Evaluation Matrix</h2>
+<p>To strip away marketing rhetoric and compare proposals objectively, evaluate every submission across five core pillars:</p>
+<h3>Pillar 1: Architectural Foundation &amp; Tech Stack Justification</h3>
+<p>A professional proposal does not simply state "we will build on Technology X." It explains <strong>why</strong> that architecture was selected based on your traffic, content workflows, and long-term business goals:</p>
+<ul>
+<li><strong>Technology Alignment:</strong> Did the agency propose a monolithic CMS when your roadmap requires multi-channel content delivery? Did they propose a complex, decoupled microservices stack when a clean static Jamstack site would have been faster, cheaper, and more secure?</li>
+<li><strong>Performance Commitments:</strong> Does the proposal include concrete, contractual performance benchmarks? Elite agencies commit to sub-1.2s Largest Contentful Paint (LCP) and zero Cumulative Layout Shift (CLS) on real mobile connections. Low-tier proposals make vague claims like "the site will be fast and SEO-friendly."</li>
+<li><strong>Dependency Hygiene:</strong> What is their philosophy on external dependencies? A quality proposal specifies minimal third-party libraries, modern package management (npm/pnpm), and zero drag-and-drop page builders that bloat the client-side bundle.</li>
+</ul>
+<h3>Pillar 2: Scope of Work (SOW) Precision &amp; "Non-Goals"</h3>
+<p>The quality of a proposal is directly proportional to its specificity. Look at the Scope of Work (SOW):</p>
+<ul>
+<li><strong>Granular Page &amp; View Inventory:</strong> Does the proposal list every unique page layout, interactive component, and dynamic state? (e.g., "Homepage, 4 Service Hubs, Dynamic Case Study Engine, Multi-Step Checkout, 404 Error State, Legal Templates").</li>
+<li><strong>Integration Data Contracts:</strong> If third-party APIs are required (HubSpot, Stripe, NetSuite, Klaviyo), does the proposal detail how data flows, how authentication is handled, and what happens when an API is unreachable?</li>
+<li><strong>Explicit Non-Goals:</strong> Does the proposal document what is <strong>not</strong> included? High-integrity agencies explicitly define non-goals (e.g., "Phase 1 does not include multi-language localization or native mobile app push notifications"). This proves the agency has thought deeply about project boundaries.</li>
+</ul>
+<h3>Pillar 3: Code Ownership, Repositories &amp; IP Governance</h3>
+<p>One of the most dangerous oversights in agency procurement is assuming you automatically own your software:</p>
+<ul>
+<li><strong>Repository Access from Day 1:</strong> Will the agency commit directly to your company's private GitHub or GitLab organization from Sprint 1? If an agency insists on hosting code on their private, internal server until final invoice payment, your project is held hostage.</li>
+<li><strong>100% Intellectual Property Assignment:</strong> Does the contract language unequivocally state that all bespoke code, custom scripts, designs, and architectural assets belong to your company upon creation?</li>
+<li><strong>Infrastructure &amp; Domain Control:</strong> Does the agency register domains or cloud hosting accounts under their name? All cloud infrastructure (Vercel, AWS, Cloudflare, Supabase) must be provisioned under your organization's administrative billing.</li>
+</ul>
+<h3>Pillar 4: Milestone Structure, Staging Environments &amp; QA</h3>
+<p>Look closely at how the agency plans to verify their work before you release payment:</p>
+<ul>
+<li><strong>Deliverable-Based Invoicing:</strong> Avoid proposals demanding "50% upfront, 50% upon completion." Instead, look for phased milestone payments tied to testable deliverables:<ul>
+<li><em>Milestone 1:</em> Technical Discovery &amp; Approved Figma Component Architecture (25%)</li>
+<li><em>Milestone 2:</em> Front-End Interactive Staging &amp; Core API Integrations (30%)</li>
+<li><em>Milestone 3:</em> End-to-End Functional Sandbox, Content Migration &amp; Telemetry (25%)</li>
+<li><em>Milestone 4:</em> Final QA, Security Hardening, Production Cutover &amp; DNS Switch (20%)</li>
+</ul>
+</li>
+<li><strong>Automated Staging Deployments:</strong> Does the agency provide continuous preview URLs (e.g., automated Vercel or Netlify preview deployments on every Git pull request)? You should be able to click and test features as they are built, rather than waiting for a "big reveal" at the end of the project.</li>
+<li><strong>Formal Quality Assurance Protocol:</strong> Does the proposal outline their cross-device testing matrix (physical iOS, Android, macOS, Windows)? Does it include automated Lighthouse CI checks, WCAG 2.1 AA accessibility audits, and cross-browser regression testing?</li>
+</ul>
+<h3>Pillar 5: Total Cost of Ownership (TCO) &amp; Post-Launch Support</h3>
+<p>A website has operational expenses that extend far beyond initial development:</p>
+<ul>
+<li><strong>Recurring SaaS &amp; Plugin Subscriptions:</strong> Does the proposed build require $300/month in commercial plugin licenses, CMS tiers, or API compute charges?</li>
+<li><strong>Change-Order Rate &amp; Governance:</strong> What is the documented hourly rate if you request a scope adjustment mid-project? How is a change-order scoped, estimated, and approved before work begins?</li>
+<li><strong>Written Post-Launch Warranty:</strong> Elite agencies include a 30 to 60-day written warranty covering bug fixes, performance monitoring, and telemetry stabilization at zero additional charge. Low-tier proposals conclude responsibility on launch day, forcing you into expensive hourly retainers immediately.</li>
+</ul>
+<hr />
+<h2>3. Proposal Scorecard: Red Flags vs. Engineering Standards</h2>
+<p>To assist your executive team in vetting proposals side-by-side, use this comparison scorecard:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/proposal-red-flags-vs-engineering-standards.webp" alt="Web Development Proposal Vetting Scorecard comparing low-tier vendor red flags against elite engineering standards" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Proposal Comparison Scorecard: Red Flags vs. Elite Engineering Standards.</figcaption></figure><table>
+<thead>
+<tr>
+<th align="left">Evaluation Dimension</th>
+<th align="left">Low-Tier Proposal (Red Flags)</th>
+<th align="left">Elite Engineering Proposal (Standards)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Tech Stack</strong></td>
+<td align="left">Off-the-shelf theme, 40+ database plugins, visual drag-and-drop builder. High technical debt.</td>
+<td align="left">Bespoke <a href="/blog/nextjs-performance-architecture">Next.js or React architecture</a> or clean native theme code. Sub-second LCP.</td>
+</tr>
+<tr>
+<td align="left"><strong>Scope Definition</strong></td>
+<td align="left">2-page vague summary ("build modern website"). Ignores edge cases and error states.</td>
+<td align="left">Detailed technical SOW specifying schemas, API error boundaries, view inventories, and explicit non-goals.</td>
+</tr>
+<tr>
+<td align="left"><strong>Code Ownership</strong></td>
+<td align="left">Holds code hostage on private agency servers; delivers a compiled ZIP file at final payment.</td>
+<td align="left">Commits directly to client's private GitHub/GitLab from Sprint 1. 100% IP assignment in contract.</td>
+</tr>
+<tr>
+<td align="left"><strong>Payment Terms</strong></td>
+<td align="left">50% upfront, 50% on "launch." High client risk, zero financial leverage if delivery stalls.</td>
+<td align="left">Milestone payments tied to verified staging deliverables (Discovery, Staging MVP, Final QA).</td>
+</tr>
+<tr>
+<td align="left"><strong>Testing &amp; QA</strong></td>
+<td align="left">No formal QA plan. Expects client to act as unpaid bug testers post-launch.</td>
+<td align="left">Automated CI preview URLs per pull request, cross-browser physical device matrix, Lighthouse CI gating.</td>
+</tr>
+<tr>
+<td align="left"><strong>Post-Launch SLA</strong></td>
+<td align="left">Zero warranty. Any bug discovered 24 hours after launch incurs an immediate hourly bill.</td>
+<td align="left">30–60 days of written warranty for bug fixes and performance monitoring included in proposal.</td>
+</tr>
+</tbody></table>
+<hr />
+<h2>4. Dissecting Common Proposal Tech Stacks</h2>
+<p>When agencies propose different technical stacks, they are fundamentally proposing different business models:</p>
+<h3>Stack A: The Monolithic CMS (e.g., Standard WordPress + Elementor)</h3>
+<ul>
+<li><strong>Appropriate For:</strong> Ultra-low-budget local businesses (&lt;$5,000) with static, low-traffic needs where speed and custom functionality are secondary.</li>
+<li><strong>Hidden Realities:</strong> Highly vulnerable to plugin vulnerabilities, heavy DOM bloat, high database query latency, and perpetual maintenance overhead. A client typically spends $2,000–$4,000 annually just keeping plugins updated and recovering from broken releases.</li>
+</ul>
+<h3>Stack B: The Modern Headless Architecture (e.g., Next.js + Headless CMS + Edge CDN)</h3>
+<ul>
+<li><strong>Appropriate For:</strong> High-growth startups, ambitious brands, SaaS platforms, and enterprise digital flagships requiring instant load times (&lt;1.0s), bulletproof security, and seamless API integrations.</li>
+<li><strong>Why the Proposal Costs More:</strong> Headless engineering requires skilled front-end and full-stack software engineers who write clean TypeScript, structure component systems, and engineer caching layers—not junior site builders clicking settings in a GUI.</li>
+<li><strong>The Long-Term ROI:</strong> Zero database security attack surface, near-zero hosting compute costs at edge CDN, superior SEO conversion rates, and modular freedom to swap backends without rebuilding the front-end.</li>
+</ul>
+<h3>Stack C: Native Headless Ecommerce (e.g., Headless Shopify / Storefront API)</h3>
+<ul>
+<li><strong>Appropriate For:</strong> Scaling D2C brands processing substantial order volume where conversion rates depend on instant catalog filtering and checkout performance.</li>
+<li><strong>Evaluation Criteria:</strong> Ensure the agency has documented experience with <a href="/blog/headless-shopify-development-guide">headless Shopify development</a>, Cart API synchronization, and edge caching invalidation, rather than experimenting on your budget.</li>
+</ul>
+<hr />
+<h2>5. Five Technical Questions to Ask on the Proposal Review Call</h2>
+<p>Never sign an agency contract based solely on a written proposal document. Schedule a 45-minute technical review call and ask these five non-negotiable questions:</p>
+<h3>1. "Can we speak directly with the Lead Engineer who will architect our codebase?"</h3>
+<ul>
+<li><strong>The Test:</strong> If the agency refuses or claims you can only speak to account managers and sales executives, your project will be managed through layers of telephone game bureaucracy.</li>
+<li><strong>The Ideal Response:</strong> You are introduced to the senior technical director or lead developer who will oversee your repository. They can answer nuanced questions about database indexing, caching strategies, and API boundaries on the spot.</li>
+</ul>
+<h3>2. "How do you manage version control, branching, and pull request reviews?"</h3>
+<ul>
+<li><strong>The Test:</strong> Uncovers whether the agency operates like a disciplined software engineering firm or an ad-hoc freelancer collective.</li>
+<li><strong>The Ideal Response:</strong> <em>"We use Git feature branching off a development branch, with automated linting, type-checking, and preview deployments on every pull request. No code hits production without peer review and staging sign-off."</em></li>
+</ul>
+<h3>3. "What happens when an external third-party API goes down or changes its schema?"</h3>
+<ul>
+<li><strong>The Test:</strong> Reveals whether the agency engineers resilient error handling or merely writes sunny-day code.</li>
+<li><strong>The Ideal Response:</strong> The engineer discusses graceful degradation, caching fallbacks, asynchronous queueing, and error monitoring (e.g., Sentry or PostHog telemetry) to ensure a third-party webhook failure does not bring down your customer-facing storefront.</li>
+</ul>
+<h3>4. "What specific Core Web Vitals thresholds will be written into our delivery contract?"</h3>
+<ul>
+<li><strong>The Test:</strong> Separates empty marketing promises from enforceable engineering commitments.</li>
+<li><strong>The Ideal Response:</strong> The agency is willing to specify target metrics in writing—such as mobile LCP &lt; 1.5s, CLS &lt; 0.05, and INP &lt; 150ms on standard mobile networks—validated by Google PageSpeed Insights before final milestone sign-off.</li>
+</ul>
+<h3>5. "If we choose to bring development in-house in 12 months, how will your architecture support our engineers?"</h3>
+<ul>
+<li><strong>The Test:</strong> Ensures the agency is not intentionally engineering vendor lock-in.</li>
+<li><strong>The Ideal Response:</strong> The agency details their documentation standards, component storybooks, clean typed schemas, and standard development environments (e.g., single <code>npm run dev</code> startup) that allow any competent engineer to onboard effortlessly.</li>
+</ul>
+<hr />
+<h2>6. How Kawaki Studios Approaches Proposals</h2>
+<p>At <a href="/">Kawaki Studios</a>, our engineering philosophy is built on complete architectural transparency and technical integrity. We do not participate in race-to-the-bottom pricing, nor do we build fragile sites on commercial themes:</p>
+<ul>
+<li><strong>100% Private Repository Ownership:</strong> We commit directly to your private GitHub organization from Day 1. You own every line of code, every component, and every architectural asset unconditionally.</li>
+<li><strong>Bespoke, Clean-Code Architecture:</strong> Whether building high-performance web applications, editorial digital monographs like <a href="/case-studies/kala-design-co">Kala Design Co.</a>, or high-velocity commerce systems like <a href="/case-studies/bazzaro">BAZZARO</a>, we engineer custom software without bloated page builders or fragile plugin chains.</li>
+<li><strong>Verified Milestone Deliverables:</strong> Our proposals feature clear sprint roadmaps, automated staging previews for every pull request, and contractual Core Web Vitals commitments.</li>
+<li><strong>30-Day Written Warranty:</strong> Every production launch is backed by a 30-day post-launch warranty and comprehensive engineering documentation.</li>
+</ul>
+<hr />
+<h2>7. Frequently Asked Questions (FAQ)</h2>
+<h3>What should I do if two proposals have identical scopes but a 3x price difference?</h3>
+<p>Request a line-item breakdown of hours and engineering seniority. A $10,000 proposal may allocate 60 hours of junior site-assembly using an existing template, while a $30,000 proposal allocates 200 hours of custom UI/UX design, senior full-stack TypeScript engineering, automated test suites, and API security auditing. Inspect their live client portfolios and test their real-world mobile performance on Google PageSpeed Insights.</p>
+<h3>Is a fixed-price proposal always safer than time-and-materials?</h3>
+<p>Not necessarily. Fixed-price proposals provide budget certainty only when your project requirements are 100% frozen and unambiguous. If any technical unknowns exist, fixed-price contracts incentivize the vendor to cut corners on code quality or aggressively issue change-orders. A milestone-based sprint model with defined deliverables often yields higher software quality and faster velocity.</p>
+<h3>Should I accept a proposal that uses a proprietary agency CMS?</h3>
+<p>Almost never. If an agency builds your site on their in-house proprietary content management system, you are permanently locked into their hosting, maintenance retainers, and pricing. If you ever part ways, your website cannot be transferred—it must be rebuilt from scratch. Demand open, standard technologies (Next.js, React, Node, clean Shopify, or industry-standard headless CMSs like Sanity or Strapi).</p>
+<h3>How long should an agency proposal be valid?</h3>
+<p>Standard agency proposals are typically valid for 30 to 45 days. Engineering agencies plan team capacity months in advance. If you delay signing by several months, the agency’s engineering lead or sprint availability may shift, requiring a re-estimation of timelines.</p>
+<hr />
+<h2>8. Summary: Your Proposal Evaluation Action Plan</h2>
+<p>Before awarding your next web development contract:</p>
+<ol>
+<li><strong>Normalize the Quotes:</strong> Disregard the top-line price and audit the five architectural pillars (Tech Stack, Scope Specificity, IP Governance, Milestone QA, and 3-Year TCO).</li>
+<li><strong>Eliminate Red Flags:</strong> Reject proposals that refuse private Git access, lack written performance benchmarks, or rely on bloated commercial templates.</li>
+<li><strong>Conduct the Technical Review Call:</strong> Interview the lead developer who will actually write your code—not just the sales representative.</li>
+<li><strong>Demand Written Commitments:</strong> Ensure code ownership, staging preview protocols, and post-launch warranty terms are baked directly into the master services agreement (MSA).</li>
+</ol>
+<p>If you are currently holding multiple web development proposals and need an objective, expert second opinion on architectural feasibility and scope precision, <strong><a href="/services/custom-web-development">consult with the engineering team at Kawaki Studios</a></strong>. </p>
+<p><strong>Ready to discuss your project?</strong> <a href="/contact?service=custom-web-development">Schedule a technical consultation</a> to review your requirements with our lead engineers.</p>
+
+            </div>
+
+            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                <span class="tag-pill">#Web Development</span><span class="tag-pill">#Agency Evaluation</span><span class="tag-pill">#Proposal Review</span><span class="tag-pill">#Engineering Strategy</span>
+            </div>
+
+            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
+                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
+                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <a href="/services/custom-web-development" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
+                        Explore Custom Web Development & Architectural Tiers &rarr;
+                    </a>
+                </div>
+                <a href="/contact?service=custom-web-development" class="rlvnt-btn max-content" style="margin: 0 auto;">
+                    <span>Start a Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
+                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
+                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
+                    </svg>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- UNIVERSAL GLOBAL FOOTER -->
+    <footer class="sections global-site-footer">
+        <div class="footer-top-strip">
+            <div class="footer-status-pill">
+                <span class="footer-status-dot"></span>
+                <span>Available for Select Projects</span>
+            </div>
+        </div>
+
+        <div class="services-header-2">
+            <div class="footer-headline-group">
+                <h3 class="services-title-2">Ready to talk?</h3>
+                <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+            </div>
+            <a href="/contact" class="footer-cta-card-btn">
+                <span>Schedule Intro Call</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                    <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div class="footer-grid-directory">
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECTORY</div>
+                <ul class="footer-links-list">
+                    <li><a href="/"><span>Home</span> <span class="nav-idx">01</span></a></li>
+                    <li><a href="/about"><span>About Studio</span> <span class="nav-idx">02</span></a></li>
+                    <li><a href="/services"><span>Services & Systems</span> <span class="nav-idx">03</span></a></li>
+                    <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
+                    <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
+                    <li><a href="/contact"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// DIRECT CHANNELS</div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-label">New Business & Inquiries</span>
+                    <a href="mailto:hello@kawakistudios.com" class="footer-contact-val">
+                        hello@kawakistudios.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                    <span class="footer-contact-label">Partnerships & Co-Ventures</span>
+                    <a href="mailto:partners@kawakistudios.com" class="footer-contact-val">
+                        partners@kawakistudios.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                    <span class="footer-contact-label">Direct Founder Calendar</span>
+                    <a href="/contact" class="footer-contact-val" style="color: #111111; font-weight: 600;">
+                        Book 15-Min Briefing ↗
+                    </a>
+                </div>
+                <div class="footer-contact-item" style="margin-top: 0.75rem;">
+                    <span class="footer-contact-label">Infrastructure Partner</span>
+                    <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Partner — Cloud &amp; Hosting Infrastructure">
+                        <img src="/assets/images/hostinger-partner-dark.png" alt="Hostinger Partner" width="160" height="60" loading="lazy" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// CLIENT TIME ZONES</div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New Delhi — Studio HQ</span>
+                        <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>Tokyo — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>London — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
+                    </div>
+                </div>
+                <div class="footer-time-badge">
+                    <div class="footer-time-city">
+                        <span>New York — Client Time Zone</span>
+                        <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-col-header">// SOCIAL INDEX</div>
+                <ul class="footer-links-list">
+                    <li><a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener"><span>Instagram</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener"><span>X / Twitter</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                    <li><a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-giant-watermark">
+            <span>KAWAKI</span>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
+            <ul class="footer-bottom-links">
+                <li><a href="/about">Privacy Policy</a></li>
+                <li><a href="/about">Terms of Service</a></li>
+                <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
+                <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
+                <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
+                </ul>
+            <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
+                <span>Back to Top</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            </button>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Time update helper for footer
+            function updateFooterClocks() {
+                const now = new Date();
+                const opt = (tz) => ({ timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: true });
+                const elDelhi = document.getElementById('footerTimeDelhi');
+                const elTokyo = document.getElementById('footerTimeTokyo');
+                const elLondon = document.getElementById('footerTimeLondon');
+                const elNY = document.getElementById('footerTimeNY');
+                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
+                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
+                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
+                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+            }
+            updateFooterClocks();
+            setInterval(updateFooterClocks, 10000);
+
+            // Back to top
+            const btt = document.getElementById('backToTop');
+            if (btt) {
+                btt.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+    <script src="/assets/js/chatbot.js" defer></script>
+</body>
+</html>
