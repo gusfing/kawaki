@@ -1,61 +1,69 @@
 /* ==========================================================================
-   KAWAKI STUDIOS — MODERN AI CHATBOT WIDGET
-   Inspired by HoopAI / Intercom / Linear Glass UI
+   KAWAKI STUDIOS — LUXURY TECHNICAL CHATBOT & PROJECT CONSULTANT
+   Dark Obsidian Glass UI • Instrument Serif & JetBrains Mono Accents • #C6FF00 Lime
    ========================================================================== */
 
 :root {
-  --kawaki-chat-bg: #0e1013;
-  --kawaki-chat-card: #181a1e;
-  --kawaki-chat-bubble-user: #22252a;
-  --kawaki-chat-bubble-ai: transparent;
-  --kawaki-chat-accent: #C6FF00;
-  --kawaki-chat-accent-hover: #d4ff33;
-  --kawaki-chat-text: #FFFFFF;
-  --kawaki-chat-muted: #9CA3AF;
-  --kawaki-chat-border: rgba(255, 255, 255, 0.1);
-  --kawaki-chat-input-bg: #16181b;
+  --kw-chat-bg: #0C0D10;
+  --kw-chat-surface: #14161B;
+  --kw-chat-surface-hover: #1A1C23;
+  --kw-chat-bubble-user: #1E2028;
+  --kw-chat-bubble-ai: #131418;
+  --kw-chat-accent: #C6FF00;
+  --kw-chat-accent-glow: rgba(198, 255, 0, 0.25);
+  --kw-chat-text: #F4F4F6;
+  --kw-chat-muted: #8E919B;
+  --kw-chat-dim: #5A5D66;
+  --kw-chat-border: rgba(255, 255, 255, 0.09);
+  --kw-chat-border-hover: rgba(198, 255, 0, 0.35);
+  --kw-chat-input-bg: #101115;
+  --kw-font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --kw-font-serif: 'Instrument Serif', Georgia, serif;
+  --kw-font-mono: 'JetBrains Mono', 'Consolas', monospace;
 }
 
-/* Floating Launcher Pill (Centered Bottom) */
+/* --------------------------------------------------------------------------
+   1. FLOATING LAUNCHER PILL
+   -------------------------------------------------------------------------- */
 .kawaki-chat-launcher-pill {
   position: fixed;
-  bottom: 2rem;
+  bottom: 1.75rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 99990;
   height: 48px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(28px) saturate(190%) contrast(105%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(105%);
+  background: rgba(12, 13, 16, 0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-radius: 9999px;
   padding: 5px 6px 5px 16px;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.85rem;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.16),
-              0 2px 8px rgba(0, 0, 0, 0.04),
-              inset 0 1px 1.5px rgba(255, 255, 255, 1),
-              inset 0 -1px 1px rgba(0, 0, 0, 0.04);
+  gap: 0.9rem;
+  border: 1px solid var(--kw-chat-border);
+  box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.55),
+              0 2px 8px rgba(0, 0, 0, 0.2),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
   cursor: pointer;
   user-select: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .kawaki-chat-launcher-pill:hover {
   transform: translateX(-50%) translateY(-2px);
-  background: #FFFFFF;
-  border-color: rgba(198, 255, 0, 0.8);
-  box-shadow: 0 22px 50px -6px rgba(0, 0, 0, 0.22),
-              0 0 0 1px rgba(198, 255, 0, 0.5),
-              inset 0 1px 1.5px rgba(255, 255, 255, 1);
+  background: rgba(18, 19, 24, 0.95);
+  border-color: rgba(198, 255, 0, 0.6);
+  box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.7),
+              0 0 0 1px rgba(198, 255, 0, 0.35),
+              0 0 25px var(--kw-chat-accent-glow),
+              inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
 .launcher-pill-left {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
 }
 
 .launcher-pill-dot {
@@ -63,8 +71,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 0 8px rgba(16, 185, 129, 0.85);
+  background: var(--kw-chat-accent);
+  box-shadow: 0 0 8px rgba(198, 255, 0, 0.9);
   display: inline-block;
   flex-shrink: 0;
 }
@@ -74,22 +82,30 @@
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  background: rgba(16, 185, 129, 0.4);
-  animation: launcherDotPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  background: rgba(198, 255, 0, 0.4);
+  animation: kwDotPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-@keyframes launcherDotPing {
-  0% { transform: scale(1); opacity: 0.9; }
-  75%, 100% { transform: scale(2.4); opacity: 0; }
+@keyframes kwDotPulse {
+  0% { transform: scale(1); opacity: 0.85; }
+  75%, 100% { transform: scale(2.5); opacity: 0; }
 }
 
 .launcher-pill-text {
-  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-  font-size: 0.88rem;
+  font-family: var(--kw-font-sans);
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #111111;
-  letter-spacing: -0.015em;
+  color: var(--kw-chat-text);
+  letter-spacing: -0.01em;
   white-space: nowrap;
+}
+
+.launcher-pill-text em {
+  font-family: var(--kw-font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--kw-chat-accent);
+  font-weight: 400;
 }
 
 /* Launcher Action Circle Button */
@@ -97,12 +113,13 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #111111;
+  background: #18191E;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+  color: var(--kw-chat-accent);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   flex-shrink: 0;
@@ -110,10 +127,11 @@
 
 .kawaki-chat-launcher-pill:hover .launcher-pill-circle,
 .launcher-pill-circle:hover {
-  background: #000000;
-  color: #C6FF00;
+  background: var(--kw-chat-accent);
+  color: #0E0E12;
   transform: scale(1.06);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+  border-color: var(--kw-chat-accent);
+  box-shadow: 0 0 15px var(--kw-chat-accent-glow);
 }
 
 .launcher-pill-circle .launcher-arrow-icon {
@@ -131,9 +149,9 @@
 }
 
 .kawaki-chat-launcher-pill.active .launcher-pill-circle {
-  background: #111111;
-  color: #FFFFFF;
-  box-shadow: 0 0 0 2px rgba(198, 255, 0, 0.5);
+  background: var(--kw-chat-accent);
+  color: #0E0E12;
+  box-shadow: 0 0 12px var(--kw-chat-accent-glow);
 }
 
 .kawaki-chat-launcher-pill.active .launcher-arrow-icon {
@@ -146,25 +164,29 @@
   transform: scale(1) rotate(0);
 }
 
-/* Chatbot Container (Centered Bottom) */
+/* --------------------------------------------------------------------------
+   2. CHAT WINDOW (Obsidian Luxury Glass)
+   -------------------------------------------------------------------------- */
 .kawaki-chat-window {
   position: fixed;
-  bottom: 6rem;
+  bottom: 5.75rem;
   left: 50%;
-  transform: translateX(-50%) translateY(16px) scale(0.96);
+  transform: translateX(-50%) translateY(20px) scale(0.95);
   z-index: 99991;
-  width: 440px;
+  width: 430px;
   max-width: calc(100vw - 2rem);
-  height: 600px;
-  max-height: calc(100vh - 8rem);
-  background: var(--kawaki-chat-bg);
-  border: 1px solid var(--kawaki-chat-border);
+  height: 620px;
+  max-height: calc(100vh - 7.5rem);
+  background: var(--kw-chat-bg);
+  border: 1px solid var(--kw-chat-border);
   border-radius: 24px;
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.75), 
+              0 0 0 1px rgba(255, 255, 255, 0.06),
+              0 0 40px rgba(198, 255, 0, 0.06);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  font-family: 'Host Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--kw-font-sans);
   opacity: 0;
   pointer-events: none;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -178,83 +200,106 @@
 
 /* Header */
 .kawaki-chat-header {
-  padding: 1rem 1.25rem;
-  background: #181a1d;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.1rem 1.25rem;
+  background: rgba(18, 19, 24, 0.95);
+  border-bottom: 1px solid var(--kw-chat-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
   user-select: none;
+  backdrop-filter: blur(12px);
 }
 
 .kawaki-chat-header-brand {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #FFFFFF;
+  gap: 0.75rem;
 }
 
 .kawaki-chat-logo-icon {
-  width: 24px;
-  height: 24px;
-  background: #25282d;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  background: #181A20;
+  border: 1px solid rgba(198, 255, 0, 0.35);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.kawaki-chat-logo-icon svg {
-  color: var(--kawaki-chat-accent);
+  color: var(--kw-chat-accent);
+  box-shadow: 0 0 10px rgba(198, 255, 0, 0.15);
 }
 
 .kawaki-chat-title-group {
   display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.kawaki-chat-title-row {
+  display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .kawaki-chat-title {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.95rem;
   color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.kawaki-chat-title em {
+  font-family: var(--kw-font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--kw-chat-accent);
+  font-weight: 400;
 }
 
 .kawaki-chat-feature-tag {
-  color: var(--kawaki-chat-muted);
-  font-size: 0.85rem;
+  color: var(--kw-chat-muted);
+  font-family: var(--kw-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.kawaki-chat-feature-tag .dot-status {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--kw-chat-accent);
 }
 
 .kawaki-chat-header-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
-.kawaki-chat-minimize-btn {
+.kawaki-chat-action-btn {
   background: transparent;
   border: none;
-  color: var(--kawaki-chat-muted);
+  color: var(--kw-chat-muted);
   cursor: pointer;
-  padding: 4px;
-  border-radius: 6px;
+  padding: 6px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s, background 0.2s;
+  transition: all 0.2s;
 }
 
-.kawaki-chat-minimize-btn:hover {
+.kawaki-chat-action-btn:hover {
   color: #FFFFFF;
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Messages Feed */
+/* --------------------------------------------------------------------------
+   3. MESSAGES FEED
+   -------------------------------------------------------------------------- */
 .kawaki-chat-messages {
   flex: 1;
   padding: 1.25rem;
@@ -263,27 +308,27 @@
   flex-direction: column;
   gap: 1.15rem;
   scroll-behavior: smooth;
+  background: radial-gradient(circle at 50% 0%, rgba(198, 255, 0, 0.02) 0%, transparent 60%);
 }
 
-/* Custom Scrollbar */
 .kawaki-chat-messages::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 .kawaki-chat-messages::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 999px;
 }
 
-/* Message Bubbles */
+/* Message Item */
 .kawaki-chat-msg {
   display: flex;
   flex-direction: column;
-  max-width: 85%;
-  animation: fadeInChatMsg 0.25s ease-out;
+  max-width: 88%;
+  animation: kwMsgSlideIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fadeInChatMsg {
-  from { opacity: 0; transform: translateY(6px); }
+@keyframes kwMsgSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -296,26 +341,179 @@
 }
 
 .kawaki-chat-msg-text {
-  font-size: 0.925rem;
-  line-height: 1.5;
-  color: #E5E7EB;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #E2E4E9;
 }
 
 .kawaki-chat-msg.ai .kawaki-chat-msg-text {
-  color: #F3F4F6;
-  padding: 0.25rem 0;
+  background: var(--kw-chat-bubble-ai);
+  border: 1px solid var(--kw-chat-border);
+  padding: 0.9rem 1.1rem;
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .kawaki-chat-msg.user .kawaki-chat-msg-text {
-  background: var(--kawaki-chat-bubble-user);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.75rem 1rem;
-  border-radius: 16px;
+  background: var(--kw-chat-bubble-user);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.85rem 1.1rem;
+  border-radius: 18px 18px 4px 18px;
   color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
-/* Quick Suggestion Chips */
+.kawaki-chat-msg-text strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.kawaki-chat-msg-text a {
+  color: var(--kw-chat-accent) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+/* Timestamp */
+.kawaki-chat-msg-time {
+  font-family: var(--kw-font-mono);
+  font-size: 0.68rem;
+  color: var(--kw-chat-dim);
+  margin-top: 4px;
+  padding: 0 4px;
+}
+
+.kawaki-chat-msg.user .kawaki-chat-msg-time {
+  align-self: flex-end;
+}
+
+/* --------------------------------------------------------------------------
+   4. INLINE LEAD CAPTURE MICRO-CARD
+   -------------------------------------------------------------------------- */
+.kawaki-lead-card {
+  background: #14161C;
+  border: 1px solid rgba(198, 255, 0, 0.3);
+  border-radius: 16px;
+  padding: 1.15rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4),
+              inset 0 1px 1px rgba(198, 255, 0, 0.15);
+  animation: kwMsgSlideIn 0.3s ease;
+}
+
+.kawaki-lead-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.4rem;
+}
+
+.kawaki-lead-card-badge {
+  font-family: var(--kw-font-mono);
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  background: rgba(198, 255, 0, 0.15);
+  color: var(--kw-chat-accent);
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.kawaki-lead-card-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+}
+
+.kawaki-lead-card-desc {
+  font-size: 0.8rem;
+  color: var(--kw-chat-muted);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.kawaki-lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.kawaki-lead-input-field {
+  width: 100%;
+  background: #0E0F13;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.kawaki-lead-input-field:focus {
+  border-color: var(--kw-chat-accent);
+  box-shadow: 0 0 0 2px rgba(198, 255, 0, 0.2);
+  background: #111318;
+}
+
+.kawaki-lead-input-field::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.kawaki-lead-select-field {
+  width: 100%;
+  background: #0E0F13;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.kawaki-lead-select-field option {
+  background: #14161C;
+  color: #FFFFFF;
+}
+
+.kawaki-lead-submit-btn {
+  background: var(--kw-chat-accent);
+  color: #0E0E12;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 0.25rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(198, 255, 0, 0.25);
+}
+
+.kawaki-lead-submit-btn:hover {
+  background: #D4FF33;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(198, 255, 0, 0.4);
+}
+
+.kawaki-lead-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. QUICK ACTION CHIPS
+   -------------------------------------------------------------------------- */
 .kawaki-chat-suggestions {
   display: flex;
   flex-direction: column;
@@ -324,31 +522,49 @@
 }
 
 .kawaki-chat-chip {
-  background: #1c1e22;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #15171C;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: #D1D5DB;
   font-size: 0.825rem;
-  padding: 0.5rem 0.85rem;
+  padding: 0.6rem 0.95rem;
   border-radius: 12px;
   text-align: left;
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .kawaki-chat-chip:hover {
-  background: #25282e;
+  background: #1D1F26;
   color: #FFFFFF;
   border-color: rgba(198, 255, 0, 0.4);
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
-/* Typing Indicator (Three Bouncing Dots) */
+.kawaki-chat-chip::after {
+  content: '→';
+  font-family: var(--kw-font-mono);
+  color: var(--kw-chat-accent);
+  opacity: 0.6;
+  transition: transform 0.2s;
+}
+
+.kawaki-chat-chip:hover::after {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* --------------------------------------------------------------------------
+   6. TYPING INDICATOR
+   -------------------------------------------------------------------------- */
 .kawaki-chat-typing {
   align-self: flex-start;
-  background: #1c1e22;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  background: #14161B;
+  border: 1px solid var(--kw-chat-border);
+  border-radius: 14px;
   padding: 0.65rem 1rem;
   display: flex;
   align-items: center;
@@ -357,43 +573,45 @@
 }
 
 .kawaki-chat-typing .dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: #9CA3AF;
-  animation: chatDotBounce 1.4s infinite ease-in-out both;
+  background: var(--kw-chat-muted);
+  animation: kwDotBounce 1.4s infinite ease-in-out both;
 }
 
 .kawaki-chat-typing .dot:nth-child(1) { animation-delay: -0.32s; }
 .kawaki-chat-typing .dot:nth-child(2) { animation-delay: -0.16s; }
 .kawaki-chat-typing .dot:nth-child(3) { animation-delay: 0s; }
 
-@keyframes chatDotBounce {
+@keyframes kwDotBounce {
   0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-  40% { transform: scale(1.1); opacity: 1; background: var(--kawaki-chat-accent); }
+  40% { transform: scale(1.15); opacity: 1; background: var(--kw-chat-accent); }
 }
 
-/* Input Area */
+/* --------------------------------------------------------------------------
+   7. INPUT BAR AREA
+   -------------------------------------------------------------------------- */
 .kawaki-chat-input-wrapper {
-  padding: 0.75rem 1rem 1rem;
-  background: var(--kawaki-chat-bg);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.85rem 1.15rem 1.15rem;
+  background: var(--kw-chat-bg);
+  border-top: 1px solid var(--kw-chat-border);
 }
 
 .kawaki-chat-input-bar {
-  background: var(--kawaki-chat-input-bg);
+  background: var(--kw-chat-input-bg);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   display: flex;
   align-items: center;
-  padding: 0.35rem 0.5rem 0.35rem 1.15rem;
+  padding: 0.4rem 0.5rem 0.4rem 1.15rem;
   gap: 0.5rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: all 0.25s ease;
 }
 
 .kawaki-chat-input-bar:focus-within {
-  border-color: rgba(198, 255, 0, 0.5);
-  box-shadow: 0 0 0 2px rgba(198, 255, 0, 0.15);
+  border-color: rgba(198, 255, 0, 0.6);
+  box-shadow: 0 0 0 2px rgba(198, 255, 0, 0.15), 0 0 15px rgba(198, 255, 0, 0.1);
 }
 
 .kawaki-chat-input {
@@ -402,18 +620,18 @@
   border: none;
   outline: none;
   color: #FFFFFF;
-  font-size: 0.9rem;
+  font-size: 0.885rem;
   font-family: inherit;
 }
 
 .kawaki-chat-input::placeholder {
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .kawaki-chat-tool-btn {
   background: transparent;
   border: none;
-  color: #9CA3AF;
+  color: var(--kw-chat-muted);
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -421,7 +639,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: color 0.2s, background 0.2s;
+  transition: all 0.2s;
 }
 
 .kawaki-chat-tool-btn:hover {
@@ -431,19 +649,20 @@
 
 .kawaki-chat-tool-btn.listening {
   color: #EF4444;
-  animation: micPulse 1.2s infinite;
+  background: rgba(239, 68, 68, 0.15);
+  animation: kwMicPulse 1.2s infinite;
 }
 
-@keyframes micPulse {
+@keyframes kwMicPulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.15); }
   100% { transform: scale(1); }
 }
 
 .kawaki-chat-send-btn {
-  background: #2a2d33;
+  background: #1C1E24;
   color: #FFFFFF;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -451,44 +670,53 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.kawaki-chat-send-btn.active,
-.kawaki-chat-input:not(:placeholder-shown) ~ .kawaki-chat-send-btn {
-  background: var(--kawaki-chat-accent);
-  color: #000000;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
 }
 
 .kawaki-chat-send-btn:hover {
-  transform: scale(1.08);
+  background: var(--kw-chat-accent);
+  color: #0E0E12;
+  border-color: var(--kw-chat-accent);
+  transform: scale(1.05);
+  box-shadow: 0 0 12px var(--kw-chat-accent-glow);
 }
 
-/* Responsive */
-@media (max-width: 520px) {
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .kawaki-chat-launcher-pill {
+    bottom: 1rem;
+    height: 44px;
+    padding: 4px 6px 4px 14px;
+  }
+  
+  .launcher-pill-text {
+    font-size: 0.82rem;
+  }
+
+  .launcher-pill-circle {
+    width: 32px;
+    height: 32px;
+  }
+
   .kawaki-chat-window {
-    bottom: 5.5rem;
-    left: 1rem;
-    right: 1rem;
-    transform: translateY(16px) scale(0.96);
-    width: auto;
-    max-width: none;
-    height: calc(100vh - 7.5rem);
-    max-height: calc(100vh - 7.5rem);
+    bottom: 4.8rem;
+    width: calc(100vw - 1.25rem);
+    height: calc(100vh - 6.5rem);
     border-radius: 20px;
   }
-  .kawaki-chat-window.open {
-    transform: translateY(0) scale(1);
+
+  .kawaki-chat-header {
+    padding: 0.9rem 1rem;
   }
-  .kawaki-chat-launcher-pill {
-    bottom: 1.25rem;
-    width: calc(100vw - 2.5rem);
-    max-width: 340px;
-    height: 48px;
-    padding: 4px 6px 4px 16px;
+
+  .kawaki-chat-messages {
+    padding: 1rem;
   }
-  .launcher-pill-text {
-    font-size: 0.88rem;
+
+  .kawaki-chat-msg {
+    max-width: 92%;
   }
 }
-
