@@ -26,16 +26,16 @@
     <meta property="og:url" content="https://kawaki.co.in/blog/nextjs-performance-architecture" />
     <meta property="og:title" content="Next.js Performance Architecture Guide — Kawaki Studios" />
     <meta property="og:description" content="An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-critical-rendering-path-waterfall.webp" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="675" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="Next.js Performance Architecture Guide — Kawaki Studios" />
     <meta name="twitter:description" content="An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-critical-rendering-path-waterfall.webp" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -44,12 +44,18 @@
     "@type": "BlogPosting",
     "headline": "Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals",
     "description": "An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals.",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "image": "https://kawaki.co.in/assets/images/blog/nextjs-critical-rendering-path-waterfall.webp",
     "datePublished": "2026-09-21T20:29:59.000Z",
     "dateModified": "2026-09-21T20:29:59.000Z",
     "author": {
         "@type": "Person",
-        "name": "Kunal Sharma"
+        "name": "Kunal Sharma",
+        "jobTitle": "Founder & Principal Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in"
+        }
     },
     "publisher": {
         "@type": "Organization",
@@ -94,7 +100,7 @@
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 
@@ -102,8 +108,9 @@
         :root {
             --color-bg: #FFFFFF;
             --color-text: #12100E;
-            --color-muted: #6B7280;
+            --color-muted: #64748B;
             --color-accent: #C6FF00;
+            --color-border: rgba(0, 0, 0, 0.08);
             --font-sans: "Plus Jakarta Sans", sans-serif;
             --font-serif: "Instrument Serif", serif;
             --font-mono: "JetBrains Mono", monospace;
@@ -116,7 +123,7 @@
             margin: 0;
             padding: 0;
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -125,13 +132,14 @@
             font-style: italic;
         }
 
-        .article-container {
-            max-width: 860px;
+        /* Container & Page Header */
+        .post-detail-page {
+            max-width: 1240px;
             margin: 0 auto;
             padding: 130px 24px 80px;
         }
 
-        .article-breadcrumb {
+        .breadcrumbs-nav {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
@@ -141,199 +149,304 @@
             color: var(--color-muted);
             margin-bottom: 1.5rem;
         }
-        .article-breadcrumb a {
+        .breadcrumbs-nav a {
             color: var(--color-muted);
             text-decoration: none;
             transition: color 0.2s;
         }
-        .article-breadcrumb a:hover {
-            color: var(--color-accent);
+        .breadcrumbs-nav a:hover {
+            color: #111111;
         }
-        .article-breadcrumb .bc-sep {
-            color: rgba(0,0,0,0.3);
+        .breadcrumbs-nav .divider {
+            color: rgba(0,0,0,0.25);
         }
-        .article-breadcrumb .bc-current {
-            color: var(--color-text);
+        .breadcrumbs-nav .active {
+            color: #111111;
+            font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 420px;
+            max-width: 480px;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-muted);
-            text-decoration: none;
-            margin-bottom: 2rem;
-            transition: color 0.2s;
-        }
-        .back-link:hover {
-            color: var(--color-accent);
+        .post-header {
+            margin-bottom: 2.5rem;
         }
 
-        .article-meta-badge {
+        .header-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: #111114;
+            color: #C6FF00;
             font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--color-accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            text-decoration: none;
         }
 
-        .article-header-title {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+        }
+        .meta-item svg {
+            color: var(--color-muted);
+        }
+
+        .post-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
-            margin: 0 0 1.5rem;
             color: #111111;
+            margin: 0 0 1.5rem;
         }
 
-        .article-info-bar {
+        .author-credits {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             padding: 1.25rem 0;
             border-top: 1px solid rgba(0,0,0,0.08);
             border-bottom: 1px solid rgba(0,0,0,0.08);
             margin-bottom: 2.5rem;
             font-size: 14px;
-            color: var(--color-muted);
-        }
-
-        .author-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         .author-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #111111;
+            background: #111114;
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
+            border: 2px solid rgba(198, 255, 0, 0.4);
+        }
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            font-weight: 700;
+            color: #111111;
+        }
+        .author-role {
+            font-size: 12px;
+            color: var(--color-muted);
         }
 
-        .article-hero-image {
+        /* Hero Featured Image Container */
+        .featured-image-wrapper {
+            margin-bottom: 3.5rem;
+        }
+        .featured-image-container {
             width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            max-height: 580px;
             border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            overflow: hidden;
+            background: #0B0B0E;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .post-featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .article-content {
+        /* Two-Column Layout Grid */
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 1024px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .article-sidebar {
+                order: 2;
+            }
+        }
+
+        /* Executive Summary / Key Takeaways Card */
+        .key-takeaways-card {
+            background: #F9FAF6;
+            border: 1px solid rgba(198, 255, 0, 0.4);
+            border-left: 4px solid #C6FF00;
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .takeaways-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+        .takeaways-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #111111;
+            font-family: var(--font-mono);
+        }
+        .takeaway-icon {
+            color: #65a30d;
+        }
+        .takeaway-lead {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .takeaway-bullets {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: #1F2937;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+        .takeaway-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Post Content Typography */
+        .post-body-content {
             font-size: 1.125rem;
             line-height: 1.8;
             color: #2D2A26;
         }
-
-        .article-content h1, 
-        .article-content h2, 
-        .article-content h3 {
-            color: #111111;
+        .post-body-content h2 {
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin: 2.5rem 0 1rem;
+            color: #111111;
+            margin: 3rem 0 1.25rem;
+            scroll-margin-top: 110px;
         }
-        .article-content h2 {
-            font-size: 1.75rem;
-        }
-        .article-content h3 {
+        .post-body-content h3 {
             font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: #111111;
+            margin: 2.25rem 0 1rem;
+            scroll-margin-top: 110px;
         }
-
-        .article-content p {
+        .post-body-content p {
             margin-bottom: 1.5rem;
         }
-
-        .article-content ul,
-        .article-content ol {
+        .post-body-content ul, .post-body-content ol {
             margin: 1.5rem 0;
-            padding-left: 2rem;
+            padding-left: 1.75rem;
         }
-
-        .article-content li {
+        .post-body-content li {
             margin-bottom: 0.5rem;
         }
-
-        .article-content a {
+        .post-body-content a {
             color: #111111;
             text-decoration: underline;
             text-decoration-color: var(--color-accent);
             text-underline-offset: 4px;
             transition: color 0.2s;
         }
-        .article-content a:hover {
+        .post-body-content a:hover {
             color: #000000;
         }
-
-        .article-content pre {
+        .post-body-content blockquote {
+            border-left: 3px solid #C6FF00;
+            background: #F9F9FB;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            color: #374151;
+            font-style: italic;
+        }
+        .post-body-content pre {
             background: #111116;
             color: #F4F4F5;
-            padding: 1.25rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 14px;
             overflow-x: auto;
             font-family: var(--font-mono);
             font-size: 14px;
-            margin: 1.5rem 0;
+            line-height: 1.6;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-
-        .article-content code {
+        .post-body-content code {
             font-family: var(--font-mono);
             font-size: 14px;
             background: rgba(0,0,0,0.06);
             padding: 2px 6px;
             border-radius: 4px;
         }
-
-        .article-content pre code {
+        .post-body-content pre code {
             background: transparent;
             padding: 0;
             border-radius: 0;
             color: inherit;
         }
-
-        .article-content blockquote {
-            border-left: 3px solid var(--color-accent);
-            padding-left: 1.25rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #4A4640;
+        .post-body-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            font-size: 14.5px;
         }
-
-        .article-content figure {
+        .post-body-content th {
+            background: #111114;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            border: 1px solid #111114;
+        }
+        .post-body-content td {
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: #FFFFFF;
+        }
+        .post-body-content tr:nth-child(even) td {
+            background: #F9FAF6;
+        }
+        .post-body-content figure {
             margin: 2.5rem 0;
             padding: 0;
         }
-
-        .article-content img {
+        .post-body-content img {
             max-width: 100%;
             height: auto;
             border-radius: 14px;
             display: block;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
         }
-
-        .article-content figcaption {
+        .post-body-content figcaption {
             margin-top: 0.75rem;
             font-size: 0.85rem;
             color: var(--color-muted);
@@ -353,35 +466,398 @@
             margin-bottom: 6px;
         }
 
-        .rlvnt-btn {
+        /* In-Article Conversion Card */
+        .in-article-cta {
+            margin: 3.5rem 0;
+            padding: 2.5rem 2rem;
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(198, 255, 0, 0.2);
             position: relative;
-            display: inline-flex;
-            gap: 8px;
-            border: 1px solid var(--color-text);
+            overflow: hidden;
+        }
+        .in-article-cta .cta-kicker {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #C6FF00;
+            margin-bottom: 0.75rem;
+        }
+        .in-article-cta h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .in-article-cta p {
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 580px;
+            margin: 0 auto 1.75rem;
+        }
+        .in-article-cta .cta-actions {
+            display: flex;
+            gap: 16px;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary-theme {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 14px;
             padding: 12px 24px;
             border-radius: 50px;
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-style: italic;
-            background: transparent;
-            color: var(--color-text);
-            font-size: 1rem;
-            overflow: hidden;
-            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary-theme:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+        .btn-link-secondary {
+            color: #94A3B8;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .btn-link-secondary:hover {
+            color: #FFFFFF;
+        }
+
+        /* Author Bio Card */
+        .author-bio-card {
+            display: flex;
+            gap: 20px;
+            padding: 2rem;
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            margin-top: 3.5rem;
+            align-items: flex-start;
+        }
+        @media (max-width: 640px) {
+            .author-bio-card {
+                flex-direction: column;
+            }
+        }
+        .bio-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #111114;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            border: 2px solid #C6FF00;
+            flex-shrink: 0;
+        }
+        .bio-details h4 {
+            margin: 0.25rem 0 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #111111;
+        }
+        .bio-role {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #65a30d;
+        }
+        .bio-details p {
+            margin: 0 0 1rem;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        .bio-socials {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .bio-socials a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .bio-socials a:hover {
+            color: #65a30d;
+        }
+        .bio-consult {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline !important;
+        }
+
+        /* Sidebar Widgets */
+        .article-sidebar {
+            position: sticky;
+            top: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .toc-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .toc-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #111111;
+            margin: 0 0 1rem;
+            font-family: var(--font-mono);
+        }
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 420px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        .toc-item {
+            margin-bottom: 2px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .toc-item a {
+            display: block;
+            padding: 6px 10px;
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: #4B5563;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-level-3 a {
+            padding-left: 20px;
+            font-size: 12.5px;
+            color: #6B7280;
+        }
+        .toc-item.active a {
+            color: #111111;
+            font-weight: 700;
+            border-left-color: #C6FF00;
+            background: rgba(198, 255, 0, 0.15);
+            border-radius: 0 6px 6px 0;
+        }
+        .toc-item a:hover {
+            color: #111111;
+            background: rgba(0,0,0,0.03);
+        }
+
+        .share-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .share-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-mono);
+            color: #111111;
+        }
+        .share-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111111;
             cursor: pointer;
+            transition: all 0.2s;
             text-decoration: none;
         }
-        .rlvnt-btn.max-content {
-            width: max-content;
-            height: max-content;
-            font-size: 20px;
-            padding: 8px 16px;
+        .share-btn:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
         }
-        .rlvnt-btn:hover {
-            background-color: var(--color-text);
-            color: #ffffff;
+
+        .strategy-call-card {
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 18px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .call-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #C6FF00;
+            margin-bottom: 0.5rem;
+        }
+        .call-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            color: #FFFFFF;
+        }
+        .call-desc {
+            font-size: 13px;
+            color: #94A3B8;
+            line-height: 1.5;
+            margin: 0 0 1.25rem;
+        }
+        .btn-sidebar-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+            box-sizing: border-box;
+        }
+        .btn-sidebar-call:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+
+        /* Related Posts Section */
+        .related-posts-section {
+            margin-top: 5rem;
+            padding-top: 3.5rem;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .related-section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111111;
+            margin: 0 0 2.5rem;
+            text-align: center;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 900px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .post-light-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-light-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.06);
+        }
+        .card-img-wrapper {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0B0B0E;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .post-light-card:hover .card-img {
+            transform: scale(1.04);
+        }
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 0.75rem 0 0.5rem;
+        }
+        .card-title a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-title a:hover {
+            color: #65a30d;
+        }
+        .card-excerpt {
+            font-size: 13.5px;
+            color: var(--color-muted);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .card-read-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+        .card-read-link:hover {
+            gap: 8px;
+            color: #65a30d;
         }
     </style>
 </head>
@@ -600,46 +1076,68 @@
     </div>
 
     <!-- MAIN ARTICLE BODY -->
-    <main class="article-container">
-        <!-- Breadcrumbs -->
-        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+    <main class="post-detail-page">
+        <!-- BREADCRUMBS -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs-nav">
             <a href="/">Home</a>
-            <span class="bc-sep">/</span>
+            <span class="divider">/</span>
             <a href="/blog">Blog</a>
-            <span class="bc-sep">/</span>
-            <span class="bc-current">Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals</span>
+            <span class="divider">/</span>
+            <span class="active" aria-current="page">Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals</span>
         </nav>
 
-        <a href="/blog" class="back-link">
-            ← Back to all stories
-        </a>
-
-        <article id="articleWrapper">
-            <div class="article-meta-badge" id="articleCategory">
-                ● Next.js
+        <!-- POST HEADER -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="category-badge">Next.js</span>
+                <span class="meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    22 min read
+                </span>
+                <span class="meta-item">21 Sep 2026</span>
             </div>
-            
-            <h1 class="article-header-title" id="articleTitle">
+
+            <h1 class="post-title" id="articleTitle">
                 Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals
             </h1>
 
-            <div class="article-info-bar">
-                <div class="author-box">
-                    <div class="author-avatar" id="authorInitial">KS</div>
-                    <div>
-                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
-                        <div style="font-size: 12px;" id="articleDate">21 Sep 2026</div>
-                    </div>
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
-                    234 reads
+            <div class="author-credits">
+                <div class="author-avatar" id="authorInitial">KS</div>
+                <div class="author-details">
+                    <span class="author-name" id="authorName">Kunal Sharma</span>
+                    <span class="author-role">Founder &amp; Principal Engineer, Kawaki Studios</span>
                 </div>
             </div>
+        </header>
 
-            <img id="articleImage" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+        <!-- FEATURED HERO IMAGE -->
+        <div class="featured-image-wrapper">
+            <div class="featured-image-container">
+                <img id="articleImage" src="/assets/images/blog/nextjs-critical-rendering-path-waterfall.webp" alt="Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+            </div>
+        </div>
 
-            <div class="article-content" id="articleContent">
-                <p>In modern full-stack web engineering, performance is rarely a matter of superficial polish. Minifying stylesheets, compressing JPEG banners, and deferring analytics tags are necessary maintenance tasks, but they cannot rescue an application whose underlying architecture is fundamentally flawed.</p>
+        <!-- TWO-COLUMN ARTICLE LAYOUT -->
+        <div class="article-layout" id="articleWrapper">
+            <!-- LEFT MAIN CONTENT COLUMN -->
+            <article class="article-content-column">
+                <!-- EXECUTIVE SUMMARY / KEY TAKEAWAYS -->
+                <div class="key-takeaways-card">
+                    <div class="takeaways-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="takeaway-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        <h3>Executive Summary / Key Takeaways</h3>
+                    </div>
+                    <p class="takeaway-lead">An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals.</p>
+                    <ul class="takeaway-bullets">
+                        <li>Leverages Incremental Static Regeneration (ISR) and streaming SSR to deliver instant first paints.</li>
+                        <li>Granular bundle splitting and dynamic imports minimize main-thread execution time.</li>
+                        <li>Optimizes Core Web Vitals (LCP < 1.2s, CLS = 0, INP < 100ms) on real-world mobile network profiles.</li>
+                    </ul>
+                </div>
+
+                <!-- MAIN ARTICLE CONTENT -->
+                <div class="post-body-content" id="articleContent">
+                    <p>In modern full-stack web engineering, performance is rarely a matter of superficial polish. Minifying stylesheets, compressing JPEG banners, and deferring analytics tags are necessary maintenance tasks, but they cannot rescue an application whose underlying architecture is fundamentally flawed.</p>
 <p>In our first two architectural resources, we examined the foundational mechanics of the Next.js App Router:</p>
 <ol>
 <li><a href="/blog/nextjs-server-vs-client-components">Next.js Server vs Client Components</a> established that the component boundary is fundamentally a network serialization boundary.</li>
@@ -648,7 +1146,7 @@
 <p>This resource explains how Next.js architecture influences rendering, JavaScript delivery, asset loading, and Core Web Vitals.</p>
 <p>When engineering web platforms at <a href="/services/custom-web-development">Kawaki Studios</a>, we treat performance not as a post-launch audit checklist, but as a system of physical constraints: network bandwidth, device memory, CPU execution time, and browser layout engines. In this guide, we break down how to design Next.js architectures that systematically satisfy Google's <strong>Core Web Vitals</strong>—Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS)—without sacrificing visual expressiveness or feature complexity.</p>
 <hr />
-<h2>1. The Performance Geometry of Next.js</h2>
+<h2 id="h-1-the-performance-geometry-of-next-js">1. The Performance Geometry of Next.js</h2>
 <p>Too many engineering teams approach web performance through isolated metrics. They run a Lighthouse audit, see an amber LCP score, and arbitrarily add <code>fetchpriority="high"</code> to an image, only to find their Interaction to Next Paint (INP) regresses on mobile devices.</p>
 <p>Performance in Next.js is governed by a connected chain of dependencies:</p>
 <pre><code>┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
@@ -663,12 +1161,12 @@
 <p>If you place a <code>'use client'</code> directive at the root of a page layout, you force that component and every library it imports into the browser's JavaScript bundle. That bundle must be downloaded over the user's network, decompressed, parsed by the V8 or JavaScriptCore engine, compiled to bytecode, and executed during hydration. Even if your server responds quickly, the visitor's mobile CPU remains locked, degrading INP and delaying interactive readiness.</p>
 <p>Architectural performance means making conscious trade-offs at each layer: deciding what renders statically at build time, what streams dynamically from the edge, what executes exclusively on the server, and what minimal JavaScript crosses the wire to hydrate interactive UI controls.</p>
 <hr />
-<h2>2. Rendering Paradigms &amp; Execution Budgets</h2>
+<h2 id="h-2-rendering-paradigms-amp-execution-budgets">2. Rendering Paradigms &amp; Execution Budgets</h2>
 <p>The Next.js App Router provides multiple rendering strategies. Selecting the appropriate paradigm for each route segment is the single most consequential architectural decision for initial page responsiveness.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-hybrid-rendering-matrix.webp" alt="Decision matrix diagram comparing Next.js SSG, ISR, SSR, and CSR rendering patterns" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Next.js rendering matrix: choosing compilation strategies based on volatility.</figcaption>
-</figure><h3>The Modern Rendering Spectrum</h3>
+</figure><h3 id="h-the-modern-rendering-spectrum">The Modern Rendering Spectrum</h3>
 <ol>
 <li><p><strong>Static Prerendering (Build-Time / Edge-Cached):</strong></p>
 <ul>
@@ -718,7 +1216,7 @@ export default function DashboardPage() {
   );
 }
 </code></pre>
-<h3>Execution Budgets by Metric:</h3>
+<h3 id="h-execution-budgets-by-metric">Execution Budgets by Metric:</h3>
 <ul>
 <li><strong>TTFB Target:</strong> Aim for under 200ms on static or cached routes. Dynamic routes should target under 600ms, recognizing that actual TTFB varies based on geographic distance, cache state, network quality, and backend database load.</li>
 <li><strong>FCP Target:</strong> Under 1.0s on median 4G mobile connections.</li>
@@ -728,7 +1226,7 @@ export default function DashboardPage() {
   <img src="/assets/images/blog/nextjs-critical-rendering-path-waterfall.webp" alt="Step-by-step rendering waterfall diagram showing edge DNS, critical CSS inlining, and streaming Suspense" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Critical rendering path optimization for sub-second Core Web Vitals.</figcaption>
 </figure><hr />
-<h2>3. JavaScript Payload &amp; Hydration Economics</h2>
+<h2 id="h-3-javascript-payload-amp-hydration-economics">3. JavaScript Payload &amp; Hydration Economics</h2>
 <p>In web development, byte-for-byte, <strong>JavaScript is significantly more expensive than HTML, CSS, or images</strong>. </p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-bundle-splitting-chunk-graph.webp" alt="Layered diagram showing Next.js bundle splitting into core, layout, page, and dynamic client chunks" width="1200" height="675" loading="lazy" decoding="async" />
@@ -741,7 +1239,7 @@ export default function DashboardPage() {
 <li>Executed on the browser's main thread to attach event listeners and initialize state stores (Hydration).</li>
 </ol>
 <p>On low-tier or mid-tier mobile devices, evaluating 300KB of JavaScript can freeze the main thread for 400ms to 800ms, creating severe responsiveness bottlenecks.</p>
-<h3>How Server Components Reduce Client JavaScript</h3>
+<h3 id="h-how-server-components-reduce-client-javascript">How Server Components Reduce Client JavaScript</h3>
 <p>React Server Components (RSC) fundamentally alter this equation. <strong>Server Components themselves are never sent to the browser</strong>. Their code, internal logic, and dependencies execute exclusively on the server, emitting only lightweight HTML and serialized JSON data.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-image-optimization-pipeline.webp" alt="Three-step image optimization pipeline showing raw ingestion, edge libvips format negotiation, and caching" width="1200" height="675" loading="lazy" decoding="async" />
@@ -761,7 +1259,7 @@ export default function DashboardPage() {
 │ - Interactive button with useState: 2KB shipped to browser      │
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
-<h3>Isolating Server Dependencies with <code>server-only</code></h3>
+<h3 id="h-isolating-server-dependencies-with-server-only">Isolating Server Dependencies with <code>server-only</code></h3>
 <p>To guarantee that server-only modules and heavy dependencies are never accidentally bundled into client code, install and import the official <code>server-only</code> package:</p>
 <pre><code class="language-ts">// lib/data-access.ts
 import 'server-only';
@@ -772,7 +1270,7 @@ export async function getSensitiveAccountData(userId: string) {
 }
 </code></pre>
 <p>If a developer inadvertently imports <code>data-access.ts</code> inside a Client Component, Next.js throws a build-time compilation error, preventing accidental bundle bloat and secret leakage.</p>
-<h3>Deferring Interactive Leaves with <code>next/dynamic</code></h3>
+<h3 id="h-deferring-interactive-leaves-with-next-dynamic">Deferring Interactive Leaves with <code>next/dynamic</code></h3>
 <p>For complex interactive components that are not visible on initial page load (such as modal dialogues, date pickers, or audio visualizers), use <code>next/dynamic</code> with SSR disabled:</p>
 <pre><code class="language-tsx">// components/HeavyChartWrapper.tsx
 import dynamic from 'next/dynamic';
@@ -788,14 +1286,14 @@ export default function HeavyChartWrapper({ data }: { data: ChartData }) {
 </code></pre>
 <p>This splits the heavy charting library (e.g., Chart.js or D3) into a separate JavaScript chunk that is downloaded only when the component enters the viewport or renders.</p>
 <hr />
-<h2>4. Package Imports &amp; Barrel File Optimization</h2>
+<h2 id="h-4-package-imports-amp-barrel-file-optimization">4. Package Imports &amp; Barrel File Optimization</h2>
 <p>A widespread cause of unexpected bundle bloat in Next.js applications is the <strong>barrel file pattern</strong> (<code>index.ts</code> files that re-export hundreds of individual modules).</p>
 <p>When you write:</p>
 <pre><code class="language-ts">// ❌ ANTI-PATTERN: Barrel import can force bundler to process thousands of modules
 import { Check, ChevronRight, Menu } from 'lucide-react';
 </code></pre>
 <p>Even though modern bundlers attempt tree-shaking, parsing a large barrel file during compilation can slow down builds and, in unoptimized setups, leak unnecessary modules into the client graph.</p>
-<h3>Configuring <code>optimizePackageImports</code></h3>
+<h3 id="h-configuring-optimizepackageimports">Configuring <code>optimizePackageImports</code></h3>
 <p>In current Next.js versions, you can optimize package imports directly in <code>next.config.js</code> (or <code>next.config.mjs</code>):</p>
 <pre><code class="language-js">// next.config.mjs
 /** @type {import('next').NextConfig} */
@@ -814,10 +1312,10 @@ export default nextConfig;
 </code></pre>
 <p>This setting instructs the Next.js compiler (Turbopack or Webpack) to transform barrel imports into direct, file-level imports automatically at compile time, eliminating dead code paths and shrinking bundle sizes.</p>
 <hr />
-<h2>5. Advanced Image Architecture (<code>next/image</code>)</h2>
+<h2 id="h-5-advanced-image-architecture-next-image">5. Advanced Image Architecture (<code>next/image</code>)</h2>
 <p>Images frequently account for over 60% of total page weight. An unoptimized banner image is the most common reason websites fail the <strong>Largest Contentful Paint (LCP)</strong> audit.</p>
 <p>Next.js provides the <code>next/image</code> component, which automates format negotiation, responsive resizing, and layout space reservation (<a href="https://nextjs.org/docs/app/building-your-application/optimizing/images">Next.js Documentation</a>).</p>
-<h3>1. Modern Format Negotiation (AVIF &amp; WebP)</h3>
+<h3 id="h-1-modern-format-negotiation-avif-amp-webp">1. Modern Format Negotiation (AVIF &amp; WebP)</h3>
 <p>The Next.js image optimization pipeline automatically converts uploaded images into AVIF (when supported by the browser) or WebP. AVIF typically achieves 20% to 40% higher compression efficiency than WebP without visible perceptual degradation.</p>
 <p>Ensure your <code>next.config.mjs</code> enables AVIF format generation:</p>
 <pre><code class="language-js">// next.config.mjs
@@ -829,7 +1327,7 @@ const nextConfig = {
   }
 };
 </code></pre>
-<h3>2. Sizing and the Critical <code>sizes</code> Attribute</h3>
+<h3 id="h-2-sizing-and-the-critical-sizes-attribute">2. Sizing and the Critical <code>sizes</code> Attribute</h3>
 <p>When rendering responsive images that scale with CSS, omitting the <code>sizes</code> attribute is a major mistake. Without <code>sizes</code>, the browser does not know how large the image will appear on screen before downloading it, so it defaults to assuming the image is <code>100vw</code> (full screen width), downloading desktop-resolution images on mobile screens.</p>
 <pre><code class="language-tsx">// ✅ OPTIMAL RESPONSIVE IMAGE WITH EXPLICIT SIZES
 import Image from 'next/image';
@@ -848,7 +1346,7 @@ export function ProductCardImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 </code></pre>
-<h3>3. The <code>priority</code> Attribute for LCP</h3>
+<h3 id="h-3-the-priority-attribute-for-lcp">3. The <code>priority</code> Attribute for LCP</h3>
 <p>If an image is the primary visual candidate above the fold (e.g., a hero banner or product detail photo), add the <code>priority</code> attribute:</p>
 <pre><code class="language-tsx">&lt;Image
   src="/assets/hero-showcase.webp"
@@ -867,10 +1365,10 @@ export function ProductCardImage({ src, alt }: { src: string; alt: string }) {
 </ul>
 <p><strong>Caution:</strong> Apply <code>priority</code> to only <strong>one</strong> image per page—the actual LCP candidate. Overusing <code>priority</code> causes network contention, delaying stylesheets and fonts.</p>
 <hr />
-<h2>6. Font Optimization &amp; Zero-Shift Typography (<code>next/font</code>)</h2>
+<h2 id="h-6-font-optimization-amp-zero-shift-typography-next-font">6. Font Optimization &amp; Zero-Shift Typography (<code>next/font</code>)</h2>
 <p>Typography is a cornerstone of digital craft, but web fonts are historically responsible for severe Cumulative Layout Shift (CLS) and delayed First Contentful Paint (FCP).</p>
 <p>Next.js provides <code>next/font</code>, which optimizes Google Fonts and custom local typefaces at build time (<a href="https://nextjs.org/docs/app/building-your-application/optimizing/fonts">Next.js Documentation</a>).</p>
-<h3>Documented Capabilities of <code>next/font</code>:</h3>
+<h3 id="h-documented-capabilities-of-next-font">Documented Capabilities of <code>next/font</code>:</h3>
 <ol>
 <li><strong>Self-Hosting Without Third-Party DNS Lookups:</strong> When importing Google Fonts via <code>next/font/google</code>, Next.js downloads the font files at build time and hosts them statically alongside your application assets. The browser never connects to Google servers, eliminating third-party DNS lookups, TLS negotiations, and privacy compliance concerns.</li>
 <li><strong>Zero-Shift Font Metric Fallbacks:</strong> <code>next/font</code> calculates exact CSS font overrides (<code>size-adjust</code>, <code>ascent-override</code>, <code>descent-override</code>) for the browser's system fallback font. When the custom web font loads and swaps in, the glyphs occupy the identical vertical and horizontal space, effectively eliminating font-induced layout shift (0.00 CLS).</li>
@@ -894,14 +1392,14 @@ export const playfair = Playfair_Display({
 });
 </code></pre>
 <hr />
-<h2>7. Mastering Largest Contentful Paint (LCP)</h2>
+<h2 id="h-7-mastering-largest-contentful-paint-lcp">7. Mastering Largest Contentful Paint (LCP)</h2>
 <p>Largest Contentful Paint (LCP) measures how quickly the primary content element in the viewport renders. In Next.js applications, LCP is typically:</p>
 <ul>
 <li>A prominent hero headline or introductory paragraph.</li>
 <li>A featured hero photograph or video poster.</li>
 <li>A large banner card in a catalog view.</li>
 </ul>
-<h3>The 4 Sub-Parts of LCP:</h3>
+<h3 id="h-the-4-sub-parts-of-lcp">The 4 Sub-Parts of LCP:</h3>
 <p>Google breaks LCP down into four sequential phases:</p>
 <ol>
 <li><strong>Time to First Byte (TTFB):</strong> The time until the browser receives the first byte of HTML.</li>
@@ -909,7 +1407,7 @@ export const playfair = Playfair_Display({
 <li><strong>Resource Load Duration:</strong> The time required to download the LCP asset over the network.</li>
 <li><strong>Element Render Delay:</strong> The time between asset download completion and the browser painting the pixels.</li>
 </ol>
-<h3>LCP Engineering Checklist:</h3>
+<h3 id="h-lcp-engineering-checklist">LCP Engineering Checklist:</h3>
 <ul>
 <li> <strong>Eliminate Server Data Waterfalls:</strong> In Server Components, fetch database records in parallel using <code>Promise.all()</code> rather than awaiting queries sequentially.</li>
 <li> <strong>Avoid Client-Side Rendering for Above-the-Fold Content:</strong> Never place a loading spinner in place of your hero headline or main product image. Render the primary content in initial server HTML.</li>
@@ -917,10 +1415,10 @@ export const playfair = Playfair_Display({
 <li> <strong>Configure CDN Caching:</strong> Serve static and cacheable route segments via an edge CDN so initial HTML delivery incurs minimal latency.</li>
 </ul>
 <hr />
-<h2>8. Interaction to Next Paint (INP) Engineering</h2>
+<h2 id="h-8-interaction-to-next-paint-inp-engineering">8. Interaction to Next Paint (INP) Engineering</h2>
 <p>In March 2024, Google officially replaced First Input Delay (FID) with <strong>Interaction to Next Paint (INP)</strong>. While FID only evaluated the initial click on a page, INP measures the latency of <strong>every user interaction</strong> (clicks, taps, keypresses) throughout the entire lifespan of the session.</p>
 <p>A "Good" INP score requires visual feedback within <strong>200ms</strong>, with responsive web applications targeting <strong>under 80ms</strong>.</p>
-<h3>Breaking Up Long Tasks (&gt;50ms)</h3>
+<h3 id="h-breaking-up-long-tasks-gt-50ms">Breaking Up Long Tasks (&gt;50ms)</h3>
 <p>When a user clicks a button, the browser's main thread must not be blocked by heavy synchronous JavaScript execution. If a JavaScript task exceeds 50ms, any user interaction occurring during that window is queued and delayed.</p>
 <pre><code>Long Task Anti-Pattern (&gt;50ms):
 [User Clicks] ──► [─── Heavy Synchronous Computation: 180ms ───] ──► [Visual Feedback]
@@ -930,7 +1428,7 @@ Optimized Task Slicing:
 [User Clicks] ──► [State Update: 15ms] ──► [Visual Feedback: 20ms] ──► [scheduler.yield()] ──► [Background Work]
                   (Main Thread Responsive — INP: 35ms ✅)
 </code></pre>
-<h3>Yielding Execution with <code>scheduler.yield()</code></h3>
+<h3 id="h-yielding-execution-with-scheduler-yield">Yielding Execution with <code>scheduler.yield()</code></h3>
 <p>For heavy computations that must run on the client (e.g., filtering a client-side dataset of 5,000 items), yield control back to the browser between chunks:</p>
 <pre><code class="language-ts">// lib/task-scheduler.ts
 export async function yieldToMain() {
@@ -943,21 +1441,21 @@ export async function yieldToMain() {
 }
 </code></pre>
 <p>By calling <code>await yieldToMain()</code> during intensive data processing loops, you give the browser an opportunity to paint user input responses and process micro-animations smoothly.</p>
-<h3>Pushing State to Leaf Components</h3>
+<h3 id="h-pushing-state-to-leaf-components">Pushing State to Leaf Components</h3>
 <p>As established in our <a href="/blog/nextjs-state-management-api-boundaries">Next.js State Management guide</a>, keeping state localized prevents large component subtrees from re-rendering during user interactions. A click that toggles a mobile drawer should only re-render the drawer component—not the entire page layout.</p>
 <hr />
-<h2>9. Cumulative Layout Shift (CLS) Prevention</h2>
+<h2 id="h-9-cumulative-layout-shift-cls-prevention">9. Cumulative Layout Shift (CLS) Prevention</h2>
 <p>Cumulative Layout Shift (CLS) evaluates the visual stability of a web page by measuring unexpected layout movements. A score of <strong>0.00</strong> indicates zero shifts.</p>
-<h3>Key Architectural Rules for Zero CLS:</h3>
+<h3 id="h-key-architectural-rules-for-zero-cls">Key Architectural Rules for Zero CLS:</h3>
 <ol>
 <li><strong>Always Declare Aspect Ratios on Media Containers:</strong> When using <code>next/image</code> with the <code>fill</code> prop, wrap the image in a container that defines an explicit aspect ratio (e.g., <code>aspect-[16/9]</code> or <code>aspect-square</code>) or explicit CSS <code>height</code> and <code>width</code>.</li>
 <li><strong>Reserve Minimum Container Heights:</strong> Dynamic components that load asynchronously (such as cookie consent dialogs, notification bars, or dynamic promo banners) must have pre-allocated vertical space using CSS <code>min-height</code>.</li>
 <li><strong>Avoid Dynamic DOM Injections Above the Fold:</strong> Never insert a newly fetched component above content that the user is already viewing. If a dynamic banner loads late, append it below existing content or render it as an overlay.</li>
 </ol>
 <hr />
-<h2>10. Server Caching &amp; Edge Delivery Architecture</h2>
+<h2 id="h-10-server-caching-amp-edge-delivery-architecture">10. Server Caching &amp; Edge Delivery Architecture</h2>
 <p>Caching in Next.js has evolved significantly across recent releases. The current model emphasizes explicit caching via <strong>Cache Components</strong> and the <code>use cache</code> directive, moving away from older, implicit caching behaviors.</p>
-<h3>The Modern Next.js Caching Architecture:</h3>
+<h3 id="h-the-modern-next-js-caching-architecture">The Modern Next.js Caching Architecture:</h3>
 <ol>
 <li><p><strong>The <code>use cache</code> Directive:</strong></p>
 <ul>
@@ -998,10 +1496,10 @@ export async function updateProductPrice(productId: string, newPrice: number) {
 </ol>
 <p>For deeper auditing workflows, explore our dedicated <a href="/services/website-performance-optimization">website performance optimization services</a>.</p>
 <hr />
-<h2>11. Third-Party Script Management (<code>next/script</code>)</h2>
+<h2 id="h-11-third-party-script-management-next-script">11. Third-Party Script Management (<code>next/script</code>)</h2>
 <p>Third-party scripts—Google Tag Manager, analytics platforms, marketing pixels, and customer support chat widgets—are often the primary cause of main thread contention on production websites.</p>
 <p>Next.js provides the <code>next/script</code> component to manage script loading strategies cleanly (<a href="https://nextjs.org/docs/app/building-your-application/optimizing/scripts">Next.js Documentation</a>).</p>
-<h3>Loading Strategy Decision Guide:</h3>
+<h3 id="h-loading-strategy-decision-guide">Loading Strategy Decision Guide:</h3>
 <table>
 <thead>
 <tr>
@@ -1058,7 +1556,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 </code></pre>
 <p>By deferring non-essential scripts with <code>lazyOnload</code>, you ensure that marketing widgets do not compete with critical hero images or fonts for mobile bandwidth.</p>
 <hr />
-<h2>12. A Practical Production Architecture</h2>
+<h2 id="h-12-a-practical-production-architecture">12. A Practical Production Architecture</h2>
 <p>The diagram below illustrates a high-performance Next.js production architecture that unites modern rendering, caching, and asset optimization:</p>
 <pre><code>[Incoming User Request]
            │
@@ -1089,7 +1587,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 └────────────────────────────────────────────────────────┘
 </code></pre>
 <hr />
-<h2>13. Next.js Performance Decision Matrix</h2>
+<h2 id="h-13-next-js-performance-decision-matrix">13. Next.js Performance Decision Matrix</h2>
 <table>
 <thead>
 <tr>
@@ -1140,7 +1638,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 </tr>
 </tbody></table>
 <hr />
-<h2>14. Common Performance Anti-Patterns</h2>
+<h2 id="h-14-common-performance-anti-patterns">14. Common Performance Anti-Patterns</h2>
 <p>Review your codebase against these five frequent architectural pitfalls:</p>
 <ol>
 <li><strong>Marking Route Layouts with <code>'use client'</code>:</strong> This forces your entire layout, navigation bar, and all nested children into the client bundle, bloating hydration overhead.</li>
@@ -1150,51 +1648,339 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 <li><strong>Copying Server Data into Client State:</strong> Fetching data on the server, passing it to a Client Component, and immediately duplicating it into <code>useState</code>, forcing redundant client re-renders.</li>
 </ol>
 <hr />
-<h2>15. Frequently Asked Questions (FAQ)</h2>
-<h3>How do Server Components improve Core Web Vitals?</h3>
+<h2 id="h-15-frequently-asked-questions-faq">15. Frequently Asked Questions (FAQ)</h2>
+<h3 id="h-how-do-server-components-improve-core-web-vitals">How do Server Components improve Core Web Vitals?</h3>
 <p>Server Components can reduce the amount of JavaScript sent to and evaluated by the browser. By executing heavy dependencies (parsers, date utilities, database drivers) exclusively on the server, the browser has less JavaScript to download, parse, and hydrate. This frees up the main thread and directly improves <strong>Interaction to Next Paint (INP)</strong>.</p>
-<h3>What is the most common reason websites fail Largest Contentful Paint (LCP)?</h3>
+<h3 id="h-what-is-the-most-common-reason-websites-fail-largest-contentful-paint-lcp">What is the most common reason websites fail Largest Contentful Paint (LCP)?</h3>
 <p>The most frequent cause is unoptimized above-the-fold media—such as high-resolution hero images lacking modern compression (AVIF/WebP), missing explicit <code>sizes</code> attributes, or failing to use the <code>priority</code> attribute on the <code>next/image</code> component. Another common contributor is slow server Time to First Byte (TTFB) on un-cached dynamic routes.</p>
-<h3>How does <code>next/font</code> prevent Cumulative Layout Shift (CLS)?</h3>
+<h3 id="h-how-does-next-font-prevent-cumulative-layout-shift-cls">How does <code>next/font</code> prevent Cumulative Layout Shift (CLS)?</h3>
 <p><code>next/font</code> downloads Google Fonts at build time and self-hosts them locally. It automatically calculates CSS font-override properties (<code>size-adjust</code>, <code>ascent-override</code>, <code>descent-override</code>) for the system fallback font. When the custom font file loads, it occupies the exact same dimensions as the fallback font, preventing text reflow and eliminating layout shifts (0.00 CLS).</p>
-<h3>Why did Google replace First Input Delay (FID) with Interaction to Next Paint (INP)?</h3>
+<h3 id="h-why-did-google-replace-first-input-delay-fid-with-interaction-to-next-paint-inp">Why did Google replace First Input Delay (FID) with Interaction to Next Paint (INP)?</h3>
 <p>FID only measured the initial delay of the very first click or tap on a page. INP evaluates all user interactions across the entire session, measuring the time from user input until the browser paints updated visual feedback. It provides a far more accurate assessment of real-world application responsiveness.</p>
-<h3>When should I use <code>next/dynamic</code> instead of a regular import?</h3>
+<h3 id="h-when-should-i-use-next-dynamic-instead-of-a-regular-import">When should I use <code>next/dynamic</code> instead of a regular import?</h3>
 <p>Use <code>next/dynamic</code> for heavy, non-critical Client Components that are not needed during initial page render—such as modals, rich text editors, graphing libraries, or complex filter drawers. This splits the code into a separate bundle that loads only when required.</p>
-<h3>Does edge delivery guarantee sub-50ms TTFB?</h3>
+<h3 id="h-does-edge-delivery-guarantee-sub-50ms-ttfb">Does edge delivery guarantee sub-50ms TTFB?</h3>
 <p>No. While Edge CDNs minimize physical network distance between the user and the server, actual Time to First Byte depends on cache hit ratios, backend database query latency, geographic distance to origin data stores, and dynamic compute time. Caching static segments is key to achieving optimal TTFB.</p>
-<h3>What is the difference between Partial Prerendering (PPR) and traditional SSR?</h3>
+<h3 id="h-what-is-the-difference-between-partial-prerendering-ppr-and-traditional-ssr">What is the difference between Partial Prerendering (PPR) and traditional SSR?</h3>
 <p>Traditional SSR requires the server to generate the entire page HTML dynamically before responding. Partial Prerendering (PPR) serves a prerendered static layout shell immediately from the edge cache, while streaming dynamic data holes concurrently over the same HTTP connection.</p>
-<h3>How should third-party tracking scripts be loaded to protect performance?</h3>
+<h3 id="h-how-should-third-party-tracking-scripts-be-loaded-to-protect-performance">How should third-party tracking scripts be loaded to protect performance?</h3>
 <p>Load non-critical third-party scripts using <code>next/script</code> with <code>strategy="lazyOnload"</code> so they execute during browser idle time, or offload them to a web worker using <code>strategy="worker"</code>. This prevents third-party analytics and chat widgets from competing with critical resources or blocking the main thread.</p>
 <hr />
-<h2>Engineering High-Performance Web Platforms</h2>
+<h2 id="h-engineering-high-performance-web-platforms">Engineering High-Performance Web Platforms</h2>
 <p>High-performance web applications are the product of rigorous architectural decisions: establishing clean component boundaries, minimizing client bundle weights, and designing deterministic caching workflows.</p>
 <p>If your team is modernizing an existing Next.js application, untangling Core Web Vitals bottlenecks, or engineering a sub-second digital flagship, explore our <a href="/services/website-performance-optimization">website performance optimization services</a>, learn about our <a href="/services/custom-web-development">custom web development</a> capabilities, or <a href="/contact">schedule an architectural briefing with Kawaki Studios</a>.</p>
 
-            </div>
+                </div>
 
-            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
-                <span class="tag-pill">#Next.js</span><span class="tag-pill">#Performance</span><span class="tag-pill">#Core Web Vitals</span><span class="tag-pill">#Web Architecture</span>
-            </div>
+                <!-- TAGS -->
+                <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                    <span class="tag-pill">#Next.js</span><span class="tag-pill">#Performance</span><span class="tag-pill">#Core Web Vitals</span><span class="tag-pill">#Web Architecture</span>
+                </div>
 
-            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
-                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
-                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
-                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                    <a href="/services/website-performance-optimization" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
-                        Explore Website Performance & Core Web Vitals Optimization &rarr;
+                <!-- IN-ARTICLE CONVERSION CTA -->
+                <div class="in-article-cta text-center">
+                    <span class="cta-kicker">// ARCHITECTURAL PARTNERSHIP</span>
+                    <h3>Need Help Engineering Your Web Platform or AI Systems?</h3>
+                    <p>From high-performance Next.js architectures to headless Shopify storefronts, custom AI automations, and enterprise WordPress security recovery, Kawaki Studios designs resilient digital infrastructure built to scale.</p>
+                    <div class="cta-actions">
+                        <a href="/contact" class="btn-primary-theme">
+                            <span>Schedule Engineering Discovery</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path></svg>
+                        </a>
+                        <a href="/services/website-performance-optimization" class="btn-link-secondary">
+                            Explore Website Performance & Core Web Vitals Optimization &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AUTHOR BIO CARD -->
+                <div class="author-bio-card">
+                    <div class="bio-avatar">
+                        <span class="avatar-text">KS</span>
+                    </div>
+                    <div class="bio-details">
+                        <span class="bio-role">Founder &amp; Principal Engineer</span>
+                        <h4>Kunal Sharma</h4>
+                        <p>Kunal is the founder and principal engineer at Kawaki Studios, specializing in high-performance web engineering, Next.js application architecture, headless Shopify systems, autonomous AI workflows, and forensic WordPress security recovery. He helps ambitious founders and modern enterprises design resilient, high-velocity digital flagships.</p>
+                        <div class="bio-socials">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub ↗</a>
+                            <a href="/contact" class="bio-consult">Book 15-Min Briefing ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- RIGHT STICKY SIDEBAR -->
+            <aside class="article-sidebar" data-lenis-prevent>
+                <!-- WIDGET 1: TABLE OF CONTENTS -->
+                <div class="toc-light-card">
+                    <h3 class="toc-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                        Table of Contents
+                    </h3>
+                    <nav class="toc-nav">
+                        <ul class="toc-list" data-lenis-prevent>
+                            
+      <li class="toc-item toc-level-2">
+        <a href="#h-1-the-performance-geometry-of-next-js">1. The Performance Geometry of Next.js</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-2-rendering-paradigms-amp-execution-budgets">2. Rendering Paradigms &amp; Execution Budgets</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-modern-rendering-spectrum">The Modern Rendering Spectrum</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-execution-budgets-by-metric">Execution Budgets by Metric:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-3-javascript-payload-amp-hydration-economics">3. JavaScript Payload &amp; Hydration Economics</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-server-components-reduce-client-javascript">How Server Components Reduce Client JavaScript</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-isolating-server-dependencies-with-server-only">Isolating Server Dependencies with server-only</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-deferring-interactive-leaves-with-next-dynamic">Deferring Interactive Leaves with next/dynamic</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-4-package-imports-amp-barrel-file-optimization">4. Package Imports &amp; Barrel File Optimization</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-configuring-optimizepackageimports">Configuring optimizePackageImports</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-5-advanced-image-architecture-next-image">5. Advanced Image Architecture (next/image)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-modern-format-negotiation-avif-amp-webp">1. Modern Format Negotiation (AVIF &amp; WebP)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-sizing-and-the-critical-sizes-attribute">2. Sizing and the Critical sizes Attribute</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-the-priority-attribute-for-lcp">3. The priority Attribute for LCP</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-6-font-optimization-amp-zero-shift-typography-next-font">6. Font Optimization &amp; Zero-Shift Typography (next/font)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-documented-capabilities-of-next-font">Documented Capabilities of next/font:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-7-mastering-largest-contentful-paint-lcp">7. Mastering Largest Contentful Paint (LCP)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-4-sub-parts-of-lcp">The 4 Sub-Parts of LCP:</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-lcp-engineering-checklist">LCP Engineering Checklist:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-8-interaction-to-next-paint-inp-engineering">8. Interaction to Next Paint (INP) Engineering</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-breaking-up-long-tasks-gt-50ms">Breaking Up Long Tasks (&gt;50ms)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-yielding-execution-with-scheduler-yield">Yielding Execution with scheduler.yield()</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pushing-state-to-leaf-components">Pushing State to Leaf Components</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-9-cumulative-layout-shift-cls-prevention">9. Cumulative Layout Shift (CLS) Prevention</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-key-architectural-rules-for-zero-cls">Key Architectural Rules for Zero CLS:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-10-server-caching-amp-edge-delivery-architecture">10. Server Caching &amp; Edge Delivery Architecture</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-modern-next-js-caching-architecture">The Modern Next.js Caching Architecture:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-11-third-party-script-management-next-script">11. Third-Party Script Management (next/script)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-loading-strategy-decision-guide">Loading Strategy Decision Guide:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-12-a-practical-production-architecture">12. A Practical Production Architecture</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-13-next-js-performance-decision-matrix">13. Next.js Performance Decision Matrix</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-14-common-performance-anti-patterns">14. Common Performance Anti-Patterns</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-15-frequently-asked-questions-faq">15. Frequently Asked Questions (FAQ)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-do-server-components-improve-core-web-vitals">How do Server Components improve Core Web Vitals?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-is-the-most-common-reason-websites-fail-largest-contentful-paint-lcp">What is the most common reason websites fail Largest Contentful Paint (LCP)?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-does-next-font-prevent-cumulative-layout-shift-cls">How does next/font prevent Cumulative Layout Shift (CLS)?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-why-did-google-replace-first-input-delay-fid-with-interaction-to-next-paint-inp">Why did Google replace First Input Delay (FID) with Interaction to Next Paint (INP)?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-should-i-use-next-dynamic-instead-of-a-regular-import">When should I use next/dynamic instead of a regular import?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-does-edge-delivery-guarantee-sub-50ms-ttfb">Does edge delivery guarantee sub-50ms TTFB?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-is-the-difference-between-partial-prerendering-ppr-and-traditional-ssr">What is the difference between Partial Prerendering (PPR) and traditional SSR?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-should-third-party-tracking-scripts-be-loaded-to-protect-performance">How should third-party tracking scripts be loaded to protect performance?</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-engineering-high-performance-web-platforms">Engineering High-Performance Web Platforms</a>
+      </li>
+    
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- WIDGET 2: SHARE BUTTONS -->
+                <div class="share-light-card">
+                    <span class="share-label">Share Article</span>
+                    <div class="share-buttons">
+                        <button class="share-btn" id="share-copy" title="Copy Link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                        <a href="https://twitter.com/intent/tweet?text=Next.js%20Performance%20Architecture%3A%20Rendering%2C%20JavaScript%2C%20Images%2C%20and%20Core%20Web%20Vitals&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fnextjs-performance-architecture" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter / X">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fnextjs-performance-architecture" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WIDGET 3: 1-ON-1 STRATEGY CALL -->
+                <div class="strategy-call-card">
+                    <span class="call-badge">1-ON-1 CONSULTATION</span>
+                    <h4 class="call-title">Book an Engineering Briefing</h4>
+                    <p class="call-desc">Discuss your web platform, Next.js migration, AI workflow, or security recovery directly with our engineering team.</p>
+                    <a href="/contact" class="btn-sidebar-call">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Schedule Call</span>
                     </a>
                 </div>
-                <a href="/contact" class="rlvnt-btn max-content" style="margin: 0 auto;">
-                    <span>Start a Project</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg>
-                </a>
+            </aside>
+        </div>
+
+        <!-- RELATED POSTS SECTION -->
+        <section class="related-posts-section">
+            <h2 class="related-section-title">Related Engineering Insights</h2>
+            <div class="related-grid">
+                
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">
+            <img src="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" alt="How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet archite...</p>
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency">
+            <img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" alt="What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/what-to-prepare-before-hiring-web-development-agency">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budge...</p>
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-ai-search-engines-cite-sources">
+            <img src="/assets/images/blog/deterministic-code-vs-probabilistic-llm-boundary.webp" alt="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">AI Search</span>
+          <h3 class="card-title">
+            <a href="/blog/how-ai-search-engines-cite-sources">How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization</a>
+          </h3>
+          <p class="card-excerpt">An architectural guide to how AI search engines cite sources: RAG retrieval pipelines, query fan-out, empirical findings from the Pr...</p>
+          <a href="/blog/how-ai-search-engines-cite-sources" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
             </div>
-        </article>
+        </section>
     </main>
 
     <!-- UNIVERSAL GLOBAL FOOTER -->
@@ -1315,7 +2101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                </ul>
+            </ul>
             <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
                 <span>Back to Top</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
@@ -1326,6 +2112,78 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Share Copy Link Handler
+            const copyBtn = document.getElementById('share-copy');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(window.location.href);
+                        const originalHtml = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#65a30d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                        copyBtn.setAttribute('title', 'Link Copied!');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHtml;
+                            copyBtn.setAttribute('title', 'Copy Link');
+                        }, 2500);
+                    } catch (err) {
+                        console.error('Failed to copy link:', err);
+                    }
+                });
+            }
+
+            // Table of Contents Scroll-Spy via IntersectionObserver
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            const headings = Array.from(document.querySelectorAll('.post-body-content h2, .post-body-content h3'));
+            
+            if (tocLinks.length > 0 && headings.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-100px 0px -65% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            tocLinks.forEach((link) => {
+                                const item = link.closest('.toc-item');
+                                if (link.getAttribute('href') === '#' + id) {
+                                    item?.classList.add('active');
+                                    const tocList = document.querySelector('.toc-list');
+                                    if (tocList && item) {
+                                        const offset = item.offsetTop - tocList.offsetTop;
+                                        tocList.scrollTo({ top: offset - 40, behavior: 'smooth' });
+                                    }
+                                } else {
+                                    item?.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                headings.forEach(h => observer.observe(h));
+            }
+
+            // Smooth scroll on TOC link click
+            tocLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href')?.slice(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const navOffset = 100;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
             // Time update helper for footer
             function updateFooterClocks() {
                 const now = new Date();
@@ -1334,10 +2192,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 const elTokyo = document.getElementById('footerTimeTokyo');
                 const elLondon = document.getElementById('footerTimeLondon');
                 const elNY = document.getElementById('footerTimeNY');
-                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
-                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
-                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
-                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+                if (elDelhi) elDelhi.innerText = now.toLocaleTimeString('en-US', opt('Asia/Kolkata')) + ' IST';
+                if (elTokyo) elTokyo.innerText = now.toLocaleTimeString('en-US', opt('Asia/Tokyo')) + ' JST';
+                if (elLondon) elLondon.innerText = now.toLocaleTimeString('en-US', opt('Europe/London')) + ' GMT';
+                if (elNY) elNY.innerText = now.toLocaleTimeString('en-US', opt('America/New_York')) + ' EST';
             }
             updateFooterClocks();
             setInterval(updateFooterClocks, 10000);

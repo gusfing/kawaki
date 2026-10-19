@@ -26,16 +26,16 @@
     <meta property="og:url" content="https://kawaki.co.in/blog/what-to-prepare-before-hiring-web-development-agency" />
     <meta property="og:title" content="What to Prepare Before Hiring a Web Agency — Kawaki Studios" />
     <meta property="og:description" content="A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budget models, and vetting criteria." />
-    <meta property="og:image" content="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="675" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="What to Prepare Before Hiring a Web Agency — Kawaki Studios" />
     <meta name="twitter:description" content="A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budget models, and vetting criteria." />
-    <meta name="twitter:image" content="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -44,12 +44,18 @@
     "@type": "BlogPosting",
     "headline": "What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide",
     "description": "A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budget models, and vetting criteria.",
-    "image": "/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp",
+    "image": "https://kawaki.co.in/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp",
     "datePublished": "2026-10-16T20:20:00.000Z",
     "dateModified": "2026-10-16T20:20:00.000Z",
     "author": {
         "@type": "Person",
-        "name": "Kunal Sharma"
+        "name": "Kunal Sharma",
+        "jobTitle": "Founder & Principal Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in"
+        }
     },
     "publisher": {
         "@type": "Organization",
@@ -94,7 +100,7 @@
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 
@@ -102,8 +108,9 @@
         :root {
             --color-bg: #FFFFFF;
             --color-text: #12100E;
-            --color-muted: #6B7280;
+            --color-muted: #64748B;
             --color-accent: #C6FF00;
+            --color-border: rgba(0, 0, 0, 0.08);
             --font-sans: "Plus Jakarta Sans", sans-serif;
             --font-serif: "Instrument Serif", serif;
             --font-mono: "JetBrains Mono", monospace;
@@ -116,7 +123,7 @@
             margin: 0;
             padding: 0;
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -125,13 +132,14 @@
             font-style: italic;
         }
 
-        .article-container {
-            max-width: 860px;
+        /* Container & Page Header */
+        .post-detail-page {
+            max-width: 1240px;
             margin: 0 auto;
             padding: 130px 24px 80px;
         }
 
-        .article-breadcrumb {
+        .breadcrumbs-nav {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
@@ -141,199 +149,304 @@
             color: var(--color-muted);
             margin-bottom: 1.5rem;
         }
-        .article-breadcrumb a {
+        .breadcrumbs-nav a {
             color: var(--color-muted);
             text-decoration: none;
             transition: color 0.2s;
         }
-        .article-breadcrumb a:hover {
-            color: var(--color-accent);
+        .breadcrumbs-nav a:hover {
+            color: #111111;
         }
-        .article-breadcrumb .bc-sep {
-            color: rgba(0,0,0,0.3);
+        .breadcrumbs-nav .divider {
+            color: rgba(0,0,0,0.25);
         }
-        .article-breadcrumb .bc-current {
-            color: var(--color-text);
+        .breadcrumbs-nav .active {
+            color: #111111;
+            font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 420px;
+            max-width: 480px;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-muted);
-            text-decoration: none;
-            margin-bottom: 2rem;
-            transition: color 0.2s;
-        }
-        .back-link:hover {
-            color: var(--color-accent);
+        .post-header {
+            margin-bottom: 2.5rem;
         }
 
-        .article-meta-badge {
+        .header-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: #111114;
+            color: #C6FF00;
             font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--color-accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            text-decoration: none;
         }
 
-        .article-header-title {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+        }
+        .meta-item svg {
+            color: var(--color-muted);
+        }
+
+        .post-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
-            margin: 0 0 1.5rem;
             color: #111111;
+            margin: 0 0 1.5rem;
         }
 
-        .article-info-bar {
+        .author-credits {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             padding: 1.25rem 0;
             border-top: 1px solid rgba(0,0,0,0.08);
             border-bottom: 1px solid rgba(0,0,0,0.08);
             margin-bottom: 2.5rem;
             font-size: 14px;
-            color: var(--color-muted);
-        }
-
-        .author-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         .author-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #111111;
+            background: #111114;
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
+            border: 2px solid rgba(198, 255, 0, 0.4);
+        }
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            font-weight: 700;
+            color: #111111;
+        }
+        .author-role {
+            font-size: 12px;
+            color: var(--color-muted);
         }
 
-        .article-hero-image {
+        /* Hero Featured Image Container */
+        .featured-image-wrapper {
+            margin-bottom: 3.5rem;
+        }
+        .featured-image-container {
             width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            max-height: 580px;
             border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            overflow: hidden;
+            background: #0B0B0E;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .post-featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .article-content {
+        /* Two-Column Layout Grid */
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 1024px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .article-sidebar {
+                order: 2;
+            }
+        }
+
+        /* Executive Summary / Key Takeaways Card */
+        .key-takeaways-card {
+            background: #F9FAF6;
+            border: 1px solid rgba(198, 255, 0, 0.4);
+            border-left: 4px solid #C6FF00;
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .takeaways-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+        .takeaways-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #111111;
+            font-family: var(--font-mono);
+        }
+        .takeaway-icon {
+            color: #65a30d;
+        }
+        .takeaway-lead {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .takeaway-bullets {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: #1F2937;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+        .takeaway-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Post Content Typography */
+        .post-body-content {
             font-size: 1.125rem;
             line-height: 1.8;
             color: #2D2A26;
         }
-
-        .article-content h1, 
-        .article-content h2, 
-        .article-content h3 {
-            color: #111111;
+        .post-body-content h2 {
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin: 2.5rem 0 1rem;
+            color: #111111;
+            margin: 3rem 0 1.25rem;
+            scroll-margin-top: 110px;
         }
-        .article-content h2 {
-            font-size: 1.75rem;
-        }
-        .article-content h3 {
+        .post-body-content h3 {
             font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: #111111;
+            margin: 2.25rem 0 1rem;
+            scroll-margin-top: 110px;
         }
-
-        .article-content p {
+        .post-body-content p {
             margin-bottom: 1.5rem;
         }
-
-        .article-content ul,
-        .article-content ol {
+        .post-body-content ul, .post-body-content ol {
             margin: 1.5rem 0;
-            padding-left: 2rem;
+            padding-left: 1.75rem;
         }
-
-        .article-content li {
+        .post-body-content li {
             margin-bottom: 0.5rem;
         }
-
-        .article-content a {
+        .post-body-content a {
             color: #111111;
             text-decoration: underline;
             text-decoration-color: var(--color-accent);
             text-underline-offset: 4px;
             transition: color 0.2s;
         }
-        .article-content a:hover {
+        .post-body-content a:hover {
             color: #000000;
         }
-
-        .article-content pre {
+        .post-body-content blockquote {
+            border-left: 3px solid #C6FF00;
+            background: #F9F9FB;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            color: #374151;
+            font-style: italic;
+        }
+        .post-body-content pre {
             background: #111116;
             color: #F4F4F5;
-            padding: 1.25rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 14px;
             overflow-x: auto;
             font-family: var(--font-mono);
             font-size: 14px;
-            margin: 1.5rem 0;
+            line-height: 1.6;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-
-        .article-content code {
+        .post-body-content code {
             font-family: var(--font-mono);
             font-size: 14px;
             background: rgba(0,0,0,0.06);
             padding: 2px 6px;
             border-radius: 4px;
         }
-
-        .article-content pre code {
+        .post-body-content pre code {
             background: transparent;
             padding: 0;
             border-radius: 0;
             color: inherit;
         }
-
-        .article-content blockquote {
-            border-left: 3px solid var(--color-accent);
-            padding-left: 1.25rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #4A4640;
+        .post-body-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            font-size: 14.5px;
         }
-
-        .article-content figure {
+        .post-body-content th {
+            background: #111114;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            border: 1px solid #111114;
+        }
+        .post-body-content td {
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: #FFFFFF;
+        }
+        .post-body-content tr:nth-child(even) td {
+            background: #F9FAF6;
+        }
+        .post-body-content figure {
             margin: 2.5rem 0;
             padding: 0;
         }
-
-        .article-content img {
+        .post-body-content img {
             max-width: 100%;
             height: auto;
             border-radius: 14px;
             display: block;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
         }
-
-        .article-content figcaption {
+        .post-body-content figcaption {
             margin-top: 0.75rem;
             font-size: 0.85rem;
             color: var(--color-muted);
@@ -353,35 +466,398 @@
             margin-bottom: 6px;
         }
 
-        .rlvnt-btn {
+        /* In-Article Conversion Card */
+        .in-article-cta {
+            margin: 3.5rem 0;
+            padding: 2.5rem 2rem;
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(198, 255, 0, 0.2);
             position: relative;
-            display: inline-flex;
-            gap: 8px;
-            border: 1px solid var(--color-text);
+            overflow: hidden;
+        }
+        .in-article-cta .cta-kicker {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #C6FF00;
+            margin-bottom: 0.75rem;
+        }
+        .in-article-cta h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .in-article-cta p {
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 580px;
+            margin: 0 auto 1.75rem;
+        }
+        .in-article-cta .cta-actions {
+            display: flex;
+            gap: 16px;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary-theme {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 14px;
             padding: 12px 24px;
             border-radius: 50px;
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-style: italic;
-            background: transparent;
-            color: var(--color-text);
-            font-size: 1rem;
-            overflow: hidden;
-            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary-theme:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+        .btn-link-secondary {
+            color: #94A3B8;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .btn-link-secondary:hover {
+            color: #FFFFFF;
+        }
+
+        /* Author Bio Card */
+        .author-bio-card {
+            display: flex;
+            gap: 20px;
+            padding: 2rem;
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            margin-top: 3.5rem;
+            align-items: flex-start;
+        }
+        @media (max-width: 640px) {
+            .author-bio-card {
+                flex-direction: column;
+            }
+        }
+        .bio-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #111114;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            border: 2px solid #C6FF00;
+            flex-shrink: 0;
+        }
+        .bio-details h4 {
+            margin: 0.25rem 0 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #111111;
+        }
+        .bio-role {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #65a30d;
+        }
+        .bio-details p {
+            margin: 0 0 1rem;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        .bio-socials {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .bio-socials a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .bio-socials a:hover {
+            color: #65a30d;
+        }
+        .bio-consult {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline !important;
+        }
+
+        /* Sidebar Widgets */
+        .article-sidebar {
+            position: sticky;
+            top: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .toc-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .toc-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #111111;
+            margin: 0 0 1rem;
+            font-family: var(--font-mono);
+        }
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 420px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        .toc-item {
+            margin-bottom: 2px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .toc-item a {
+            display: block;
+            padding: 6px 10px;
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: #4B5563;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-level-3 a {
+            padding-left: 20px;
+            font-size: 12.5px;
+            color: #6B7280;
+        }
+        .toc-item.active a {
+            color: #111111;
+            font-weight: 700;
+            border-left-color: #C6FF00;
+            background: rgba(198, 255, 0, 0.15);
+            border-radius: 0 6px 6px 0;
+        }
+        .toc-item a:hover {
+            color: #111111;
+            background: rgba(0,0,0,0.03);
+        }
+
+        .share-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .share-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-mono);
+            color: #111111;
+        }
+        .share-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111111;
             cursor: pointer;
+            transition: all 0.2s;
             text-decoration: none;
         }
-        .rlvnt-btn.max-content {
-            width: max-content;
-            height: max-content;
-            font-size: 20px;
-            padding: 8px 16px;
+        .share-btn:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
         }
-        .rlvnt-btn:hover {
-            background-color: var(--color-text);
-            color: #ffffff;
+
+        .strategy-call-card {
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 18px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .call-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #C6FF00;
+            margin-bottom: 0.5rem;
+        }
+        .call-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            color: #FFFFFF;
+        }
+        .call-desc {
+            font-size: 13px;
+            color: #94A3B8;
+            line-height: 1.5;
+            margin: 0 0 1.25rem;
+        }
+        .btn-sidebar-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+            box-sizing: border-box;
+        }
+        .btn-sidebar-call:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+
+        /* Related Posts Section */
+        .related-posts-section {
+            margin-top: 5rem;
+            padding-top: 3.5rem;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .related-section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111111;
+            margin: 0 0 2.5rem;
+            text-align: center;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 900px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .post-light-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-light-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.06);
+        }
+        .card-img-wrapper {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0B0B0E;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .post-light-card:hover .card-img {
+            transform: scale(1.04);
+        }
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 0.75rem 0 0.5rem;
+        }
+        .card-title a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-title a:hover {
+            color: #65a30d;
+        }
+        .card-excerpt {
+            font-size: 13.5px;
+            color: var(--color-muted);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .card-read-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+        .card-read-link:hover {
+            gap: 8px;
+            color: #65a30d;
         }
     </style>
 </head>
@@ -600,46 +1076,68 @@
     </div>
 
     <!-- MAIN ARTICLE BODY -->
-    <main class="article-container">
-        <!-- Breadcrumbs -->
-        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+    <main class="post-detail-page">
+        <!-- BREADCRUMBS -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs-nav">
             <a href="/">Home</a>
-            <span class="bc-sep">/</span>
+            <span class="divider">/</span>
             <a href="/blog">Blog</a>
-            <span class="bc-sep">/</span>
-            <span class="bc-current">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</span>
+            <span class="divider">/</span>
+            <span class="active" aria-current="page">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</span>
         </nav>
 
-        <a href="/blog" class="back-link">
-            ← Back to all stories
-        </a>
-
-        <article id="articleWrapper">
-            <div class="article-meta-badge" id="articleCategory">
-                ● Web Development
+        <!-- POST HEADER -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="category-badge">Web Development</span>
+                <span class="meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    16 min read
+                </span>
+                <span class="meta-item">16 Oct 2026</span>
             </div>
-            
-            <h1 class="article-header-title" id="articleTitle">
+
+            <h1 class="post-title" id="articleTitle">
                 What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide
             </h1>
 
-            <div class="article-info-bar">
-                <div class="author-box">
-                    <div class="author-avatar" id="authorInitial">KS</div>
-                    <div>
-                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
-                        <div style="font-size: 12px;" id="articleDate">16 Oct 2026</div>
-                    </div>
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
-                    140 reads
+            <div class="author-credits">
+                <div class="author-avatar" id="authorInitial">KS</div>
+                <div class="author-details">
+                    <span class="author-name" id="authorName">Kunal Sharma</span>
+                    <span class="author-role">Founder &amp; Principal Engineer, Kawaki Studios</span>
                 </div>
             </div>
+        </header>
 
-            <img id="articleImage" src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" alt="What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+        <!-- FEATURED HERO IMAGE -->
+        <div class="featured-image-wrapper">
+            <div class="featured-image-container">
+                <img id="articleImage" src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" alt="What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+            </div>
+        </div>
 
-            <div class="article-content" id="articleContent">
-                <p>Hiring a web development agency is one of the highest-leverage investments a company can make—and one of the most frequently mismanaged. Industry data consistently indicates that over 65% of custom web and software projects experience significant budget overruns, delayed release dates, or contentious scope disputes.</p>
+        <!-- TWO-COLUMN ARTICLE LAYOUT -->
+        <div class="article-layout" id="articleWrapper">
+            <!-- LEFT MAIN CONTENT COLUMN -->
+            <article class="article-content-column">
+                <!-- EXECUTIVE SUMMARY / KEY TAKEAWAYS -->
+                <div class="key-takeaways-card">
+                    <div class="takeaways-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="takeaway-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        <h3>Executive Summary / Key Takeaways</h3>
+                    </div>
+                    <p class="takeaway-lead">A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budget models, and vetting criteria.</p>
+                    <ul class="takeaway-bullets">
+                        <li>Defines the four essential pre-hire pillars: Business Objectives, Technical Scope, Design Readiness, and IP Governance.</li>
+                        <li>Explains how ambiguity triggers agency risk contingencies and expensive change-order cycles.</li>
+                        <li>Provides a comprehensive pre-hire RFP scoping checklist and 5 technical vetting questions.</li>
+                    </ul>
+                </div>
+
+                <!-- MAIN ARTICLE CONTENT -->
+                <div class="post-body-content" id="articleContent">
+                    <p>Hiring a web development agency is one of the highest-leverage investments a company can make—and one of the most frequently mismanaged. Industry data consistently indicates that over 65% of custom web and software projects experience significant budget overruns, delayed release dates, or contentious scope disputes.</p>
 <p>The root cause of these failures is rarely poor engineering talent. <strong>In the overwhelming majority of cases, projects derail because of ambiguity during the pre-hire phase.</strong> </p>
 <p>When a client approaches an agency with a two-page brief stating <em>"we need a fast, modern website like Stripe or Airbnb,"</em> the agency is forced to bid on assumptions. Two agencies can interpret that sentence in wildly divergent ways: one proposes a pre-bought WordPress theme with 40 third-party plugins for $4,000, while another scopes a bespoke, headless Next.js web application with a design system, automated CI/CD, and custom API pipelines for $40,000. Both technically answered the brief, but only one matches the client's actual long-term technical and commercial requirements.</p>
 <blockquote>
@@ -647,7 +1145,7 @@
 </blockquote>
 <p>Whether you are a founder building a new digital flagship, an ecommerce brand migrating to <a href="/blog/headless-shopify-development-guide">headless Shopify</a>, or a business leader planning a <a href="/services/custom-web-development">custom web platform</a>, this guide outlines the exact preparation framework required before hiring a web development agency.</p>
 <hr />
-<h2>1. The Cost of Ambiguity: Why Projects Stall</h2>
+<h2 id="h-1-the-cost-of-ambiguity-why-projects-stall">1. The Cost of Ambiguity: Why Projects Stall</h2>
 <p>In software development, there is an unwritten law: <strong>Ambiguity is an expensive loan that compounds interest daily.</strong></p>
 <p>When project requirements are vague:</p>
 <ol>
@@ -657,12 +1155,12 @@
 </ol>
 <p>Preparation does not require you to write production code or create comprehensive database schemas yourself. It requires you to articulate your business goals, identify functional must-haves, assemble your brand assets, and establish clear governance rules.</p>
 <hr />
-<h2>2. The 4 Pre-Hire Preparation Pillars</h2>
+<h2 id="h-2-the-4-pre-hire-preparation-pillars">2. The 4 Pre-Hire Preparation Pillars</h2>
 <p>Before scheduling discovery calls with prospective agencies, organize your project requirements into four distinct pillars:</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/website-project-scoping-framework.webp" alt="Website Project Scoping and Requirements Framework showing Business, Technical, Design, and Infrastructure preparation pillars" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: The Four Pillars of Pre-Hire Architectural and Scoping Preparation.</figcaption>
-</figure><h3>Pillar 1: Business Objectives &amp; User Conversion Journeys</h3>
+</figure><h3 id="h-pillar-1-business-objectives-amp-user-conversion-journeys">Pillar 1: Business Objectives &amp; User Conversion Journeys</h3>
 <p>Agencies need to know <em>why</em> the website exists and how you measure return on investment (ROI). Avoid generic goals like "increase brand awareness." Define concrete commercial outcomes:</p>
 <ul>
 <li><strong>Primary Business Metric:</strong> Is the site built to generate qualified enterprise demo bookings, drive high-velocity D2C transactions, or provide investor credibility for an upcoming funding round?</li>
@@ -670,7 +1168,7 @@
 <li><strong>Primary Conversion Paths:</strong> Exactly what sequence of actions should a visitor take from landing on the homepage to completing a conversion?</li>
 <li><strong>Performance Key Performance Indicators (KPIs):</strong> Target load speed (&lt;1.2s Largest Contentful Paint), form completion rates, organic search visibility, or mobile conversion lift.</li>
 </ul>
-<h3>Pillar 2: Technical Scope, APIs &amp; Data Architecture</h3>
+<h3 id="h-pillar-2-technical-scope-apis-amp-data-architecture">Pillar 2: Technical Scope, APIs &amp; Data Architecture</h3>
 <p>This is where scope creep lives. Define what the website must <em>do</em>, beyond how it looks:</p>
 <ul>
 <li><strong>Third-Party Integrations:</strong> List every external software system the website must communicate with:<ul>
@@ -685,7 +1183,7 @@
 <li><strong>User Authentication &amp; Gated Portals:</strong> Do customers need user accounts, role-based access control (RBAC), subscription gating, or single sign-on (SSO)?</li>
 <li><strong>Compliance &amp; Security Requirements:</strong> Must the site comply with GDPR, CCPA, HIPAA, SOC 2, or PCI-DSS Level 1 standards?</li>
 </ul>
-<h3>Pillar 3: Design Maturity &amp; Content Readiness</h3>
+<h3 id="h-pillar-3-design-maturity-amp-content-readiness">Pillar 3: Design Maturity &amp; Content Readiness</h3>
 <p>One of the most frequent causes of project delays is content bottlenecks. An agency cannot build a website around non-existent photography and placeholder text without severe redesign costs later:</p>
 <ul>
 <li><strong>Design Status:</strong> <ul>
@@ -697,7 +1195,7 @@
 <li><strong>Brand Assets Inventory:</strong> Ensure you have vector SVG logos, primary and secondary color palettes, licensed web fonts (with webfont files ready), and brand voice guidelines.</li>
 <li><strong>Content Readiness:</strong> Who is writing the page copy? Do you have high-resolution photography, product renders, case study data, and video assets ready, or must the agency budget for content production and technical writing?</li>
 </ul>
-<h3>Pillar 4: Infrastructure, DNS &amp; IP Ownership</h3>
+<h3 id="h-pillar-4-infrastructure-dns-amp-ip-ownership">Pillar 4: Infrastructure, DNS &amp; IP Ownership</h3>
 <p>Establish technical governance and administrative ownership before granting access:</p>
 <ul>
 <li><strong>Domain &amp; DNS Control:</strong> Ensure your team owns the domain registrar account (Cloudflare, Namecheap, GoDaddy). Never allow an agency to register your primary domain under their personal account.</li>
@@ -705,9 +1203,9 @@
 <li><strong>Code Repository &amp; Intellectual Property (IP):</strong> Require that all custom code is committed directly to your organization’s private GitHub or GitLab repository from Sprint 1.</li>
 </ul>
 <hr />
-<h2>3. How to Draft a Lightweight Project Brief (RFP)</h2>
+<h2 id="h-3-how-to-draft-a-lightweight-project-brief-rfp">3. How to Draft a Lightweight Project Brief (RFP)</h2>
 <p>You do not need a 60-page formal Request for Proposal (RFP) to get accurate estimates. In fact, most top-tier engineering studios prefer a focused 4-to-6 page brief that clearly articulates the core requirements without bureaucratic padding.</p>
-<h3>Recommended Project Brief Structure:</h3>
+<h3 id="h-recommended-project-brief-structure">Recommended Project Brief Structure:</h3>
 <pre><code class="language-markdown">1. Company Background &amp; Mission
    - Who you are, what you sell, and your positioning in the market.
 
@@ -734,10 +1232,10 @@
 7. Budget Range &amp; Timeline Expectations
    - Realistic budget window and hard deadline constraints (e.g., product launch, funding announcement).
 </code></pre>
-<h3>The Power of the "Non-Goals" Section</h3>
+<h3 id="h-the-power-of-the-non-goals-section">The Power of the "Non-Goals" Section</h3>
 <p>Stating what you <strong>do not</strong> want built is just as critical as stating what you do want. If an agency knows that user account creation or multi-language localization is deferred to Phase 2, they will not waste time engineering unnecessary architectural overhead into your initial milestone.</p>
 <hr />
-<h2>4. Contract Models: Fixed-Price vs. Sprint-Based</h2>
+<h2 id="h-4-contract-models-fixed-price-vs-sprint-based">4. Contract Models: Fixed-Price vs. Sprint-Based</h2>
 <p>Understanding how agencies price their work is essential for protecting your budget and aligning incentives:</p>
 <table>
 <thead>
@@ -773,16 +1271,16 @@
 <td align="left">You pay for actual engineering velocity and verified milestone deliverables.</td>
 </tr>
 </tbody></table>
-<h3>When Fixed-Price Backfires</h3>
+<h3 id="h-when-fixed-price-backfires">When Fixed-Price Backfires</h3>
 <p>Fixed-price contracts appear safe because they promise certainty. However, in custom software, unknown technical variables inevitably emerge—an undocumented legacy API, a third-party webhook failure, or a necessary pivot in user onboarding. In a fixed-price model, the agency's legal obligation is to fulfill the contract, not to solve the newly discovered business problem.</p>
 <p>For ambitious custom platforms, a <strong>hybrid milestone model</strong>—combining a fixed-price discovery and design phase followed by sprint-based development against verified deliverables—consistently produces superior software.</p>
 <hr />
-<h2>5. Technical Questions to Vet an Agency Candidate</h2>
+<h2 id="h-5-technical-questions-to-vet-an-agency-candidate">5. Technical Questions to Vet an Agency Candidate</h2>
 <p>When interviewing prospective web development agencies, bypass generic sales pitches and portfolio slideshows. Ask specific technical and operational questions that immediately separate elite engineering teams from template assemblers:</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/agency-evaluation-scorecard-matrix.webp" alt="Web Development Agency Evaluation Matrix comparing bespoke engineering studios against low-tier template resellers" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Agency Evaluation Scorecard Matrix across Code Quality, Ownership, and Contracts.</figcaption>
-</figure><h3>1. Code Ownership and Repository Access</h3>
+</figure><h3 id="h-1-code-ownership-and-repository-access">1. Code Ownership and Repository Access</h3>
 <blockquote>
 <p><em>"Who holds the intellectual property, and will our team have administrative access to the GitHub/GitLab repository from the first day of development?"</em></p>
 </blockquote>
@@ -790,7 +1288,7 @@
 <li><strong>The Right Answer:</strong> <em>"You own 100% of the code, designs, and assets. We commit directly to your private GitHub organization, and your engineers can inspect the commit history anytime."</em></li>
 <li><strong>The Red Flag:</strong> <em>"We host the code on our internal servers during development and hand over a ZIP file upon final payment,"</em> or <em>"The site is built on our proprietary agency CMS."</em></li>
 </ul>
-<h3>2. Architecture and Foundation</h3>
+<h3 id="h-2-architecture-and-foundation">2. Architecture and Foundation</h3>
 <blockquote>
 <p><em>"Will this project be custom-engineered using modern frameworks, or built on a pre-bought commercial theme or page builder?"</em></p>
 </blockquote>
@@ -798,7 +1296,7 @@
 <li><strong>The Right Answer:</strong> The agency explains their architectural rationale based on your scale: e.g., a modern <a href="/blog/nextjs-performance-architecture">Next.js or React architecture</a> for sub-second performance, or clean custom Shopify Liquid/Theme code without bloated page builders.</li>
 <li><strong>The Red Flag:</strong> <em>"We use an all-in-one theme with Elementor/WPBakery because it's fast to set up."</em> (This results in heavy DOM bloat, 40+ database plugins, and terrible Core Web Vitals).</li>
 </ul>
-<h3>3. Core Web Vitals and Performance Commitments</h3>
+<h3 id="h-3-core-web-vitals-and-performance-commitments">3. Core Web Vitals and Performance Commitments</h3>
 <blockquote>
 <p><em>"What contractual performance standards do you engineer for regarding Largest Contentful Paint (LCP) and Interaction to Next Paint (INP)?"</em></p>
 </blockquote>
@@ -806,7 +1304,7 @@
 <li><strong>The Right Answer:</strong> The agency discusses technical optimization strategies: static site generation (SSG), edge caching, server-side asset optimization, responsive WebP/AVIF images, and minimal JavaScript payloads aimed at sub-1.2s mobile LCP.</li>
 <li><strong>The Red Flag:</strong> <em>"We install an SEO plugin and a caching plugin at launch to speed things up."</em> (Plugins cannot fix foundational architectural bloat).</li>
 </ul>
-<h3>4. The Engineering Team Structure</h3>
+<h3 id="h-4-the-engineering-team-structure">4. The Engineering Team Structure</h3>
 <blockquote>
 <p><em>"Who will actually write our code and design our interfaces—in-house senior engineers, or outsourced white-label subcontractors?"</em></p>
 </blockquote>
@@ -814,7 +1312,7 @@
 <li><strong>The Right Answer:</strong> You are introduced to the lead engineer or technical director who will oversee your repository. Communication happens directly with the builders via Slack or shared project management tools.</li>
 <li><strong>The Red Flag:</strong> You only ever speak to a sales representative or account manager who cannot answer basic technical questions without "checking with the offshore dev team."</li>
 </ul>
-<h3>5. Staging Environments and QA Workflow</h3>
+<h3 id="h-5-staging-environments-and-qa-workflow">5. Staging Environments and QA Workflow</h3>
 <blockquote>
 <p><em>"How do we review progress before launch, and what is your quality assurance protocol across mobile devices and browsers?"</em></p>
 </blockquote>
@@ -823,7 +1321,7 @@
 <li><strong>The Red Flag:</strong> <em>"We build the site live on your domain with a 'Coming Soon' maintenance plugin,"</em> or <em>"We show you screenshots until launch day."</em></li>
 </ul>
 <hr />
-<h2>6. Red Flags to Watch Out For During Proposals</h2>
+<h2 id="h-6-red-flags-to-watch-out-for-during-proposals">6. Red Flags to Watch Out For During Proposals</h2>
 <p>Be cautious if you observe any of the following patterns during the discovery and proposal phase:</p>
 <ol>
 <li><strong>The Instant Quote:</strong> An agency gives you a firm cost and timeline within 10 minutes of conversation without asking detailed questions about your API integrations, database models, or content readiness.</li>
@@ -833,22 +1331,22 @@
 <li><strong>Ignoring Post-Launch Realities:</strong> The agency has no plan or protocol for security patching, dependency updates, uptime monitoring, or post-launch warranty support.</li>
 </ol>
 <hr />
-<h2>7. Real-World Scoping in Practice: Two Case Studies</h2>
+<h2 id="h-7-real-world-scoping-in-practice-two-case-studies">7. Real-World Scoping in Practice: Two Case Studies</h2>
 <p>At <a href="/">Kawaki Studios</a>, our engineering team frequently guides clients through pre-hire architectural discovery. Two contrasting project examples demonstrate why pre-hire clarity matters:</p>
-<h3>Case Study 1: Architectural Minimalism for Kala Design Co.</h3>
+<h3 id="h-case-study-1-architectural-minimalism-for-kala-design-co">Case Study 1: Architectural Minimalism for Kala Design Co.</h3>
 <p>When architecture firm <a href="/case-studies/kala-design-co">Kala Design Co.</a> approached Kawaki Studios for a digital monograph, their goal was clear: create an unhurried, visually immersive digital archive that reflected the minimalism and craftsmanship of their physical architectural projects.</p>
 <ul>
 <li><strong>What Was Prepared:</strong> A curated inventory of high-resolution architectural photography, defined typography requirements, and an explicit refusal of generic marketing tropes or heavy animations.</li>
 <li><strong>The Architectural Outcome:</strong> A bespoke, lightweight digital flagship engineered with clean semantic HTML, bespoke CSS layout rails, and instant image delivery—achieving sub-0.8s LCP and editorial elegance without bloated CMS frameworks.</li>
 </ul>
-<h3>Case Study 2: High-Velocity Headless Commerce for BAZZARO</h3>
+<h3 id="h-case-study-2-high-velocity-headless-commerce-for-bazzaro">Case Study 2: High-Velocity Headless Commerce for BAZZARO</h3>
 <p>Luxury direct-to-consumer brand <a href="/case-studies/bazzaro">BAZZARO</a> needed a high-performance ecommerce platform capable of handling rapid catalog browsing and sub-second checkout transitions.</p>
 <ul>
 <li><strong>What Was Prepared:</strong> Detailed technical mappings of their Shopify product catalog, third-party ERP inventory sync requirements, and strict Core Web Vitals conversion benchmarks.</li>
 <li><strong>The Architectural Outcome:</strong> A headless Shopify storefront utilizing edge caching and optimized API boundaries, delivering instant product discovery and a seamless checkout experience.</li>
 </ul>
 <hr />
-<h2>8. The Comprehensive Pre-Hire Client Checklist</h2>
+<h2 id="h-8-the-comprehensive-pre-hire-client-checklist">8. The Comprehensive Pre-Hire Client Checklist</h2>
 <p>Use this checklist to ensure your internal team is 100% prepared before issuing an RFP or scheduling agency interviews:</p>
 <table>
 <thead>
@@ -920,46 +1418,282 @@
 </tr>
 </tbody></table>
 <hr />
-<h2>9. Frequently Asked Questions (FAQ)</h2>
-<h3>How much should a custom website development project cost?</h3>
+<h2 id="h-9-frequently-asked-questions-faq">9. Frequently Asked Questions (FAQ)</h2>
+<h3 id="h-how-much-should-a-custom-website-development-project-cost">How much should a custom website development project cost?</h3>
 <p>Costs vary drastically depending on architectural complexity. A simple, bespoke marketing website engineered with clean static code typically ranges from $5,000 to $15,000. Complex web applications, headless ecommerce platforms, or custom SaaS systems involving dynamic databases, user authentication, and multi-API integrations typically range from $20,000 to $60,000+. Be wary of quotes substantially below industry norms; they almost universally rely on bloated, pre-made templates with high technical debt.</p>
-<h3>How long does a typical web development project take?</h3>
+<h3 id="h-how-long-does-a-typical-web-development-project-take">How long does a typical web development project take?</h3>
 <p>A focused custom marketing website built by a dedicated studio typically takes 4 to 8 weeks from kickoff to production launch. Complex web platforms or headless ecommerce rebuilds typically take 8 to 16 weeks, structured across discovery, UI/UX design, front-end engineering, API integration, and comprehensive staging QA.</p>
-<h3>What is a "Discovery Phase," and should I pay for one?</h3>
+<h3 id="h-what-is-a-discovery-phase-and-should-i-pay-for-one">What is a "Discovery Phase," and should I pay for one?</h3>
 <p>Yes. For complex projects, a paid Discovery Phase (typically 1 to 2 weeks) is a sign of a mature engineering studio. During discovery, the agency audits your data, diagrams your system architecture, defines API schemas, and produces a definitive Technical Specification Document. You can take that specification to any agency to build—it eliminates risk for both parties.</p>
-<h3>Can an agency start development before design is finished?</h3>
+<h3 id="h-can-an-agency-start-development-before-design-is-finished">Can an agency start development before design is finished?</h3>
 <p>In modern agile engineering, development can begin once the global design system (typography, color tokens, layout grids, and core component primitives) is approved. Front-end engineers can scaffold the repository, establish CI/CD pipelines, configure API routing, and build foundational components while detailed page-level UI designs are finalized in parallel.</p>
-<h3>What happens if we need to change features during the project?</h3>
+<h3 id="h-what-happens-if-we-need-to-change-features-during-the-project">What happens if we need to change features during the project?</h3>
 <p>In a milestone or sprint-based contract, scope adjustments are natural. At the start of each sprint, your team and the lead engineer review the backlog. If a new priority emerges, you swap an equivalent feature out of the current sprint or extend the timeline transparently. In a fixed-price contract, changes require a formal written Change Order with adjusted pricing.</p>
 <hr />
-<h2>10. Next Steps: Plan Your Project Architecture</h2>
+<h2 id="h-10-next-steps-plan-your-project-architecture">10. Next Steps: Plan Your Project Architecture</h2>
 <p>Preparing for a web development engagement requires upfront effort, but it pays immediate dividends in reduced costs, faster delivery, and a superior end product. </p>
 <p>If you are planning a new digital flagship, web application, or ecommerce rebuild, the engineering team at <strong><a href="/services/custom-web-development">Kawaki Studios</a></strong> can help you review your technical requirements, evaluate architectural options (from headless frameworks to bespoke platforms), and scope a clear milestone roadmap.</p>
 <p><strong>Ready to discuss your project?</strong> <a href="/contact?service=custom-web-development">Schedule a technical consultation with Kawaki Studios</a> to review your requirements with our lead engineers.</p>
 
-            </div>
+                </div>
 
-            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
-                <span class="tag-pill">#Web Development</span><span class="tag-pill">#Agency Guide</span><span class="tag-pill">#Project Scoping</span><span class="tag-pill">#Engineering Strategy</span>
-            </div>
+                <!-- TAGS -->
+                <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                    <span class="tag-pill">#Web Development</span><span class="tag-pill">#Agency Guide</span><span class="tag-pill">#Project Scoping</span><span class="tag-pill">#Engineering Strategy</span>
+                </div>
 
-            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
-                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
-                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
-                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                    <a href="/services/custom-web-development" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
-                        Explore Custom Web Development & Architectural Tiers &rarr;
+                <!-- IN-ARTICLE CONVERSION CTA -->
+                <div class="in-article-cta text-center">
+                    <span class="cta-kicker">// ARCHITECTURAL PARTNERSHIP</span>
+                    <h3>Need Help Engineering Your Web Platform or AI Systems?</h3>
+                    <p>From high-performance Next.js architectures to headless Shopify storefronts, custom AI automations, and enterprise WordPress security recovery, Kawaki Studios designs resilient digital infrastructure built to scale.</p>
+                    <div class="cta-actions">
+                        <a href="/contact?service=custom-web-development" class="btn-primary-theme">
+                            <span>Schedule Engineering Discovery</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path></svg>
+                        </a>
+                        <a href="/services/custom-web-development" class="btn-link-secondary">
+                            Explore Custom Web Development & Architectural Tiers &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AUTHOR BIO CARD -->
+                <div class="author-bio-card">
+                    <div class="bio-avatar">
+                        <span class="avatar-text">KS</span>
+                    </div>
+                    <div class="bio-details">
+                        <span class="bio-role">Founder &amp; Principal Engineer</span>
+                        <h4>Kunal Sharma</h4>
+                        <p>Kunal is the founder and principal engineer at Kawaki Studios, specializing in high-performance web engineering, Next.js application architecture, headless Shopify systems, autonomous AI workflows, and forensic WordPress security recovery. He helps ambitious founders and modern enterprises design resilient, high-velocity digital flagships.</p>
+                        <div class="bio-socials">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub ↗</a>
+                            <a href="/contact" class="bio-consult">Book 15-Min Briefing ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- RIGHT STICKY SIDEBAR -->
+            <aside class="article-sidebar" data-lenis-prevent>
+                <!-- WIDGET 1: TABLE OF CONTENTS -->
+                <div class="toc-light-card">
+                    <h3 class="toc-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                        Table of Contents
+                    </h3>
+                    <nav class="toc-nav">
+                        <ul class="toc-list" data-lenis-prevent>
+                            
+      <li class="toc-item toc-level-2">
+        <a href="#h-1-the-cost-of-ambiguity-why-projects-stall">1. The Cost of Ambiguity: Why Projects Stall</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-2-the-4-pre-hire-preparation-pillars">2. The 4 Pre-Hire Preparation Pillars</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pillar-1-business-objectives-amp-user-conversion-journeys">Pillar 1: Business Objectives &amp; User Conversion Journeys</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pillar-2-technical-scope-apis-amp-data-architecture">Pillar 2: Technical Scope, APIs &amp; Data Architecture</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pillar-3-design-maturity-amp-content-readiness">Pillar 3: Design Maturity &amp; Content Readiness</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pillar-4-infrastructure-dns-amp-ip-ownership">Pillar 4: Infrastructure, DNS &amp; IP Ownership</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-3-how-to-draft-a-lightweight-project-brief-rfp">3. How to Draft a Lightweight Project Brief (RFP)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-recommended-project-brief-structure">Recommended Project Brief Structure:</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-power-of-the-non-goals-section">The Power of the "Non-Goals" Section</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-4-contract-models-fixed-price-vs-sprint-based">4. Contract Models: Fixed-Price vs. Sprint-Based</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-fixed-price-backfires">When Fixed-Price Backfires</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-5-technical-questions-to-vet-an-agency-candidate">5. Technical Questions to Vet an Agency Candidate</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-code-ownership-and-repository-access">1. Code Ownership and Repository Access</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-architecture-and-foundation">2. Architecture and Foundation</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-core-web-vitals-and-performance-commitments">3. Core Web Vitals and Performance Commitments</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-the-engineering-team-structure">4. The Engineering Team Structure</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-5-staging-environments-and-qa-workflow">5. Staging Environments and QA Workflow</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-6-red-flags-to-watch-out-for-during-proposals">6. Red Flags to Watch Out For During Proposals</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-7-real-world-scoping-in-practice-two-case-studies">7. Real-World Scoping in Practice: Two Case Studies</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-case-study-1-architectural-minimalism-for-kala-design-co">Case Study 1: Architectural Minimalism for Kala Design Co.</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-case-study-2-high-velocity-headless-commerce-for-bazzaro">Case Study 2: High-Velocity Headless Commerce for BAZZARO</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-8-the-comprehensive-pre-hire-client-checklist">8. The Comprehensive Pre-Hire Client Checklist</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-9-frequently-asked-questions-faq">9. Frequently Asked Questions (FAQ)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-much-should-a-custom-website-development-project-cost">How much should a custom website development project cost?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-long-does-a-typical-web-development-project-take">How long does a typical web development project take?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-is-a-discovery-phase-and-should-i-pay-for-one">What is a "Discovery Phase," and should I pay for one?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-can-an-agency-start-development-before-design-is-finished">Can an agency start development before design is finished?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-happens-if-we-need-to-change-features-during-the-project">What happens if we need to change features during the project?</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-10-next-steps-plan-your-project-architecture">10. Next Steps: Plan Your Project Architecture</a>
+      </li>
+    
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- WIDGET 2: SHARE BUTTONS -->
+                <div class="share-light-card">
+                    <span class="share-label">Share Article</span>
+                    <div class="share-buttons">
+                        <button class="share-btn" id="share-copy" title="Copy Link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                        <a href="https://twitter.com/intent/tweet?text=What%20to%20Prepare%20Before%20Hiring%20a%20Web%20Development%20Agency%3A%20The%20Complete%20Client%20Scoping%20%26%20Evaluation%20Guide&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fwhat-to-prepare-before-hiring-web-development-agency" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter / X">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fwhat-to-prepare-before-hiring-web-development-agency" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WIDGET 3: 1-ON-1 STRATEGY CALL -->
+                <div class="strategy-call-card">
+                    <span class="call-badge">1-ON-1 CONSULTATION</span>
+                    <h4 class="call-title">Book an Engineering Briefing</h4>
+                    <p class="call-desc">Discuss your web platform, Next.js migration, AI workflow, or security recovery directly with our engineering team.</p>
+                    <a href="/contact" class="btn-sidebar-call">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Schedule Call</span>
                     </a>
                 </div>
-                <a href="/contact?service=custom-web-development" class="rlvnt-btn max-content" style="margin: 0 auto;">
-                    <span>Start a Project</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg>
-                </a>
+            </aside>
+        </div>
+
+        <!-- RELATED POSTS SECTION -->
+        <section class="related-posts-section">
+            <h2 class="related-section-title">Related Engineering Insights</h2>
+            <div class="related-grid">
+                
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">
+            <img src="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" alt="How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet archite...</p>
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-ai-search-engines-cite-sources">
+            <img src="/assets/images/blog/deterministic-code-vs-probabilistic-llm-boundary.webp" alt="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">AI Search</span>
+          <h3 class="card-title">
+            <a href="/blog/how-ai-search-engines-cite-sources">How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization</a>
+          </h3>
+          <p class="card-excerpt">An architectural guide to how AI search engines cite sources: RAG retrieval pipelines, query fan-out, empirical findings from the Pr...</p>
+          <a href="/blog/how-ai-search-engines-cite-sources" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/ai-automation-vs-ai-agents">
+            <img src="/assets/images/blog/ai-automation-vs-ai-agent-decision-matrix.webp" alt="AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">AI Automation</span>
+          <h3 class="card-title">
+            <a href="/blog/ai-automation-vs-ai-agents">AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each</a>
+          </h3>
+          <p class="card-excerpt">An engineering decision framework for choosing between AI automation and autonomous AI agents: 18-dimension decision matrix, autonom...</p>
+          <a href="/blog/ai-automation-vs-ai-agents" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
             </div>
-        </article>
+        </section>
     </main>
 
     <!-- UNIVERSAL GLOBAL FOOTER -->
@@ -1080,7 +1814,7 @@
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                </ul>
+            </ul>
             <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
                 <span>Back to Top</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
@@ -1091,6 +1825,78 @@
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Share Copy Link Handler
+            const copyBtn = document.getElementById('share-copy');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(window.location.href);
+                        const originalHtml = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#65a30d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                        copyBtn.setAttribute('title', 'Link Copied!');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHtml;
+                            copyBtn.setAttribute('title', 'Copy Link');
+                        }, 2500);
+                    } catch (err) {
+                        console.error('Failed to copy link:', err);
+                    }
+                });
+            }
+
+            // Table of Contents Scroll-Spy via IntersectionObserver
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            const headings = Array.from(document.querySelectorAll('.post-body-content h2, .post-body-content h3'));
+            
+            if (tocLinks.length > 0 && headings.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-100px 0px -65% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            tocLinks.forEach((link) => {
+                                const item = link.closest('.toc-item');
+                                if (link.getAttribute('href') === '#' + id) {
+                                    item?.classList.add('active');
+                                    const tocList = document.querySelector('.toc-list');
+                                    if (tocList && item) {
+                                        const offset = item.offsetTop - tocList.offsetTop;
+                                        tocList.scrollTo({ top: offset - 40, behavior: 'smooth' });
+                                    }
+                                } else {
+                                    item?.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                headings.forEach(h => observer.observe(h));
+            }
+
+            // Smooth scroll on TOC link click
+            tocLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href')?.slice(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const navOffset = 100;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
             // Time update helper for footer
             function updateFooterClocks() {
                 const now = new Date();
@@ -1099,10 +1905,10 @@
                 const elTokyo = document.getElementById('footerTimeTokyo');
                 const elLondon = document.getElementById('footerTimeLondon');
                 const elNY = document.getElementById('footerTimeNY');
-                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
-                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
-                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
-                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+                if (elDelhi) elDelhi.innerText = now.toLocaleTimeString('en-US', opt('Asia/Kolkata')) + ' IST';
+                if (elTokyo) elTokyo.innerText = now.toLocaleTimeString('en-US', opt('Asia/Tokyo')) + ' JST';
+                if (elLondon) elLondon.innerText = now.toLocaleTimeString('en-US', opt('Europe/London')) + ' GMT';
+                if (elNY) elNY.innerText = now.toLocaleTimeString('en-US', opt('America/New_York')) + ' EST';
             }
             updateFooterClocks();
             setInterval(updateFooterClocks, 10000);

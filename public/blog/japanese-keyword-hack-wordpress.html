@@ -26,16 +26,16 @@
     <meta property="og:url" content="https://kawaki.co.in/blog/japanese-keyword-hack-wordpress" />
     <meta property="og:title" content="Japanese Keyword Hack Cleanup Guide — Kawaki Studios" />
     <meta property="og:description" content="Learn how Japanese keyword hacks compromise WordPress, generate spam URLs, hide via cloaking, and how to fix them with HTTP 410 and root-cause cleanup." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-infection-kill-chain.webp" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="675" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="Japanese Keyword Hack Cleanup Guide — Kawaki Studios" />
     <meta name="twitter:description" content="Learn how Japanese keyword hacks compromise WordPress, generate spam URLs, hide via cloaking, and how to fix them with HTTP 410 and root-cause cleanup." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-infection-kill-chain.webp" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -44,12 +44,18 @@
     "@type": "BlogPosting",
     "headline": "The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress",
     "description": "Learn how Japanese keyword hacks compromise WordPress, generate spam URLs, hide via cloaking, and how to fix them with HTTP 410 and root-cause cleanup.",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+    "image": "https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-infection-kill-chain.webp",
     "datePublished": "2026-09-24T10:00:00.000Z",
     "dateModified": "2026-09-24T10:00:00.000Z",
     "author": {
         "@type": "Person",
-        "name": "Kunal Sharma"
+        "name": "Kunal Sharma",
+        "jobTitle": "Founder & Principal Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in"
+        }
     },
     "publisher": {
         "@type": "Organization",
@@ -94,7 +100,7 @@
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 
@@ -102,8 +108,9 @@
         :root {
             --color-bg: #FFFFFF;
             --color-text: #12100E;
-            --color-muted: #6B7280;
+            --color-muted: #64748B;
             --color-accent: #C6FF00;
+            --color-border: rgba(0, 0, 0, 0.08);
             --font-sans: "Plus Jakarta Sans", sans-serif;
             --font-serif: "Instrument Serif", serif;
             --font-mono: "JetBrains Mono", monospace;
@@ -116,7 +123,7 @@
             margin: 0;
             padding: 0;
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -125,13 +132,14 @@
             font-style: italic;
         }
 
-        .article-container {
-            max-width: 860px;
+        /* Container & Page Header */
+        .post-detail-page {
+            max-width: 1240px;
             margin: 0 auto;
             padding: 130px 24px 80px;
         }
 
-        .article-breadcrumb {
+        .breadcrumbs-nav {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
@@ -141,199 +149,304 @@
             color: var(--color-muted);
             margin-bottom: 1.5rem;
         }
-        .article-breadcrumb a {
+        .breadcrumbs-nav a {
             color: var(--color-muted);
             text-decoration: none;
             transition: color 0.2s;
         }
-        .article-breadcrumb a:hover {
-            color: var(--color-accent);
+        .breadcrumbs-nav a:hover {
+            color: #111111;
         }
-        .article-breadcrumb .bc-sep {
-            color: rgba(0,0,0,0.3);
+        .breadcrumbs-nav .divider {
+            color: rgba(0,0,0,0.25);
         }
-        .article-breadcrumb .bc-current {
-            color: var(--color-text);
+        .breadcrumbs-nav .active {
+            color: #111111;
+            font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 420px;
+            max-width: 480px;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-muted);
-            text-decoration: none;
-            margin-bottom: 2rem;
-            transition: color 0.2s;
-        }
-        .back-link:hover {
-            color: var(--color-accent);
+        .post-header {
+            margin-bottom: 2.5rem;
         }
 
-        .article-meta-badge {
+        .header-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: #111114;
+            color: #C6FF00;
             font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--color-accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            text-decoration: none;
         }
 
-        .article-header-title {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+        }
+        .meta-item svg {
+            color: var(--color-muted);
+        }
+
+        .post-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
-            margin: 0 0 1.5rem;
             color: #111111;
+            margin: 0 0 1.5rem;
         }
 
-        .article-info-bar {
+        .author-credits {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             padding: 1.25rem 0;
             border-top: 1px solid rgba(0,0,0,0.08);
             border-bottom: 1px solid rgba(0,0,0,0.08);
             margin-bottom: 2.5rem;
             font-size: 14px;
-            color: var(--color-muted);
-        }
-
-        .author-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         .author-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #111111;
+            background: #111114;
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
+            border: 2px solid rgba(198, 255, 0, 0.4);
+        }
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            font-weight: 700;
+            color: #111111;
+        }
+        .author-role {
+            font-size: 12px;
+            color: var(--color-muted);
         }
 
-        .article-hero-image {
+        /* Hero Featured Image Container */
+        .featured-image-wrapper {
+            margin-bottom: 3.5rem;
+        }
+        .featured-image-container {
             width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            max-height: 580px;
             border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            overflow: hidden;
+            background: #0B0B0E;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .post-featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .article-content {
+        /* Two-Column Layout Grid */
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 1024px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .article-sidebar {
+                order: 2;
+            }
+        }
+
+        /* Executive Summary / Key Takeaways Card */
+        .key-takeaways-card {
+            background: #F9FAF6;
+            border: 1px solid rgba(198, 255, 0, 0.4);
+            border-left: 4px solid #C6FF00;
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .takeaways-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+        .takeaways-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #111111;
+            font-family: var(--font-mono);
+        }
+        .takeaway-icon {
+            color: #65a30d;
+        }
+        .takeaway-lead {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .takeaway-bullets {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: #1F2937;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+        .takeaway-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Post Content Typography */
+        .post-body-content {
             font-size: 1.125rem;
             line-height: 1.8;
             color: #2D2A26;
         }
-
-        .article-content h1, 
-        .article-content h2, 
-        .article-content h3 {
-            color: #111111;
+        .post-body-content h2 {
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin: 2.5rem 0 1rem;
+            color: #111111;
+            margin: 3rem 0 1.25rem;
+            scroll-margin-top: 110px;
         }
-        .article-content h2 {
-            font-size: 1.75rem;
-        }
-        .article-content h3 {
+        .post-body-content h3 {
             font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: #111111;
+            margin: 2.25rem 0 1rem;
+            scroll-margin-top: 110px;
         }
-
-        .article-content p {
+        .post-body-content p {
             margin-bottom: 1.5rem;
         }
-
-        .article-content ul,
-        .article-content ol {
+        .post-body-content ul, .post-body-content ol {
             margin: 1.5rem 0;
-            padding-left: 2rem;
+            padding-left: 1.75rem;
         }
-
-        .article-content li {
+        .post-body-content li {
             margin-bottom: 0.5rem;
         }
-
-        .article-content a {
+        .post-body-content a {
             color: #111111;
             text-decoration: underline;
             text-decoration-color: var(--color-accent);
             text-underline-offset: 4px;
             transition: color 0.2s;
         }
-        .article-content a:hover {
+        .post-body-content a:hover {
             color: #000000;
         }
-
-        .article-content pre {
+        .post-body-content blockquote {
+            border-left: 3px solid #C6FF00;
+            background: #F9F9FB;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            color: #374151;
+            font-style: italic;
+        }
+        .post-body-content pre {
             background: #111116;
             color: #F4F4F5;
-            padding: 1.25rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 14px;
             overflow-x: auto;
             font-family: var(--font-mono);
             font-size: 14px;
-            margin: 1.5rem 0;
+            line-height: 1.6;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-
-        .article-content code {
+        .post-body-content code {
             font-family: var(--font-mono);
             font-size: 14px;
             background: rgba(0,0,0,0.06);
             padding: 2px 6px;
             border-radius: 4px;
         }
-
-        .article-content pre code {
+        .post-body-content pre code {
             background: transparent;
             padding: 0;
             border-radius: 0;
             color: inherit;
         }
-
-        .article-content blockquote {
-            border-left: 3px solid var(--color-accent);
-            padding-left: 1.25rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #4A4640;
+        .post-body-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            font-size: 14.5px;
         }
-
-        .article-content figure {
+        .post-body-content th {
+            background: #111114;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            border: 1px solid #111114;
+        }
+        .post-body-content td {
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: #FFFFFF;
+        }
+        .post-body-content tr:nth-child(even) td {
+            background: #F9FAF6;
+        }
+        .post-body-content figure {
             margin: 2.5rem 0;
             padding: 0;
         }
-
-        .article-content img {
+        .post-body-content img {
             max-width: 100%;
             height: auto;
             border-radius: 14px;
             display: block;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
         }
-
-        .article-content figcaption {
+        .post-body-content figcaption {
             margin-top: 0.75rem;
             font-size: 0.85rem;
             color: var(--color-muted);
@@ -353,35 +466,398 @@
             margin-bottom: 6px;
         }
 
-        .rlvnt-btn {
+        /* In-Article Conversion Card */
+        .in-article-cta {
+            margin: 3.5rem 0;
+            padding: 2.5rem 2rem;
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(198, 255, 0, 0.2);
             position: relative;
-            display: inline-flex;
-            gap: 8px;
-            border: 1px solid var(--color-text);
+            overflow: hidden;
+        }
+        .in-article-cta .cta-kicker {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #C6FF00;
+            margin-bottom: 0.75rem;
+        }
+        .in-article-cta h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .in-article-cta p {
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 580px;
+            margin: 0 auto 1.75rem;
+        }
+        .in-article-cta .cta-actions {
+            display: flex;
+            gap: 16px;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary-theme {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 14px;
             padding: 12px 24px;
             border-radius: 50px;
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-style: italic;
-            background: transparent;
-            color: var(--color-text);
-            font-size: 1rem;
-            overflow: hidden;
-            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary-theme:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+        .btn-link-secondary {
+            color: #94A3B8;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .btn-link-secondary:hover {
+            color: #FFFFFF;
+        }
+
+        /* Author Bio Card */
+        .author-bio-card {
+            display: flex;
+            gap: 20px;
+            padding: 2rem;
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            margin-top: 3.5rem;
+            align-items: flex-start;
+        }
+        @media (max-width: 640px) {
+            .author-bio-card {
+                flex-direction: column;
+            }
+        }
+        .bio-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #111114;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            border: 2px solid #C6FF00;
+            flex-shrink: 0;
+        }
+        .bio-details h4 {
+            margin: 0.25rem 0 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #111111;
+        }
+        .bio-role {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #65a30d;
+        }
+        .bio-details p {
+            margin: 0 0 1rem;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        .bio-socials {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .bio-socials a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .bio-socials a:hover {
+            color: #65a30d;
+        }
+        .bio-consult {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline !important;
+        }
+
+        /* Sidebar Widgets */
+        .article-sidebar {
+            position: sticky;
+            top: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .toc-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .toc-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #111111;
+            margin: 0 0 1rem;
+            font-family: var(--font-mono);
+        }
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 420px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        .toc-item {
+            margin-bottom: 2px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .toc-item a {
+            display: block;
+            padding: 6px 10px;
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: #4B5563;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-level-3 a {
+            padding-left: 20px;
+            font-size: 12.5px;
+            color: #6B7280;
+        }
+        .toc-item.active a {
+            color: #111111;
+            font-weight: 700;
+            border-left-color: #C6FF00;
+            background: rgba(198, 255, 0, 0.15);
+            border-radius: 0 6px 6px 0;
+        }
+        .toc-item a:hover {
+            color: #111111;
+            background: rgba(0,0,0,0.03);
+        }
+
+        .share-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .share-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-mono);
+            color: #111111;
+        }
+        .share-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111111;
             cursor: pointer;
+            transition: all 0.2s;
             text-decoration: none;
         }
-        .rlvnt-btn.max-content {
-            width: max-content;
-            height: max-content;
-            font-size: 20px;
-            padding: 8px 16px;
+        .share-btn:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
         }
-        .rlvnt-btn:hover {
-            background-color: var(--color-text);
-            color: #ffffff;
+
+        .strategy-call-card {
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 18px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .call-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #C6FF00;
+            margin-bottom: 0.5rem;
+        }
+        .call-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            color: #FFFFFF;
+        }
+        .call-desc {
+            font-size: 13px;
+            color: #94A3B8;
+            line-height: 1.5;
+            margin: 0 0 1.25rem;
+        }
+        .btn-sidebar-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+            box-sizing: border-box;
+        }
+        .btn-sidebar-call:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+
+        /* Related Posts Section */
+        .related-posts-section {
+            margin-top: 5rem;
+            padding-top: 3.5rem;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .related-section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111111;
+            margin: 0 0 2.5rem;
+            text-align: center;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 900px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .post-light-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-light-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.06);
+        }
+        .card-img-wrapper {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0B0B0E;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .post-light-card:hover .card-img {
+            transform: scale(1.04);
+        }
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 0.75rem 0 0.5rem;
+        }
+        .card-title a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-title a:hover {
+            color: #65a30d;
+        }
+        .card-excerpt {
+            font-size: 13.5px;
+            color: var(--color-muted);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .card-read-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+        .card-read-link:hover {
+            gap: 8px;
+            color: #65a30d;
         }
     </style>
 </head>
@@ -600,60 +1076,82 @@
     </div>
 
     <!-- MAIN ARTICLE BODY -->
-    <main class="article-container">
-        <!-- Breadcrumbs -->
-        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+    <main class="post-detail-page">
+        <!-- BREADCRUMBS -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs-nav">
             <a href="/">Home</a>
-            <span class="bc-sep">/</span>
+            <span class="divider">/</span>
             <a href="/blog">Blog</a>
-            <span class="bc-sep">/</span>
-            <span class="bc-current">The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress</span>
+            <span class="divider">/</span>
+            <span class="active" aria-current="page">The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress</span>
         </nav>
 
-        <a href="/blog" class="back-link">
-            ← Back to all stories
-        </a>
-
-        <article id="articleWrapper">
-            <div class="article-meta-badge" id="articleCategory">
-                ● WordPress Security
+        <!-- POST HEADER -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="category-badge">WordPress Security</span>
+                <span class="meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    38 min read
+                </span>
+                <span class="meta-item">24 Sep 2026</span>
             </div>
-            
-            <h1 class="article-header-title" id="articleTitle">
+
+            <h1 class="post-title" id="articleTitle">
                 The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress
             </h1>
 
-            <div class="article-info-bar">
-                <div class="author-box">
-                    <div class="author-avatar" id="authorInitial">KS</div>
-                    <div>
-                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
-                        <div style="font-size: 12px;" id="articleDate">24 Sep 2026</div>
-                    </div>
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
-                    214 reads
+            <div class="author-credits">
+                <div class="author-avatar" id="authorInitial">KS</div>
+                <div class="author-details">
+                    <span class="author-name" id="authorName">Kunal Sharma</span>
+                    <span class="author-role">Founder &amp; Principal Engineer, Kawaki Studios</span>
                 </div>
             </div>
+        </header>
 
-            <img id="articleImage" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+        <!-- FEATURED HERO IMAGE -->
+        <div class="featured-image-wrapper">
+            <div class="featured-image-container">
+                <img id="articleImage" src="/assets/images/blog/japanese-keyword-hack-infection-kill-chain.webp" alt="The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+            </div>
+        </div>
 
-            <div class="article-content" id="articleContent">
-                <p>A business owner opens Google, searches for their company name, and discovers that their search results are filled with thousands of unfamiliar pages written in Japanese. The page titles promote counterfeit luxury watches, discount footwear, or unlicensed pharmaceuticals. Yet, when clicking the links directly or navigating to the homepage, the website appears completely normal.</p>
+        <!-- TWO-COLUMN ARTICLE LAYOUT -->
+        <div class="article-layout" id="articleWrapper">
+            <!-- LEFT MAIN CONTENT COLUMN -->
+            <article class="article-content-column">
+                <!-- EXECUTIVE SUMMARY / KEY TAKEAWAYS -->
+                <div class="key-takeaways-card">
+                    <div class="takeaways-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="takeaway-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        <h3>Executive Summary / Key Takeaways</h3>
+                    </div>
+                    <p class="takeaway-lead">Learn how Japanese keyword hacks compromise WordPress, generate spam URLs, hide via cloaking, and how to fix them with HTTP 410 and root-cause cleanup.</p>
+                    <ul class="takeaway-bullets">
+                        <li>Identifies cloaked user-agent conditional redirects and search-console spam injection vectors.</li>
+                        <li>Conducts forensic eradication of rogue sitemaps, injected database tables, and persistent cron hooks.</li>
+                        <li>Forces rapid Google deindexing using HTTP 410 Gone headers instead of standard 404 responses.</li>
+                    </ul>
+                </div>
+
+                <!-- MAIN ARTICLE CONTENT -->
+                <div class="post-body-content" id="articleContent">
+                    <p>A business owner opens Google, searches for their company name, and discovers that their search results are filled with thousands of unfamiliar pages written in Japanese. The page titles promote counterfeit luxury watches, discount footwear, or unlicensed pharmaceuticals. Yet, when clicking the links directly or navigating to the homepage, the website appears completely normal.</p>
 <p>This alarming discrepancy is the hallmark of the <strong>Japanese Keyword Hack</strong>—one of the most pervasive, persistent, and commercially damaging forms of search engine optimization (SEO) spam targeting WordPress environments.</p>
 <blockquote>
-<h3>What is the Japanese Keyword Hack?</h3>
+<h3 id="h-what-is-the-japanese-keyword-hack">What is the Japanese Keyword Hack?</h3>
 <p>The Japanese Keyword Hack is a search engine poisoning compromise where attackers exploit vulnerabilities in a WordPress site (outdated plugins, compromised credentials, or backdoors) to dynamically generate thousands of spam pages containing auto-generated Japanese text and commercial links. Attackers typically use server-side cloaking to serve spam exclusively to search engine crawlers while hiding it from human visitors, hijacking the site's domain authority on Google.</p>
 </blockquote>
 <p>Encountering Japanese spam in search results is not an SEO glitch or an indexing anomaly; it is the visible symptom of a critical server or application security compromise. Treating this strictly as a search indexing problem—such as requesting manual URL removals in Google Search Console without remediating the underlying code—inevitably fails because the malicious generator continues to spawn new URLs.</p>
 <p>This technical guide provides a forensic root-cause analysis of how the Japanese Keyword Hack operates in WordPress environments, how to detect sophisticated server-side cloaking, how to systematically eradicate malicious artifacts, and how to properly implement HTTP 404 and 410 status codes to deindex spam pages permanently.</p>
 <hr />
-<h2>1. What the Japanese Keyword Hack Is</h2>
+<h2 id="h-1-what-the-japanese-keyword-hack-is">1. What the Japanese Keyword Hack Is</h2>
 <p>The Japanese Keyword Hack represents an automated, financially motivated cyber compromise aimed at search engine poisoning. Attackers do not compromise your WordPress installation to deface your brand or disrupt your operations; their primary objective is to quietly exploit your established domain authority, crawl budget, and organic trust to rank illicit e-commerce networks on search engines like Google and Bing.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/japanese-keyword-hack-infection-kill-chain.webp" alt="Attack progression flowchart showing vulnerability exploit, backdoor drop, sitemap injection, and indexing" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Japanese Keyword Hack infection kill chain and search engine poisoning lifecycle.</figcaption>
-</figure><h3>Core Operational Mechanisms</h3>
+</figure><h3 id="h-core-operational-mechanisms">Core Operational Mechanisms</h3>
 <p>In a standard infection cycle, the compromise operates across several distinct architectural layers:</p>
 <pre><code>[Attacker Network]
        │ (Exploits unpatched plugin / weak credential / existing backdoor)
@@ -678,7 +1176,7 @@
 <li><strong>Traffic Hijacking:</strong> When visitors search for targeted commercial phrases on Google and click your link, the server detects the search engine HTTP Referer and redirects the user to the attacker's illicit storefront or affiliate network.</li>
 <li><strong>Conditional Cloaking:</strong> To delay discovery by the legitimate website administrator, the malicious script inspects incoming HTTP request headers. Normal direct visitors see the genuine business website, while search engine user-agents are served spam HTML.</li>
 </ol>
-<h3>Distinguishing Manifestations of Compromise</h3>
+<h3 id="h-distinguishing-manifestations-of-compromise">Distinguishing Manifestations of Compromise</h3>
 <p>When diagnosing WordPress SEO spam, security investigators distinguish between four primary injection methods:</p>
 <ul>
 <li><strong>Pure Database Injections:</strong> The malicious script creates actual rows in the <code>wp_posts</code> table and registers taxonomy terms in <code>wp_terms</code>. These spam pages physically exist in the WordPress database and can often be queried via standard SQL.</li>
@@ -688,12 +1186,12 @@
 </ul>
 <p>Understanding which of these patterns is active on your server dictates the forensic investigation and eradication methodology.</p>
 <hr />
-<h2>2. What a Compromised Site Can Look Like</h2>
+<h2 id="h-2-what-a-compromised-site-can-look-like">2. What a Compromised Site Can Look Like</h2>
 <p>Because attackers deliberately conceal their presence from everyday administrators, the symptoms of a Japanese Keyword Hack are often first noticed externally rather than on the website itself.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/wordpress-japanese-hack-remediation-checklist.webp" alt="Four-step remediation flowchart showing core checksum diff, database sweep, server lock, and index flush" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Four-phase forensic remediation protocol for eradicating SEO spam infections.</figcaption>
-</figure><h3>Observable Indicators</h3>
+</figure><h3 id="h-observable-indicators">Observable Indicators</h3>
 <p>The following indicators are commonly observed in compromised environments:</p>
 <ul>
 <li><strong>Foreign Characters in Search Engine Results Pages (SERPs):</strong> When performing a <code>site:yourdomain.com</code> query on Google, titles and meta descriptions appear in Japanese text alongside unfamiliar e-commerce terminology.</li>
@@ -712,13 +1210,13 @@
 </ul>
 <p><em>Note: Not all compromised sites exhibit every symptom simultaneously. In many sophisticated attacks, the visible footprint is restricted entirely to cloaked URLs indexed exclusively on secondary search engines.</em></p>
 <hr />
-<h2>3. Why the Website May Look Normal to the Owner: Understanding Cloaking</h2>
+<h2 id="h-3-why-the-website-may-look-normal-to-the-owner-understanding-cloaking">3. Why the Website May Look Normal to the Owner: Understanding Cloaking</h2>
 <p>The most disorienting aspect of the Japanese Keyword Hack for site owners is that their live website appears pristine. When navigating through the homepage, reading blog posts, or testing navigation menus on desktop and mobile browsers, there is no visible sign of malware.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/cloaking-user-agent-ip-gating-diagram.webp" alt="Comparison diagram showing conditional cloaking behavior between normal visitors and search engine crawlers" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Conditional cloaking mechanics: hiding malicious doorway pages from website owners.</figcaption>
 </figure><p>This occurs because attackers engineer <strong>conditional delivery mechanisms</strong>, commonly known in security and search engineering as <strong>cloaking</strong>.</p>
-<h3>How Server-Side Cloaking Works</h3>
+<h3 id="h-how-server-side-cloaking-works">How Server-Side Cloaking Works</h3>
 <p>Cloaking is the practice of delivering distinctly different content or status codes to search engine crawlers compared to standard human visitors. In a compromised WordPress environment, attackers accomplish this via PHP scripts or web server configuration rules that evaluate incoming request headers before rendering the page.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/http-410-vs-404-deindexing-timeline.webp" alt="Timeline comparison diagram between slow HTTP 404 re-crawl cycles and accelerated HTTP 410 index purging" width="1200" height="675" loading="lazy" decoding="async" />
@@ -737,7 +1235,7 @@
              ├─ IP belongs to Google LLC (verified reverse DNS) ────────────────► SERVE SPAM HTML
              └─ Regular residential / commercial ISP ───────────────────────────► SERVE LEGITIMATE SITE
 </code></pre>
-<h3>Key Cloaking Vectors</h3>
+<h3 id="h-key-cloaking-vectors">Key Cloaking Vectors</h3>
 <ol>
 <li><strong>User-Agent Discrimination:</strong> The malicious script checks <code>$_SERVER['HTTP_USER_AGENT']</code> against a regex list of search crawlers:<pre><code class="language-php">// Conceptual pattern used by defensive analysts to detect cloaking logic
 $crawlers = ['googlebot', 'bingbot', 'slurp', 'duckduckbot', 'baiduspider', 'yandex'];
@@ -748,7 +1246,7 @@ If the User-Agent header matches a search engine bot, the script bypasses standa
 </ol>
 <p>Because cloaking executes entirely on the server before HTML is transmitted to the client, browser-based inspection tools (such as viewing page source or inspecting elements in developer tools) will show completely clean code unless you explicitly simulate search engine crawler requests.</p>
 <hr />
-<h2>4. Common Technical Infection Surfaces</h2>
+<h2 id="h-4-common-technical-infection-surfaces">4. Common Technical Infection Surfaces</h2>
 <p>A forensic investigation requires examining all filesystem and database layers where attackers establish persistence. In WordPress, attackers rarely rely on a single injection point; they distribute multiple redundant loaders across disparate architectural components.</p>
 <pre><code>WORDPRESS INFECTION TAXONOMY
 │
@@ -773,29 +1271,29 @@ If the User-Agent header matches a search engine bot, the script bypasses standa
 ├── 7. Scheduled Tasks &amp; Drop-ins
 │     └── Malicious wp-cron entries, /wp-content/mu-plugins/ backdoors
 </code></pre>
-<h3>1. WordPress Core Files</h3>
+<h3 id="h-1-wordpress-core-files">1. WordPress Core Files</h3>
 <p>Legitimate WordPress core files should never be manually modified. Attackers frequently alter files such as <code>index.php</code>, <code>wp-settings.php</code>, <code>wp-load.php</code>, or files deep within <code>wp-includes/</code> (such as <code>wp-includes/pluggable.php</code> or <code>wp-includes/post.php</code>). They embed small obfuscated hooks (often utilizing <code>base64_decode</code>, <code>gzinflate</code>, or <code>str_rot13</code>) that load the primary spam payload from external storage or database records.</p>
-<h3>2. Themes (Active and Inactive)</h3>
+<h3 id="h-2-themes-active-and-inactive">2. Themes (Active and Inactive)</h3>
 <p>Attackers frequently target theme files. A common persistence pattern is injecting malicious hooks into <code>functions.php</code> or the theme's header and footer files. Crucially, <strong>inactive themes</strong> left on the server provide ideal hiding locations; administrators rarely inspect abandoned themes, yet their PHP files remain directly executable via HTTP requests if directory permissions permit.</p>
-<h3>3. Plugins (Vulnerable, Outdated, or Abandoned)</h3>
+<h3 id="h-3-plugins-vulnerable-outdated-or-abandoned">3. Plugins (Vulnerable, Outdated, or Abandoned)</h3>
 <p>Unpatched plugin vulnerabilities (such as unauthenticated Arbitrary File Upload, SQL Injection, or Remote Code Execution) represent the initial entry vector for over 85% of WordPress compromises. Once inside, attackers may patch a dummy script into legitimate plugins or create an entire fake plugin directory disguised as a caching or security tool (e.g., <code>wp-content/plugins/wp-fast-cache/cache-tool.php</code>).</p>
-<h3>4. Database Records</h3>
+<h3 id="h-4-database-records">4. Database Records</h3>
 <p>Persistence frequently resides directly within the MySQL database:</p>
 <ul>
 <li><strong><code>wp_options</code> Table:</strong> Attackers store encoded PHP payloads or remote C2 endpoints inside autoloaded option names disguised as system transients (e.g., <code>_transient_rss_timeout</code> or <code>wp_core_api_check</code>). Every time WordPress boots, these autoloaded rows load into memory.</li>
 <li><strong><code>wp_posts</code> and <code>wp_postmeta</code>:</strong> Direct injection of thousands of published spam posts, often configured with random IDs or non-standard post types to avoid cluttering the primary administrative post list.</li>
 <li><strong><code>wp_users</code> and <code>wp_usermeta</code>:</strong> Rogue user accounts created with administrative capabilities (<code>administrator</code> role with <code>wp_user_level</code> set to 10), allowing attackers to log in directly via <code>wp-login.php</code> if file backdoors are erased.</li>
 </ul>
-<h3>5. Uploads Directory (<code>wp-content/uploads/</code>)</h3>
+<h3 id="h-5-uploads-directory-wp-content-uploads">5. Uploads Directory (<code>wp-content/uploads/</code>)</h3>
 <p>The WordPress uploads directory is designed to be writable by the web server process (<code>www-data</code> or <code>nobody</code>). Attackers exploit this write access by uploading PHP webshells disguised as image files (e.g., <code>logo.jpg.php</code>, <code>thumb_banner.php</code>, or <code>.dotfile.php</code>). If the web server is configured to execute PHP scripts inside the uploads directory, these files become autonomous execution vectors.</p>
-<h3>6. Web Server Configuration (<code>.htaccess</code> / Nginx Blocks)</h3>
+<h3 id="h-6-web-server-configuration-htaccess-nginx-blocks">6. Web Server Configuration (<code>.htaccess</code> / Nginx Blocks)</h3>
 <p>Attackers frequently prepend malicious rewrite rules to the root <code>.htaccess</code> file. These rules intercept all 404 requests or requests matching specific URL patterns and route them to an obfuscated backdoor script, entirely bypassing the normal WordPress routing engine.</p>
-<h3>7. Must-Use Plugins (<code>wp-content/mu-plugins/</code>)</h3>
+<h3 id="h-7-must-use-plugins-wp-content-mu-plugins">7. Must-Use Plugins (<code>wp-content/mu-plugins/</code>)</h3>
 <p>The <code>mu-plugins</code> (Must-Use Plugins) directory is an advanced WordPress feature: scripts placed here execute automatically on every page load and <strong>do not appear in the standard WordPress admin plugins list</strong>. Attackers frequently create a single drop-in loader (e.g., <code>wp-content/mu-plugins/health-check.php</code>) ensuring their malware executes even if all standard plugins are deactivated.</p>
-<h3>8. Scheduled Cron Tasks (<code>wp-cron</code>)</h3>
+<h3 id="h-8-scheduled-cron-tasks-wp-cron">8. Scheduled Cron Tasks (<code>wp-cron</code>)</h3>
 <p>WordPress maintains an internal scheduled task runner (<code>wp-cron.php</code>). Attackers register recurring cron events that execute every few hours. If an administrator deletes the malicious PHP file from the server, the scheduled cron task fires, contacts the remote C2 repository, and re-downloads the malware, creating a continuous reinfection cycle.</p>
 <hr />
-<h2>5. Forensic Investigation Workflow</h2>
+<h2 id="h-5-forensic-investigation-workflow">5. Forensic Investigation Workflow</h2>
 <p>Remediating a Japanese Keyword Hack requires a systematic, phased forensic workflow. Attempting ad-hoc file deletions before understanding the full scope of the compromise almost always leads to immediate reinfection.</p>
 <pre><code>FORENSIC REMEDIATION SEQUENCE
 ─────────────────────────────────────────────────────────────────────────────
@@ -809,7 +1307,7 @@ Phase 7: Search Index Cleanup          ──► Implement HTTP 410 &amp; refres
 Phase 8: Post-Recovery Validation      ──► Multi-vector integrity monitoring
 ─────────────────────────────────────────────────────────────────────────────
 </code></pre>
-<h3>Phase 1: Preserve Evidence and Isolate the Environment</h3>
+<h3 id="h-phase-1-preserve-evidence-and-isolate-the-environment">Phase 1: Preserve Evidence and Isolate the Environment</h3>
 <p>Before modifying or deleting any files:</p>
 <ol>
 <li><strong>Take an Immediate Full Backup:</strong> Create an uncompressed, verbatim snapshot of the entire filesystem and a complete MySQL database dump using hosting tools or SSH:<pre><code class="language-bash"># Safe diagnostic snapshot via terminal
@@ -819,21 +1317,21 @@ mysqldump -u db_user -p db_name &gt; database_compromised.sql
 <em>Caution: Store this compromised snapshot in a secure, isolated offline environment for forensic analysis. Do not restore it to a live production server.</em></li>
 <li><strong>Inspect Server Access Logs:</strong> Check access logs for the exact timestamps when spam URLs were first crawled. Note the requesting IP addresses, user agents, and the specific script files that served the responses.</li>
 </ol>
-<h3>Phase 2: Confirm Active Cloaking via Diagnostic Requests</h3>
+<h3 id="h-phase-2-confirm-active-cloaking-via-diagnostic-requests">Phase 2: Confirm Active Cloaking via Diagnostic Requests</h3>
 <p>Simulate search engine crawler behavior in a controlled terminal session to confirm whether conditional cloaking is active. (See detailed instructions in Section 6).</p>
-<h3>Phase 3: Verify Core File Integrity via Cryptographic Hashes</h3>
+<h3 id="h-phase-3-verify-core-file-integrity-via-cryptographic-hashes">Phase 3: Verify Core File Integrity via Cryptographic Hashes</h3>
 <p>WordPress.org maintains public MD5 and SHA-256 checksums for all official core releases. Using the official WP-CLI utility, you can instantly compare every core file on your server against pristine official binaries:</p>
 <pre><code class="language-bash">## Verify official WordPress core checksums (Read-only diagnostic)
 wp core verify-checksums --allow-root
 </code></pre>
 <p>If core files have been modified, WP-CLI will output the exact filenames and line mismatches (e.g., <code>File should not exist: wp-includes/wp-vhosts.php</code> or <code>File doesn't verify against checksum: wp-settings.php</code>).</p>
-<h3>Phase 4: Audit Plugins and Themes Against Known Releases</h3>
+<h3 id="h-phase-4-audit-plugins-and-themes-against-known-releases">Phase 4: Audit Plugins and Themes Against Known Releases</h3>
 <p>Run checksum verifications across installed plugins:</p>
 <pre><code class="language-bash">## Verify plugin checksums against WordPress.org repository
 wp plugin verify-checksums --all --allow-root
 </code></pre>
 <p><em>Note: Custom, commercial, or premium plugins not hosted on WordPress.org cannot be verified via automated checksums. These must be manually cross-referenced against original release packages obtained directly from verified vendors.</em></p>
-<h3>Phase 5: Database Forensic Audit</h3>
+<h3 id="h-phase-5-database-forensic-audit">Phase 5: Database Forensic Audit</h3>
 <p>Query the MySQL database for unauthorized administrative users, suspicious options, and bulk injected posts:</p>
 <pre><code class="language-sql">-- Identify all users with administrative capabilities
 SELECT u.ID, u.user_login, u.user_email, u.user_registered 
@@ -847,12 +1345,12 @@ FROM wp_options
 WHERE autoload = 'yes' AND (option_value LIKE '%eval(%' OR option_value LIKE '%base64_%')
 ORDER BY LENGTH(option_value) DESC LIMIT 20;
 </code></pre>
-<h3>Phase 6: Inspect Server Configuration and Hidden Drop-ins</h3>
+<h3 id="h-phase-6-inspect-server-configuration-and-hidden-drop-ins">Phase 6: Inspect Server Configuration and Hidden Drop-ins</h3>
 <p>Review the root <code>.htaccess</code> file, <code>nginx.conf</code>, <code>wp-config.php</code>, and check for the existence of <code>wp-content/mu-plugins/</code>.</p>
 <hr />
-<h2>6. Detecting Cloaking and Conditional Delivery</h2>
+<h2 id="h-6-detecting-cloaking-and-conditional-delivery">6. Detecting Cloaking and Conditional Delivery</h2>
 <p>Because normal browser visits fail to reveal cloaked content, investigators must use controlled, command-line HTTP simulation tools to inspect raw server responses.</p>
-<h3>Testing Server Responses via <code>curl</code></h3>
+<h3 id="h-testing-server-responses-via-curl">Testing Server Responses via <code>curl</code></h3>
 <p>Using <code>curl</code> in a terminal allows you to manipulate request headers, simulating Googlebot, human search referrers, and clean desktop browsers while comparing response headers and HTML payloads.</p>
 <h4>Step 1: Normal Browser Request Simulation</h4>
 <p>Execute a baseline request mimicking a standard desktop user:</p>
@@ -878,9 +1376,9 @@ curl -I -s -A "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWe
 </code></pre>
 <p>Inspect the output. In a Japanese Keyword Hack, you will immediately see Japanese characters, <code>&lt;meta name="keywords"&gt;</code> arrays targeting commercial items, and hidden links linking to thousands of other doorways.</p>
 <hr />
-<h2>7. Finding Spam URLs: Building a Comprehensive Inventory</h2>
+<h2 id="h-7-finding-spam-urls-building-a-comprehensive-inventory">7. Finding Spam URLs: Building a Comprehensive Inventory</h2>
 <p>To remediate the search index, you must compile an exhaustive inventory of all generated spam URLs. Relying solely on manual Google searches is insufficient because search engines only display a small fraction of indexed pages.</p>
-<h3>Data Sources for URL Inventory Collection</h3>
+<h3 id="h-data-sources-for-url-inventory-collection">Data Sources for URL Inventory Collection</h3>
 <pre><code>┌────────────────────────────────────────────────────────┐
 │               COMPREHENSIVE URL INVENTORY              │
 └────────────────────────────────────────────────────────┘
@@ -925,7 +1423,7 @@ grep "Googlebot" /var/log/nginx/access.log | grep " 200 " | awk '{print $7}' | s
 </li>
 </ol>
 <hr />
-<h2>8. Root-Cause Analysis: Symptoms vs. Root Causes vs. Remediation</h2>
+<h2 id="h-8-root-cause-analysis-symptoms-vs-root-causes-vs-remediation">8. Root-Cause Analysis: Symptoms vs. Root Causes vs. Remediation</h2>
 <p>The most common failure in WordPress malware removal is confusing <strong>symptoms</strong> with the <strong>root cause</strong>. </p>
 <table>
 <thead>
@@ -972,26 +1470,26 @@ Google indexes 10,000 spam URLs in SERPs
 </code></pre>
 <p><strong>Critical Takeaway:</strong> Deleting the indexed spam URLs or configuring 410 status codes treats only the <strong>Symptom</strong>. If you do not isolate the <strong>Active Mechanism</strong> and seal the <strong>Root Cause</strong>, the attacker's script will regenerate the spam pages within hours, rendering your cleanup efforts useless.</p>
 <hr />
-<h2>9. How to Remove Malicious Content Systematically</h2>
+<h2 id="h-9-how-to-remove-malicious-content-systematically">9. How to Remove Malicious Content Systematically</h2>
 <p>Eradicating a Japanese Keyword Hack requires a coordinated, step-by-step restoration of system integrity.</p>
-<h3>1. Place the Site into Controlled Maintenance</h3>
+<h3 id="h-1-place-the-site-into-controlled-maintenance">1. Place the Site into Controlled Maintenance</h3>
 <p>Temporarily prevent public traffic and search bots from interacting with compromised scripts while repairs are underway. This stops ongoing spam delivery and prevents the infection from logging secondary credentials:</p>
 <pre><code class="language-bash">## Enable WordPress native maintenance mode via WP-CLI
 wp maintenance-mode activate
 </code></pre>
-<h3>2. Replace WordPress Core Files with Pristine Releases</h3>
+<h3 id="h-2-replace-wordpress-core-files-with-pristine-releases">2. Replace WordPress Core Files with Pristine Releases</h3>
 <p>Do not attempt to manually edit compromised core files. Replace the entire core file structure (excluding <code>wp-config.php</code> and <code>wp-content/</code>):</p>
 <pre><code class="language-bash">## Reinstall pristine WordPress core files cleanly
 wp core download --version=$(wp core version) --force --skip-content
 </code></pre>
 <p><em>Note: Verify that <code>index.php</code> in the root directory and <code>wp-config.php</code> do not contain unauthorized obfuscated code before proceeding.</em></p>
-<h3>3. Replace Plugins and Themes from Authoritative Sources</h3>
+<h3 id="h-3-replace-plugins-and-themes-from-authoritative-sources">3. Replace Plugins and Themes from Authoritative Sources</h3>
 <ul>
 <li><strong>Delete and Reinstall Plugins:</strong> Do not rely on "cleaning" plugin files. Completely remove all third-party plugins in <code>wp-content/plugins/</code> and reinstall fresh copies directly from WordPress.org or verified commercial developers.</li>
 <li><strong>Audit Active Theme:</strong> Reinstall the active theme from the original source. If custom code was developed in-house, compare the theme directory line-by-line against your offline Git version control repository to isolate injected code.</li>
 <li><strong>Delete Unused Themes:</strong> Delete all inactive default themes (<code>twentytwenty</code>, <code>twentytwentyone</code>, etc.). Every unused theme is an unmonitored attack surface.</li>
 </ul>
-<h3>4. Sanitize the Database</h3>
+<h3 id="h-4-sanitize-the-database">4. Sanitize the Database</h3>
 <ul>
 <li><strong>Audit Users:</strong> Delete all unauthorized accounts from <code>wp_users</code> and <code>wp_usermeta</code>.</li>
 <li><strong>Clean Injected Posts:</strong> If the malware created physical posts, run SQL queries to remove posts matching the spam pattern, along with orphaned postmeta and term relationships:<pre><code class="language-sql">-- Example: Remove spam posts by post_type or date range (Ensure backup exists first!)
@@ -1001,13 +1499,13 @@ DELETE FROM wp_posts WHERE post_type = 'spam_type';
 </li>
 <li><strong>Sanitize <code>wp_options</code>:</strong> Search for and delete rogue options identified in your Phase 5 forensic audit.</li>
 </ul>
-<h3>5. Inspect and Lockdown <code>wp-content/uploads/</code></h3>
+<h3 id="h-5-inspect-and-lockdown-wp-content-uploads">5. Inspect and Lockdown <code>wp-content/uploads/</code></h3>
 <p>Scan the uploads directory for any file ending in <code>.php</code>, <code>.phtml</code>, <code>.php5</code>, <code>.suspected</code>, or hidden dotfiles (<code>.ico</code> files that are actually PHP scripts):</p>
 <pre><code class="language-bash">## Find any executable scripts inside the uploads directory
 find /var/www/html/wp-content/uploads/ -type f -name "*.php*"
 </code></pre>
 <p>Delete any executable files found. Legitimate media uploads (images, PDFs, videos) never require executable PHP extensions.</p>
-<h3>6. Review <code>.htaccess</code> and Server Configurations</h3>
+<h3 id="h-6-review-htaccess-and-server-configurations">6. Review <code>.htaccess</code> and Server Configurations</h3>
 <p>Replace <code>.htaccess</code> with the standard, clean WordPress configuration:</p>
 <pre><code class="language-apache">## BEGIN WordPress
 RewriteEngine On
@@ -1019,17 +1517,17 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 ## END WordPress
 </code></pre>
-<h3>7. Rotate All Authentication Salts and Passwords</h3>
+<h3 id="h-7-rotate-all-authentication-salts-and-passwords">7. Rotate All Authentication Salts and Passwords</h3>
 <p>Even if you remove every malicious file, the attacker may hold active administrator session cookies or direct database credentials.</p>
 <ul>
 <li><strong>Rotate Security Keys &amp; Salts:</strong> Generate fresh salts from the official WordPress API (<code>https://api.wordpress.org/secret-key/1.1/salt/</code>) and replace the keys in <code>wp-config.php</code>. This instantly invalidates all existing user cookies and active sessions across the web.</li>
 <li><strong>Change Passwords:</strong> Reset database user passwords, hosting control panel credentials, SFTP/SSH passwords, and all WordPress administrator passwords.</li>
 </ul>
 <hr />
-<h2>10. HTTP 404 vs. HTTP 410 for Hacked Spam URLs</h2>
+<h2 id="h-10-http-404-vs-http-410-for-hacked-spam-urls">10. HTTP 404 vs. HTTP 410 for Hacked Spam URLs</h2>
 <p>Once the malicious generator is removed from the server, any request for a spam URL will no longer be handled by the malware. Now, the web server must return an explicit HTTP status code to inform search engine crawlers that the resource is gone.</p>
 <p>The industry frequently debates whether to return <strong>HTTP 404 Not Found</strong> or <strong>HTTP 410 Gone</strong>. Understanding the technical and operational distinction between these two status codes is critical for effective SEO recovery.</p>
-<h3>Technical Comparison: HTTP 404 vs. HTTP 410</h3>
+<h3 id="h-technical-comparison-http-404-vs-http-410">Technical Comparison: HTTP 404 vs. HTTP 410</h3>
 <table>
 <thead>
 <tr>
@@ -1064,7 +1562,7 @@ RewriteRule . /index.php [L]
 <td align="left">High if misapplied. If legitimate company URLs accidentally return 410, they will be swiftly deindexed.</td>
 </tr>
 </tbody></table>
-<h3>Practical Guidance for WordPress Spam Deindexing</h3>
+<h3 id="h-practical-guidance-for-wordpress-spam-deindexing">Practical Guidance for WordPress Spam Deindexing</h3>
 <p>Google Search Central documentation and public statements from Google's search relations team confirm that <strong>both 404 and 410 ultimately achieve the exact same outcome: the URL is removed from the Google search index</strong>.</p>
 <p>However, for a site recovering from thousands of Japanese spam URLs:</p>
 <ol>
@@ -1076,7 +1574,7 @@ RewriteRule . /index.php [L]
 </ul>
 </li>
 </ol>
-<h3>Implementing HTTP 410 via <code>.htaccess</code> (Example)</h3>
+<h3 id="h-implementing-http-410-via-htaccess-example">Implementing HTTP 410 via <code>.htaccess</code> (Example)</h3>
 <p>If your spam URLs share a distinct prefix or query signature (e.g., <code>/item-</code> or <code>/goods/</code>), you can return an immediate 410 status code at the web server layer before WordPress even boots:</p>
 <pre><code class="language-apache">## Return HTTP 410 Gone for known legacy spam patterns
 &lt;IfModule mod_rewrite.c&gt;
@@ -1088,9 +1586,9 @@ RewriteRule ^shop_list/ - [G,L]
 </code></pre>
 <p><em>Note: The <code>[G]</code> flag instructs Apache to deliver an immediate HTTP 410 Gone response. Always verify rewrite rules in a staging environment to ensure no legitimate customer or marketing URLs are impacted.</em></p>
 <hr />
-<h2>11. Search Console and Reindexing After Cleanup</h2>
+<h2 id="h-11-search-console-and-reindexing-after-cleanup">11. Search Console and Reindexing After Cleanup</h2>
 <p>Once malicious code is eradicated and correct 404/410 status codes are verified, you must manage search engine reconciliation through Google Search Console.</p>
-<h3>The Post-Cleanup Search Console Workflow</h3>
+<h3 id="h-the-post-cleanup-search-console-workflow">The Post-Cleanup Search Console Workflow</h3>
 <pre><code>┌────────────────────────────────────────────────────────┐
 │               SEARCH CONSOLE RECOVERY FLOW             │
 └────────────────────────────────────────────────────────┘
@@ -1134,9 +1632,9 @@ RewriteRule ^shop_list/ - [G,L]
 </li>
 </ol>
 <hr />
-<h2>12. How to Validate That the Site Is Actually Clean</h2>
+<h2 id="h-12-how-to-validate-that-the-site-is-actually-clean">12. How to Validate That the Site Is Actually Clean</h2>
 <p>A website cannot be considered clean simply because the homepage renders properly. A comprehensive forensic validation framework requires verifying every layer of the technology stack.</p>
-<h3>Forensic Validation Checklist</h3>
+<h3 id="h-forensic-validation-checklist">Forensic Validation Checklist</h3>
 <pre><code>VECTOR                VALIDATION METHOD                                    STATUS
 ─────────────────────────────────────────────────────────────────────────────────
 1. Core Integrity     wp core verify-checksums returns zero errors          [ ]
@@ -1151,12 +1649,12 @@ RewriteRule ^shop_list/ - [G,L]
 10. Live Logs         Server access logs show no recurring C2 pingbacks     [ ]
 ─────────────────────────────────────────────────────────────────────────────────
 </code></pre>
-<h3>Reproducing the Attack Simulation</h3>
+<h3 id="h-reproducing-the-attack-simulation">Reproducing the Attack Simulation</h3>
 <p>Execute your <code>curl</code> tests against multiple previously infected URLs using both mobile and desktop Googlebot user-agents. If any request returns a <code>200 OK</code> with unexpected content or redirects to an external domain, residual malware remains active.</p>
 <hr />
-<h2>13. Common Failed Cleanup Approaches</h2>
+<h2 id="h-13-common-failed-cleanup-approaches">13. Common Failed Cleanup Approaches</h2>
 <p>Many website owners endure recurring reinfections because they rely on intuitive but technically flawed cleanup shortcuts.</p>
-<h3>11 Remediation Anti-Patterns to Avoid</h3>
+<h3 id="h-11-remediation-anti-patterns-to-avoid">11 Remediation Anti-Patterns to Avoid</h3>
 <ol>
 <li><strong>Deleting Visible Posts While Leaving the Loader Active:</strong> Removing spam posts from the WordPress admin without deleting the underlying backdoor script results in the malware regenerating all posts within 24 hours.</li>
 <li><strong>Restoring an Uninspected Backup:</strong> Restoring a backup from two weeks ago often fails because attackers typically plant dormant backdoors weeks or months before triggering visible spam generation. Restoring the backup simply restores the dormant backdoor.</li>
@@ -1171,9 +1669,9 @@ RewriteRule ^shop_list/ - [G,L]
 <li><strong>Assuming HTTP 410 Produces Instant Deindexing:</strong> Expecting Google to deindex 20,000 URLs in 24 hours leads to premature panic. Search engines must allocate crawl budget over time to retire URLs.</li>
 </ol>
 <hr />
-<h2>14. Prevention After Recovery: Hardening the Environment</h2>
+<h2 id="h-14-prevention-after-recovery-hardening-the-environment">14. Prevention After Recovery: Hardening the Environment</h2>
 <p>Once recovery is verified, implement defensive hardening measures to ensure the vulnerability that permitted the initial intrusion is permanently closed.</p>
-<h3>1. Enforce Web Server Execution Restrictions</h3>
+<h3 id="h-1-enforce-web-server-execution-restrictions">1. Enforce Web Server Execution Restrictions</h3>
 <p>The single most effective defense against recurring WordPress malware is configuring the web server to refuse to execute PHP files located inside the uploads directory.</p>
 <p><strong>For Nginx Servers:</strong></p>
 <pre><code class="language-nginx">## Deny direct PHP execution inside uploads and wp-includes
@@ -1187,25 +1685,25 @@ location ~* ^/(?:wp-content/uploads|wp-includes)/.*\.php$ {
 deny from all
 &lt;/Files&gt;
 </code></pre>
-<h3>2. Disable the Native WordPress File Editor</h3>
+<h3 id="h-2-disable-the-native-wordpress-file-editor">2. Disable the Native WordPress File Editor</h3>
 <p>Prevent compromised administrative accounts from directly modifying theme and plugin code from the WordPress dashboard by adding this directive to <code>wp-config.php</code>:</p>
 <pre><code class="language-php">// Disable file editing in wp-admin
 define('DISALLOW_FILE_EDIT', true);
 </code></pre>
-<h3>3. Implement Strict Least-Privilege Access and 2FA</h3>
+<h3 id="h-3-implement-strict-least-privilege-access-and-2fa">3. Implement Strict Least-Privilege Access and 2FA</h3>
 <ul>
 <li>Enforce multi-factor authentication (2FA) for all user accounts with <code>Editor</code> or <code>Administrator</code> privileges.</li>
 <li>Audit SFTP and SSH keys; remove obsolete developer accounts.</li>
 <li>Ensure database users possess only necessary DML permissions (<code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>) and restrict DDL operations (<code>DROP</code>, <code>ALTER</code>) where application architecture allows.</li>
 </ul>
-<h3>4. Deploy Web Application Firewalls (WAF)</h3>
+<h3 id="h-4-deploy-web-application-firewalls-waf">4. Deploy Web Application Firewalls (WAF)</h3>
 <p>Deploy a reverse-proxy or DNS-level WAF (such as Cloudflare Enterprise or AWS WAF) with managed OWASP rulesets to filter malicious payloads, block known vulnerability exploits, and throttle automated brute-force attacks before requests reach your web server.</p>
-<h3>5. Architectural Upgrade to Modern Content Platforms</h3>
+<h3 id="h-5-architectural-upgrade-to-modern-content-platforms">5. Architectural Upgrade to Modern Content Platforms</h3>
 <p>For enterprise organizations where legacy WordPress plugin dependencies repeatedly introduce security vulnerabilities, consider decoupling your content layer. Migrating presentation layers to modern static and serverless architectures (such as Next.js frontends powered by headless CMS backends) completely isolates customer-facing visitors from database execution, eliminating PHP-based SEO spam vulnerabilities by design.</p>
 <hr />
-<h2>15. When to Use Professional WordPress Malware Remediation</h2>
+<h2 id="h-15-when-to-use-professional-wordpress-malware-remediation">15. When to Use Professional WordPress Malware Remediation</h2>
 <p>While minor infections can occasionally be cleaned using command-line checksum tools and database queries, certain compromise scenarios demand specialized incident response engineering.</p>
-<h3>Criteria Requiring Senior Security Intervention</h3>
+<h3 id="h-criteria-requiring-senior-security-intervention">Criteria Requiring Senior Security Intervention</h3>
 <ul>
 <li><strong>Persistent Reinfection Loops:</strong> The site is cleaned, but identical Japanese spam URLs or new administrative accounts reappear within 24 to 72 hours, indicating an unidentified root backdoor or rogue cron process.</li>
 <li><strong>Server-Level / Multi-Tenant Lateral Movement:</strong> If your WordPress site shares a hosting server or cPanel account with other websites, malware can spread laterally across account directories via symlinks. Cleaning one site is futile if the neighboring account remains compromised.</li>
@@ -1222,16 +1720,16 @@ define('DISALLOW_FILE_EDIT', true);
 <li><strong><a href="/services/website-security-hardening">Website Security Hardening</a>:</strong> Zero-trust server configurations, PHP execution lockdowns, and proactive security architecture.</li>
 </ul>
 <hr />
-<h2>16. Japanese Keyword Hack Remediation Checklist</h2>
+<h2 id="h-16-japanese-keyword-hack-remediation-checklist">16. Japanese Keyword Hack Remediation Checklist</h2>
 <p>Keep this operational checklist accessible during incident triage:</p>
-<h3>Phase 1: DETECT</h3>
+<h3 id="h-phase-1-detect">Phase 1: DETECT</h3>
 <ul>
 <li> Verify symptoms via <code>site:yourdomain.com</code> queries on Google.</li>
 <li> Export full list of affected URLs from Google Search Console Pages report.</li>
 <li> Check GSC Security Issues for formal manual action notices.</li>
 <li> Inspect server access logs for anomalous Googlebot traffic patterns.</li>
 </ul>
-<h3>Phase 2: INVESTIGATE</h3>
+<h3 id="h-phase-2-investigate">Phase 2: INVESTIGATE</h3>
 <ul>
 <li> Execute <code>curl</code> tests with Googlebot user-agent to confirm conditional cloaking.</li>
 <li> Run <code>wp core verify-checksums</code> to identify modified core files.</li>
@@ -1240,7 +1738,7 @@ define('DISALLOW_FILE_EDIT', true);
 <li> Inspect <code>wp_options</code> for large, autoloaded transients containing encoded code.</li>
 <li> Check <code>wp-content/mu-plugins/</code> and active cron jobs (<code>wp cron event list</code>).</li>
 </ul>
-<h3>Phase 3: ERADICATE</h3>
+<h3 id="h-phase-3-eradicate">Phase 3: ERADICATE</h3>
 <ul>
 <li> Take an offline diagnostic backup of files and database for evidence.</li>
 <li> Activate WordPress maintenance mode (<code>wp maintenance-mode activate</code>).</li>
@@ -1252,21 +1750,21 @@ define('DISALLOW_FILE_EDIT', true);
 <li> Restore default <code>.htaccess</code> rewrite rules.</li>
 <li> Rotate security salts in <code>wp-config.php</code> and reset all account passwords.</li>
 </ul>
-<h3>Phase 4: VALIDATE</h3>
+<h3 id="h-phase-4-validate">Phase 4: VALIDATE</h3>
 <ul>
 <li> Re-run core and plugin checksum verifications.</li>
 <li> Repeat <code>curl</code> simulation to confirm suspect URLs no longer serve spam or cloaked HTML.</li>
 <li> Confirm that non-existent spam URLs return HTTP 404 or HTTP 410.</li>
 <li> Deactivate maintenance mode.</li>
 </ul>
-<h3>Phase 5: RECOVER</h3>
+<h3 id="h-phase-5-recover">Phase 5: RECOVER</h3>
 <ul>
 <li> Submit security review request in Google Search Console (if manual action flagged).</li>
 <li> Resubmit clean XML sitemaps containing only authentic canonical URLs.</li>
 <li> Configure web server HTTP 410 rules for known spam path signatures.</li>
 <li> Monitor GSC Index Coverage reports weekly to track deindexing progression.</li>
 </ul>
-<h3>Phase 6: HARDEN &amp; MONITOR</h3>
+<h3 id="h-phase-6-harden-amp-monitor">Phase 6: HARDEN &amp; MONITOR</h3>
 <ul>
 <li> Block PHP execution inside <code>/wp-content/uploads/</code> at web server level.</li>
 <li> Add <code>define('DISALLOW_FILE_EDIT', true);</code> to <code>wp-config.php</code>.</li>
@@ -1274,29 +1772,29 @@ define('DISALLOW_FILE_EDIT', true);
 <li> Schedule regular <a href="/services/wordpress-security-audit">WordPress Security Audits</a> and file integrity monitoring.</li>
 </ul>
 <hr />
-<h2>17. Frequently Asked Questions</h2>
-<h3>What is the Japanese Keyword Hack in WordPress?</h3>
+<h2 id="h-17-frequently-asked-questions">17. Frequently Asked Questions</h2>
+<h3 id="h-what-is-the-japanese-keyword-hack-in-wordpress">What is the Japanese Keyword Hack in WordPress?</h3>
 <p>The Japanese Keyword Hack is a search engine poisoning attack where intruders exploit an application or server vulnerability to inject scripts that dynamically generate thousands of spam pages targeting Japanese commercial search terms. It typically uses server-side cloaking to show spam to search engine crawlers while hiding it from ordinary site visitors.</p>
-<h3>Why are Japanese spam pages appearing on my website?</h3>
+<h3 id="h-why-are-japanese-spam-pages-appearing-on-my-website">Why are Japanese spam pages appearing on my website?</h3>
 <p>Japanese spam appears because an attacker gained unauthorized access to your WordPress environment—most commonly through an unpatched plugin, a stolen password, or an existing backdoor. The attacker injected automated code that dynamically generates commercial spam pages to exploit your site's domain authority on search engines.</p>
-<h3>Can a WordPress site look completely normal while still being hacked?</h3>
+<h3 id="h-can-a-wordpress-site-look-completely-normal-while-still-being-hacked">Can a WordPress site look completely normal while still being hacked?</h3>
 <p>Yes. Attackers frequently implement server-side cloaking, checking the visitor's HTTP User-Agent and Referer headers. If a human visits the site directly, the server renders the authentic company website. If Googlebot or Bingbot visits, the server returns the spam payload.</p>
-<h3>How do I find Japanese spam URLs on my WordPress site?</h3>
+<h3 id="h-how-do-i-find-japanese-spam-urls-on-my-wordpress-site">How do I find Japanese spam URLs on my WordPress site?</h3>
 <p>You can discover spam URLs by checking the <strong>Pages</strong> and <strong>Security Issues</strong> reports in Google Search Console, inspecting server access logs for Googlebot requests returning <code>200 OK</code> on unfamiliar paths, reviewing rogue XML sitemaps, and performing <code>site:yourdomain.com</code> searches on Google.</p>
-<h3>Does deleting the spam pages fix the hack?</h3>
+<h3 id="h-does-deleting-the-spam-pages-fix-the-hack">Does deleting the spam pages fix the hack?</h3>
 <p>No. Deleting the visible spam pages or posts only addresses the symptom. If the underlying vulnerability (such as a compromised plugin or persistent PHP backdoor) is not identified and eradicated, the malicious script will simply regenerate the spam pages automatically.</p>
-<h3>Should hacked spam URLs return HTTP 404 or HTTP 410?</h3>
+<h3 id="h-should-hacked-spam-urls-return-http-404-or-http-410">Should hacked spam URLs return HTTP 404 or HTTP 410?</h3>
 <p>Both HTTP 404 (Not Found) and HTTP 410 (Gone) will permanently deindex pages in Google Search over time. However, <strong>HTTP 410 Gone</strong> is preferred for known spam inventories because it sends an explicit, permanent signal to crawlers that the page was intentionally destroyed, which can expedite deindexing and reduce repetitive re-crawling.</p>
-<h3>How does cloaking make WordPress spam harder to detect?</h3>
+<h3 id="h-how-does-cloaking-make-wordpress-spam-harder-to-detect">How does cloaking make WordPress spam harder to detect?</h3>
 <p>Cloaking hides malicious content from standard browser sessions by evaluating incoming HTTP request headers on the server. Because the script serves legitimate theme HTML to regular human visitors and restricts spam payloads exclusively to search crawlers, site owners often remain unaware of the compromise until Google Search Console issues a security alert.</p>
-<h3>Why did Google index pages that I cannot find on my server?</h3>
+<h3 id="h-why-did-google-index-pages-that-i-cannot-find-on-my-server">Why did Google index pages that I cannot find on my server?</h3>
 <p>Attackers frequently use <strong>virtual dynamic routing</strong> rather than generating physical files on disk. The malware intercepts web server requests via <code>.htaccess</code> or WordPress routing hooks, dynamically rendering spam content on the fly. Because no physical HTML files exist on your server, standard file searches cannot locate them.</p>
-<h3>Can a malware cleanup remove the spam from Google immediately?</h3>
+<h3 id="h-can-a-malware-cleanup-remove-the-spam-from-google-immediately">Can a malware cleanup remove the spam from Google immediately?</h3>
 <p>No. While security cleanup can instantly stop your server from serving spam, search engine deindexing depends on Google's crawl budget and re-crawl frequency. It typically takes several weeks for Googlebot to re-crawl thousands of affected URLs, register the 404/410 status codes, and retire them from the search index.</p>
-<h3>How do I prevent Japanese SEO spam from returning?</h3>
+<h3 id="h-how-do-i-prevent-japanese-seo-spam-from-returning">How do I prevent Japanese SEO spam from returning?</h3>
 <p>Prevent reinfection by disabling PHP execution in the <code>/wp-content/uploads/</code> directory, maintaining updated plugins and themes, enforcing two-factor authentication, rotating all database and salt credentials, implementing a Web Application Firewall (WAF), and establishing continuous file integrity monitoring.</p>
 <hr />
-<h2>18. Conclusion: Remediation as an Engineering Discipline</h2>
+<h2 id="h-18-conclusion-remediation-as-an-engineering-discipline">18. Conclusion: Remediation as an Engineering Discipline</h2>
 <p>The Japanese Keyword Hack is not fundamentally a content problem or an SEO glitch; it is an infrastructure and application integrity failure that manifests visibly through search engine indexes.</p>
 <p>Attempting to resolve search engine poisoning by submitting URL removal requests or deleting surface posts will never yield lasting recovery. Sustainable remediation requires following a disciplined engineering sequence:</p>
 <p>$$\text{Triage &amp; Isolate} \longrightarrow \text{Detect Cloaking} \longrightarrow \text{Eradicate Root-Cause Persistence} \longrightarrow \text{Validate Clean State} \longrightarrow \text{Enforce HTTP 410} \longrightarrow \text{Harden Architecture}$$</p>
@@ -1309,29 +1807,453 @@ define('DISALLOW_FILE_EDIT', true);
 <li>Review our engineering philosophy across <a href="/services">All Studio Services</a> or <a href="/contact">Schedule an Architectural Briefing with Kawaki Studios</a>.</li>
 </ul>
 
-            </div>
+                </div>
 
-            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
-                <span class="tag-pill">#WordPress Security</span><span class="tag-pill">#Malware Removal</span><span class="tag-pill">#SEO Spam</span><span class="tag-pill">#Forensics</span>
-            </div>
+                <!-- TAGS -->
+                <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                    <span class="tag-pill">#WordPress Security</span><span class="tag-pill">#Malware Removal</span><span class="tag-pill">#SEO Spam</span><span class="tag-pill">#Forensics</span>
+                </div>
 
-            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
-                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
-                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
-                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                    <a href="/services/seo-spam-removal" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
-                        Explore WordPress SEO Spam Removal & Recovery &rarr;
+                <!-- IN-ARTICLE CONVERSION CTA -->
+                <div class="in-article-cta text-center">
+                    <span class="cta-kicker">// ARCHITECTURAL PARTNERSHIP</span>
+                    <h3>Need Help Engineering Your Web Platform or AI Systems?</h3>
+                    <p>From high-performance Next.js architectures to headless Shopify storefronts, custom AI automations, and enterprise WordPress security recovery, Kawaki Studios designs resilient digital infrastructure built to scale.</p>
+                    <div class="cta-actions">
+                        <a href="/contact?service=seo-spam-removal" class="btn-primary-theme">
+                            <span>Schedule Engineering Discovery</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path></svg>
+                        </a>
+                        <a href="/services/seo-spam-removal" class="btn-link-secondary">
+                            Explore WordPress SEO Spam Removal & Recovery &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AUTHOR BIO CARD -->
+                <div class="author-bio-card">
+                    <div class="bio-avatar">
+                        <span class="avatar-text">KS</span>
+                    </div>
+                    <div class="bio-details">
+                        <span class="bio-role">Founder &amp; Principal Engineer</span>
+                        <h4>Kunal Sharma</h4>
+                        <p>Kunal is the founder and principal engineer at Kawaki Studios, specializing in high-performance web engineering, Next.js application architecture, headless Shopify systems, autonomous AI workflows, and forensic WordPress security recovery. He helps ambitious founders and modern enterprises design resilient, high-velocity digital flagships.</p>
+                        <div class="bio-socials">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub ↗</a>
+                            <a href="/contact" class="bio-consult">Book 15-Min Briefing ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- RIGHT STICKY SIDEBAR -->
+            <aside class="article-sidebar" data-lenis-prevent>
+                <!-- WIDGET 1: TABLE OF CONTENTS -->
+                <div class="toc-light-card">
+                    <h3 class="toc-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                        Table of Contents
+                    </h3>
+                    <nav class="toc-nav">
+                        <ul class="toc-list" data-lenis-prevent>
+                            
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-is-the-japanese-keyword-hack">What is the Japanese Keyword Hack?</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-1-what-the-japanese-keyword-hack-is">1. What the Japanese Keyword Hack Is</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-core-operational-mechanisms">Core Operational Mechanisms</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-distinguishing-manifestations-of-compromise">Distinguishing Manifestations of Compromise</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-2-what-a-compromised-site-can-look-like">2. What a Compromised Site Can Look Like</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-observable-indicators">Observable Indicators</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-3-why-the-website-may-look-normal-to-the-owner-understanding-cloaking">3. Why the Website May Look Normal to the Owner: Understanding Cloaking</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-server-side-cloaking-works">How Server-Side Cloaking Works</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-key-cloaking-vectors">Key Cloaking Vectors</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-4-common-technical-infection-surfaces">4. Common Technical Infection Surfaces</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-wordpress-core-files">1. WordPress Core Files</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-themes-active-and-inactive">2. Themes (Active and Inactive)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-plugins-vulnerable-outdated-or-abandoned">3. Plugins (Vulnerable, Outdated, or Abandoned)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-database-records">4. Database Records</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-5-uploads-directory-wp-content-uploads">5. Uploads Directory (wp-content/uploads/)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-6-web-server-configuration-htaccess-nginx-blocks">6. Web Server Configuration (.htaccess / Nginx Blocks)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-7-must-use-plugins-wp-content-mu-plugins">7. Must-Use Plugins (wp-content/mu-plugins/)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-8-scheduled-cron-tasks-wp-cron">8. Scheduled Cron Tasks (wp-cron)</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-5-forensic-investigation-workflow">5. Forensic Investigation Workflow</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-1-preserve-evidence-and-isolate-the-environment">Phase 1: Preserve Evidence and Isolate the Environment</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-2-confirm-active-cloaking-via-diagnostic-requests">Phase 2: Confirm Active Cloaking via Diagnostic Requests</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-3-verify-core-file-integrity-via-cryptographic-hashes">Phase 3: Verify Core File Integrity via Cryptographic Hashes</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-4-audit-plugins-and-themes-against-known-releases">Phase 4: Audit Plugins and Themes Against Known Releases</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-5-database-forensic-audit">Phase 5: Database Forensic Audit</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-6-inspect-server-configuration-and-hidden-drop-ins">Phase 6: Inspect Server Configuration and Hidden Drop-ins</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-6-detecting-cloaking-and-conditional-delivery">6. Detecting Cloaking and Conditional Delivery</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-testing-server-responses-via-curl">Testing Server Responses via curl</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-7-finding-spam-urls-building-a-comprehensive-inventory">7. Finding Spam URLs: Building a Comprehensive Inventory</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-data-sources-for-url-inventory-collection">Data Sources for URL Inventory Collection</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-8-root-cause-analysis-symptoms-vs-root-causes-vs-remediation">8. Root-Cause Analysis: Symptoms vs. Root Causes vs. Remediation</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-9-how-to-remove-malicious-content-systematically">9. How to Remove Malicious Content Systematically</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-place-the-site-into-controlled-maintenance">1. Place the Site into Controlled Maintenance</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-replace-wordpress-core-files-with-pristine-releases">2. Replace WordPress Core Files with Pristine Releases</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-replace-plugins-and-themes-from-authoritative-sources">3. Replace Plugins and Themes from Authoritative Sources</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-sanitize-the-database">4. Sanitize the Database</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-5-inspect-and-lockdown-wp-content-uploads">5. Inspect and Lockdown wp-content/uploads/</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-6-review-htaccess-and-server-configurations">6. Review .htaccess and Server Configurations</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-7-rotate-all-authentication-salts-and-passwords">7. Rotate All Authentication Salts and Passwords</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-10-http-404-vs-http-410-for-hacked-spam-urls">10. HTTP 404 vs. HTTP 410 for Hacked Spam URLs</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-technical-comparison-http-404-vs-http-410">Technical Comparison: HTTP 404 vs. HTTP 410</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-practical-guidance-for-wordpress-spam-deindexing">Practical Guidance for WordPress Spam Deindexing</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-implementing-http-410-via-htaccess-example">Implementing HTTP 410 via .htaccess (Example)</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-11-search-console-and-reindexing-after-cleanup">11. Search Console and Reindexing After Cleanup</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-post-cleanup-search-console-workflow">The Post-Cleanup Search Console Workflow</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-12-how-to-validate-that-the-site-is-actually-clean">12. How to Validate That the Site Is Actually Clean</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-forensic-validation-checklist">Forensic Validation Checklist</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-reproducing-the-attack-simulation">Reproducing the Attack Simulation</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-13-common-failed-cleanup-approaches">13. Common Failed Cleanup Approaches</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-11-remediation-anti-patterns-to-avoid">11 Remediation Anti-Patterns to Avoid</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-14-prevention-after-recovery-hardening-the-environment">14. Prevention After Recovery: Hardening the Environment</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-enforce-web-server-execution-restrictions">1. Enforce Web Server Execution Restrictions</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-disable-the-native-wordpress-file-editor">2. Disable the Native WordPress File Editor</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-implement-strict-least-privilege-access-and-2fa">3. Implement Strict Least-Privilege Access and 2FA</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-deploy-web-application-firewalls-waf">4. Deploy Web Application Firewalls (WAF)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-5-architectural-upgrade-to-modern-content-platforms">5. Architectural Upgrade to Modern Content Platforms</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-15-when-to-use-professional-wordpress-malware-remediation">15. When to Use Professional WordPress Malware Remediation</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-criteria-requiring-senior-security-intervention">Criteria Requiring Senior Security Intervention</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-16-japanese-keyword-hack-remediation-checklist">16. Japanese Keyword Hack Remediation Checklist</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-1-detect">Phase 1: DETECT</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-2-investigate">Phase 2: INVESTIGATE</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-3-eradicate">Phase 3: ERADICATE</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-4-validate">Phase 4: VALIDATE</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-5-recover">Phase 5: RECOVER</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-phase-6-harden-amp-monitor">Phase 6: HARDEN &amp; MONITOR</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-17-frequently-asked-questions">17. Frequently Asked Questions</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-is-the-japanese-keyword-hack-in-wordpress">What is the Japanese Keyword Hack in WordPress?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-why-are-japanese-spam-pages-appearing-on-my-website">Why are Japanese spam pages appearing on my website?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-can-a-wordpress-site-look-completely-normal-while-still-being-hacked">Can a WordPress site look completely normal while still being hacked?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-do-i-find-japanese-spam-urls-on-my-wordpress-site">How do I find Japanese spam URLs on my WordPress site?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-does-deleting-the-spam-pages-fix-the-hack">Does deleting the spam pages fix the hack?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-should-hacked-spam-urls-return-http-404-or-http-410">Should hacked spam URLs return HTTP 404 or HTTP 410?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-does-cloaking-make-wordpress-spam-harder-to-detect">How does cloaking make WordPress spam harder to detect?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-why-did-google-index-pages-that-i-cannot-find-on-my-server">Why did Google index pages that I cannot find on my server?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-can-a-malware-cleanup-remove-the-spam-from-google-immediately">Can a malware cleanup remove the spam from Google immediately?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-do-i-prevent-japanese-seo-spam-from-returning">How do I prevent Japanese SEO spam from returning?</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-18-conclusion-remediation-as-an-engineering-discipline">18. Conclusion: Remediation as an Engineering Discipline</a>
+      </li>
+    
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- WIDGET 2: SHARE BUTTONS -->
+                <div class="share-light-card">
+                    <span class="share-label">Share Article</span>
+                    <div class="share-buttons">
+                        <button class="share-btn" id="share-copy" title="Copy Link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                        <a href="https://twitter.com/intent/tweet?text=The%20Japanese%20Keyword%20Hack%3A%20Forensic%20Root-Cause%20Analysis%2C%20Cloaking%20Detection%2C%20and%20HTTP%20410%20Remediation%20on%20WordPress&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fjapanese-keyword-hack-wordpress" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter / X">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fjapanese-keyword-hack-wordpress" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WIDGET 3: 1-ON-1 STRATEGY CALL -->
+                <div class="strategy-call-card">
+                    <span class="call-badge">1-ON-1 CONSULTATION</span>
+                    <h4 class="call-title">Book an Engineering Briefing</h4>
+                    <p class="call-desc">Discuss your web platform, Next.js migration, AI workflow, or security recovery directly with our engineering team.</p>
+                    <a href="/contact" class="btn-sidebar-call">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Schedule Call</span>
                     </a>
                 </div>
-                <a href="/contact?service=seo-spam-removal" class="rlvnt-btn max-content" style="margin: 0 auto;">
-                    <span>Start a Project</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg>
-                </a>
+            </aside>
+        </div>
+
+        <!-- RELATED POSTS SECTION -->
+        <section class="related-posts-section">
+            <h2 class="related-section-title">Related Engineering Insights</h2>
+            <div class="related-grid">
+                
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">
+            <img src="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" alt="How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet archite...</p>
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency">
+            <img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" alt="What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/what-to-prepare-before-hiring-web-development-agency">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budge...</p>
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-ai-search-engines-cite-sources">
+            <img src="/assets/images/blog/deterministic-code-vs-probabilistic-llm-boundary.webp" alt="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">AI Search</span>
+          <h3 class="card-title">
+            <a href="/blog/how-ai-search-engines-cite-sources">How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization</a>
+          </h3>
+          <p class="card-excerpt">An architectural guide to how AI search engines cite sources: RAG retrieval pipelines, query fan-out, empirical findings from the Pr...</p>
+          <a href="/blog/how-ai-search-engines-cite-sources" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
             </div>
-        </article>
+        </section>
     </main>
 
     <!-- UNIVERSAL GLOBAL FOOTER -->
@@ -1452,7 +2374,7 @@ define('DISALLOW_FILE_EDIT', true);
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                </ul>
+            </ul>
             <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
                 <span>Back to Top</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
@@ -1463,6 +2385,78 @@ define('DISALLOW_FILE_EDIT', true);
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Share Copy Link Handler
+            const copyBtn = document.getElementById('share-copy');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(window.location.href);
+                        const originalHtml = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#65a30d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                        copyBtn.setAttribute('title', 'Link Copied!');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHtml;
+                            copyBtn.setAttribute('title', 'Copy Link');
+                        }, 2500);
+                    } catch (err) {
+                        console.error('Failed to copy link:', err);
+                    }
+                });
+            }
+
+            // Table of Contents Scroll-Spy via IntersectionObserver
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            const headings = Array.from(document.querySelectorAll('.post-body-content h2, .post-body-content h3'));
+            
+            if (tocLinks.length > 0 && headings.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-100px 0px -65% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            tocLinks.forEach((link) => {
+                                const item = link.closest('.toc-item');
+                                if (link.getAttribute('href') === '#' + id) {
+                                    item?.classList.add('active');
+                                    const tocList = document.querySelector('.toc-list');
+                                    if (tocList && item) {
+                                        const offset = item.offsetTop - tocList.offsetTop;
+                                        tocList.scrollTo({ top: offset - 40, behavior: 'smooth' });
+                                    }
+                                } else {
+                                    item?.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                headings.forEach(h => observer.observe(h));
+            }
+
+            // Smooth scroll on TOC link click
+            tocLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href')?.slice(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const navOffset = 100;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
             // Time update helper for footer
             function updateFooterClocks() {
                 const now = new Date();
@@ -1471,10 +2465,10 @@ define('DISALLOW_FILE_EDIT', true);
                 const elTokyo = document.getElementById('footerTimeTokyo');
                 const elLondon = document.getElementById('footerTimeLondon');
                 const elNY = document.getElementById('footerTimeNY');
-                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
-                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
-                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
-                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+                if (elDelhi) elDelhi.innerText = now.toLocaleTimeString('en-US', opt('Asia/Kolkata')) + ' IST';
+                if (elTokyo) elTokyo.innerText = now.toLocaleTimeString('en-US', opt('Asia/Tokyo')) + ' JST';
+                if (elLondon) elLondon.innerText = now.toLocaleTimeString('en-US', opt('Europe/London')) + ' GMT';
+                if (elNY) elNY.innerText = now.toLocaleTimeString('en-US', opt('America/New_York')) + ' EST';
             }
             updateFooterClocks();
             setInterval(updateFooterClocks, 10000);

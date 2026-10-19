@@ -26,16 +26,16 @@
     <meta property="og:url" content="https://kawaki.co.in/blog/nextjs-state-management-api-boundaries" />
     <meta property="og:title" content="Next.js State Management & API Flow — Kawaki Studios" />
     <meta property="og:description" content="An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-server-client-state-flow.webp" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="675" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="Next.js State Management & API Flow — Kawaki Studios" />
     <meta name="twitter:description" content="An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-server-client-state-flow.webp" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -44,12 +44,18 @@
     "@type": "BlogPosting",
     "headline": "State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications",
     "description": "An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow.",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "image": "https://kawaki.co.in/assets/images/blog/nextjs-server-client-state-flow.webp",
     "datePublished": "2026-09-19T10:00:00.000Z",
     "dateModified": "2026-09-22T00:00:00.000Z",
     "author": {
         "@type": "Person",
-        "name": "Kunal Sharma"
+        "name": "Kunal Sharma",
+        "jobTitle": "Founder & Principal Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in"
+        }
     },
     "publisher": {
         "@type": "Organization",
@@ -94,7 +100,7 @@
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 
@@ -102,8 +108,9 @@
         :root {
             --color-bg: #FFFFFF;
             --color-text: #12100E;
-            --color-muted: #6B7280;
+            --color-muted: #64748B;
             --color-accent: #C6FF00;
+            --color-border: rgba(0, 0, 0, 0.08);
             --font-sans: "Plus Jakarta Sans", sans-serif;
             --font-serif: "Instrument Serif", serif;
             --font-mono: "JetBrains Mono", monospace;
@@ -116,7 +123,7 @@
             margin: 0;
             padding: 0;
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -125,13 +132,14 @@
             font-style: italic;
         }
 
-        .article-container {
-            max-width: 860px;
+        /* Container & Page Header */
+        .post-detail-page {
+            max-width: 1240px;
             margin: 0 auto;
             padding: 130px 24px 80px;
         }
 
-        .article-breadcrumb {
+        .breadcrumbs-nav {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
@@ -141,199 +149,304 @@
             color: var(--color-muted);
             margin-bottom: 1.5rem;
         }
-        .article-breadcrumb a {
+        .breadcrumbs-nav a {
             color: var(--color-muted);
             text-decoration: none;
             transition: color 0.2s;
         }
-        .article-breadcrumb a:hover {
-            color: var(--color-accent);
+        .breadcrumbs-nav a:hover {
+            color: #111111;
         }
-        .article-breadcrumb .bc-sep {
-            color: rgba(0,0,0,0.3);
+        .breadcrumbs-nav .divider {
+            color: rgba(0,0,0,0.25);
         }
-        .article-breadcrumb .bc-current {
-            color: var(--color-text);
+        .breadcrumbs-nav .active {
+            color: #111111;
+            font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 420px;
+            max-width: 480px;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-muted);
-            text-decoration: none;
-            margin-bottom: 2rem;
-            transition: color 0.2s;
-        }
-        .back-link:hover {
-            color: var(--color-accent);
+        .post-header {
+            margin-bottom: 2.5rem;
         }
 
-        .article-meta-badge {
+        .header-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: #111114;
+            color: #C6FF00;
             font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--color-accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            text-decoration: none;
         }
 
-        .article-header-title {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+        }
+        .meta-item svg {
+            color: var(--color-muted);
+        }
+
+        .post-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
-            margin: 0 0 1.5rem;
             color: #111111;
+            margin: 0 0 1.5rem;
         }
 
-        .article-info-bar {
+        .author-credits {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             padding: 1.25rem 0;
             border-top: 1px solid rgba(0,0,0,0.08);
             border-bottom: 1px solid rgba(0,0,0,0.08);
             margin-bottom: 2.5rem;
             font-size: 14px;
-            color: var(--color-muted);
-        }
-
-        .author-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         .author-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #111111;
+            background: #111114;
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
+            border: 2px solid rgba(198, 255, 0, 0.4);
+        }
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            font-weight: 700;
+            color: #111111;
+        }
+        .author-role {
+            font-size: 12px;
+            color: var(--color-muted);
         }
 
-        .article-hero-image {
+        /* Hero Featured Image Container */
+        .featured-image-wrapper {
+            margin-bottom: 3.5rem;
+        }
+        .featured-image-container {
             width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            max-height: 580px;
             border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            overflow: hidden;
+            background: #0B0B0E;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .post-featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .article-content {
+        /* Two-Column Layout Grid */
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 1024px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .article-sidebar {
+                order: 2;
+            }
+        }
+
+        /* Executive Summary / Key Takeaways Card */
+        .key-takeaways-card {
+            background: #F9FAF6;
+            border: 1px solid rgba(198, 255, 0, 0.4);
+            border-left: 4px solid #C6FF00;
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .takeaways-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+        .takeaways-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #111111;
+            font-family: var(--font-mono);
+        }
+        .takeaway-icon {
+            color: #65a30d;
+        }
+        .takeaway-lead {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .takeaway-bullets {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: #1F2937;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+        .takeaway-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Post Content Typography */
+        .post-body-content {
             font-size: 1.125rem;
             line-height: 1.8;
             color: #2D2A26;
         }
-
-        .article-content h1, 
-        .article-content h2, 
-        .article-content h3 {
-            color: #111111;
+        .post-body-content h2 {
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin: 2.5rem 0 1rem;
+            color: #111111;
+            margin: 3rem 0 1.25rem;
+            scroll-margin-top: 110px;
         }
-        .article-content h2 {
-            font-size: 1.75rem;
-        }
-        .article-content h3 {
+        .post-body-content h3 {
             font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: #111111;
+            margin: 2.25rem 0 1rem;
+            scroll-margin-top: 110px;
         }
-
-        .article-content p {
+        .post-body-content p {
             margin-bottom: 1.5rem;
         }
-
-        .article-content ul,
-        .article-content ol {
+        .post-body-content ul, .post-body-content ol {
             margin: 1.5rem 0;
-            padding-left: 2rem;
+            padding-left: 1.75rem;
         }
-
-        .article-content li {
+        .post-body-content li {
             margin-bottom: 0.5rem;
         }
-
-        .article-content a {
+        .post-body-content a {
             color: #111111;
             text-decoration: underline;
             text-decoration-color: var(--color-accent);
             text-underline-offset: 4px;
             transition: color 0.2s;
         }
-        .article-content a:hover {
+        .post-body-content a:hover {
             color: #000000;
         }
-
-        .article-content pre {
+        .post-body-content blockquote {
+            border-left: 3px solid #C6FF00;
+            background: #F9F9FB;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            color: #374151;
+            font-style: italic;
+        }
+        .post-body-content pre {
             background: #111116;
             color: #F4F4F5;
-            padding: 1.25rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 14px;
             overflow-x: auto;
             font-family: var(--font-mono);
             font-size: 14px;
-            margin: 1.5rem 0;
+            line-height: 1.6;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-
-        .article-content code {
+        .post-body-content code {
             font-family: var(--font-mono);
             font-size: 14px;
             background: rgba(0,0,0,0.06);
             padding: 2px 6px;
             border-radius: 4px;
         }
-
-        .article-content pre code {
+        .post-body-content pre code {
             background: transparent;
             padding: 0;
             border-radius: 0;
             color: inherit;
         }
-
-        .article-content blockquote {
-            border-left: 3px solid var(--color-accent);
-            padding-left: 1.25rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #4A4640;
+        .post-body-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            font-size: 14.5px;
         }
-
-        .article-content figure {
+        .post-body-content th {
+            background: #111114;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            border: 1px solid #111114;
+        }
+        .post-body-content td {
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: #FFFFFF;
+        }
+        .post-body-content tr:nth-child(even) td {
+            background: #F9FAF6;
+        }
+        .post-body-content figure {
             margin: 2.5rem 0;
             padding: 0;
         }
-
-        .article-content img {
+        .post-body-content img {
             max-width: 100%;
             height: auto;
             border-radius: 14px;
             display: block;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
         }
-
-        .article-content figcaption {
+        .post-body-content figcaption {
             margin-top: 0.75rem;
             font-size: 0.85rem;
             color: var(--color-muted);
@@ -353,35 +466,398 @@
             margin-bottom: 6px;
         }
 
-        .rlvnt-btn {
+        /* In-Article Conversion Card */
+        .in-article-cta {
+            margin: 3.5rem 0;
+            padding: 2.5rem 2rem;
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(198, 255, 0, 0.2);
             position: relative;
-            display: inline-flex;
-            gap: 8px;
-            border: 1px solid var(--color-text);
+            overflow: hidden;
+        }
+        .in-article-cta .cta-kicker {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #C6FF00;
+            margin-bottom: 0.75rem;
+        }
+        .in-article-cta h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .in-article-cta p {
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 580px;
+            margin: 0 auto 1.75rem;
+        }
+        .in-article-cta .cta-actions {
+            display: flex;
+            gap: 16px;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary-theme {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 14px;
             padding: 12px 24px;
             border-radius: 50px;
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-style: italic;
-            background: transparent;
-            color: var(--color-text);
-            font-size: 1rem;
-            overflow: hidden;
-            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary-theme:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+        .btn-link-secondary {
+            color: #94A3B8;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .btn-link-secondary:hover {
+            color: #FFFFFF;
+        }
+
+        /* Author Bio Card */
+        .author-bio-card {
+            display: flex;
+            gap: 20px;
+            padding: 2rem;
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            margin-top: 3.5rem;
+            align-items: flex-start;
+        }
+        @media (max-width: 640px) {
+            .author-bio-card {
+                flex-direction: column;
+            }
+        }
+        .bio-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #111114;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            border: 2px solid #C6FF00;
+            flex-shrink: 0;
+        }
+        .bio-details h4 {
+            margin: 0.25rem 0 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #111111;
+        }
+        .bio-role {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #65a30d;
+        }
+        .bio-details p {
+            margin: 0 0 1rem;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        .bio-socials {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .bio-socials a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .bio-socials a:hover {
+            color: #65a30d;
+        }
+        .bio-consult {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline !important;
+        }
+
+        /* Sidebar Widgets */
+        .article-sidebar {
+            position: sticky;
+            top: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .toc-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .toc-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #111111;
+            margin: 0 0 1rem;
+            font-family: var(--font-mono);
+        }
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 420px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        .toc-item {
+            margin-bottom: 2px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .toc-item a {
+            display: block;
+            padding: 6px 10px;
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: #4B5563;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-level-3 a {
+            padding-left: 20px;
+            font-size: 12.5px;
+            color: #6B7280;
+        }
+        .toc-item.active a {
+            color: #111111;
+            font-weight: 700;
+            border-left-color: #C6FF00;
+            background: rgba(198, 255, 0, 0.15);
+            border-radius: 0 6px 6px 0;
+        }
+        .toc-item a:hover {
+            color: #111111;
+            background: rgba(0,0,0,0.03);
+        }
+
+        .share-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .share-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-mono);
+            color: #111111;
+        }
+        .share-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111111;
             cursor: pointer;
+            transition: all 0.2s;
             text-decoration: none;
         }
-        .rlvnt-btn.max-content {
-            width: max-content;
-            height: max-content;
-            font-size: 20px;
-            padding: 8px 16px;
+        .share-btn:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
         }
-        .rlvnt-btn:hover {
-            background-color: var(--color-text);
-            color: #ffffff;
+
+        .strategy-call-card {
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 18px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .call-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #C6FF00;
+            margin-bottom: 0.5rem;
+        }
+        .call-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            color: #FFFFFF;
+        }
+        .call-desc {
+            font-size: 13px;
+            color: #94A3B8;
+            line-height: 1.5;
+            margin: 0 0 1.25rem;
+        }
+        .btn-sidebar-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+            box-sizing: border-box;
+        }
+        .btn-sidebar-call:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+
+        /* Related Posts Section */
+        .related-posts-section {
+            margin-top: 5rem;
+            padding-top: 3.5rem;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .related-section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111111;
+            margin: 0 0 2.5rem;
+            text-align: center;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 900px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .post-light-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-light-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.06);
+        }
+        .card-img-wrapper {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0B0B0E;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .post-light-card:hover .card-img {
+            transform: scale(1.04);
+        }
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 0.75rem 0 0.5rem;
+        }
+        .card-title a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-title a:hover {
+            color: #65a30d;
+        }
+        .card-excerpt {
+            font-size: 13.5px;
+            color: var(--color-muted);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .card-read-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+        .card-read-link:hover {
+            gap: 8px;
+            color: #65a30d;
         }
     </style>
 </head>
@@ -600,46 +1076,68 @@
     </div>
 
     <!-- MAIN ARTICLE BODY -->
-    <main class="article-container">
-        <!-- Breadcrumbs -->
-        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+    <main class="post-detail-page">
+        <!-- BREADCRUMBS -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs-nav">
             <a href="/">Home</a>
-            <span class="bc-sep">/</span>
+            <span class="divider">/</span>
             <a href="/blog">Blog</a>
-            <span class="bc-sep">/</span>
-            <span class="bc-current">State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications</span>
+            <span class="divider">/</span>
+            <span class="active" aria-current="page">State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications</span>
         </nav>
 
-        <a href="/blog" class="back-link">
-            ← Back to all stories
-        </a>
-
-        <article id="articleWrapper">
-            <div class="article-meta-badge" id="articleCategory">
-                ● Next.js
+        <!-- POST HEADER -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="category-badge">Next.js</span>
+                <span class="meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    18 min read
+                </span>
+                <span class="meta-item">19 Sep 2026</span>
             </div>
-            
-            <h1 class="article-header-title" id="articleTitle">
+
+            <h1 class="post-title" id="articleTitle">
                 State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications
             </h1>
 
-            <div class="article-info-bar">
-                <div class="author-box">
-                    <div class="author-avatar" id="authorInitial">KS</div>
-                    <div>
-                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
-                        <div style="font-size: 12px;" id="articleDate">19 Sep 2026</div>
-                    </div>
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
-                    189 reads
+            <div class="author-credits">
+                <div class="author-avatar" id="authorInitial">KS</div>
+                <div class="author-details">
+                    <span class="author-name" id="authorName">Kunal Sharma</span>
+                    <span class="author-role">Founder &amp; Principal Engineer, Kawaki Studios</span>
                 </div>
             </div>
+        </header>
 
-            <img id="articleImage" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+        <!-- FEATURED HERO IMAGE -->
+        <div class="featured-image-wrapper">
+            <div class="featured-image-container">
+                <img id="articleImage" src="/assets/images/blog/nextjs-server-client-state-flow.webp" alt="State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+            </div>
+        </div>
 
-            <div class="article-content" id="articleContent">
-                <p>In our previous architectural resource on <a href="/blog/nextjs-server-vs-client-components">Next.js Server vs Client Components</a>, we established that the server/client boundary is fundamentally a network serialization boundary. Once you understand where code executes, the next architectural challenge emerges:</p>
+        <!-- TWO-COLUMN ARTICLE LAYOUT -->
+        <div class="article-layout" id="articleWrapper">
+            <!-- LEFT MAIN CONTENT COLUMN -->
+            <article class="article-content-column">
+                <!-- EXECUTIVE SUMMARY / KEY TAKEAWAYS -->
+                <div class="key-takeaways-card">
+                    <div class="takeaways-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="takeaway-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        <h3>Executive Summary / Key Takeaways</h3>
+                    </div>
+                    <p class="takeaway-lead">An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow.</p>
+                    <ul class="takeaway-bullets">
+                        <li>Categorizes state into server state, URL search params, and local component UI state.</li>
+                        <li>Eliminates redundant global Redux stores in favor of React Server Actions and optimistic updates.</li>
+                        <li>Ensures clean API encapsulation across edge runtimes and Node persistence layers.</li>
+                    </ul>
+                </div>
+
+                <!-- MAIN ARTICLE CONTENT -->
+                <div class="post-body-content" id="articleContent">
+                    <p>In our previous architectural resource on <a href="/blog/nextjs-server-vs-client-components">Next.js Server vs Client Components</a>, we established that the server/client boundary is fundamentally a network serialization boundary. Once you understand where code executes, the next architectural challenge emerges:</p>
 <blockquote>
 <p><strong>Where should state live, where should data be fetched, and where should an API boundary actually exist?</strong></p>
 </blockquote>
@@ -651,7 +1149,7 @@
 </blockquote>
 <p>Data that belongs to the server should remain server-owned. Interactive UI state belongs where interaction occurs. Shareable navigation state belongs in the URL. And APIs should exist only where an explicit interface boundary provides genuine value.</p>
 <hr />
-<h2>1. State Is Not One Thing: The 5 Categories of Application State</h2>
+<h2 id="h-1-state-is-not-one-thing-the-5-categories-of-application-state">1. State Is Not One Thing: The 5 Categories of Application State</h2>
 <p>Treating all application data as generic "state" is the root cause of architectural bloat. In modern Next.js applications, state falls into five distinct categories:</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-server-client-state-flow.webp" alt="Data flow diagram illustrating state transition from server database fetch to RSC wire payload and client store" width="1200" height="675" loading="lazy" decoding="async" />
@@ -665,7 +1163,7 @@
 </ol>
 <p>When you classify data into these categories before writing code, boundary placement becomes straightforward.</p>
 <hr />
-<h2>2. Where State Should Live: A 6-Question Decision Framework</h2>
+<h2 id="h-2-where-state-should-live-a-6-question-decision-framework">2. Where State Should Live: A 6-Question Decision Framework</h2>
 <p>When introducing a new piece of state into a Next.js application, evaluate it against this practical diagnostic sequence:</p>
 <pre><code>                     [New Piece of State]
                                │
@@ -683,7 +1181,7 @@
                                                  ╱       ╲
                                       [Local UI State]  [Shared Client State]
 </code></pre>
-<h3>Diagnostic Questions:</h3>
+<h3 id="h-diagnostic-questions">Diagnostic Questions:</h3>
 <ol>
 <li><strong>Who owns the state?</strong> If the business logic, database, or identity provider owns the data, it is Server Data. If the user's viewport or interaction owns it, it is Client State.</li>
 <li><strong>Does it need browser interaction?</strong> If the state requires immediate keystroke feedback, drag physics, or animation frames, it belongs in a Client Component.</li>
@@ -693,7 +1191,7 @@
 <li><strong>Is it transient or durable?</strong> Transient state (e.g., whether a tooltip is open) belongs in local component state. Durable state (e.g., account settings) belongs in the database.</li>
 </ol>
 <hr />
-<h2>3. Server-Owned Data: Keeping Data at the Source</h2>
+<h2 id="h-3-server-owned-data-keeping-data-at-the-source">3. Server-Owned Data: Keeping Data at the Source</h2>
 <p>Server-owned data represents the core business reality of your application: inventory counts, customer records, permissions, and billing transactions.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-server-actions-mutation-flow.webp" alt="Sequence diagram of Next.js Server Actions optimistic mutation, RPC execution, and revalidateTag" width="1200" height="675" loading="lazy" decoding="async" />
@@ -723,19 +1221,19 @@ export default async function InvoicesPage() {
   );
 }
 </code></pre>
-<h3>Why Server Ownership Matters:</h3>
+<h3 id="h-why-server-ownership-matters">Why Server Ownership Matters:</h3>
 <ul>
 <li><strong>No Client State Synchronization:</strong> You do not need to dispatch actions, handle loading reducers, or reconcile stale client caches for read-heavy views.</li>
 <li><strong>Zero Exposure of Database Credentials:</strong> Connection pools, ORM schemas, and private queries execute inside the secure server boundary.</li>
 <li><strong>Performance Proximity:</strong> Server Components execute in close physical proximity to the database (often sub-millisecond local network latency), avoiding high-latency roundtrips over cellular networks.</li>
 </ul>
 <hr />
-<h2>4. Client State: When Local Interactivity Is Essential</h2>
+<h2 id="h-4-client-state-when-local-interactivity-is-essential">4. Client State: When Local Interactivity Is Essential</h2>
 <p>Client state is not an anti-pattern. Modern web applications require rich, tactile interactions that can only execute in the browser.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-cache-layers-architecture.webp" alt="Layered architecture diagram detailing the four Next.js App Router caching mechanisms" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: The 4-tier Next.js cache hierarchy and invalidation boundaries.</figcaption>
-</figure><h3>Legitimate Uses of Client State:</h3>
+</figure><h3 id="h-legitimate-uses-of-client-state">Legitimate Uses of Client State:</h3>
 <ul>
 <li><strong>Modal &amp; Drawer Visibility:</strong> <code>const [isOpen, setIsOpen] = useState(false)</code> for dialog overlays and mobile navigation.</li>
 <li><strong>Accordion &amp; Tab Controllers:</strong> Managing active index states in accessible UI disclosures.</li>
@@ -745,19 +1243,19 @@ export default async function InvoicesPage() {
 </ul>
 <p>Keep client state as localized as possible. A modal's open state should live in the component that renders the modal, not in a global application store.</p>
 <hr />
-<h2>5. URL State: The Most Underutilized State Container</h2>
+<h2 id="h-5-url-state-the-most-underutilized-state-container">5. URL State: The Most Underutilized State Container</h2>
 <p>One of the most frequent architectural mistakes in modern web applications is storing filter, sort, and pagination state in client memory (<code>useState</code> or a global store) instead of the URL.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-api-route-error-boundary-architecture.webp" alt="Matrix diagram illustrating Next.js schema validation gates, error.tsx boundaries, and telemetry" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Architectural isolation and error boundary strategy in Next.js route handlers.</figcaption>
-</figure><h3>Why URL State Is Superior for Navigation:</h3>
+</figure><h3 id="h-why-url-state-is-superior-for-navigation">Why URL State Is Superior for Navigation:</h3>
 <ul>
 <li><strong>Shareability:</strong> Users can copy the URL and send it to teammates, preserving the exact filter configuration.</li>
 <li><strong>Browser History Support:</strong> Back and forward buttons work intuitively, restoring previous search views.</li>
 <li><strong>Refresh Resilience:</strong> Reloading the page does not reset the user's filtered view.</li>
 <li><strong>Search Engine Discoverability:</strong> Faceted navigation paths can be selectively indexed by search crawlers.</li>
 </ul>
-<h3>Implementing URL State in Next.js:</h3>
+<h3 id="h-implementing-url-state-in-next-js">Implementing URL State in Next.js:</h3>
 <pre><code class="language-tsx">// components/ProductFilter.tsx (Client Component)
 'use client';
 
@@ -794,7 +1292,7 @@ export default function ProductFilter() {
 </code></pre>
 <p>In this pattern, the filter updates the URL. The parent Server Component reads the updated <code>searchParams</code> prop, queries the database with the new filter, and streams updated HTML without complex client state synchronization.</p>
 <hr />
-<h2>6. API Boundaries: Direct Access vs. Explicit Endpoints</h2>
+<h2 id="h-6-api-boundaries-direct-access-vs-explicit-endpoints">6. API Boundaries: Direct Access vs. Explicit Endpoints</h2>
 <p>In traditional SPAs, every interaction required an API endpoint:</p>
 <pre><code>Traditional SPA Architecture:
 [Browser Component] ──(HTTP JSON)──► [/api/products] ──► [Database]
@@ -804,7 +1302,7 @@ export default function ProductFilter() {
 Path A (Server Component): [Server Component] ──(Direct Function Call)──► [Database]
 Path B (Explicit API):     [External Client / App] ──(HTTP JSON)──► [Route Handler] ──► [Database]
 </code></pre>
-<h3>The "Unnecessary API Layer" Anti-Pattern:</h3>
+<h3 id="h-the-unnecessary-api-layer-anti-pattern">The "Unnecessary API Layer" Anti-Pattern:</h3>
 <p>Many developers migrating to Next.js automatically create an internal Route Handler (<code>/api/products</code>) and then call it from their own Server Components using <code>fetch('https://localhost:3000/api/products')</code>.</p>
 <p>This introduces:</p>
 <ol>
@@ -812,7 +1310,7 @@ Path B (Explicit API):     [External Client / App] ──(HTTP JSON)──► [R
 <li><strong>Loopback Latency:</strong> In serverless or containerized environments, internal loopback requests can cause connection timeouts or cold starts.</li>
 <li><strong>Redundant Validation Layers:</strong> Writing validation and authorization logic twice—once in the API route and once in the page.</li>
 </ol>
-<h3>When an Explicit API Boundary Is Actually Necessary:</h3>
+<h3 id="h-when-an-explicit-api-boundary-is-actually-necessary">When an Explicit API Boundary Is Actually Necessary:</h3>
 <p>Create explicit Route Handlers (<code>app/api/.../route.ts</code>) when:</p>
 <ul>
 <li><strong>External Consumers:</strong> Third-party developers, mobile applications (iOS/Android), or partner webhooks need access.</li>
@@ -822,7 +1320,7 @@ Path B (Explicit API):     [External Client / App] ──(HTTP JSON)──► [R
 </ul>
 <p>If the only consumer of the data is your own Next.js frontend, direct server-side data access is cleaner, faster, and more maintainable.</p>
 <hr />
-<h2>7. Route Handlers: Mechanics and Best Practices</h2>
+<h2 id="h-7-route-handlers-mechanics-and-best-practices">7. Route Handlers: Mechanics and Best Practices</h2>
 <p>When an explicit HTTP interface is required, Next.js provides <strong>Route Handlers</strong> (<a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers">Next.js Documentation</a>).</p>
 <p>Route Handlers are defined in <code>route.ts</code> (or <code>route.js</code>) files inside the <code>app</code> directory. They export async functions named after standard HTTP methods: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>, <code>DELETE</code>, <code>HEAD</code>, and <code>OPTIONS</code>.</p>
 <pre><code class="language-ts">// app/api/webhooks/stripe/route.ts
@@ -848,14 +1346,14 @@ export async function POST(request: NextRequest) {
   return NextResponse.json({ received: true });
 }
 </code></pre>
-<h3>Key Architectural Rules for Route Handlers:</h3>
+<h3 id="h-key-architectural-rules-for-route-handlers">Key Architectural Rules for Route Handlers:</h3>
 <ul>
 <li><strong>Route Handlers Cannot Co-exist with Pages:</strong> You cannot place a <code>route.ts</code> and a <code>page.tsx</code> in the same route segment (e.g., <code>app/dashboard/route.ts</code> and <code>app/dashboard/page.tsx</code> will conflict).</li>
 <li><strong>Default Caching Behavior:</strong> In current Next.js versions (v15+), <code>GET</code> Route Handlers are not cached by default. They execute dynamically unless configured with <code>export const dynamic = 'force-static'</code>.</li>
 <li><strong>Enforce Server-Side Authorization:</strong> Never assume a Route Handler is private. Always inspect incoming session cookies or Authorization headers before fulfilling requests.</li>
 </ul>
 <hr />
-<h2>8. Server Actions: Purpose-Built Mutation Boundaries</h2>
+<h2 id="h-8-server-actions-purpose-built-mutation-boundaries">8. Server Actions: Purpose-Built Mutation Boundaries</h2>
 <p>For user-driven mutations originating from your Next.js frontend, <strong>Server Actions</strong> provide an RPC-style mutation model without the boilerplate of dedicated REST endpoints (<a href="https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations">Next.js Documentation</a>).</p>
 <p>Server Actions are asynchronous functions declared with the <code>'use server'</code> directive at the top of a file or function scope.</p>
 <pre><code class="language-tsx">// app/actions/update-profile.ts
@@ -899,7 +1397,7 @@ export async function updateProfile(formData: FormData) {
   return { success: true };
 }
 </code></pre>
-<h3>Critical Security Rule:</h3>
+<h3 id="h-critical-security-rule">Critical Security Rule:</h3>
 <blockquote>
 <p><strong>A Server Action is a public HTTP endpoint under the hood.</strong></p>
 </blockquote>
@@ -910,7 +1408,7 @@ export async function updateProfile(formData: FormData) {
 <li>Validate and sanitize all incoming arguments using a schema validator like Zod.</li>
 </ol>
 <hr />
-<h2>9. Authentication &amp; Authorization: Where Security Boundaries Belong</h2>
+<h2 id="h-9-authentication-amp-authorization-where-security-boundaries-belong">9. Authentication &amp; Authorization: Where Security Boundaries Belong</h2>
 <p>Understanding the distinction between authentication and authorization is vital when designing Next.js data boundaries:</p>
 <ul>
 <li><strong>Authentication (AuthN):</strong> Confirms <em>who</em> the user is (e.g., verifying a session cookie or JWT).</li>
@@ -929,11 +1427,11 @@ export async function updateProfile(formData: FormData) {
 │  3. Execute Query / Mutation                                    │
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
-<h3>Why UI Hiding Is Not Authorization:</h3>
+<h3 id="h-why-ui-hiding-is-not-authorization">Why UI Hiding Is Not Authorization:</h3>
 <p>Hiding an "Admin Settings" button in a Client Component with <code>{isAdmin &amp;&amp; &lt;Button&gt;}</code> is purely a visual affordance. If the underlying Server Action or Route Handler does not re-verify the session and role on the server, any visitor can trigger the action by dispatching a manual POST request.</p>
 <p><strong>Rule:</strong> Every Server Component, Server Action, and Route Handler must independently verify authorization at the data boundary.</p>
 <hr />
-<h2>10. Avoiding Unnecessary Client Fetching</h2>
+<h2 id="h-10-avoiding-unnecessary-client-fetching">10. Avoiding Unnecessary Client Fetching</h2>
 <p>In client-heavy applications, developers frequently write <code>useEffect</code> data-fetching hooks:</p>
 <pre><code class="language-tsx">// ❌ UNNECESSARY CLIENT FETCHING
 'use client';
@@ -957,12 +1455,12 @@ export default function UserProfile() {
   return &lt;div&gt;{user.name}&lt;/div&gt;;
 }
 </code></pre>
-<h3>Why This Is Problematic:</h3>
+<h3 id="h-why-this-is-problematic">Why This Is Problematic:</h3>
 <ul>
 <li><strong>Client Waterfall:</strong> The browser must download the JavaScript bundle, parse it, mount the component, trigger the <code>useEffect</code>, execute the fetch over the network, and re-render.</li>
 <li><strong>Layout Shift:</strong> The page displays a loading spinner before content arrives, degrading Core Web Vitals (CLS and LCP).</li>
 </ul>
-<h3>When Client Fetching Is Genuinely Appropriate:</h3>
+<h3 id="h-when-client-fetching-is-genuinely-appropriate">When Client Fetching Is Genuinely Appropriate:</h3>
 <p>Client fetching is appropriate when:</p>
 <ul>
 <li>Data updates continuously based on user typing (e.g., live typeahead search).</li>
@@ -971,9 +1469,9 @@ export default function UserProfile() {
 </ul>
 <p>For initial page data, fetch on the server in a Server Component and pass the data down.</p>
 <hr />
-<h2>11. Caching &amp; Revalidation: The Current Next.js Model</h2>
+<h2 id="h-11-caching-amp-revalidation-the-current-next-js-model">11. Caching &amp; Revalidation: The Current Next.js Model</h2>
 <p>Caching in Next.js has evolved significantly. In current Next.js versions (v15+), the framework prioritizes predictability:</p>
-<h3>Current Caching Primitives:</h3>
+<h3 id="h-current-caching-primitives">Current Caching Primitives:</h3>
 <ol>
 <li><strong>Request Memoization (React <code>cache</code>):</strong> Deduplicates identical <code>fetch</code> requests or function calls within a single render pass. If three components on the same page request the current user profile, the function executes only once.</li>
 <li><strong>Data Cache:</strong> Allows data to be cached across requests and deployments when explicitly configured via <code>fetch(url, { cache: 'force-cache' })</code> or <code>fetch(url, { next: { revalidate: 3600 } })</code>.</li>
@@ -985,7 +1483,7 @@ export default function UserProfile() {
 </ol>
 <p>Understanding this lifecycle prevents stale data issues while maintaining fast response times. For deeper performance tuning, review our guide on <a href="/services/website-performance-optimization">website performance optimization</a>.</p>
 <hr />
-<h2>12. A Practical Reference Architecture</h2>
+<h2 id="h-12-a-practical-reference-architecture">12. A Practical Reference Architecture</h2>
 <p>The diagram below illustrates an end-to-end data architecture for a production Next.js web application:</p>
 <pre><code>[Incoming Request: /workspace/billing]
                  │
@@ -1017,7 +1515,7 @@ export default function UserProfile() {
 </code></pre>
 <p>Notice the clean separation: the page renders server-side, data queries bypass HTTP, interactivity is confined to leaf components, and mutations execute through validated Server Actions.</p>
 <hr />
-<h2>13. State Ownership Decision Matrix</h2>
+<h2 id="h-13-state-ownership-decision-matrix">13. State Ownership Decision Matrix</h2>
 <table>
 <thead>
 <tr>
@@ -1068,7 +1566,7 @@ export default function UserProfile() {
 </tr>
 </tbody></table>
 <hr />
-<h2>14. Common Architectural Mistakes</h2>
+<h2 id="h-14-common-architectural-mistakes">14. Common Architectural Mistakes</h2>
 <p>Review your Next.js application against these common pitfalls:</p>
 <ol>
 <li><strong>Reaching for Global Client State by Default:</strong> Setting up Redux, Zustand, or complex React Context for data that is already managed cleanly by Server Components and URL search parameters.</li>
@@ -1079,51 +1577,319 @@ export default function UserProfile() {
 <li><strong>Neglecting URL State for Search &amp; Filters:</strong> Storing filters in client state so that users cannot share links or use the browser's back button.</li>
 </ol>
 <hr />
-<h2>15. Frequently Asked Questions (FAQ)</h2>
-<h3>What state belongs in a Client Component?</h3>
+<h2 id="h-15-frequently-asked-questions-faq">15. Frequently Asked Questions (FAQ)</h2>
+<h3 id="h-what-state-belongs-in-a-client-component">What state belongs in a Client Component?</h3>
 <p>State that controls immediate visual interactivity (modal visibility, drawer open/close, accordion expansion), temporary form input before submission, animation coordinates, or interactions requiring browser-exclusive APIs (Canvas, Geolocation).</p>
-<h3>When should state be stored in the URL instead of client state?</h3>
+<h3 id="h-when-should-state-be-stored-in-the-url-instead-of-client-state">When should state be stored in the URL instead of client state?</h3>
 <p>Whenever the state controls what content is displayed—such as search queries, category filters, sorting options, pagination numbers, or tab selections. URL state makes the view shareable, bookmarkable, and refresh-safe.</p>
-<h3>Should Server Components fetch data directly from databases?</h3>
+<h3 id="h-should-server-components-fetch-data-directly-from-databases">Should Server Components fetch data directly from databases?</h3>
 <p>Yes. In Next.js App Router, Server Components run exclusively in a secure server environment. Direct database queries via ORMs or SQL clients eliminate HTTP serialization overhead and reduce network latency.</p>
-<h3>When should I use a Route Handler instead of a Server Action?</h3>
+<h3 id="h-when-should-i-use-a-route-handler-instead-of-a-server-action">When should I use a Route Handler instead of a Server Action?</h3>
 <p>Use Route Handlers (<code>route.ts</code>) when you need standard HTTP endpoints for external consumers: third-party webhooks (Stripe, GitHub), mobile apps (iOS/Android), or public REST APIs. Use Server Actions for user-driven mutations originating from your own Next.js frontend.</p>
-<h3>Are Server Actions automatically secure?</h3>
+<h3 id="h-are-server-actions-automatically-secure">Are Server Actions automatically secure?</h3>
 <p>No. Server Actions compile into publicly accessible HTTP POST endpoints. You must authenticate the user session, authorize access to the specific resource, and validate all input data inside the action.</p>
-<h3>When is a client-side data fetch appropriate?</h3>
+<h3 id="h-when-is-a-client-side-data-fetch-appropriate">When is a client-side data fetch appropriate?</h3>
 <p>Client-side fetching is appropriate for dynamic live search (typeahead), infinite scroll pagination, polling for real-time status updates, or fetching non-critical data after the primary page has already loaded.</p>
-<h3>Where should authorization decisions happen?</h3>
+<h3 id="h-where-should-authorization-decisions-happen">Where should authorization decisions happen?</h3>
 <p>Authorization must always happen on the server—inside the Server Component before querying data, or inside the Server Action / Route Handler before executing a mutation. UI conditional rendering is for presentation only, not security.</p>
-<h3>Does every modern web application need a global state library?</h3>
+<h3 id="h-does-every-modern-web-application-need-a-global-state-library">Does every modern web application need a global state library?</h3>
 <p>No. Most Next.js applications that properly leverage Server Components for domain data and URL search parameters for navigation require little to no global client state. Local component state and targeted React Context are often sufficient.</p>
 <hr />
-<h2>Architecting High-Performance Web Applications</h2>
+<h2 id="h-architecting-high-performance-web-applications">Architecting High-Performance Web Applications</h2>
 <p>Designing clean state and API boundaries reduces code complexity, strengthens security posture, and optimizes runtime performance.</p>
 <p>If your team is designing a new web platform, modernizing an existing codebase, or untangling complex application state, <a href="/services/web-application-development">explore our web application development services</a> or <a href="/contact">schedule an architectural briefing with Kawaki Studios</a>.</p>
 
-            </div>
+                </div>
 
-            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
-                <span class="tag-pill">#Next.js</span><span class="tag-pill">#State Management</span><span class="tag-pill">#API Design</span><span class="tag-pill">#Web Architecture</span>
-            </div>
+                <!-- TAGS -->
+                <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                    <span class="tag-pill">#Next.js</span><span class="tag-pill">#State Management</span><span class="tag-pill">#API Design</span><span class="tag-pill">#Web Architecture</span>
+                </div>
 
-            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
-                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
-                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
-                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                    <a href="/services/web-application-development" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
-                        Explore Full-Stack Web Application Engineering &rarr;
+                <!-- IN-ARTICLE CONVERSION CTA -->
+                <div class="in-article-cta text-center">
+                    <span class="cta-kicker">// ARCHITECTURAL PARTNERSHIP</span>
+                    <h3>Need Help Engineering Your Web Platform or AI Systems?</h3>
+                    <p>From high-performance Next.js architectures to headless Shopify storefronts, custom AI automations, and enterprise WordPress security recovery, Kawaki Studios designs resilient digital infrastructure built to scale.</p>
+                    <div class="cta-actions">
+                        <a href="/contact" class="btn-primary-theme">
+                            <span>Schedule Engineering Discovery</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path></svg>
+                        </a>
+                        <a href="/services/web-application-development" class="btn-link-secondary">
+                            Explore Full-Stack Web Application Engineering &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AUTHOR BIO CARD -->
+                <div class="author-bio-card">
+                    <div class="bio-avatar">
+                        <span class="avatar-text">KS</span>
+                    </div>
+                    <div class="bio-details">
+                        <span class="bio-role">Founder &amp; Principal Engineer</span>
+                        <h4>Kunal Sharma</h4>
+                        <p>Kunal is the founder and principal engineer at Kawaki Studios, specializing in high-performance web engineering, Next.js application architecture, headless Shopify systems, autonomous AI workflows, and forensic WordPress security recovery. He helps ambitious founders and modern enterprises design resilient, high-velocity digital flagships.</p>
+                        <div class="bio-socials">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub ↗</a>
+                            <a href="/contact" class="bio-consult">Book 15-Min Briefing ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- RIGHT STICKY SIDEBAR -->
+            <aside class="article-sidebar" data-lenis-prevent>
+                <!-- WIDGET 1: TABLE OF CONTENTS -->
+                <div class="toc-light-card">
+                    <h3 class="toc-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                        Table of Contents
+                    </h3>
+                    <nav class="toc-nav">
+                        <ul class="toc-list" data-lenis-prevent>
+                            
+      <li class="toc-item toc-level-2">
+        <a href="#h-1-state-is-not-one-thing-the-5-categories-of-application-state">1. State Is Not One Thing: The 5 Categories of Application State</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-2-where-state-should-live-a-6-question-decision-framework">2. Where State Should Live: A 6-Question Decision Framework</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-diagnostic-questions">Diagnostic Questions:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-3-server-owned-data-keeping-data-at-the-source">3. Server-Owned Data: Keeping Data at the Source</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-why-server-ownership-matters">Why Server Ownership Matters:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-4-client-state-when-local-interactivity-is-essential">4. Client State: When Local Interactivity Is Essential</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-legitimate-uses-of-client-state">Legitimate Uses of Client State:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-5-url-state-the-most-underutilized-state-container">5. URL State: The Most Underutilized State Container</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-why-url-state-is-superior-for-navigation">Why URL State Is Superior for Navigation:</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-implementing-url-state-in-next-js">Implementing URL State in Next.js:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-6-api-boundaries-direct-access-vs-explicit-endpoints">6. API Boundaries: Direct Access vs. Explicit Endpoints</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-unnecessary-api-layer-anti-pattern">The "Unnecessary API Layer" Anti-Pattern:</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-an-explicit-api-boundary-is-actually-necessary">When an Explicit API Boundary Is Actually Necessary:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-7-route-handlers-mechanics-and-best-practices">7. Route Handlers: Mechanics and Best Practices</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-key-architectural-rules-for-route-handlers">Key Architectural Rules for Route Handlers:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-8-server-actions-purpose-built-mutation-boundaries">8. Server Actions: Purpose-Built Mutation Boundaries</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-critical-security-rule">Critical Security Rule:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-9-authentication-amp-authorization-where-security-boundaries-belong">9. Authentication &amp; Authorization: Where Security Boundaries Belong</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-why-ui-hiding-is-not-authorization">Why UI Hiding Is Not Authorization:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-10-avoiding-unnecessary-client-fetching">10. Avoiding Unnecessary Client Fetching</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-why-this-is-problematic">Why This Is Problematic:</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-client-fetching-is-genuinely-appropriate">When Client Fetching Is Genuinely Appropriate:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-11-caching-amp-revalidation-the-current-next-js-model">11. Caching &amp; Revalidation: The Current Next.js Model</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-current-caching-primitives">Current Caching Primitives:</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-12-a-practical-reference-architecture">12. A Practical Reference Architecture</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-13-state-ownership-decision-matrix">13. State Ownership Decision Matrix</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-14-common-architectural-mistakes">14. Common Architectural Mistakes</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-15-frequently-asked-questions-faq">15. Frequently Asked Questions (FAQ)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-state-belongs-in-a-client-component">What state belongs in a Client Component?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-should-state-be-stored-in-the-url-instead-of-client-state">When should state be stored in the URL instead of client state?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-should-server-components-fetch-data-directly-from-databases">Should Server Components fetch data directly from databases?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-should-i-use-a-route-handler-instead-of-a-server-action">When should I use a Route Handler instead of a Server Action?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-are-server-actions-automatically-secure">Are Server Actions automatically secure?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-is-a-client-side-data-fetch-appropriate">When is a client-side data fetch appropriate?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-where-should-authorization-decisions-happen">Where should authorization decisions happen?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-does-every-modern-web-application-need-a-global-state-library">Does every modern web application need a global state library?</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-architecting-high-performance-web-applications">Architecting High-Performance Web Applications</a>
+      </li>
+    
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- WIDGET 2: SHARE BUTTONS -->
+                <div class="share-light-card">
+                    <span class="share-label">Share Article</span>
+                    <div class="share-buttons">
+                        <button class="share-btn" id="share-copy" title="Copy Link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                        <a href="https://twitter.com/intent/tweet?text=State%20Management%20%26%20API%20Boundaries%20in%20Next.js%3A%20Designing%20Data%20Flow%20for%20Modern%20Web%20Applications&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fnextjs-state-management-api-boundaries" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter / X">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fnextjs-state-management-api-boundaries" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WIDGET 3: 1-ON-1 STRATEGY CALL -->
+                <div class="strategy-call-card">
+                    <span class="call-badge">1-ON-1 CONSULTATION</span>
+                    <h4 class="call-title">Book an Engineering Briefing</h4>
+                    <p class="call-desc">Discuss your web platform, Next.js migration, AI workflow, or security recovery directly with our engineering team.</p>
+                    <a href="/contact" class="btn-sidebar-call">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Schedule Call</span>
                     </a>
                 </div>
-                <a href="/contact" class="rlvnt-btn max-content" style="margin: 0 auto;">
-                    <span>Start a Project</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg>
-                </a>
+            </aside>
+        </div>
+
+        <!-- RELATED POSTS SECTION -->
+        <section class="related-posts-section">
+            <h2 class="related-section-title">Related Engineering Insights</h2>
+            <div class="related-grid">
+                
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">
+            <img src="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" alt="How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet archite...</p>
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency">
+            <img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" alt="What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/what-to-prepare-before-hiring-web-development-agency">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budge...</p>
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-ai-search-engines-cite-sources">
+            <img src="/assets/images/blog/deterministic-code-vs-probabilistic-llm-boundary.webp" alt="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">AI Search</span>
+          <h3 class="card-title">
+            <a href="/blog/how-ai-search-engines-cite-sources">How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization</a>
+          </h3>
+          <p class="card-excerpt">An architectural guide to how AI search engines cite sources: RAG retrieval pipelines, query fan-out, empirical findings from the Pr...</p>
+          <a href="/blog/how-ai-search-engines-cite-sources" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
             </div>
-        </article>
+        </section>
     </main>
 
     <!-- UNIVERSAL GLOBAL FOOTER -->
@@ -1244,7 +2010,7 @@ export default function UserProfile() {
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                </ul>
+            </ul>
             <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
                 <span>Back to Top</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
@@ -1255,6 +2021,78 @@ export default function UserProfile() {
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Share Copy Link Handler
+            const copyBtn = document.getElementById('share-copy');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(window.location.href);
+                        const originalHtml = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#65a30d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                        copyBtn.setAttribute('title', 'Link Copied!');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHtml;
+                            copyBtn.setAttribute('title', 'Copy Link');
+                        }, 2500);
+                    } catch (err) {
+                        console.error('Failed to copy link:', err);
+                    }
+                });
+            }
+
+            // Table of Contents Scroll-Spy via IntersectionObserver
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            const headings = Array.from(document.querySelectorAll('.post-body-content h2, .post-body-content h3'));
+            
+            if (tocLinks.length > 0 && headings.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-100px 0px -65% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            tocLinks.forEach((link) => {
+                                const item = link.closest('.toc-item');
+                                if (link.getAttribute('href') === '#' + id) {
+                                    item?.classList.add('active');
+                                    const tocList = document.querySelector('.toc-list');
+                                    if (tocList && item) {
+                                        const offset = item.offsetTop - tocList.offsetTop;
+                                        tocList.scrollTo({ top: offset - 40, behavior: 'smooth' });
+                                    }
+                                } else {
+                                    item?.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                headings.forEach(h => observer.observe(h));
+            }
+
+            // Smooth scroll on TOC link click
+            tocLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href')?.slice(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const navOffset = 100;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
             // Time update helper for footer
             function updateFooterClocks() {
                 const now = new Date();
@@ -1263,10 +2101,10 @@ export default function UserProfile() {
                 const elTokyo = document.getElementById('footerTimeTokyo');
                 const elLondon = document.getElementById('footerTimeLondon');
                 const elNY = document.getElementById('footerTimeNY');
-                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
-                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
-                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
-                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+                if (elDelhi) elDelhi.innerText = now.toLocaleTimeString('en-US', opt('Asia/Kolkata')) + ' IST';
+                if (elTokyo) elTokyo.innerText = now.toLocaleTimeString('en-US', opt('Asia/Tokyo')) + ' JST';
+                if (elLondon) elLondon.innerText = now.toLocaleTimeString('en-US', opt('Europe/London')) + ' GMT';
+                if (elNY) elNY.innerText = now.toLocaleTimeString('en-US', opt('America/New_York')) + ' EST';
             }
             updateFooterClocks();
             setInterval(updateFooterClocks, 10000);

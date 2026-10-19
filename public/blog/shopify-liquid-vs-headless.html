@@ -26,16 +26,16 @@
     <meta property="og:url" content="https://kawaki.co.in/blog/shopify-liquid-vs-headless" />
     <meta property="og:title" content="Shopify Liquid vs Headless Shopify — Kawaki Studios" />
     <meta property="og:description" content="An engineering decision framework for choosing between Shopify Liquid and Headless Shopify. Features a 12-dimension decision matrix, root-cause speed analysis, optimization sequence, and migration guide." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1556742049-0a67e557224f?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/shopify-theme-vs-headless-architecture-comparison.webp" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="675" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="Shopify Liquid vs Headless Shopify — Kawaki Studios" />
     <meta name="twitter:description" content="An engineering decision framework for choosing between Shopify Liquid and Headless Shopify. Features a 12-dimension decision matrix, root-cause speed analysis, optimization sequence, and migration guide." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1556742049-0a67e557224f?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/shopify-theme-vs-headless-architecture-comparison.webp" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -44,12 +44,18 @@
     "@type": "BlogPosting",
     "headline": "Shopify Liquid vs Headless Shopify: A Practical Decision Framework for Growing Stores",
     "description": "An engineering decision framework for choosing between Shopify Liquid and Headless Shopify. Features a 12-dimension decision matrix, root-cause speed analysis, optimization sequence, and migration guide.",
-    "image": "https://images.unsplash.com/photo-1556742049-0a67e557224f?auto=format&fit=crop&w=1200&q=80",
+    "image": "https://kawaki.co.in/assets/images/blog/shopify-theme-vs-headless-architecture-comparison.webp",
     "datePublished": "2026-09-28T10:00:00.000Z",
     "dateModified": "2026-09-28T10:00:00.000Z",
     "author": {
         "@type": "Person",
-        "name": "Kunal Sharma"
+        "name": "Kunal Sharma",
+        "jobTitle": "Founder & Principal Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in"
+        }
     },
     "publisher": {
         "@type": "Organization",
@@ -94,7 +100,7 @@
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 
@@ -102,8 +108,9 @@
         :root {
             --color-bg: #FFFFFF;
             --color-text: #12100E;
-            --color-muted: #6B7280;
+            --color-muted: #64748B;
             --color-accent: #C6FF00;
+            --color-border: rgba(0, 0, 0, 0.08);
             --font-sans: "Plus Jakarta Sans", sans-serif;
             --font-serif: "Instrument Serif", serif;
             --font-mono: "JetBrains Mono", monospace;
@@ -116,7 +123,7 @@
             margin: 0;
             padding: 0;
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -125,13 +132,14 @@
             font-style: italic;
         }
 
-        .article-container {
-            max-width: 860px;
+        /* Container & Page Header */
+        .post-detail-page {
+            max-width: 1240px;
             margin: 0 auto;
             padding: 130px 24px 80px;
         }
 
-        .article-breadcrumb {
+        .breadcrumbs-nav {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
@@ -141,199 +149,304 @@
             color: var(--color-muted);
             margin-bottom: 1.5rem;
         }
-        .article-breadcrumb a {
+        .breadcrumbs-nav a {
             color: var(--color-muted);
             text-decoration: none;
             transition: color 0.2s;
         }
-        .article-breadcrumb a:hover {
-            color: var(--color-accent);
+        .breadcrumbs-nav a:hover {
+            color: #111111;
         }
-        .article-breadcrumb .bc-sep {
-            color: rgba(0,0,0,0.3);
+        .breadcrumbs-nav .divider {
+            color: rgba(0,0,0,0.25);
         }
-        .article-breadcrumb .bc-current {
-            color: var(--color-text);
+        .breadcrumbs-nav .active {
+            color: #111111;
+            font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 420px;
+            max-width: 480px;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-muted);
-            text-decoration: none;
-            margin-bottom: 2rem;
-            transition: color 0.2s;
-        }
-        .back-link:hover {
-            color: var(--color-accent);
+        .post-header {
+            margin-bottom: 2.5rem;
         }
 
-        .article-meta-badge {
+        .header-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: #111114;
+            color: #C6FF00;
             font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--color-accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            text-decoration: none;
         }
 
-        .article-header-title {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+        }
+        .meta-item svg {
+            color: var(--color-muted);
+        }
+
+        .post-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
-            margin: 0 0 1.5rem;
             color: #111111;
+            margin: 0 0 1.5rem;
         }
 
-        .article-info-bar {
+        .author-credits {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             padding: 1.25rem 0;
             border-top: 1px solid rgba(0,0,0,0.08);
             border-bottom: 1px solid rgba(0,0,0,0.08);
             margin-bottom: 2.5rem;
             font-size: 14px;
-            color: var(--color-muted);
-        }
-
-        .author-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         .author-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #111111;
+            background: #111114;
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
+            border: 2px solid rgba(198, 255, 0, 0.4);
+        }
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            font-weight: 700;
+            color: #111111;
+        }
+        .author-role {
+            font-size: 12px;
+            color: var(--color-muted);
         }
 
-        .article-hero-image {
+        /* Hero Featured Image Container */
+        .featured-image-wrapper {
+            margin-bottom: 3.5rem;
+        }
+        .featured-image-container {
             width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            max-height: 580px;
             border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            overflow: hidden;
+            background: #0B0B0E;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .post-featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .article-content {
+        /* Two-Column Layout Grid */
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 1024px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .article-sidebar {
+                order: 2;
+            }
+        }
+
+        /* Executive Summary / Key Takeaways Card */
+        .key-takeaways-card {
+            background: #F9FAF6;
+            border: 1px solid rgba(198, 255, 0, 0.4);
+            border-left: 4px solid #C6FF00;
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .takeaways-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+        .takeaways-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #111111;
+            font-family: var(--font-mono);
+        }
+        .takeaway-icon {
+            color: #65a30d;
+        }
+        .takeaway-lead {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .takeaway-bullets {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: #1F2937;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+        .takeaway-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Post Content Typography */
+        .post-body-content {
             font-size: 1.125rem;
             line-height: 1.8;
             color: #2D2A26;
         }
-
-        .article-content h1, 
-        .article-content h2, 
-        .article-content h3 {
-            color: #111111;
+        .post-body-content h2 {
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin: 2.5rem 0 1rem;
+            color: #111111;
+            margin: 3rem 0 1.25rem;
+            scroll-margin-top: 110px;
         }
-        .article-content h2 {
-            font-size: 1.75rem;
-        }
-        .article-content h3 {
+        .post-body-content h3 {
             font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: #111111;
+            margin: 2.25rem 0 1rem;
+            scroll-margin-top: 110px;
         }
-
-        .article-content p {
+        .post-body-content p {
             margin-bottom: 1.5rem;
         }
-
-        .article-content ul,
-        .article-content ol {
+        .post-body-content ul, .post-body-content ol {
             margin: 1.5rem 0;
-            padding-left: 2rem;
+            padding-left: 1.75rem;
         }
-
-        .article-content li {
+        .post-body-content li {
             margin-bottom: 0.5rem;
         }
-
-        .article-content a {
+        .post-body-content a {
             color: #111111;
             text-decoration: underline;
             text-decoration-color: var(--color-accent);
             text-underline-offset: 4px;
             transition: color 0.2s;
         }
-        .article-content a:hover {
+        .post-body-content a:hover {
             color: #000000;
         }
-
-        .article-content pre {
+        .post-body-content blockquote {
+            border-left: 3px solid #C6FF00;
+            background: #F9F9FB;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            color: #374151;
+            font-style: italic;
+        }
+        .post-body-content pre {
             background: #111116;
             color: #F4F4F5;
-            padding: 1.25rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 14px;
             overflow-x: auto;
             font-family: var(--font-mono);
             font-size: 14px;
-            margin: 1.5rem 0;
+            line-height: 1.6;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-
-        .article-content code {
+        .post-body-content code {
             font-family: var(--font-mono);
             font-size: 14px;
             background: rgba(0,0,0,0.06);
             padding: 2px 6px;
             border-radius: 4px;
         }
-
-        .article-content pre code {
+        .post-body-content pre code {
             background: transparent;
             padding: 0;
             border-radius: 0;
             color: inherit;
         }
-
-        .article-content blockquote {
-            border-left: 3px solid var(--color-accent);
-            padding-left: 1.25rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #4A4640;
+        .post-body-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            font-size: 14.5px;
         }
-
-        .article-content figure {
+        .post-body-content th {
+            background: #111114;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            border: 1px solid #111114;
+        }
+        .post-body-content td {
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: #FFFFFF;
+        }
+        .post-body-content tr:nth-child(even) td {
+            background: #F9FAF6;
+        }
+        .post-body-content figure {
             margin: 2.5rem 0;
             padding: 0;
         }
-
-        .article-content img {
+        .post-body-content img {
             max-width: 100%;
             height: auto;
             border-radius: 14px;
             display: block;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
         }
-
-        .article-content figcaption {
+        .post-body-content figcaption {
             margin-top: 0.75rem;
             font-size: 0.85rem;
             color: var(--color-muted);
@@ -353,35 +466,398 @@
             margin-bottom: 6px;
         }
 
-        .rlvnt-btn {
+        /* In-Article Conversion Card */
+        .in-article-cta {
+            margin: 3.5rem 0;
+            padding: 2.5rem 2rem;
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(198, 255, 0, 0.2);
             position: relative;
-            display: inline-flex;
-            gap: 8px;
-            border: 1px solid var(--color-text);
+            overflow: hidden;
+        }
+        .in-article-cta .cta-kicker {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #C6FF00;
+            margin-bottom: 0.75rem;
+        }
+        .in-article-cta h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .in-article-cta p {
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 580px;
+            margin: 0 auto 1.75rem;
+        }
+        .in-article-cta .cta-actions {
+            display: flex;
+            gap: 16px;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary-theme {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 14px;
             padding: 12px 24px;
             border-radius: 50px;
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-style: italic;
-            background: transparent;
-            color: var(--color-text);
-            font-size: 1rem;
-            overflow: hidden;
-            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary-theme:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+        .btn-link-secondary {
+            color: #94A3B8;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .btn-link-secondary:hover {
+            color: #FFFFFF;
+        }
+
+        /* Author Bio Card */
+        .author-bio-card {
+            display: flex;
+            gap: 20px;
+            padding: 2rem;
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            margin-top: 3.5rem;
+            align-items: flex-start;
+        }
+        @media (max-width: 640px) {
+            .author-bio-card {
+                flex-direction: column;
+            }
+        }
+        .bio-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #111114;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            border: 2px solid #C6FF00;
+            flex-shrink: 0;
+        }
+        .bio-details h4 {
+            margin: 0.25rem 0 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #111111;
+        }
+        .bio-role {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #65a30d;
+        }
+        .bio-details p {
+            margin: 0 0 1rem;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        .bio-socials {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .bio-socials a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .bio-socials a:hover {
+            color: #65a30d;
+        }
+        .bio-consult {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline !important;
+        }
+
+        /* Sidebar Widgets */
+        .article-sidebar {
+            position: sticky;
+            top: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .toc-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .toc-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #111111;
+            margin: 0 0 1rem;
+            font-family: var(--font-mono);
+        }
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 420px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        .toc-item {
+            margin-bottom: 2px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .toc-item a {
+            display: block;
+            padding: 6px 10px;
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: #4B5563;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-level-3 a {
+            padding-left: 20px;
+            font-size: 12.5px;
+            color: #6B7280;
+        }
+        .toc-item.active a {
+            color: #111111;
+            font-weight: 700;
+            border-left-color: #C6FF00;
+            background: rgba(198, 255, 0, 0.15);
+            border-radius: 0 6px 6px 0;
+        }
+        .toc-item a:hover {
+            color: #111111;
+            background: rgba(0,0,0,0.03);
+        }
+
+        .share-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .share-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-mono);
+            color: #111111;
+        }
+        .share-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111111;
             cursor: pointer;
+            transition: all 0.2s;
             text-decoration: none;
         }
-        .rlvnt-btn.max-content {
-            width: max-content;
-            height: max-content;
-            font-size: 20px;
-            padding: 8px 16px;
+        .share-btn:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
         }
-        .rlvnt-btn:hover {
-            background-color: var(--color-text);
-            color: #ffffff;
+
+        .strategy-call-card {
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 18px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .call-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #C6FF00;
+            margin-bottom: 0.5rem;
+        }
+        .call-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            color: #FFFFFF;
+        }
+        .call-desc {
+            font-size: 13px;
+            color: #94A3B8;
+            line-height: 1.5;
+            margin: 0 0 1.25rem;
+        }
+        .btn-sidebar-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+            box-sizing: border-box;
+        }
+        .btn-sidebar-call:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+
+        /* Related Posts Section */
+        .related-posts-section {
+            margin-top: 5rem;
+            padding-top: 3.5rem;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .related-section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111111;
+            margin: 0 0 2.5rem;
+            text-align: center;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 900px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .post-light-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-light-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.06);
+        }
+        .card-img-wrapper {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0B0B0E;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .post-light-card:hover .card-img {
+            transform: scale(1.04);
+        }
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 0.75rem 0 0.5rem;
+        }
+        .card-title a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-title a:hover {
+            color: #65a30d;
+        }
+        .card-excerpt {
+            font-size: 13.5px;
+            color: var(--color-muted);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .card-read-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+        .card-read-link:hover {
+            gap: 8px;
+            color: #65a30d;
         }
     </style>
 </head>
@@ -600,54 +1076,76 @@
     </div>
 
     <!-- MAIN ARTICLE BODY -->
-    <main class="article-container">
-        <!-- Breadcrumbs -->
-        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+    <main class="post-detail-page">
+        <!-- BREADCRUMBS -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs-nav">
             <a href="/">Home</a>
-            <span class="bc-sep">/</span>
+            <span class="divider">/</span>
             <a href="/blog">Blog</a>
-            <span class="bc-sep">/</span>
-            <span class="bc-current">Shopify Liquid vs Headless Shopify: A Practical Decision Framework for Growing Stores</span>
+            <span class="divider">/</span>
+            <span class="active" aria-current="page">Shopify Liquid vs Headless Shopify: A Practical Decision Framework for Growing Stores</span>
         </nav>
 
-        <a href="/blog" class="back-link">
-            ← Back to all stories
-        </a>
-
-        <article id="articleWrapper">
-            <div class="article-meta-badge" id="articleCategory">
-                ● Shopify
+        <!-- POST HEADER -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="category-badge">Shopify</span>
+                <span class="meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    37 min read
+                </span>
+                <span class="meta-item">28 Sep 2026</span>
             </div>
-            
-            <h1 class="article-header-title" id="articleTitle">
+
+            <h1 class="post-title" id="articleTitle">
                 Shopify Liquid vs Headless Shopify: A Practical Decision Framework for Growing Stores
             </h1>
 
-            <div class="article-info-bar">
-                <div class="author-box">
-                    <div class="author-avatar" id="authorInitial">KS</div>
-                    <div>
-                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
-                        <div style="font-size: 12px;" id="articleDate">28 Sep 2026</div>
-                    </div>
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
-                    220 reads
+            <div class="author-credits">
+                <div class="author-avatar" id="authorInitial">KS</div>
+                <div class="author-details">
+                    <span class="author-name" id="authorName">Kunal Sharma</span>
+                    <span class="author-role">Founder &amp; Principal Engineer, Kawaki Studios</span>
                 </div>
             </div>
+        </header>
 
-            <img id="articleImage" src="https://images.unsplash.com/photo-1556742049-0a67e557224f?auto=format&fit=crop&w=1200&q=80" alt="Shopify Liquid vs Headless Shopify: A Practical Decision Framework for Growing Stores" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+        <!-- FEATURED HERO IMAGE -->
+        <div class="featured-image-wrapper">
+            <div class="featured-image-container">
+                <img id="articleImage" src="/assets/images/blog/shopify-theme-vs-headless-architecture-comparison.webp" alt="Shopify Liquid vs Headless Shopify: A Practical Decision Framework for Growing Stores" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+            </div>
+        </div>
 
-            <div class="article-content" id="articleContent">
-                <p>When scaling an e-commerce brand on Shopify, technical leaders and founders eventually confront an architectural fork in the road: should you continue investing in a Shopify Liquid theme, or should you decouple your frontend and transition to a headless architecture?</p>
+        <!-- TWO-COLUMN ARTICLE LAYOUT -->
+        <div class="article-layout" id="articleWrapper">
+            <!-- LEFT MAIN CONTENT COLUMN -->
+            <article class="article-content-column">
+                <!-- EXECUTIVE SUMMARY / KEY TAKEAWAYS -->
+                <div class="key-takeaways-card">
+                    <div class="takeaways-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="takeaway-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        <h3>Executive Summary / Key Takeaways</h3>
+                    </div>
+                    <p class="takeaway-lead">An engineering decision framework for choosing between Shopify Liquid and Headless Shopify. Features a 12-dimension decision matrix, root-cause speed analysis, optimization sequence, and migration guide.</p>
+                    <ul class="takeaway-bullets">
+                        <li>Compares monolithic Liquid rendering against modern decoupled Storefront API architectures.</li>
+                        <li>Analyzes total cost of ownership, developer velocity, and app ecosystem trade-offs.</li>
+                        <li>Outlines the exact operational metrics that trigger a headless migration milestone.</li>
+                    </ul>
+                </div>
+
+                <!-- MAIN ARTICLE CONTENT -->
+                <div class="post-body-content" id="articleContent">
+                    <p>When scaling an e-commerce brand on Shopify, technical leaders and founders eventually confront an architectural fork in the road: should you continue investing in a Shopify Liquid theme, or should you decouple your frontend and transition to a headless architecture?</p>
 <blockquote>
-<h3>The Direct Answer: When Should You Stay on Liquid vs. Go Headless?</h3>
+<h3 id="h-the-direct-answer-when-should-you-stay-on-liquid-vs-go-headless">The Direct Answer: When Should You Stay on Liquid vs. Go Headless?</h3>
 <p>A growing store should stay on Shopify Liquid whenever its catalog follows standard e-commerce conventions, its non-technical team requires visual autonomy in the Theme Editor, and performance bottlenecks stem from unoptimized assets or script bloat rather than templating limitations. A store should only consider headless Shopify when non-standard product customization, multi-surface omnichannel publishing, complex international micro-frontends, or custom enterprise middleware demand programmatic frontend control that visual theme architectures cannot accommodate without fragile compromises.</p>
 </blockquote>
 <p>Neither architecture is inherently superior. Shopify Liquid provides an exceptionally resilient, fully managed Shopify-hosted theme architecture with hosting and CDN delivery included. Headless Shopify unlocks granular frontend authority and composable flexibility, but transfers substantial engineering complexity, ongoing maintenance, and infrastructure costs directly onto your organization.</p>
 <p>This guide provides an engineering-level decision framework to evaluate the architectural trade-offs, diagnose genuine performance bottlenecks, and determine whether headless commerce is a strategic asset or an expensive liability for your business.</p>
 <hr />
-<h2>1. Shopify Liquid and Headless Are Different Architectural Models</h2>
+<h2 id="h-1-shopify-liquid-and-headless-are-different-architectural-models">1. Shopify Liquid and Headless Are Different Architectural Models</h2>
 <p>To make an objective technical evaluation, you must first understand the fundamental structural differences between a Shopify-hosted theme architecture and a decoupled headless architecture.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/shopify-theme-vs-headless-architecture-comparison.webp" alt="Architectural comparison diagram between monolithic Shopify Liquid themes and decoupled headless frontends" width="1200" height="675" loading="lazy" decoding="async" />
@@ -673,7 +1171,7 @@
 | └────────────────────────────────┘ | └───────────────────────────────┘ |
 +------------------------------------+-----------------------------------+
 </code></pre>
-<h3>Shopify Liquid: Shopify-hosted theme architecture</h3>
+<h3 id="h-shopify-liquid-shopify-hosted-theme-architecture">Shopify Liquid: Shopify-hosted theme architecture</h3>
 <p>Liquid is an open-source, Ruby-based server-side templating engine created by Shopify. In a Shopify-hosted theme architecture:</p>
 <ul>
 <li><strong>Integrated Presentation Layer:</strong> The presentation layer (HTML, CSS, Liquid tags, and client-side JavaScript) lives directly inside Shopify's Online Store theme system. </li>
@@ -682,7 +1180,7 @@
 <li><strong>Platform-Managed Operations:</strong> Merchants do not operate separate web servers, configure container pipelines, manage edge cache invalidation rules, or renew SSL certificates. Everything runs inside Shopify's managed infrastructure.</li>
 </ul>
 <p>For brands planning a performance-first storefront within this ecosystem, our dedicated <a href="/services/shopify-development">Shopify Development Services</a> deliver bespoke Liquid section architectures designed to maximize speed without adding fragile third-party apps.</p>
-<h3>The Headless Shopify Architecture (Decoupled)</h3>
+<h3 id="h-the-headless-shopify-architecture-decoupled">The Headless Shopify Architecture (Decoupled)</h3>
 <p>Headless commerce decouples the frontend presentation layer from the backend transactional and catalog engine:</p>
 <ul>
 <li><strong>Decoupled Frontend:</strong> The customer-facing web application is engineered as an independent software application. Because Shopify's Storefront API is framework-agnostic, teams can build using Shopify's official React-based Hydrogen framework, Next.js, Remix, Nuxt/Vue, Astro, or custom frontend stacks. Frontend hosting can leverage Shopify's native Oxygen edge platform (supported directly for Hydrogen deployments) or separate cloud infrastructure such as Vercel, Cloudflare, or AWS.</li>
@@ -690,25 +1188,25 @@
 <li><strong>Separation of Concerns:</strong> Shopify handles transactional core capabilities—payment gateway routing, PCI-DSS Level 1 checkout compliance, inventory reconciliation, tax calculation, and order fulfillment—while the independent frontend governs rendering mechanics, routing, caching, and third-party API orchestration.</li>
 </ul>
 <hr />
-<h2>2. When Shopify Liquid Is the Better Fit</h2>
+<h2 id="h-2-when-shopify-liquid-is-the-better-fit">2. When Shopify Liquid Is the Better Fit</h2>
 <p>Building custom software when a managed platform already solves the business problem is an expensive operational error. For the vast majority of e-commerce brands, Shopify Liquid is not merely adequate—it is the objectively superior, more capital-efficient architectural choice.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/shopify-storefront-latency-root-causes.webp" alt="Matrix diagram illustrating primary latency root causes in standard Shopify themes: apps, loops, and media" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Primary technical bottlenecks causing latency in standard Shopify Liquid themes.</figcaption>
 </figure><p>Liquid is the stronger fit under the following commercial and operational conditions:</p>
-<h3>1. Standard E-Commerce Catalog &amp; Navigation Models</h3>
+<h3 id="h-1-standard-e-commerce-catalog-amp-navigation-models">1. Standard E-Commerce Catalog &amp; Navigation Models</h3>
 <p>If your business sells physical or digital products using standard transactional conventions—collections, product detail pages (PDPs), variant selectors (size, color, material), drawer carts, and standard checkout—Liquid natively supports these flows with battle-tested reliability. Re-engineering collection filtering, search pagination, and customer account portals from scratch in a custom React application adds months of overhead without enhancing the buyer's experience.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/liquid-5-stage-optimization-sequence.webp" alt="Four-step optimization sequence diagram showing script audits, critical CSS, responsive images, and loops" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Phased optimization sequence for maximizing standard Liquid theme performance.</figcaption>
-</figure><h3>2. Marketing and Merchandising Team Autonomy</h3>
+</figure><h3 id="h-2-marketing-and-merchandising-team-autonomy">2. Marketing and Merchandising Team Autonomy</h3>
 <p>Non-technical teams require daily autonomy. Marketers must launch promotional campaigns, publish landing pages, reorder product grids, update announcement banners, and configure seasonal discounts without writing engineering tickets or awaiting CI/CD deployments. The Shopify Theme Editor (OS 2.0) provides native visual section management. In a headless setup, reproducing that same visual agility requires licensing, configuring, and maintaining an enterprise headless CMS (such as Sanity, Contentful, or Strapi), creating duplicate content repositories and administrative friction.</p>
-<h3>3. Reliance on the Shopify App Ecosystem</h3>
+<h3 id="h-3-reliance-on-the-shopify-app-ecosystem">3. Reliance on the Shopify App Ecosystem</h3>
 <p>Shopify's commercial power stems from its massive ecosystem of turn-key application integrations: reviews (Yotpo, Okendo, Judge.me), subscriptions (Recharge, Skio), customer loyalty (Smile, LoyaltyLion), back-in-stock alerts, and dynamic product recommendations. In Liquid, these apps inject native app blocks or theme app extensions with minimal configuration. In a headless environment, traditional app blocks do not function; your engineering team must build custom API integrations, write custom UI components, and maintain middleware for every single app used.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/headless-shopify-hidden-operational-costs.webp" alt="Layered diagram showing ongoing operational and engineering overhead of headless Shopify architectures" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Headless commerce operational realities: hosting, middleware, and ongoing engineering overhead.</figcaption>
-</figure><h3>4. Lean Engineering Resources and Cost Discipline</h3>
+</figure><h3 id="h-4-lean-engineering-resources-and-cost-discipline">4. Lean Engineering Resources and Cost Discipline</h3>
 <p>A bespoke Liquid theme requires zero external hosting costs, zero container orchestration, and minimal ongoing DevOps maintenance. Operating a headless store requires ongoing engineering retainers or dedicated in-house software engineers skilled in modern TypeScript, GraphQL, state management, and edge caching architectures, alongside secondary cloud hosting subscriptions (Vercel, AWS) and headless CMS fees.</p>
 <pre><code>+------------------------------------------------------------------------+
 |                     OPERATIONAL VELOCITY COMPARISON                    |
@@ -720,19 +1218,19 @@
 +------------------------------------------------------------------------+
 </code></pre>
 <hr />
-<h2>3. When Headless Shopify Becomes the Better Fit</h2>
+<h2 id="h-3-when-headless-shopify-becomes-the-better-fit">3. When Headless Shopify Becomes the Better Fit</h2>
 <p>While Liquid provides unmatched operational convenience, it operates within clear structural boundaries. When an e-commerce brand's digital requirements diverge fundamentally from traditional templated commerce, headless Shopify becomes an architectural asset worth its operational cost.</p>
 <p>Headless Shopify becomes the stronger fit under the following technical scenarios:</p>
-<h3>1. Highly Specialized Storefront Interactions &amp; Configurators</h3>
+<h3 id="h-1-highly-specialized-storefront-interactions-amp-configurators">1. Highly Specialized Storefront Interactions &amp; Configurators</h3>
 <p>If your core commercial offering relies on intricate client-side interactions—such as a 3D WebGL product customizer, an interactive room visualizer, multi-step bespoke bundling flows with dynamic pricing calculations, or complex subscription logic—Liquid's server-rendered model introduces severe friction. While you can embed React widgets inside Liquid, doing so creates hybrid architecture debt (conflicting state management, duplicated bundle downloads, and layout shift). A dedicated React/Next.js frontend gives software engineers complete control over the DOM, state machines, and canvas rendering layers.</p>
-<h3>2. Omnichannel Catalog Distribution &amp; Multi-Surface Publishing</h3>
+<h3 id="h-2-omnichannel-catalog-distribution-amp-multi-surface-publishing">2. Omnichannel Catalog Distribution &amp; Multi-Surface Publishing</h3>
 <p>If your organization sells products across multiple digital surfaces simultaneously—a web flagship, a native iOS/Android mobile application, interactive retail kiosks, and conversational commerce endpoints—maintaining separate presentation layers for each platform leads to fragmented catalog logic. With headless Shopify, your unified Storefront GraphQL API serves as the single source of truth across all consumer surfaces.</p>
-<h3>3. Publication-Grade Editorial Commerce &amp; Specialized Content Models</h3>
+<h3 id="h-3-publication-grade-editorial-commerce-amp-specialized-content-models">3. Publication-Grade Editorial Commerce &amp; Specialized Content Models</h3>
 <p>High-end luxury brands and digital flagships often blend long-form editorial storytelling with transactional commerce. While Shopify's native blog and page models are functional for standard articles, they lack advanced content modeling primitives (such as nested relational blocks, dynamic author profiles, multi-layer asset taxonomies, and modular narrative components). Pairing a dedicated headless CMS (such as Sanity or Strapi) with Next.js enables publication-grade typography, scroll-driven narrative motion, and seamless transactional embeds. To understand the design principles behind this approach, read our analysis on <a href="/blog/what-is-editorial-engineering">What is Editorial Engineering?</a>.</p>
-<h3>4. Advanced Frontend Tooling and Automated Quality Engineering</h3>
+<h3 id="h-4-advanced-frontend-tooling-and-automated-quality-engineering">4. Advanced Frontend Tooling and Automated Quality Engineering</h3>
 <p>Enterprise engineering organizations often mandate strict development standards: static TypeScript type-checking, component-driven storybooks, automated end-to-end integration testing (Playwright or Cypress), automated pull request preview environments, and Git branch preview deployments. Modern React ecosystems provide mature tooling for these workflows, whereas traditional Liquid theme development workflows (Theme Kit, Shopify CLI) remain comparatively constrained.</p>
 <hr />
-<h2>4. The Real Trade-Off: Simplicity vs Control</h2>
+<h2 id="h-4-the-real-trade-off-simplicity-vs-control">4. The Real Trade-Off: Simplicity vs Control</h2>
 <p>The decision between Shopify Liquid and Headless is not a test of technical sophistication; it is a strategic calculation balancing <strong>operational simplicity</strong> against <strong>architectural control</strong>.</p>
 <pre><code>+------------------------------------------------------------------------+
 |                   THE COMMERCE ARCHITECTURAL SPECTRUM                  |
@@ -748,20 +1246,20 @@
 | * Vendor Constrained       * Scalable Foundation    * High Ops Burden  |
 +------------------------------------------------------------------------+
 </code></pre>
-<h3>What You Gain with Headless</h3>
+<h3 id="h-what-you-gain-with-headless">What You Gain with Headless</h3>
 <ol>
 <li><strong>Total Presentation Authority:</strong> You control every single byte of HTML, CSS, and JavaScript delivered to the client, enabling custom code-splitting, critical asset inlining, and bespoke animation pipelines.</li>
 <li><strong>Framework Freedom:</strong> You leverage the broader React/Next.js component ecosystem, modern state management libraries, and edge computing runtimes.</li>
 <li><strong>Decoupled Release Cycles:</strong> Frontend feature updates can be deployed independently without altering backend Shopify configurations or risking template regression.</li>
 </ol>
-<h3>What You Lose with Headless</h3>
+<h3 id="h-what-you-lose-with-headless">What You Lose with Headless</h3>
 <ol>
 <li><strong>Turn-Key App Plug-and-Play:</strong> Every third-party service (reviews, search, filtering, wishlist, loyalty) requires bespoke frontend implementation, custom state handling, and ongoing API maintenance.</li>
 <li><strong>Native Preview and Theme Editor:</strong> Without substantial engineering investment in custom headless preview middleware, marketing teams lose the intuitive, real-time visual editing experience of Online Store 2.0.</li>
 <li><strong>Integrated Support Surface:</strong> When an issue arises in Liquid, Shopify support can inspect the entire system. In headless, when a cart mutation fails or page latency spikes, your engineering team must diagnose whether the defect resides in your Next.js application, the edge CDN layer, third-party middleware, or Shopify's Storefront API.</li>
 </ol>
 <hr />
-<h2>5. Shopify Liquid vs Headless Decision Matrix</h2>
+<h2 id="h-5-shopify-liquid-vs-headless-decision-matrix">5. Shopify Liquid vs Headless Decision Matrix</h2>
 <p>To provide clarity for executive and technical teams, the matrix below contrasts Shopify Liquid against Headless across twelve mission-critical operational and architectural dimensions:</p>
 <table>
 <thead>
@@ -846,7 +1344,7 @@
 </tr>
 </tbody></table>
 <hr />
-<h2>6. When a Shopify Store Is Actually Slow</h2>
+<h2 id="h-6-when-a-shopify-store-is-actually-slow">6. When a Shopify Store Is Actually Slow</h2>
 <p>A pervasive misconception in the e-commerce industry is that <strong>Shopify Liquid is fundamentally slow</strong>, and that transitioning to a headless architecture is the only way to achieve sub-second page loads and green Core Web Vitals scores.</p>
 <p>This diagnosis is technically incorrect. Liquid itself is a lightweight, compiled C/Ruby templating engine capable of server-rendering complex layouts in under 50 milliseconds. When a Shopify store suffers from sluggish page loads, high Interaction to Next Paint (INP), or failing Largest Contentful Paint (LCP), the root cause almost always resides in frontend implementation defects rather than platform limitations.</p>
 <pre><code>+------------------------------------------------------------------------+
@@ -864,7 +1362,7 @@
 |                              │ metafield querying on initial render.    |
 +------------------------------------------------------------------------+
 </code></pre>
-<h3>The Real Culprits Behind Sluggish Shopify Stores</h3>
+<h3 id="h-the-real-culprits-behind-sluggish-shopify-stores">The Real Culprits Behind Sluggish Shopify Stores</h3>
 <h4>1. Third-Party Marketing Script &amp; Tag Bloat</h4>
 <p>The primary driver of degraded Core Web Vitals on e-commerce stores is unmanaged third-party JavaScript: Facebook Pixel, TikTok Pixel, Google Tag Manager, Pinterest, Klaviyo tracking, Hotjar heatmaps, affiliate trackers, and customer service live chat widgets (Gorgias, Zendesk). When dozens of external scripts compete for browser execution, they saturate the main thread, delay First Contentful Paint (FCP), and drive Interaction to Next Paint (INP) into failing thresholds. Migrating a store to headless while retaining the same 25 unvetted marketing scripts will yield an equally sluggish headless store.</p>
 <h4>2. App Overhead and Zombie Script Injections</h4>
@@ -881,7 +1379,7 @@
 <li><strong>Unpaginated All-Products Queries:</strong> Querying <code>collections.all.products</code> on initial page load forces Shopify's database to retrieve hundreds of records before emitting the first byte of HTML.</li>
 </ul>
 <hr />
-<h2>7. Liquid Optimization Before Going Headless</h2>
+<h2 id="h-7-liquid-optimization-before-going-headless">7. Liquid Optimization Before Going Headless</h2>
 <p>Before committing six figures in capital and months of engineering runway to a headless rebuild, technical leaders must systematically exhaust disciplined Liquid optimization. In over 80% of e-commerce performance audits, a methodical code and asset cleanup achieves sub-second load times on native Liquid architecture.</p>
 <p>Follow this battle-tested five-stage optimization protocol:</p>
 <pre><code>[Stage 1: Script Audit &amp; Tag Governance]
@@ -899,13 +1397,13 @@
 [Stage 5: App Native Consolidation]
                  │ Replace heavy JS widgets with native OS 2.0 app blocks.
 </code></pre>
-<h3>Stage 1: Script Audit &amp; Tag Governance</h3>
+<h3 id="h-stage-1-script-audit-amp-tag-governance">Stage 1: Script Audit &amp; Tag Governance</h3>
 <ul>
 <li><strong>Audit Active Scripts:</strong> Inspect browser DevTools Network waterfalls. Identify every third-party domain requesting JavaScript execution.</li>
 <li><strong>Excise Zombie App Code:</strong> Review <code>layout/theme.liquid</code> and <code>snippets/</code> to purge orphaned script references from previously uninstalled applications.</li>
 <li><strong>Implement Server-Side Tagging:</strong> Migrate client-side marketing pixels (Meta CAPI, TikTok, Pinterest, Google Analytics) to Server-Side Google Tag Manager (sGTM) or Cloudflare Zaraz. Moving tracking execution from the user's mobile browser to a cloud proxy instantly frees main-thread capacity and eliminates INP bottlenecks.</li>
 </ul>
-<h3>Stage 2: Media Modernization &amp; Responsive Sizing</h3>
+<h3 id="h-stage-2-media-modernization-amp-responsive-sizing">Stage 2: Media Modernization &amp; Responsive Sizing</h3>
 <ul>
 <li><strong>Enforce Native Liquid Image Helpers:</strong> Replace hardcoded <code>&lt;img&gt;</code> tags with Shopify's modern <code>image_tag</code> helper, providing explicit <code>loading="lazy"</code>, <code>decoding="async"</code>, and comprehensive <code>widths</code> arrays:</li>
 </ul>
@@ -920,38 +1418,38 @@
 <ul>
 <li><strong>Eliminate Animated GIFs:</strong> Convert autoplaying hero GIFs into lightweight, loop-muted MP4 or WebM video containers, reducing asset payloads by up to 80%.</li>
 </ul>
-<h3>Stage 3: Liquid Code Profiling &amp; Loop Flattening</h3>
+<h3 id="h-stage-3-liquid-code-profiling-amp-loop-flattening">Stage 3: Liquid Code Profiling &amp; Loop Flattening</h3>
 <ul>
 <li><strong>Profile with Shopify Theme Inspector:</strong> Use the Chrome Theme Inspector extension to identify slow-rendering Liquid sections and snippets.</li>
 <li><strong>Eliminate Nested Iterations:</strong> Replace nested loops by indexing data structures into flat arrays or leveraging Shopify's native collection filtering parameters.</li>
 <li><strong>Local Variable Assignment:</strong> Cache expensive Liquid operations using the <code>{% assign %}</code> tag outside of loops rather than re-evaluating filters repeatedly.</li>
 </ul>
-<h3>Stage 4: Critical Path CSS &amp; Font Streamlining</h3>
+<h3 id="h-stage-4-critical-path-css-amp-font-streamlining">Stage 4: Critical Path CSS &amp; Font Streamlining</h3>
 <ul>
 <li><strong>Purge Unused CSS:</strong> Audit theme stylesheets using Chrome DevTools Coverage tabs. Excise unused legacy CSS rules and vendor frameworks.</li>
 <li><strong>Optimize Web Fonts:</strong> Preload critical font files in the document <code>&lt;head&gt;</code> using WOFF2 format, and ensure <code>font-display: swap</code> is declared to prevent Flash of Invisible Text (FOIT). Limit font weight variants to essential styles.</li>
 </ul>
-<h3>Stage 5: App Native Consolidation</h3>
+<h3 id="h-stage-5-app-native-consolidation">Stage 5: App Native Consolidation</h3>
 <ul>
 <li><strong>Replace External Widgets with Native Code:</strong> Re-engineer common e-commerce features (such as slide-out drawer carts, free shipping progress bars, accordion FAQ blocks, and variant swatches) in clean, native Liquid and vanilla JavaScript rather than relying on bloated monthly SaaS plugins that inject external script bundles.</li>
 </ul>
 <p>If, after completing this disciplined optimization sequence, your storefront still fails to satisfy your commercial objectives due to fundamental constraints in client-side state, non-standard visual customizers, or multi-surface distribution, only then does headless commerce represent a rational engineering next step. For deeper analysis on frontend rendering models, explore our guide to <a href="/blog/nextjs-performance-architecture">Next.js Performance Architecture</a>.</p>
 <hr />
-<h2>8. When Headless Shopify Makes Architectural Sense</h2>
+<h2 id="h-8-when-headless-shopify-makes-architectural-sense">8. When Headless Shopify Makes Architectural Sense</h2>
 <p>When technical requirements truly exceed Liquid's boundaries, headless Shopify unlocks capabilities that traditional theme architectures cannot replicate. Below are the primary scenarios where headless architecture delivers demonstrable commercial value:</p>
-<h3>1. Bespoke Product Customizers &amp; Interactive WebGL Engines</h3>
+<h3 id="h-1-bespoke-product-customizers-amp-interactive-webgl-engines">1. Bespoke Product Customizers &amp; Interactive WebGL Engines</h3>
 <p>Luxury fashion, configurable furniture, bespoke jewelry, and customizable industrial equipment frequently require interactive 3D product visualizers or real-time configurators. Customers adjust dimensions, materials, finishes, and accessories, expecting instantaneous 60fps visual updates. </p>
 <ul>
 <li><strong>The Liquid Limitation:</strong> Managing complex client state, 3D WebGL scene graphs (via Three.js), and dynamic price calculation algorithms inside a server-rendered Liquid template produces fragile code architectures that easily desynchronize from the Shopify cart.</li>
 <li><strong>The Headless Advantage:</strong> An isolated custom frontend (using Hydrogen, Next.js, or similar modern stacks) manages application state natively using modern state engines (Zustand, Redux, or React Context), rendering WebGL canvases smoothly while synchronizing configured line items with Shopify's Cart API in the background.</li>
 </ul>
-<h3>2. Complex Frontend Requirements &amp; Seamless Client-Side Navigation</h3>
+<h3 id="h-2-complex-frontend-requirements-amp-seamless-client-side-navigation">2. Complex Frontend Requirements &amp; Seamless Client-Side Navigation</h3>
 <ul>
 <li><strong>Instantaneous Route Switching:</strong> Single-page application (SPA) architectures and modern component routers enable instant, app-like page transitions without full-page browser reloads.</li>
 <li><strong>Persistent Audio/Video Contexts:</strong> Media and lifestyle brands can maintain continuous podcast streams, video backgrounds, or ongoing interactive sessions while customers navigate through product catalogs without audio stutter or state interruption.</li>
 <li><strong>Optimistic Cart UI:</strong> Instantaneous visual cart feedback—adding an item to the cart updates the counter and drawer UI in zero milliseconds before the network request resolves, synchronizing with the Storefront API asynchronously.</li>
 </ul>
-<h3>3. Omnichannel Multi-Surface Distribution</h3>
+<h3 id="h-3-omnichannel-multi-surface-distribution">3. Omnichannel Multi-Surface Distribution</h3>
 <p>High-growth retail enterprises often manage diverse digital touchpoints from a single catalog:</p>
 <ul>
 <li>A high-performance web flagship.</li>
@@ -959,11 +1457,11 @@
 <li>Point-of-Sale (POS) interactive customer displays in physical retail stores.</li>
 <li>B2B wholesale ordering portals with customer-specific negotiated pricing tiers.<br />By adopting a headless architecture, your development team maintains a singular backend catalog and order processing pipeline in Shopify, while querying identical GraphQL endpoints across web, mobile, and physical touchpoints.</li>
 </ul>
-<h3>4. Advanced Edge Personalization &amp; Layout-Shift-Free Experimentation</h3>
+<h3 id="h-4-advanced-edge-personalization-amp-layout-shift-free-experimentation">4. Advanced Edge Personalization &amp; Layout-Shift-Free Experimentation</h3>
 <p>Traditional client-side A/B testing scripts often inject visual modifications into the browser DOM after initial render, which can introduce noticeable content flicker (Cumulative Layout Shift) and compromise user experience. With a decoupled frontend deployed to edge runtimes (such as Shopify Oxygen, Vercel Edge Middleware, or Cloudflare Workers), teams can execute server-side experiment assignment at the edge before HTML delivery, serving tailored variants with minimal layout shift and fully crawlable markup.</p>
 <p>For an end-to-end technical reference on decoupled storefront engineering, review our comprehensive <a href="/blog/headless-shopify-development-guide">Headless Shopify Development Guide</a>.</p>
 <hr />
-<h2>9. Headless Shopify Architecture Explained</h2>
+<h2 id="h-9-headless-shopify-architecture-explained">9. Headless Shopify Architecture Explained</h2>
 <p>To successfully design, deploy, and maintain a headless store, engineering teams must master the decoupled request lifecycle. The diagram below illustrates how modern headless commerce distributes responsibility across independent layers:</p>
 <pre><code>+------------------------------------------------------------------------+
 |                 HEADLESS SHOPIFY REQUEST LIFECYCLE                     |
@@ -997,7 +1495,7 @@
 |                                                                        |
 +------------------------------------------------------------------------+
 </code></pre>
-<h3>The Architectural Components</h3>
+<h3 id="h-the-architectural-components">The Architectural Components</h3>
 <h4>1. The Presentation Layer (Decoupled Frontend)</h4>
 <p>The frontend is engineered as an independent client-facing application. Because Shopify's Storefront API is framework-agnostic, engineering teams can choose the frontend architecture that best fits their stack—such as Shopify's official React-based Hydrogen framework, Next.js App Router, Remix, Nuxt/Vue, or Astro. Modern headless storefronts frequently employ static generation, incremental revalidation, and edge caching to prerender catalog pages while querying dynamic inventory and customer state via client or edge routines.</p>
 <h4>2. The Storefront API Layer</h4>
@@ -1017,7 +1515,7 @@
 <li>Order fulfillment, shipping label generation, and customer transactional emails.</li>
 </ul>
 <hr />
-<h2>10. The Hidden Costs of Headless</h2>
+<h2 id="h-10-the-hidden-costs-of-headless">10. The Hidden Costs of Headless</h2>
 <p>Before approving a headless migration, business and technical executives must account for the compounding operational liabilities that vendor marketing often obscures. Decoupling your frontend is not a one-time project; it represents a permanent transition into software product stewardship.</p>
 <pre><code>+------------------------------------------------------------------------+
 |                     THE HIDDEN COSTS OF HEADLESS                       |
@@ -1036,7 +1534,7 @@
 |                               │ maintaining sprawling npm dependencies. |
 +------------------------------------------------------------------------+
 </code></pre>
-<h3>The Six Hidden Operational Taxes</h3>
+<h3 id="h-the-six-hidden-operational-taxes">The Six Hidden Operational Taxes</h3>
 <h4>1. Ongoing Engineering Dependency</h4>
 <p>On a Liquid store, a non-technical marketing coordinator can build and publish a seasonal landing page in two hours using theme section blocks. On a headless store, unless your team has engineered a sophisticated, flexible component schema inside a headless CMS, creating a non-standard layout often requires an engineering ticket, a designer mock-up, a developer pull request, code review, and a production deployment.</p>
 <h4>2. Hosting &amp; Cloud Infrastructure Costs</h4>
@@ -1050,7 +1548,7 @@
 <h4>6. Maintenance, Dependency Security &amp; Observability</h4>
 <p>A custom decoupled codebase relies on modern open-source package dependencies. Your engineering team must continuously monitor vulnerabilities, apply security patches, manage framework upgrades, and maintain observability tooling (such as Sentry for client/server error tracking and Datadog for API performance monitoring).</p>
 <hr />
-<h2>11. Migration: Liquid to Headless</h2>
+<h2 id="h-11-migration-liquid-to-headless">11. Migration: Liquid to Headless</h2>
 <p>If your technical evaluation confirms that headless is necessary, executing the migration requires rigorous architectural discipline. A poorly planned headless transition can destroy years of accumulated search engine authority and disrupt conversion funnels.</p>
 <p>Follow this technical migration protocol to ensure zero operational disruption:</p>
 <pre><code>[Phase 1: URL &amp; Metadata Parity]
@@ -1068,7 +1566,7 @@
 [Phase 5: The Strangler Fig Reverse Proxy Rollout]
              │ Route high-value custom paths first; incrementally migrate remaining routes.
 </code></pre>
-<h3>Critical Migration Disciplines</h3>
+<h3 id="h-critical-migration-disciplines">Critical Migration Disciplines</h3>
 <h4>1. Strict URL Slug Parity</h4>
 <p>Preserve existing Shopify URL path structures wherever possible:</p>
 <ul>
@@ -1104,9 +1602,9 @@
 <li>Incrementally expand headless route coverage as your team validates operational stability.</li>
 </ol>
 <hr />
-<h2>12. When NOT to Go Headless</h2>
+<h2 id="h-12-when-not-to-go-headless">12. When NOT to Go Headless</h2>
 <p>In software engineering, acknowledging boundaries is the hallmark of technical maturity. Below are real-world commercial profiles where pursuing a headless Shopify build is an operational mistake:</p>
-<h3>1. Stores Whose Current Requirements Do Not Justify Added Engineering and Operational Complexity</h3>
+<h3 id="h-1-stores-whose-current-requirements-do-not-justify-added-engineering-and-operational-complexity">1. Stores Whose Current Requirements Do Not Justify Added Engineering and Operational Complexity</h3>
 <p>Decoupled storefront architecture should never be adopted based on speculative prestige or arbitrary revenue thresholds. A store should stay with a Shopify-hosted theme whenever its technical and commercial profile operates effectively within the native theme system:</p>
 <ul>
 <li><strong>Storefront Requirements:</strong> If your product presentation follows standard e-commerce patterns—collection grids, standard product detail pages, standard variant selectors, and drawer carts—a bespoke Liquid theme fully satisfies customer expectations without the overhead of custom state management.</li>
@@ -1117,14 +1615,14 @@
 <li><strong>Experimentation Needs:</strong> If your CRO program conducts standard landing page or creative A/B tests through theme variants or native tooling, edge-routing infrastructure is an unnecessary operational overhead.</li>
 <li><strong>Operational Budget:</strong> Operating a headless storefront introduces secondary infrastructure considerations, CMS licensing tiers, and ongoing development retainers. When capital is more effectively allocated toward inventory acquisition, creative production, and customer acquisition, Liquid provides superior capital efficiency.</li>
 </ul>
-<h3>2. Brands Without Dedicated Engineering Staff</h3>
+<h3 id="h-2-brands-without-dedicated-engineering-staff">2. Brands Without Dedicated Engineering Staff</h3>
 <p>If your company does not employ full-time software engineers or maintain an ongoing development retainer with an experienced software engineering agency, <strong>do not go headless</strong>. When a decoupled storefront experiences an edge cache breakdown, a broken checkout handoff, or a GraphQL rate-limit stall during peak sales periods, you cannot call Shopify customer support to fix your custom frontend code.</p>
-<h3>3. Organizations Dependent on 15+ Third-Party Shopify Apps</h3>
+<h3 id="h-3-organizations-dependent-on-15-third-party-shopify-apps">3. Organizations Dependent on 15+ Third-Party Shopify Apps</h3>
 <p>If your marketing, merchandising, and retention strategies rely heavily on an assortment of commercial Shopify plugins—such as spin-to-win popups, automated product badges, tiered discount tables, and bundle bars—a headless migration will stall. Re-engineering these plugins as custom React components consumes hundreds of engineering hours, and you will continually fight API compatibility regressions.</p>
-<h3>4. Teams Seeking a "Magic Bullet" for Page Speed</h3>
+<h3 id="h-4-teams-seeking-a-magic-bullet-for-page-speed">4. Teams Seeking a "Magic Bullet" for Page Speed</h3>
 <p>If your current Liquid store is slow because marketing uploads 8MB hero banners, runs 20 unvetted advertising pixels, and installed 15 overlapping Shopify apps, migrating to headless will not solve your speed issues. The disciplined optimization sequence outlined in Section 7 will yield superior performance gains at a fraction of the capital expenditure.</p>
 <hr />
-<h2>13. A Practical Shopify Architecture Decision Tree</h2>
+<h2 id="h-13-a-practical-shopify-architecture-decision-tree">13. A Practical Shopify Architecture Decision Tree</h2>
 <p>Use this deterministic logic tree during your executive architecture scoping sessions to identify the correct path:</p>
 <pre><code>                      [START ARCHITECTURE SCOPING]
                                    │
@@ -1171,30 +1669,30 @@
                                            Liquid Theme            or Specialized
                                            (Online Store 2.0)]     Custom Frontend]
 </code></pre>
-<h3>The Architectural Tiers Summary</h3>
+<h3 id="h-the-architectural-tiers-summary">The Architectural Tiers Summary</h3>
 <ol>
 <li><strong>Tier 1: Optimized Standard Theme:</strong> Best for stores testing initial product-market fit with minimal capital exposure.</li>
 <li><strong>Tier 2: Clean Custom Liquid Theme (Bespoke Engineering):</strong> Best for growing brands requiring brand differentiation, sub-second performance, and total Theme Editor autonomy without infrastructure complexity. Explore our tailored <a href="/services/custom-web-development">Custom Web Development Services</a> to evaluate our architectural standards.</li>
 <li><strong>Tier 3: Headless Composable Architecture (Hydrogen / Custom Frontend):</strong> Best for enterprise brands, omnichannel retailers, and products requiring non-standard interactive software engines or multi-surface publishing.</li>
 </ol>
 <hr />
-<h2>14. Frequently Asked Questions</h2>
-<h3>Is headless Shopify faster?</h3>
+<h2 id="h-14-frequently-asked-questions">14. Frequently Asked Questions</h2>
+<h3 id="h-is-headless-shopify-faster">Is headless Shopify faster?</h3>
 <p>Not automatically. A well-engineered headless storefront (built with Hydrogen, Next.js, or similar modern frameworks) can achieve exceptional performance through static generation, incremental revalidation, and edge caching. However, a bloated headless site with unvetted third-party scripts, unoptimized client-side hydration, and heavy JavaScript bundles will perform worse than a lean Liquid theme. Performance is a reflection of engineering discipline—asset optimization, tag governance, and payload budgeting—not the templating framework alone.</p>
-<h3>Is Shopify Liquid bad for performance?</h3>
+<h3 id="h-is-shopify-liquid-bad-for-performance">Is Shopify Liquid bad for performance?</h3>
 <p>No. Shopify Liquid compiles server-side into lightweight HTML in tens of milliseconds, and Shopify serves rendered pages from an integrated global Cloudflare CDN. Sluggish Liquid stores are almost always caused by third-party tracking scripts, unoptimized commercial themes, and heavy uncompressed imagery, not the Liquid templating language.</p>
-<h3>Is headless Shopify worth it for a small store?</h3>
+<h3 id="h-is-headless-shopify-worth-it-for-a-small-store">Is headless Shopify worth it for a small store?</h3>
 <p>Typically not. For stores whose storefront requirements fit standard e-commerce patterns and whose teams rely on visual theme editing, the additional development overhead, hosting infrastructure, and ongoing engineering dependency rarely justify the investment. A well-engineered custom Liquid theme provides superior capital and operational efficiency.</p>
-<h3>When should a Shopify store move to headless?</h3>
+<h3 id="h-when-should-a-shopify-store-move-to-headless">When should a Shopify store move to headless?</h3>
 <p>A store should transition to headless only when concrete business requirements cannot be fulfilled within Liquid: when building bespoke 3D WebGL product customizers, unifying e-commerce across multiple digital touchpoints (web, mobile apps, kiosks) from a single API, or integrating publication-grade editorial storytelling via a dedicated headless CMS.</p>
-<h3>Can Shopify Liquid be optimized instead of rebuilding?</h3>
+<h3 id="h-can-shopify-liquid-be-optimized-instead-of-rebuilding">Can Shopify Liquid be optimized instead of rebuilding?</h3>
 <p>Yes. In the majority of e-commerce performance audits, executing a disciplined optimization protocol—purging orphaned app scripts, migrating marketing tags to server-side Google Tag Manager (sGTM), implementing responsive <code>image_tag</code> helpers, and streamlining theme CSS—restores sub-second loading times and passing Core Web Vitals on existing Liquid themes without a costly rebuild.</p>
-<h3>Does headless improve SEO automatically?</h3>
+<h3 id="h-does-headless-improve-seo-automatically">Does headless improve SEO automatically?</h3>
 <p>No. Search engines rank pages based on content quality, backlink authority, user experience, and technical signals (clean HTML, fast Core Web Vitals, semantic schema, logical URL structure). Both Liquid and headless can achieve flawless technical SEO. In fact, headless migrations introduce substantial SEO risk if URL slug parity, 301 redirect trees, and server-rendered structured data are mismanaged during deployment.</p>
-<h3>What does headless Shopify add that Liquid doesn't?</h3>
+<h3 id="h-what-does-headless-shopify-add-that-liquid-doesn-t">What does headless Shopify add that Liquid doesn't?</h3>
 <p>Headless Shopify unlocks complete frontend architectural freedom: the ability to build complex client-side applications in modern frameworks (Hydrogen, Next.js, Remix, etc.), integrate a dedicated headless CMS with more flexible relational content modeling, serve app-like transitions without page reloads, and power multiple independent consumer touchpoints (web, native iOS/Android apps, IoT, POS) from a single centralized Shopify commerce engine.</p>
 <hr />
-<h2>15. Related Shopify Engineering Guides</h2>
+<h2 id="h-15-related-shopify-engineering-guides">15. Related Shopify Engineering Guides</h2>
 <p>Choosing between Shopify Liquid and headless commerce is a strategic architectural calculation, not a design trend. By understanding your real technical requirements, respecting the hidden operational costs of decoupled systems, and exhausting native optimization first, technical leaders can allocate capital effectively and build e-commerce platforms designed to endure.</p>
 <p>If your team is evaluating an e-commerce replatforming initiative or seeking to extract maximum performance from your storefront, explore our technical capabilities and blueprints:</p>
 <ul>
@@ -1203,32 +1701,368 @@
 <li><strong>Modern Frontend Performance:</strong> Explore our deep dive into sub-second web architecture in <a href="/blog/nextjs-performance-architecture">Next.js Performance Architecture</a>.</li>
 <li><strong>Custom Code vs Visual Builders:</strong> Learn when ambitious digital platforms outgrow visual tools in <a href="/blog/custom-web-development-vs-no-code">Custom Web Development vs No-Code: Architectural Trade-Offs, Decision Matrix, and Scaling Limits</a>.</li>
 </ul>
-<h3>Plan Your Shopify Architecture Consultation</h3>
+<h3 id="h-plan-your-shopify-architecture-consultation">Plan Your Shopify Architecture Consultation</h3>
 <p>Ready to evaluate whether an optimized Liquid theme or a decoupled headless architecture is right for your growth roadmap? <a href="/contact?service=shopify-development">Schedule an architectural consultation</a> with our engineering team to audit your performance bottlenecks, review technical feasibility, and plan a disciplined development roadmap.</p>
 
-            </div>
+                </div>
 
-            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
-                <span class="tag-pill">#Shopify</span><span class="tag-pill">#Headless Commerce</span><span class="tag-pill">#Liquid Architecture</span><span class="tag-pill">#E-Commerce Performance</span><span class="tag-pill">#Engineering Strategy</span>
-            </div>
+                <!-- TAGS -->
+                <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                    <span class="tag-pill">#Shopify</span><span class="tag-pill">#Headless Commerce</span><span class="tag-pill">#Liquid Architecture</span><span class="tag-pill">#E-Commerce Performance</span><span class="tag-pill">#Engineering Strategy</span>
+                </div>
 
-            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
-                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
-                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
-                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                    <a href="/services/shopify-development" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
-                        Explore Shopify & Headless Commerce Engineering &rarr;
+                <!-- IN-ARTICLE CONVERSION CTA -->
+                <div class="in-article-cta text-center">
+                    <span class="cta-kicker">// ARCHITECTURAL PARTNERSHIP</span>
+                    <h3>Need Help Engineering Your Web Platform or AI Systems?</h3>
+                    <p>From high-performance Next.js architectures to headless Shopify storefronts, custom AI automations, and enterprise WordPress security recovery, Kawaki Studios designs resilient digital infrastructure built to scale.</p>
+                    <div class="cta-actions">
+                        <a href="/contact?service=shopify-development" class="btn-primary-theme">
+                            <span>Schedule Engineering Discovery</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path></svg>
+                        </a>
+                        <a href="/services/shopify-development" class="btn-link-secondary">
+                            Explore Shopify & Headless Commerce Engineering &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AUTHOR BIO CARD -->
+                <div class="author-bio-card">
+                    <div class="bio-avatar">
+                        <span class="avatar-text">KS</span>
+                    </div>
+                    <div class="bio-details">
+                        <span class="bio-role">Founder &amp; Principal Engineer</span>
+                        <h4>Kunal Sharma</h4>
+                        <p>Kunal is the founder and principal engineer at Kawaki Studios, specializing in high-performance web engineering, Next.js application architecture, headless Shopify systems, autonomous AI workflows, and forensic WordPress security recovery. He helps ambitious founders and modern enterprises design resilient, high-velocity digital flagships.</p>
+                        <div class="bio-socials">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub ↗</a>
+                            <a href="/contact" class="bio-consult">Book 15-Min Briefing ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- RIGHT STICKY SIDEBAR -->
+            <aside class="article-sidebar" data-lenis-prevent>
+                <!-- WIDGET 1: TABLE OF CONTENTS -->
+                <div class="toc-light-card">
+                    <h3 class="toc-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                        Table of Contents
+                    </h3>
+                    <nav class="toc-nav">
+                        <ul class="toc-list" data-lenis-prevent>
+                            
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-direct-answer-when-should-you-stay-on-liquid-vs-go-headless">The Direct Answer: When Should You Stay on Liquid vs. Go Headless?</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-1-shopify-liquid-and-headless-are-different-architectural-models">1. Shopify Liquid and Headless Are Different Architectural Models</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-shopify-liquid-shopify-hosted-theme-architecture">Shopify Liquid: Shopify-hosted theme architecture</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-headless-shopify-architecture-decoupled">The Headless Shopify Architecture (Decoupled)</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-2-when-shopify-liquid-is-the-better-fit">2. When Shopify Liquid Is the Better Fit</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-standard-e-commerce-catalog-amp-navigation-models">1. Standard E-Commerce Catalog &amp; Navigation Models</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-marketing-and-merchandising-team-autonomy">2. Marketing and Merchandising Team Autonomy</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-reliance-on-the-shopify-app-ecosystem">3. Reliance on the Shopify App Ecosystem</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-lean-engineering-resources-and-cost-discipline">4. Lean Engineering Resources and Cost Discipline</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-3-when-headless-shopify-becomes-the-better-fit">3. When Headless Shopify Becomes the Better Fit</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-highly-specialized-storefront-interactions-amp-configurators">1. Highly Specialized Storefront Interactions &amp; Configurators</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-omnichannel-catalog-distribution-amp-multi-surface-publishing">2. Omnichannel Catalog Distribution &amp; Multi-Surface Publishing</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-publication-grade-editorial-commerce-amp-specialized-content-models">3. Publication-Grade Editorial Commerce &amp; Specialized Content Models</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-advanced-frontend-tooling-and-automated-quality-engineering">4. Advanced Frontend Tooling and Automated Quality Engineering</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-4-the-real-trade-off-simplicity-vs-control">4. The Real Trade-Off: Simplicity vs Control</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-you-gain-with-headless">What You Gain with Headless</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-you-lose-with-headless">What You Lose with Headless</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-5-shopify-liquid-vs-headless-decision-matrix">5. Shopify Liquid vs Headless Decision Matrix</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-6-when-a-shopify-store-is-actually-slow">6. When a Shopify Store Is Actually Slow</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-real-culprits-behind-sluggish-shopify-stores">The Real Culprits Behind Sluggish Shopify Stores</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-7-liquid-optimization-before-going-headless">7. Liquid Optimization Before Going Headless</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-stage-1-script-audit-amp-tag-governance">Stage 1: Script Audit &amp; Tag Governance</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-stage-2-media-modernization-amp-responsive-sizing">Stage 2: Media Modernization &amp; Responsive Sizing</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-stage-3-liquid-code-profiling-amp-loop-flattening">Stage 3: Liquid Code Profiling &amp; Loop Flattening</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-stage-4-critical-path-css-amp-font-streamlining">Stage 4: Critical Path CSS &amp; Font Streamlining</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-stage-5-app-native-consolidation">Stage 5: App Native Consolidation</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-8-when-headless-shopify-makes-architectural-sense">8. When Headless Shopify Makes Architectural Sense</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-bespoke-product-customizers-amp-interactive-webgl-engines">1. Bespoke Product Customizers &amp; Interactive WebGL Engines</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-complex-frontend-requirements-amp-seamless-client-side-navigation">2. Complex Frontend Requirements &amp; Seamless Client-Side Navigation</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-omnichannel-multi-surface-distribution">3. Omnichannel Multi-Surface Distribution</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-advanced-edge-personalization-amp-layout-shift-free-experimentation">4. Advanced Edge Personalization &amp; Layout-Shift-Free Experimentation</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-9-headless-shopify-architecture-explained">9. Headless Shopify Architecture Explained</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-architectural-components">The Architectural Components</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-10-the-hidden-costs-of-headless">10. The Hidden Costs of Headless</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-six-hidden-operational-taxes">The Six Hidden Operational Taxes</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-11-migration-liquid-to-headless">11. Migration: Liquid to Headless</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-critical-migration-disciplines">Critical Migration Disciplines</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-12-when-not-to-go-headless">12. When NOT to Go Headless</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-stores-whose-current-requirements-do-not-justify-added-engineering-and-operational-complexity">1. Stores Whose Current Requirements Do Not Justify Added Engineering and Operational Complexity</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-brands-without-dedicated-engineering-staff">2. Brands Without Dedicated Engineering Staff</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-organizations-dependent-on-15-third-party-shopify-apps">3. Organizations Dependent on 15+ Third-Party Shopify Apps</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-teams-seeking-a-magic-bullet-for-page-speed">4. Teams Seeking a "Magic Bullet" for Page Speed</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-13-a-practical-shopify-architecture-decision-tree">13. A Practical Shopify Architecture Decision Tree</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-architectural-tiers-summary">The Architectural Tiers Summary</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-14-frequently-asked-questions">14. Frequently Asked Questions</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-is-headless-shopify-faster">Is headless Shopify faster?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-is-shopify-liquid-bad-for-performance">Is Shopify Liquid bad for performance?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-is-headless-shopify-worth-it-for-a-small-store">Is headless Shopify worth it for a small store?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-should-a-shopify-store-move-to-headless">When should a Shopify store move to headless?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-can-shopify-liquid-be-optimized-instead-of-rebuilding">Can Shopify Liquid be optimized instead of rebuilding?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-does-headless-improve-seo-automatically">Does headless improve SEO automatically?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-does-headless-shopify-add-that-liquid-doesn-t">What does headless Shopify add that Liquid doesn't?</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-15-related-shopify-engineering-guides">15. Related Shopify Engineering Guides</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-plan-your-shopify-architecture-consultation">Plan Your Shopify Architecture Consultation</a>
+      </li>
+    
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- WIDGET 2: SHARE BUTTONS -->
+                <div class="share-light-card">
+                    <span class="share-label">Share Article</span>
+                    <div class="share-buttons">
+                        <button class="share-btn" id="share-copy" title="Copy Link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                        <a href="https://twitter.com/intent/tweet?text=Shopify%20Liquid%20vs%20Headless%20Shopify%3A%20A%20Practical%20Decision%20Framework%20for%20Growing%20Stores&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fshopify-liquid-vs-headless" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter / X">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fshopify-liquid-vs-headless" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WIDGET 3: 1-ON-1 STRATEGY CALL -->
+                <div class="strategy-call-card">
+                    <span class="call-badge">1-ON-1 CONSULTATION</span>
+                    <h4 class="call-title">Book an Engineering Briefing</h4>
+                    <p class="call-desc">Discuss your web platform, Next.js migration, AI workflow, or security recovery directly with our engineering team.</p>
+                    <a href="/contact" class="btn-sidebar-call">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Schedule Call</span>
                     </a>
                 </div>
-                <a href="/contact?service=shopify-development" class="rlvnt-btn max-content" style="margin: 0 auto;">
-                    <span>Start a Project</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg>
-                </a>
+            </aside>
+        </div>
+
+        <!-- RELATED POSTS SECTION -->
+        <section class="related-posts-section">
+            <h2 class="related-section-title">Related Engineering Insights</h2>
+            <div class="related-grid">
+                
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">
+            <img src="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" alt="How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet archite...</p>
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency">
+            <img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" alt="What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/what-to-prepare-before-hiring-web-development-agency">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budge...</p>
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-ai-search-engines-cite-sources">
+            <img src="/assets/images/blog/deterministic-code-vs-probabilistic-llm-boundary.webp" alt="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">AI Search</span>
+          <h3 class="card-title">
+            <a href="/blog/how-ai-search-engines-cite-sources">How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization</a>
+          </h3>
+          <p class="card-excerpt">An architectural guide to how AI search engines cite sources: RAG retrieval pipelines, query fan-out, empirical findings from the Pr...</p>
+          <a href="/blog/how-ai-search-engines-cite-sources" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
             </div>
-        </article>
+        </section>
     </main>
 
     <!-- UNIVERSAL GLOBAL FOOTER -->
@@ -1349,7 +2183,7 @@
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                </ul>
+            </ul>
             <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
                 <span>Back to Top</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
@@ -1360,6 +2194,78 @@
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Share Copy Link Handler
+            const copyBtn = document.getElementById('share-copy');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(window.location.href);
+                        const originalHtml = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#65a30d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                        copyBtn.setAttribute('title', 'Link Copied!');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHtml;
+                            copyBtn.setAttribute('title', 'Copy Link');
+                        }, 2500);
+                    } catch (err) {
+                        console.error('Failed to copy link:', err);
+                    }
+                });
+            }
+
+            // Table of Contents Scroll-Spy via IntersectionObserver
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            const headings = Array.from(document.querySelectorAll('.post-body-content h2, .post-body-content h3'));
+            
+            if (tocLinks.length > 0 && headings.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-100px 0px -65% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            tocLinks.forEach((link) => {
+                                const item = link.closest('.toc-item');
+                                if (link.getAttribute('href') === '#' + id) {
+                                    item?.classList.add('active');
+                                    const tocList = document.querySelector('.toc-list');
+                                    if (tocList && item) {
+                                        const offset = item.offsetTop - tocList.offsetTop;
+                                        tocList.scrollTo({ top: offset - 40, behavior: 'smooth' });
+                                    }
+                                } else {
+                                    item?.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                headings.forEach(h => observer.observe(h));
+            }
+
+            // Smooth scroll on TOC link click
+            tocLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href')?.slice(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const navOffset = 100;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
             // Time update helper for footer
             function updateFooterClocks() {
                 const now = new Date();
@@ -1368,10 +2274,10 @@
                 const elTokyo = document.getElementById('footerTimeTokyo');
                 const elLondon = document.getElementById('footerTimeLondon');
                 const elNY = document.getElementById('footerTimeNY');
-                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
-                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
-                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
-                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+                if (elDelhi) elDelhi.innerText = now.toLocaleTimeString('en-US', opt('Asia/Kolkata')) + ' IST';
+                if (elTokyo) elTokyo.innerText = now.toLocaleTimeString('en-US', opt('Asia/Tokyo')) + ' JST';
+                if (elLondon) elLondon.innerText = now.toLocaleTimeString('en-US', opt('Europe/London')) + ' GMT';
+                if (elNY) elNY.innerText = now.toLocaleTimeString('en-US', opt('America/New_York')) + ' EST';
             }
             updateFooterClocks();
             setInterval(updateFooterClocks, 10000);

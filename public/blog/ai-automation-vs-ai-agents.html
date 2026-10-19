@@ -26,16 +26,16 @@
     <meta property="og:url" content="https://kawaki.co.in/blog/ai-automation-vs-ai-agents" />
     <meta property="og:title" content="AI Automation vs AI Agents Guide — Kawaki Studios" />
     <meta property="og:description" content="An engineering guide to choosing between AI automation and AI agents: 18-dimension decision matrix, autonomy spectrum, reliability mitigations, and reference designs." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/ai-automation-vs-ai-agent-decision-matrix.webp" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="675" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="AI Automation vs AI Agents Guide — Kawaki Studios" />
     <meta name="twitter:description" content="An engineering guide to choosing between AI automation and AI agents: 18-dimension decision matrix, autonomy spectrum, reliability mitigations, and reference designs." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/ai-automation-vs-ai-agent-decision-matrix.webp" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -44,12 +44,18 @@
     "@type": "BlogPosting",
     "headline": "AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each",
     "description": "An engineering guide to choosing between AI automation and AI agents: 18-dimension decision matrix, autonomy spectrum, reliability mitigations, and reference designs.",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    "image": "https://kawaki.co.in/assets/images/blog/ai-automation-vs-ai-agent-decision-matrix.webp",
     "datePublished": "2026-09-29T10:00:00.000Z",
     "dateModified": "2026-09-29T10:00:00.000Z",
     "author": {
         "@type": "Person",
-        "name": "Kunal Sharma"
+        "name": "Kunal Sharma",
+        "jobTitle": "Founder & Principal Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in"
+        }
     },
     "publisher": {
         "@type": "Organization",
@@ -94,7 +100,7 @@
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 
@@ -102,8 +108,9 @@
         :root {
             --color-bg: #FFFFFF;
             --color-text: #12100E;
-            --color-muted: #6B7280;
+            --color-muted: #64748B;
             --color-accent: #C6FF00;
+            --color-border: rgba(0, 0, 0, 0.08);
             --font-sans: "Plus Jakarta Sans", sans-serif;
             --font-serif: "Instrument Serif", serif;
             --font-mono: "JetBrains Mono", monospace;
@@ -116,7 +123,7 @@
             margin: 0;
             padding: 0;
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -125,13 +132,14 @@
             font-style: italic;
         }
 
-        .article-container {
-            max-width: 860px;
+        /* Container & Page Header */
+        .post-detail-page {
+            max-width: 1240px;
             margin: 0 auto;
             padding: 130px 24px 80px;
         }
 
-        .article-breadcrumb {
+        .breadcrumbs-nav {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
@@ -141,199 +149,304 @@
             color: var(--color-muted);
             margin-bottom: 1.5rem;
         }
-        .article-breadcrumb a {
+        .breadcrumbs-nav a {
             color: var(--color-muted);
             text-decoration: none;
             transition: color 0.2s;
         }
-        .article-breadcrumb a:hover {
-            color: var(--color-accent);
+        .breadcrumbs-nav a:hover {
+            color: #111111;
         }
-        .article-breadcrumb .bc-sep {
-            color: rgba(0,0,0,0.3);
+        .breadcrumbs-nav .divider {
+            color: rgba(0,0,0,0.25);
         }
-        .article-breadcrumb .bc-current {
-            color: var(--color-text);
+        .breadcrumbs-nav .active {
+            color: #111111;
+            font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 420px;
+            max-width: 480px;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-muted);
-            text-decoration: none;
-            margin-bottom: 2rem;
-            transition: color 0.2s;
-        }
-        .back-link:hover {
-            color: var(--color-accent);
+        .post-header {
+            margin-bottom: 2.5rem;
         }
 
-        .article-meta-badge {
+        .header-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: #111114;
+            color: #C6FF00;
             font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--color-accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            text-decoration: none;
         }
 
-        .article-header-title {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+        }
+        .meta-item svg {
+            color: var(--color-muted);
+        }
+
+        .post-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
-            margin: 0 0 1.5rem;
             color: #111111;
+            margin: 0 0 1.5rem;
         }
 
-        .article-info-bar {
+        .author-credits {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             padding: 1.25rem 0;
             border-top: 1px solid rgba(0,0,0,0.08);
             border-bottom: 1px solid rgba(0,0,0,0.08);
             margin-bottom: 2.5rem;
             font-size: 14px;
-            color: var(--color-muted);
-        }
-
-        .author-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         .author-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #111111;
+            background: #111114;
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
+            border: 2px solid rgba(198, 255, 0, 0.4);
+        }
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            font-weight: 700;
+            color: #111111;
+        }
+        .author-role {
+            font-size: 12px;
+            color: var(--color-muted);
         }
 
-        .article-hero-image {
+        /* Hero Featured Image Container */
+        .featured-image-wrapper {
+            margin-bottom: 3.5rem;
+        }
+        .featured-image-container {
             width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            max-height: 580px;
             border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            overflow: hidden;
+            background: #0B0B0E;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .post-featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .article-content {
+        /* Two-Column Layout Grid */
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 1024px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .article-sidebar {
+                order: 2;
+            }
+        }
+
+        /* Executive Summary / Key Takeaways Card */
+        .key-takeaways-card {
+            background: #F9FAF6;
+            border: 1px solid rgba(198, 255, 0, 0.4);
+            border-left: 4px solid #C6FF00;
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .takeaways-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+        .takeaways-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #111111;
+            font-family: var(--font-mono);
+        }
+        .takeaway-icon {
+            color: #65a30d;
+        }
+        .takeaway-lead {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .takeaway-bullets {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: #1F2937;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+        .takeaway-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Post Content Typography */
+        .post-body-content {
             font-size: 1.125rem;
             line-height: 1.8;
             color: #2D2A26;
         }
-
-        .article-content h1, 
-        .article-content h2, 
-        .article-content h3 {
-            color: #111111;
+        .post-body-content h2 {
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin: 2.5rem 0 1rem;
+            color: #111111;
+            margin: 3rem 0 1.25rem;
+            scroll-margin-top: 110px;
         }
-        .article-content h2 {
-            font-size: 1.75rem;
-        }
-        .article-content h3 {
+        .post-body-content h3 {
             font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: #111111;
+            margin: 2.25rem 0 1rem;
+            scroll-margin-top: 110px;
         }
-
-        .article-content p {
+        .post-body-content p {
             margin-bottom: 1.5rem;
         }
-
-        .article-content ul,
-        .article-content ol {
+        .post-body-content ul, .post-body-content ol {
             margin: 1.5rem 0;
-            padding-left: 2rem;
+            padding-left: 1.75rem;
         }
-
-        .article-content li {
+        .post-body-content li {
             margin-bottom: 0.5rem;
         }
-
-        .article-content a {
+        .post-body-content a {
             color: #111111;
             text-decoration: underline;
             text-decoration-color: var(--color-accent);
             text-underline-offset: 4px;
             transition: color 0.2s;
         }
-        .article-content a:hover {
+        .post-body-content a:hover {
             color: #000000;
         }
-
-        .article-content pre {
+        .post-body-content blockquote {
+            border-left: 3px solid #C6FF00;
+            background: #F9F9FB;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            color: #374151;
+            font-style: italic;
+        }
+        .post-body-content pre {
             background: #111116;
             color: #F4F4F5;
-            padding: 1.25rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 14px;
             overflow-x: auto;
             font-family: var(--font-mono);
             font-size: 14px;
-            margin: 1.5rem 0;
+            line-height: 1.6;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-
-        .article-content code {
+        .post-body-content code {
             font-family: var(--font-mono);
             font-size: 14px;
             background: rgba(0,0,0,0.06);
             padding: 2px 6px;
             border-radius: 4px;
         }
-
-        .article-content pre code {
+        .post-body-content pre code {
             background: transparent;
             padding: 0;
             border-radius: 0;
             color: inherit;
         }
-
-        .article-content blockquote {
-            border-left: 3px solid var(--color-accent);
-            padding-left: 1.25rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #4A4640;
+        .post-body-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            font-size: 14.5px;
         }
-
-        .article-content figure {
+        .post-body-content th {
+            background: #111114;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            border: 1px solid #111114;
+        }
+        .post-body-content td {
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: #FFFFFF;
+        }
+        .post-body-content tr:nth-child(even) td {
+            background: #F9FAF6;
+        }
+        .post-body-content figure {
             margin: 2.5rem 0;
             padding: 0;
         }
-
-        .article-content img {
+        .post-body-content img {
             max-width: 100%;
             height: auto;
             border-radius: 14px;
             display: block;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
         }
-
-        .article-content figcaption {
+        .post-body-content figcaption {
             margin-top: 0.75rem;
             font-size: 0.85rem;
             color: var(--color-muted);
@@ -353,35 +466,398 @@
             margin-bottom: 6px;
         }
 
-        .rlvnt-btn {
+        /* In-Article Conversion Card */
+        .in-article-cta {
+            margin: 3.5rem 0;
+            padding: 2.5rem 2rem;
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(198, 255, 0, 0.2);
             position: relative;
-            display: inline-flex;
-            gap: 8px;
-            border: 1px solid var(--color-text);
+            overflow: hidden;
+        }
+        .in-article-cta .cta-kicker {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #C6FF00;
+            margin-bottom: 0.75rem;
+        }
+        .in-article-cta h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .in-article-cta p {
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 580px;
+            margin: 0 auto 1.75rem;
+        }
+        .in-article-cta .cta-actions {
+            display: flex;
+            gap: 16px;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary-theme {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 14px;
             padding: 12px 24px;
             border-radius: 50px;
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-style: italic;
-            background: transparent;
-            color: var(--color-text);
-            font-size: 1rem;
-            overflow: hidden;
-            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary-theme:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+        .btn-link-secondary {
+            color: #94A3B8;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .btn-link-secondary:hover {
+            color: #FFFFFF;
+        }
+
+        /* Author Bio Card */
+        .author-bio-card {
+            display: flex;
+            gap: 20px;
+            padding: 2rem;
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            margin-top: 3.5rem;
+            align-items: flex-start;
+        }
+        @media (max-width: 640px) {
+            .author-bio-card {
+                flex-direction: column;
+            }
+        }
+        .bio-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #111114;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            border: 2px solid #C6FF00;
+            flex-shrink: 0;
+        }
+        .bio-details h4 {
+            margin: 0.25rem 0 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #111111;
+        }
+        .bio-role {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #65a30d;
+        }
+        .bio-details p {
+            margin: 0 0 1rem;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        .bio-socials {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .bio-socials a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .bio-socials a:hover {
+            color: #65a30d;
+        }
+        .bio-consult {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline !important;
+        }
+
+        /* Sidebar Widgets */
+        .article-sidebar {
+            position: sticky;
+            top: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .toc-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .toc-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #111111;
+            margin: 0 0 1rem;
+            font-family: var(--font-mono);
+        }
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 420px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        .toc-item {
+            margin-bottom: 2px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .toc-item a {
+            display: block;
+            padding: 6px 10px;
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: #4B5563;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-level-3 a {
+            padding-left: 20px;
+            font-size: 12.5px;
+            color: #6B7280;
+        }
+        .toc-item.active a {
+            color: #111111;
+            font-weight: 700;
+            border-left-color: #C6FF00;
+            background: rgba(198, 255, 0, 0.15);
+            border-radius: 0 6px 6px 0;
+        }
+        .toc-item a:hover {
+            color: #111111;
+            background: rgba(0,0,0,0.03);
+        }
+
+        .share-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .share-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-mono);
+            color: #111111;
+        }
+        .share-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111111;
             cursor: pointer;
+            transition: all 0.2s;
             text-decoration: none;
         }
-        .rlvnt-btn.max-content {
-            width: max-content;
-            height: max-content;
-            font-size: 20px;
-            padding: 8px 16px;
+        .share-btn:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
         }
-        .rlvnt-btn:hover {
-            background-color: var(--color-text);
-            color: #ffffff;
+
+        .strategy-call-card {
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 18px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .call-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #C6FF00;
+            margin-bottom: 0.5rem;
+        }
+        .call-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            color: #FFFFFF;
+        }
+        .call-desc {
+            font-size: 13px;
+            color: #94A3B8;
+            line-height: 1.5;
+            margin: 0 0 1.25rem;
+        }
+        .btn-sidebar-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+            box-sizing: border-box;
+        }
+        .btn-sidebar-call:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+
+        /* Related Posts Section */
+        .related-posts-section {
+            margin-top: 5rem;
+            padding-top: 3.5rem;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .related-section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111111;
+            margin: 0 0 2.5rem;
+            text-align: center;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 900px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .post-light-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-light-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.06);
+        }
+        .card-img-wrapper {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0B0B0E;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .post-light-card:hover .card-img {
+            transform: scale(1.04);
+        }
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 0.75rem 0 0.5rem;
+        }
+        .card-title a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-title a:hover {
+            color: #65a30d;
+        }
+        .card-excerpt {
+            font-size: 13.5px;
+            color: var(--color-muted);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .card-read-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+        .card-read-link:hover {
+            gap: 8px;
+            color: #65a30d;
         }
     </style>
 </head>
@@ -600,54 +1076,76 @@
     </div>
 
     <!-- MAIN ARTICLE BODY -->
-    <main class="article-container">
-        <!-- Breadcrumbs -->
-        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+    <main class="post-detail-page">
+        <!-- BREADCRUMBS -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs-nav">
             <a href="/">Home</a>
-            <span class="bc-sep">/</span>
+            <span class="divider">/</span>
             <a href="/blog">Blog</a>
-            <span class="bc-sep">/</span>
-            <span class="bc-current">AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each</span>
+            <span class="divider">/</span>
+            <span class="active" aria-current="page">AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each</span>
         </nav>
 
-        <a href="/blog" class="back-link">
-            ← Back to all stories
-        </a>
-
-        <article id="articleWrapper">
-            <div class="article-meta-badge" id="articleCategory">
-                ● AI Automation
+        <!-- POST HEADER -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="category-badge">AI Automation</span>
+                <span class="meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    51 min read
+                </span>
+                <span class="meta-item">29 Sep 2026</span>
             </div>
-            
-            <h1 class="article-header-title" id="articleTitle">
+
+            <h1 class="post-title" id="articleTitle">
                 AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each
             </h1>
 
-            <div class="article-info-bar">
-                <div class="author-box">
-                    <div class="author-avatar" id="authorInitial">KS</div>
-                    <div>
-                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
-                        <div style="font-size: 12px;" id="articleDate">29 Sep 2026</div>
-                    </div>
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
-                    230 reads
+            <div class="author-credits">
+                <div class="author-avatar" id="authorInitial">KS</div>
+                <div class="author-details">
+                    <span class="author-name" id="authorName">Kunal Sharma</span>
+                    <span class="author-role">Founder &amp; Principal Engineer, Kawaki Studios</span>
                 </div>
             </div>
+        </header>
 
-            <img id="articleImage" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+        <!-- FEATURED HERO IMAGE -->
+        <div class="featured-image-wrapper">
+            <div class="featured-image-container">
+                <img id="articleImage" src="/assets/images/blog/ai-automation-vs-ai-agent-decision-matrix.webp" alt="AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+            </div>
+        </div>
 
-            <div class="article-content" id="articleContent">
-                <p>When organizations modernize their technical operations with artificial intelligence, engineering leaders and founders confront a fundamental architectural choice: should they deploy structured <strong>AI automation</strong>, or should they engineer an autonomous <strong>AI agent</strong>?</p>
+        <!-- TWO-COLUMN ARTICLE LAYOUT -->
+        <div class="article-layout" id="articleWrapper">
+            <!-- LEFT MAIN CONTENT COLUMN -->
+            <article class="article-content-column">
+                <!-- EXECUTIVE SUMMARY / KEY TAKEAWAYS -->
+                <div class="key-takeaways-card">
+                    <div class="takeaways-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="takeaway-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        <h3>Executive Summary / Key Takeaways</h3>
+                    </div>
+                    <p class="takeaway-lead">An engineering guide to choosing between AI automation and AI agents: 18-dimension decision matrix, autonomy spectrum, reliability mitigations, and reference designs.</p>
+                    <ul class="takeaway-bullets">
+                        <li>Contrasts fixed deterministic automation with autonomous reasoning agentic loops across 18 dimensions.</li>
+                        <li>Explains why hybrid architectures deliver 99%+ reliability compared to pure autonomous agents.</li>
+                        <li>Provides an architectural decision tree for selecting the appropriate automation tier.</li>
+                    </ul>
+                </div>
+
+                <!-- MAIN ARTICLE CONTENT -->
+                <div class="post-body-content" id="articleContent">
+                    <p>When organizations modernize their technical operations with artificial intelligence, engineering leaders and founders confront a fundamental architectural choice: should they deploy structured <strong>AI automation</strong>, or should they engineer an autonomous <strong>AI agent</strong>?</p>
 <blockquote>
-<h3>The Direct Answer: When to Use AI Automation vs. an AI Agent</h3>
+<h3 id="h-the-direct-answer-when-to-use-ai-automation-vs-an-ai-agent">The Direct Answer: When to Use AI Automation vs. an AI Agent</h3>
 <p>Choose <strong>AI automation</strong> when your business process is structured, repeatable, and follows predictable execution steps—even if individual stages use machine learning models for classification, parsing, or extraction. Choose an <strong>AI agent</strong> only when the task requires dynamic reasoning under uncertainty, where the system must autonomously select tools, evaluate intermediate results, and plan a sequence of actions that cannot be predetermined. In production environments, the most resilient pattern is rarely an unconstrained autonomous agent; it is a <strong>hybrid architecture</strong> that anchors execution within a deterministic workflow while delegating bounded, supervised tasks to specialized agents.</p>
 </blockquote>
 <p>The technology industry often blurs these terms together under generic marketing labels. However, from a software engineering perspective, automation and agency represent distinct points along an architectural spectrum. Neither paradigm is universally superior. Deterministic automation delivers speed, mathematical repeatability, and strict auditability at low compute cost. Agentic systems provide adaptability, goal-directed tool selection, and cognitive flexibility, but introduce non-deterministic latency, state drift, and probabilistic failure modes.</p>
 <p>The guiding engineering heuristic for enterprise systems is straightforward: <strong>use the least autonomous architecture that reliably solves the business problem</strong>.</p>
 <hr />
-<h2>1. AI Automation and AI Agents Are Not the Same Thing</h2>
+<h2 id="h-1-ai-automation-and-ai-agents-are-not-the-same-thing">1. AI Automation and AI Agents Are Not the Same Thing</h2>
 <p>To make sound architectural investments, engineering teams must establish precise technical definitions. While vendor marketing frequently presents every model invocation as an "intelligent agent," software architecture requires distinguishing between predefined execution graphs and dynamic action loops.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/ai-autonomy-spectrum-architecture.webp" alt="Layered architecture diagram outlining the four levels of the AI autonomy spectrum from scripts to swarms" width="1200" height="675" loading="lazy" decoding="async" />
@@ -684,29 +1182,29 @@
 |                                    |                                   |
 +------------------------------------+-----------------------------------+
 </code></pre>
-<h3>Deterministic Workflow Automation</h3>
+<h3 id="h-deterministic-workflow-automation">Deterministic Workflow Automation</h3>
 <p>Deterministic automation represents traditional software engineering. Systems execute predefined logic branches based on explicit conditional rules (<code>if/else</code>), database triggers, scheduled cron jobs, or webhook listeners. Data structures are strictly typed, state transitions are predictable, and execution paths follow a directed acyclic graph (DAG). Given identical inputs, the system produces identical outputs 100% of the time with zero probabilistic variance.</p>
 <ul>
 <li><strong>Representative Examples</strong>: Syncing Stripe payment webhooks to accounting databases, updating CRM lead stages on form submission, or dispatching transactional order confirmation emails.</li>
 </ul>
-<h3>AI-Assisted Automation</h3>
+<h3 id="h-ai-assisted-automation">AI-Assisted Automation</h3>
 <p>AI-assisted automation embeds statistical or generative models directly into a predetermined workflow to handle tasks that traditional rules cannot solve: unstructured text parsing, natural language translation, sentiment categorization, document OCR normalization, or initial drafting. The model provides cognitive transformation, but <strong>does not control workflow routing or step sequencing</strong>. The surrounding software governs where data flows next based on validated schema fields.</p>
 <ul>
 <li><strong>Representative Examples</strong>: Inbound email parsing where an LLM extracts line items and vendor names from PDF receipts into a strict JSON schema, after which deterministic business logic validates totals and posts the invoice to an ERP.</li>
 </ul>
 <p>For organizations engineering high-throughput automation pipelines, our dedicated <a href="/services/ai-automation">AI Automation Services</a> design governed workflow topologies with strict boundary validation and private data handling.</p>
-<h3>Agentic Systems</h3>
+<h3 id="h-agentic-systems">Agentic Systems</h3>
 <p>An agentic system delegates step-by-step decision-making authority to the model. The engineer defines the objective function, system instructions, safety bounds, and callable tools. The model plans an initial approach, calls an external API or database, inspects the response, handles errors or missing data, and determines the subsequent tool call iteratively until it satisfies its completion criteria or encounters a terminal boundary.</p>
 <ul>
 <li><strong>Representative Examples</strong>: An automated technical research assistant that receives an open-ended inquiry, writes and executes search queries, reads documentation, identifies missing context, executes secondary queries, cross-references findings, and compiles a sourced report.</li>
 </ul>
-<h3>Hybrid Architecture</h3>
+<h3 id="h-hybrid-architecture">Hybrid Architecture</h3>
 <p>A hybrid architecture combines the reliability and auditability of deterministic workflow orchestration with the cognitive adaptability of bounded agentic loops. In this pattern, the macro-level business process is governed by a deterministic state machine (such as Temporal or self-hosted n8n pipelines). When the process encounters an ambiguous, open-ended subtask, it invokes a narrowly scoped agent operating under strict tool permissions, computational budgets, and human approval checkpoints.</p>
 <ul>
 <li><strong>Representative Examples</strong>: An IT support workflow where deterministic code verifies user identity and creates tickets, delegates diagnostic log queries to a bounded agent, pauses for human approval before executing remediation commands on infrastructure, and records the complete trace to an immutable audit log.</li>
 </ul>
 <hr />
-<h2>2. The Autonomy Spectrum</h2>
+<h2 id="h-2-the-autonomy-spectrum">2. The Autonomy Spectrum</h2>
 <p>Rather than viewing automation and agents as a binary choice, systems architecture should evaluate initiatives along an <strong>Autonomy Spectrum</strong>. Moving from left to right along this spectrum increases operational flexibility and reduces human authoring overhead for ambiguous tasks, but systematically increases non-determinism, latency, token consumption, and failure complexity.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/ai-automation-vs-ai-agent-decision-matrix.webp" alt="Comparison table diagram contrasting deterministic workflow automation with autonomous goal-oriented agents" width="1200" height="675" loading="lazy" decoding="async" />
@@ -733,7 +1231,7 @@
 |                   |                    | ($0.001 - $0.02)   | tool API fees      | ($0.10 - $2.00)|
 +-------------------+--------------------+--------------------+--------------------+----------------+
 </code></pre>
-<h3>Architectural Implications of the Spectrum</h3>
+<h3 id="h-architectural-implications-of-the-spectrum">Architectural Implications of the Spectrum</h3>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/ai-system-failure-mode-mitigation-flow.webp" alt="Matrix diagram illustrating mitigations for hallucinations, reasoning loops, schema drift, and rate limits" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 3: Failure mode mitigation architecture for enterprise AI implementations.</figcaption>
@@ -743,7 +1241,7 @@
 <li><strong>Operational Governance</strong>: As autonomy increases, governance cannot rely solely on compile-time types. It requires runtime semantic validation, input/output guardrails, explicit tool sandboxes, and immutable execution logging.</li>
 </ol>
 <hr />
-<h2>3. When Traditional Automation Is the Better Architecture</h2>
+<h2 id="h-3-when-traditional-automation-is-the-better-architecture">3. When Traditional Automation Is the Better Architecture</h2>
 <p>Despite the industry excitement surrounding autonomous agents, traditional deterministic automation remains the superior architectural choice for the majority of enterprise processes. </p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/bounded-ai-agent-sandbox-architecture.webp" alt="Four-step security diagram showing least privilege tools, container sandboxing, cost limits, and audit logs" width="1200" height="675" loading="lazy" decoding="async" />
@@ -757,7 +1255,7 @@
 <li><strong>Predictable Infrastructure Unit Economics</strong>: Deterministic workflows run on lightweight serverless functions or containerized workers costing fractions of a cent per thousand executions. Agentic workflows require multi-turn token inference across large context windows, driving operational costs higher by orders of magnitude. When operating at scale, deterministic workflows preserve margin.</li>
 </ul>
 <hr />
-<h2>4. When AI-Assisted Automation Is Enough</h2>
+<h2 id="h-4-when-ai-assisted-automation-is-enough">4. When AI-Assisted Automation Is Enough</h2>
 <p>Many business workflows cannot be solved with traditional rules alone because the incoming data is messy, unstructured, or written in natural language. However, needing semantic comprehension does not mean the workflow requires an autonomous agent.</p>
 <p>In <strong>AI-assisted automation</strong>, an LLM or specialized machine learning model is embedded within a rigid, deterministic pipeline to handle a discrete, bounded cognitive task:</p>
 <pre><code>[Incoming Payload: Unstructured Email/PDF]
@@ -779,7 +1277,7 @@
                    ▼
    [Database Write / Core API Execution]
 </code></pre>
-<h3>High-Leverage Use Cases for AI-Assisted Automation</h3>
+<h3 id="h-high-leverage-use-cases-for-ai-assisted-automation">High-Leverage Use Cases for AI-Assisted Automation</h3>
 <ul>
 <li><strong>Unstructured Document Parsing and Extraction</strong>: Inbound vendor invoices, commercial leases, receipts, and shipping manifests arrive in varied PDF and image formats. Traditional regex or OCR templates break whenever a supplier changes their page layout. An AI model can ingest the text, identify entity relationships, and emit structured JSON matching an explicit schema. Once the JSON is emitted and validated, deterministic code handles accounting calculations and database updates.</li>
 <li><strong>Categorization, Classification, and Intent Triage</strong>: Customer service inboxes receive thousands of varied inquiries daily. An AI classification node can evaluate email sentiment, customer intent, and urgency, tagging the ticket with metadata. Once categorized, deterministic routing tables dispatch the ticket to the appropriate human department or automated response queue. The model provides semantic classification, while software handles routing.</li>
@@ -788,7 +1286,7 @@
 </ul>
 <p>In all these scenarios, the system leverages the semantic strength of modern models while the deterministic host program governs state, security, permissions, and execution flow.</p>
 <hr />
-<h2>5. When an AI Agent Actually Makes Sense</h2>
+<h2 id="h-5-when-an-ai-agent-actually-makes-sense">5. When an AI Agent Actually Makes Sense</h2>
 <p>An autonomous AI agent becomes an architectural asset when the problem domain exhibits <strong>inherent ambiguity, variable action sequences, and dynamic environments</strong> that cannot be mapped into a deterministic directed acyclic graph.</p>
 <p>Delegating runtime execution planning to an agent is justified under the following engineering conditions:</p>
 <ul>
@@ -837,7 +1335,7 @@
 +------------------------------------------------------------------------+
 </code></pre>
 <hr />
-<h2>6. AI Automation vs AI Agents — Decision Matrix</h2>
+<h2 id="h-6-ai-automation-vs-ai-agents-decision-matrix">6. AI Automation vs AI Agents — Decision Matrix</h2>
 <p>To guide architecture and technology selection, the matrix below contrasts deterministic/AI-assisted automation against autonomous agentic systems across eighteen engineering and operational dimensions:</p>
 <table>
 <thead>
@@ -958,7 +1456,7 @@
 </tr>
 </tbody></table>
 <hr />
-<h2>7. Reliability: The Real Engineering Difference</h2>
+<h2 id="h-7-reliability-the-real-engineering-difference">7. Reliability: The Real Engineering Difference</h2>
 <p>The fundamental difference between AI automation and AI agents is <strong>reliability under operational stress</strong>.</p>
 <p>In traditional software systems, reliability is governed by deterministic laws. If an API contract is respected and hardware resources are available, execution succeeds. In agentic systems, reliability is governed by <strong>probabilistic mechanics</strong>.</p>
 <p>When an agent executes an $n$-step reasoning loop where each individual step has a model success probability $p$, the probability of the entire chain completing successfully without error compounds exponentially:</p>
@@ -982,29 +1480,29 @@
 +------------------------------------------------------------------------+
 </code></pre>
 <p>Common failure modes in agentic systems include schema non-compliance, hallucinated tool capabilities, infinite looping on error responses, context saturation, and cascading misinterpretations. To engineer production-grade reliability into systems employing AI models, software teams must implement eight structural mitigations:</p>
-<h3>Explicit Tool Contracts</h3>
+<h3 id="h-explicit-tool-contracts">Explicit Tool Contracts</h3>
 <p>Never expose raw database drivers or arbitrary shell access to an agent. Every tool exposed to a model must have a strictly typed, minimally scoped JSON schema (using Pydantic, Zod, or JSON Schema standards). Descriptions must be unambiguous, explicitly stating required formats, valid ranges, and expected error structures.</p>
-<h3>Validation Layers</h3>
+<h3 id="h-validation-layers">Validation Layers</h3>
 <p>Every output emitted by a model—whether a tool argument or a final response—must pass through an independent, deterministic validation layer before execution. If an agent emits a tool call to update a customer record, the host application validates the customer ID format, verifies permissions, and sanitizes strings against injection attacks before dispatching the request to the database.</p>
-<h3>Retries and Idempotency</h3>
+<h3 id="h-retries-and-idempotency">Retries and Idempotency</h3>
 <p>Because network failures and transient model glitches occur, systems must support automated retries. However, naive retries in agentic systems can cause catastrophic duplicate writes (e.g., charging a customer twice). Every write tool must implement <strong>idempotency keys</strong>. If an agent retries an action due to an uncertain network state, the downstream service identifies the idempotency key and avoids executing duplicate transactions.</p>
-<h3>Checkpoints and State</h3>
+<h3 id="h-checkpoints-and-state">Checkpoints and State</h3>
 <p>Do not maintain critical operational state exclusively in the model's volatile context window. Persist execution progress, tool outputs, and intermediate decisions into an external transactional store (PostgreSQL or Redis) at every step. If an agent crashes or exhausts its token limit, the workflow can be resumed from the last verified checkpoint without restarting the entire sequence.</p>
-<h3>Human Approval Gates</h3>
+<h3 id="h-human-approval-gates">Human Approval Gates</h3>
 <p>High-consequence actions must be decoupled from automatic execution. When an agent formulates an action that alters financial balances, deletes data, modifies security permissions, or communicates externally to key clients, the system stages the action as a "pending proposal" and suspends execution until an authorized human operator reviews and approves the payload.</p>
-<h3>Audit Trails</h3>
+<h3 id="h-audit-trails">Audit Trails</h3>
 <p>Every model prompt, raw completion, tool schema call, argument payload, execution latency, and return status must be recorded in structured JSON logs. In-depth observability tools (such as OpenTelemetry spans, Langfuse, or Helicone) allow engineering teams to trace exact failure points and construct automated regression test cases from production anomalies. For architectural patterns on evaluation and observability, explore our comprehensive technical guide to <a href="/blog/ai-agent-reliability-evaluation">AI Agent Reliability, Evaluation &amp; Failure Recovery</a>.</p>
-<h3>Timeouts and Resource Limits</h3>
+<h3 id="h-timeouts-and-resource-limits">Timeouts and Resource Limits</h3>
 <p>Every agentic execution loop must be bounded by strict operational guardrails:</p>
 <ul>
 <li><strong>Maximum Turn Caps</strong>: Hard limits on the total number of reasoning-action iterations (e.g., maximum 5 tool calls per task).</li>
 <li><strong>Token Budgets</strong>: Absolute ceilings on cumulative input and output tokens consumed per session.</li>
 <li><strong>Wall-Clock Timeouts</strong>: Hard process timeouts (e.g., abort execution if the task does not resolve within 45 seconds).</li>
 </ul>
-<h3>Safe Failure Modes</h3>
+<h3 id="h-safe-failure-modes">Safe Failure Modes</h3>
 <p>When an agent fails, reaches its turn limit, or encounters unresolvable ambiguity, the system must fail safely. It must not guess or attempt emergency workarounds. It should roll back open transactions, log an alert with full debugging context, and cleanly route the task to a human exception queue.</p>
 <hr />
-<h2>8. Designing a Reliable AI Automation Architecture</h2>
+<h2 id="h-8-designing-a-reliable-ai-automation-architecture">8. Designing a Reliable AI Automation Architecture</h2>
 <p>To achieve production resilience, modern enterprise architectures follow a layered, decoupled design pattern. The reference architecture below separates ingestion, deterministic orchestration, bounded cognitive reasoning, tool execution, and state persistence into isolated, testable tiers:</p>
 <pre><code>+------------------------------------------------------------------------+
 |             RELIABLE AI AUTOMATION REFERENCE ARCHITECTURE              |
@@ -1070,7 +1568,7 @@
 |                                                                        |
 +------------------------------------------------------------------------+
 </code></pre>
-<h3>Architectural Component Breakdown</h3>
+<h3 id="h-architectural-component-breakdown">Architectural Component Breakdown</h3>
 <ol>
 <li><strong>Ingestion &amp; Input Sanitization Layer</strong>: Validates incoming request signatures, verifies API tokens, enforces rate limits, and sanitizes payload content. If unstructured user text is present, it scrubs indirect injection markers before downstream systems receive the data.</li>
 <li><strong>Deterministic Orchestrator</strong>: Built on battle-tested workflow engines (such as Temporal, AWS Step Functions, or self-hosted n8n instances). It maintains the global state machine, records checkpoints, and ensures that execution order is strictly enforced. For an in-depth breakdown of enterprise topologies, read our deep-dive on <a href="/blog/ai-automation-architecture">AI Automation Architecture: Designing Reliable Workflows, Agents, and Human Approval Loops</a>.</li>
@@ -1081,7 +1579,7 @@
 <li><strong>Audit, Telemetry &amp; Persistence Layer</strong>: Commits the final transaction to the persistent database, records complete trace logs (inputs, model completions, token usage, latency) to monitoring systems, and closes the workflow execution.</li>
 </ol>
 <hr />
-<h2>9. Designing a Bounded AI Agent</h2>
+<h2 id="h-9-designing-a-bounded-ai-agent">9. Designing a Bounded AI Agent</h2>
 <p>When an initiative requires an autonomous agent, engineers must build a <strong>bounded agent</strong> rather than deploying an unconstrained autonomous loop. A bounded agent is an agentic system whose operational scope, memory, available tools, execution limits, and permissions are strictly circumscribed by deterministic code.</p>
 <p>An unconstrained agent is an operational liability; a bounded agent is an effective software worker.</p>
 <pre><code>+------------------------------------------------------------------------+
@@ -1131,7 +1629,7 @@
 |                                                                        |
 +------------------------------------------------------------------------+
 </code></pre>
-<h3>Essential Components of a Bounded Agent</h3>
+<h3 id="h-essential-components-of-a-bounded-agent">Essential Components of a Bounded Agent</h3>
 <ol>
 <li><strong>System Instructions</strong>: Define the agent's exact operational role, allowed behaviors, and explicit refusal boundaries. (e.g., <em>"You are an assistant for data reconciliation with read-only access to customer usage records. You are strictly forbidden from altering billing data directly."</em>)</li>
 <li><strong>Context</strong>: Provide only the concise, structured data slice relevant to the immediate task. Clean older observations as turns progress to prevent token saturation.</li>
@@ -1146,7 +1644,7 @@
 <li><strong>Human Escalation</strong>: When an agent hits an execution ceiling or encounters unresolvable edge cases, format an escalation report detailing attempted steps, failure reasons, and required human intervention.</li>
 </ol>
 <hr />
-<h2>10. Human-in-the-Loop Is an Architecture Pattern, Not a Failure</h2>
+<h2 id="h-10-human-in-the-loop-is-an-architecture-pattern-not-a-failure">10. Human-in-the-Loop Is an Architecture Pattern, Not a Failure</h2>
 <p>In consumer software demonstrations, total autonomy is often showcased as the ultimate goal. In enterprise engineering, <strong>unsupervised autonomy in high-consequence environments is an operational liability</strong>.</p>
 <p>Incorporating human oversight is an architectural pattern designed to combine machine velocity with human accountability.</p>
 <pre><code>+------------------------------------------------------------------------+
@@ -1171,7 +1669,7 @@
 |                     | automated flow.   | internal cache warming       |
 +---------------------+-------------------+------------------------------+
 </code></pre>
-<h3>When Human Approval Must Be Required</h3>
+<h3 id="h-when-human-approval-must-be-required">When Human Approval Must Be Required</h3>
 <ul>
 <li><strong>Financial and Transactional Operations</strong>: Issuing refunds, authorizing credit limits, modifying payroll records, or approving supplier invoice disbursements above trivial thresholds.</li>
 <li><strong>Destructive Database Mutations</strong>: Deleting user accounts, purging records, dropping tables, or executing bulk overwrite scripts.</li>
@@ -1182,7 +1680,7 @@
 </ul>
 <p>By formalizing human intervention into distinct structural patterns (Approval, Review, Escalation, Full Autonomy), engineering teams can scale automated throughput without exposing the enterprise to catastrophic unmonitored failures.</p>
 <hr />
-<h2>11. Security and Permission Boundaries</h2>
+<h2 id="h-11-security-and-permission-boundaries">11. Security and Permission Boundaries</h2>
 <p>Expanding an automated system from deterministic code to an autonomous agent exponentially widens its cybersecurity attack surface. When a model is granted tool access, it becomes a potential vector for exploitation.</p>
 <p>Securing AI automation and agentic architectures requires strict adherence to security fundamentals:</p>
 <ul>
@@ -1192,7 +1690,7 @@
 <li><strong>Secret and Credential Segregation</strong>: Never pass raw API keys or database passwords into model prompts or context windows. The model should know only that a tool named <code>search_product_catalog</code> exists. When the model invokes that tool, the deterministic host application retrieves the necessary API token from a secure secrets manager (AWS Secrets Manager, HashiCorp Vault) and executes the call server-side.</li>
 </ul>
 <hr />
-<h2>12. Testing and Evaluation</h2>
+<h2 id="h-12-testing-and-evaluation">12. Testing and Evaluation</h2>
 <p>Traditional software development relies on deterministic unit and integration tests: given input $X$, verify output equals $Y$. </p>
 <p>While deterministic orchestration layers must still be covered with conventional unit tests, testing agentic and AI-assisted components requires <strong>systematic evaluation harnesses</strong>. Because models are probabilistic, verifying a single run in development provides zero statistical guarantee that the system will behave reliably in production.</p>
 <pre><code>+------------------------------------------------------------------------+
@@ -1226,7 +1724,7 @@
 |                                                                        |
 +------------------------------------------------------------------------+
 </code></pre>
-<h3>Essential Evaluation Methodologies</h3>
+<h3 id="h-essential-evaluation-methodologies">Essential Evaluation Methodologies</h3>
 <ol>
 <li><strong>Deterministic Unit Tests for Orchestration</strong>: Verify that workflow routers, data transformers, JSON validators, and error mappers behave correctly under standard input matrices.</li>
 <li><strong>Tool Contract Tests</strong>: Mock external tool responses—including edge cases such as HTTP 429 rate limits, 503 service outages, and malformed bodies—to verify that the agent recovers gracefully or escalates cleanly.</li>
@@ -1236,7 +1734,7 @@
 <li><strong>Human Review and Shadow Monitoring</strong>: Run new agents in shadow mode alongside human operators, comparing model tool proposals against human expert actions before enabling live execution.</li>
 </ol>
 <hr />
-<h2>13. Cost and Operational Complexity</h2>
+<h2 id="h-13-cost-and-operational-complexity">13. Cost and Operational Complexity</h2>
 <p>Evaluating AI automation versus AI agents requires calculating the <strong>Total Cost of Ownership (TCO)</strong> across the entire operational lifecycle. Organizations frequently make the mistake of evaluating only raw model API token costs, ignoring the engineering maintenance, observability infrastructure, and operational overhead that autonomous systems require.</p>
 <pre><code>+------------------------------------------------------------------------+
 |                     TOTAL COST OF OWNERSHIP (TCO)                      |
@@ -1255,7 +1753,7 @@
 |   management overhead              |   and escalation monitoring       |
 +------------------------------------+-----------------------------------+
 </code></pre>
-<h3>Direct and Operational Cost Drivers</h3>
+<h3 id="h-direct-and-operational-cost-drivers">Direct and Operational Cost Drivers</h3>
 <ul>
 <li><strong>Token Multiplication</strong>: In a deterministic workflow, an incoming document triggers exactly one model call. In an agentic loop, the model ingests its system prompt, tool definitions, accumulated turn history, and raw tool observations on <strong>every single turn</strong>. A 6-turn agentic task can consume 40,000 to 80,000 tokens for an operation that a structured pipeline could solve with 2,000 tokens.</li>
 <li><strong>Secondary Tool API Consumption</strong>: Agents iterating dynamically can execute multiple API calls against paid third-party services (search indexes, credit bureaus, enrichment databases) before completing a task.</li>
@@ -1264,7 +1762,7 @@
 </ul>
 <p>Neither architecture is inherently too expensive; cost depends entirely on <strong>workload value</strong>. Spending $0.75 in token compute on an autonomous agent to investigate and resolve a $500 customer invoice dispute is cost-effective. Spending $0.75 on an agent to parse a simple $10 receipt that a $0.002 deterministic pipeline could handle is an operational failure.</p>
 <hr />
-<h2>14. Common AI Automation Architecture Mistakes</h2>
+<h2 id="h-14-common-ai-automation-architecture-mistakes">14. Common AI Automation Architecture Mistakes</h2>
 <p>Across enterprise implementations, engineering teams repeatedly encounter the same structural traps. Recognizing these mistakes early preserves capital and prevents operational failure:</p>
 <ol>
 <li><strong>Deploying an Agent Where a Workflow Suffices</strong>: Teams build complex agentic loops with dynamic tool calling for processes that follow clear, predictable business rules. This introduces unnecessary non-determinism, slow execution, and high token costs without adding commercial value.</li>
@@ -1279,7 +1777,7 @@
 <li><strong>Treating Model Output as Trusted Data</strong>: Ingesting LLM output and rendering it directly into user browsers or database queries without sanitization, exposing the system to Cross-Site Scripting (XSS) or SQL injection vulnerabilities.</li>
 </ol>
 <hr />
-<h2>15. Practical Decision Framework</h2>
+<h2 id="h-15-practical-decision-framework">15. Practical Decision Framework</h2>
 <p>To determine whether an upcoming business initiative warrants traditional automation, AI-assisted automation, a bounded agent, or a hybrid architecture, walk through the engineering decision tree below:</p>
 <pre><code>                      [START PROJECT EVALUATION]
                                  │
@@ -1329,7 +1827,7 @@
                          [Mandatory     [Automated Execution
                           Human Gate]    with Telemetry Log]
 </code></pre>
-<h3>Architectural Evaluation Checklist</h3>
+<h3 id="h-architectural-evaluation-checklist">Architectural Evaluation Checklist</h3>
 <ul>
 <li><strong>Process Predictability</strong>: Can the steps be drawn as a static flowchart? <em>(If Yes -&gt; Traditional or AI-Assisted Automation)</em></li>
 <li><strong>Data Structure</strong>: Is incoming data already structured JSON/SQL, or is it messy natural language? <em>(If Structured -&gt; Traditional Automation; If Unstructured -&gt; AI-Assisted)</em></li>
@@ -1338,44 +1836,44 @@
 <li><strong>Operational Latency</strong>: Must the system respond in under 2 seconds? <em>(If Yes -&gt; Avoid multi-turn agentic loops; use deterministic or single-call AI-assisted pipelines)</em></li>
 </ul>
 <hr />
-<h2>16. Example Architectures</h2>
+<h2 id="h-16-example-architectures">16. Example Architectures</h2>
 <p>To illustrate how these architectural principles apply to real-world operations, examine six concrete engineering blueprints across common business domains:</p>
-<h3>1. Inbound Accounts Payable &amp; Invoice Processing</h3>
+<h3 id="h-1-inbound-accounts-payable-amp-invoice-processing">1. Inbound Accounts Payable &amp; Invoice Processing</h3>
 <ul>
 <li><strong>Problem</strong>: An enterprise receives thousands of supplier invoices monthly via email as PDF attachments. Invoices have varied layouts, require reconciliation against purchase orders (POs) in an ERP, and must be scheduled for payment.</li>
 <li><strong>Recommended Architecture</strong>: <strong>AI-Assisted Automation</strong></li>
 <li><strong>Why</strong>: The workflow steps are completely known: receive email $\rightarrow$ extract data $\rightarrow$ reconcile PO $\rightarrow$ schedule payment. An agent is unnecessary and introduces risk. An LLM node extracts invoice line items into strict JSON. Deterministic code reconciles the line items against the ERP database.</li>
 <li><strong>Where Human Approval Belongs</strong>: If line items match the PO within a 1% tolerance, payment is scheduled automatically. If discrepancies exist or the invoice exceeds $10,000, the system stages the invoice in an accounts payable approval queue for human sign-off.</li>
 </ul>
-<h3>2. High-Volume Customer Support Triage &amp; Resolution</h3>
+<h3 id="h-2-high-volume-customer-support-triage-amp-resolution">2. High-Volume Customer Support Triage &amp; Resolution</h3>
 <ul>
 <li><strong>Problem</strong>: A consumer SaaS platform receives 20,000 customer tickets monthly spanning password resets, billing disputes, bug reports, and feature requests.</li>
 <li><strong>Recommended Architecture</strong>: <strong>Hybrid Architecture</strong></li>
 <li><strong>Why</strong>: Ticket categorization and intent classification follow a deterministic pipeline. Routine requests (password resets, documentation links) are handled deterministically. Complex troubleshooting is routed to a bounded agent equipped with read-only tools to inspect user logs, error traces, and documentation.</li>
 <li><strong>Where Human Approval Belongs</strong>: The agent drafts resolution responses and technical explanations. For high-tier customers or churn-risk users, the draft is held in an agent review queue where a human agent approves or edits the message before transmission.</li>
 </ul>
-<h3>3. Inbound B2B Lead Qualification &amp; Pipeline Enrichment</h3>
+<h3 id="h-3-inbound-b2b-lead-qualification-amp-pipeline-enrichment">3. Inbound B2B Lead Qualification &amp; Pipeline Enrichment</h3>
 <ul>
 <li><strong>Problem</strong>: Inbound sales leads submit website inquiry forms. Leads must be verified, enriched with corporate firmographic data from multiple external databases, scored against ideal customer profiles (ICP), and assigned to sales representatives.</li>
 <li><strong>Recommended Architecture</strong>: <strong>Deterministic &amp; AI-Assisted Automation</strong></li>
 <li><strong>Why</strong>: Inbound lead processing is a classic linear pipeline: webhook capture $\rightarrow$ enrichment API query $\rightarrow$ deterministic scoring formula $\rightarrow$ CRM assignment. An autonomous agent adds latency and risk of inconsistent scoring. An AI node is used only if the lead submitted a long-form open text project description requiring semantic intent extraction.</li>
 <li><strong>Where Human Approval Belongs</strong>: Zero human approval needed for CRM enrichment and routing. Human interaction begins when the assigned sales executive conducts outreach.</li>
 </ul>
-<h3>4. Technical Security Incident Triage &amp; Log Investigation</h3>
+<h3 id="h-4-technical-security-incident-triage-amp-log-investigation">4. Technical Security Incident Triage &amp; Log Investigation</h3>
 <ul>
 <li><strong>Problem</strong>: A corporate Security Operations Center (SOC) receives hundreds of automated SIEM alerts daily. Analysts spend hours manually correlating IP addresses, checking firewall logs, reviewing employee authentication histories, and assessing threat severity.</li>
 <li><strong>Recommended Architecture</strong>: <strong>Bounded AI Agent</strong></li>
 <li><strong>Why</strong>: Security investigations are exploratory. The exact sequence of investigation steps depends on what each log reveals. The agent is provided with read-only investigation tools: query firewall logs, query DNS logs, check IP reputation services, inspect authentication histories. The agent navigates these tools iteratively, synthesizing a complete threat dossier.</li>
 <li><strong>Where Human Approval Belongs</strong>: The agent is strictly <strong>read-only</strong>. It cannot modify firewall rules or isolate servers autonomously. The generated investigation report concludes with recommended remediation steps, which require authenticated SOC analyst authorization to execute.</li>
 </ul>
-<h3>5. E-Commerce Order Operations &amp; Return Verification</h3>
+<h3 id="h-5-e-commerce-order-operations-amp-return-verification">5. E-Commerce Order Operations &amp; Return Verification</h3>
 <ul>
 <li><strong>Problem</strong>: An online retail brand handles customer return requests involving uploaded photos of damaged merchandise, tracking status checks, and replacement shipments.</li>
 <li><strong>Recommended Architecture</strong>: <strong>Hybrid Architecture</strong></li>
 <li><strong>Why</strong>: Order lookup and shipping status follow strict API rules. Evaluating whether a customer-uploaded photograph demonstrates genuine product damage requires multimodal AI evaluation.</li>
 <li><strong>Where Human Approval Belongs</strong>: If return value is under $50 and image analysis indicates valid damage with high confidence, replacement is automated. For high-value goods ($&gt; $200) or ambiguous damage scores, the ticket and annotated image are routed to customer service staff for approval.</li>
 </ul>
-<h3>6. Regulatory Policy &amp; Compliance Knowledge Retrieval</h3>
+<h3 id="h-6-regulatory-policy-amp-compliance-knowledge-retrieval">6. Regulatory Policy &amp; Compliance Knowledge Retrieval</h3>
 <ul>
 <li><strong>Problem</strong>: Employees at a multinational financial firm need to query thousands of pages of internal compliance manuals, HR policies, and cross-border trade guidelines to ensure proposed transactions comply with corporate standards.</li>
 <li><strong>Recommended Architecture</strong>: <strong>AI-Assisted Retrieval (RAG) with Deterministic Citations</strong></li>
@@ -1383,7 +1881,7 @@
 <li><strong>Where Human Approval Belongs</strong>: The system serves as a decision-support copilot. Compliance officers review the cited guidance and make all binding regulatory determinations.</li>
 </ul>
 <hr />
-<h2>17. When NOT to Build an AI Agent</h2>
+<h2 id="h-17-when-not-to-build-an-ai-agent">17. When NOT to Build an AI Agent</h2>
 <p>Engineering excellence is defined as much by what you choose <strong>not</strong> to build as by what you create. Before authorizing an agentic project, technical leaders should verify that the initiative does not exhibit the following disqualifying characteristics:</p>
 <pre><code>+------------------------------------------------------------------------+
 |                     DISQUALIFYING CRITERIA FOR AGENTS                  |
@@ -1397,7 +1895,7 @@
 |  7. Unit economics cannot absorb multi-turn token inference variance   |
 +------------------------------------------------------------------------+
 </code></pre>
-<h3>The Seven Warning Signs</h3>
+<h3 id="h-the-seven-warning-signs">The Seven Warning Signs</h3>
 <ol>
 <li><strong>The Flowchart Already Exists</strong>: If an operations manager can walk you through an exact, unambiguous flowchart of how the task is handled, <strong>do not build an agent</strong>. Build a deterministic workflow. It will be faster, cheaper, and more reliable.</li>
 <li><strong>The Cost of a Single Failure Is Fatal</strong>: If a single hallucinated output could result in regulatory fines, critical data loss, medical misdiagnosis, or severe financial harm, do not delegate execution to an autonomous model.</li>
@@ -1408,26 +1906,26 @@
 <li><strong>The Team Is Driven by Technology Hype</strong>: Adopting autonomous agents simply because they are currently popular in industry marketing is <strong>Resume-Driven Development</strong>. Choose the architecture that delivers the highest commercial reliability at the lowest operational complexity.</li>
 </ol>
 <hr />
-<h2>18. Frequently Asked Questions</h2>
-<h3>What is the difference between AI automation and an AI agent?</h3>
+<h2 id="h-18-frequently-asked-questions">18. Frequently Asked Questions</h2>
+<h3 id="h-what-is-the-difference-between-ai-automation-and-an-ai-agent">What is the difference between AI automation and an AI agent?</h3>
 <p>AI automation is a software architecture where the sequence of execution steps is fixed at design time by human engineers, using APIs, conditional logic, and optionally AI models for bounded cognitive tasks (like parsing text). An AI agent is a software architecture where a model is given an objective, context, and callable tools, and autonomously determines its own sequence of actions at runtime through an iterative reasoning-observation loop.</p>
-<h3>Is every AI workflow an agent?</h3>
+<h3 id="h-is-every-ai-workflow-an-agent">Is every AI workflow an agent?</h3>
 <p>No. In fact, the vast majority of reliable production AI systems are not agents. Calling an LLM to classify an email, summarize a document, or extract JSON from an invoice is <strong>AI-assisted automation</strong>. It only becomes an agent if the model is empowered to evaluate intermediate observations and dynamically choose what tools or actions to take next.</p>
-<h3>Are AI agents more reliable than automation?</h3>
+<h3 id="h-are-ai-agents-more-reliable-than-automation">Are AI agents more reliable than automation?</h3>
 <p>No. Traditional deterministic automation is mathematically more reliable than AI agents. Deterministic code executes with 100% predictability when inputs match specifications. AI agents rely on probabilistic inference; as multi-step agentic chains lengthen, the likelihood of compounding errors, hallucinated parameters, or loop stalls increases exponentially.</p>
-<h3>When should a business use an AI agent?</h3>
+<h3 id="h-when-should-a-business-use-an-ai-agent">When should a business use an AI agent?</h3>
 <p>A business should consider an AI agent only when the problem domain involves meaningful ambiguity, the execution path cannot be mapped out in advance, the environment changes during execution, and the system must dynamically select from multiple tools to investigate or solve a problem.</p>
-<h3>Can AI automation use an LLM without being agentic?</h3>
+<h3 id="h-can-ai-automation-use-an-llm-without-being-agentic">Can AI automation use an LLM without being agentic?</h3>
 <p>Yes. Embedding an LLM as a single cognitive processing node within a deterministic pipeline (e.g., using a model to extract structured data from messy PDFs, followed by deterministic validation and database writes) is standard AI-assisted automation. The model performs a transformation, but does not control workflow sequencing.</p>
-<h3>What is a bounded AI agent?</h3>
+<h3 id="h-what-is-a-bounded-ai-agent">What is a bounded AI agent?</h3>
 <p>A bounded AI agent is an agentic system whose operational authority is strictly constrained by software guardrails: explicit system instructions, curated minimal context, strictly typed tool schemas, runtime policy gates, hard iteration caps (e.g., maximum 5 turns), token budgets, and human escalation fallbacks.</p>
-<h3>Should AI agents have human approval?</h3>
+<h3 id="h-should-ai-agents-have-human-approval">Should AI agents have human approval?</h3>
 <p>Yes. In production enterprise architectures, any action with significant financial, legal, security, or data integrity consequences must require human approval before execution. The agent stages the proposed action and rationale; an authenticated human operator authorizes or rejects the write.</p>
-<h3>Are AI agents more expensive?</h3>
+<h3 id="h-are-ai-agents-more-expensive">Are AI agents more expensive?</h3>
 <p>Generally, yes. While deterministic automation incurs negligible compute costs, an agentic loop requires multiple sequential model invocations across expanding context windows, consuming tens of thousands of tokens per task. However, if the agent successfully automates complex manual knowledge work, the return on investment can far outweigh the compute cost.</p>
-<h3>Can automation and agents be combined?</h3>
+<h3 id="h-can-automation-and-agents-be-combined">Can automation and agents be combined?</h3>
 <p>Yes. This is called a <strong>hybrid architecture</strong>, and it represents the most resilient enterprise pattern. A deterministic orchestrator governs the overarching business workflow, state persistence, and security gates, while delegating narrow, ambiguous subtasks to bounded agents.</p>
-<h3>What is the safest way to deploy an AI agent?</h3>
+<h3 id="h-what-is-the-safest-way-to-deploy-an-ai-agent">What is the safest way to deploy an AI agent?</h3>
 <p>The safest deployment methodology is:</p>
 <ol>
 <li>Limit tools strictly to read-only operations initially.</li>
@@ -1437,7 +1935,7 @@
 <li>Deploy comprehensive telemetry and automated evaluation harnesses before granting bounded execution autonomy.</li>
 </ol>
 <hr />
-<h2>19. Related AI Engineering Guides</h2>
+<h2 id="h-19-related-ai-engineering-guides">19. Related AI Engineering Guides</h2>
 <p>To continue exploring reliable intelligent systems engineering, examine our published technical guides and architectural blueprints:</p>
 <ul>
 <li><strong>Enterprise Workflow Topologies</strong>: Review our foundational guide on <a href="/blog/ai-automation-architecture">AI Automation Architecture: Designing Reliable Workflows, Agents, and Human Approval Loops</a> to inspect production state machines, event queues, and telemetry architectures.</li>
@@ -1445,32 +1943,384 @@
 <li><strong>Architectural Trade-Off Analysis</strong>: Understand how to balance custom engineering against managed platforms in <a href="/blog/custom-web-development-vs-no-code">Custom Web Development vs No-Code: Architectural Trade-Offs, Decision Matrix, and Scaling Limits</a>.</li>
 <li><strong>High-Performance Web Foundations</strong>: Explore how modern decoupled systems maintain sub-second latency in <a href="/blog/nextjs-performance-architecture">Next.js Performance Architecture: Core Web Vitals, Edge Caching, and Server Components</a>.</li>
 </ul>
-<h3>Consult with Our Engineering Practice</h3>
+<h3 id="h-consult-with-our-engineering-practice">Consult with Our Engineering Practice</h3>
 <p>If your organization is planning an automation initiative and needs to determine whether your problem requires deterministic workflows, AI-assisted data pipelines, or bounded agentic systems, explore our specialized <a href="/services/ai-automation">AI Automation Services</a> or <a href="/contact?service=ai-automation">schedule an architectural consultation</a> with our engineering team to design resilient, governed systems built to scale.</p>
 
-            </div>
+                </div>
 
-            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
-                <span class="tag-pill">#AI Automation</span><span class="tag-pill">#AI Agents</span><span class="tag-pill">#System Architecture</span><span class="tag-pill">#Reliability Engineering</span><span class="tag-pill">#Workflow Design</span>
-            </div>
+                <!-- TAGS -->
+                <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                    <span class="tag-pill">#AI Automation</span><span class="tag-pill">#AI Agents</span><span class="tag-pill">#System Architecture</span><span class="tag-pill">#Reliability Engineering</span><span class="tag-pill">#Workflow Design</span>
+                </div>
 
-            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
-                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
-                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
-                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                    <a href="/services/ai-automation" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
-                        Explore AI Automation & Workflow Architecture &rarr;
+                <!-- IN-ARTICLE CONVERSION CTA -->
+                <div class="in-article-cta text-center">
+                    <span class="cta-kicker">// ARCHITECTURAL PARTNERSHIP</span>
+                    <h3>Need Help Engineering Your Web Platform or AI Systems?</h3>
+                    <p>From high-performance Next.js architectures to headless Shopify storefronts, custom AI automations, and enterprise WordPress security recovery, Kawaki Studios designs resilient digital infrastructure built to scale.</p>
+                    <div class="cta-actions">
+                        <a href="/contact?service=ai-automation" class="btn-primary-theme">
+                            <span>Schedule Engineering Discovery</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path></svg>
+                        </a>
+                        <a href="/services/ai-automation" class="btn-link-secondary">
+                            Explore AI Automation & Workflow Architecture &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AUTHOR BIO CARD -->
+                <div class="author-bio-card">
+                    <div class="bio-avatar">
+                        <span class="avatar-text">KS</span>
+                    </div>
+                    <div class="bio-details">
+                        <span class="bio-role">Founder &amp; Principal Engineer</span>
+                        <h4>Kunal Sharma</h4>
+                        <p>Kunal is the founder and principal engineer at Kawaki Studios, specializing in high-performance web engineering, Next.js application architecture, headless Shopify systems, autonomous AI workflows, and forensic WordPress security recovery. He helps ambitious founders and modern enterprises design resilient, high-velocity digital flagships.</p>
+                        <div class="bio-socials">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub ↗</a>
+                            <a href="/contact" class="bio-consult">Book 15-Min Briefing ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- RIGHT STICKY SIDEBAR -->
+            <aside class="article-sidebar" data-lenis-prevent>
+                <!-- WIDGET 1: TABLE OF CONTENTS -->
+                <div class="toc-light-card">
+                    <h3 class="toc-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                        Table of Contents
+                    </h3>
+                    <nav class="toc-nav">
+                        <ul class="toc-list" data-lenis-prevent>
+                            
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-direct-answer-when-to-use-ai-automation-vs-an-ai-agent">The Direct Answer: When to Use AI Automation vs. an AI Agent</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-1-ai-automation-and-ai-agents-are-not-the-same-thing">1. AI Automation and AI Agents Are Not the Same Thing</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-deterministic-workflow-automation">Deterministic Workflow Automation</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-ai-assisted-automation">AI-Assisted Automation</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-agentic-systems">Agentic Systems</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-hybrid-architecture">Hybrid Architecture</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-2-the-autonomy-spectrum">2. The Autonomy Spectrum</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-architectural-implications-of-the-spectrum">Architectural Implications of the Spectrum</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-3-when-traditional-automation-is-the-better-architecture">3. When Traditional Automation Is the Better Architecture</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-4-when-ai-assisted-automation-is-enough">4. When AI-Assisted Automation Is Enough</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-high-leverage-use-cases-for-ai-assisted-automation">High-Leverage Use Cases for AI-Assisted Automation</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-5-when-an-ai-agent-actually-makes-sense">5. When an AI Agent Actually Makes Sense</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-6-ai-automation-vs-ai-agents-decision-matrix">6. AI Automation vs AI Agents — Decision Matrix</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-7-reliability-the-real-engineering-difference">7. Reliability: The Real Engineering Difference</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-explicit-tool-contracts">Explicit Tool Contracts</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-validation-layers">Validation Layers</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-retries-and-idempotency">Retries and Idempotency</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-checkpoints-and-state">Checkpoints and State</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-human-approval-gates">Human Approval Gates</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-audit-trails">Audit Trails</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-timeouts-and-resource-limits">Timeouts and Resource Limits</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-safe-failure-modes">Safe Failure Modes</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-8-designing-a-reliable-ai-automation-architecture">8. Designing a Reliable AI Automation Architecture</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-architectural-component-breakdown">Architectural Component Breakdown</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-9-designing-a-bounded-ai-agent">9. Designing a Bounded AI Agent</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-essential-components-of-a-bounded-agent">Essential Components of a Bounded Agent</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-10-human-in-the-loop-is-an-architecture-pattern-not-a-failure">10. Human-in-the-Loop Is an Architecture Pattern, Not a Failure</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-human-approval-must-be-required">When Human Approval Must Be Required</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-11-security-and-permission-boundaries">11. Security and Permission Boundaries</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-12-testing-and-evaluation">12. Testing and Evaluation</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-essential-evaluation-methodologies">Essential Evaluation Methodologies</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-13-cost-and-operational-complexity">13. Cost and Operational Complexity</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-direct-and-operational-cost-drivers">Direct and Operational Cost Drivers</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-14-common-ai-automation-architecture-mistakes">14. Common AI Automation Architecture Mistakes</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-15-practical-decision-framework">15. Practical Decision Framework</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-architectural-evaluation-checklist">Architectural Evaluation Checklist</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-16-example-architectures">16. Example Architectures</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-inbound-accounts-payable-amp-invoice-processing">1. Inbound Accounts Payable &amp; Invoice Processing</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-high-volume-customer-support-triage-amp-resolution">2. High-Volume Customer Support Triage &amp; Resolution</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-inbound-b2b-lead-qualification-amp-pipeline-enrichment">3. Inbound B2B Lead Qualification &amp; Pipeline Enrichment</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-technical-security-incident-triage-amp-log-investigation">4. Technical Security Incident Triage &amp; Log Investigation</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-5-e-commerce-order-operations-amp-return-verification">5. E-Commerce Order Operations &amp; Return Verification</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-6-regulatory-policy-amp-compliance-knowledge-retrieval">6. Regulatory Policy &amp; Compliance Knowledge Retrieval</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-17-when-not-to-build-an-ai-agent">17. When NOT to Build an AI Agent</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-the-seven-warning-signs">The Seven Warning Signs</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-18-frequently-asked-questions">18. Frequently Asked Questions</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-is-the-difference-between-ai-automation-and-an-ai-agent">What is the difference between AI automation and an AI agent?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-is-every-ai-workflow-an-agent">Is every AI workflow an agent?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-are-ai-agents-more-reliable-than-automation">Are AI agents more reliable than automation?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-when-should-a-business-use-an-ai-agent">When should a business use an AI agent?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-can-ai-automation-use-an-llm-without-being-agentic">Can AI automation use an LLM without being agentic?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-is-a-bounded-ai-agent">What is a bounded AI agent?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-should-ai-agents-have-human-approval">Should AI agents have human approval?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-are-ai-agents-more-expensive">Are AI agents more expensive?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-can-automation-and-agents-be-combined">Can automation and agents be combined?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-is-the-safest-way-to-deploy-an-ai-agent">What is the safest way to deploy an AI agent?</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-19-related-ai-engineering-guides">19. Related AI Engineering Guides</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-consult-with-our-engineering-practice">Consult with Our Engineering Practice</a>
+      </li>
+    
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- WIDGET 2: SHARE BUTTONS -->
+                <div class="share-light-card">
+                    <span class="share-label">Share Article</span>
+                    <div class="share-buttons">
+                        <button class="share-btn" id="share-copy" title="Copy Link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                        <a href="https://twitter.com/intent/tweet?text=AI%20Automation%20vs%20AI%20Agents%3A%20Architecture%2C%20Reliability%2C%20and%20When%20to%20Use%20Each&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fai-automation-vs-ai-agents" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter / X">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fai-automation-vs-ai-agents" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WIDGET 3: 1-ON-1 STRATEGY CALL -->
+                <div class="strategy-call-card">
+                    <span class="call-badge">1-ON-1 CONSULTATION</span>
+                    <h4 class="call-title">Book an Engineering Briefing</h4>
+                    <p class="call-desc">Discuss your web platform, Next.js migration, AI workflow, or security recovery directly with our engineering team.</p>
+                    <a href="/contact" class="btn-sidebar-call">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Schedule Call</span>
                     </a>
                 </div>
-                <a href="/contact?service=ai-automation" class="rlvnt-btn max-content" style="margin: 0 auto;">
-                    <span>Start a Project</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg>
-                </a>
+            </aside>
+        </div>
+
+        <!-- RELATED POSTS SECTION -->
+        <section class="related-posts-section">
+            <h2 class="related-section-title">Related Engineering Insights</h2>
+            <div class="related-grid">
+                
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">
+            <img src="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" alt="How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price">How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet archite...</p>
+          <a href="/blog/how-to-evaluate-a-web-development-proposal-beyond-price" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency">
+            <img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" alt="What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/what-to-prepare-before-hiring-web-development-agency">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budge...</p>
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-ai-search-engines-cite-sources">
+            <img src="/assets/images/blog/deterministic-code-vs-probabilistic-llm-boundary.webp" alt="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">AI Search</span>
+          <h3 class="card-title">
+            <a href="/blog/how-ai-search-engines-cite-sources">How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization</a>
+          </h3>
+          <p class="card-excerpt">An architectural guide to how AI search engines cite sources: RAG retrieval pipelines, query fan-out, empirical findings from the Pr...</p>
+          <a href="/blog/how-ai-search-engines-cite-sources" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
             </div>
-        </article>
+        </section>
     </main>
 
     <!-- UNIVERSAL GLOBAL FOOTER -->
@@ -1591,7 +2441,7 @@
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                </ul>
+            </ul>
             <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
                 <span>Back to Top</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
@@ -1602,6 +2452,78 @@
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Share Copy Link Handler
+            const copyBtn = document.getElementById('share-copy');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(window.location.href);
+                        const originalHtml = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#65a30d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                        copyBtn.setAttribute('title', 'Link Copied!');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHtml;
+                            copyBtn.setAttribute('title', 'Copy Link');
+                        }, 2500);
+                    } catch (err) {
+                        console.error('Failed to copy link:', err);
+                    }
+                });
+            }
+
+            // Table of Contents Scroll-Spy via IntersectionObserver
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            const headings = Array.from(document.querySelectorAll('.post-body-content h2, .post-body-content h3'));
+            
+            if (tocLinks.length > 0 && headings.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-100px 0px -65% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            tocLinks.forEach((link) => {
+                                const item = link.closest('.toc-item');
+                                if (link.getAttribute('href') === '#' + id) {
+                                    item?.classList.add('active');
+                                    const tocList = document.querySelector('.toc-list');
+                                    if (tocList && item) {
+                                        const offset = item.offsetTop - tocList.offsetTop;
+                                        tocList.scrollTo({ top: offset - 40, behavior: 'smooth' });
+                                    }
+                                } else {
+                                    item?.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                headings.forEach(h => observer.observe(h));
+            }
+
+            // Smooth scroll on TOC link click
+            tocLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href')?.slice(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const navOffset = 100;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
             // Time update helper for footer
             function updateFooterClocks() {
                 const now = new Date();
@@ -1610,10 +2532,10 @@
                 const elTokyo = document.getElementById('footerTimeTokyo');
                 const elLondon = document.getElementById('footerTimeLondon');
                 const elNY = document.getElementById('footerTimeNY');
-                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
-                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
-                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
-                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+                if (elDelhi) elDelhi.innerText = now.toLocaleTimeString('en-US', opt('Asia/Kolkata')) + ' IST';
+                if (elTokyo) elTokyo.innerText = now.toLocaleTimeString('en-US', opt('Asia/Tokyo')) + ' JST';
+                if (elLondon) elLondon.innerText = now.toLocaleTimeString('en-US', opt('Europe/London')) + ' GMT';
+                if (elNY) elNY.innerText = now.toLocaleTimeString('en-US', opt('America/New_York')) + ' EST';
             }
             updateFooterClocks();
             setInterval(updateFooterClocks, 10000);

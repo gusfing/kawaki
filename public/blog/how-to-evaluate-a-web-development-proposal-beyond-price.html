@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>How to Evaluate a Web Development Proposal Beyond Price — Kawaki Studios</title>
+    <title>How to Evaluate a Web Development Proposal — Kawaki Studios</title>
     <meta name="description" content="A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs." />
     <meta name="generator" content="Kawaki Blog Engine" />
     <link rel="canonical" href="https://kawaki.co.in/blog/how-to-evaluate-a-web-development-proposal-beyond-price" />
@@ -24,18 +24,18 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://kawaki.co.in/blog/how-to-evaluate-a-web-development-proposal-beyond-price" />
-    <meta property="og:title" content="How to Evaluate a Web Development Proposal Beyond Price — Kawaki Studios" />
+    <meta property="og:title" content="How to Evaluate a Web Development Proposal — Kawaki Studios" />
     <meta property="og:description" content="A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs." />
-    <meta property="og:image" content="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="675" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
-    <meta name="twitter:title" content="How to Evaluate a Web Development Proposal Beyond Price — Kawaki Studios" />
+    <meta name="twitter:title" content="How to Evaluate a Web Development Proposal — Kawaki Studios" />
     <meta name="twitter:description" content="A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs." />
-    <meta name="twitter:image" content="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -44,12 +44,18 @@
     "@type": "BlogPosting",
     "headline": "How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide",
     "description": "A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs.",
-    "image": "/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp",
+    "image": "https://kawaki.co.in/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp",
     "datePublished": "2026-10-19T19:10:00.000Z",
     "dateModified": "2026-10-19T19:10:00.000Z",
     "author": {
         "@type": "Person",
-        "name": "Kunal Sharma"
+        "name": "Kunal Sharma",
+        "jobTitle": "Founder & Principal Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in"
+        }
     },
     "publisher": {
         "@type": "Organization",
@@ -94,7 +100,7 @@
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/global.css?v=20260902_luxury_v6" />
     <link rel="stylesheet" href="/assets/css/chatbot.css?v=20260902_pill_v2" />
 
@@ -102,8 +108,9 @@
         :root {
             --color-bg: #FFFFFF;
             --color-text: #12100E;
-            --color-muted: #6B7280;
+            --color-muted: #64748B;
             --color-accent: #C6FF00;
+            --color-border: rgba(0, 0, 0, 0.08);
             --font-sans: "Plus Jakarta Sans", sans-serif;
             --font-serif: "Instrument Serif", serif;
             --font-mono: "JetBrains Mono", monospace;
@@ -116,7 +123,7 @@
             margin: 0;
             padding: 0;
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -125,13 +132,14 @@
             font-style: italic;
         }
 
-        .article-container {
-            max-width: 860px;
+        /* Container & Page Header */
+        .post-detail-page {
+            max-width: 1240px;
             margin: 0 auto;
             padding: 130px 24px 80px;
         }
 
-        .article-breadcrumb {
+        .breadcrumbs-nav {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
@@ -141,199 +149,304 @@
             color: var(--color-muted);
             margin-bottom: 1.5rem;
         }
-        .article-breadcrumb a {
+        .breadcrumbs-nav a {
             color: var(--color-muted);
             text-decoration: none;
             transition: color 0.2s;
         }
-        .article-breadcrumb a:hover {
-            color: var(--color-accent);
+        .breadcrumbs-nav a:hover {
+            color: #111111;
         }
-        .article-breadcrumb .bc-sep {
-            color: rgba(0,0,0,0.3);
+        .breadcrumbs-nav .divider {
+            color: rgba(0,0,0,0.25);
         }
-        .article-breadcrumb .bc-current {
-            color: var(--color-text);
+        .breadcrumbs-nav .active {
+            color: #111111;
+            font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 420px;
+            max-width: 480px;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-muted);
-            text-decoration: none;
-            margin-bottom: 2rem;
-            transition: color 0.2s;
-        }
-        .back-link:hover {
-            color: var(--color-accent);
+        .post-header {
+            margin-bottom: 2.5rem;
         }
 
-        .article-meta-badge {
+        .header-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: #111114;
+            color: #C6FF00;
             font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--color-accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            text-decoration: none;
         }
 
-        .article-header-title {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+        }
+        .meta-item svg {
+            color: var(--color-muted);
+        }
+
+        .post-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
-            margin: 0 0 1.5rem;
             color: #111111;
+            margin: 0 0 1.5rem;
         }
 
-        .article-info-bar {
+        .author-credits {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             padding: 1.25rem 0;
             border-top: 1px solid rgba(0,0,0,0.08);
             border-bottom: 1px solid rgba(0,0,0,0.08);
             margin-bottom: 2.5rem;
             font-size: 14px;
-            color: var(--color-muted);
-        }
-
-        .author-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         .author-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #111111;
+            background: #111114;
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
+            border: 2px solid rgba(198, 255, 0, 0.4);
+        }
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            font-weight: 700;
+            color: #111111;
+        }
+        .author-role {
+            font-size: 12px;
+            color: var(--color-muted);
         }
 
-        .article-hero-image {
+        /* Hero Featured Image Container */
+        .featured-image-wrapper {
+            margin-bottom: 3.5rem;
+        }
+        .featured-image-container {
             width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            max-height: 580px;
             border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            overflow: hidden;
+            background: #0B0B0E;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .post-featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .article-content {
+        /* Two-Column Layout Grid */
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        @media (max-width: 1024px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .article-sidebar {
+                order: 2;
+            }
+        }
+
+        /* Executive Summary / Key Takeaways Card */
+        .key-takeaways-card {
+            background: #F9FAF6;
+            border: 1px solid rgba(198, 255, 0, 0.4);
+            border-left: 4px solid #C6FF00;
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .takeaways-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+        .takeaways-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #111111;
+            font-family: var(--font-mono);
+        }
+        .takeaway-icon {
+            color: #65a30d;
+        }
+        .takeaway-lead {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .takeaway-bullets {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: #1F2937;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+        .takeaway-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Post Content Typography */
+        .post-body-content {
             font-size: 1.125rem;
             line-height: 1.8;
             color: #2D2A26;
         }
-
-        .article-content h1, 
-        .article-content h2, 
-        .article-content h3 {
-            color: #111111;
+        .post-body-content h2 {
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin: 2.5rem 0 1rem;
+            color: #111111;
+            margin: 3rem 0 1.25rem;
+            scroll-margin-top: 110px;
         }
-        .article-content h2 {
-            font-size: 1.75rem;
-        }
-        .article-content h3 {
+        .post-body-content h3 {
             font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: #111111;
+            margin: 2.25rem 0 1rem;
+            scroll-margin-top: 110px;
         }
-
-        .article-content p {
+        .post-body-content p {
             margin-bottom: 1.5rem;
         }
-
-        .article-content ul,
-        .article-content ol {
+        .post-body-content ul, .post-body-content ol {
             margin: 1.5rem 0;
-            padding-left: 2rem;
+            padding-left: 1.75rem;
         }
-
-        .article-content li {
+        .post-body-content li {
             margin-bottom: 0.5rem;
         }
-
-        .article-content a {
+        .post-body-content a {
             color: #111111;
             text-decoration: underline;
             text-decoration-color: var(--color-accent);
             text-underline-offset: 4px;
             transition: color 0.2s;
         }
-        .article-content a:hover {
+        .post-body-content a:hover {
             color: #000000;
         }
-
-        .article-content pre {
+        .post-body-content blockquote {
+            border-left: 3px solid #C6FF00;
+            background: #F9F9FB;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            color: #374151;
+            font-style: italic;
+        }
+        .post-body-content pre {
             background: #111116;
             color: #F4F4F5;
-            padding: 1.25rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 14px;
             overflow-x: auto;
             font-family: var(--font-mono);
             font-size: 14px;
-            margin: 1.5rem 0;
+            line-height: 1.6;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-
-        .article-content code {
+        .post-body-content code {
             font-family: var(--font-mono);
             font-size: 14px;
             background: rgba(0,0,0,0.06);
             padding: 2px 6px;
             border-radius: 4px;
         }
-
-        .article-content pre code {
+        .post-body-content pre code {
             background: transparent;
             padding: 0;
             border-radius: 0;
             color: inherit;
         }
-
-        .article-content blockquote {
-            border-left: 3px solid var(--color-accent);
-            padding-left: 1.25rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #4A4640;
+        .post-body-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            font-size: 14.5px;
         }
-
-        .article-content figure {
+        .post-body-content th {
+            background: #111114;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            border: 1px solid #111114;
+        }
+        .post-body-content td {
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: #FFFFFF;
+        }
+        .post-body-content tr:nth-child(even) td {
+            background: #F9FAF6;
+        }
+        .post-body-content figure {
             margin: 2.5rem 0;
             padding: 0;
         }
-
-        .article-content img {
+        .post-body-content img {
             max-width: 100%;
             height: auto;
             border-radius: 14px;
             display: block;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.08);
         }
-
-        .article-content figcaption {
+        .post-body-content figcaption {
             margin-top: 0.75rem;
             font-size: 0.85rem;
             color: var(--color-muted);
@@ -353,35 +466,398 @@
             margin-bottom: 6px;
         }
 
-        .rlvnt-btn {
+        /* In-Article Conversion Card */
+        .in-article-cta {
+            margin: 3.5rem 0;
+            padding: 2.5rem 2rem;
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(198, 255, 0, 0.2);
             position: relative;
-            display: inline-flex;
-            gap: 8px;
-            border: 1px solid var(--color-text);
+            overflow: hidden;
+        }
+        .in-article-cta .cta-kicker {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #C6FF00;
+            margin-bottom: 0.75rem;
+        }
+        .in-article-cta h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .in-article-cta p {
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 580px;
+            margin: 0 auto 1.75rem;
+        }
+        .in-article-cta .cta-actions {
+            display: flex;
+            gap: 16px;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary-theme {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 14px;
             padding: 12px 24px;
             border-radius: 50px;
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-style: italic;
-            background: transparent;
-            color: var(--color-text);
-            font-size: 1rem;
-            overflow: hidden;
-            transition: color 0.4s, transform 0.3s, background-color 0.3s, border-color 0.3s;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary-theme:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+        .btn-link-secondary {
+            color: #94A3B8;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        .btn-link-secondary:hover {
+            color: #FFFFFF;
+        }
+
+        /* Author Bio Card */
+        .author-bio-card {
+            display: flex;
+            gap: 20px;
+            padding: 2rem;
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            margin-top: 3.5rem;
+            align-items: flex-start;
+        }
+        @media (max-width: 640px) {
+            .author-bio-card {
+                flex-direction: column;
+            }
+        }
+        .bio-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #111114;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            border: 2px solid #C6FF00;
+            flex-shrink: 0;
+        }
+        .bio-details h4 {
+            margin: 0.25rem 0 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #111111;
+        }
+        .bio-role {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #65a30d;
+        }
+        .bio-details p {
+            margin: 0 0 1rem;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        .bio-socials {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .bio-socials a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .bio-socials a:hover {
+            color: #65a30d;
+        }
+        .bio-consult {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline !important;
+        }
+
+        /* Sidebar Widgets */
+        .article-sidebar {
+            position: sticky;
+            top: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .toc-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .toc-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #111111;
+            margin: 0 0 1rem;
+            font-family: var(--font-mono);
+        }
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 420px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        .toc-item {
+            margin-bottom: 2px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .toc-item a {
+            display: block;
+            padding: 6px 10px;
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: #4B5563;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-level-3 a {
+            padding-left: 20px;
+            font-size: 12.5px;
+            color: #6B7280;
+        }
+        .toc-item.active a {
+            color: #111111;
+            font-weight: 700;
+            border-left-color: #C6FF00;
+            background: rgba(198, 255, 0, 0.15);
+            border-radius: 0 6px 6px 0;
+        }
+        .toc-item a:hover {
+            color: #111111;
+            background: rgba(0,0,0,0.03);
+        }
+
+        .share-light-card {
+            background: #FAFAFC;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .share-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-mono);
+            color: #111111;
+        }
+        .share-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111111;
             cursor: pointer;
+            transition: all 0.2s;
             text-decoration: none;
         }
-        .rlvnt-btn.max-content {
-            width: max-content;
-            height: max-content;
-            font-size: 20px;
-            padding: 8px 16px;
+        .share-btn:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
         }
-        .rlvnt-btn:hover {
-            background-color: var(--color-text);
-            color: #ffffff;
+
+        .strategy-call-card {
+            background: #111114;
+            color: #FFFFFF;
+            border-radius: 18px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .call-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #C6FF00;
+            margin-bottom: 0.5rem;
+        }
+        .call-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            color: #FFFFFF;
+        }
+        .call-desc {
+            font-size: 13px;
+            color: #94A3B8;
+            line-height: 1.5;
+            margin: 0 0 1.25rem;
+        }
+        .btn-sidebar-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #C6FF00;
+            color: #111111;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+            box-sizing: border-box;
+        }
+        .btn-sidebar-call:hover {
+            transform: translateY(-2px);
+            background: #D4FF33;
+        }
+
+        /* Related Posts Section */
+        .related-posts-section {
+            margin-top: 5rem;
+            padding-top: 3.5rem;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .related-section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111111;
+            margin: 0 0 2.5rem;
+            text-align: center;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 900px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .post-light-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-light-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.06);
+        }
+        .card-img-wrapper {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0B0B0E;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .post-light-card:hover .card-img {
+            transform: scale(1.04);
+        }
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 0.75rem 0 0.5rem;
+        }
+        .card-title a {
+            color: #111111;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-title a:hover {
+            color: #65a30d;
+        }
+        .card-excerpt {
+            font-size: 13.5px;
+            color: var(--color-muted);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .card-read-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+        .card-read-link:hover {
+            gap: 8px;
+            color: #65a30d;
         }
     </style>
 </head>
@@ -600,46 +1076,68 @@
     </div>
 
     <!-- MAIN ARTICLE BODY -->
-    <main class="article-container">
-        <!-- Breadcrumbs -->
-        <nav aria-label="Breadcrumb" class="article-breadcrumb">
+    <main class="post-detail-page">
+        <!-- BREADCRUMBS -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs-nav">
             <a href="/">Home</a>
-            <span class="bc-sep">/</span>
+            <span class="divider">/</span>
             <a href="/blog">Blog</a>
-            <span class="bc-sep">/</span>
-            <span class="bc-current">How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide</span>
+            <span class="divider">/</span>
+            <span class="active" aria-current="page">How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide</span>
         </nav>
 
-        <a href="/blog" class="back-link">
-            ← Back to all stories
-        </a>
-
-        <article id="articleWrapper">
-            <div class="article-meta-badge" id="articleCategory">
-                ● Web Development
+        <!-- POST HEADER -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="category-badge">Web Development</span>
+                <span class="meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    15 min read
+                </span>
+                <span class="meta-item">19 Oct 2026</span>
             </div>
-            
-            <h1 class="article-header-title" id="articleTitle">
+
+            <h1 class="post-title" id="articleTitle">
                 How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide
             </h1>
 
-            <div class="article-info-bar">
-                <div class="author-box">
-                    <div class="author-avatar" id="authorInitial">KS</div>
-                    <div>
-                        <div style="font-weight: 700; color: #111111;" id="authorName">Kunal Sharma</div>
-                        <div style="font-size: 12px;" id="articleDate">19 Oct 2026</div>
-                    </div>
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 13px;" id="articleViews">
-                    125 reads
+            <div class="author-credits">
+                <div class="author-avatar" id="authorInitial">KS</div>
+                <div class="author-details">
+                    <span class="author-name" id="authorName">Kunal Sharma</span>
+                    <span class="author-role">Founder &amp; Principal Engineer, Kawaki Studios</span>
                 </div>
             </div>
+        </header>
 
-            <img id="articleImage" src="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" alt="How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide" class="article-hero-image" width="1200" height="855" fetchpriority="high" decoding="async" />
+        <!-- FEATURED HERO IMAGE -->
+        <div class="featured-image-wrapper">
+            <div class="featured-image-container">
+                <img id="articleImage" src="/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp" alt="How to Evaluate a Web Development Proposal Beyond Price: The Technical Vetting & Architecture Guide" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+            </div>
+        </div>
 
-            <div class="article-content" id="articleContent">
-                <p>You have prepared your project requirements, distributed your brief, and received three to five agency proposals. On paper, they all promise a "modern, responsive, high-performance website." </p>
+        <!-- TWO-COLUMN ARTICLE LAYOUT -->
+        <div class="article-layout" id="articleWrapper">
+            <!-- LEFT MAIN CONTENT COLUMN -->
+            <article class="article-content-column">
+                <!-- EXECUTIVE SUMMARY / KEY TAKEAWAYS -->
+                <div class="key-takeaways-card">
+                    <div class="takeaways-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="takeaway-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        <h3>Executive Summary / Key Takeaways</h3>
+                    </div>
+                    <p class="takeaway-lead">A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs.</p>
+                    <ul class="takeaway-bullets">
+                        <li>Audits competing proposals across 5 core pillars: Architecture, Scope Precision, IP Governance, Milestone QA, and 3-Year TCO.</li>
+                        <li>Exposes the mechanics of underbidding: change-order ambushes, commercial template reselling, and offshore subcontracting.</li>
+                        <li>Supplies 5 non-negotiable questions to ask lead engineers on proposal review calls.</li>
+                    </ul>
+                </div>
+
+                <!-- MAIN ARTICLE CONTENT -->
+                <div class="post-body-content" id="articleContent">
+                    <p>You have prepared your project requirements, distributed your brief, and received three to five agency proposals. On paper, they all promise a "modern, responsive, high-performance website." </p>
 <p>Then you look at the commercial estimates:</p>
 <ul>
 <li><strong>Agency A:</strong> $6,500 (Delivery in 3 weeks)</li>
@@ -654,47 +1152,47 @@
 </blockquote>
 <p>Building directly on our previous guide on <a href="/blog/what-to-prepare-before-hiring-web-development-agency">what to prepare before hiring a web development agency</a>, this guide provides an actionable, technical framework to evaluate competing proposals, dissect hidden assumptions, audit architecture, and select the right engineering partner.</p>
 <hr />
-<h2>1. The Cost Illusion: The Anatomy of an Underbid</h2>
+<h2 id="h-1-the-cost-illusion-the-anatomy-of-an-underbid">1. The Cost Illusion: The Anatomy of an Underbid</h2>
 <p>To understand why proposals vary so drastically, you must understand how low-tier agencies operate. In the agency ecosystem, low bids are rarely a sign of engineering efficiency; they are a customer-acquisition tactic.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/web-development-proposal-evaluation-framework.webp" alt="Web Development Proposal Evaluation Matrix showing the 5 core pillars of Technical Architecture, Scope Precision, Code &amp; IP Governance, Milestone Protocol, and Total Cost of Ownership" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: The 5-Pillar Technical Proposal Evaluation Matrix.</figcaption>
 </figure><p>When a vendor drastically underbids a project, they survive through one of three mechanisms:</p>
-<h3>1. The "Change-Order" Ambush</h3>
+<h3 id="h-1-the-change-order-ambush">1. The "Change-Order" Ambush</h3>
 <p>The vendor intentionally submits a vague, low-priced proposal that covers only a superficial "happy path." Once you sign the contract and pay the 50% deposit, every necessary technical reality—mobile form validation, third-party webhook error handling, staging environments, transactional email templates, or basic SEO redirects—is classified as "out of scope." You are hit with aggressive, non-negotiable change-order invoices at $150/hour when your launch deadline is already committed to investors or customers.</p>
-<h3>2. The Commercial Template Reseller</h3>
+<h3 id="h-2-the-commercial-template-reseller">2. The Commercial Template Reseller</h3>
 <p>The vendor does not actually write custom code. Instead, they purchase a $59 ThemeForest theme, install 40+ unvetted third-party plugins (page builders, slider tools, mega-menu add-ons), and swap in your logo. </p>
 <ul>
 <li><strong>The Immediate Result:</strong> The site looks passable on desktop during launch week.</li>
 <li><strong>The Long-Term Cost:</strong> Mobile page loads exceed 4.5 seconds (failing Core Web Vitals), database queries spike to 200+ per page load, plugin conflicts break checkout, and unpatched security vulnerabilities invite <a href="/blog/wordpress-malicious-redirects-cleanup">malicious script injections</a> or stealth web shells within six months.</li>
 </ul>
-<h3>3. The Offshore Subcontractor Arbitrage</h3>
+<h3 id="h-3-the-offshore-subcontractor-arbitrage">3. The Offshore Subcontractor Arbitrage</h3>
 <p>You interview a polished Western or metro-based account executive who promises high-touch collaboration. Once the contract is signed, your project is handed over to junior, white-label offshore subcontractors who were never in the room, have no context on your brand, and lack architectural leadership. Progress stalls, communication deteriorates across time zones, and the resulting codebase is unmaintainable spaghetti.</p>
 <hr />
-<h2>2. The 5-Pillar Proposal Evaluation Matrix</h2>
+<h2 id="h-2-the-5-pillar-proposal-evaluation-matrix">2. The 5-Pillar Proposal Evaluation Matrix</h2>
 <p>To strip away marketing rhetoric and compare proposals objectively, evaluate every submission across five core pillars:</p>
-<h3>Pillar 1: Architectural Foundation &amp; Tech Stack Justification</h3>
+<h3 id="h-pillar-1-architectural-foundation-amp-tech-stack-justification">Pillar 1: Architectural Foundation &amp; Tech Stack Justification</h3>
 <p>A professional proposal does not simply state "we will build on Technology X." It explains <strong>why</strong> that architecture was selected based on your traffic, content workflows, and long-term business goals:</p>
 <ul>
 <li><strong>Technology Alignment:</strong> Did the agency propose a monolithic CMS when your roadmap requires multi-channel content delivery? Did they propose a complex, decoupled microservices stack when a clean static Jamstack site would have been faster, cheaper, and more secure?</li>
 <li><strong>Performance Commitments:</strong> Does the proposal include concrete, contractual performance benchmarks? Elite agencies commit to sub-1.2s Largest Contentful Paint (LCP) and zero Cumulative Layout Shift (CLS) on real mobile connections. Low-tier proposals make vague claims like "the site will be fast and SEO-friendly."</li>
 <li><strong>Dependency Hygiene:</strong> What is their philosophy on external dependencies? A quality proposal specifies minimal third-party libraries, modern package management (npm/pnpm), and zero drag-and-drop page builders that bloat the client-side bundle.</li>
 </ul>
-<h3>Pillar 2: Scope of Work (SOW) Precision &amp; "Non-Goals"</h3>
+<h3 id="h-pillar-2-scope-of-work-sow-precision-amp-non-goals">Pillar 2: Scope of Work (SOW) Precision &amp; "Non-Goals"</h3>
 <p>The quality of a proposal is directly proportional to its specificity. Look at the Scope of Work (SOW):</p>
 <ul>
 <li><strong>Granular Page &amp; View Inventory:</strong> Does the proposal list every unique page layout, interactive component, and dynamic state? (e.g., "Homepage, 4 Service Hubs, Dynamic Case Study Engine, Multi-Step Checkout, 404 Error State, Legal Templates").</li>
 <li><strong>Integration Data Contracts:</strong> If third-party APIs are required (HubSpot, Stripe, NetSuite, Klaviyo), does the proposal detail how data flows, how authentication is handled, and what happens when an API is unreachable?</li>
 <li><strong>Explicit Non-Goals:</strong> Does the proposal document what is <strong>not</strong> included? High-integrity agencies explicitly define non-goals (e.g., "Phase 1 does not include multi-language localization or native mobile app push notifications"). This proves the agency has thought deeply about project boundaries.</li>
 </ul>
-<h3>Pillar 3: Code Ownership, Repositories &amp; IP Governance</h3>
+<h3 id="h-pillar-3-code-ownership-repositories-amp-ip-governance">Pillar 3: Code Ownership, Repositories &amp; IP Governance</h3>
 <p>One of the most dangerous oversights in agency procurement is assuming you automatically own your software:</p>
 <ul>
 <li><strong>Repository Access from Day 1:</strong> Will the agency commit directly to your company's private GitHub or GitLab organization from Sprint 1? If an agency insists on hosting code on their private, internal server until final invoice payment, your project is held hostage.</li>
 <li><strong>100% Intellectual Property Assignment:</strong> Does the contract language unequivocally state that all bespoke code, custom scripts, designs, and architectural assets belong to your company upon creation?</li>
 <li><strong>Infrastructure &amp; Domain Control:</strong> Does the agency register domains or cloud hosting accounts under their name? All cloud infrastructure (Vercel, AWS, Cloudflare, Supabase) must be provisioned under your organization's administrative billing.</li>
 </ul>
-<h3>Pillar 4: Milestone Structure, Staging Environments &amp; QA</h3>
+<h3 id="h-pillar-4-milestone-structure-staging-environments-amp-qa">Pillar 4: Milestone Structure, Staging Environments &amp; QA</h3>
 <p>Look closely at how the agency plans to verify their work before you release payment:</p>
 <ul>
 <li><strong>Deliverable-Based Invoicing:</strong> Avoid proposals demanding "50% upfront, 50% upon completion." Instead, look for phased milestone payments tied to testable deliverables:<ul>
@@ -707,7 +1205,7 @@
 <li><strong>Automated Staging Deployments:</strong> Does the agency provide continuous preview URLs (e.g., automated Vercel or Netlify preview deployments on every Git pull request)? You should be able to click and test features as they are built, rather than waiting for a "big reveal" at the end of the project.</li>
 <li><strong>Formal Quality Assurance Protocol:</strong> Does the proposal outline their cross-device testing matrix (physical iOS, Android, macOS, Windows)? Does it include automated Lighthouse CI checks, WCAG 2.1 AA accessibility audits, and cross-browser regression testing?</li>
 </ul>
-<h3>Pillar 5: Total Cost of Ownership (TCO) &amp; Post-Launch Support</h3>
+<h3 id="h-pillar-5-total-cost-of-ownership-tco-amp-post-launch-support">Pillar 5: Total Cost of Ownership (TCO) &amp; Post-Launch Support</h3>
 <p>A website has operational expenses that extend far beyond initial development:</p>
 <ul>
 <li><strong>Recurring SaaS &amp; Plugin Subscriptions:</strong> Does the proposed build require $300/month in commercial plugin licenses, CMS tiers, or API compute charges?</li>
@@ -715,7 +1213,7 @@
 <li><strong>Written Post-Launch Warranty:</strong> Elite agencies include a 30 to 60-day written warranty covering bug fixes, performance monitoring, and telemetry stabilization at zero additional charge. Low-tier proposals conclude responsibility on launch day, forcing you into expensive hourly retainers immediately.</li>
 </ul>
 <hr />
-<h2>3. Proposal Scorecard: Red Flags vs. Engineering Standards</h2>
+<h2 id="h-3-proposal-scorecard-red-flags-vs-engineering-standards">3. Proposal Scorecard: Red Flags vs. Engineering Standards</h2>
 <p>To assist your executive team in vetting proposals side-by-side, use this comparison scorecard:</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/proposal-red-flags-vs-engineering-standards.webp" alt="Web Development Proposal Vetting Scorecard comparing low-tier vendor red flags against elite engineering standards" width="1200" height="675" loading="lazy" decoding="async" />
@@ -759,54 +1257,54 @@
 </tr>
 </tbody></table>
 <hr />
-<h2>4. Dissecting Common Proposal Tech Stacks</h2>
+<h2 id="h-4-dissecting-common-proposal-tech-stacks">4. Dissecting Common Proposal Tech Stacks</h2>
 <p>When agencies propose different technical stacks, they are fundamentally proposing different business models:</p>
-<h3>Stack A: The Monolithic CMS (e.g., Standard WordPress + Elementor)</h3>
+<h3 id="h-stack-a-the-monolithic-cms-e-g-standard-wordpress-elementor">Stack A: The Monolithic CMS (e.g., Standard WordPress + Elementor)</h3>
 <ul>
 <li><strong>Appropriate For:</strong> Ultra-low-budget local businesses (&lt;$5,000) with static, low-traffic needs where speed and custom functionality are secondary.</li>
 <li><strong>Hidden Realities:</strong> Highly vulnerable to plugin vulnerabilities, heavy DOM bloat, high database query latency, and perpetual maintenance overhead. A client typically spends $2,000–$4,000 annually just keeping plugins updated and recovering from broken releases.</li>
 </ul>
-<h3>Stack B: The Modern Headless Architecture (e.g., Next.js + Headless CMS + Edge CDN)</h3>
+<h3 id="h-stack-b-the-modern-headless-architecture-e-g-next-js-headless-cms-edge-cdn">Stack B: The Modern Headless Architecture (e.g., Next.js + Headless CMS + Edge CDN)</h3>
 <ul>
 <li><strong>Appropriate For:</strong> High-growth startups, ambitious brands, SaaS platforms, and enterprise digital flagships requiring instant load times (&lt;1.0s), bulletproof security, and seamless API integrations.</li>
 <li><strong>Why the Proposal Costs More:</strong> Headless engineering requires skilled front-end and full-stack software engineers who write clean TypeScript, structure component systems, and engineer caching layers—not junior site builders clicking settings in a GUI.</li>
 <li><strong>The Long-Term ROI:</strong> Zero database security attack surface, near-zero hosting compute costs at edge CDN, superior SEO conversion rates, and modular freedom to swap backends without rebuilding the front-end.</li>
 </ul>
-<h3>Stack C: Native Headless Ecommerce (e.g., Headless Shopify / Storefront API)</h3>
+<h3 id="h-stack-c-native-headless-ecommerce-e-g-headless-shopify-storefront-api">Stack C: Native Headless Ecommerce (e.g., Headless Shopify / Storefront API)</h3>
 <ul>
 <li><strong>Appropriate For:</strong> Scaling D2C brands processing substantial order volume where conversion rates depend on instant catalog filtering and checkout performance.</li>
 <li><strong>Evaluation Criteria:</strong> Ensure the agency has documented experience with <a href="/blog/headless-shopify-development-guide">headless Shopify development</a>, Cart API synchronization, and edge caching invalidation, rather than experimenting on your budget.</li>
 </ul>
 <hr />
-<h2>5. Five Technical Questions to Ask on the Proposal Review Call</h2>
+<h2 id="h-5-five-technical-questions-to-ask-on-the-proposal-review-call">5. Five Technical Questions to Ask on the Proposal Review Call</h2>
 <p>Never sign an agency contract based solely on a written proposal document. Schedule a 45-minute technical review call and ask these five non-negotiable questions:</p>
-<h3>1. "Can we speak directly with the Lead Engineer who will architect our codebase?"</h3>
+<h3 id="h-1-can-we-speak-directly-with-the-lead-engineer-who-will-architect-our-codebase">1. "Can we speak directly with the Lead Engineer who will architect our codebase?"</h3>
 <ul>
 <li><strong>The Test:</strong> If the agency refuses or claims you can only speak to account managers and sales executives, your project will be managed through layers of telephone game bureaucracy.</li>
 <li><strong>The Ideal Response:</strong> You are introduced to the senior technical director or lead developer who will oversee your repository. They can answer nuanced questions about database indexing, caching strategies, and API boundaries on the spot.</li>
 </ul>
-<h3>2. "How do you manage version control, branching, and pull request reviews?"</h3>
+<h3 id="h-2-how-do-you-manage-version-control-branching-and-pull-request-reviews">2. "How do you manage version control, branching, and pull request reviews?"</h3>
 <ul>
 <li><strong>The Test:</strong> Uncovers whether the agency operates like a disciplined software engineering firm or an ad-hoc freelancer collective.</li>
 <li><strong>The Ideal Response:</strong> <em>"We use Git feature branching off a development branch, with automated linting, type-checking, and preview deployments on every pull request. No code hits production without peer review and staging sign-off."</em></li>
 </ul>
-<h3>3. "What happens when an external third-party API goes down or changes its schema?"</h3>
+<h3 id="h-3-what-happens-when-an-external-third-party-api-goes-down-or-changes-its-schema">3. "What happens when an external third-party API goes down or changes its schema?"</h3>
 <ul>
 <li><strong>The Test:</strong> Reveals whether the agency engineers resilient error handling or merely writes sunny-day code.</li>
 <li><strong>The Ideal Response:</strong> The engineer discusses graceful degradation, caching fallbacks, asynchronous queueing, and error monitoring (e.g., Sentry or PostHog telemetry) to ensure a third-party webhook failure does not bring down your customer-facing storefront.</li>
 </ul>
-<h3>4. "What specific Core Web Vitals thresholds will be written into our delivery contract?"</h3>
+<h3 id="h-4-what-specific-core-web-vitals-thresholds-will-be-written-into-our-delivery-contract">4. "What specific Core Web Vitals thresholds will be written into our delivery contract?"</h3>
 <ul>
 <li><strong>The Test:</strong> Separates empty marketing promises from enforceable engineering commitments.</li>
 <li><strong>The Ideal Response:</strong> The agency is willing to specify target metrics in writing—such as mobile LCP &lt; 1.5s, CLS &lt; 0.05, and INP &lt; 150ms on standard mobile networks—validated by Google PageSpeed Insights before final milestone sign-off.</li>
 </ul>
-<h3>5. "If we choose to bring development in-house in 12 months, how will your architecture support our engineers?"</h3>
+<h3 id="h-5-if-we-choose-to-bring-development-in-house-in-12-months-how-will-your-architecture-support-our-engineers">5. "If we choose to bring development in-house in 12 months, how will your architecture support our engineers?"</h3>
 <ul>
 <li><strong>The Test:</strong> Ensures the agency is not intentionally engineering vendor lock-in.</li>
 <li><strong>The Ideal Response:</strong> The agency details their documentation standards, component storybooks, clean typed schemas, and standard development environments (e.g., single <code>npm run dev</code> startup) that allow any competent engineer to onboard effortlessly.</li>
 </ul>
 <hr />
-<h2>6. How Kawaki Studios Approaches Proposals</h2>
+<h2 id="h-6-how-kawaki-studios-approaches-proposals">6. How Kawaki Studios Approaches Proposals</h2>
 <p>At <a href="/">Kawaki Studios</a>, our engineering philosophy is built on complete architectural transparency and technical integrity. We do not participate in race-to-the-bottom pricing, nor do we build fragile sites on commercial themes:</p>
 <ul>
 <li><strong>100% Private Repository Ownership:</strong> We commit directly to your private GitHub organization from Day 1. You own every line of code, every component, and every architectural asset unconditionally.</li>
@@ -815,17 +1313,17 @@
 <li><strong>30-Day Written Warranty:</strong> Every production launch is backed by a 30-day post-launch warranty and comprehensive engineering documentation.</li>
 </ul>
 <hr />
-<h2>7. Frequently Asked Questions (FAQ)</h2>
-<h3>What should I do if two proposals have identical scopes but a 3x price difference?</h3>
+<h2 id="h-7-frequently-asked-questions-faq">7. Frequently Asked Questions (FAQ)</h2>
+<h3 id="h-what-should-i-do-if-two-proposals-have-identical-scopes-but-a-3x-price-difference">What should I do if two proposals have identical scopes but a 3x price difference?</h3>
 <p>Request a line-item breakdown of hours and engineering seniority. A $10,000 proposal may allocate 60 hours of junior site-assembly using an existing template, while a $30,000 proposal allocates 200 hours of custom UI/UX design, senior full-stack TypeScript engineering, automated test suites, and API security auditing. Inspect their live client portfolios and test their real-world mobile performance on Google PageSpeed Insights.</p>
-<h3>Is a fixed-price proposal always safer than time-and-materials?</h3>
+<h3 id="h-is-a-fixed-price-proposal-always-safer-than-time-and-materials">Is a fixed-price proposal always safer than time-and-materials?</h3>
 <p>Not necessarily. Fixed-price proposals provide budget certainty only when your project requirements are 100% frozen and unambiguous. If any technical unknowns exist, fixed-price contracts incentivize the vendor to cut corners on code quality or aggressively issue change-orders. A milestone-based sprint model with defined deliverables often yields higher software quality and faster velocity.</p>
-<h3>Should I accept a proposal that uses a proprietary agency CMS?</h3>
+<h3 id="h-should-i-accept-a-proposal-that-uses-a-proprietary-agency-cms">Should I accept a proposal that uses a proprietary agency CMS?</h3>
 <p>Almost never. If an agency builds your site on their in-house proprietary content management system, you are permanently locked into their hosting, maintenance retainers, and pricing. If you ever part ways, your website cannot be transferred—it must be rebuilt from scratch. Demand open, standard technologies (Next.js, React, Node, clean Shopify, or industry-standard headless CMSs like Sanity or Strapi).</p>
-<h3>How long should an agency proposal be valid?</h3>
+<h3 id="h-how-long-should-an-agency-proposal-be-valid">How long should an agency proposal be valid?</h3>
 <p>Standard agency proposals are typically valid for 30 to 45 days. Engineering agencies plan team capacity months in advance. If you delay signing by several months, the agency’s engineering lead or sprint availability may shift, requiring a re-estimation of timelines.</p>
 <hr />
-<h2>8. Summary: Your Proposal Evaluation Action Plan</h2>
+<h2 id="h-8-summary-your-proposal-evaluation-action-plan">8. Summary: Your Proposal Evaluation Action Plan</h2>
 <p>Before awarding your next web development contract:</p>
 <ol>
 <li><strong>Normalize the Quotes:</strong> Disregard the top-line price and audit the five architectural pillars (Tech Stack, Scope Specificity, IP Governance, Milestone QA, and 3-Year TCO).</li>
@@ -836,29 +1334,261 @@
 <p>If you are currently holding multiple web development proposals and need an objective, expert second opinion on architectural feasibility and scope precision, <strong><a href="/services/custom-web-development">consult with the engineering team at Kawaki Studios</a></strong>. </p>
 <p><strong>Ready to discuss your project?</strong> <a href="/contact?service=custom-web-development">Schedule a technical consultation</a> to review your requirements with our lead engineers.</p>
 
-            </div>
+                </div>
 
-            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
-                <span class="tag-pill">#Web Development</span><span class="tag-pill">#Agency Evaluation</span><span class="tag-pill">#Proposal Review</span><span class="tag-pill">#Engineering Strategy</span>
-            </div>
+                <!-- TAGS -->
+                <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08);" id="articleTags">
+                    <span class="tag-pill">#Web Development</span><span class="tag-pill">#Agency Evaluation</span><span class="tag-pill">#Proposal Review</span><span class="tag-pill">#Engineering Strategy</span>
+                </div>
 
-            <div style="margin-top: 4rem; padding: 2.5rem; background: #F8F8FA; border-radius: 24px; text-align: center;">
-                <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Have a bold idea to engineer?</h3>
-                <p style="color: #6b7280; font-size: 15px; margin-bottom: 1.25rem;">Let's build high-performance digital experiences together.</p>
-                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                    <a href="/services/custom-web-development" style="font-size: 14px; font-weight: 600; color: #111111; text-decoration: underline; text-underline-offset: 4px;">
-                        Explore Custom Web Development & Architectural Tiers &rarr;
+                <!-- IN-ARTICLE CONVERSION CTA -->
+                <div class="in-article-cta text-center">
+                    <span class="cta-kicker">// ARCHITECTURAL PARTNERSHIP</span>
+                    <h3>Need Help Engineering Your Web Platform or AI Systems?</h3>
+                    <p>From high-performance Next.js architectures to headless Shopify storefronts, custom AI automations, and enterprise WordPress security recovery, Kawaki Studios designs resilient digital infrastructure built to scale.</p>
+                    <div class="cta-actions">
+                        <a href="/contact?service=custom-web-development" class="btn-primary-theme">
+                            <span>Schedule Engineering Discovery</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path></svg>
+                        </a>
+                        <a href="/services/custom-web-development" class="btn-link-secondary">
+                            Explore Custom Web Development & Architectural Tiers &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AUTHOR BIO CARD -->
+                <div class="author-bio-card">
+                    <div class="bio-avatar">
+                        <span class="avatar-text">KS</span>
+                    </div>
+                    <div class="bio-details">
+                        <span class="bio-role">Founder &amp; Principal Engineer</span>
+                        <h4>Kunal Sharma</h4>
+                        <p>Kunal is the founder and principal engineer at Kawaki Studios, specializing in high-performance web engineering, Next.js application architecture, headless Shopify systems, autonomous AI workflows, and forensic WordPress security recovery. He helps ambitious founders and modern enterprises design resilient, high-velocity digital flagships.</p>
+                        <div class="bio-socials">
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
+                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub ↗</a>
+                            <a href="/contact" class="bio-consult">Book 15-Min Briefing ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- RIGHT STICKY SIDEBAR -->
+            <aside class="article-sidebar" data-lenis-prevent>
+                <!-- WIDGET 1: TABLE OF CONTENTS -->
+                <div class="toc-light-card">
+                    <h3 class="toc-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                        Table of Contents
+                    </h3>
+                    <nav class="toc-nav">
+                        <ul class="toc-list" data-lenis-prevent>
+                            
+      <li class="toc-item toc-level-2">
+        <a href="#h-1-the-cost-illusion-the-anatomy-of-an-underbid">1. The Cost Illusion: The Anatomy of an Underbid</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-the-change-order-ambush">1. The "Change-Order" Ambush</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-the-commercial-template-reseller">2. The Commercial Template Reseller</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-the-offshore-subcontractor-arbitrage">3. The Offshore Subcontractor Arbitrage</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-2-the-5-pillar-proposal-evaluation-matrix">2. The 5-Pillar Proposal Evaluation Matrix</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pillar-1-architectural-foundation-amp-tech-stack-justification">Pillar 1: Architectural Foundation &amp; Tech Stack Justification</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pillar-2-scope-of-work-sow-precision-amp-non-goals">Pillar 2: Scope of Work (SOW) Precision &amp; "Non-Goals"</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pillar-3-code-ownership-repositories-amp-ip-governance">Pillar 3: Code Ownership, Repositories &amp; IP Governance</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pillar-4-milestone-structure-staging-environments-amp-qa">Pillar 4: Milestone Structure, Staging Environments &amp; QA</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-pillar-5-total-cost-of-ownership-tco-amp-post-launch-support">Pillar 5: Total Cost of Ownership (TCO) &amp; Post-Launch Support</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-3-proposal-scorecard-red-flags-vs-engineering-standards">3. Proposal Scorecard: Red Flags vs. Engineering Standards</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-4-dissecting-common-proposal-tech-stacks">4. Dissecting Common Proposal Tech Stacks</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-stack-a-the-monolithic-cms-e-g-standard-wordpress-elementor">Stack A: The Monolithic CMS (e.g., Standard WordPress + Elementor)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-stack-b-the-modern-headless-architecture-e-g-next-js-headless-cms-edge-cdn">Stack B: The Modern Headless Architecture (e.g., Next.js + Headless CMS + Edge CDN)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-stack-c-native-headless-ecommerce-e-g-headless-shopify-storefront-api">Stack C: Native Headless Ecommerce (e.g., Headless Shopify / Storefront API)</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-5-five-technical-questions-to-ask-on-the-proposal-review-call">5. Five Technical Questions to Ask on the Proposal Review Call</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-1-can-we-speak-directly-with-the-lead-engineer-who-will-architect-our-codebase">1. "Can we speak directly with the Lead Engineer who will architect our codebase?"</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-2-how-do-you-manage-version-control-branching-and-pull-request-reviews">2. "How do you manage version control, branching, and pull request reviews?"</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-3-what-happens-when-an-external-third-party-api-goes-down-or-changes-its-schema">3. "What happens when an external third-party API goes down or changes its schema?"</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-4-what-specific-core-web-vitals-thresholds-will-be-written-into-our-delivery-contract">4. "What specific Core Web Vitals thresholds will be written into our delivery contract?"</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-5-if-we-choose-to-bring-development-in-house-in-12-months-how-will-your-architecture-support-our-engineers">5. "If we choose to bring development in-house in 12 months, how will your architecture support our engineers?"</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-6-how-kawaki-studios-approaches-proposals">6. How Kawaki Studios Approaches Proposals</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-7-frequently-asked-questions-faq">7. Frequently Asked Questions (FAQ)</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-what-should-i-do-if-two-proposals-have-identical-scopes-but-a-3x-price-difference">What should I do if two proposals have identical scopes but a 3x price difference?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-is-a-fixed-price-proposal-always-safer-than-time-and-materials">Is a fixed-price proposal always safer than time-and-materials?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-should-i-accept-a-proposal-that-uses-a-proprietary-agency-cms">Should I accept a proposal that uses a proprietary agency CMS?</a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#h-how-long-should-an-agency-proposal-be-valid">How long should an agency proposal be valid?</a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#h-8-summary-your-proposal-evaluation-action-plan">8. Summary: Your Proposal Evaluation Action Plan</a>
+      </li>
+    
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- WIDGET 2: SHARE BUTTONS -->
+                <div class="share-light-card">
+                    <span class="share-label">Share Article</span>
+                    <div class="share-buttons">
+                        <button class="share-btn" id="share-copy" title="Copy Link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                        <a href="https://twitter.com/intent/tweet?text=How%20to%20Evaluate%20a%20Web%20Development%20Proposal%20Beyond%20Price%3A%20The%20Technical%20Vetting%20%26%20Architecture%20Guide&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fhow-to-evaluate-a-web-development-proposal-beyond-price" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on Twitter / X">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fhow-to-evaluate-a-web-development-proposal-beyond-price" target="_blank" rel="noopener noreferrer" class="share-btn" title="Share on LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WIDGET 3: 1-ON-1 STRATEGY CALL -->
+                <div class="strategy-call-card">
+                    <span class="call-badge">1-ON-1 CONSULTATION</span>
+                    <h4 class="call-title">Book an Engineering Briefing</h4>
+                    <p class="call-desc">Discuss your web platform, Next.js migration, AI workflow, or security recovery directly with our engineering team.</p>
+                    <a href="/contact" class="btn-sidebar-call">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Schedule Call</span>
                     </a>
                 </div>
-                <a href="/contact?service=custom-web-development" class="rlvnt-btn max-content" style="margin: 0 auto;">
-                    <span>Start a Project</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"> 
-                        <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle> 
-                        <path fill="#FFFFFF" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path> 
-                    </svg>
-                </a>
+            </aside>
+        </div>
+
+        <!-- RELATED POSTS SECTION -->
+        <section class="related-posts-section">
+            <h2 class="related-section-title">Related Engineering Insights</h2>
+            <div class="related-grid">
+                
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency">
+            <img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp" alt="What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">Web Development</span>
+          <h3 class="card-title">
+            <a href="/blog/what-to-prepare-before-hiring-web-development-agency">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</a>
+          </h3>
+          <p class="card-excerpt">A practical pre-hire preparation guide for founders and businesses. Learn how to define project scope, technical requirements, budge...</p>
+          <a href="/blog/what-to-prepare-before-hiring-web-development-agency" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/how-ai-search-engines-cite-sources">
+            <img src="/assets/images/blog/deterministic-code-vs-probabilistic-llm-boundary.webp" alt="How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">AI Search</span>
+          <h3 class="card-title">
+            <a href="/blog/how-ai-search-engines-cite-sources">How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization</a>
+          </h3>
+          <p class="card-excerpt">An architectural guide to how AI search engines cite sources: RAG retrieval pipelines, query fan-out, empirical findings from the Pr...</p>
+          <a href="/blog/how-ai-search-engines-cite-sources" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
+
+      <article class="post-light-card">
+        <div class="card-img-wrapper">
+          <a href="/blog/ai-automation-vs-ai-agents">
+            <img src="/assets/images/blog/ai-automation-vs-ai-agent-decision-matrix.webp" alt="AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each" class="card-img" width="400" height="225" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="card-body">
+          <span class="category-badge">AI Automation</span>
+          <h3 class="card-title">
+            <a href="/blog/ai-automation-vs-ai-agents">AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each</a>
+          </h3>
+          <p class="card-excerpt">An engineering decision framework for choosing between AI automation and autonomous AI agents: 18-dimension decision matrix, autonom...</p>
+          <a href="/blog/ai-automation-vs-ai-agents" class="card-read-link">Read Guide &rarr;</a>
+        </div>
+      </article>
+    
             </div>
-        </article>
+        </section>
     </main>
 
     <!-- UNIVERSAL GLOBAL FOOTER -->
@@ -979,7 +1709,7 @@
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
-                </ul>
+            </ul>
             <button class="footer-back-to-top" id="backToTop" aria-label="Go to top">
                 <span>Back to Top</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
@@ -990,6 +1720,78 @@
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Share Copy Link Handler
+            const copyBtn = document.getElementById('share-copy');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(window.location.href);
+                        const originalHtml = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#65a30d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                        copyBtn.setAttribute('title', 'Link Copied!');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHtml;
+                            copyBtn.setAttribute('title', 'Copy Link');
+                        }, 2500);
+                    } catch (err) {
+                        console.error('Failed to copy link:', err);
+                    }
+                });
+            }
+
+            // Table of Contents Scroll-Spy via IntersectionObserver
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            const headings = Array.from(document.querySelectorAll('.post-body-content h2, .post-body-content h3'));
+            
+            if (tocLinks.length > 0 && headings.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-100px 0px -65% 0px',
+                    threshold: 0
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            tocLinks.forEach((link) => {
+                                const item = link.closest('.toc-item');
+                                if (link.getAttribute('href') === '#' + id) {
+                                    item?.classList.add('active');
+                                    const tocList = document.querySelector('.toc-list');
+                                    if (tocList && item) {
+                                        const offset = item.offsetTop - tocList.offsetTop;
+                                        tocList.scrollTo({ top: offset - 40, behavior: 'smooth' });
+                                    }
+                                } else {
+                                    item?.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                headings.forEach(h => observer.observe(h));
+            }
+
+            // Smooth scroll on TOC link click
+            tocLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href')?.slice(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const navOffset = 100;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
             // Time update helper for footer
             function updateFooterClocks() {
                 const now = new Date();
@@ -998,10 +1800,10 @@
                 const elTokyo = document.getElementById('footerTimeTokyo');
                 const elLondon = document.getElementById('footerTimeLondon');
                 const elNY = document.getElementById('footerTimeNY');
-                if (elDelhi) elDelhi.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Kolkata'))} IST`;
-                if (elTokyo) elTokyo.innerText = `${now.toLocaleTimeString('en-US', opt('Asia/Tokyo'))} JST`;
-                if (elLondon) elLondon.innerText = `${now.toLocaleTimeString('en-US', opt('Europe/London'))} GMT`;
-                if (elNY) elNY.innerText = `${now.toLocaleTimeString('en-US', opt('America/New_York'))} EST`;
+                if (elDelhi) elDelhi.innerText = now.toLocaleTimeString('en-US', opt('Asia/Kolkata')) + ' IST';
+                if (elTokyo) elTokyo.innerText = now.toLocaleTimeString('en-US', opt('Asia/Tokyo')) + ' JST';
+                if (elLondon) elLondon.innerText = now.toLocaleTimeString('en-US', opt('Europe/London')) + ' GMT';
+                if (elNY) elNY.innerText = now.toLocaleTimeString('en-US', opt('America/New_York')) + ' EST';
             }
             updateFooterClocks();
             setInterval(updateFooterClocks, 10000);
