@@ -24,7 +24,7 @@ const mapping = {
   'custom-web-development-vs-no-code': '/assets/images/blog/custom-code-vs-nocode-decision-matrix-chart.webp',
   'shopify-liquid-vs-headless': '/assets/images/blog/shopify-theme-vs-headless-architecture-comparison.webp',
   'ai-automation-vs-ai-agents': '/assets/images/blog/ai-automation-vs-ai-agent-decision-matrix.webp',
-  'how-ai-search-engines-cite-sources': '/assets/images/blog/deterministic-code-vs-probabilistic-llm-boundary.webp',
+  'how-ai-search-engines-cite-sources': '/assets/images/blog/ai-citations-vs-brand-mentions-hero.jpg',
   'what-to-prepare-before-hiring-web-development-agency': '/assets/images/blog/what-to-prepare-before-hiring-web-development-agency.webp',
   'how-to-evaluate-a-web-development-proposal-beyond-price': '/assets/images/blog/how-to-evaluate-a-web-development-proposal-beyond-price.webp'
 };
