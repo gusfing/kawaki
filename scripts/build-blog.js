@@ -243,7 +243,7 @@ function updateBlogIndexHtml(articles) {
                     <div class="card-meta-row">
                         <span class="meta-date">${dateStr}</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">${category}</span>
+                        <span class="meta-category">${category}</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">

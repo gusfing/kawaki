@@ -80,7 +80,7 @@
       <div class="kawaki-chat-launcher-pill" id="kawakiChatLauncher" title="Chat with Kawaki Studios">
         <div class="launcher-pill-left">
           <span class="launcher-pill-dot"></span>
-          <span class="launcher-pill-text">Kawaki <em>Studio AI</em></span>
+          <span class="launcher-pill-text">Kawaki <em>Studios</em></span>
         </div>
         <div class="launcher-pill-circle" id="launcherPillBtn" aria-label="Open Chat">
           <svg class="launcher-arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
@@ -111,7 +111,7 @@
               <div class="kawaki-chat-title-row">
                 <span class="kawaki-chat-title">Kawaki Studios <em>Consultant</em></span>
               </div>
-              <span class="kawaki-chat-feature-tag"><span class="dot-status"></span> // STUDIO INTELLIGENCE • ONLINE</span>
+              <span class="kawaki-chat-feature-tag"><span class="dot-status"></span> STUDIO CONSULTATION • ACTIVE</span>
             </div>
           </div>
 

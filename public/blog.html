@@ -290,11 +290,23 @@
         }
 
         .meta-category {
-            color: #C6FF00;
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 10px;
+            background: #F4F4F5;
+            color: #18181B;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 50px;
+            font-size: 0.75rem;
             font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.78rem;
-            letter-spacing: 0.04em;
+            text-transform: capitalize;
+            letter-spacing: -0.01em;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .blog-card:hover .meta-category {
+            background: #E4E4E7;
+            color: #09090B;
         }
 
         .read-more {
@@ -619,7 +631,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">19 Oct 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Web Development</span>
+                        <span class="meta-category">Web Development</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -631,7 +643,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">16 Oct 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Web Development</span>
+                        <span class="meta-category">Web Development</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -643,7 +655,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">2 Oct 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">AI Search</span>
+                        <span class="meta-category">AI Search</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -655,7 +667,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">29 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">AI Automation</span>
+                        <span class="meta-category">AI Automation</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -667,7 +679,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">28 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Shopify</span>
+                        <span class="meta-category">Shopify</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -679,7 +691,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">27 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Custom Development</span>
+                        <span class="meta-category">Custom Development</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -691,7 +703,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">26 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">WordPress Security</span>
+                        <span class="meta-category">WordPress Security</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -703,7 +715,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">25 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">WordPress Security</span>
+                        <span class="meta-category">WordPress Security</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -715,7 +727,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">24 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">WordPress Security</span>
+                        <span class="meta-category">WordPress Security</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -727,7 +739,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">24 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">AI Automation</span>
+                        <span class="meta-category">AI Automation</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -739,7 +751,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">21 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">AI Automation</span>
+                        <span class="meta-category">AI Automation</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -751,7 +763,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">21 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Next.js</span>
+                        <span class="meta-category">Next.js</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -763,7 +775,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">19 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Next.js</span>
+                        <span class="meta-category">Next.js</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -775,7 +787,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">18 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Next.js</span>
+                        <span class="meta-category">Next.js</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -787,7 +799,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">3 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Web Development</span>
+                        <span class="meta-category">Web Development</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -799,7 +811,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">2 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Commerce</span>
+                        <span class="meta-category">Commerce</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -811,7 +823,7 @@
                     <div class="card-meta-row">
                         <span class="meta-date">1 Sep 2026</span>
                         <span class="meta-separator"></span>
-                        <span class="meta-category" style="color: #C6FF00; font-weight: 700;">Editorial Engineering</span>
+                        <span class="meta-category">Editorial Engineering</span>
                         <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
                     </div>
                     <div class="card-image-wrapper">
@@ -999,7 +1011,7 @@
         });
     </script>
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
-    <script src="/assets/js/chatbot.js" defer></script>
+    
 </body>
 </html>
 

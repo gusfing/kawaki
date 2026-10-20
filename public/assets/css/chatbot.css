@@ -52,11 +52,9 @@
 
 .kawaki-chat-launcher-pill:hover {
   transform: translateX(-50%) translateY(-2px);
-  background: rgba(18, 19, 24, 0.95);
-  border-color: rgba(198, 255, 0, 0.6);
-  box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.7),
-              0 0 0 1px rgba(198, 255, 0, 0.35),
-              0 0 25px var(--kw-chat-accent-glow),
+  background: rgba(18, 19, 24, 0.98);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.6),
               inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
@@ -68,11 +66,10 @@
 
 .launcher-pill-dot {
   position: relative;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--kw-chat-accent);
-  box-shadow: 0 0 8px rgba(198, 255, 0, 0.9);
+  background: #10B981;
   display: inline-block;
   flex-shrink: 0;
 }
@@ -80,32 +77,33 @@
 .launcher-pill-dot::after {
   content: '';
   position: absolute;
-  inset: -3px;
+  inset: -2px;
   border-radius: 50%;
-  background: rgba(198, 255, 0, 0.4);
-  animation: kwDotPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  background: rgba(16, 185, 129, 0.3);
+  animation: kwDotPulse 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 @keyframes kwDotPulse {
   0% { transform: scale(1); opacity: 0.85; }
-  75%, 100% { transform: scale(2.5); opacity: 0; }
+  75%, 100% { transform: scale(2.2); opacity: 0; }
 }
 
 .launcher-pill-text {
   font-family: var(--kw-font-sans);
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--kw-chat-text);
+  color: #FFFFFF;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
 .launcher-pill-text em {
-  font-family: var(--kw-font-serif);
-  font-style: italic;
-  font-size: 0.95rem;
-  color: var(--kw-chat-accent);
-  font-weight: 400;
+  font-family: var(--kw-font-sans);
+  font-style: normal;
+  font-size: 0.875rem;
+  color: #A1A1AA;
+  font-weight: 500;
+  margin-left: 2px;
 }
 
 /* Launcher Action Circle Button */
