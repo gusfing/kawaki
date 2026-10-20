@@ -227,11 +227,11 @@ function updateBlogIndexHtml(articles) {
 
   // Generate cards HTML
   const fallbackImages = [
-    '/assets/images/blog/editorial-engineering-vs-traditional-frontend.webp',
-    '/assets/images/blog/custom-code-vs-nocode-decision-matrix-chart.webp',
-    '/assets/images/blog/nextjs-critical-rendering-path-waterfall.webp',
-    '/assets/images/blog/ai-automation-tiered-system-architecture.webp',
-    '/assets/images/blog/japanese-keyword-hack-infection-kill-chain.webp'
+    '/assets/images/blog/ai-citations-vs-brand-mentions-hero.jpg',
+    '/assets/images/blog/nextjs-performance-architecture-hero.jpg',
+    '/assets/images/blog/webflow-vs-custom-development-hero.jpg',
+    '/assets/images/blog/ai-automation-vs-ai-agents-hero.jpg',
+    '/assets/images/blog/what-is-editorial-engineering-hero.jpg'
   ];
 
   const cardsHtml = articles.map((b, idx) => {
