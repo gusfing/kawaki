@@ -210,9 +210,9 @@ function getArticleTakeaways(article) {
       'Enables sub-second edge page transitions while maintaining PCI-DSS Level 1 checkout compliance.'
     ],
     'webflow-vs-custom-development': [
-      'Webflow provides unmatched visual agility for marketing teams on standard brochure sites.',
-      'Custom development becomes mandatory when business logic requires relational data, custom auth, or sub-500ms TTFB.',
-      'Hybrid architectures allow visual CMS editing while engineering maintains complete control over frontend code.'
+      'Webflow delivers unmatched visual agility and rapid time-to-market for marketing sites under 50 pages.',
+      'Custom code becomes essential when business logic demands sub-800ms LCP, relational database scaling (>2,000 items), or custom auth.',
+      'Total Cost of Ownership converges rapidly by Year 2 when factoring in enterprise Webflow seat tiers and third-party SaaS plugin taxes.'
     ],
     'nextjs-server-vs-client-components': [
       'Server Components (RSC) execute exclusively on the server, sending zero client JavaScript for data-fetching leaves.',
