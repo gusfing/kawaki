@@ -1,0 +1,2470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory &amp; Capabilities Index | Kawaki Studios</title>
+    <meta name="description" content="Complete directory of software engineering capabilities, custom web development services, headless commerce flagships, and regional practices by Kawaki Studios.">
+    <link rel="canonical" href="https://kawaki.co.in/directory">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/seo-pages.css">
+    <style>
+        .directory-wrap {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 6rem;
+        }
+        .dir-hero {
+            padding: 4rem 0 2.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 3.5rem;
+        }
+        .dir-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #111111;
+            display: inline-block;
+            background: #e9e6dd;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .dir-title {
+            font-family: 'Host Grotesk', -apple-system, sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.12;
+            color: #111111;
+            margin-bottom: 1rem;
+        }
+        .dir-desc {
+            font-size: 1.12rem;
+            line-height: 1.65;
+            color: #444444;
+            max-width: 780px;
+        }
+        .dir-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.82rem;
+            color: #333333;
+        }
+        .dir-section {
+            margin-bottom: 4rem;
+        }
+        .dir-section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            border-bottom: 2px solid #111111;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .dir-section-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #111111;
+        }
+        .dir-section-count {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.82rem;
+            color: #666666;
+        }
+        .dir-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.25rem;
+        }
+        .dir-card {
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+        .dir-card:hover {
+            border-color: #111111;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+        }
+        .dir-card-title {
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 0.45rem;
+            line-height: 1.35;
+        }
+        .dir-card-desc {
+            font-size: 0.85rem;
+            color: #555555;
+            line-height: 1.5;
+            margin-bottom: 0.85rem;
+            flex-grow: 1;
+        }
+        .dir-card-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #111111;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .dir-city-group {
+            margin-bottom: 2.25rem;
+        }
+        .dir-city-name {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.92rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #222222;
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dir-city-name::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0,0,0,0.08);
+        }
+        .dir-search-bar {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 1rem;
+            border: 1px solid rgba(0,0,0,0.15);
+            border-radius: 8px;
+            font-family: 'Host Grotesk', sans-serif;
+            margin-bottom: 2.5rem;
+            background: #ffffff;
+            box-sizing: border-box;
+        }
+        .dir-search-bar:focus {
+            outline: none;
+            border-color: #111111;
+        }
+    </style>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://kawaki.co.in/directory#webpage",
+          "url": "https://kawaki.co.in/directory",
+          "name": "Directory & Capabilities Index | Kawaki Studios",
+          "description": "Complete directory of software engineering capabilities, custom web development services, headless commerce flagships, and regional practices by Kawaki Studios.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://kawaki.co.in/#website",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://kawaki.co.in/directory#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kawaki.co.in" },
+            { "@type": "ListItem", "position": 2, "name": "Directory", "item": "https://kawaki.co.in/directory" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="seo-page-body" style="background: #fbfaf6; color: #111111;">
+    <!-- Global Header -->
+    <header style="background: #ffffff; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 1.25rem 2rem; position: sticky; top: 0; z-index: 100;">
+        <div style="max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="font-family: 'Host Grotesk', sans-serif; font-size: 1.25rem; font-weight: 800; color: #111111; text-decoration: none; letter-spacing: -0.02em;">
+                KAWAKI <span style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 400; color: #666666;">// STUDIOS</span>
+            </a>
+            <nav style="display: flex; gap: 1.5rem; align-items: center; font-family: 'Space Mono', monospace; font-size: 0.82rem;">
+                <a href="/services" style="color: #333333; text-decoration: none;">Services</a>
+                <a href="/case-studies" style="color: #333333; text-decoration: none;">Work</a>
+                <a href="/blog" style="color: #333333; text-decoration: none;">Journal</a>
+                <a href="/about" style="color: #333333; text-decoration: none;">About</a>
+                <a href="/contact" style="background: #111111; color: #ffffff; padding: 7px 14px; border-radius: 4px; text-decoration: none; font-weight: 700;">Start Project &rarr;</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="directory-wrap">
+        <header class="dir-hero">
+            <span class="dir-tag">// SITE ARCHITECTURE &amp; CAPABILITY DIRECTORY</span>
+            <h1 class="dir-title">Directory &amp; Capabilities Index</h1>
+            <p class="dir-desc">
+                An authoritative index of verified software capabilities, high-performance web engineering practices, headless commerce solutions, and regional studio hubs engineered by Kawaki Studios.
+            </p>
+            <div class="dir-stats">
+                <span>📁 <strong>252</strong> Verified Destinations</span>
+                <span>⚡ <strong>100%</strong> Crawlable &amp; Direct</span>
+                <span>🏛️ <strong>New Delhi HQ</strong> · Studio Practice</span>
+            </div>
+        </header>
+
+        <input type="text" id="dirSearch" class="dir-search-bar" placeholder="Filter capabilities, services, technologies, or cities (e.g., 'Shopify', 'Delhi', 'AI', 'Mobile', 'WordPress')..." aria-label="Search directory">
+
+        <!-- 01. CORE STUDIO PLATFORMS -->
+        <section class="dir-section">
+            <div class="dir-section-header">
+                <h2 class="dir-section-title">01 / Core Studio Platforms &amp; Portals</h2>
+                <span class="dir-section-count">9 Pages</span>
+            </div>
+            <div class="dir-grid">
+                
+                <a href="/" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Home — Custom Web Development & Software Studio</h3>
+                        <p class="dir-card-desc">Bespoke web platforms, headless commerce, and software engineering in New Delhi.</p>
+                    </div>
+                    <span class="dir-card-link">View Page &rarr;</span>
+                </a>
+                
+                <a href="/about" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">About Kawaki Studios</h3>
+                        <p class="dir-card-desc">Studio ethos, engineering philosophy, and founder-led delivery model.</p>
+                    </div>
+                    <span class="dir-card-link">View Page &rarr;</span>
+                </a>
+                
+                <a href="/services" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Services & Systems Architecture</h3>
+                        <p class="dir-card-desc">Complete capability catalog across web, mobile, ecommerce, and AI automation.</p>
+                    </div>
+                    <span class="dir-card-link">View Page &rarr;</span>
+                </a>
+                
+                <a href="/case-studies" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Selected Work & Case Studies</h3>
+                        <p class="dir-card-desc">Architectural case studies, verified production systems, and performance telemetry.</p>
+                    </div>
+                    <span class="dir-card-link">View Page &rarr;</span>
+                </a>
+                
+                <a href="/blog" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Engineering Journal & Insights</h3>
+                        <p class="dir-card-desc">Technical essays on performance, AI search engines, headless commerce, and security.</p>
+                    </div>
+                    <span class="dir-card-link">View Page &rarr;</span>
+                </a>
+                
+                <a href="/contact" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Discovery & Project Booking</h3>
+                        <p class="dir-card-desc">Direct intake, 15-minute briefing calls, and WhatsApp consultation.</p>
+                    </div>
+                    <span class="dir-card-link">View Page &rarr;</span>
+                </a>
+                
+                <a href="/privacy-policy" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Privacy Policy</h3>
+                        <p class="dir-card-desc">Client confidentiality, data protection, and governance principles.</p>
+                    </div>
+                    <span class="dir-card-link">View Page &rarr;</span>
+                </a>
+                
+                <a href="/terms-of-service" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Terms of Service</h3>
+                        <p class="dir-card-desc">Commercial engagement terms, milestone delivery, and intellectual property.</p>
+                    </div>
+                    <span class="dir-card-link">View Page &rarr;</span>
+                </a>
+                
+                <a href="/terminal" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Interactive Studio Terminal</h3>
+                        <p class="dir-card-desc">Developer CLI terminal interface for Kawaki Studios services and telemetry.</p>
+                    </div>
+                    <span class="dir-card-link">View Page &rarr;</span>
+                </a>
+                
+            </div>
+        </section>
+
+        <!-- 02. CORE ENGINEERING SERVICES -->
+        <section class="dir-section">
+            <div class="dir-section-header">
+                <h2 class="dir-section-title">02 / Core Engineering Capabilities &amp; Services</h2>
+                <span class="dir-section-count">15 Practices</span>
+            </div>
+            <div class="dir-grid">
+                
+                <a href="/services/custom-web-development" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Custom Web Development</h3>
+                        <p class="dir-card-desc">Bespoke Next.js & TypeScript platforms engineered for sub-second Core Web Vitals.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/web-application-development" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Web Application Development</h3>
+                        <p class="dir-card-desc">Complex SaaS portals, multi-tenant workflows, and resilient API architecture.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/mobile-app-development" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Mobile App Development</h3>
+                        <p class="dir-card-desc">Cross-platform native iOS & Android applications built with React Native and Expo.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/shopify-development" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Headless Shopify Commerce</h3>
+                        <p class="dir-card-desc">Sub-second luxury D2C storefronts, bespoke checkout flows, and ERP integrations.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/ai-automation" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Automation & Agents</h3>
+                        <p class="dir-card-desc">Deterministic LLM pipelines, autonomous calling agents, and business workflows.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/ai-search-optimization" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Search & Answer Engine Optimization</h3>
+                        <p class="dir-card-desc">Structured data, schema hierarchies, and knowledge graph authority for Perplexity & ChatGPT.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/website-performance-optimization" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Performance & Core Web Vitals</h3>
+                        <p class="dir-card-desc">Sub-1.0s LCP tuning, bundle minimization, and edge CDN cache optimization.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/website-redesign" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Enterprise Website Redesign</h3>
+                        <p class="dir-card-desc">Editorial visual upgrades, zero-downtime migrations, and SEO preservation.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/website-security-hardening" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Website Security Hardening</h3>
+                        <p class="dir-card-desc">Attack surface elimination, CSP headers, automated vulnerability shielding.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/wordpress-security-audit" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">WordPress Security Audit</h3>
+                        <p class="dir-card-desc">Deep forensic scans, backdoor hunting, and integrity auditing.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/wordpress-malware-removal" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">WordPress Malware Removal</h3>
+                        <p class="dir-card-desc">Emergency disinfection, database remediation, and Google blacklist clearance.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/wordpress-backdoor-removal" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">WordPress Backdoor Removal</h3>
+                        <p class="dir-card-desc">Stealth web shell eradication and permanent cron re-infection defense.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/malicious-redirect-removal" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Malicious Redirect Removal</h3>
+                        <p class="dir-card-desc">Remediation of .htaccess injections and stealth mobile redirects.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/seo-spam-removal" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">SEO Spam & Japanese Keyword Hack Removal</h3>
+                        <p class="dir-card-desc">Search index repair, spam injection cleanup, and sitemap re-indexing.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+                <a href="/services/wordpress-development" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Custom WordPress Engineering</h3>
+                        <p class="dir-card-desc">Headless CMS setups, bespoke theme engineering, and zero-plugin architectures.</p>
+                    </div>
+                    <span class="dir-card-link">Explore Practice &rarr;</span>
+                </a>
+                
+            </div>
+        </section>
+
+        <!-- 03. CASE STUDIES & PRODUCTION METRICS -->
+        <section class="dir-section">
+            <div class="dir-section-header">
+                <h2 class="dir-section-title">03 / Case Studies &amp; Verified Telemetry</h2>
+                <span class="dir-section-count">13 Platforms</span>
+            </div>
+            <div class="dir-grid">
+                
+                <a href="/case-studies/kala-design" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Kala Design Co — Architectural Monograph</h3>
+                        <p class="dir-card-desc">Luxury editorial platform with 0.6s LCP and bespoke project archives.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/bazzaro" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">BAZZARO — Headless Menswear Flagship</h3>
+                        <p class="dir-card-desc">Headless Shopify with 0.4s instant search and 4.2x checkout speed.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/nextschool-erp" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">NextSchool ERP — Institutional Campus OS</h3>
+                        <p class="dir-card-desc">Multi-tenant cloud architecture managing 12,000+ active institutional records.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/nursepass" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">NursePass — Healthcare Clinical Engine</h3>
+                        <p class="dir-card-desc">Adaptive NCLEX assessment engine built on Next.js App Router and WCAG Level AA.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/acme-headless-ecommerce" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Acme Headless Commerce Platform</h3>
+                        <p class="dir-card-desc">High-conversion modular commerce architecture with sub-second catalog discovery.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/decor-lab" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Decor Lab — Interior Design Portfolio</h3>
+                        <p class="dir-card-desc">Minimalist spatial gallery with custom fluid image zoom and zero layout shift.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/iptv-mobile" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">IPTV Mobile Streaming Interface</h3>
+                        <p class="dir-card-desc">Low-latency media streaming player and live guide on React Native.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/kova" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">KOVA — Performance Web Platform</h3>
+                        <p class="dir-card-desc">Enterprise engineering platform focused on raw execution speed and accessibility.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/lms-ecosystem" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">LMS Ecosystem Platform</h3>
+                        <p class="dir-card-desc">Interactive curriculum delivery engine with role-based access management.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/pixza" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Pixza Production Studio Platform</h3>
+                        <p class="dir-card-desc">High-aesthetic portfolio engine engineered for creative agencies.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/spa-salon" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Spa & Wellness Booking Platform</h3>
+                        <p class="dir-card-desc">Instant calendar reservations, staff dispatching, and automated SMS reminders.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/urbanland" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Urbanland Real Estate Monograph</h3>
+                        <p class="dir-card-desc">Architectural property listings with interactive neighborhood amenity maps.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+                <a href="/case-studies/fintech-roi-calculator" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Fintech ROI & Yield Calculator</h3>
+                        <p class="dir-card-desc">Client-side financial modeling engine with real-time dynamic compounding graphs.</p>
+                    </div>
+                    <span class="dir-card-link">Read Architectural Case Study &rarr;</span>
+                </a>
+                
+            </div>
+        </section>
+
+        <!-- 04. AI AUTOMATION & AUTONOMOUS SYSTEMS -->
+        <section class="dir-section">
+            <div class="dir-section-header">
+                <h2 class="dir-section-title">04 / AI Automation, Agents &amp; Generative Visibility</h2>
+                <span class="dir-section-count">15 Topics</span>
+            </div>
+            <div class="dir-grid">
+                
+                <a href="/ai-agent-development" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Agent Development Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Multi-step AI agent workflows with deterministic logic boundaries, structured tool execution, and human-in-the-loop review safeguards.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-automation-consulting" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Automation Consulting Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Bespoke ai automation consulting engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-automation-for-healthcare" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Automation For Healthcare Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Purpose-built digital systems and search optimization for the ai automation for healthcare sector, engineered for high operational trust and qualified client discovery.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-calling-agents" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Calling Agents Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Telephony webhooks, automated call routing, and low-latency voice pipeline integration for businesses needing reliable voice automation.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-chatbot-development" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Chatbot Development Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Context-aware conversational assistants and support triage bots connected directly to your operational data and knowledge repositories.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-citation-optimization" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Citation Optimization Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Search engine and LLM visibility engineering: structured entity markup, semantic content models, and factual knowledge graphs for modern discovery.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-receptionist" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Receptionist Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Bespoke ai receptionist engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-seo-services" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI SEO Services Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Bespoke ai seo services engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-visibility-audit" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Visibility Audit Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Bespoke ai visibility audit engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-visibility-optimization" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Visibility Optimization Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Bespoke ai visibility optimization engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-voice-agents" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Voice Agents Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Telephony webhooks, automated call routing, and low-latency voice pipeline integration for businesses needing reliable voice automation for organizations prioritizing engineering reliability.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/ai-website-development" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">AI Website Development Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Bespoke ai website development engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/answer-engine-optimization" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Answer Engine Optimization Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Search engine and LLM visibility engineering: structured entity markup, semantic content models, and factual knowledge graphs for modern discovery for organizations prioritizing engineering reliability (Answer Engine Optimization practice).</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/resources/local-business-citations-india" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Local Business Citations India: Practical Engineering Framework</h3>
+                        <p class="dir-card-desc">Engineering guide and reference framework detailing technical architecture, implementation tradeoffs, and best practices for local business citations india.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+                <a href="/local-citation-management" class="dir-card">
+                    <div>
+                        <h3 class="dir-card-title">Local Citation Management Services & Systems Engineering</h3>
+                        <p class="dir-card-desc">Bespoke local citation management engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                    </div>
+                    <span class="dir-card-link">View Framework &rarr;</span>
+                </a>
+                
+            </div>
+        </section>
+
+        <!-- 05. REGIONAL PRACTICE HUBS & CITY PRACTICES -->
+        <section class="dir-section">
+            <div class="dir-section-header">
+                <h2 class="dir-section-title">05 / Regional Practice Hubs &amp; Specialized City Practices</h2>
+                <span class="dir-section-count">16 Regions</span>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Delhi Practice Hub (143 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/delhi/mobile-app-development-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Mobile App Development Company in Delhi</h3>
+                            <p class="dir-card-desc">Native iOS & Android mobile app engineering for high-growth ventures in Delhi NCR.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/about" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">About Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Learn about Kawaki Studios: an independent engineering and digital product studio in New Delhi crafting durable web systems without bloated dependencies.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/api-integration-services" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">API Integration Services Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Secure REST and webhook pipeline engineering to connect your web platforms with CRM databases, payment processors, and operational software.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/appointment-booking-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Appointment Booking Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Automated scheduling workflows, multi-calendar synchronization, and friction-free booking funnels for service-oriented businesses.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/blog" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Blog Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Engineering essays, technical architecture breakdowns, and search optimization insights authored by the developers at Kawaki Studios.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/engineering-authorship-and-philosophy" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Engineering Authorship And Philosophy: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">Engineering guide and reference framework detailing technical architecture, implementation tradeoffs, and best practices for engineering authorship and philosophy.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/technical-authority-and-digital-pr" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Technical Authority And Digital PR: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">Engineering guide and reference framework detailing technical architecture, implementation tradeoffs, and best practices for technical authority and digital pr.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/generative-engine-optimization-guide" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Generative Engine Optimization Guide: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">Technical guide to Generative Engine Optimization (GEO): structuring verified brand knowledge and semantic markup for AI search engines.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/editorial-guest-publishing-architecture" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Editorial Guest Publishing Architecture: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">Engineering guide and reference framework detailing technical architecture, implementation tradeoffs, and best practices for editorial guest publishing architecture.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/modern-search-intent-research-tools" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Modern Search Intent Research Tools: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">Engineering guide and reference framework detailing technical architecture, implementation tradeoffs, and best practices for modern search intent research tools.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/technical-seo-audit-framework" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Technical SEO Audit Framework: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">A practical technical audit framework for evaluating Core Web Vitals, semantic markup, crawl efficiency, and baseline security posture.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/careers-in-web-engineering-and-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Careers In Web Engineering And SEO: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">Engineering guide and reference framework detailing technical architecture, implementation tradeoffs, and best practices for careers in web engineering and seo.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/web-development-cost-in-india" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Web Development Cost In India: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">An objective breakdown of web development investments, architectural tradeoffs, and ongoing infrastructure costs for modern web systems.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/organic-search-optimization-guide" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Organic Search Optimization Guide: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">Engineering guide and reference framework detailing technical architecture, implementation tradeoffs, and best practices for organic search optimization guide.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources/video-search-optimization-tools" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Video Search Optimization Tools: Practical Engineering Framework</h3>
+                            <p class="dir-card-desc">Engineering guide and reference framework detailing technical architecture, implementation tradeoffs, and best practices for video search optimization tools.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/business-process-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Business Process Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke business process automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/case-studies" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Case Studies Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Explore verified production systems engineered by Kawaki Studios, including Pixza, NextSchool ERP, NursePass, Bazzaro, and Kala Design Co.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/physiotherapy-spine-clinic-website" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Physiotherapy Spine Clinic Website & Digital Platforms</h3>
+                            <p class="dir-card-desc">Specialized physiotherapy spine clinic website engineered with patient-centric information architecture, secure inquiry workflows, and verified healthcare portal experience.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/healthcare-website-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Healthcare Website Development & Digital Platforms</h3>
+                            <p class="dir-card-desc">Specialized healthcare website development engineered with patient-centric information architecture, secure inquiry workflows, and verified healthcare portal experience.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/medical-specialist-website-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Medical Specialist Website Development & Digital Platforms</h3>
+                            <p class="dir-card-desc">Specialized medical specialist website development engineered with patient-centric information architecture, secure inquiry workflows, and verified healthcare portal experience.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/endocrinology-clinic-web-platform" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Endocrinology Clinic Web Platform & Digital Platforms</h3>
+                            <p class="dir-card-desc">Specialized endocrinology clinic web platform engineered with patient-centric information architecture, secure inquiry workflows, and verified healthcare portal experience.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/surgical-practice-web-portal" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Surgical Practice Web Portal & Digital Platforms</h3>
+                            <p class="dir-card-desc">Specialized surgical practice web portal engineered with patient-centric information architecture, secure inquiry workflows, and verified healthcare portal experience.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/ai-saas-mvp-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom AI SaaS Mvp Development & Digital Platforms</h3>
+                            <p class="dir-card-desc">Modern software workspace and product showcase engineering for hardware and AI platforms, featuring responsive dashboards and verified production rigor.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/media-production-website-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Media Production Website Development & Digital Platforms</h3>
+                            <p class="dir-card-desc">Bespoke digital architecture for media production website development, engineered with structured data schemas, role-based workflows, and dependable system integrations.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/case-studies/nextschool-erp" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Nextschool ERP Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke nextschool erp engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/hospital-local-search-architecture" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Hospital Local Search Architecture & Digital Platforms</h3>
+                            <p class="dir-card-desc">Specialized hospital local search architecture engineered with patient-centric information architecture, secure inquiry workflows, and verified healthcare portal experience.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/hospital-management-web-portal" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Hospital Management Web Portal & Digital Platforms</h3>
+                            <p class="dir-card-desc">Specialized hospital management web portal engineered with patient-centric information architecture, secure inquiry workflows, and verified healthcare portal experience.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/case-studies/pixza" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Pixza Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke pixza engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/fashion-ecommerce-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Fashion Ecommerce Development & Digital Platforms</h3>
+                            <p class="dir-card-desc">Custom Shopify Liquid and Storefront API engineering for apparel brands, combining fast collection filtering with refined editorial design.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/school-erp-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom School ERP Development & Digital Platforms</h3>
+                            <p class="dir-card-desc">Multi-role operations portal architecture for educational institutions, supporting student admissions, fee tracking, attendance, and administrative gradebooks.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/high-traffic-publishing-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom High Traffic Publishing Automation & Digital Platforms</h3>
+                            <p class="dir-card-desc">Bespoke digital architecture for high traffic publishing automation, engineered with structured data schemas, role-based workflows, and dependable system integrations.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/solutions/ai-hardware-product-website" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom AI Hardware Product Website & Digital Platforms</h3>
+                            <p class="dir-card-desc">Modern software workspace and product showcase engineering for hardware and AI platforms, featuring responsive dashboards and verified production rigor for organizations prioritizing engineering reliability.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/chatgpt-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Chatgpt SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Search engine and LLM visibility engineering: structured entity markup, semantic content models, and factual knowledge graphs for modern discovery for organizations prioritizing engineering reliability (Chatgpt SEO practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/claude-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Claude SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke claude seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/contact" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Contact Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Contact Kawaki Studios in New Delhi to discuss your custom web development, web application, or digital product requirements with our practicing engineers.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/content-marketing" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Content Marketing Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke content marketing engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/content-strategy" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Content Strategy Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke content strategy engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/conversion-rate-optimization" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Conversion Rate Optimization Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke conversion rate optimization engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/crm-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Crm Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke crm automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/custom-ai-agents" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom AI Agents Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Multi-step AI agent workflows with deterministic logic boundaries, structured tool execution, and human-in-the-loop review safeguards for organizations prioritizing engineering reliability.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/custom-web-applications" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Applications Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke custom web applications engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/customer-support-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Customer Support Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke customer support automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Delhi Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Delhi businesses for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/ai-automation-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">AI Automation Agency in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional ai automation agency for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/ai-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">AI SEO Agency in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional ai seo agency for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/digital-marketing-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Digital Marketing Agency in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional digital marketing agency for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/ecommerce-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Ecommerce SEO Agency in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional ecommerce seo agency for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/google-business-profile-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Google Business Profile Agency in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional google business profile agency for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/local-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local SEO Agency in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional local seo agency for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/local-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local SEO in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional local seo for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/real-estate-marketing-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Real Estate Marketing Agency in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional real estate marketing agency for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/saas-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SaaS SEO Agency in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional saas seo agency for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/web-design-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Web Design Company in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional web design company for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/web-development-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Web Development Company in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional web development company for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/delhi/website-recovery-service" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Recovery Service in Delhi Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional website recovery service for high-volume retail flagships, D2C brands, and corporate enterprises across the National Capital Region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/digital-pr-ai-search" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Digital PR AI Search Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke digital pr ai search engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/ecommerce-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Ecommerce Development Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke Shopify Liquid theme engineering, Storefront API integrations, and conversion-focused ecommerce architectures built to scale.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/ecommerce-growth-marketing" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Ecommerce Growth Marketing Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke Shopify Liquid theme engineering, Storefront API integrations, and conversion-focused ecommerce architectures built to scale for organizations prioritizing engineering reliability.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/ecommerce-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Ecommerce SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke Shopify Liquid theme engineering, Storefront API integrations, and conversion-focused ecommerce architectures built to scale for organizations prioritizing engineering reliability (Ecommerce SEO practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/email-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Email Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke email automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/entity-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Entity SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke entity seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/technical-audit" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Technical Audit Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke technical audit engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/gemini-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Gemini SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke gemini seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/generative-engine-optimization" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Generative Engine Optimization Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke generative engine optimization engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/google-ai-overview-optimization" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Google AI Overview Optimization Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke google ai overview optimization engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/google-blacklist-removal" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Google Blacklist Removal Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke google blacklist removal engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/google-business-profile-management" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Google Business Profile Management Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke google business profile management engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/google-business-profile-optimization" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Google Business Profile Optimization Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke google business profile optimization engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/google-maps-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Google Maps SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke google maps seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/hacked-website-recovery" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Hacked Website Recovery Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke hacked website recovery engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/healthcare-digital-marketing" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Healthcare Digital Marketing Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Purpose-built digital systems and search optimization for the healthcare digital marketing sector, engineered for high operational trust and qualified client discovery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/industries" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Industries Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke industries engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/japanese-keyword-hack-removal" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Japanese Keyword Hack Removal Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke japanese keyword hack removal engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/landing-page-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Landing Page Development Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke landing page development engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/lead-generation-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Lead Generation Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke lead generation automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/lead-generation-services" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Lead Generation Services Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke lead generation services engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/lead-qualification-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Lead Qualification Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke lead qualification automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/link-building" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Link Building Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke link building engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/llm-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">LLM SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke llm seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/local-ai-search-optimization" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local AI Search Optimization Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Search engine and LLM visibility engineering: structured entity markup, semantic content models, and factual knowledge graphs for modern discovery for organizations prioritizing engineering reliability (Local AI Search Optimization practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/local-business-marketing" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local Business Marketing Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke local business marketing engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/local-seo-audit" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local SEO Audit Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke local seo audit engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/local-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke local seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/locations" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Locations Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke locations engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/make-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Make Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Deterministic workflow automation and webhook architecture using Make Automation, connecting operational databases with internal tools without brittle plugins.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/marketing-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Marketing Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke marketing automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/n8n-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">N8n Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Deterministic workflow automation and webhook architecture using N8n Automation, connecting operational databases with internal tools without brittle plugins.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/perplexity-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Perplexity SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke perplexity seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/pharma-hack-removal" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Pharma Hack Removal Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke pharma hack removal engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/portfolio" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Portfolio Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke portfolio engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/pricing" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Pricing Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke pricing engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/privacy-policy" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Privacy Policy & Data Protection Governance</h3>
+                            <p class="dir-card-desc">Bespoke privacy policy engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/real-estate-ai-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Real Estate AI Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Purpose-built digital systems and search optimization for the real estate ai automation sector, engineered for high operational trust and qualified client discovery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/real-estate-digital-marketing" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Real Estate Digital Marketing Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Purpose-built digital systems and search optimization for the real estate digital marketing sector, engineered for high operational trust and qualified client discovery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/real-estate-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Real Estate SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Purpose-built digital systems and search optimization for the real estate seo sector, engineered for high operational trust and qualified client discovery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/reddit-brand-visibility" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Reddit Brand Visibility Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke reddit brand visibility engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/reddit-marketing" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Reddit Marketing Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke reddit marketing engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/reddit-reputation-management" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Reddit Reputation Management Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke reddit reputation management engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/reddit-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Reddit SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke reddit seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/resources" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Resources Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke resources engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/restaurant-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Restaurant SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Purpose-built digital systems and search optimization for the restaurant seo sector, engineered for high operational trust and qualified client discovery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/saas-ai-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SaaS AI SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke saas ai seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/saas-content-marketing" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SaaS Content Marketing Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke saas content marketing engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/saas-growth-marketing" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SaaS Growth Marketing Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke saas growth marketing engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/saas-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SaaS SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke saas seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/sales-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Sales Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke sales automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/semantic-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Semantic SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke semantic seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/seo-for-clinics" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO For Clinics Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke seo for clinics engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/seo-for-doctors" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO For Doctors Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke seo for doctors engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/seo-for-law-firms" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO For Law Firms Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Purpose-built digital systems and search optimization for the seo for law firms sector, engineered for high operational trust and qualified client discovery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/seo-website-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Website Development Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke seo website development engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/services" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Services Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Explore Kawaki Studios engineering disciplines: custom web development, web applications, headless commerce, AI automation, and website security hardening.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/shopify-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Shopify SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke Shopify Liquid theme engineering, Storefront API integrations, and conversion-focused ecommerce architectures built to scale for organizations prioritizing engineering reliability (Shopify SEO practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/small-business-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Small Business SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke small business seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/technical-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Technical SEO Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke technical seo engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/terms-of-service" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Terms of Service & Studio Engagement Policies</h3>
+                            <p class="dir-card-desc">Bespoke terms of service engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/web-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Web Development Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke web development engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-backup-restoration" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Backup Restoration Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website backup restoration engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-backup-setup" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Backup Setup Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website backup setup engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-blacklist-removal" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Blacklist Removal Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website blacklist removal engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-database-recovery" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Database Recovery Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website database recovery engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Development Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website development engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-file-restoration" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website File Restoration Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website file restoration engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-firewall-setup" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Firewall Setup Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website firewall setup engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-maintenance" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Maintenance Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website maintenance engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-malware-removal" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Malware Removal Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Emergency code cleaning, malicious payload de-obfuscation, database disinfection, and post-incident security hardening by Kawaki Studios for organizations prioritizing engineering reliability (Website Malware Removal practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-migration" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Migration Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website migration engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-monitoring" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Monitoring Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website monitoring engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-recovery" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Recovery Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website recovery engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-security-audit" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Security Audit Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Emergency code cleaning, malicious payload de-obfuscation, database disinfection, and post-incident security hardening by Kawaki Studios for organizations prioritizing engineering reliability (Website Security Audit practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-security-cleanup" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Security Cleanup Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Emergency code cleaning, malicious payload de-obfuscation, database disinfection, and post-incident security hardening by Kawaki Studios for organizations prioritizing engineering reliability (Website Security Cleanup practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-security-maintenance" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Security Maintenance Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Emergency code cleaning, malicious payload de-obfuscation, database disinfection, and post-incident security hardening by Kawaki Studios for organizations prioritizing engineering reliability (Website Security Maintenance practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-security" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Security Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Emergency code cleaning, malicious payload de-obfuscation, database disinfection, and post-incident security hardening by Kawaki Studios for organizations prioritizing engineering reliability (Website Security practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-virus-removal" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Virus Removal Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website virus removal engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/website-vulnerability-assessment" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Vulnerability Assessment Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke website vulnerability assessment engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/whatsapp-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Whatsapp Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke whatsapp automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/woocommerce-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Woocommerce Development Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke woocommerce development engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/wordpress-hack-recovery" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Wordpress Hack Recovery Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Clean, bespoke WordPress development without bloated visual builders, featuring custom Gutenberg blocks and disciplined database optimization for organizations prioritizing engineering reliability.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/wordpress-security-hardening" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Wordpress Security Hardening Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Emergency code cleaning, malicious payload de-obfuscation, database disinfection, and post-incident security hardening by Kawaki Studios for organizations prioritizing engineering reliability (Wordpress Security Hardening practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/wordpress-website-design" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Wordpress Website Design Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Clean, bespoke WordPress development without bloated visual builders, featuring custom Gutenberg blocks and disciplined database optimization for organizations prioritizing engineering reliability (Wordpress Website Design practice).</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/workflow-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Workflow Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Bespoke workflow automation engineered by Kawaki Studios. Clean TypeScript codebases, modular component architecture, and dependable system delivery.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/zapier-automation" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Zapier Automation Services & Systems Engineering</h3>
+                            <p class="dir-card-desc">Deterministic workflow automation and webhook architecture using Zapier Automation, connecting operational databases with internal tools without brittle plugins.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Ahmedabad Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/ahmedabad" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Ahmedabad Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Ahmedabad businesses for Gujarat industrial manufacturers, chemical groups, and scaling export houses across SG Highway. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/ahmedabad/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Ahmedabad Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for Gujarat industrial manufacturers, chemical groups, and scaling export houses across SG Highway. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Bangalore Practice Hub (15 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/bangalore/mobile-app-development-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Mobile App Development Company in Bangalore</h3>
+                            <p class="dir-card-desc">Production React Native and Expo mobile app development for venture-backed teams.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Bangalore Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Bangalore businesses engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/ai-automation-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">AI Automation Agency in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional ai automation agency engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/ai-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">AI SEO Agency in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional ai seo agency engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/digital-marketing-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Digital Marketing Agency in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional digital marketing agency engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/ecommerce-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Ecommerce SEO Agency in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional ecommerce seo agency engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/google-business-profile-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Google Business Profile Agency in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional google business profile agency engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/local-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local SEO Agency in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional local seo agency engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/local-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local SEO in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional local seo engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/real-estate-marketing-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Real Estate Marketing Agency in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional real estate marketing agency engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/saas-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SaaS SEO Agency in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional saas seo agency engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/web-design-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Web Design Company in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional web design company engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/web-development-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Web Development Company in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional web development company engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/bangalore/website-recovery-service" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Recovery Service in Bangalore Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional website recovery service engineered for venture-funded startups, SaaS platforms, and technology ventures across Koramangala and Indiranagar. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Canada Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/canada/remote-web-development" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Remote Web Development in Canada Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional remote web development for North American tech startups, healthcare providers, and professional consultancies requiring rigorous web standards. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/canada/technical-search-architecture" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Technical Search Architecture in Canada Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional technical search architecture for North American tech startups, healthcare providers, and professional consultancies requiring rigorous web standards. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Chandigarh Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/chandigarh" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Chandigarh Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Chandigarh businesses for healthcare clinics, regional educational institutions, and growing IT service firms across the Tri-City region. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/chandigarh/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Chandigarh Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for healthcare clinics, regional educational institutions, and growing IT service firms across the Tri-City region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Dubai Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/dubai" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Dubai Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Dubai businesses for international trading firms, luxury real estate developers, and hospitality groups across the GCC region. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/dubai/technical-search-architecture" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Technical Search Architecture in Dubai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional technical search architecture for international trading firms, luxury real estate developers, and hospitality groups across the GCC region. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Gurgaon Practice Hub (4 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/gurgaon/mobile-app-development-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Mobile App Development Company in Gurgaon</h3>
+                            <p class="dir-card-desc">Enterprise cross-platform mobile apps engineered for speed and high retention.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/gurgaon" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Gurgaon Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Gurgaon businesses for fast-moving tech startups, consulting firms, and commercial enterprises across CyberCity and Golf Course Road. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/gurgaon/digital-marketing-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Digital Marketing Agency in Gurgaon Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional digital marketing agency for fast-moving tech startups, consulting firms, and commercial enterprises across CyberCity and Golf Course Road. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/gurgaon/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Gurgaon Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for fast-moving tech startups, consulting firms, and commercial enterprises across CyberCity and Golf Course Road. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Hyderabad Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/hyderabad" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Hyderabad Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Hyderabad businesses for technology companies, healthcare networks, and enterprise software providers across HITEC City and Gachibowli. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/hyderabad/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Hyderabad Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for technology companies, healthcare networks, and enterprise software providers across HITEC City and Gachibowli. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Jaipur Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/jaipur" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Jaipur Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Jaipur businesses for luxury jewelry houses, heritage hospitality groups, and export craft studios across Rajasthan. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/jaipur/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Jaipur Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for luxury jewelry houses, heritage hospitality groups, and export craft studios across Rajasthan. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Kolkata Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/kolkata" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Kolkata Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Kolkata businesses for established corporate enterprises, industrial exporters, and modern IT hubs across Eastern India. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/kolkata/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Kolkata Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for established corporate enterprises, industrial exporters, and modern IT hubs across Eastern India. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">London Practice Hub (1 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/london/technical-search-architecture" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Technical Search Architecture in London Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional technical search architecture for boutique investment firms, architecture practices, and high-end UK brands requiring elevated digital polish. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Ludhiana Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/ludhiana" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Ludhiana Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Ludhiana businesses for export manufacturers, textile mills, and industrial trade businesses expanding their international digital reach. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/ludhiana/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Ludhiana Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for export manufacturers, textile mills, and industrial trade businesses expanding their international digital reach. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Mumbai Practice Hub (14 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/mumbai/mobile-app-development-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Mobile App Development Company in Mumbai</h3>
+                            <p class="dir-card-desc">Commercial and fintech mobile application development with sub-second response times.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Mumbai Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Mumbai businesses for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/ai-automation-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">AI Automation Agency in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional ai automation agency for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/ai-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">AI SEO Agency in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional ai seo agency for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/digital-marketing-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Digital Marketing Agency in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional digital marketing agency for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/ecommerce-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Ecommerce SEO Agency in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional ecommerce seo agency for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/google-business-profile-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Google Business Profile Agency in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional google business profile agency for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/local-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local SEO Agency in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional local seo agency for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/local-seo" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Local SEO in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional local seo for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/real-estate-marketing-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Real Estate Marketing Agency in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional real estate marketing agency for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/saas-seo-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SaaS SEO Agency in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional saas seo agency for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/web-development-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Web Development Company in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional web development company for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/mumbai/website-recovery-service" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Website Recovery Service in Mumbai Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional website recovery service for institutional finance, luxury consumer brands, and corporate flagships across BKC and Lower Parel. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Noida Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/noida" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Noida Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Noida businesses for media broadcast networks, electronics manufacturers, and multi-campus educational institutions. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/noida/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Noida Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for media broadcast networks, electronics manufacturers, and multi-campus educational institutions. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Pune Practice Hub (3 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/pune" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Pune Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Pune businesses tailored for manufacturing groups, enterprise software teams, and growing EdTech platforms across Hinjewadi and Baner. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/pune/digital-marketing-agency" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Digital Marketing Agency in Pune Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional digital marketing agency tailored for manufacturing groups, enterprise software teams, and growing EdTech platforms across Hinjewadi and Baner. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/pune/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Pune Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company tailored for manufacturing groups, enterprise software teams, and growing EdTech platforms across Hinjewadi and Baner. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="dir-city-group">
+                <div class="dir-city-name">Vadodara Practice Hub (2 Services)</div>
+                <div class="dir-grid">
+                    
+                    <a href="/vadodara" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">Custom Web Development & Digital Products for Vadodara Businesses</h3>
+                            <p class="dir-card-desc">Bespoke web development and digital product engineering for Vadodara businesses for engineering consultancies, chemical manufacturers, and industrial suppliers seeking modern digital credibility. Direct developer collaboration from our New Delhi studio.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                    <a href="/vadodara/seo-company" class="dir-card">
+                        <div>
+                            <h3 class="dir-card-title">SEO Company in Vadodara Built for Reliability & Scale</h3>
+                            <p class="dir-card-desc">Professional seo company for engineering consultancies, chemical manufacturers, and industrial suppliers seeking modern digital credibility. Bespoke software architecture and clean code from Kawaki Studios' centralized engineering team.</p>
+                        </div>
+                        <span class="dir-card-link">View Practice &rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- 06. ENGINEERING JOURNAL ARTICLES -->
+        <section class="dir-section">
+            <div class="dir-section-header">
+                <h2 class="dir-section-title">06 / Engineering Journal &amp; Technical Insights</h2>
+                <span class="dir-section-count">0 Articles</span>
+            </div>
+            <div class="dir-grid">
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="sections global-site-footer">
+        <div class="services-header-2">
+            <div class="footer-headline-group">
+                <h3 class="services-title-2">Ready to talk?</h3>
+                <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+            </div>
+            <a href="/contact" class="footer-cta-card-btn">
+                <span>Schedule Intro Call</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8" fill="#C6FF00"></circle>
+                    <path fill="#111111" d="M5.904 10.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Software Engineering Studio in New Delhi &amp; Delhi NCR.</div>
+            <ul class="footer-bottom-links">
+                <li><a href="/directory">Directory</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms-of-service">Terms of Service</a></li>
+                <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap (XML)</a></li>
+                <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
+                <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Instant Search Script -->
+    <script>
+    document.getElementById('dirSearch')?.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.dir-card');
+        const groups = document.querySelectorAll('.dir-city-group');
+
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            if (!query || text.includes(query)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        groups.forEach(group => {
+            const visible = group.querySelectorAll('.dir-card[style*="display: flex"]');
+            group.style.display = (!query || visible.length > 0) ? 'block' : 'none';
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0c" />
+      <stop offset="100%" stop-color="#121217" />
+    </linearGradient>
+    <linearGradient id="p1Grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#f87171" />
+    </linearGradient>
+    <linearGradient id="p2Grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <linearGradient id="p3Grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad2)" />
+
+  <!-- Header -->
+  <text x="80" y="75" fill="#a1a1aa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" letter-spacing="2">OPERATIONAL PROTOCOL ARCHITECTURE</text>
+  <text x="80" y="115" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.5">Website Maintenance SLA, Telemetry &amp; Incident Governance</text>
+
+  <!-- Left Column: Synthetic Telemetry Engine -->
+  <g transform="translate(80, 155)">
+    <rect width="480" height="445" rx="16" fill="#141418" stroke="#27272a" stroke-width="1" />
+    <rect x="0" y="0" width="480" height="4" rx="2" fill="#00e5ff" />
+    
+    <text x="32" y="42" fill="#00e5ff" font-family="monospace" font-size="12" font-weight="700" letter-spacing="1">LAYER 01: REAL-TIME TELEMETRY</text>
+    <text x="32" y="74" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700">Continuous Health Monitoring</text>
+
+    <!-- Telemetry Item 1 -->
+    <rect x="32" y="98" width="416" height="68" rx="10" fill="#1a1a22" stroke="#27272a" />
+    <circle cx="56" cy="132" r="8" fill="#10b981" />
+    <text x="76" y="127" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600">Synthetic Edge Ping (Every 60s)</text>
+    <text x="76" y="148" fill="#71717a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">Global multi-region health probes with automatic failover alerts</text>
+
+    <!-- Telemetry Item 2 -->
+    <rect x="32" y="178" width="416" height="68" rx="10" fill="#1a1a22" stroke="#27272a" />
+    <circle cx="56" cy="212" r="8" fill="#10b981" />
+    <text x="76" y="207" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600">SSL / TLS Expiration Sentinel</text>
+    <text x="76" y="228" fill="#71717a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">Automated 30-day renewal threshold warnings &amp; cipher audits</text>
+
+    <!-- Telemetry Item 3 -->
+    <rect x="32" y="258" width="416" height="68" rx="10" fill="#1a1a22" stroke="#27272a" />
+    <circle cx="56" cy="292" r="8" fill="#10b981" />
+    <text x="76" y="287" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600">Core Web Vitals Regression Guard</text>
+    <text x="76" y="308" fill="#71717a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">Continuous real-user monitoring detecting layout shifts or LCP spikes</text>
+
+    <!-- Telemetry Item 4 -->
+    <rect x="32" y="338" width="416" height="68" rx="10" fill="#1a1a22" stroke="#27272a" />
+    <circle cx="56" cy="372" r="8" fill="#10b981" />
+    <text x="76" y="367" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600">Automated Daily Cloud Backups</text>
+    <text x="76" y="388" fill="#71717a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">Geographically isolated, encrypted offsite snapshots &amp; quarterly restore drills</text>
+  </g>
+
+  <!-- Right Column: SLA Response Tiers -->
+  <g transform="translate(600, 155)">
+    <rect width="520" height="445" rx="16" fill="#141418" stroke="#27272a" stroke-width="1" />
+    <rect x="0" y="0" width="520" height="4" rx="2" fill="#c6ff00" />
+    
+    <text x="32" y="42" fill="#c6ff00" font-family="monospace" font-size="12" font-weight="700" letter-spacing="1">LAYER 02: INCIDENT ESCALATION MATRIX</text>
+    <text x="32" y="74" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700">Contractual SLA Response Tiers</text>
+
+    <!-- P1 Critical Outage -->
+    <rect x="32" y="98" width="456" height="96" rx="10" fill="#1a1416" stroke="#451a1a" />
+    <rect x="44" y="112" width="70" height="24" rx="4" fill="url(#p1Grad)" />
+    <text x="79" y="128" fill="#ffffff" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">P1 CRITICAL</text>
+    <text x="130" y="128" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Site Down / Checkout Failure / Security Breach</text>
+    <text x="44" y="156" fill="#ef4444" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">Response: &lt; 15 Minutes</text>
+    <text x="230" y="156" fill="#a1a1aa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Target Resolution: &lt; 2 Hours (Active On-Call)</text>
+    <text x="44" y="178" fill="#71717a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Emergency hotfix deployment + root-cause post-mortem analysis</text>
+
+    <!-- P2 Degraded Performance -->
+    <rect x="32" y="206" width="456" height="96" rx="10" fill="#1a1814" stroke="#45381a" />
+    <rect x="44" y="220" width="70" height="24" rx="4" fill="url(#p2Grad)" />
+    <text x="79" y="236" fill="#000000" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">P2 MAJOR</text>
+    <text x="130" y="236" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Third-Party API Degradation / Non-Critical Funnel</text>
+    <text x="44" y="264" fill="#f59e0b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">Response: &lt; 1 Hour</text>
+    <text x="210" y="264" fill="#a1a1aa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Target Resolution: &lt; 4 Hours</text>
+    <text x="44" y="286" fill="#71717a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Webhook failure mitigation, fallback routing, and error queue flushing</text>
+
+    <!-- P3 Routine Request -->
+    <rect x="32" y="314" width="456" height="96" rx="10" fill="#141a16" stroke="#1a452a" />
+    <rect x="44" y="328" width="70" height="24" rx="4" fill="url(#p3Grad)" />
+    <text x="79" y="344" fill="#000000" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">P3 ROUTINE</text>
+    <text x="130" y="344" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Scheduled Updates, Layout Tweaks, Dependency Patches</text>
+    <text x="44" y="372" fill="#10b981" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">Response: &lt; 4 Hours</text>
+    <text x="210" y="372" fill="#a1a1aa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Target Resolution: 24–48 Hours</text>
+    <text x="44" y="394" fill="#71717a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Disciplined Git workflow: Branch ──> Staging Test ──> Gated Production Release</text>
+  </g>
+</svg>

@@ -387,6 +387,7 @@ function renderFooter() {
                     <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
                     <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
                     <li><a href="/contact"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                    <li><a href="/directory"><span>Directory & Index</span> <span class="nav-idx">07</span></a></li>
                 </ul>
             </div>
 
@@ -472,8 +473,9 @@ function renderFooter() {
         <div class="footer-bottom">
             <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
             <ul class="footer-bottom-links">
-                <li><a href="/about">Privacy Policy</a></li>
-                <li><a href="/about">Terms of Service</a></li>
+                <li><a href="/directory">Directory</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms-of-service">Terms of Service</a></li>
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>

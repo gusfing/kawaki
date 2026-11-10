@@ -1,0 +1,47 @@
+name: Daily Blog Automation & Rapid Indexing
+
+on:
+  schedule:
+    # Runs daily at 04:00 UTC (09:30 AM IST)
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish-and-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Daily Blog Automation Pipeline
+        run: node scripts/blog-automation.js run
+
+      - name: Run Full Build & Validation Gate
+        run: npm run build
+
+      - name: Commit and Push Generated Articles & Sitemaps
+        run: |
+          git config --global user.name "Kawaki Automation Bot"
+          git config --global user.email "bot@kawaki.co.in"
+          git add content/ data/ public/
+          if git diff --staged --quiet; then
+            echo "No new changes to commit."
+          else
+            git commit -m "chore(blog): daily automated blog publication & sitemap sync [skip ci]"
+            git push origin main
+          fi
+

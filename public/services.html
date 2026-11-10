@@ -39,73 +39,122 @@
     <meta name="twitter:description" content="Explore Kawaki Studios services: custom web development, Shopify store engineering, AI automation, AI search optimization, and WordPress malware recovery." />
     <meta name="twitter:image" content="https://kawaki.co.in/assets/images/about_hero_bg.jpg" />
 
-    <!-- JSON-LD ProfessionalService Schema -->
+        <!-- JSON-LD Structured Data: WebPage, Breadcrumbs & Service Catalog with Compliant ProfessionalService Provider -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Kawaki Studios — Services",
-      "url": "https://kawaki.co.in/services",
-      "description": "Digital engineering studio services: custom web development, web applications, Shopify store engineering, AI automation systems, AI search optimization, and WordPress development & security recovery.",
-      "provider": {
-        "@type": "Organization",
-        "@id": "https://kawaki.co.in/#organization",
-        "name": "Kawaki Studios",
-        "url": "https://kawaki.co.in",
-        "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "New Delhi",
-          "addressCountry": "IN"
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "@id": "https://kawaki.co.in/services#webpage",
+            "url": "https://kawaki.co.in/services",
+            "name": "Digital Product & Web Engineering Services — Kawaki Studios",
+            "description": "Digital engineering studio services: custom web development, web applications, Shopify store engineering, AI automation systems, AI search optimization, and WordPress development & security recovery.",
+            "isPartOf": {
+                "@type": "WebSite",
+                "@id": "https://kawaki.co.in/#website",
+                "name": "Kawaki Studios",
+                "url": "https://kawaki.co.in"
+            },
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "@id": "https://kawaki.co.in/services#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://kawaki.co.in"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Services",
+                        "item": "https://kawaki.co.in/services"
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "Service",
+            "@id": "https://kawaki.co.in/services#service-catalog",
+            "name": "Digital Product & Web Engineering Services",
+            "serviceType": "Digital Product Engineering",
+            "url": "https://kawaki.co.in/services",
+            "description": "Digital engineering studio services: custom web development, web applications, Shopify store engineering, AI automation systems, AI search optimization, and WordPress development & security recovery.",
+            "provider": {
+                "@type": "ProfessionalService",
+                "@id": "https://kawaki.co.in/#localservice",
+                "name": "Kawaki Studios",
+                "url": "https://kawaki.co.in",
+                "image": "https://kawaki.co.in/assets/images/about_hero_bg.jpg",
+                "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png",
+                "telephone": "+918368246502",
+                "priceRange": "$",
+                "hasMap": "https://maps.google.com/maps?cid=8378945977778123387",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "New Delhi",
+                    "addressLocality": "New Delhi",
+                    "addressRegion": "Delhi",
+                    "postalCode": "110001",
+                    "addressCountry": "IN"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 28.6139,
+                    "longitude": 77.209
+                }
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Core Technical Disciplines",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Custom Web & Applications",
+                            "description": "Bespoke digital flagships, authenticated SaaS portals, website redesigns, and Core Web Vitals optimization engineered with Next.js and TypeScript."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Shopify & Commerce",
+                            "description": "Headless Shopify storefronts, bespoke Liquid theme engineering, Storefront API integrations, and zero-downtime platform migrations."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "AI Automation & AI Search",
+                            "description": "Deterministic workflow pipelines with n8n, task-specific AI agents, and Answer Engine Optimization (AEO/GEO) for modern AI search engines."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "WordPress Development",
+                            "description": "Enterprise WordPress engineering, bespoke Gutenberg block development, headless WP architectures, and sub-second caching without page builders."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "WordPress Security & Recovery",
+                            "description": "Emergency malware cleanup, malicious redirect removal, backdoor eradication, Japanese SEO spam de-indexing, and post-cleanup hardening."
+                        }
+                    }
+                ]
+            }
         }
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Core Technical Disciplines",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Custom Web & Applications",
-              "description": "Bespoke digital flagships, authenticated SaaS portals, website redesigns, and Core Web Vitals optimization engineered with Next.js and TypeScript."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Shopify & Commerce",
-              "description": "Headless Shopify storefronts, bespoke Liquid theme engineering, Storefront API integrations, and zero-downtime platform migrations."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "AI Automation & AI Search",
-              "description": "Deterministic workflow pipelines with n8n, task-specific AI agents, and Answer Engine Optimization (AEO/GEO) for modern AI search engines."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "WordPress Development",
-              "description": "Enterprise WordPress engineering, bespoke Gutenberg block development, headless WP architectures, and sub-second caching without page builders."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "WordPress Security & Recovery",
-              "description": "Emergency malware cleanup, malicious redirect removal, backdoor eradication, Japanese SEO spam de-indexing, and post-cleanup hardening."
-            }
-          }
-        ]
-      }
-    }
+    ]
+}
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -651,6 +700,7 @@
                 <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
                 <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
                 <li><a href="/contact"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                        <li><a href="/directory"><span>Directory & Index</span> <span class="nav-idx">07</span></a></li>
             </ul>
         </div>
 
@@ -736,6 +786,7 @@
     <div class="footer-bottom">
         <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
         <ul class="footer-bottom-links">
+                    <li><a href="/directory">Directory</a></li>
             <li><a href="/about">Privacy Policy</a></li>
             <li><a href="/about">Terms of Service</a></li>
             <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>

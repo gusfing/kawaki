@@ -15,12 +15,16 @@
     "start": "node scripts/start-all.js",
     "backend": "cd admin-dashboard/backend && npx tsx src/index.ts",
     "build:admin": "cd admin-dashboard/frontend && npm run build && node -e \"const fs = require('fs'); fs.cpSync('dist', '../../public/admin', { recursive: true });\"",
-    "build": "node scripts/build-blog.js && node scripts/build-seo-pages.js && node scripts/build-sitemap.js && node scripts/audit-seo-pages.js && node scripts/audit-seo-content-quality.js && node scripts/validate-sitemap.js && node scripts/build-for-vercel.js",
-    "vercel-build": "node scripts/build-blog.js && node scripts/build-seo-pages.js && node scripts/build-sitemap.js && node scripts/audit-seo-pages.js && node scripts/audit-seo-content-quality.js && node scripts/validate-sitemap.js && node scripts/build-for-vercel.js",
+    "build": "node scripts/minify-assets.js && node scripts/build-blog.js && node scripts/build-seo-pages.js && node scripts/build-directory.js && node scripts/build-sitemap.js && node scripts/audit-seo-pages.js && node scripts/audit-seo-content-quality.js && node scripts/validate-sitemap.js && node scripts/build-for-vercel.js",
+    "vercel-build": "node scripts/minify-assets.js && node scripts/build-blog.js && node scripts/build-seo-pages.js && node scripts/build-directory.js && node scripts/build-sitemap.js && node scripts/audit-seo-pages.js && node scripts/audit-seo-content-quality.js && node scripts/validate-sitemap.js && node scripts/build-for-vercel.js",
     "indexnow": "node scripts/submit-indexnow.js",
     "index:google": "node scripts/speed-index.js",
     "index:google:all": "node scripts/speed-index.js --all",
-    "lint": "eslint"
+    "lint": "eslint",
+    "blog:auto": "node scripts/blog-automation.js auto",
+    "blog:watch": "node scripts/blog-automation.js watch",
+    "blog:daemon": "node scripts/blog-automation.js daemon",
+    "blog:queue": "node scripts/blog-automation.js queue"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -41,8 +45,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "clean-css": "^5.3.3",
     "eslint": "^9",
     "tailwindcss": "^4",
+    "terser": "^5.51.2",
     "typescript": "^5"
   }
 }

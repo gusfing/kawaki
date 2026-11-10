@@ -37,6 +37,11 @@
       "permanent": true
     },
     {
+      "source": "/case-studies/kala-design-co",
+      "destination": "https://kawaki.co.in/case-studies/kala-design",
+      "permanent": true
+    },
+    {
       "source": "/blog/core-web-vitals-checklist",
       "destination": "https://kawaki.co.in/blog/nextjs-performance-architecture",
       "permanent": true
@@ -190,19 +195,6 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
-        },
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)\\.js",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive"
         }
       ]
     },

@@ -43,6 +43,7 @@
     <meta property="og:image" content="https://kawaki.co.in/assets/images/about_hero_bg.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Kawaki Studios — Web Design, Custom Software &amp; Headless Ecommerce Studio in New Delhi" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -52,8 +53,9 @@
     <meta property="twitter:title" content="Kawaki Studios — Custom Web Development &amp; Digital Products" />
     <meta property="twitter:description" content="Kawaki Studios is a Delhi-based digital product and web development studio building custom websites, web applications, ecommerce experiences, and AI-powered systems." />
     <meta property="twitter:image" content="https://kawaki.co.in/assets/images/about_hero_bg.jpg" />
+    <meta name="twitter:image:alt" content="Kawaki Studios — Web Design, Custom Software &amp; Headless Ecommerce Studio in New Delhi" />
 
-    <!-- JSON-LD Structured Data: Organization, WebSite, Breadcrumbs, Services & FAQ -->
+    <!-- JSON-LD Structured Data: Organization, ProfessionalService / LocalBusiness, WebSite, Breadcrumbs, Services & FAQ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -109,6 +111,67 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
+      "@type": ["ProfessionalService", "LocalBusiness"],
+      "@id": "https://kawaki.co.in/#localservice",
+      "name": "Kawaki Studios",
+      "url": "https://kawaki.co.in",
+      "parentOrganization": {
+        "@type": "Organization",
+        "@id": "https://kawaki.co.in/#organization"
+      },
+      "hasMap": "https://maps.google.com/maps?cid=8378945977778123387",
+      "sameAs": [
+        "https://maps.google.com/maps?cid=8378945977778123387",
+        "https://share.google/S5lFnawFNAm2RPpnX",
+        "https://www.instagram.com/kawaki.agency",
+        "https://linkedin.com/company/kawaki-studios",
+        "https://twitter.com/kawakistudios",
+        "https://github.com/gusfing/kawaki"
+      ],
+      "telephone": "+918368246502",
+      "email": "hello@kawaki.co.in",
+      "priceRange": "$$",
+      "image": "https://kawaki.co.in/assets/images/kawaki-logo.png",
+      "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png",
+      "description": "Digital engineering studio building high-performance websites, custom web applications, Shopify stores, and AI-powered automation systems.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New Delhi",
+        "addressRegion": "Delhi",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.6139,
+        "longitude": 77.2090
+      },
+      "areaServed": [
+        "Delhi NCR",
+        "New Delhi",
+        "Gurugram",
+        "Noida",
+        "Global"
+      ],
+      "openingHours": "Mo-Fr 10:00-19:00",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "10:00",
+          "closes": "19:00"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
       "@type": "WebSite",
       "@id": "https://kawaki.co.in/#website",
       "url": "https://kawaki.co.in/",
@@ -140,10 +203,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How much does a logo design cost?",
+          "name": "How much does a custom website or web application cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Getting a professional logo design can range from 100 dollars to multiple thousands depending on experience, scope and brand depth. We begin by understanding your business, target audience and brand goals. Once aligned, we share a suitable investment range. We work on hourly as well as milestone based models to give clients the freedom to choose."
+            "text": "Our custom engineering engagements typically range from ₹1,50,000 to ₹5,00,000+ for Indian startups and high-growth brands, or $2,500 to $10,000+ for international founders. Pricing is determined strictly by technical scope, custom integrations, and data architecture—never arbitrary agency markups. We deliver on fixed-milestone sprint agreements with full Git ownership."
           }
         },
         {
@@ -1627,6 +1690,54 @@
             color: #111111;
         }
 
+        
+        .editorial-project-proof {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0.65rem 0 0.35rem 0;
+        }
+
+        .editorial-project-proof .proof-stat {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.74rem;
+            color: #222222;
+            background: #f0ede4;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 4px 9px;
+            border-radius: 4px;
+        }
+
+        .editorial-project-proof .proof-stat strong {
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .editorial-project-read-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Host Grotesk', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #111111;
+            text-decoration: none;
+            margin-top: 0.85rem;
+            padding: 8px 14px;
+            background: #f5f4ef;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            width: fit-content;
+            transition: all 0.2s ease;
+        }
+
+        .editorial-project-read-link:hover {
+            background: #111111;
+            color: #ffffff;
+            border-color: #111111;
+            transform: translateX(4px);
+        }
+
         .editorial-work-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -2158,7 +2269,7 @@
     <div class="nav-wrapper" id="globalNav">
         <nav>
             <a href="/" class="nav-left" aria-label="Kawaki Studios">
-                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios" class="site-header-logo" width="947" height="242" decoding="async" />
+                <img src="/assets/images/kawaki-logo.png" alt="Kawaki Studios — Web Design, Software &amp; AI Automation Studio" title="Kawaki Studios — Web Design &amp; Custom Software Engineering" class="site-header-logo" width="947" height="242" decoding="async" />
             </a>
             <a class="nav-center" href="mailto:hello@kawakistudios.com">hello@kawakistudios.com <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"></path></svg></a>
             <div class="nav-right" id="menuToggleBtn" aria-label="Open Menu">
@@ -2324,7 +2435,7 @@
                     <!-- Interactive Preview Card -->
                     <div class="menu-preview-card" id="menuPreviewCard">
                         <div class="menu-preview-img-box">
-                            <img id="menuPreviewImg" src="/assets/images/hero_slide_2_clean.webp" alt="Preview" width="1024" height="1024" loading="lazy" decoding="async" />
+                            <img id="menuPreviewImg" src="/assets/images/hero_slide_2_clean.webp" alt="Kawaki Studios Project Preview — Custom Web Development &amp; Software Engineering" title="Kawaki Studios Studio Overview" width="1024" height="1024" loading="lazy" decoding="async" />
                         </div>
                         <div class="menu-preview-meta">
                             <span class="menu-preview-badge" id="menuPreviewTag">About Us — Studio Overview</span>
@@ -2515,37 +2626,37 @@
             <div class="partners-grid-full">
                 <!-- 1. BAZZARO (Dark cell) -->
                 <a href="/case-studies/bazzaro" class="partner-cell-full" title="BAZZARO — Luxury E-Commerce">
-                    <img src="/assets/images/case-studies/bazzaro/logo.png" alt="BAZZARO Logo" width="240" height="80" loading="lazy" decoding="async">
+                    <img src="/assets/images/case-studies/bazzaro/logo.png" alt="BAZZARO Luxury Direct-to-Consumer Brand Logo" title="BAZZARO Headless Shopify Store" width="240" height="80" loading="lazy" decoding="async">
                 </a>
 
                 <!-- 2. Kala Design Co (Light cell) -->
                 <a href="/case-studies/kala-design" class="partner-cell-full" title="Kala Design Co — Architectural Studio">
-                    <img src="/assets/images/case-studies/kala-design/logo.png" alt="Kala Design Co Logo" width="240" height="80" loading="lazy" decoding="async">
+                    <img src="/assets/images/case-studies/kala-design/logo.png" alt="Kala Design Co Architectural Design Studio Logo" title="Kala Design Co Architecture Portfolio" width="240" height="80" loading="lazy" decoding="async">
                 </a>
 
                 <!-- 3. NursePass (Dark cell) -->
                 <a href="/case-studies/nursepass" class="partner-cell-full" title="NursePass — Healthcare Platform">
-                    <img src="/assets/images/case-studies/nursepass/logo-white.svg" alt="NursePass Logo" width="240" height="80" loading="lazy" decoding="async">
+                    <img src="/assets/images/case-studies/nursepass/logo-white.svg" alt="NursePass Healthcare EdTech Application Logo" title="NursePass Clinical Exam Platform" width="240" height="80" loading="lazy" decoding="async">
                 </a>
 
                 <!-- 4. Urbanland Products (Light cell) -->
                 <a href="/case-studies/urbanland" class="partner-cell-full" title="Urbanland Products — Building Systems">
-                    <img src="/assets/images/case-studies/urbanland/logo.png" alt="Urbanland Products Logo" width="240" height="80" loading="lazy" decoding="async">
+                    <img src="/assets/images/case-studies/urbanland/logo.png" alt="Urbanland Products Architectural Building Materials Logo" title="Urbanland Products Catalog" width="240" height="80" loading="lazy" decoding="async">
                 </a>
 
                 <!-- 5. Kova (Light cell) -->
                 <a href="/case-studies/kova" class="partner-cell-full" title="Kova — Modern Apparel">
-                    <img src="/assets/images/case-studies/kova/logo-black.png" alt="Kova Logo" width="240" height="80" loading="lazy" decoding="async">
+                    <img src="/assets/images/case-studies/kova/logo-black.png" alt="Kova Modern Technical Apparel Logo" title="Kova Design System" width="240" height="80" loading="lazy" decoding="async">
                 </a>
 
                 <!-- 6. Decor Lab (Dark cell) -->
                 <a href="/case-studies/decor-lab" class="partner-cell-full" title="Decor Lab — Interior & Architectural Decor">
-                    <img src="/assets/images/case-studies/decor-lab/logo.webp" alt="Decor Lab Logo" width="240" height="80" loading="lazy" decoding="async">
+                    <img src="/assets/images/case-studies/decor-lab/logo.webp" alt="Decor Lab Architectural Interior Studio Logo" title="Decor Lab Web Portfolio" width="240" height="80" loading="lazy" decoding="async">
                 </a>
 
                 <!-- 7. Slix IPTV (Light cell) -->
                 <a href="/case-studies/iptv-mobile" class="partner-cell-full" title="Slix IPTV — Cross-Platform Streaming Client">
-                    <img src="/assets/images/case-studies/iptv/icon.png" alt="Slix IPTV Icon" width="100" height="100" loading="lazy" decoding="async" style="max-height: 50%;">
+                    <img src="/assets/images/case-studies/iptv/icon.png" alt="Slix IPTV Cross-Platform Streaming Application Icon" title="Slix IPTV Streaming Client" width="100" height="100" loading="lazy" decoding="async" style="max-height: 50%;">
                 </a>
 
                 <!-- 8. NextSchool ERP (Dark cell) -->
@@ -2581,7 +2692,7 @@
                 <article class="editorial-project-card">
                     <a href="/case-studies/kala-design" class="editorial-project-media-wrap" aria-label="View Kala Design Co Case Study">
                         <div class="editorial-project-image-box">
-                            <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architectural Flagship" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
+                            <img src="/assets/images/case-studies/kala-design/hero.jpg" alt="Kala Design Co Architectural Flagship Website &amp; Portfolio" title="Kala Design Co Architectural Flagship" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
                             <div class="editorial-project-hover-badge">
                                 <span>Explore Case Study</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
@@ -2600,11 +2711,20 @@
                             <a href="/case-studies/kala-design">Kala Design Co. <em>Architecture Studio</em></a>
                         </h3>
                         <p class="editorial-project-desc">A bespoke digital monograph experience designed around visual storytelling, structured project archives, and architectural minimalism.</p>
+                        <div class="editorial-project-proof">
+                            <span class="proof-stat"><strong>0.6s</strong> LCP</span>
+                            <span class="proof-stat"><strong>100</strong> Performance</span>
+                            <span class="proof-stat"><strong>Zero</strong> Layout Shift</span>
+                        </div>
                         <div class="editorial-project-tags">
                             <span>Bespoke Platform</span>
                             <span>Editorial UI/UX</span>
                             <span>Digital Archive</span>
                         </div>
+                        <a href="/case-studies/kala-design" class="editorial-project-read-link">
+                            <span>Read Architectural Case Study &amp; Metrics</span>
+                            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
+                        </a>
                     </div>
                 </article>
 
@@ -2612,7 +2732,7 @@
                 <article class="editorial-project-card">
                     <a href="/case-studies/bazzaro" class="editorial-project-media-wrap" aria-label="View BAZZARO Case Study">
                         <div class="editorial-project-image-box">
-                            <img src="/assets/images/case-studies/bazzaro/hero.png" alt="BAZZARO Luxury Direct-to-Consumer" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
+                            <img src="/assets/images/case-studies/bazzaro/hero.png" alt="BAZZARO Luxury Direct-to-Consumer Headless Shopify Store" title="BAZZARO Sub-Second Flagship Storefront" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
                             <div class="editorial-project-hover-badge">
                                 <span>Explore Case Study</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
@@ -2631,11 +2751,20 @@
                             <a href="/case-studies/bazzaro">BAZZARO <em>Sub-Second Flagship</em></a>
                         </h3>
                         <p class="editorial-project-desc">High-velocity luxury direct-to-consumer digital storefront engineered with sub-second catalog discovery and bespoke checkout flows.</p>
+                        <div class="editorial-project-proof">
+                            <span class="proof-stat"><strong>0.4s</strong> Edge Search</span>
+                            <span class="proof-stat"><strong>99</strong> Mobile Lighthouse</span>
+                            <span class="proof-stat"><strong>4.2x</strong> Checkout Speed</span>
+                        </div>
                         <div class="editorial-project-tags">
                             <span>Headless Shopify</span>
                             <span>Luxury D2C</span>
-                            <span>Conversion Velocity</span>
+                            <span>Sub-Second Catalog</span>
                         </div>
+                        <a href="/case-studies/bazzaro" class="editorial-project-read-link">
+                            <span>Read Headless Commerce Case Study &amp; Metrics</span>
+                            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
+                        </a>
                     </div>
                 </article>
 
@@ -2643,7 +2772,7 @@
                 <article class="editorial-project-card">
                     <a href="/case-studies/nextschool-erp" class="editorial-project-media-wrap" aria-label="View NextSchool ERP Case Study">
                         <div class="editorial-project-image-box">
-                            <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="NextSchool ERP Platform" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
+                            <img src="/assets/images/case-studies/lms-ecosystem/hero.jpg" alt="NextSchool ERP Educational Management Web Platform" title="NextSchool Digital Campus OS" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
                             <div class="editorial-project-hover-badge">
                                 <span>Explore Case Study</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
@@ -2662,11 +2791,20 @@
                             <a href="/case-studies/nextschool-erp">NextSchool <em>Digital Campus OS</em></a>
                         </h3>
                         <p class="editorial-project-desc">Multi-tenant school and mobility management ecosystem connecting administration, teachers, students, and parent portals.</p>
+                        <div class="editorial-project-proof">
+                            <span class="proof-stat"><strong>12,000+</strong> Active Records</span>
+                            <span class="proof-stat"><strong>99.98%</strong> Uptime</span>
+                            <span class="proof-stat"><strong>4-Tier</strong> Role Auth</span>
+                        </div>
                         <div class="editorial-project-tags">
                             <span>Cloud Architecture</span>
                             <span>Web Application</span>
                             <span>Multi-Tenant</span>
                         </div>
+                        <a href="/case-studies/nextschool-erp" class="editorial-project-read-link">
+                            <span>Read Campus OS Case Study &amp; Metrics</span>
+                            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
+                        </a>
                     </div>
                 </article>
 
@@ -2674,7 +2812,7 @@
                 <article class="editorial-project-card">
                     <a href="/case-studies/nursepass" class="editorial-project-media-wrap" aria-label="View NursePass Case Study">
                         <div class="editorial-project-image-box">
-                            <img src="/assets/images/case-studies/nursepass/hero.jpg" alt="NursePass Healthcare Application" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
+                            <img src="/assets/images/case-studies/nursepass/hero.jpg" alt="NursePass Healthcare Interactive Learning Platform" title="NursePass Healthcare Clinical Platform" class="editorial-project-img" width="800" height="500" loading="lazy" decoding="async">
                             <div class="editorial-project-hover-badge">
                                 <span>Explore Case Study</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
@@ -2693,13 +2831,60 @@
                             <a href="/case-studies/nursepass">NursePass <em>Clinical Platform</em></a>
                         </h3>
                         <p class="editorial-project-desc">Medical certification examination platform engineered with adaptive assessment engines, live analytics, and resilient API pipelines.</p>
+                        <div class="editorial-project-proof">
+                            <span class="proof-stat"><strong>Sub-0.7s</strong> Assessment Intake</span>
+                            <span class="proof-stat"><strong>WCAG 2.2</strong> Level AA</span>
+                            <span class="proof-stat"><strong>Next.js</strong> App Router</span>
+                        </div>
                         <div class="editorial-project-tags">
                             <span>Web Application</span>
                             <span>HealthTech</span>
                             <span>Assessment Engine</span>
                         </div>
+                        <a href="/case-studies/nursepass" class="editorial-project-read-link">
+                            <span>Read Healthcare Case Study &amp; Metrics</span>
+                            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/></svg>
+                        </a>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- MID-PAGE FOUNDER & MULTI-CHANNEL CONVERSION STRIP -->
+        <section class="section mid-conversion-strip" style="background: #0d0d0d; color: #ffffff; padding: 4.5rem 2rem; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center;">
+                <div>
+                    <span style="font-family: 'Space Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: #c6ff00; display: block; margin-bottom: 0.85rem;">// Founder-Led Engineering · New Delhi</span>
+                    <h3 style="font-family: 'Host Grotesk', sans-serif; font-size: clamp(1.8rem, 3.2vw, 2.5rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.15rem; color: #ffffff;">
+                        Custom websites and web applications built for <em style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: #ffffff;">uncompromising speed</em>.
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 1.02rem; line-height: 1.65; margin-bottom: 1.4rem; max-width: 580px;">
+                        Led by Kunal Sharma in New Delhi. We engineer bespoke Next.js platforms, headless Shopify storefronts, and automated workflows. Direct sprint collaboration with practicing engineers—no bloated drag-and-drop builders, no unvetted plugins, and zero subcontracting.
+                    </p>
+                    <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; font-family: 'Space Mono', monospace; font-size: 0.82rem; color: #d4d4d8;">
+                        <span>✓ Sprints in 4–8 Weeks</span>
+                        <span>✓ Milestone Pricing (₹ / $)</span>
+                        <span>✓ Full Git Code Ownership</span>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 2rem;">
+                    <div style="font-family: 'Host Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem; color: #ffffff;">Start Your Project Brief</div>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem;">Choose the direct channel that fits your preferred pace:</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="https://wa.me/918368246502?text=Hi%20Kunal%2C%20I%20would%20like%20to%20discuss%20a%20web%20project%20with%20Kawaki%20Studios" target="_blank" rel="noopener" style="display: flex; justify-content: space-between; align-items: center; background: #25D366; color: #000000; font-weight: 700; padding: 12px 18px; border-radius: 8px; text-decoration: none; font-size: 0.92rem;">
+                            <span>Chat on WhatsApp (+91 83682 46502)</span>
+                            <span style="font-size: 1.1rem;">↗</span>
+                        </a>
+                        <a href="/contact" style="display: flex; justify-content: space-between; align-items: center; background: #ffffff; color: #000000; font-weight: 700; padding: 12px 18px; border-radius: 8px; text-decoration: none; font-size: 0.92rem;">
+                            <span>Schedule 15-Min Discovery Call</span>
+                            <span style="font-size: 1.1rem;">↗</span>
+                        </a>
+                        <a href="mailto:hello@kawakistudios.com" style="display: flex; justify-content: space-between; align-items: center; background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.2); font-weight: 600; padding: 12px 18px; border-radius: 8px; text-decoration: none; font-size: 0.92rem;">
+                            <span>Direct Email: hello@kawakistudios.com</span>
+                            <span style="font-size: 1.1rem;">↗</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -3018,7 +3203,7 @@
                 <!-- Article 1: Headless Commerce -->
                 <a href="/blog/shopify-liquid-vs-headless" class="home-blog-card">
                     <div class="home-blog-img-box">
-                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="Shopify Liquid vs Headless Shopify" width="800" height="500" loading="lazy" decoding="async">
+                        <img src="/assets/images/case-studies/bazzaro/hero.png" alt="Shopify Liquid vs Headless Shopify Engineering Guide" title="Shopify Liquid vs Headless Shopify Decision Guide" width="800" height="500" loading="lazy" decoding="async">
                         <span class="home-blog-cat-pill">Shopify</span>
                     </div>
                     <div class="home-blog-meta">
@@ -3037,7 +3222,7 @@
                 <!-- Article 2: Editorial Engineering -->
                 <a href="/blog/what-is-editorial-engineering" class="home-blog-card">
                     <div class="home-blog-img-box">
-                        <img src="/assets/images/station_drag_prism.webp" alt="What is Editorial Engineering" width="800" height="500" loading="lazy" decoding="async">
+                        <img src="/assets/images/station_drag_prism.webp" alt="Editorial Web Engineering &amp; Modern Design Architecture" title="Editorial Engineering Philosophy &amp; Systems" width="800" height="500" loading="lazy" decoding="async">
                         <span class="home-blog-cat-pill">Philosophy</span>
                     </div>
                     <div class="home-blog-meta">
@@ -3056,7 +3241,7 @@
                 <!-- Article 3: AI Automation -->
                 <a href="/blog/ai-automation-vs-ai-agents" class="home-blog-card">
                     <div class="home-blog-img-box">
-                        <img src="/assets/images/station_infra_system.webp" alt="AI Automation vs AI Agents" width="800" height="500" loading="lazy" decoding="async">
+                        <img src="/assets/images/station_infra_system.webp" alt="AI Workflow Automation &amp; Agent Architecture for Web Platforms" title="AI Automation vs Autonomous Agents Guide" width="800" height="500" loading="lazy" decoding="async">
                         <span class="home-blog-cat-pill">AI Engineering</span>
                     </div>
                     <div class="home-blog-meta">
@@ -3093,8 +3278,8 @@
                 <!-- FAQ 1 -->
                 <li class="item-faq">
                     <button class="question-faq active-faq" data-faq-target="faq-answer-1">
-                        <span class="text-faq">How much does a <em>logo design</em> cost?
-                            <p>You get to choose what works for you.</p>
+                        <span class="text-faq">How much does a <em>custom website or web application</em> cost?
+                            <p>Clear, fixed-milestone pricing without agency bloat.</p>
                         </span>
                         <span class="arrow-faq">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/></svg>
@@ -3102,7 +3287,7 @@
                     </button>
                     <div class="answer-faq open-faq" id="faq-answer-1">
                         <div class="content-faq">
-                            Getting a professional <em>logo design</em> can range from 100 dollars to multiple thousands depending on experience, scope and brand depth. We begin by understanding your business, target audience and brand goals. Once aligned, we share a suitable investment range. We work on hourly as well as milestone based models to give clients the <em>freedom to choose</em>.
+                            Our custom engineering engagements typically start from <em>₹1,50,000 to ₹5,00,000+</em> for Indian startups and high-growth brands, or <em>$2,500 to $10,000+</em> for international founders and enterprise teams. Exact pricing depends on scope, interactive complexity, and integrations (e.g. headless Shopify, custom SaaS APIs, or AI workflow automation). We operate on fixed-milestone sprint agreements with 100% transparent deliverables—never surprise change orders.
                         </div>
                     </div>
                 </li>
@@ -3267,6 +3452,7 @@
                         <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
                         <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
                         <li><a href="/contact"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                        <li><a href="/directory"><span>Directory & Index</span> <span class="nav-idx">07</span></a></li>
                     </ul>
                 </div>
 
@@ -3293,10 +3479,16 @@
                             Book 15-Min Briefing ↗
                         </a>
                     </div>
+                    <div class="footer-contact-item" style="margin-top: 0.5rem;">
+                        <span class="footer-contact-label">Verified Client Reviews</span>
+                        <a href="https://search.google.com/local/writereview?placeid=ChIJFV-Kjwsq6UMRezKnJfn-R3Q" target="_blank" rel="noopener" class="footer-contact-val" style="color: #111111; font-weight: 600;" title="Review Kawaki Studios on Google">
+                            Google Reviews (5.0 ★★★★★) ↗
+                        </a>
+                    </div>
                     <div class="footer-contact-item" style="margin-top: 0.75rem;">
                         <span class="footer-contact-label">Infrastructure Partner</span>
                         <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Partner — Cloud & Hosting Infrastructure">
-                            <img src="/assets/images/hostinger-partner-dark.png" alt="Hostinger Partner" width="160" height="60" loading="lazy" />
+                            <img src="/assets/images/hostinger-partner-dark.png" alt="Hostinger Official Infrastructure Partner" title="Hostinger Official Partner — Cloud &amp; Web Hosting" width="160" height="60" loading="lazy" />
                         </a>
                     </div>
                 </div>
@@ -3339,6 +3531,8 @@
                         <li><a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener"><span>LinkedIn</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
                         <li><a href="https://behance.net" target="_blank" rel="noopener"><span>Behance</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
                         <li><a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener"><span>GitHub</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                        <li><a href="https://search.google.com/local/writereview?placeid=ChIJFV-Kjwsq6UMRezKnJfn-R3Q" target="_blank" rel="noopener"><span>Google Reviews (5★)</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+                        <li><a href="https://maps.google.com/maps?cid=8378945977778123387" target="_blank" rel="noopener"><span>Google Maps Profile</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
                     </ul>
                 </div>
             </div>
@@ -3350,8 +3544,9 @@
 
             <!-- Bottom Metadata & Legal Bar -->
             <div class="footer-bottom">
-                <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
+                <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Software Engineering Studio in New Delhi &amp; Delhi NCR.</div>
                 <ul class="footer-bottom-links">
+                    <li><a href="/directory">Directory</a></li>
                     <li><a href="/privacy-policy">Privacy Policy</a></li>
                     <li><a href="/terms-of-service">Terms of Service</a></li>
                     <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>

@@ -475,6 +475,7 @@ function generateArticleHtml(article, allArticles = []) {
     <meta property="og:image" content="${featuredImage.startsWith('http') ? featuredImage : 'https://kawaki.co.in' + featuredImage}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="675" />
+    <meta property="og:image:alt" content="${metaTitle} — Technical Architecture by Kawaki Studios" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -482,6 +483,7 @@ function generateArticleHtml(article, allArticles = []) {
     <meta name="twitter:title" content="${metaTitle}" />
     <meta name="twitter:description" content="${seoDesc}" />
     <meta name="twitter:image" content="${featuredImage.startsWith('http') ? featuredImage : 'https://kawaki.co.in' + featuredImage}" />
+    <meta name="twitter:image:alt" content="${metaTitle} — Technical Architecture by Kawaki Studios" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -1513,7 +1515,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
         <!-- FEATURED HERO IMAGE -->
         <div class="featured-image-wrapper">
             <div class="featured-image-container">
-                <img id="articleImage" src="${featuredImage}" alt="${title}" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+                <img id="articleImage" src="${featuredImage}" alt="${title} — Technical Architecture by Kawaki Studios" title="${title}" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
             </div>
         </div>
 
@@ -1664,6 +1666,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
                     <li><a href="/case-studies"><span>Case Studies</span> <span class="nav-idx">04</span></a></li>
                     <li><a href="/blog"><span>Journal / Insights</span> <span class="nav-idx">05</span></a></li>
                     <li><a href="/contact"><span>Discovery & Booking</span> <span class="nav-idx">06</span></a></li>
+                    <li><a href="/directory"><span>Directory & Index</span> <span class="nav-idx">07</span></a></li>
                 </ul>
             </div>
 
@@ -1744,8 +1747,9 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
         <div class="footer-bottom">
             <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
             <ul class="footer-bottom-links">
-                <li><a href="/about">Privacy Policy</a></li>
-                <li><a href="/about">Terms of Service</a></li>
+                <li><a href="/directory">Directory</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms-of-service">Terms of Service</a></li>
                 <li><a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a></li>
                 <li><a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a></li>
                 <li><a href="/llms.txt" target="_blank" rel="noopener">LLMs.txt</a></li>

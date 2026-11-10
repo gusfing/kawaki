@@ -1,0 +1,1 @@
+!function(){"use strict";window.KawakiGlobal=window.KawakiGlobal||{}}();

@@ -154,7 +154,7 @@ With custom development, the upfront investment produces an owned digital asset 
 At [Kawaki Studios](/), our engineering philosophy is grounded in practical application, not theoretical debate. Two contrasting projects illustrate why choosing the right architecture matters:
 
 ### Case Study 1: Architectural Craft for Kala Design Co.
-When boutique architecture practice [Kala Design Co.](/case-studies/kala-design-co) commissioned Kawaki Studios to build their digital monograph, their primary requirement was visual stillness, typographic precision, and instant image delivery that reflected physical spatial craftsmanship.
+When boutique architecture practice [Kala Design Co.](/case-studies/kala-design) commissioned Kawaki Studios to build their digital monograph, their primary requirement was visual stillness, typographic precision, and instant image delivery that reflected physical spatial craftsmanship.
 - **Why Webflow Was Rejected:** Webflow's CSS grid builder imposed container padding rules and runtime scripts that degraded the unhurried editorial aesthetic Kala demanded. Furthermore, delivering full-bleed architectural photography through a visual builder triggered mobile layout shifts (CLS).
 - **The Custom Engineering Solution:** We engineered a bespoke platform utilizing pure semantic HTML, bespoke CSS layout rails, and zero client-side JavaScript. The result is a monograph that loads in under 0.6 seconds with perfect Core Web Vitals, earning international design recognition.
 
