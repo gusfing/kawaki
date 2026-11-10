@@ -440,3 +440,46 @@ body.seo-page-body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Related Topical Cluster Links */
+.seo-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.seo-related-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+.seo-related-card:hover {
+  border-color: #111111;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+.seo-related-title {
+  font-family: 'Host Grotesk', -apple-system, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+.seo-related-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+

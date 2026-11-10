@@ -92,12 +92,14 @@ allHtmlFiles.forEach(filePath => {
     changefreq = 'monthly';
   }
 
+  const today = new Date().toISOString().split('T')[0];
+
   canonicalEntries.push({
     loc: expectedCanonical,
     route,
     priority,
     changefreq,
-    lastmod: '2026-10-10'
+    lastmod: today
   });
 });
 
@@ -135,6 +137,28 @@ canonicalEntries.forEach(entry => {
 xml += `</urlset>\n`;
 
 fs.writeFileSync(sitemapPath, xml, 'utf8');
+
+// 5. Generate categorized sub-sitemaps for granular Search Console monitoring
+function writeSubSitemap(filename, filterFn) {
+  const filtered = canonicalEntries.filter(filterFn);
+  let subXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+  filtered.forEach(entry => {
+    subXml += `  <url>\n    <loc>${entry.loc}</loc>\n    <lastmod>${entry.lastmod}</lastmod>\n    <changefreq>${entry.changefreq}</changefreq>\n    <priority>${entry.priority}</priority>\n  </url>\n`;
+  });
+  subXml += `</urlset>\n`;
+  fs.writeFileSync(path.resolve(publicDir, filename), subXml, 'utf8');
+  console.log(`  ✓ Generated public/${filename} (${filtered.length} URLs)`);
+}
+
+console.log('⚡ Generating granular topic sub-sitemaps:');
+writeSubSitemap('sitemap-core.xml', e => ['/', '/about', '/services', '/case-studies', '/blog', '/contact', '/directory', '/pricing', '/privacy-policy', '/terms-of-service', '/terminal'].includes(e.route));
+writeSubSitemap('sitemap-services.xml', e => e.route.startsWith('/services/') || e.route.startsWith('/ai-') || e.route.includes('automation') || e.route.includes('optimization'));
+writeSubSitemap('sitemap-case-studies.xml', e => e.route.startsWith('/case-studies/'));
+writeSubSitemap('sitemap-blog.xml', e => e.route.startsWith('/blog/'));
+writeSubSitemap('sitemap-locations.xml', e => {
+  const cities = ['delhi', 'bangalore', 'mumbai', 'gurgaon', 'noida', 'ahmedabad', 'pune', 'hyderabad', 'jaipur', 'chandigarh', 'kolkata', 'ludhiana', 'vadodara', 'dubai', 'london', 'canada'];
+  return cities.some(c => e.route === `/${c}` || e.route.startsWith(`/${c}/`));
+});
 
 console.log(`✓ [Build Sitemap] Successfully generated public/sitemap.xml with ${canonicalEntries.length} canonical URLs.`);
 console.log(`  - 226 Phase 1 registry targets confirmed`);

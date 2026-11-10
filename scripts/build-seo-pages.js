@@ -864,9 +864,60 @@ function generateDifferentiatedContent(entry) {
 }
 
 // Generate Complete Page HTML
+function getRelatedPages(entry) {
+  const rel = [];
+  const loc = entry.location;
+  const sName = entry.service;
+  const currentUrl = entry.kawakiUrl;
+
+  if (loc) {
+    // Sibling practices in same city
+    const sameLoc = registry.filter(e => e.location === loc && e.kawakiUrl !== currentUrl && e.indexable !== false);
+    sameLoc.slice(0, 3).forEach(e => rel.push({
+      title: e.h1 || e.title,
+      url: e.kawakiUrl,
+      badge: `${loc} Studio Practice`
+    }));
+
+    // Same service across other major commercial hubs
+    const sameServ = registry.filter(e => e.service === sName && e.location && e.location !== loc && e.kawakiUrl !== currentUrl && e.indexable !== false);
+    sameServ.slice(0, 2).forEach(e => rel.push({
+      title: e.h1 || e.title,
+      url: e.kawakiUrl,
+      badge: `${e.location} Practice`
+    }));
+  } else {
+    // Other core capabilities & AI workflows
+    const others = registry.filter(e => !e.location && e.kawakiUrl !== currentUrl && e.kawakiUrl !== '/' && e.indexable !== false);
+    others.slice(0, 4).forEach(e => rel.push({
+      title: e.h1 || e.title,
+      url: e.kawakiUrl,
+      badge: 'Core Capability'
+    }));
+
+    // Major city practices for this capability
+    const cityPractices = registry.filter(e => e.location && e.service === sName && e.kawakiUrl !== currentUrl && e.indexable !== false);
+    cityPractices.slice(0, 2).forEach(e => rel.push({
+      title: e.h1 || e.title,
+      url: e.kawakiUrl,
+      badge: `${e.location} Studio`
+    }));
+  }
+
+  // Always link back to Directory
+  rel.push({
+    title: 'Complete Studio Directory & Capabilities Index',
+    url: '/directory',
+    badge: 'Directory & Index'
+  });
+
+  return rel.slice(0, 6);
+}
+
 function renderPage(entry) {
   const content = generateDifferentiatedContent(entry);
   const canonicalUrl = `https://kawaki.co.in${entry.kawakiUrl}`;
+  const relatedPages = getRelatedPages(entry);
   
   // Matched real case studies
   const matchedStudies = (entry.relatedCaseStudies || ['bazzaro', 'kala-design'])
@@ -1139,7 +1190,30 @@ function renderPage(entry) {
         </div>
       </section>
 
-      <!-- Section 6: Project Action Call -->
+      <!-- Section 6: Related Engineering Practices & Regional Studios -->
+      <section class="seo-section" style="background: #FAF8F5; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06);">
+        <div class="seo-container">
+          <span class="seo-section-tag">[ 06 / TOPICAL CLUSTER &amp; DIRECTORY ]</span>
+          <h2 class="seo-section-title">Related Engineering Practices &amp; Regional Studios</h2>
+          <p class="seo-section-desc">
+            Explore related technical capabilities, adjacent practice areas, and regional studios in our connected software network.
+          </p>
+
+          <div class="seo-related-grid">
+            ${relatedPages.map(r => `
+            <a href="${r.url}" class="seo-related-card">
+              <div>
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; text-transform: uppercase; color: #666666; display: block; margin-bottom: 0.35rem;">// ${r.badge}</span>
+                <h3 class="seo-related-title">${r.title}</h3>
+              </div>
+              <span class="seo-related-link">Explore Practice &rarr;</span>
+            </a>
+            `).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Project Action Call -->
       <section class="seo-cta-section">
         <div class="seo-container">
           <span class="seo-section-tag">[ START A PROJECT ]</span>
