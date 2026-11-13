@@ -24,7 +24,9 @@
     "blog:auto": "node scripts/blog-automation.js auto",
     "blog:watch": "node scripts/blog-automation.js watch",
     "blog:daemon": "node scripts/blog-automation.js daemon",
-    "blog:queue": "node scripts/blog-automation.js queue"
+    "blog:queue": "node scripts/blog-automation.js queue",
+    "bridge:chrome": "node tools/chrome-bridge/server.js",
+    "chrome:cli": "node tools/chrome-bridge/cli.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -49,6 +51,7 @@
     "eslint": "^9",
     "tailwindcss": "^4",
     "terser": "^5.51.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "ws": "^8.22.2"
   }
 }
