@@ -63,3 +63,9 @@ body p, body span, body li {
 .color-red { color: var(--kawaki-red); }
 .color-yellow { color: var(--kawaki-yellow); }
 .color-purple { color: var(--kawaki-purple); }
+
+/* Override inline white backgrounds - force dark theme */
+section, div, main, article {
+    background-color: var(--kawaki-indigo) !important;
+    color: #FFFFFF !important;
+}
