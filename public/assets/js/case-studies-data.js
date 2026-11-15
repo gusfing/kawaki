@@ -119,7 +119,7 @@ const KAWAKI_PORTFOLIO = [
         industry: "B2B Infrastructure / Architectural Outdoor Furniture",
         category: "Commerce & B2B",
         categories: ["Commerce & B2B"],
-        heroImage: "/assets/images/case-studies/urbanland/hero.jpg",
+        heroImage: "/assets/images/case-studies/urbanland/hero.webp",
         logo: "/assets/images/case-studies/urbanland/logo.png",
         liveUrl: "https://urbanlandproducts.com/",
         hasLiveUrl: true,
