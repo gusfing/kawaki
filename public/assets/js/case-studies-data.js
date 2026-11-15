@@ -157,7 +157,7 @@ const KAWAKI_PORTFOLIO = [
         industry: "Architecture / Contemporary Interior Design",
         category: "Brand & Marketing Websites",
         categories: ["Brand & Marketing Websites"],
-        heroImage: "/assets/images/case-studies/kala-design/hero.jpg",
+        heroImage: "/assets/images/case-studies/kala-design/hero.webp",
         logo: "/assets/images/case-studies/kala-design/logo.png",
         liveUrl: "https://kaladesignco.com/",
         hasLiveUrl: true,
