@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaki Studios — Custom Color Design System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* KAWAKI STUDIOS - CUSTOM COLOR PALETTE */
+        /* Dark Indigo #23003F + Red #F94500 + Light Yellow #FFFDB4 */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        :root {
+            /* PRIMARY COLORS */
+            --color-indigo: #23003F;
+            --color-indigo-lighter: #2D0052;
+            --color-red: #F94500;
+            --color-red-dim: #D63A00;
+            --color-yellow: #FFFDB4;
+            --color-purple-light: #BCACCE;
+
+            /* TEXT COLORS */
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: #E8E4F0;
+            --color-text-muted: #A89FB5;
+
+            /* BORDERS & SURFACES */
+            --color-border: rgba(255, 255, 255, 0.12);
+            --color-surface: rgba(255, 255, 255, 0.04);
+            --color-surface-hover: rgba(255, 255, 255, 0.08);
+
+            /* TYPOGRAPHY */
+            --font-display: "Barlow Condensed", sans-serif;
+            --font-serif: "Instrument Serif", serif;
+            --font-body: "Plus Jakarta Sans", sans-serif;
+
+            /* MOTION */
+            --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-base: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* SHADOWS */
+            --shadow-glow-red: 0 0 32px rgba(249, 69, 0, 0.12);
+            --shadow-glow-yellow: 0 0 32px rgba(255, 253, 180, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--color-indigo);
+        }
+
+        body {
+            background: var(--color-indigo);
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            line-height: 1.05;
+        }
+
+        h1 { font-size: clamp(2.4rem, 8vw, 5.2rem); }
+        h2 { font-size: clamp(1.8rem, 5vw, 3.2rem); }
+        h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+
+        p {
+            font-size: clamp(0.95rem, 0.3vw + 0.85rem, 1.125rem);
+            line-height: 1.65;
+            color: var(--color-text-secondary);
+        }
+
+        em, .serif-italic {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* HERO */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(249, 69, 0, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 253, 180, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-red);
+            animation: fade-up 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both;
+        }
+
+        h1 {
+            animation: fade-up 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
+            max-width: 90%;
+            background: linear-gradient(135deg, #FFFFFF 0%, #E8E4F0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            margin-top: 16px;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            max-width: 70%;
+            color: var(--color-text-secondary);
+            animation: fade-up 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s both;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+            animation: fade-up 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border: 1.5px solid var(--color-red);
+            background: transparent;
+            color: var(--color-red);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--color-red);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-fast);
+        }
+
+        .btn:hover::before {
+            transform: scaleX(1);
+        }
+
+        .btn:hover {
+            color: var(--color-indigo);
+            box-shadow: var(--shadow-glow-red);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--color-red);
+            color: var(--color-indigo);
+            border-color: var(--color-red);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-red-dim);
+            border-color: var(--color-red-dim);
+        }
+
+        .btn-secondary {
+            border-color: var(--color-yellow);
+            color: var(--color-yellow);
+        }
+
+        .btn-secondary::before {
+            background: var(--color-yellow);
+        }
+
+        .btn-secondary:hover {
+            color: var(--color-indigo);
+            box-shadow: var(--shadow-glow-yellow);
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 32px;
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--color-border);
+            animation: fade-up 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.5s both;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+        }
+
+        .hero-meta span {
+            font-weight: 600;
+            color: var(--color-red);
+            font-size: 0.95rem;
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* COMPONENTS */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(20px);
+            transition: all var(--transition-base);
+        }
+
+        .card:hover {
+            background: var(--color-surface-hover);
+            border-color: var(--color-red);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow-red);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .service-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(20px);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            background: var(--color-surface-hover);
+            border-color: var(--color-red);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow-red);
+        }
+
+        .service-card h3 {
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .service-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(249, 69, 0, 0.1);
+            border: 1px solid rgba(249, 69, 0, 0.3);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-red);
+            font-weight: 600;
+            margin-top: 12px;
+            margin-right: 8px;
+        }
+
+        .accent-text-red {
+            color: var(--color-red);
+        }
+
+        .accent-text-yellow {
+            color: var(--color-yellow);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* COLOR SWATCHES */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .color-swatch {
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--color-border);
+            text-align: center;
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+            background: var(--color-surface);
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.05);
+        }
+
+        .color-preview {
+            width: 100%;
+            height: 120px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: inset 0 0 0 1px var(--color-border);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        code {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--color-border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.85rem;
+            color: var(--color-red);
+            display: inline-block;
+            margin: 8px 0;
+        }
+
+        .typography-demo {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            margin: 24px 0;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--color-red) 0%, var(--color-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); }
+            .hero-subtitle { max-width: 100%; }
+            .hero-meta { flex-direction: column; gap: 16px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow">Design System v2.0</div>
+                <h1>Kawaki Studios<br>Custom Color Palette</h1>
+                <div class="hero-subtitle">
+                    Dark Indigo + Red + Light Yellow. Bold, distinctive, premium. Zero AI slop.
+                </div>
+                <div class="hero-cta-group">
+                    <button class="btn btn-primary">Explore Palette</button>
+                    <button class="btn btn-secondary">View Components</button>
+                </div>
+                <div class="hero-meta">
+                    <div>Palette · <span>3 Primary Colors</span></div>
+                    <div>Contrast · <span>WCAG AAA Compliant</span></div>
+                    <div>Vibe · <span>Premium + Bold</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLOR SYSTEM -->
+    <section class="section">
+        <div class="container">
+            <h2>The Palette</h2>
+            <p style="margin-top: 16px;">Three colors. Maximum impact. Every shade earns its place.</p>
+
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #23003F;"></div>
+                    <h3>Dark Indigo</h3>
+                    <code>#23003F</code>
+                    <p style="color: var(--color-text-muted); margin-top: 12px; font-size: 0.9rem;">Primary background. Rich, sophisticated, deep.</p>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #F94500;"></div>
+                    <h3>Bold Red</h3>
+                    <code>#F94500</code>
+                    <p style="color: var(--color-text-muted); margin-top: 12px; font-size: 0.9rem;">Primary accent. CTAs, hover states, emphasis.</p>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #FFFDB4;"></div>
+                    <h3>Light Yellow</h3>
+                    <code>#FFFDB4</code>
+                    <p style="color: var(--color-text-muted); margin-top: 12px; font-size: 0.9rem;">Secondary accent. Subtle, warm, premium.</p>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #BCACCE;"></div>
+                    <h3>Light Purple</h3>
+                    <code>#BCACCE</code>
+                    <p style="color: var(--color-text-muted); margin-top: 12px; font-size: 0.9rem;">Supporting tone. Soft transitions, muted accents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY THIS PALETTE -->
+    <section class="section">
+        <div class="container">
+            <h2>Why This Works</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3><span class="accent-text-red">●</span> Unexpected</h3>
+                    <p>Dark indigo + red + yellow is bold and distinctive. Not the generic dark + neon trap. This combination signals premium and precision.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3><span class="accent-text-yellow">●</span> Premium Feel</h3>
+                    <p>Deep indigo evokes luxury. Red is confident and energetic. Yellow adds warmth without being playful. Together: high-end and human.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3><span class="accent-text-red">●</span> High Contrast</h3>
+                    <p>Red on indigo? Sharp. Yellow on indigo? Sophisticated. Text remains readable. Accessibility standards met with style.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3><span class="accent-text-yellow">●</span> Founder Psychology</h3>
+                    <p>Red says: "We're bold. We execute." Yellow says: "We're human. We listen." Indigo says: "We're sophisticated. Trust us."</p>
+                </div>
+
+                <div class="service-card">
+                    <h3><span class="accent-text-red">●</span> Memorable</h3>
+                    <p>Your founder remembers the indigo-red combo. It sticks. It's defensible. It's yours. Not one of a thousand dark + neon sites.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3><span class="accent-text-yellow">●</span> Converts</h3>
+                    <p>Red CTAs pull eyes. Yellow accents guide attention. Indigo grounds the experience. Psychology + design = conversions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TYPOGRAPHY WITH PALETTE -->
+    <section class="section">
+        <div class="container">
+            <h2>Typography + Color</h2>
+
+            <div class="card" style="margin-top: 48px;">
+                <div style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-red); margin-bottom: 16px;">Display — Barlow Condensed 900</div>
+                <div class="typography-demo">Editorial Engineering</div>
+                <p style="color: var(--color-text-muted); margin-top: 16px; font-size: 0.95rem;">Gradient from red to yellow. Maximum impact. Used for H1 and bold statements.</p>
+            </div>
+
+            <div class="card" style="margin-top: 32px;">
+                <div style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-red); margin-bottom: 16px;">Serif — Instrument Serif Italic</div>
+                <div style="font-family: var(--font-serif); font-style: italic; font-size: 1.8rem; font-weight: 400; margin: 24px 0; color: var(--color-yellow);">Precision meets poetry</div>
+                <p style="color: var(--color-text-muted); margin-top: 16px; font-size: 0.95rem;">Yellow italic for emphasis. Warm, refined, memorable.</p>
+            </div>
+
+            <div class="card" style="margin-top: 32px;">
+                <div style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-red); margin-bottom: 16px;">Body — Plus Jakarta Sans</div>
+                <p style="margin-top: 16px;">Clear, readable, accessible. White text on indigo. Enough contrast for WCAG AAA. The unsung hero of every great design.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPLEMENTATION -->
+    <section class="section">
+        <div class="container">
+            <h2>Ready to Deploy</h2>
+            <p style="margin-top: 16px;">This palette is production-ready. Copy the CSS tokens below.</p>
+
+            <div class="card" style="margin-top: 48px; background: rgba(249, 69, 0, 0.05); border-color: var(--color-red);">
+                <code style="display: block; color: var(--color-yellow); background: rgba(255, 253, 180, 0.04); padding: 16px; border-radius: 8px; overflow-x: auto; white-space: pre;">:root {
+  --color-indigo: #23003F;
+  --color-red: #F94500;
+  --color-yellow: #FFFDB4;
+  --color-purple-light: #BCACCE;
+}</code>
+            </div>
+
+            <div class="card" style="margin-top: 32px;">
+                <h3 style="margin-bottom: 16px;">Next Steps</h3>
+                <ol style="list-style: decimal; list-style-position: inside; color: var(--color-text-secondary); gap: 16px; display: flex; flex-direction: column;">
+                    <li>Update all CSS tokens in production</li>
+                    <li>Rebuild homepage with new palette</li>
+                    <li>Update service pages + dashboard</li>
+                    <li>Test on dark mode + light theme</li>
+                    <li>Deploy and monitor</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

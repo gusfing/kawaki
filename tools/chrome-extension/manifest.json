@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Kawaki Agent Chrome Bridge",
+  "version": "1.0.2",
+  "description": "Secure local bridge allowing Antigravity AI Agent to automate and inspect your active Chrome profile completely silently in the background.",
+  "permissions": [
+    "scripting",
+    "tabs",
+    "activeTab",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Kawaki Agent Chrome Bridge"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

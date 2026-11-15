@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,7 +16,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Next.js Performance Architecture Guide — Kawaki Studios</title>
+    <title>Next.js Performance Architecture Guide â€” Kawaki Studios</title>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- KAWAKI MASTER DESIGN SYSTEM -->
+    <link rel="stylesheet" href="/assets/css/kawaki-master.css">
     <meta name="description" content="An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals." />
     <meta name="generator" content="Kawaki Blog Engine" />
     <link rel="canonical" href="https://kawaki.co.in/blog/nextjs-performance-architecture" />
@@ -24,20 +29,20 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://kawaki.co.in/blog/nextjs-performance-architecture" />
-    <meta property="og:title" content="Next.js Performance Architecture Guide — Kawaki Studios" />
+    <meta property="og:title" content="Next.js Performance Architecture Guide â€” Kawaki Studios" />
     <meta property="og:description" content="An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals." />
     <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-performance-architecture-hero.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="675" />
-    <meta property="og:image:alt" content="Next.js Performance Architecture Guide — Kawaki Studios — Technical Architecture by Kawaki Studios" />
+    <meta property="og:image:alt" content="Next.js Performance Architecture Guide â€” Kawaki Studios â€” Technical Architecture by Kawaki Studios" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
-    <meta name="twitter:title" content="Next.js Performance Architecture Guide — Kawaki Studios" />
+    <meta name="twitter:title" content="Next.js Performance Architecture Guide â€” Kawaki Studios" />
     <meta name="twitter:description" content="An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals." />
     <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-performance-architecture-hero.jpg" />
-    <meta name="twitter:image:alt" content="Next.js Performance Architecture Guide — Kawaki Studios — Technical Architecture by Kawaki Studios" />
+    <meta name="twitter:image:alt" content="Next.js Performance Architecture Guide â€” Kawaki Studios â€” Technical Architecture by Kawaki Studios" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -908,13 +913,13 @@
                 <div class="menu-col menu-col-left">
                     <div class="main-menu-links" id="mainMenuPrimary">
                         <ul>
-                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home — Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
+                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home â€” Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
                                 <a href="/">
                                     <span class="menu-idx">01</span>
                                     <span class="menu-text">Home <em>Index</em></span>
                                 </a>
                             </li>
-                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us — Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
+                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us â€” Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
                                 <a href="/about">
                                     <span class="menu-idx">02</span>
                                     <span class="menu-text">About <em>Kawaki Studios</em></span>
@@ -1072,10 +1077,10 @@
                     <div class="menu-socials-strip">
                         <span class="socials-title">Follow</span>
                         <div class="social-tags">
-                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
-                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
-                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram ↗</a>
-                            <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn â†—</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X â†—</a>
+                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram â†—</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance â†—</a>
                         </div>
                     </div>
                 </div>
@@ -1121,7 +1126,7 @@
         <!-- FEATURED HERO IMAGE -->
         <div class="featured-image-wrapper">
             <div class="featured-image-container">
-                <img id="articleImage" src="/assets/images/blog/nextjs-performance-architecture-hero.jpg" alt="Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals — Technical Architecture by Kawaki Studios" title="Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+                <img id="articleImage" src="/assets/images/blog/nextjs-performance-architecture-hero.jpg" alt="Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals â€” Technical Architecture by Kawaki Studios" title="Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
             </div>
         </div>
 
@@ -1152,17 +1157,17 @@
 <li><a href="/blog/nextjs-state-management-api-boundaries">State Management &amp; API Boundaries in Next.js</a> demonstrated how state ownership and data flow determine where computation occurs.</li>
 </ol>
 <p>This resource explains how Next.js architecture influences rendering, JavaScript delivery, asset loading, and Core Web Vitals.</p>
-<p>When engineering web platforms at <a href="/services/custom-web-development">Kawaki Studios</a>, we treat performance not as a post-launch audit checklist, but as a system of physical constraints: network bandwidth, device memory, CPU execution time, and browser layout engines. In this guide, we break down how to design Next.js architectures that systematically satisfy Google's <strong>Core Web Vitals</strong>—Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS)—without sacrificing visual expressiveness or feature complexity.</p>
+<p>When engineering web platforms at <a href="/services/custom-web-development">Kawaki Studios</a>, we treat performance not as a post-launch audit checklist, but as a system of physical constraints: network bandwidth, device memory, CPU execution time, and browser layout engines. In this guide, we break down how to design Next.js architectures that systematically satisfy Google's <strong>Core Web Vitals</strong>â€”Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS)â€”without sacrificing visual expressiveness or feature complexity.</p>
 <hr />
 <h2 id="h-1-the-performance-geometry-of-next-js">1. The Performance Geometry of Next.js</h2>
 <p>Too many engineering teams approach web performance through isolated metrics. They run a Lighthouse audit, see an amber LCP score, and arbitrarily add <code>fetchpriority="high"</code> to an image, only to find their Interaction to Next Paint (INP) regresses on mobile devices.</p>
 <p>Performance in Next.js is governed by a connected chain of dependencies:</p>
-<pre><code>┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
-│  Component Boundaries   │ ──► │     Data Flow &amp; APIs    │ ──► │    Runtime Physics      │
-│  (Server vs Client)     │     │  (Direct DB vs Network) │     │ (Parse, Hydrate, Paint) │
-└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘
-            │                               │                               │
-            ▼                               ▼                               ▼
+<pre><code>â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Component Boundaries   â”‚ â”€â”€â–º â”‚     Data Flow &amp; APIs    â”‚ â”€â”€â–º â”‚    Runtime Physics      â”‚
+â”‚  (Server vs Client)     â”‚     â”‚  (Direct DB vs Network) â”‚     â”‚ (Parse, Hydrate, Paint) â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+            â”‚                               â”‚                               â”‚
+            â–¼                               â–¼                               â–¼
    Zero Client JS for              Eliminates Loopback             Determines Real-World
    Server Subtrees                 Network Waterfalls              LCP, INP, and CLS
 </code></pre>
@@ -1252,20 +1257,20 @@ export default function DashboardPage() {
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-image-optimization-pipeline.webp" alt="Three-step image optimization pipeline showing raw ingestion, edge libvips format negotiation, and caching" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Automated media optimization pipeline serving format-negotiated AVIF and WebP.</figcaption>
-</figure><p>Only Client Components—and the modules in their explicit dependency subtrees—are packaged into browser bundles.</p>
-<pre><code>┌─────────────────────────────────────────────────────────────────┐
-│ Server Component Tree (Zero Client JS)                          │
-│ - Markdown parser (marked, remark): 120KB executed on server    │
-│ - Date formatting (date-fns): 45KB executed on server           │
-│ - Database client (Prisma, pg): 350KB executed on server        │
-│ ──► Emits: Pure HTML + Serialized Props                         │
-└───────────────────────────────┬─────────────────────────────────┘
-                                │ (Network Boundary)
-                                ▼
-┌─────────────────────────────────────────────────────────────────┐
-│ Client Component Leaf (Hydrated)                                │
-│ - Interactive button with useState: 2KB shipped to browser      │
-└─────────────────────────────────────────────────────────────────┘
+</figure><p>Only Client Componentsâ€”and the modules in their explicit dependency subtreesâ€”are packaged into browser bundles.</p>
+<pre><code>â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Server Component Tree (Zero Client JS)                          â”‚
+â”‚ - Markdown parser (marked, remark): 120KB executed on server    â”‚
+â”‚ - Date formatting (date-fns): 45KB executed on server           â”‚
+â”‚ - Database client (Prisma, pg): 350KB executed on server        â”‚
+â”‚ â”€â”€â–º Emits: Pure HTML + Serialized Props                         â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                â”‚ (Network Boundary)
+                                â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Client Component Leaf (Hydrated)                                â”‚
+â”‚ - Interactive button with useState: 2KB shipped to browser      â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 </code></pre>
 <h3 id="h-isolating-server-dependencies-with-server-only">Isolating Server Dependencies with <code>server-only</code></h3>
 <p>To guarantee that server-only modules and heavy dependencies are never accidentally bundled into client code, install and import the official <code>server-only</code> package:</p>
@@ -1297,7 +1302,7 @@ export default function HeavyChartWrapper({ data }: { data: ChartData }) {
 <h2 id="h-4-package-imports-amp-barrel-file-optimization">4. Package Imports &amp; Barrel File Optimization</h2>
 <p>A widespread cause of unexpected bundle bloat in Next.js applications is the <strong>barrel file pattern</strong> (<code>index.ts</code> files that re-export hundreds of individual modules).</p>
 <p>When you write:</p>
-<pre><code class="language-ts">// ❌ ANTI-PATTERN: Barrel import can force bundler to process thousands of modules
+<pre><code class="language-ts">// âŒ ANTI-PATTERN: Barrel import can force bundler to process thousands of modules
 import { Check, ChevronRight, Menu } from 'lucide-react';
 </code></pre>
 <p>Even though modern bundlers attempt tree-shaking, parsing a large barrel file during compilation can slow down builds and, in unoptimized setups, leak unnecessary modules into the client graph.</p>
@@ -1337,7 +1342,7 @@ const nextConfig = {
 </code></pre>
 <h3 id="h-2-sizing-and-the-critical-sizes-attribute">2. Sizing and the Critical <code>sizes</code> Attribute</h3>
 <p>When rendering responsive images that scale with CSS, omitting the <code>sizes</code> attribute is a major mistake. Without <code>sizes</code>, the browser does not know how large the image will appear on screen before downloading it, so it defaults to assuming the image is <code>100vw</code> (full screen width), downloading desktop-resolution images on mobile screens.</p>
-<pre><code class="language-tsx">// ✅ OPTIMAL RESPONSIVE IMAGE WITH EXPLICIT SIZES
+<pre><code class="language-tsx">// âœ… OPTIMAL RESPONSIVE IMAGE WITH EXPLICIT SIZES
 import Image from 'next/image';
 
 export function ProductCardImage({ src, alt }: { src: string; alt: string }) {
@@ -1371,7 +1376,7 @@ export function ProductCardImage({ src, alt }: { src: string; alt: string }) {
 <li>Automatically set <code>fetchpriority="high"</code> on the <code>&lt;img&gt;</code> element.</li>
 <li>Disable lazy loading so the browser requests the image immediately upon receiving the HTML stream.</li>
 </ul>
-<p><strong>Caution:</strong> Apply <code>priority</code> to only <strong>one</strong> image per page—the actual LCP candidate. Overusing <code>priority</code> causes network contention, delaying stylesheets and fonts.</p>
+<p><strong>Caution:</strong> Apply <code>priority</code> to only <strong>one</strong> image per pageâ€”the actual LCP candidate. Overusing <code>priority</code> causes network contention, delaying stylesheets and fonts.</p>
 <hr />
 <h2 id="h-6-font-optimization-amp-zero-shift-typography-next-font">6. Font Optimization &amp; Zero-Shift Typography (<code>next/font</code>)</h2>
 <p>Typography is a cornerstone of digital craft, but web fonts are historically responsible for severe Cumulative Layout Shift (CLS) and delayed First Contentful Paint (FCP).</p>
@@ -1429,12 +1434,12 @@ export const playfair = Playfair_Display({
 <h3 id="h-breaking-up-long-tasks-gt-50ms">Breaking Up Long Tasks (&gt;50ms)</h3>
 <p>When a user clicks a button, the browser's main thread must not be blocked by heavy synchronous JavaScript execution. If a JavaScript task exceeds 50ms, any user interaction occurring during that window is queued and delayed.</p>
 <pre><code>Long Task Anti-Pattern (&gt;50ms):
-[User Clicks] ──► [─── Heavy Synchronous Computation: 180ms ───] ──► [Visual Feedback]
-                  (Main Thread Blocked — INP: 180ms ❌)
+[User Clicks] â”€â”€â–º [â”€â”€â”€ Heavy Synchronous Computation: 180ms â”€â”€â”€] â”€â”€â–º [Visual Feedback]
+                  (Main Thread Blocked â€” INP: 180ms âŒ)
 
 Optimized Task Slicing:
-[User Clicks] ──► [State Update: 15ms] ──► [Visual Feedback: 20ms] ──► [scheduler.yield()] ──► [Background Work]
-                  (Main Thread Responsive — INP: 35ms ✅)
+[User Clicks] â”€â”€â–º [State Update: 15ms] â”€â”€â–º [Visual Feedback: 20ms] â”€â”€â–º [scheduler.yield()] â”€â”€â–º [Background Work]
+                  (Main Thread Responsive â€” INP: 35ms âœ…)
 </code></pre>
 <h3 id="h-yielding-execution-with-scheduler-yield">Yielding Execution with <code>scheduler.yield()</code></h3>
 <p>For heavy computations that must run on the client (e.g., filtering a client-side dataset of 5,000 items), yield control back to the browser between chunks:</p>
@@ -1450,7 +1455,7 @@ export async function yieldToMain() {
 </code></pre>
 <p>By calling <code>await yieldToMain()</code> during intensive data processing loops, you give the browser an opportunity to paint user input responses and process micro-animations smoothly.</p>
 <h3 id="h-pushing-state-to-leaf-components">Pushing State to Leaf Components</h3>
-<p>As established in our <a href="/blog/nextjs-state-management-api-boundaries">Next.js State Management guide</a>, keeping state localized prevents large component subtrees from re-rendering during user interactions. A click that toggles a mobile drawer should only re-render the drawer component—not the entire page layout.</p>
+<p>As established in our <a href="/blog/nextjs-state-management-api-boundaries">Next.js State Management guide</a>, keeping state localized prevents large component subtrees from re-rendering during user interactions. A click that toggles a mobile drawer should only re-render the drawer componentâ€”not the entire page layout.</p>
 <hr />
 <h2 id="h-9-cumulative-layout-shift-cls-prevention">9. Cumulative Layout Shift (CLS) Prevention</h2>
 <p>Cumulative Layout Shift (CLS) evaluates the visual stability of a web page by measuring unexpected layout movements. A score of <strong>0.00</strong> indicates zero shifts.</p>
@@ -1505,7 +1510,7 @@ export async function updateProductPrice(productId: string, newPrice: number) {
 <p>For deeper auditing workflows, explore our dedicated <a href="/services/website-performance-optimization">website performance optimization services</a>.</p>
 <hr />
 <h2 id="h-11-third-party-script-management-next-script">11. Third-Party Script Management (<code>next/script</code>)</h2>
-<p>Third-party scripts—Google Tag Manager, analytics platforms, marketing pixels, and customer support chat widgets—are often the primary cause of main thread contention on production websites.</p>
+<p>Third-party scriptsâ€”Google Tag Manager, analytics platforms, marketing pixels, and customer support chat widgetsâ€”are often the primary cause of main thread contention on production websites.</p>
 <p>Next.js provides the <code>next/script</code> component to manage script loading strategies cleanly (<a href="https://nextjs.org/docs/app/building-your-application/optimizing/scripts">Next.js Documentation</a>).</p>
 <h3 id="h-loading-strategy-decision-guide">Loading Strategy Decision Guide:</h3>
 <table>
@@ -1567,32 +1572,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 <h2 id="h-12-a-practical-production-architecture">12. A Practical Production Architecture</h2>
 <p>The diagram below illustrates a high-performance Next.js production architecture that unites modern rendering, caching, and asset optimization:</p>
 <pre><code>[Incoming User Request]
-           │
-           ▼
-┌────────────────────────────────────────────────────────┐
-│  Edge CDN Cache Layer                                  │
-│  - Evaluates static cache status                       │
-│  - Returns prerendered static shell (sub-second FCP)   │
-└──────────────────┬─────────────────────────────────────┘
-                   │ (Dynamic Data Required)
-                   ▼
-┌────────────────────────────────────────────────────────┐
-│  Next.js Server Runtime (Node.js / Edge)              │
-│  - Evaluates Server Components                         │
-│  - Reads from 'use cache' stores (cacheTag / cacheLife)│
-│  - Streams Suspense chunks across the open HTTP pipe   │
-│  - Renders zero-bundle-size server libraries (parsers) │
-└──────────────────┬─────────────────────────────────────┘
-                   │
-                   ▼ (Serialized RSC Stream + Static HTML)
-┌────────────────────────────────────────────────────────┐
-│  Browser Rendering Engine                              │
-│  - Displays static shell and hero text immediately     │
-│  - Preloads LCP image via &lt;link rel="preload"&gt;        │
-│  - Self-hosted fonts swap with 0.00 CLS               │
-│  - Hydrates only isolated Client Component leaves      │
-│  - Executes deferred scripts during browser idle time  │
-└────────────────────────────────────────────────────────┘
+           â”‚
+           â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Edge CDN Cache Layer                                  â”‚
+â”‚  - Evaluates static cache status                       â”‚
+â”‚  - Returns prerendered static shell (sub-second FCP)   â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                   â”‚ (Dynamic Data Required)
+                   â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Next.js Server Runtime (Node.js / Edge)              â”‚
+â”‚  - Evaluates Server Components                         â”‚
+â”‚  - Reads from 'use cache' stores (cacheTag / cacheLife)â”‚
+â”‚  - Streams Suspense chunks across the open HTTP pipe   â”‚
+â”‚  - Renders zero-bundle-size server libraries (parsers) â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                   â”‚
+                   â–¼ (Serialized RSC Stream + Static HTML)
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Browser Rendering Engine                              â”‚
+â”‚  - Displays static shell and hero text immediately     â”‚
+â”‚  - Preloads LCP image via &lt;link rel="preload"&gt;        â”‚
+â”‚  - Self-hosted fonts swap with 0.00 CLS               â”‚
+â”‚  - Hydrates only isolated Client Component leaves      â”‚
+â”‚  - Executes deferred scripts during browser idle time  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 </code></pre>
 <hr />
 <h2 id="h-13-next-js-performance-decision-matrix">13. Next.js Performance Decision Matrix</h2>
@@ -1660,13 +1665,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 <h3 id="h-how-do-server-components-improve-core-web-vitals">How do Server Components improve Core Web Vitals?</h3>
 <p>Server Components can reduce the amount of JavaScript sent to and evaluated by the browser. By executing heavy dependencies (parsers, date utilities, database drivers) exclusively on the server, the browser has less JavaScript to download, parse, and hydrate. This frees up the main thread and directly improves <strong>Interaction to Next Paint (INP)</strong>.</p>
 <h3 id="h-what-is-the-most-common-reason-websites-fail-largest-contentful-paint-lcp">What is the most common reason websites fail Largest Contentful Paint (LCP)?</h3>
-<p>The most frequent cause is unoptimized above-the-fold media—such as high-resolution hero images lacking modern compression (AVIF/WebP), missing explicit <code>sizes</code> attributes, or failing to use the <code>priority</code> attribute on the <code>next/image</code> component. Another common contributor is slow server Time to First Byte (TTFB) on un-cached dynamic routes.</p>
+<p>The most frequent cause is unoptimized above-the-fold mediaâ€”such as high-resolution hero images lacking modern compression (AVIF/WebP), missing explicit <code>sizes</code> attributes, or failing to use the <code>priority</code> attribute on the <code>next/image</code> component. Another common contributor is slow server Time to First Byte (TTFB) on un-cached dynamic routes.</p>
 <h3 id="h-how-does-next-font-prevent-cumulative-layout-shift-cls">How does <code>next/font</code> prevent Cumulative Layout Shift (CLS)?</h3>
 <p><code>next/font</code> downloads Google Fonts at build time and self-hosts them locally. It automatically calculates CSS font-override properties (<code>size-adjust</code>, <code>ascent-override</code>, <code>descent-override</code>) for the system fallback font. When the custom font file loads, it occupies the exact same dimensions as the fallback font, preventing text reflow and eliminating layout shifts (0.00 CLS).</p>
 <h3 id="h-why-did-google-replace-first-input-delay-fid-with-interaction-to-next-paint-inp">Why did Google replace First Input Delay (FID) with Interaction to Next Paint (INP)?</h3>
 <p>FID only measured the initial delay of the very first click or tap on a page. INP evaluates all user interactions across the entire session, measuring the time from user input until the browser paints updated visual feedback. It provides a far more accurate assessment of real-world application responsiveness.</p>
 <h3 id="h-when-should-i-use-next-dynamic-instead-of-a-regular-import">When should I use <code>next/dynamic</code> instead of a regular import?</h3>
-<p>Use <code>next/dynamic</code> for heavy, non-critical Client Components that are not needed during initial page render—such as modals, rich text editors, graphing libraries, or complex filter drawers. This splits the code into a separate bundle that loads only when required.</p>
+<p>Use <code>next/dynamic</code> for heavy, non-critical Client Components that are not needed during initial page renderâ€”such as modals, rich text editors, graphing libraries, or complex filter drawers. This splits the code into a separate bundle that loads only when required.</p>
 <h3 id="h-does-edge-delivery-guarantee-sub-50ms-ttfb">Does edge delivery guarantee sub-50ms TTFB?</h3>
 <p>No. While Edge CDNs minimize physical network distance between the user and the server, actual Time to First Byte depends on cache hit ratios, backend database query latency, geographic distance to origin data stores, and dynamic compute time. Caching static segments is key to achieving optimal TTFB.</p>
 <h3 id="h-what-is-the-difference-between-partial-prerendering-ppr-and-traditional-ssr">What is the difference between Partial Prerendering (PPR) and traditional SSR?</h3>
@@ -1711,10 +1716,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         <h4>Kunal Sharma</h4>
                         <p>Kunal is the founder and principal engineer at Kawaki Studios, specializing in high-performance web engineering, Next.js application architecture, headless Shopify systems, autonomous AI workflows, and forensic WordPress security recovery. He helps ambitious founders and modern enterprises design resilient, high-velocity digital flagships.</p>
                         <div class="bio-socials">
-                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
-                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
-                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub ↗</a>
-                            <a href="/contact" class="bio-consult">Book 15-Min Briefing ↗</a>
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn â†—</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X â†—</a>
+                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub â†—</a>
+                            <a href="/contact" class="bio-consult">Book 15-Min Briefing â†—</a>
                         </div>
                     </div>
                 </div>
@@ -2003,7 +2008,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div class="services-header-2">
             <div class="footer-headline-group">
                 <h3 class="services-title-2">Ready to talk?</h3>
-                <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+                <h3 class="services-title-2"><em>letâ€™s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
             </div>
             <a href="/contact" class="footer-cta-card-btn">
                 <span>Schedule Intro Call</span>
@@ -2047,12 +2052,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div class="footer-contact-item" style="margin-top: 0.5rem;">
                     <span class="footer-contact-label">Direct Founder Calendar</span>
                     <a href="/contact" class="footer-contact-val" style="color: #111111; font-weight: 600;">
-                        Book 15-Min Briefing ↗
+                        Book 15-Min Briefing â†—
                     </a>
                 </div>
                 <div class="footer-contact-item" style="margin-top: 0.75rem;">
                     <span class="footer-contact-label">Infrastructure Partner</span>
-                    <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Partner — Cloud &amp; Hosting Infrastructure">
+                    <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Partner â€” Cloud &amp; Hosting Infrastructure">
                         <img src="/assets/images/hostinger-partner-dark.png" alt="Hostinger Partner" width="160" height="60" loading="lazy" />
                     </a>
                 </div>
@@ -2062,25 +2067,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div class="footer-col-header">// CLIENT TIME ZONES</div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>New Delhi — Studio HQ</span>
+                        <span>New Delhi â€” Studio HQ</span>
                         <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
                     </div>
                 </div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>Tokyo — Client Time Zone</span>
+                        <span>Tokyo â€” Client Time Zone</span>
                         <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
                     </div>
                 </div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>London — Client Time Zone</span>
+                        <span>London â€” Client Time Zone</span>
                         <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
                     </div>
                 </div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>New York — Client Time Zone</span>
+                        <span>New York â€” Client Time Zone</span>
                         <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
                     </div>
                 </div>
@@ -2103,7 +2108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         <div class="footer-bottom">
-            <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
+            <div class="copyright">Â© 2026 Kawaki Studios. All rights reserved. â€” Custom Web Development &amp; Shopify Stores.</div>
             <ul class="footer-bottom-links">
                 <li><a href="/directory">Directory</a></li>
                 <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -2221,3 +2226,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </script>
 </body>
 </html>
+

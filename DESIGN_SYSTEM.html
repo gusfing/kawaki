@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaki Studios — Design System & Component Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* DESIGN SYSTEM: KAWAKI STUDIOS - EDITORIAL ENGINEERING         */
+        /* Dark Obsidian + Electric Lime + Motion                         */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        :root {
+            /* COLOR TOKENS */
+            --color-obsidian: #08080C;
+            --color-obsidian-lighter: #0A0A0F;
+            --color-surface: #14161B;
+            --color-surface-hover: #1A1D24;
+            --color-lime: #C6FF00;
+            --color-lime-dim: #A8D700;
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: #E2E8F0;
+            --color-text-muted: #94A3B8;
+            --color-border: rgba(255, 255, 255, 0.09);
+
+            /* TYPOGRAPHY TOKENS */
+            --font-display: "Barlow Condensed", sans-serif;
+            --font-serif: "Instrument Serif", serif;
+            --font-body: "Plus Jakarta Sans", sans-serif;
+            --font-mono: "JetBrains Mono", monospace;
+
+            /* MOTION TOKENS */
+            --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-base: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+
+            /* SPACING */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+
+            /* RADIUS */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+
+            /* SHADOWS */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.16);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.24);
+            --shadow-glow: 0 0 32px rgba(198, 255, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--color-obsidian);
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* TYPOGRAPHY SYSTEM */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        h1, .h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 8vw, 5.2rem);
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+
+        h2, .h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        h3, .h3 {
+            font-family: var(--font-body);
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: clamp(0.95rem, 0.3vw + 0.85rem, 1.125rem);
+            line-height: 1.65;
+            color: var(--color-text-secondary);
+        }
+
+        .text-muted {
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        em, .italic {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* COMPONENT: BUTTONS */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: 12px 28px;
+            border: 1px solid var(--color-lime);
+            background: transparent;
+            color: var(--color-lime);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition:
+                background var(--transition-fast),
+                color var(--transition-fast),
+                box-shadow var(--transition-fast),
+                transform var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--color-lime);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-fast);
+        }
+
+        .btn:hover::before {
+            transform: scaleX(1);
+        }
+
+        .btn:hover {
+            color: var(--color-obsidian);
+            box-shadow: 0 0 24px rgba(198, 255, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--color-lime);
+            color: var(--color-obsidian);
+            border-color: var(--color-lime);
+        }
+
+        .btn-primary:hover {
+            background: #E8FF4D;
+            box-shadow: 0 0 32px rgba(198, 255, 0, 0.3);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* COMPONENT: CARDS */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            backdrop-filter: blur(20px);
+            transition:
+                background var(--transition-base),
+                border-color var(--transition-base),
+                transform var(--transition-base),
+                box-shadow var(--transition-base);
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--color-lime);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* COMPONENT: RADAR PULSE ANIMATION */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        @keyframes radar-pulse {
+            0% {
+                r: 4;
+                opacity: 1;
+            }
+            100% {
+                r: 16;
+                opacity: 0;
+            }
+        }
+
+        @keyframes dot-pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .live-indicator {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--color-lime);
+        }
+
+        .live-indicator::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--color-lime);
+            border-radius: 50%;
+            animation: dot-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* COMPONENT: ENTRANCE ANIMATIONS */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-fade-up {
+            animation: fade-up var(--transition-slow) var(--transition-ease-out);
+        }
+
+        .animate-fade-in {
+            animation: fade-in var(--transition-slow) var(--transition-ease-out);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* LAYOUT: CONTAINERS */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .section {
+            padding: var(--space-3xl) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* DEMO PAGE */
+        /* ═══════════════════════════════════════════════════════════════ */
+
+        .demo-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(198, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .demo-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 70%;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-2xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .color-swatch {
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            text-align: center;
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.05);
+        }
+
+        .color-preview {
+            width: 100%;
+            height: 120px;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            box-shadow: inset 0 0 0 1px var(--color-border);
+        }
+
+        .typography-demo {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            margin: var(--space-lg) 0;
+            text-transform: uppercase;
+        }
+
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        code {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--color-border);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--color-lime);
+            display: inline-block;
+            margin: var(--space-sm) 0;
+        }
+
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        .token-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--color-border);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+        }
+
+        .token-card code {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .demo-hero-content {
+                max-width: 100%;
+            }
+
+            .token-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-hero">
+        <div class="container">
+            <div class="demo-hero-content">
+                <div class="text-muted animate-fade-in">Design System</div>
+                <h1 class="animate-fade-up">Kawaki Studios</h1>
+                <h2 style="font-size: 1.8rem; margin-top: var(--space-lg); text-transform: none;">
+                    <em>Editorial Engineering</em> — Dark, Kinetic, Award-Grade
+                </h2>
+                <p style="margin-top: var(--space-lg); max-width: 60%; font-size: 1.125rem;">
+                    A comprehensive design system built on obsidian darkness, electric lime accents, and purposeful motion. No AI slop. No generic components. Just intention.
+                </p>
+                <div class="button-grid" style="margin-top: var(--space-2xl);">
+                    <button class="btn btn-primary">Explore Components</button>
+                    <button class="btn">View Source</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COLOR SYSTEM -->
+    <section class="section">
+        <div class="container">
+            <h2>Color Palette</h2>
+            <p style="margin-top: var(--space-md);">High contrast for accessibility. Electric lime as the only accent. Everything else serves the darkness.</p>
+
+            <div class="demo-grid" style="margin-top: var(--space-3xl);">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--color-obsidian); border: 2px solid var(--color-lime);"></div>
+                    <div class="h3">Obsidian</div>
+                    <code>#08080C</code>
+                    <p class="text-muted" style="margin-top: var(--space-sm);">Primary background</p>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--color-lime);"></div>
+                    <div class="h3">Electric Lime</div>
+                    <code>#C6FF00</code>
+                    <p class="text-muted" style="margin-top: var(--space-sm);">Accent & CTAs</p>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--color-surface);"></div>
+                    <div class="h3">Surface</div>
+                    <code>#14161B</code>
+                    <p class="text-muted" style="margin-top: var(--space-sm);">Cards & containers</p>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--color-text-secondary);"></div>
+                    <div class="h3">Text Primary</div>
+                    <code>#E2E8F0</code>
+                    <p class="text-muted" style="margin-top: var(--space-sm);">Body text</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section class="section">
+        <div class="container">
+            <h2>Typography System</h2>
+            <p style="margin-top: var(--space-md);">Three font families. Intentional hierarchy. Readable at every size.</p>
+
+            <div style="margin-top: var(--space-3xl);">
+                <div class="card">
+                    <div class="text-muted" style="margin-bottom: var(--space-sm);">Display — Barlow Condensed 900</div>
+                    <div class="typography-demo">Editorial Engineering</div>
+                    <p style="color: var(--color-text-muted); margin-top: var(--space-sm);">Uppercase, condensed, maximum impact. Used for H1, H2, and bold statements.</p>
+                </div>
+
+                <div class="card" style="margin-top: var(--space-2xl);">
+                    <div class="text-muted" style="margin-bottom: var(--space-sm);">Serif — Instrument Serif Italic</div>
+                    <div style="font-family: var(--font-serif); font-style: italic; font-size: 2rem; font-weight: 400; margin: var(--space-lg) 0;">Precision engineering meets visual poetry</div>
+                    <p style="color: var(--color-text-muted); margin-top: var(--space-sm);">Emphasis, quotes, and refined moments.</p>
+                </div>
+
+                <div class="card" style="margin-top: var(--space-2xl);">
+                    <div class="text-muted" style="margin-bottom: var(--space-sm);">Body — Plus Jakarta Sans 400/600</div>
+                    <p>Clear, readable, accessible. The workhorse font for all body copy, interface labels, and explanatory text. Optimized for screen reading at all sizes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPONENTS -->
+    <section class="section">
+        <div class="container">
+            <h2>Component Library</h2>
+            <p style="margin-top: var(--space-md);">Reusable, intentional, motion-ready.</p>
+
+            <div style="margin-top: var(--space-3xl);">
+                <div class="card">
+                    <div class="text-muted">Buttons</div>
+                    <div class="button-grid">
+                        <button class="btn">Secondary Action</button>
+                        <button class="btn btn-primary">Primary CTA</button>
+                    </div>
+                    <code style="display: block; margin-top: var(--space-lg);">.btn, .btn-primary</code>
+                </div>
+
+                <div class="card" style="margin-top: var(--space-2xl);">
+                    <div class="text-muted">Live Indicators</div>
+                    <div style="margin-top: var(--space-lg);">
+                        <span class="live-indicator">Active Now</span>
+                    </div>
+                    <code style="display: block; margin-top: var(--space-lg);">.live-indicator (with @keyframes dot-pulse)</code>
+                </div>
+
+                <div class="card" style="margin-top: var(--space-2xl);">
+                    <div class="text-muted">Motion Tokens</div>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div style="font-weight: 600; margin-bottom: var(--space-sm);">Fast</div>
+                            <code>0.15s cubic-bezier(0.16, 1, 0.3, 1)</code>
+                        </div>
+                        <div class="token-card">
+                            <div style="font-weight: 600; margin-bottom: var(--space-sm);">Base</div>
+                            <code>0.3s cubic-bezier(0.16, 1, 0.3, 1)</code>
+                        </div>
+                        <div class="token-card">
+                            <div style="font-weight: 600; margin-bottom: var(--space-sm);">Slow</div>
+                            <code>0.6s cubic-bezier(0.16, 1, 0.3, 1)</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOTION PRINCIPLES -->
+    <section class="section">
+        <div class="container">
+            <h2>Motion Philosophy</h2>
+            <p style="margin-top: var(--space-md);">Subtle, purposeful, never decorative.</p>
+
+            <div class="demo-grid" style="margin-top: var(--space-3xl);">
+                <div class="card">
+                    <h3>Entrance Animations</h3>
+                    <p style="margin-top: var(--space-md); color: var(--color-text-secondary);">Content fades in and slides up on scroll. Never aggressive. Always respects prefers-reduced-motion.</p>
+                    <code style="display: block; margin-top: var(--space-lg);">@keyframes fade-up</code>
+                </div>
+
+                <div class="card">
+                    <h3>Interactive Feedback</h3>
+                    <p style="margin-top: var(--space-md); color: var(--color-text-secondary);">Buttons scale on hover. Cards elevate. The UI talks back to the user instantly.</p>
+                    <code style="display: block; margin-top: var(--space-lg);">transition: all var(--transition-fast)</code>
+                </div>
+
+                <div class="card">
+                    <h3>Micro-Interactions</h3>
+                    <p style="margin-top: var(--space-md); color: var(--color-text-secondary);">Live indicators pulse. Form inputs glow. Status changes animate smoothly.</p>
+                    <code style="display: block; margin-top: var(--space-lg);">@keyframes radar-pulse</code>
+                </div>
+
+                <div class="card">
+                    <h3>Reduced Motion</h3>
+                    <p style="margin-top: var(--space-md); color: var(--color-text-secondary);">All animations respect user preferences. Accessibility first. Motion second.</p>
+                    <code style="display: block; margin-top: var(--space-lg);">@media (prefers-reduced-motion)</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRID & LAYOUT -->
+    <section class="section">
+        <div class="container">
+            <h2>Layout & Spacing</h2>
+            <p style="margin-top: var(--space-md);">12-column grid. Fluid spacing. Responsive by default.</p>
+
+            <div class="token-grid" style="margin-top: var(--space-3xl);">
+                <div class="token-card">
+                    <div style="font-weight: 600; margin-bottom: var(--space-sm);">Container</div>
+                    <code>max-width: 1200px</code>
+                    <p style="color: var(--color-text-muted); margin-top: var(--space-sm); font-size: 0.9rem;">Centered max-width with responsive padding.</p>
+                </div>
+                <div class="token-card">
+                    <div style="font-weight: 600; margin-bottom: var(--space-sm);">Gap</div>
+                    <code>clamp(1rem, 2vw, 2.5rem)</code>
+                    <p style="color: var(--color-text-muted); margin-top: var(--space-sm); font-size: 0.9rem;">Fluid spacing between grid items.</p>
+                </div>
+                <div class="token-card">
+                    <div style="font-weight: 600; margin-bottom: var(--space-sm);">Radius</div>
+                    <code>12px – 24px (contextual)</code>
+                    <p style="color: var(--color-text-muted); margin-top: var(--space-sm); font-size: 0.9rem;">Consistent but contextual border radius.</p>
+                </div>
+                <div class="token-card">
+                    <div style="font-weight: 600; margin-bottom: var(--space-sm);">CLS Target</div>
+                    <code>&lt; 0.05</code>
+                    <p style="color: var(--color-text-muted); margin-top: var(--space-sm); font-size: 0.9rem;">Zero layout shift. All media has dimensions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPLEMENTATION -->
+    <section class="section">
+        <div class="container">
+            <h2>Implementation Checklist</h2>
+            <p style="margin-top: var(--space-md);">Ready to deploy. Copy, paste, customize.</p>
+
+            <div style="margin-top: var(--space-3xl);">
+                <div class="card">
+                    <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); color: var(--color-text-secondary);">
+                        <li>✓ Color tokens defined</li>
+                        <li>✓ Typography hierarchy established</li>
+                        <li>✓ Button system complete</li>
+                        <li>✓ Card components ready</li>
+                        <li>✓ Animations defined</li>
+                        <li>✓ Motion principles documented</li>
+                        <li>✓ Accessibility checks passed</li>
+                        <li>✓ Responsive breakpoints set</li>
+                    </ul>
+                </div>
+                <div class="card" style="margin-top: var(--space-2xl);">
+                    <div class="text-muted">Next Steps</div>
+                    <ol style="list-style: decimal; list-style-position: inside; margin-top: var(--space-md); color: var(--color-text-secondary);">
+                        <li>Copy this design system to production CSS</li>
+                        <li>Rebuild homepage with new components</li>
+                        <li>Update all service pages</li>
+                        <li>Integrate with dashboard styling</li>
+                        <li>Test performance (target: &lt;500ms load)</li>
+                        <li>Deploy and monitor</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

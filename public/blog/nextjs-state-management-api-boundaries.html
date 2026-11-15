@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,7 +16,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Next.js State Management & API Flow — Kawaki Studios</title>
+    <title>Next.js State Management & API Flow â€” Kawaki Studios</title>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- KAWAKI MASTER DESIGN SYSTEM -->
+    <link rel="stylesheet" href="/assets/css/kawaki-master.css">
     <meta name="description" content="An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow." />
     <meta name="generator" content="Kawaki Blog Engine" />
     <link rel="canonical" href="https://kawaki.co.in/blog/nextjs-state-management-api-boundaries" />
@@ -24,20 +29,20 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://kawaki.co.in/blog/nextjs-state-management-api-boundaries" />
-    <meta property="og:title" content="Next.js State Management & API Flow — Kawaki Studios" />
+    <meta property="og:title" content="Next.js State Management & API Flow â€” Kawaki Studios" />
     <meta property="og:description" content="An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow." />
     <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-state-management-api-boundaries-hero.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="675" />
-    <meta property="og:image:alt" content="Next.js State Management & API Flow — Kawaki Studios — Technical Architecture by Kawaki Studios" />
+    <meta property="og:image:alt" content="Next.js State Management & API Flow â€” Kawaki Studios â€” Technical Architecture by Kawaki Studios" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
-    <meta name="twitter:title" content="Next.js State Management & API Flow — Kawaki Studios" />
+    <meta name="twitter:title" content="Next.js State Management & API Flow â€” Kawaki Studios" />
     <meta name="twitter:description" content="An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow." />
     <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-state-management-api-boundaries-hero.jpg" />
-    <meta name="twitter:image:alt" content="Next.js State Management & API Flow — Kawaki Studios — Technical Architecture by Kawaki Studios" />
+    <meta name="twitter:image:alt" content="Next.js State Management & API Flow â€” Kawaki Studios â€” Technical Architecture by Kawaki Studios" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -908,13 +913,13 @@
                 <div class="menu-col menu-col-left">
                     <div class="main-menu-links" id="mainMenuPrimary">
                         <ul>
-                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home — Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
+                            <li data-img="/assets/images/hero_slide_1_clean.webp" data-tag="Home â€” Studio Overview" data-desc="Digital Flagship &amp; Capabilities Overview">
                                 <a href="/">
                                     <span class="menu-idx">01</span>
                                     <span class="menu-text">Home <em>Index</em></span>
                                 </a>
                             </li>
-                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us — Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
+                            <li data-img="/assets/images/hero_slide_2_clean.webp" data-tag="About Us â€” Editorial Manifesto" data-desc="Studio Philosophy &amp; Engineering Principles">
                                 <a href="/about">
                                     <span class="menu-idx">02</span>
                                     <span class="menu-text">About <em>Kawaki Studios</em></span>
@@ -1072,10 +1077,10 @@
                     <div class="menu-socials-strip">
                         <span class="socials-title">Follow</span>
                         <div class="social-tags">
-                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
-                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
-                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram ↗</a>
-                            <a href="https://behance.net" target="_blank" rel="noopener">Behance ↗</a>
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn â†—</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X â†—</a>
+                            <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram â†—</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance â†—</a>
                         </div>
                     </div>
                 </div>
@@ -1121,7 +1126,7 @@
         <!-- FEATURED HERO IMAGE -->
         <div class="featured-image-wrapper">
             <div class="featured-image-container">
-                <img id="articleImage" src="/assets/images/blog/nextjs-state-management-api-boundaries-hero.jpg" alt="State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications — Technical Architecture by Kawaki Studios" title="State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
+                <img id="articleImage" src="/assets/images/blog/nextjs-state-management-api-boundaries-hero.jpg" alt="State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications â€” Technical Architecture by Kawaki Studios" title="State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications" class="post-featured-img" width="1200" height="675" fetchpriority="high" decoding="async" />
             </div>
         </div>
 
@@ -1174,26 +1179,26 @@
 <h2 id="h-2-where-state-should-live-a-6-question-decision-framework">2. Where State Should Live: A 6-Question Decision Framework</h2>
 <p>When introducing a new piece of state into a Next.js application, evaluate it against this practical diagnostic sequence:</p>
 <pre><code>                     [New Piece of State]
-                               │
+                               â”‚
             1. Should it be shareable or survive refresh?
-                           ╱ ╲
+                           â•± â•²
                         Yes   No
-                        ╱       ╲
+                        â•±       â•²
                  [URL State]   2. Does it originate from a DB or backend?
-                                        ╱ ╲
+                                        â•± â•²
                                      Yes   No
-                                     ╱       ╲
+                                     â•±       â•²
                           [Server Data]     3. Is it transient UI feedback?
-                                                    ╱ ╲
+                                                    â•± â•²
                                                  Yes   No
-                                                 ╱       ╲
+                                                 â•±       â•²
                                       [Local UI State]  [Shared Client State]
 </code></pre>
 <h3 id="h-diagnostic-questions">Diagnostic Questions:</h3>
 <ol>
 <li><strong>Who owns the state?</strong> If the business logic, database, or identity provider owns the data, it is Server Data. If the user's viewport or interaction owns it, it is Client State.</li>
 <li><strong>Does it need browser interaction?</strong> If the state requires immediate keystroke feedback, drag physics, or animation frames, it belongs in a Client Component.</li>
-<li><strong>Should the state survive a page refresh or navigation?</strong> If reloading the page should restore the exact view, the state belongs in the URL or on the server—never in ephemeral client memory.</li>
+<li><strong>Should the state survive a page refresh or navigation?</strong> If reloading the page should restore the exact view, the state belongs in the URL or on the serverâ€”never in ephemeral client memory.</li>
 <li><strong>Should it be bookmarkable or shareable via a link?</strong> If a user might copy the URL and send it to a colleague (e.g., filtered search results), it must live in URL search parameters.</li>
 <li><strong>Does the server need to validate or authorize it?</strong> If the state controls access to sensitive data or triggers database mutations, it must be validated on the server.</li>
 <li><strong>Is it transient or durable?</strong> Transient state (e.g., whether a tooltip is open) belongs in local component state. Durable state (e.g., account settings) belongs in the database.</li>
@@ -1215,7 +1220,7 @@ export default async function InvoicesPage() {
   const session = await getSession();
   if (!session) redirect('/login');
 
-  // Direct database query on the server — no internal HTTP hop
+  // Direct database query on the server â€” no internal HTTP hop
   const invoices = await db.invoices.findMany({
     where: { organizationId: session.orgId },
     orderBy: { createdAt: 'desc' }
@@ -1303,12 +1308,12 @@ export default function ProductFilter() {
 <h2 id="h-6-api-boundaries-direct-access-vs-explicit-endpoints">6. API Boundaries: Direct Access vs. Explicit Endpoints</h2>
 <p>In traditional SPAs, every interaction required an API endpoint:</p>
 <pre><code>Traditional SPA Architecture:
-[Browser Component] ──(HTTP JSON)──► [/api/products] ──► [Database]
+[Browser Component] â”€â”€(HTTP JSON)â”€â”€â–º [/api/products] â”€â”€â–º [Database]
 </code></pre>
 <p>In the Next.js App Router, you have two distinct data paths:</p>
 <pre><code>Modern Next.js Architecture:
-Path A (Server Component): [Server Component] ──(Direct Function Call)──► [Database]
-Path B (Explicit API):     [External Client / App] ──(HTTP JSON)──► [Route Handler] ──► [Database]
+Path A (Server Component): [Server Component] â”€â”€(Direct Function Call)â”€â”€â–º [Database]
+Path B (Explicit API):     [External Client / App] â”€â”€(HTTP JSON)â”€â”€â–º [Route Handler] â”€â”€â–º [Database]
 </code></pre>
 <h3 id="h-the-unnecessary-api-layer-anti-pattern">The "Unnecessary API Layer" Anti-Pattern:</h3>
 <p>Many developers migrating to Next.js automatically create an internal Route Handler (<code>/api/products</code>) and then call it from their own Server Components using <code>fetch('https://localhost:3000/api/products')</code>.</p>
@@ -1316,7 +1321,7 @@ Path B (Explicit API):     [External Client / App] ──(HTTP JSON)──► [R
 <ol>
 <li><strong>Unnecessary HTTP Overhead:</strong> Serializing data to JSON, creating an internal HTTP request, routing through the network stack, and deserializing on the other end.</li>
 <li><strong>Loopback Latency:</strong> In serverless or containerized environments, internal loopback requests can cause connection timeouts or cold starts.</li>
-<li><strong>Redundant Validation Layers:</strong> Writing validation and authorization logic twice—once in the API route and once in the page.</li>
+<li><strong>Redundant Validation Layers:</strong> Writing validation and authorization logic twiceâ€”once in the API route and once in the page.</li>
 </ol>
 <h3 id="h-when-an-explicit-api-boundary-is-actually-necessary">When an Explicit API Boundary Is Actually Necessary:</h3>
 <p>Create explicit Route Handlers (<code>app/api/.../route.ts</code>) when:</p>
@@ -1422,18 +1427,18 @@ export async function updateProfile(formData: FormData) {
 <li><strong>Authentication (AuthN):</strong> Confirms <em>who</em> the user is (e.g., verifying a session cookie or JWT).</li>
 <li><strong>Authorization (AuthZ):</strong> Confirms <em>what</em> the user is allowed to do (e.g., can user A edit document B?).</li>
 </ul>
-<pre><code>┌─────────────────────────────────────────────────────────────────┐
-│                      Client / Browser                           │
-│  [UI Layer] Checks {user.role === 'admin'} only for display     │
-└───────────────────────────────┬─────────────────────────────────┘
-                                │ (Network Boundary)
-                                ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                  Server Boundary (Trusted)                      │
-│  1. Verify Session Token (AuthN)                                │
-│  2. Verify User Permissions for Requested Resource (AuthZ)     │
-│  3. Execute Query / Mutation                                    │
-└─────────────────────────────────────────────────────────────────┘
+<pre><code>â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                      Client / Browser                           â”‚
+â”‚  [UI Layer] Checks {user.role === 'admin'} only for display     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                â”‚ (Network Boundary)
+                                â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                  Server Boundary (Trusted)                      â”‚
+â”‚  1. Verify Session Token (AuthN)                                â”‚
+â”‚  2. Verify User Permissions for Requested Resource (AuthZ)     â”‚
+â”‚  3. Execute Query / Mutation                                    â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 </code></pre>
 <h3 id="h-why-ui-hiding-is-not-authorization">Why UI Hiding Is Not Authorization:</h3>
 <p>Hiding an "Admin Settings" button in a Client Component with <code>{isAdmin &amp;&amp; &lt;Button&gt;}</code> is purely a visual affordance. If the underlying Server Action or Route Handler does not re-verify the session and role on the server, any visitor can trigger the action by dispatching a manual POST request.</p>
@@ -1441,7 +1446,7 @@ export async function updateProfile(formData: FormData) {
 <hr />
 <h2 id="h-10-avoiding-unnecessary-client-fetching">10. Avoiding Unnecessary Client Fetching</h2>
 <p>In client-heavy applications, developers frequently write <code>useEffect</code> data-fetching hooks:</p>
-<pre><code class="language-tsx">// ❌ UNNECESSARY CLIENT FETCHING
+<pre><code class="language-tsx">// âŒ UNNECESSARY CLIENT FETCHING
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -1494,32 +1499,32 @@ export default function UserProfile() {
 <h2 id="h-12-a-practical-reference-architecture">12. A Practical Reference Architecture</h2>
 <p>The diagram below illustrates an end-to-end data architecture for a production Next.js web application:</p>
 <pre><code>[Incoming Request: /workspace/billing]
-                 │
-                 ▼
-┌────────────────────────────────────────────────────────┐
-│  Server Page (RSC)                                     │
-│  - Authenticates session via cookies                   │
-│  - Directly queries database for billing records       │
-│  - Reads URL searchParams for active tab               │
-└────────────────┬───────────────────────────────────────┘
-                 │
-                 ├───────────────────────────────────────┐
-                 ▼                                       ▼
-┌─────────────────────────────────────┐  ┌─────────────────────────────────────┐
-│  Static Presentation (RSC)          │  │  Interactive Leaf (Client)          │
-│  - Invoice tables                   │  │  - Payment method modal toggle      │
-│  - Plan features &amp; pricing copy     │  │  - Optimistic card removal          │
-│  - Zero client JS overhead          │  │  - Dispatches Server Action         │
-└─────────────────────────────────────┘  └──────────────────┬──────────────────┘
-                                                            │
-                                                            ▼
-                                         ┌─────────────────────────────────────┐
-                                         │  Server Action: updatePaymentMethod │
-                                         │  - Re-authenticates session         │
-                                         │  - Validates input with Zod         │
-                                         │  - Calls payment gateway            │
-                                         │  - revalidatePath('/billing')       │
-                                         └─────────────────────────────────────┘
+                 â”‚
+                 â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Server Page (RSC)                                     â”‚
+â”‚  - Authenticates session via cookies                   â”‚
+â”‚  - Directly queries database for billing records       â”‚
+â”‚  - Reads URL searchParams for active tab               â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                 â”‚
+                 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+                 â–¼                                       â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Static Presentation (RSC)          â”‚  â”‚  Interactive Leaf (Client)          â”‚
+â”‚  - Invoice tables                   â”‚  â”‚  - Payment method modal toggle      â”‚
+â”‚  - Plan features &amp; pricing copy     â”‚  â”‚  - Optimistic card removal          â”‚
+â”‚  - Zero client JS overhead          â”‚  â”‚  - Dispatches Server Action         â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                                            â”‚
+                                                            â–¼
+                                         â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+                                         â”‚  Server Action: updatePaymentMethod â”‚
+                                         â”‚  - Re-authenticates session         â”‚
+                                         â”‚  - Validates input with Zod         â”‚
+                                         â”‚  - Calls payment gateway            â”‚
+                                         â”‚  - revalidatePath('/billing')       â”‚
+                                         â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 </code></pre>
 <p>Notice the clean separation: the page renders server-side, data queries bypass HTTP, interactivity is confined to leaf components, and mutations execute through validated Server Actions.</p>
 <hr />
@@ -1589,7 +1594,7 @@ export default function UserProfile() {
 <h3 id="h-what-state-belongs-in-a-client-component">What state belongs in a Client Component?</h3>
 <p>State that controls immediate visual interactivity (modal visibility, drawer open/close, accordion expansion), temporary form input before submission, animation coordinates, or interactions requiring browser-exclusive APIs (Canvas, Geolocation).</p>
 <h3 id="h-when-should-state-be-stored-in-the-url-instead-of-client-state">When should state be stored in the URL instead of client state?</h3>
-<p>Whenever the state controls what content is displayed—such as search queries, category filters, sorting options, pagination numbers, or tab selections. URL state makes the view shareable, bookmarkable, and refresh-safe.</p>
+<p>Whenever the state controls what content is displayedâ€”such as search queries, category filters, sorting options, pagination numbers, or tab selections. URL state makes the view shareable, bookmarkable, and refresh-safe.</p>
 <h3 id="h-should-server-components-fetch-data-directly-from-databases">Should Server Components fetch data directly from databases?</h3>
 <p>Yes. In Next.js App Router, Server Components run exclusively in a secure server environment. Direct database queries via ORMs or SQL clients eliminate HTTP serialization overhead and reduce network latency.</p>
 <h3 id="h-when-should-i-use-a-route-handler-instead-of-a-server-action">When should I use a Route Handler instead of a Server Action?</h3>
@@ -1599,7 +1604,7 @@ export default function UserProfile() {
 <h3 id="h-when-is-a-client-side-data-fetch-appropriate">When is a client-side data fetch appropriate?</h3>
 <p>Client-side fetching is appropriate for dynamic live search (typeahead), infinite scroll pagination, polling for real-time status updates, or fetching non-critical data after the primary page has already loaded.</p>
 <h3 id="h-where-should-authorization-decisions-happen">Where should authorization decisions happen?</h3>
-<p>Authorization must always happen on the server—inside the Server Component before querying data, or inside the Server Action / Route Handler before executing a mutation. UI conditional rendering is for presentation only, not security.</p>
+<p>Authorization must always happen on the serverâ€”inside the Server Component before querying data, or inside the Server Action / Route Handler before executing a mutation. UI conditional rendering is for presentation only, not security.</p>
 <h3 id="h-does-every-modern-web-application-need-a-global-state-library">Does every modern web application need a global state library?</h3>
 <p>No. Most Next.js applications that properly leverage Server Components for domain data and URL search parameters for navigation require little to no global client state. Local component state and targeted React Context are often sufficient.</p>
 <hr />
@@ -1640,10 +1645,10 @@ export default function UserProfile() {
                         <h4>Kunal Sharma</h4>
                         <p>Kunal is the founder and principal engineer at Kawaki Studios, specializing in high-performance web engineering, Next.js application architecture, headless Shopify systems, autonomous AI workflows, and forensic WordPress security recovery. He helps ambitious founders and modern enterprises design resilient, high-velocity digital flagships.</p>
                         <div class="bio-socials">
-                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn ↗</a>
-                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X ↗</a>
-                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub ↗</a>
-                            <a href="/contact" class="bio-consult">Book 15-Min Briefing ↗</a>
+                            <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn â†—</a>
+                            <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">Twitter / X â†—</a>
+                            <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub â†—</a>
+                            <a href="/contact" class="bio-consult">Book 15-Min Briefing â†—</a>
                         </div>
                     </div>
                 </div>
@@ -1912,7 +1917,7 @@ export default function UserProfile() {
         <div class="services-header-2">
             <div class="footer-headline-group">
                 <h3 class="services-title-2">Ready to talk?</h3>
-                <h3 class="services-title-2"><em>let’s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
+                <h3 class="services-title-2"><em>letâ€™s build something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: #111111; text-decoration: underline; text-decoration-color: #C6FF00; text-underline-offset: 6px;">iconic.</span></em></h3>
             </div>
             <a href="/contact" class="footer-cta-card-btn">
                 <span>Schedule Intro Call</span>
@@ -1956,12 +1961,12 @@ export default function UserProfile() {
                 <div class="footer-contact-item" style="margin-top: 0.5rem;">
                     <span class="footer-contact-label">Direct Founder Calendar</span>
                     <a href="/contact" class="footer-contact-val" style="color: #111111; font-weight: 600;">
-                        Book 15-Min Briefing ↗
+                        Book 15-Min Briefing â†—
                     </a>
                 </div>
                 <div class="footer-contact-item" style="margin-top: 0.75rem;">
                     <span class="footer-contact-label">Infrastructure Partner</span>
-                    <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Partner — Cloud &amp; Hosting Infrastructure">
+                    <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="footer-partner-badge" title="Hostinger Official Partner â€” Cloud &amp; Hosting Infrastructure">
                         <img src="/assets/images/hostinger-partner-dark.png" alt="Hostinger Partner" width="160" height="60" loading="lazy" />
                     </a>
                 </div>
@@ -1971,25 +1976,25 @@ export default function UserProfile() {
                 <div class="footer-col-header">// CLIENT TIME ZONES</div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>New Delhi — Studio HQ</span>
+                        <span>New Delhi â€” Studio HQ</span>
                         <span class="footer-time-clock" id="footerTimeDelhi">--:-- -- IST</span>
                     </div>
                 </div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>Tokyo — Client Time Zone</span>
+                        <span>Tokyo â€” Client Time Zone</span>
                         <span class="footer-time-clock" id="footerTimeTokyo">--:-- -- JST</span>
                     </div>
                 </div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>London — Client Time Zone</span>
+                        <span>London â€” Client Time Zone</span>
                         <span class="footer-time-clock" id="footerTimeLondon">--:-- -- GMT</span>
                     </div>
                 </div>
                 <div class="footer-time-badge">
                     <div class="footer-time-city">
-                        <span>New York — Client Time Zone</span>
+                        <span>New York â€” Client Time Zone</span>
                         <span class="footer-time-clock" id="footerTimeNY">--:-- -- EST</span>
                     </div>
                 </div>
@@ -2012,7 +2017,7 @@ export default function UserProfile() {
         </div>
 
         <div class="footer-bottom">
-            <div class="copyright">© 2026 Kawaki Studios. All rights reserved. — Custom Web Development &amp; Shopify Stores.</div>
+            <div class="copyright">Â© 2026 Kawaki Studios. All rights reserved. â€” Custom Web Development &amp; Shopify Stores.</div>
             <ul class="footer-bottom-links">
                 <li><a href="/directory">Directory</a></li>
                 <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -2130,3 +2135,4 @@ export default function UserProfile() {
     </script>
 </body>
 </html>
+

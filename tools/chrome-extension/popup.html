@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kawaki Agent Bridge</title>
+  <style>
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background: #111111;
+      color: #ffffff;
+      box-sizing: border-box;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: monospace;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #888888;
+    }
+    .dot.connected {
+      background: #C6FF00;
+      box-shadow: 0 0 8px #C6FF00;
+    }
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #a1a1aa;
+    }
+    .card strong {
+      color: #ffffff;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background: #C6FF00;
+      color: #111111;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: opacity 0.2s ease;
+      margin-top: 6px;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+    .log-box {
+      font-family: monospace;
+      font-size: 11px;
+      color: #888;
+      max-height: 90px;
+      overflow-y: auto;
+      margin-top: 10px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">
+      <span>KAWAKI</span>
+      <span style="color: #666; font-size: 11px; font-family: monospace;">// BRIDGE</span>
+    </div>
+    <div class="status-badge" id="statusBadge">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusText">Checking...</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div><strong>Target Profile:</strong> Active Chrome Profile</div>
+    <div><strong>Local Port:</strong> <code>127.0.0.1:8765</code></div>
+    <div><strong>Session:</strong> Logged-in Google &amp; Console Cookies Active</div>
+  </div>
+
+  <button class="btn" id="btnTestScreenshot">📸 Capture Active Tab Screenshot</button>
+  <button class="btn btn-secondary" id="btnListTabs">📑 Refresh Active Tabs</button>
+
+  <div class="log-box" id="logBox">Listening on local loopback...</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
