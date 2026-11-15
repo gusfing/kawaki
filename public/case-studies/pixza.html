@@ -196,14 +196,16 @@
         /* Giant Edge-to-Edge Hero Image */
         .editorial-hero-media {
             width: 100%;
-            height: 80vh;
-            min-height: 520px;
+            height: auto;
+            aspect-ratio: 16 / 10;
             max-height: 860px;
             border-radius: 20px;
             overflow: hidden;
-            background: var(--cs-dark);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+            background: #ffffff;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.06);
         }
+        .editorial-hero-media picture,
         .editorial-hero-media img {
             width: 100%;
             height: 100%;
@@ -767,7 +769,7 @@
         <section class="editorial-hero" id="chapter-01">
             <div class="hero-meta-strip">
                 <div class="hero-meta-left">
-                    <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza" class="hero-logo-img" />
+                    <img src="/assets/images/case-studies/pixza/logo.png" alt="Pixza" class="hero-logo-img" width="182" height="66" />
                     <span class="hero-category-tag">AI &amp; Digital Products &middot; Artificial Intelligence / Creative SaaS / Generative Image Platform</span>
                 </div>
                 <span class="hero-category-tag" style="border: 1px solid rgba(0,0,0,0.12); padding: 6px 14px; border-radius: 9999px;">Private Studio Deployment</span>
@@ -785,7 +787,10 @@
 
             <!-- Massive Edge-to-Edge Hero Photograph -->
             <div class="editorial-hero-media">
-                <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza Showcase" fetchpriority="high" decoding="async" />
+                <picture>
+                    <source srcset="/assets/images/case-studies/pixza/hero.webp" type="image/webp">
+                    <img src="/assets/images/case-studies/pixza/hero.jpg" alt="Pixza AI Generative Platform Live Showcase" fetchpriority="high" decoding="async" width="1440" height="900" />
+                </picture>
             </div>
         </section><!-- ============================================== -->
         <!-- CHAPTER 02: THE MANDATE (50/50 SPLIT) -->
