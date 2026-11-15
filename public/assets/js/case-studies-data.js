@@ -80,7 +80,7 @@ const KAWAKI_PORTFOLIO = [
         industry: "Healthcare / EdTech / Professional LMS",
         category: "Web Applications & Platforms",
         categories: ["Web Applications & Platforms"],
-        heroImage: "/assets/images/case-studies/nursepass/hero.jpg",
+        heroImage: "/assets/images/case-studies/nursepass/hero.webp",
         logo: "/assets/images/case-studies/nursepass/logo.svg",
         liveUrl: "https://nursepass.de/",
         hasLiveUrl: true,
