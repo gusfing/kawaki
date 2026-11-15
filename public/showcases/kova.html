@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOVA Technical Apparel Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #F8F7F4;
+            color: #111111;
+            width: 1440px;
+            height: 900px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Bar */
+        .kova-header {
+            height: 72px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 3rem;
+            background: #F8F7F4;
+        }
+        .kova-logo {
+            height: 24px;
+            width: auto;
+        }
+        .kova-nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+        .kova-nav a {
+            color: #555555;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .kova-nav a:hover, .kova-nav a.active {
+            color: #111111;
+        }
+        .kova-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .bag-btn {
+            background: #111111;
+            color: #FFFFFF;
+            padding: 7px 16px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* Hero Grid */
+        .kova-main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            padding: 2.5rem 3rem;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        /* Left Visual Gallery */
+        .visual-frame {
+            position: relative;
+            background: #EAE8E2;
+            border-radius: 16px;
+            height: 100%;
+            max-height: 720px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.5rem;
+            background-image: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.7), transparent 70%), linear-gradient(180deg, #EAE8E2 0%, #D8D4CA 100%);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .technical-watermark {
+            position: absolute;
+            top: 2rem;
+            left: 2.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: #777777;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            line-height: 1.6;
+        }
+        .product-artwork {
+            margin: auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .product-sketch {
+            width: 280px;
+            height: 340px;
+            background: #18191B;
+            border-radius: 20px;
+            box-shadow: 0 32px 70px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            justify-content: space-between;
+            color: #FFFFFF;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .sketch-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            color: #C6FF00;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .sketch-center {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .sketch-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #888888;
+            font-family: 'Space Mono', monospace;
+        }
+        .frame-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding-top: 1.25rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #666666;
+        }
+
+        /* Right Product Configurator */
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .product-meta-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            color: #888888;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .product-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: #111111;
+        }
+        .product-price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #111111;
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+        .product-price span {
+            font-size: 0.95rem;
+            color: #777777;
+            font-weight: 500;
+        }
+        .product-desc {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: #555555;
+            max-width: 520px;
+        }
+        .spec-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            font-size: 0.82rem;
+            color: #333333;
+        }
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .spec-check {
+            color: #10B981;
+            font-weight: 800;
+        }
+
+        .size-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .size-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #666666;
+        }
+        .size-buttons {
+            display: flex;
+            gap: 0.75rem;
+        }
+        .size-btn {
+            width: 52px;
+            height: 44px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            background: transparent;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .size-btn.active {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
+        }
+
+        .cta-btn {
+            background: #111111;
+            color: #FFFFFF;
+            border: none;
+            padding: 18px 28px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <header class="kova-header">
+        <img src="/assets/images/case-studies/kova/logo-black.png" alt="KOVA" class="kova-logo" />
+        <nav class="kova-nav">
+            <a href="#" class="active">Collection 04</a>
+            <a href="#">Technical Shells</a>
+            <a href="#">Modular Insulators</a>
+            <a href="#">Materials & Lab</a>
+            <a href="#">Archive</a>
+        </nav>
+        <div class="kova-actions">
+            <span>INR (₹)</span>
+            <div class="bag-btn">Bag · 2 Items</div>
+        </div>
+    </header>
+
+    <main class="kova-main">
+        <div class="visual-frame">
+            <div class="technical-watermark">
+                SERIES 04 / EDITION 88<br>
+                HYDROSTATIC HEAD: 28,000 MM<br>
+                SYM-TEX® JAPANESE MEMBRANE
+            </div>
+            <div class="product-artwork">
+                <div class="product-sketch">
+                    <span class="sketch-tag">TECHNICAL APPAREL</span>
+                    <div class="sketch-center">
+                        MODULAR<br>STORM SHELL<br>V.4
+                    </div>
+                    <div class="sketch-footer">
+                        <span>TAPED SEAMS</span>
+                        <span>YKK AQUAGUARD®</span>
+                    </div>
+                </div>
+            </div>
+            <div class="frame-footer">
+                <span>STUDIO CUT · MODEL 188 CM WEARS M</span>
+                <span>LOOKBOOK REF: KOVA-04-BLK</span>
+            </div>
+        </div>
+
+        <div class="product-details">
+            <span class="product-meta-eyebrow">SYSTEM 04 // ALL-WEATHER MONOGRAPH</span>
+            <h1 class="product-title">Modular Storm Shell V.4</h1>
+            <div class="product-price">
+                ₹28,500 <span>/ $345 USD · Tax Included</span>
+            </div>
+            <p class="product-desc">
+                Engineered from 3-layer laminated Japanese ripstop nylon with 28,000mm hydrostatic head. Features fidlock magnetic collar closure, articulated anatomical sleeve articulation, and concealable high-storm hood.
+            </p>
+            <div class="spec-list">
+                <div class="spec-item"><span class="spec-check">✓</span> Fully taped 8mm micro-seams with polyurethane coating</div>
+                <div class="spec-item"><span class="spec-check">✓</span> YKK AquaGuard® matte black water-repellent zippers</div>
+                <div class="spec-item"><span class="spec-check">✓</span> Lifetime complimentary architectural repair service</div>
+            </div>
+            <div class="size-group">
+                <div class="size-header">
+                    <span>SELECT ARCHITECTURAL SIZE</span>
+                    <span style="text-decoration: underline; cursor: pointer;">SIZE MATRIX GUIDE</span>
+                </div>
+                <div class="size-buttons">
+                    <div class="size-btn">S</div>
+                    <div class="size-btn active">M</div>
+                    <div class="size-btn">L</div>
+                    <div class="size-btn">XL</div>
+                </div>
+            </div>
+            <button class="cta-btn">
+                <span>ADD TO BAG — COMPLIMENTARY EXPRESS DISPATCH</span>
+                <span>&rarr;</span>
+            </button>
+        </div>
+    </main>
+</body>
+</html>

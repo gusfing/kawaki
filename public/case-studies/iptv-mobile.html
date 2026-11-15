@@ -29,14 +29,14 @@
         <meta property="og:site_name" content="Kawaki Studios" />
     <meta property="og:locale" content="en_IN" />
 <meta property="og:description" content="How Kawaki Studios engineered Slix IPTV, a Flutter mobile streaming app featuring hardware decoding (MediaKit), Xtream Codes API, and Picture-in-Picture playback." />
-    <meta property="og:image" content="https://kawaki.co.in/assets/images/case-studies/iptv/hero.png" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/case-studies/iptv/hero.webp" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="Slix IPTV &mdash; Mobile Applications Case Study | Kawaki Studios" />
     <meta name="twitter:description" content="How Kawaki Studios engineered Slix IPTV, a Flutter mobile streaming app featuring hardware decoding (MediaKit), Xtream Codes API, and Picture-in-Picture playback." />
-    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/case-studies/iptv/hero.png" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/case-studies/iptv/hero.webp" />
 
     <!-- JSON-LD Schema -->
     <script type="application/ld+json">
@@ -47,7 +47,7 @@
   "headline": "Slix IPTV: Hardware-Accelerated Streaming Client with Netflix-Style UI in Flutter",
   "description": "How Kawaki Studios engineered Slix IPTV, a Flutter mobile streaming app featuring hardware decoding (MediaKit), Xtream Codes API, and Picture-in-Picture playback.",
   "url": "https://kawaki.co.in/case-studies/iptv-mobile",
-  "image": "https://kawaki.co.in/assets/images/case-studies/iptv/hero.png",
+  "image": "https://kawaki.co.in/assets/images/case-studies/iptv/hero.webp",
   "creator": {
     "@type": "Organization",
     "@id": "https://kawaki.co.in/#organization",
@@ -780,7 +780,10 @@
 
             <!-- Massive Edge-to-Edge Hero Photograph -->
             <div class="editorial-hero-media">
-                <img src="/assets/images/case-studies/iptv/hero.png" alt="Slix IPTV Showcase" fetchpriority="high" decoding="async" />
+                <picture>
+                    <source srcset="/assets/images/case-studies/iptv/hero.webp" type="image/webp">
+                    <img src="/assets/images/case-studies/iptv/hero.jpg" alt="Slix IPTV Showcase" fetchpriority="high" decoding="async" />
+                </picture>
             </div>
         </section><!-- ============================================== -->
         <!-- CHAPTER 02: THE MANDATE (50/50 SPLIT) -->

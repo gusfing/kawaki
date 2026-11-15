@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AURA — Sanctuary & Aesthetic Wellness Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #F7F5F0;
+      color: #1A1917;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Browser Chrome Simulation */
+    .browser-frame {
+      width: 1440px;
+      height: 900px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.12);
+      overflow: hidden;
+      position: relative;
+    }
+    .browser-bar {
+      height: 44px;
+      background: #F2EFEB;
+      border-bottom: 1px solid #E5E0D8;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 16px;
+    }
+    .traffic-lights {
+      display: flex;
+      gap: 8px;
+    }
+    .traffic-light {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .tl-red { background: #FF5F56; }
+    .tl-yellow { background: #FFBD2E; }
+    .tl-green { background: #27C93F; }
+
+    .url-bar {
+      flex: 1;
+      max-width: 580px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #DDD7CE;
+      border-radius: 6px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      font-size: 11.5px;
+      color: #6B655B;
+      gap: 8px;
+    }
+    .url-bar .lock {
+      color: #2F6F44;
+      font-size: 10px;
+    }
+
+    /* Sanctuary Header */
+    .site-nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      border-bottom: 1px solid #ECE7DF;
+      background: #FAF8F5;
+    }
+    .brand-mark {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .brand-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #1A1917;
+    }
+    .brand-tag {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8C8275;
+      font-weight: 600;
+      border-left: 1px solid #DDD6CB;
+      padding-left: 12px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #59534B;
+    }
+    .nav-links li.active {
+      color: #1A1917;
+      font-weight: 600;
+      position: relative;
+    }
+    .nav-links li.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: #9D7B54;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .location-selector {
+      font-size: 12px;
+      color: #6B655B;
+      background: #F0ECE4;
+      padding: 7px 14px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-reserve {
+      background: #1A1917;
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+
+    /* Main Showcase Canvas */
+    .app-canvas {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 310px 1fr 360px;
+      background: #F7F5F0;
+      overflow: hidden;
+    }
+
+    /* Left Sidebar: Multi-Branch & Specialist Scheduling */
+    .sanctuary-sidebar {
+      background: #FAF8F5;
+      border-right: 1px solid #EBE5DB;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #9D7B54;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .branch-card {
+      background: #FFFFFF;
+      border: 1px solid #E8E2D6;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .branch-card.active {
+      border-color: #9D7B54;
+      background: #FFFDF9;
+      box-shadow: 0 4px 12px rgba(157, 123, 84, 0.08);
+    }
+    .branch-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1A1917;
+      margin-bottom: 3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .branch-badge {
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: #E8F5E9;
+      color: #2E7D32;
+      font-weight: 600;
+    }
+    .branch-stats {
+      font-size: 11.5px;
+      color: #7A7266;
+    }
+
+    .specialist-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .specialist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 12px;
+      background: #FFFFFF;
+      border: 1px solid #EFEAE0;
+      border-radius: 10px;
+    }
+    .specialist-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #E3D9CC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #5D5447;
+    }
+    .specialist-meta {
+      flex: 1;
+    }
+    .specialist-name {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #1A1917;
+    }
+    .specialist-role {
+      font-size: 10.5px;
+      color: #8C8275;
+    }
+    .specialist-status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #27C93F;
+    }
+
+    /* Center: Treatment Menu & Live Booking Flow */
+    .center-stage {
+      padding: 32px 36px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+    .stage-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .stage-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: #1A1917;
+      line-height: 1.15;
+    }
+    .stage-subtitle {
+      font-size: 13px;
+      color: #7D7569;
+      margin-top: 4px;
+    }
+    .time-pill-strip {
+      display: flex;
+      gap: 8px;
+    }
+    .date-pill {
+      padding: 8px 14px;
+      background: #FFFFFF;
+      border: 1px solid #E3DCD0;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #59534B;
+      text-align: center;
+    }
+    .date-pill.selected {
+      background: #1A1917;
+      color: #FFFFFF;
+      border-color: #1A1917;
+    }
+
+    /* Ritual Cards Grid */
+    .treatments-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .treatment-card {
+      background: #FFFFFF;
+      border: 1px solid #E8E2D6;
+      border-radius: 14px;
+      padding: 20px;
+      position: relative;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+    }
+    .treatment-card.highlight {
+      border-color: #9D7B54;
+      background: #FCFBF7;
+    }
+    .treatment-category {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9D7B54;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .treatment-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #1A1917;
+      margin-bottom: 6px;
+    }
+    .treatment-desc {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #6B655B;
+      margin-bottom: 14px;
+    }
+    .treatment-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid #F0ECE4;
+    }
+    .treatment-duration {
+      font-size: 11.5px;
+      color: #8C8275;
+      font-weight: 500;
+    }
+    .treatment-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1A1917;
+    }
+
+    /* Right Sidebar: Realtime Appointment Booking State & Telemetry */
+    .telemetry-sidebar {
+      background: #FFFFFF;
+      border-left: 1px solid #EBE5DB;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .summary-card {
+      background: #FAF8F5;
+      border: 1px solid #EAE3D6;
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .summary-badge {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #2F6F44;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .summary-treatment {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: #1A1917;
+    }
+    .summary-details {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      color: #6B655B;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+    }
+    .summary-row span.val {
+      font-weight: 600;
+      color: #1A1917;
+    }
+
+    /* Live Slot Selector */
+    .slot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .slot-pill {
+      background: #FAF8F5;
+      border: 1px solid #E5DFD4;
+      border-radius: 8px;
+      padding: 9px 4px;
+      font-size: 11.5px;
+      font-weight: 600;
+      text-align: center;
+      color: #554F46;
+    }
+    .slot-pill.active {
+      background: #1A1917;
+      color: #FFFFFF;
+      border-color: #1A1917;
+    }
+    .slot-pill.booked {
+      opacity: 0.35;
+      text-decoration: line-through;
+      background: #F1ECE3;
+    }
+
+    /* Platform Telemetry Metric */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .kpi-box {
+      background: #F8F6F1;
+      border: 1px solid #EBE4D7;
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .kpi-num {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1A1917;
+      font-feature-settings: "tnum";
+    }
+    .kpi-sub {
+      font-size: 10.5px;
+      color: #7D7569;
+      margin-top: 2px;
+    }
+
+    .confirm-btn {
+      background: #9D7B54;
+      color: #FFFFFF;
+      border: none;
+      padding: 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(157, 123, 84, 0.25);
+    }
+  </style>
+</head>
+<body>
+  <div class="browser-frame">
+    <!-- Window Bar -->
+    <div class="browser-bar">
+      <div class="traffic-lights">
+        <div class="traffic-light tl-red"></div>
+        <div class="traffic-light tl-yellow"></div>
+        <div class="traffic-light tl-green"></div>
+      </div>
+      <div class="url-bar">
+        <span class="lock">&#128274;</span>
+        <span>aura-wellness.internal/operations/booking-dispatch</span>
+      </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="site-nav">
+      <div class="brand-mark">
+        <div class="brand-title">Aura Sanctuary</div>
+        <div class="brand-tag">Aesthetic Wellness &amp; Spa Suite</div>
+      </div>
+      <ul class="nav-links">
+        <li class="active">Rituals &amp; Therapies</li>
+        <li>Specialists</li>
+        <li>Multi-Branch Dispatch</li>
+        <li>Membership</li>
+        <li>Reports</li>
+      </ul>
+      <div class="nav-actions">
+        <div class="location-selector">
+          <span>&#128205;</span>
+          <span>Mayfair Flagship Sanctuary</span>
+        </div>
+        <a href="#" class="btn-reserve">Instant Booking</a>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <div class="app-canvas">
+      <!-- Left: Branches & Therapists -->
+      <aside class="sanctuary-sidebar">
+        <div>
+          <div class="section-label">
+            <span>Branch Operating State</span>
+            <span style="color: #2E7D32;">All Online</span>
+          </div>
+          <div class="branch-card active">
+            <div class="branch-name">
+              <span>Mayfair Flagship</span>
+              <span class="branch-badge">Live Sync</span>
+            </div>
+            <div class="branch-stats">9 Treatment Suites &bull; 92% Capacity</div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-name">
+              <span>Kensington Suites</span>
+              <span class="branch-badge" style="background:#E3F2FD; color:#1565C0;">Ready</span>
+            </div>
+            <div class="branch-stats">6 Treatment Suites &bull; 74% Capacity</div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-name">
+              <span>Marylebone Studio</span>
+              <span class="branch-badge" style="background:#E3F2FD; color:#1565C0;">Ready</span>
+            </div>
+            <div class="branch-stats">4 Treatment Suites &bull; 68% Capacity</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">Master Practitioners On Duty</div>
+          <div class="specialist-list">
+            <div class="specialist-item">
+              <div class="specialist-avatar">EH</div>
+              <div class="specialist-meta">
+                <div class="specialist-name">Elena Hartmann</div>
+                <div class="specialist-role">Holistic Facialist &bull; Suite 02</div>
+              </div>
+              <div class="specialist-status"></div>
+            </div>
+            <div class="specialist-item">
+              <div class="specialist-avatar">ML</div>
+              <div class="specialist-meta">
+                <div class="specialist-name">Marcus Laurent</div>
+                <div class="specialist-role">Deep Tissue Osteo &bull; Suite 05</div>
+              </div>
+              <div class="specialist-status"></div>
+            </div>
+            <div class="specialist-item">
+              <div class="specialist-avatar">SC</div>
+              <div class="specialist-meta">
+                <div class="specialist-name">Sophia Chen</div>
+                <div class="specialist-role">Ayurvedic Rejuvenation &bull; Suite 03</div>
+              </div>
+              <div class="specialist-status"></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center: Treatments & Schedule -->
+      <main class="center-stage">
+        <div class="stage-heading">
+          <div>
+            <h1 class="stage-title">Select Treatment &amp; Therapeutic Sequence</h1>
+            <p class="stage-subtitle">Real-time room occupancy and thermodynamic preparation schedules</p>
+          </div>
+          <div class="time-pill-strip">
+            <div class="date-pill selected">Today, Nov 15</div>
+            <div class="date-pill">Tomorrow, Nov 16</div>
+            <div class="date-pill">Sun, Nov 17</div>
+          </div>
+        </div>
+
+        <div class="treatments-grid">
+          <div class="treatment-card highlight">
+            <div>
+              <div class="treatment-category">Signature Holistic Ritual</div>
+              <h2 class="treatment-title">Cellular Radiance Sculpt &amp; Lymphatic Infusion</h2>
+              <p class="treatment-desc">Triple peptide oxygen bath with sculpted microcurrent therapy and organic rose quartz lymphatic drainage.</p>
+            </div>
+            <div class="treatment-footer">
+              <span class="treatment-duration">&#9201; 90 min &bull; Thermal Suite A</span>
+              <span class="treatment-price">&pound;240</span>
+            </div>
+          </div>
+
+          <div class="treatment-card">
+            <div>
+              <div class="treatment-category">Deep Recovery</div>
+              <h2 class="treatment-title">Volcanic Basalt Stone &amp; Myofascial Release</h2>
+              <p class="treatment-desc">Warm mineral basalt stone therapy infused with Mediterranean botanical extracts to release deep muscular tension.</p>
+            </div>
+            <div class="treatment-footer">
+              <span class="treatment-duration">&#9201; 75 min &bull; Cedar Cabin 04</span>
+              <span class="treatment-price">&pound;195</span>
+            </div>
+          </div>
+
+          <div class="treatment-card">
+            <div>
+              <div class="treatment-category">Aesthetic Dermatology</div>
+              <h2 class="treatment-title">Hydra-Dermic Diamond Exfoliation</h2>
+              <p class="treatment-desc">Precision micro-dermabrasion paired with multi-depth hyaluronic acid vacuum infusion for deep dermal glow.</p>
+            </div>
+            <div class="treatment-footer">
+              <span class="treatment-duration">&#9201; 60 min &bull; Clinical Suite 01</span>
+              <span class="treatment-price">&pound;180</span>
+            </div>
+          </div>
+
+          <div class="treatment-card">
+            <div>
+              <div class="treatment-category">Aromatherapy Sanctuary</div>
+              <h2 class="treatment-title">Sensory Cedar &amp; Bergamot Herbal Soak</h2>
+              <p class="treatment-desc">Hand-crafted copper bath steeped with freshly harvested mountain botanicals, followed by an intuitive scalp press.</p>
+            </div>
+            <div class="treatment-footer">
+              <span class="treatment-duration">&#9201; 60 min &bull; Private Pool 02</span>
+              <span class="treatment-price">&pound;160</span>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Right: Live Slot Matrix & KPI Telemetry -->
+      <aside class="telemetry-sidebar">
+        <div class="summary-card">
+          <span class="summary-badge">&#9679; Selected Appointment</span>
+          <div class="summary-treatment">Cellular Radiance Sculpt</div>
+          <div class="summary-details">
+            <div class="summary-row">
+              <span>Practitioner</span>
+              <span class="val">Elena Hartmann</span>
+            </div>
+            <div class="summary-row">
+              <span>Suite</span>
+              <span class="val">Thermal Suite A</span>
+            </div>
+            <div class="summary-row">
+              <span>Buffer Sanitization</span>
+              <span class="val">15 min prep complete</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">Available Slots &bull; Mayfair Flagship</div>
+          <div class="slot-grid">
+            <div class="slot-pill booked">11:00 AM</div>
+            <div class="slot-pill booked">12:30 PM</div>
+            <div class="slot-pill active">02:15 PM</div>
+            <div class="slot-pill">03:45 PM</div>
+            <div class="slot-pill">05:15 PM</div>
+            <div class="slot-pill">06:45 PM</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">System Performance Telemetry</div>
+          <div class="kpi-row">
+            <div class="kpi-box">
+              <div class="kpi-num">0.8s</div>
+              <div class="kpi-sub">Mobile Booking Latency</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-num">99.98%</div>
+              <div class="kpi-sub">Multi-Branch Uptime</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="confirm-btn">Confirm Reservation &bull; &pound;240</button>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
