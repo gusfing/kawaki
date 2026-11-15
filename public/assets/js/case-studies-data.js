@@ -176,7 +176,7 @@ const KAWAKI_PORTFOLIO = [
         industry: "Architecture / Parametric Design Practice",
         category: "Brand & Marketing Websites",
         categories: ["Brand & Marketing Websites"],
-        heroImage: "/assets/images/case-studies/decor-lab/hero.jpg",
+        heroImage: "/assets/images/case-studies/decor-lab/hero.webp",
         logo: "/assets/images/case-studies/decor-lab/logo.webp",
         liveUrl: "https://www.decorlabs.co.in/",
         hasLiveUrl: true,

@@ -12,7 +12,9 @@
 }
 
 /* Apply fonts to body and headings - optional, can be skipped if you prefer existing fonts */
-body {
+html, body {
+    background-color: var(--kawaki-indigo);
+    color: #FFFFFF;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
@@ -23,6 +25,17 @@ h1, h2, h3, h4, h5, h6 {
 em, i, .italic {
     font-family: 'Instrument Serif', Georgia, serif;
     color: var(--kawaki-yellow);
+}
+
+/* Ensure text is white on dark background */
+p, span, a, h1, h2, h3, h4, h5, h6, li, label {
+    color: inherit;
+}
+
+/* Override any dark text that might be set */
+.dark-text, body .dark-text,
+body p, body span, body li {
+    color: #FFFFFF;
 }
 
 /* Red accents - apply to CTA sections */
