@@ -1,132 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Kawaki Agent Bridge</title>
-  <style>
-    body {
-      width: 320px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      margin: 0;
-      padding: 16px;
-      background: #111111;
-      color: #ffffff;
-      box-sizing: border-box;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 12px;
-      margin-bottom: 14px;
-    }
-    .title {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 600;
-      font-family: monospace;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #888888;
-    }
-    .dot.connected {
-      background: #C6FF00;
-      box-shadow: 0 0 8px #C6FF00;
-    }
-    .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 12px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #a1a1aa;
-    }
-    .card strong {
-      color: #ffffff;
-    }
-    .btn {
-      width: 100%;
-      padding: 10px;
-      background: #C6FF00;
-      color: #111111;
-      border: none;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: opacity 0.2s ease;
-      margin-top: 6px;
-    }
-    .btn:hover {
-      opacity: 0.9;
-    }
-    .btn-secondary {
-      background: transparent;
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-    }
-    .log-box {
-      font-family: monospace;
-      font-size: 11px;
-      color: #888;
-      max-height: 90px;
-      overflow-y: auto;
-      margin-top: 10px;
-      word-break: break-all;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kawaki Agent Bridge</title>
+<style>
+  :root { --indigo: #23003F; --deep: #18002C; --raised: #2E0B4F; --yellow: #FFFDB4; --lilac: #BCACCE; --red: #F94500; }
+  * { box-sizing: border-box; }
+  body { width: 340px; margin: 0; padding: 16px; background: var(--indigo); color: var(--yellow); font: 13px/1.45 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+  .mono { font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace; }
+  .label { font: 600 10.5px/1 ui-monospace, 'Cascadia Mono', Consolas, monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lilac); }
+  header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid rgba(188, 172, 206, 0.25); }
+  h1 { margin: 0; font-size: 15px; font-weight: 750; letter-spacing: -0.01em; }
+  .state { display: inline-flex; align-items: center; gap: 7px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--lilac); }
+  .dot.on { background: var(--yellow); border-color: var(--yellow); }
+  .grid { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; margin-bottom: 12px; }
+  .grid .v { color: var(--yellow); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .actions { display: flex; gap: 8px; margin-bottom: 14px; }
+  button { flex: 1; padding: 8px 10px; border-radius: 8px; border: 1.5px solid var(--lilac); background: transparent; color: var(--yellow); font: 600 12px/1 system-ui, sans-serif; cursor: pointer; }
+  button:hover { border-color: var(--yellow); }
+  button.primary { background: var(--red); border-color: var(--red); color: var(--yellow); }
+  button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+  ol { list-style: none; margin: 8px 0 0; padding: 0; max-height: 220px; overflow: auto; background: var(--deep); border-radius: 8px; }
+  li { display: grid; grid-template-columns: 52px 74px 1fr; gap: 6px; padding: 6px 10px; border-bottom: 1px solid rgba(188, 172, 206, 0.12); font: 11px/1.35 ui-monospace, 'Cascadia Mono', Consolas, monospace; }
+  li:last-child { border-bottom: 0; }
+  li .t { color: var(--lilac); }
+  li .d { color: var(--lilac); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  li.err .a { color: var(--red); text-decoration: line-through; text-decoration-color: var(--red); }
+  .empty { padding: 10px; color: var(--lilac); font-size: 12px; }
+  .note { margin: 12px 0 0; color: var(--lilac); font-size: 11.5px; }
+</style>
 </head>
 <body>
-  <div class="header">
-    <div class="title">
-      <span>KAWAKI</span>
-      <span style="color: #666; font-size: 11px; font-family: monospace;">// BRIDGE</span>
-    </div>
-    <div class="status-badge" id="statusBadge">
-      <span class="dot" id="statusDot"></span>
-      <span id="statusText">Checking...</span>
-    </div>
+  <header>
+    <h1>Kawaki Agent Bridge</h1>
+    <span class="state label"><span class="dot" id="dot"></span><span id="state">Checking</span></span>
+  </header>
+  <div class="grid">
+    <span class="label">Version</span><span class="v mono" id="ver">-</span>
+    <span class="label">Agent tab</span><span class="v" id="agent">none</span>
+    <span class="label">Debugger</span><span class="v" id="dbg">off</span>
   </div>
-
-  <div class="card">
-    <div><strong>Target Profile:</strong> Active Chrome Profile</div>
-    <div><strong>Local Port:</strong> <code>127.0.0.1:8765</code></div>
-    <div><strong>Session:</strong> Logged-in Google &amp; Console Cookies Active</div>
+  <div class="actions">
+    <button class="primary" id="reconnect" type="button">Reconnect</button>
+    <button id="detach" type="button">Stop debugging</button>
   </div>
-
-  <button class="btn" id="btnTestScreenshot">📸 Capture Active Tab Screenshot</button>
-  <button class="btn btn-secondary" id="btnListTabs">📑 Refresh Active Tabs</button>
-
-  <div class="log-box" id="logBox">Listening on local loopback...</div>
-
+  <span class="label">Recent agent actions</span>
+  <ol id="log"><li class="empty">Nothing yet.</li></ol>
+  <p class="note">Only the local bridge (npm run bridge:chrome) can send commands, and only with its token. Pressing Cancel on Chrome's debugging bar pauses debugger actions for five minutes.</p>
   <script src="popup.js"></script>
 </body>
 </html>
-

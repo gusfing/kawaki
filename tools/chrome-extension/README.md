@@ -1,54 +1,44 @@
-# Kawaki Agent Chrome Bridge Extension
+# Kawaki Agent Chrome Bridge
 
-This Chrome Extension allows Antigravity AI Agent to automate, inspect, screenshot, and navigate your **active Google Chrome profile** (preserving all your logged-in cookies, Google Search Console sessions, Semrush dashboards, and bookmarks) with **zero extra startup flags** and without having to close your browser.
+Lets an agent on this computer read and drive your normal Chrome profile, so it can use sites you are already signed in to (Search Console, Bing Webmaster Tools) without API keys. The agent talks to a local server, which talks to this extension.
 
----
+## Install (once)
 
-### How to Install (Takes 30 Seconds)
+1. Start the bridge: `npm run bridge:chrome`. Leave it running. It writes a token to `tools/chrome-bridge/.token`; that file is gitignored.
+2. In Chrome, open `chrome://extensions` and turn on **Developer mode**.
+3. Click **Load unpacked** and choose this folder (`tools/chrome-extension`). If an older "Kawaki Agent Chrome Bridge" is listed, remove it first: version 2 has a fixed ID, `cnbanaljfhnkgdecagmjeflcckaoigme`.
+4. Check: `node tools/chrome-bridge/cli.js status` should print `connected`.
 
-1. Open your regular **Google Chrome** window.
-2. In the URL bar, go to:
-   ```
-   chrome://extensions/
-   ```
-3. Toggle on **Developer mode** in the top right corner.
-4. Click **Load unpacked** (top left).
-5. Select this folder:
-   ```
-   c:\Users\ks209\Documents\kunal saas\kawaki website\files\tools\chrome-extension
-   ```
-6. You will see **Kawaki Agent Chrome Bridge** appear in your extensions list.
+## Safety
 
----
+- The server listens on 127.0.0.1 only. It refuses requests from web pages (`Origin`/`Sec-Fetch` headers), refuses other `Host` names (DNS rebinding), and sends no CORS headers.
+- Every request needs the token. `client.js` and `cli.js` read it for you.
+- The WebSocket only accepts this extension's ID.
+- The agent works in its own window and tab, so your tabs are left alone.
+- Typing with `--trusted`, `eval`, `back` fallbacks and background screenshots use the Chrome debugger. While it is attached, Chrome shows a "started debugging this browser" bar. Press **Cancel** there, or **Stop debugging** in the popup, to stop it. Cancel pauses debugger actions for five minutes.
+- The popup lists the last actions the agent took.
+- Old scripts that send no token can run if you start the server with `BRIDGE_ALLOW_NO_TOKEN=1`. Requests from web pages are still refused in that mode.
 
-### How It Works
-
-* The extension runs in the background and connects over local loopback (`ws://127.0.0.1:8765`) to the Kawaki Agent Bridge server.
-* The Agent can take high-resolution screenshots, open tabs, check console logs, inspect DOM elements, and click buttons right inside your logged-in Chrome profile.
-* Whenever the agent debugs an active tab, Chrome shows a native notice bar: `Kawaki Agent Chrome Bridge started debugging this browser`, giving you full visibility and one-click cancel authority.
-
----
-
-### CLI Commands Available to the Agent / Terminal
+## Commands
 
 ```bash
-# Check status & connected profile
-node tools/chrome-bridge/cli.js status
-
-# List all open tabs in your Chrome
-node tools/chrome-bridge/cli.js tabs
-
-# Open a URL in your active Chrome profile
-node tools/chrome-bridge/cli.js open https://search.google.com/search-console
-
-# Take a screenshot of the active tab
-node tools/chrome-bridge/cli.js screenshot screenshot.png
-
-# Read title, URL and text content from active tab
-node tools/chrome-bridge/cli.js content
-
-# Evaluate JavaScript or click selectors
-node tools/chrome-bridge/cli.js eval "document.title"
-node tools/chrome-bridge/cli.js click "#my-button"
+node tools/chrome-bridge/cli.js open https://search.google.com/search-console --wait Overview
+node tools/chrome-bridge/cli.js snap --i           # controls and headings only, numbered
+node tools/chrome-bridge/cli.js click 12 --snap    # click ref 12 and show the page after
+node tools/chrome-bridge/cli.js click "Pages"      # or click by visible text
+node tools/chrome-bridge/cli.js table 0 --rows 50  # a table as tab-separated rows
+node tools/chrome-bridge/cli.js text main --max 2000
+node tools/chrome-bridge/cli.js shot report.jpg    # saves a scaled JPEG, prints the path
+node tools/chrome-bridge/cli.js batch '[{"do":"click","text":"Export"},{"do":"wait","text":"Download"}]'
 ```
 
+Run `node tools/chrome-bridge/cli.js` with no arguments for the full list. From Node, use `require('./tools/chrome-bridge/client').call(action, params)`.
+
+## Files
+
+- `background.js`: the service worker with every action.
+- `legacy.js`: the v1 actions that older scripts in `scripts/` still call.
+- `popup.html` and `popup.js`: the status panel.
+- `../chrome-bridge/server.js`: the local relay.
+- `../chrome-bridge/client.js`: the Node client.
+- `../chrome-bridge/cli.js`: the command line.

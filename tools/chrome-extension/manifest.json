@@ -1,28 +1,13 @@
 {
   "manifest_version": 3,
   "name": "Kawaki Agent Chrome Bridge",
-  "version": "1.0.2",
-  "description": "Secure local bridge allowing Antigravity AI Agent to automate and inspect your active Chrome profile completely silently in the background.",
-  "permissions": [
-    "scripting",
-    "tabs",
-    "activeTab",
-    "storage",
-    "alarms"
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Kawaki Agent Chrome Bridge"
-  },
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  }
+  "version": "2.0.0",
+  "description": "Lets the local Kawaki agent bridge (127.0.0.1:8765) read and drive your Chrome tabs. Only the token-protected local server can send commands.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4G1E5ei+ZKmvLmySR53JOeNGmNhcgj08BSD4Z8+jKJE8OL8X7bOCKzGcCSi99sJitSA0EUJnNynMhstmmJV8Qz/AidZzoxD0C+OM9kS/rKtpfep4VehpiuII1kUbzpuUEbfoK4zsf7Xk1cyJhXDLsrx20F9zmEsFNr/XaWj+LuHl+pCRo7u+Lc8W9rZYgy2ljZJEJpHzZjfmdRYXaOqOoQoetfbiIDyw32KU6+csJ6B2Uwaq+05xjKl/M2+TErRHsLNu1k4MJxXPL61k2hevDosMy5GLWkI/L2xWBl6CQSXOghqvPlrGzCd3JaiedrG4syjHI2ELlRQ7LgMwib3wlQIDAQAB",
+  "minimum_chrome_version": "116",
+  "permissions": ["scripting", "tabs", "activeTab", "storage", "alarms", "debugger"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "Kawaki Agent Chrome Bridge" },
+  "icons": { "16": "icon16.png", "48": "icon48.png", "128": "icon128.png" }
 }

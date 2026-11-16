@@ -80,3 +80,11 @@ Never: 3D renders, robots or mascots, glossy laptops and floating UI, glass cube
 ## 6. Things that need the owner
 
 Ask before: deleting or redirecting pages, changing prices or legal pages, publishing reviews, committing or deploying.
+
+## 7. Using the owner's Chrome
+
+To read Search Console, Bing Webmaster Tools or any signed-in site, use the Kawaki Chrome Bridge (`tools/chrome-extension/README.md`). Start it with `npm run bridge:chrome` and drive it with `node tools/chrome-bridge/cli.js` (or `tools/chrome-bridge/client.js` from Node). Every request needs the token in `tools/chrome-bridge/.token`. Never commit that file or print the token.
+
+- Read with `snap --i`, `find`, `table`, `text` and `links`. They cost far fewer tokens than screenshots or page HTML. Take a screenshot only when layout matters.
+- Search Console, Bing and Google Business Profile are read-only unless the owner asks for a specific change in chat: no submitting, removing, requesting indexing or changing settings on your own.
+- Never type passwords, card numbers or one-time codes. If a site asks you to sign in, stop and ask the owner to do it.
