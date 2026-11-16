@@ -1,0 +1,52 @@
+{
+  "_about": "Kawaki Studios writing rules. Enforced by scripts/check-writing.js (every build, all public pages) and scripts/blog-automation/quality-gate.js (every blog post). Phrases are case-insensitive regular expressions matched against visible text. Add to this list; do not delete from it without a reason.",
+  "bannedPhrases": [
+    "sub-?second",
+    "zero technical debt",
+    "enterprise[- ]grade",
+    "world[- ]class",
+    "best[- ]in[- ]class",
+    "state[- ]of[- ]the[- ]art",
+    "cutting[- ]edge",
+    "bleeding[- ]edge",
+    "next[- ]level",
+    "game[- ]chang",
+    "bespoke",
+    "digital flagships?",
+    "seamless(ly)?",
+    "\\bleverag(e|es|ed|ing)\\b",
+    "\\belevat(e|es|ing)\\b",
+    "\\bunlock(s|ed|ing)?\\b",
+    "\\bunleash",
+    "\\bsupercharg",
+    "\\bempower",
+    "\\bharness(es|ing)? the (power|potential)",
+    "\\brevolutioni[sz]",
+    "\\bsynerg",
+    "\\bdelve",
+    "\\btapestry",
+    "ever[- ]evolving",
+    "in today'?s (fast[- ]paced|digital|modern)",
+    "in the (ever|rapidly)[- ]changing",
+    "navigat(e|ing) the complexit",
+    "high[- ]velocity",
+    "high[- ]conversion",
+    "mission[- ]critical",
+    "\\bguaranteed (rankings?|results|number|security|accessibility|traffic|leads)",
+    "100% (ip|bespoke|custom)",
+    "hundreds of clients",
+    "award[- ]winning",
+    "\\bleading (web )?agency",
+    "\\bnumber one\\b",
+    "24/7"
+  ],
+  "bannedCharacters": [
+    "—",
+    "–"
+  ],
+  "imageRules": {
+    "location": "public/assets/images/blog/",
+    "naming": "{slug}-hero.jpg plus {slug}-hero.webp (1376x768) and {slug}-hero-720.webp",
+    "noHotlinks": true
+  }
+}

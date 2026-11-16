@@ -13,14 +13,14 @@
     <meta property="og:description" content="An architectural guide to AI agent reliability in production. Learn how to engineer deterministic eval harnesses, multi-layer guardrails, and autonomous failure recovery." />
     <meta property="og:site_name" content="Kawaki Studios" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/ai-agent-reliability-evaluation-hero.jpg" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/ai-agent-reliability-evaluation-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="AI Agent Reliability and Evaluation | Kawaki Studios" />
     <meta name="twitter:description" content="An architectural guide to AI agent reliability in production. Learn how to engineer deterministic eval harnesses, multi-layer guardrails, and autonomous failure recovery." />
-    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/ai-agent-reliability-evaluation-hero.jpg" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/ai-agent-reliability-evaluation-cover.jpg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -34,7 +34,7 @@
           "@id": "https://kawaki.co.in/blog/ai-agent-reliability-evaluation#article",
           "headline": "AI Agent Reliability: Evaluation, Guardrails, and Failure Recovery",
           "description": "An architectural guide to AI agent reliability in production. Learn how to engineer deterministic eval harnesses, multi-layer guardrails, and autonomous failure recovery.",
-          "image": "https://kawaki.co.in/assets/images/blog/ai-agent-reliability-evaluation-hero.jpg",
+          "image": "https://kawaki.co.in/assets/images/blog/ai-agent-reliability-evaluation-cover.jpg",
           "datePublished": "2026-09-24T06:00:00.000Z",
           "dateModified": "2026-09-24T06:00:00.000Z",
           "author": {
@@ -226,7 +226,7 @@
                 <p class="art__by">By Kunal Sharma</p>
             </header>
             <figure class="art__figure wrap">
-                <div class="art__frame"><img src="/assets/images/blog/ai-agent-reliability-evaluation-hero.webp" srcset="/assets/images/blog/ai-agent-reliability-evaluation-hero-720.webp 720w, /assets/images/blog/ai-agent-reliability-evaluation-hero.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="AI Agent Reliability: Evaluation, Guardrails, and Failure Recovery" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+                <div class="art__frame"><img src="/assets/images/blog/ai-agent-reliability-evaluation-cover.webp" srcset="/assets/images/blog/ai-agent-reliability-evaluation-cover-720.webp 720w, /assets/images/blog/ai-agent-reliability-evaluation-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="AI Agent Reliability: Evaluation, Guardrails, and Failure Recovery" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
             </figure>
             <div class="art__layout wrap grid">
                 <aside class="art__aside" aria-label="On this page">
@@ -237,7 +237,7 @@
                 </aside>
                 <div class="art__body prose" id="articleContent">
                     <p>In enterprise software engineering, business automation has historically depended on determinism: given an input payload, an API executes a compiled abstract syntax tree, commits a database transaction, or returns a typed error. Large Language Models (LLMs) operate under an entirely different paradigm: they are probabilistic reasoning engines predicting next tokens from statistical distributions.</p>
-<p>When deployed as autonomous agents—coordinating multiple tool calls, querying external APIs, updating internal state, and executing business operations—models exhibit systemic behavior that simple prompt engineering cannot constrain. A language model generating a plausible answer in an offline playground demonstrates <em>linguistic capability</em>; an agent safely completing an asynchronous multi-step invoice reconciliation demonstrates <em>systemic reliability</em>.</p>
+<p>When deployed as autonomous agents, coordinating multiple tool calls, querying external APIs, updating internal state, and executing business operations, models exhibit systemic behavior that simple prompt engineering cannot constrain. A language model generating a plausible answer in an offline playground demonstrates <em>linguistic capability</em>; an agent safely completing an asynchronous multi-step invoice reconciliation demonstrates <em>systemic reliability</em>.</p>
 <p>Model intelligence is probabilistic; enterprise reliability must be deterministic.</p>
 <p>In <a href="/blog/ai-automation-architecture">AI Automation Architecture: Designing Reliable Workflows, Agents, and Human Approval Loops</a> (R01), we analyzed the system topology of automated workflows, distinguishing linear webhooks from state machines and establishing human approval loops. In this guide (R02), we move from macro-architecture to the core discipline of reliability engineering: <strong>eval-driven development, pass@k limitations, defense-in-depth guardrails, structured observation contracts, and transactional failure recovery</strong>.</p>
 <hr />
@@ -438,7 +438,7 @@
 </ul>
 <p>The term $\frac{\binom{n-c}{k}}{\binom{n}{k}}$ calculates the probability that every sample in a subset of size $k$ is incorrect. Subtracting from 1 gives the exact probability that <strong>at least one</strong> candidate in $k$ samples passes.</p>
 <h3 id="h-pass-k-scope-and-production-constraints">pass@k Scope and Production Constraints</h3>
-<p>While <code>pass@k</code> is mathematically sound for offline evaluation settings—such as evaluating standalone code synthesis, SQL generation, or translation where multiple candidates can be executed in an isolated sandbox to test whether at least one candidate passes—<strong>live side-effecting workflows operate under fundamentally different constraints</strong>:</p>
+<p>While <code>pass@k</code> is mathematically sound for offline evaluation settings, such as evaluating standalone code synthesis, SQL generation, or translation where multiple candidates can be executed in an isolated sandbox to test whether at least one candidate passes, <strong>live side-effecting workflows operate under fundamentally different constraints</strong>:</p>
 <ol>
 <li><strong>Live Side Effects:</strong> An agent interacting with a payment gateway, customer database, or external API cannot generate $k=5$ candidate tool calls, execute all five concurrently, and discard the four failures. Every mutating tool call has immediate operational consequences.</li>
 <li><strong>Sequential Dependency:</strong> In a multi-step workflow spanning sequential tool calls, Step 4 depends directly on the real observation returned by Step 3. Independent candidate sampling across multi-step execution graphs is rarely viable.</li>
@@ -506,7 +506,7 @@
 <h3 id="h-ci-cd-evaluation-matrix">CI/CD Evaluation Matrix</h3>
 <p>Before merging prompt or agent updates, candidates should pass an automated regression evaluation matrix across frozen test suites:</p>
 <blockquote>
-<p><em>Example evaluation matrix — values shown below are illustrative placeholders and should be replaced with measured results from the team's own evaluation suite.</em></p>
+<p><em>Example evaluation matrix, values shown below are illustrative placeholders and should be replaced with measured results from the team's own evaluation suite.</em></p>
 </blockquote>
 <pre><code>[PR Trigger: Modify Agent Prompt or Tool Definition]
                        │
@@ -798,7 +798,7 @@ BACKWARD COMPENSATING PATH:                                                     
 │ Dimension           │ Low Risk     │ Medium Risk      │ High Risk      │
 │                     │ (Autonomous) │ (Notify/Log)     │ (Block &amp; Gate) │
 ├─────────────────────┼──────────────┼──────────────────┼────────────────┤
-│ Financial Value     │ &lt; $50.00     │ $50.00 – $500.00 │ &gt; $500.00      │
+│ Financial Value     │ &lt; $50.00     │ $50.00  to $500.00 │ &gt; $500.00      │
 │ Reversibility       │ Instant undo │ Complex rollback │ Irreversible   │
 │ Security Privilege  │ Read-only    │ Tenant metadata  │ Role/Perm/Keys │
 │ Compliance Exposure │ Internal log │ Customer profile │ PII / Tax / IP │
@@ -1103,9 +1103,9 @@ export class ReliableCustomerToolHarness {
 <ul>
 <li><strong><a href="/blog/ai-automation-architecture">AI Automation Architecture: Designing Reliable Workflows, Agents, and Human Approval Loops</a>:</strong> Explore R01 for foundational system topology, state machine design, and human-in-the-loop patterns.</li>
 <li><strong><a href="/services/ai-automation">Enterprise AI Automation Services</a>:</strong> Learn about Kawaki Studios' architectural approach to designing and structuring hardened, bounded automated workflows.</li>
-<li><strong><a href="/services/web-application-development">Custom Web Application Development</a>:</strong> Discover our full-stack engineering standards for Next.js architectures, sub-second latency, and scalable digital platforms.</li>
+<li><strong><a href="/services/web-application-development">Custom Web Application Development</a>:</strong> Discover our full-stack engineering standards for Next.js architectures, fast latency, and scalable digital platforms.</li>
 </ul>
-<p>If your organization is designing mission-critical AI workflows or needs an architectural audit of existing agent systems, <a href="/contact">schedule a technical discovery session with Kawaki Studios</a>.</p>
+<p>If your organization is designing critical AI workflows or needs an architectural audit of existing agent systems, <a href="/contact">schedule a technical discovery session with Kawaki Studios</a>.</p>
 
                     <ul class="art__tags" aria-label="Topics"><li>AI Automation</li><li>AI Agents</li><li>System Reliability</li><li>Enterprise Architecture</li></ul>
                     <div class="art__author"><p class="art__label">Written by</p><p><strong>Kunal Sharma</strong> founded Kawaki Studios in New Delhi and leads its engineering. He writes about the systems the studio designs and builds for clients.</p></div>
@@ -1121,21 +1121,21 @@ export class ReliableCustomerToolHarness {
             <ul class="bcards">
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/website-redesign-brief-goals-scope-integrations">
-                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-hero.webp" srcset="/assets/images/blog/website-redesign-brief-hero-720.webp 720w, /assets/images/blog/website-redesign-brief-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp" srcset="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover-720.webp 720w, /assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>10 min read</span></span>
                         <h3 class="bcard__title">Website Redesign Brief: Goals, Scope, Content and Integrations (2026 Template)</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/what-to-prepare-before-hiring-web-development-agency">
-                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>16 min read</span></span>
                         <h3 class="bcard__title">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/how-much-does-a-custom-website-cost">
-                        <span class="bimg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="" width="1200" height="670" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/how-much-does-a-custom-website-cost-cover.webp" srcset="/assets/images/blog/how-much-does-a-custom-website-cost-cover-720.webp 720w, /assets/images/blog/how-much-does-a-custom-website-cost-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
                         <h3 class="bcard__title">How Much Does a Custom Website Cost in 2026? The Complete Pricing & Architecture Guide</h3>
                     </a>

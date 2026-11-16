@@ -13,14 +13,14 @@
     <meta property="og:description" content="An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow." />
     <meta property="og:site_name" content="Kawaki Studios" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-state-management-api-boundaries-hero.jpg" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-state-management-api-boundaries-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="Next.js State Management and API Flow | Kawaki Studios" />
     <meta name="twitter:description" content="An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow." />
-    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-state-management-api-boundaries-hero.jpg" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-state-management-api-boundaries-cover.jpg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -34,7 +34,7 @@
           "@id": "https://kawaki.co.in/blog/nextjs-state-management-api-boundaries#article",
           "headline": "State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications",
           "description": "An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow.",
-          "image": "https://kawaki.co.in/assets/images/blog/nextjs-state-management-api-boundaries-hero.jpg",
+          "image": "https://kawaki.co.in/assets/images/blog/nextjs-state-management-api-boundaries-cover.jpg",
           "datePublished": "2026-09-19T10:00:00.000Z",
           "dateModified": "2026-09-22T00:00:00.000Z",
           "author": {
@@ -226,7 +226,7 @@
                 <p class="art__by">By Kunal Sharma</p>
             </header>
             <figure class="art__figure wrap">
-                <div class="art__frame"><img src="/assets/images/blog/nextjs-state-management-api-boundaries-hero.webp" srcset="/assets/images/blog/nextjs-state-management-api-boundaries-hero-720.webp 720w, /assets/images/blog/nextjs-state-management-api-boundaries-hero.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="State Management &amp; API Boundaries in Next.js: Designing Data Flow for Modern Web Applications" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+                <div class="art__frame"><img src="/assets/images/blog/nextjs-state-management-api-boundaries-cover.webp" srcset="/assets/images/blog/nextjs-state-management-api-boundaries-cover-720.webp 720w, /assets/images/blog/nextjs-state-management-api-boundaries-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="State Management &amp; API Boundaries in Next.js: Designing Data Flow for Modern Web Applications" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
             </figure>
             <div class="art__layout wrap grid">
                 <aside class="art__aside" aria-label="On this page">
@@ -284,7 +284,7 @@
 <ol>
 <li><strong>Who owns the state?</strong> If the business logic, database, or identity provider owns the data, it is Server Data. If the user's viewport or interaction owns it, it is Client State.</li>
 <li><strong>Does it need browser interaction?</strong> If the state requires immediate keystroke feedback, drag physics, or animation frames, it belongs in a Client Component.</li>
-<li><strong>Should the state survive a page refresh or navigation?</strong> If reloading the page should restore the exact view, the state belongs in the URL or on the server—never in ephemeral client memory.</li>
+<li><strong>Should the state survive a page refresh or navigation?</strong> If reloading the page should restore the exact view, the state belongs in the URL or on the server, never in ephemeral client memory.</li>
 <li><strong>Should it be bookmarkable or shareable via a link?</strong> If a user might copy the URL and send it to a colleague (e.g., filtered search results), it must live in URL search parameters.</li>
 <li><strong>Does the server need to validate or authorize it?</strong> If the state controls access to sensitive data or triggers database mutations, it must be validated on the server.</li>
 <li><strong>Is it transient or durable?</strong> Transient state (e.g., whether a tooltip is open) belongs in local component state. Durable state (e.g., account settings) belongs in the database.</li>
@@ -306,7 +306,7 @@ export default async function InvoicesPage() {
   const session = await getSession();
   if (!session) redirect('/login');
 
-  // Direct database query on the server — no internal HTTP hop
+  // Direct database query on the server, no internal HTTP hop
   const invoices = await db.invoices.findMany({
     where: { organizationId: session.orgId },
     orderBy: { createdAt: 'desc' }
@@ -407,7 +407,7 @@ Path B (Explicit API):     [External Client / App] ──(HTTP JSON)──► [R
 <ol>
 <li><strong>Unnecessary HTTP Overhead:</strong> Serializing data to JSON, creating an internal HTTP request, routing through the network stack, and deserializing on the other end.</li>
 <li><strong>Loopback Latency:</strong> In serverless or containerized environments, internal loopback requests can cause connection timeouts or cold starts.</li>
-<li><strong>Redundant Validation Layers:</strong> Writing validation and authorization logic twice—once in the API route and once in the page.</li>
+<li><strong>Redundant Validation Layers:</strong> Writing validation and authorization logic twice, once in the API route and once in the page.</li>
 </ol>
 <h3 id="h-when-an-explicit-api-boundary-is-actually-necessary">When an Explicit API Boundary Is Actually Necessary:</h3>
 <p>Create explicit Route Handlers (<code>app/api/.../route.ts</code>) when:</p>
@@ -680,7 +680,7 @@ export default function UserProfile() {
 <h3 id="h-what-state-belongs-in-a-client-component">What state belongs in a Client Component?</h3>
 <p>State that controls immediate visual interactivity (modal visibility, drawer open/close, accordion expansion), temporary form input before submission, animation coordinates, or interactions requiring browser-exclusive APIs (Canvas, Geolocation).</p>
 <h3 id="h-when-should-state-be-stored-in-the-url-instead-of-client-state">When should state be stored in the URL instead of client state?</h3>
-<p>Whenever the state controls what content is displayed—such as search queries, category filters, sorting options, pagination numbers, or tab selections. URL state makes the view shareable, bookmarkable, and refresh-safe.</p>
+<p>Whenever the state controls what content is displayed, such as search queries, category filters, sorting options, pagination numbers, or tab selections. URL state makes the view shareable, bookmarkable, and refresh-safe.</p>
 <h3 id="h-should-server-components-fetch-data-directly-from-databases">Should Server Components fetch data directly from databases?</h3>
 <p>Yes. In Next.js App Router, Server Components run exclusively in a secure server environment. Direct database queries via ORMs or SQL clients eliminate HTTP serialization overhead and reduce network latency.</p>
 <h3 id="h-when-should-i-use-a-route-handler-instead-of-a-server-action">When should I use a Route Handler instead of a Server Action?</h3>
@@ -690,9 +690,9 @@ export default function UserProfile() {
 <h3 id="h-when-is-a-client-side-data-fetch-appropriate">When is a client-side data fetch appropriate?</h3>
 <p>Client-side fetching is appropriate for dynamic live search (typeahead), infinite scroll pagination, polling for real-time status updates, or fetching non-critical data after the primary page has already loaded.</p>
 <h3 id="h-where-should-authorization-decisions-happen">Where should authorization decisions happen?</h3>
-<p>Authorization must always happen on the server—inside the Server Component before querying data, or inside the Server Action / Route Handler before executing a mutation. UI conditional rendering is for presentation only, not security.</p>
+<p>Authorization must always happen on the server, inside the Server Component before querying data, or inside the Server Action / Route Handler before executing a mutation. UI conditional rendering is for presentation only, not security.</p>
 <h3 id="h-does-every-modern-web-application-need-a-global-state-library">Does every modern web application need a global state library?</h3>
-<p>No. Most Next.js applications that properly leverage Server Components for domain data and URL search parameters for navigation require little to no global client state. Local component state and targeted React Context are often sufficient.</p>
+<p>No. Most Next.js applications that properly use Server Components for domain data and URL search parameters for navigation require little to no global client state. Local component state and targeted React Context are often sufficient.</p>
 <hr />
 <h2 id="h-architecting-high-performance-web-applications">Architecting High-Performance Web Applications</h2>
 <p>Designing clean state and API boundaries reduces code complexity, strengthens security posture, and optimizes runtime performance.</p>
@@ -712,21 +712,21 @@ export default function UserProfile() {
             <ul class="bcards">
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/website-redesign-brief-goals-scope-integrations">
-                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-hero.webp" srcset="/assets/images/blog/website-redesign-brief-hero-720.webp 720w, /assets/images/blog/website-redesign-brief-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp" srcset="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover-720.webp 720w, /assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>10 min read</span></span>
                         <h3 class="bcard__title">Website Redesign Brief: Goals, Scope, Content and Integrations (2026 Template)</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/what-to-prepare-before-hiring-web-development-agency">
-                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>16 min read</span></span>
                         <h3 class="bcard__title">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/how-much-does-a-custom-website-cost">
-                        <span class="bimg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="" width="1200" height="670" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/how-much-does-a-custom-website-cost-cover.webp" srcset="/assets/images/blog/how-much-does-a-custom-website-cost-cover-720.webp 720w, /assets/images/blog/how-much-does-a-custom-website-cost-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
                         <h3 class="bcard__title">How Much Does a Custom Website Cost in 2026? The Complete Pricing & Architecture Guide</h3>
                     </a>

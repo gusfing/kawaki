@@ -2,12 +2,12 @@
 
 A business owner opens Google, searches for their company name, and discovers that their search results are filled with thousands of unfamiliar pages written in Japanese. The page titles promote counterfeit luxury watches, discount footwear, or unlicensed pharmaceuticals. Yet, when clicking the links directly or navigating to the homepage, the website appears completely normal.
 
-This alarming discrepancy is the hallmark of the **Japanese Keyword Hack**—one of the most pervasive, persistent, and commercially damaging forms of search engine optimization (SEO) spam targeting WordPress environments.
+This alarming discrepancy is the hallmark of the **Japanese Keyword Hack**, one of the most pervasive, persistent, and commercially damaging forms of search engine optimization (SEO) spam targeting WordPress environments.
 
 > ### What is the Japanese Keyword Hack?
 > The Japanese Keyword Hack is a search engine poisoning compromise where attackers exploit vulnerabilities in a WordPress site (outdated plugins, compromised credentials, or backdoors) to dynamically generate thousands of spam pages containing auto-generated Japanese text and commercial links. Attackers typically use server-side cloaking to serve spam exclusively to search engine crawlers while hiding it from human visitors, hijacking the site's domain authority on Google.
 
-Encountering Japanese spam in search results is not an SEO glitch or an indexing anomaly; it is the visible symptom of a critical server or application security compromise. Treating this strictly as a search indexing problem—such as requesting manual URL removals in Google Search Console without remediating the underlying code—inevitably fails because the malicious generator continues to spawn new URLs.
+Encountering Japanese spam in search results is not an SEO glitch or an indexing anomaly; it is the visible symptom of a critical server or application security compromise. Treating this strictly as a search indexing problem, such as requesting manual URL removals in Google Search Console without remediating the underlying code, inevitably fails because the malicious generator continues to spawn new URLs.
 
 This technical guide provides a forensic root-cause analysis of how the Japanese Keyword Hack operates in WordPress environments, how to detect sophisticated server-side cloaking, how to systematically eradicate malicious artifacts, and how to properly implement HTTP 404 and 410 status codes to deindex spam pages permanently.
 
@@ -310,7 +310,7 @@ To remediate the search index, you must compile an exhaustive inventory of all g
 
 1. **Google Search Console (Index Coverage / Pages Report):**
    * Navigate to **Pages** (or *Index Coverage*) in Google Search Console.
-   * Filter by **"Indexed, not submitted in sitemap"** or inspect pages categorized under **"Discovered – currently not indexed"**.
+   * Filter by **"Indexed, not submitted in sitemap"** or inspect pages categorized under **"Discovered, currently not indexed"**.
    * Export the complete table to CSV. This provides the exact list of URLs Google currently tracks.
 2. **Server Access Log Pattern Extraction:**
    * Run command-line utilities across server logs to isolate all requests made by Googlebot that returned a `200 OK` on non-standard paths:
@@ -680,7 +680,7 @@ Keep this operational checklist accessible during incident triage:
 The Japanese Keyword Hack is a search engine poisoning attack where intruders exploit an application or server vulnerability to inject scripts that dynamically generate thousands of spam pages targeting Japanese commercial search terms. It typically uses server-side cloaking to show spam to search engine crawlers while hiding it from ordinary site visitors.
 
 ### Why are Japanese spam pages appearing on my website?
-Japanese spam appears because an attacker gained unauthorized access to your WordPress environment—most commonly through an unpatched plugin, a stolen password, or an existing backdoor. The attacker injected automated code that dynamically generates commercial spam pages to exploit your site's domain authority on search engines.
+Japanese spam appears because an attacker gained unauthorized access to your WordPress environment, most commonly through an unpatched plugin, a stolen password, or an existing backdoor. The attacker injected automated code that dynamically generates commercial spam pages to exploit your site's domain authority on search engines.
 
 ### Can a WordPress site look completely normal while still being hacked?
 Yes. Attackers frequently implement server-side cloaking, checking the visitor's HTTP User-Agent and Referer headers. If a human visits the site directly, the server renders the authentic company website. If Googlebot or Bingbot visits, the server returns the spam payload.

@@ -13,14 +13,14 @@
     <meta property="og:description" content="Learn how Japanese keyword hacks compromise WordPress, generate spam URLs, hide via cloaking, and how to fix them with HTTP 410 and root-cause cleanup." />
     <meta property="og:site_name" content="Kawaki Studios" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-wordpress-hero.jpg" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-wordpress-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="Japanese Keyword Hack Cleanup Guide | Kawaki Studios" />
     <meta name="twitter:description" content="Learn how Japanese keyword hacks compromise WordPress, generate spam URLs, hide via cloaking, and how to fix them with HTTP 410 and root-cause cleanup." />
-    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-wordpress-hero.jpg" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-wordpress-cover.jpg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -34,7 +34,7 @@
           "@id": "https://kawaki.co.in/blog/japanese-keyword-hack-wordpress#article",
           "headline": "The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress",
           "description": "Learn how Japanese keyword hacks compromise WordPress, generate spam URLs, hide via cloaking, and how to fix them with HTTP 410 and root-cause cleanup.",
-          "image": "https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-wordpress-hero.jpg",
+          "image": "https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-wordpress-cover.jpg",
           "datePublished": "2026-09-24T10:00:00.000Z",
           "dateModified": "2026-09-24T10:00:00.000Z",
           "author": {
@@ -226,7 +226,7 @@
                 <p class="art__by">By Kunal Sharma</p>
             </header>
             <figure class="art__figure wrap">
-                <div class="art__frame"><img src="/assets/images/blog/japanese-keyword-hack-wordpress-hero.webp" srcset="/assets/images/blog/japanese-keyword-hack-wordpress-hero-720.webp 720w, /assets/images/blog/japanese-keyword-hack-wordpress-hero.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+                <div class="art__frame"><img src="/assets/images/blog/japanese-keyword-hack-wordpress-cover.webp" srcset="/assets/images/blog/japanese-keyword-hack-wordpress-cover-720.webp 720w, /assets/images/blog/japanese-keyword-hack-wordpress-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="The Japanese Keyword Hack: Forensic Root-Cause Analysis, Cloaking Detection, and HTTP 410 Remediation on WordPress" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
             </figure>
             <div class="art__layout wrap grid">
                 <aside class="art__aside" aria-label="On this page">
@@ -237,12 +237,12 @@
                 </aside>
                 <div class="art__body prose" id="articleContent">
                     <p>A business owner opens Google, searches for their company name, and discovers that their search results are filled with thousands of unfamiliar pages written in Japanese. The page titles promote counterfeit luxury watches, discount footwear, or unlicensed pharmaceuticals. Yet, when clicking the links directly or navigating to the homepage, the website appears completely normal.</p>
-<p>This alarming discrepancy is the hallmark of the <strong>Japanese Keyword Hack</strong>—one of the most pervasive, persistent, and commercially damaging forms of search engine optimization (SEO) spam targeting WordPress environments.</p>
+<p>This alarming discrepancy is the hallmark of the <strong>Japanese Keyword Hack</strong>, one of the most pervasive, persistent, and commercially damaging forms of search engine optimization (SEO) spam targeting WordPress environments.</p>
 <blockquote>
 <h3 id="h-what-is-the-japanese-keyword-hack">What is the Japanese Keyword Hack?</h3>
 <p>The Japanese Keyword Hack is a search engine poisoning compromise where attackers exploit vulnerabilities in a WordPress site (outdated plugins, compromised credentials, or backdoors) to dynamically generate thousands of spam pages containing auto-generated Japanese text and commercial links. Attackers typically use server-side cloaking to serve spam exclusively to search engine crawlers while hiding it from human visitors, hijacking the site's domain authority on Google.</p>
 </blockquote>
-<p>Encountering Japanese spam in search results is not an SEO glitch or an indexing anomaly; it is the visible symptom of a critical server or application security compromise. Treating this strictly as a search indexing problem—such as requesting manual URL removals in Google Search Console without remediating the underlying code—inevitably fails because the malicious generator continues to spawn new URLs.</p>
+<p>Encountering Japanese spam in search results is not an SEO glitch or an indexing anomaly; it is the visible symptom of a critical server or application security compromise. Treating this strictly as a search indexing problem, such as requesting manual URL removals in Google Search Console without remediating the underlying code, inevitably fails because the malicious generator continues to spawn new URLs.</p>
 <p>This technical guide provides a forensic root-cause analysis of how the Japanese Keyword Hack operates in WordPress environments, how to detect sophisticated server-side cloaking, how to systematically eradicate malicious artifacts, and how to properly implement HTTP 404 and 410 status codes to deindex spam pages permanently.</p>
 <hr />
 <h2 id="h-1-what-the-japanese-keyword-hack-is">1. What the Japanese Keyword Hack Is</h2>
@@ -493,7 +493,7 @@ curl -I -s -A "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWe
 <ol>
 <li><strong>Google Search Console (Index Coverage / Pages Report):</strong><ul>
 <li>Navigate to <strong>Pages</strong> (or <em>Index Coverage</em>) in Google Search Console.</li>
-<li>Filter by <strong>"Indexed, not submitted in sitemap"</strong> or inspect pages categorized under <strong>"Discovered – currently not indexed"</strong>.</li>
+<li>Filter by <strong>"Indexed, not submitted in sitemap"</strong> or inspect pages categorized under <strong>"Discovered, currently not indexed"</strong>.</li>
 <li>Export the complete table to CSV. This provides the exact list of URLs Google currently tracks.</li>
 </ul>
 </li>
@@ -875,7 +875,7 @@ define('DISALLOW_FILE_EDIT', true);
 <h3 id="h-what-is-the-japanese-keyword-hack-in-wordpress">What is the Japanese Keyword Hack in WordPress?</h3>
 <p>The Japanese Keyword Hack is a search engine poisoning attack where intruders exploit an application or server vulnerability to inject scripts that dynamically generate thousands of spam pages targeting Japanese commercial search terms. It typically uses server-side cloaking to show spam to search engine crawlers while hiding it from ordinary site visitors.</p>
 <h3 id="h-why-are-japanese-spam-pages-appearing-on-my-website">Why are Japanese spam pages appearing on my website?</h3>
-<p>Japanese spam appears because an attacker gained unauthorized access to your WordPress environment—most commonly through an unpatched plugin, a stolen password, or an existing backdoor. The attacker injected automated code that dynamically generates commercial spam pages to exploit your site's domain authority on search engines.</p>
+<p>Japanese spam appears because an attacker gained unauthorized access to your WordPress environment, most commonly through an unpatched plugin, a stolen password, or an existing backdoor. The attacker injected automated code that dynamically generates commercial spam pages to exploit your site's domain authority on search engines.</p>
 <h3 id="h-can-a-wordpress-site-look-completely-normal-while-still-being-hacked">Can a WordPress site look completely normal while still being hacked?</h3>
 <p>Yes. Attackers frequently implement server-side cloaking, checking the visitor's HTTP User-Agent and Referer headers. If a human visits the site directly, the server renders the authentic company website. If Googlebot or Bingbot visits, the server returns the spam payload.</p>
 <h3 id="h-how-do-i-find-japanese-spam-urls-on-my-wordpress-site">How do I find Japanese spam URLs on my WordPress site?</h3>
@@ -920,21 +920,21 @@ define('DISALLOW_FILE_EDIT', true);
             <ul class="bcards">
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/website-redesign-brief-goals-scope-integrations">
-                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-hero.webp" srcset="/assets/images/blog/website-redesign-brief-hero-720.webp 720w, /assets/images/blog/website-redesign-brief-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp" srcset="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover-720.webp 720w, /assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>10 min read</span></span>
                         <h3 class="bcard__title">Website Redesign Brief: Goals, Scope, Content and Integrations (2026 Template)</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/what-to-prepare-before-hiring-web-development-agency">
-                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>16 min read</span></span>
                         <h3 class="bcard__title">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/how-much-does-a-custom-website-cost">
-                        <span class="bimg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="" width="1200" height="670" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/how-much-does-a-custom-website-cost-cover.webp" srcset="/assets/images/blog/how-much-does-a-custom-website-cost-cover-720.webp 720w, /assets/images/blog/how-much-does-a-custom-website-cost-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
                         <h3 class="bcard__title">How Much Does a Custom Website Cost in 2026? The Complete Pricing & Architecture Guide</h3>
                     </a>

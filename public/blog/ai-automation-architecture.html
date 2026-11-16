@@ -13,14 +13,14 @@
     <meta property="og:description" content="An architectural guide to reliable AI automation. Learn how to design bounded workflows, tool permission boundaries, human approval gates, and state persistence." />
     <meta property="og:site_name" content="Kawaki Studios" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/ai-automation-architecture-hero.jpg" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/ai-automation-architecture-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="AI Automation Architecture and Workflows | Kawaki Studios" />
     <meta name="twitter:description" content="An architectural guide to reliable AI automation. Learn how to design bounded workflows, tool permission boundaries, human approval gates, and state persistence." />
-    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/ai-automation-architecture-hero.jpg" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/ai-automation-architecture-cover.jpg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -34,7 +34,7 @@
           "@id": "https://kawaki.co.in/blog/ai-automation-architecture#article",
           "headline": "AI Automation Architecture: Designing Reliable Workflows, Agents, and Human Approval Loops",
           "description": "An architectural guide to reliable AI automation. Learn how to design bounded workflows, tool permission boundaries, human approval gates, and state persistence.",
-          "image": "https://kawaki.co.in/assets/images/blog/ai-automation-architecture-hero.jpg",
+          "image": "https://kawaki.co.in/assets/images/blog/ai-automation-architecture-cover.jpg",
           "datePublished": "2026-09-21T20:38:56.000Z",
           "dateModified": "2026-09-21T20:38:56.000Z",
           "author": {
@@ -226,7 +226,7 @@
                 <p class="art__by">By Kunal Sharma</p>
             </header>
             <figure class="art__figure wrap">
-                <div class="art__frame"><img src="/assets/images/blog/ai-automation-architecture-hero.webp" srcset="/assets/images/blog/ai-automation-architecture-hero-720.webp 720w, /assets/images/blog/ai-automation-architecture-hero.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="AI Automation Architecture: Designing Reliable Workflows, Agents, and Human Approval Loops" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+                <div class="art__frame"><img src="/assets/images/blog/ai-automation-architecture-cover.webp" srcset="/assets/images/blog/ai-automation-architecture-cover-720.webp 720w, /assets/images/blog/ai-automation-architecture-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="AI Automation Architecture: Designing Reliable Workflows, Agents, and Human Approval Loops" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
             </figure>
             <div class="art__layout wrap grid">
                 <aside class="art__aside" aria-label="On this page">
@@ -237,7 +237,7 @@
                 </aside>
                 <div class="art__body prose" id="articleContent">
                     <p>In enterprise software engineering, business automation has historically been grounded in determinism. If an event occurs, an API webhook fires; if a payload validates against a schema, a database transaction commits; if an error occurs, a fixed retry schedule executes. The system behaves predictably because every branching path is explicitly encoded in software.</p>
-<p>The integration of Large Language Models (LLMs) into business workflows fundamentally challenges this paradigm. Language models are probabilistic reasoning engines. They do not execute rigid algorithms; they generate completions based on statistical distributions. When applied to unstructured tasks—interpreting messy email threads, extracting entities from non-standard vendor invoices, or selecting an appropriate tool from natural language instructions—models provide unprecedented flexibility.</p>
+<p>The integration of Large Language Models (LLMs) into business workflows fundamentally challenges this paradigm. Language models are probabilistic reasoning engines. They do not execute rigid algorithms; they generate completions based on statistical distributions. When applied to unstructured tasks, interpreting messy email threads, extracting entities from non-standard vendor invoices, or selecting an appropriate tool from natural language instructions, models provide unprecedented flexibility.</p>
 <p>However, business operations demand predictability. A financial ledger cannot accept a probabilistic credit; a customer relationship database cannot permit hallucinated contact records; and an automated fulfillment system cannot tolerate un-reviewed bulk inventory cancellations.</p>
 <blockquote>
 <p><strong>Architecture cannot eliminate model uncertainty. Architecture can constrain what the model is allowed to do, validate outputs, isolate high-risk actions, preserve state, make failures observable, and introduce human approval where appropriate.</strong></p>
@@ -437,7 +437,7 @@ send_external_email(recipient: string, subject: string, body: string)
 <p>Never execute tool arguments based solely on Tier 1 structural validity. Domain rules must be evaluated by deterministic code before state changes occur.</p>
 <hr />
 <h2 id="h-6-human-in-the-loop-hitl-architecture">6. Human-in-the-Loop (HITL) Architecture</h2>
-<p>Fully autonomous operation is an inappropriate goal for high-stakes business processes. The role of AI automation is to eliminate repetitive cognitive labor, organize context, and draft proposals—leaving final authorization of critical decisions to human operators.</p>
+<p>Fully autonomous operation is an inappropriate goal for high-stakes business processes. The role of AI automation is to eliminate repetitive cognitive labor, organize context, and draft proposals, leaving final authorization of critical decisions to human operators.</p>
 <h3 id="h-risk-based-escalation-matrix">Risk-Based Escalation Matrix:</h3>
 <table>
 <thead>
@@ -610,7 +610,7 @@ State-Aware Recovery (SAFE):
 </code></pre>
 <h3 id="h-application-logging-vs-auditability">Application Logging vs. Auditability</h3>
 <ul>
-<li><strong>Application Logging:</strong> Ephemeral diagnostic data intended for developers debugging immediate runtime crashes (typically retained for 7–14 days).</li>
+<li><strong>Application Logging:</strong> Ephemeral diagnostic data intended for developers debugging immediate runtime crashes (typically retained for 7 to 14 days).</li>
 <li><strong>Auditability:</strong> An immutable, structured ledger of every action taken, who authorized it, what context informed it, and what external systems were modified. Audit trails are necessary for regulatory compliance, security forensics, and customer support disputes.</li>
 </ul>
 <hr />
@@ -625,7 +625,7 @@ State-Aware Recovery (SAFE):
 <h3 id="h-defense-in-depth-architecture">Defense in Depth Architecture:</h3>
 <ul>
 <li><strong>Never Rely Exclusively on Prompt-Level Guardrails:</strong> Prompts are guidelines, not security perimeters. Treat all model outputs as untrusted user input.</li>
-<li><strong>Strict Authorization at the Tool Layer:</strong> The tool function itself—not the prompt—must verify that the current session has permission to access the requested resource:<pre><code class="language-ts">async function executeRefund(session: UserSession, args: RefundArgs) {
+<li><strong>Strict Authorization at the Tool Layer:</strong> The tool function itself, not the prompt, must verify that the current session has permission to access the requested resource:<pre><code class="language-ts">async function executeRefund(session: UserSession, args: RefundArgs) {
   // Authorization verified in code, not by the LLM
   if (!session.permissions.includes('finance:refund')) {
     throw new SecurityError('Unauthorized tool invocation');
@@ -653,7 +653,7 @@ State-Aware Recovery (SAFE):
 <td align="left"><strong>Development Velocity</strong></td>
 <td align="left">Rapid visual prototyping; pre-built connectors for hundreds of SaaS tools.</td>
 <td align="left">Slower initial setup; requires custom API integrations and plumbing.</td>
-<td align="left">High velocity for standard connectors; code for complex logic.</td>
+<td align="left">Fast for standard connectors; code for complex logic.</td>
 </tr>
 <tr>
 <td align="left"><strong>Version Control &amp; CI/CD</strong></td>
@@ -808,7 +808,7 @@ State-Aware Recovery (SAFE):
 <h3 id="h-what-is-ai-automation-architecture">What is AI automation architecture?</h3>
 <p>AI automation architecture is the engineering discipline of designing systems that integrate language models into business workflows. It establishes the boundaries, validation layers, permission controls, state persistence, and human oversight mechanisms required to make probabilistic models operate reliably in production environments.</p>
 <h3 id="h-what-is-the-difference-between-a-workflow-and-an-ai-agent">What is the difference between a workflow and an AI agent?</h3>
-<p>A workflow is a predetermined sequence of deterministic steps where the execution path is fixed by code. An AI agent is a system where a language model actively participates in deciding what happens next—evaluating context, choosing from allowed tools, and iterating to accomplish a goal.</p>
+<p>A workflow is a predetermined sequence of deterministic steps where the execution path is fixed by code. An AI agent is a system where a language model actively participates in deciding what happens next, evaluating context, choosing from allowed tools, and iterating to accomplish a goal.</p>
 <h3 id="h-when-should-i-use-an-ai-agent-instead-of-deterministic-automation">When should I use an AI agent instead of deterministic automation?</h3>
 <p>Use deterministic automation for rules-based processes where the inputs, steps, and outputs are structured and predictable (data syncs, calculations, notifications). Use AI agents only when the task involves ambiguity, polymorphic document structures, natural language interpretation, or open-ended tool selection.</p>
 <h3 id="h-how-do-i-safely-give-an-ai-access-to-business-tools">How do I safely give an AI access to business tools?</h3>
@@ -844,21 +844,21 @@ State-Aware Recovery (SAFE):
             <ul class="bcards">
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/website-redesign-brief-goals-scope-integrations">
-                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-hero.webp" srcset="/assets/images/blog/website-redesign-brief-hero-720.webp 720w, /assets/images/blog/website-redesign-brief-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp" srcset="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover-720.webp 720w, /assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>10 min read</span></span>
                         <h3 class="bcard__title">Website Redesign Brief: Goals, Scope, Content and Integrations (2026 Template)</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/what-to-prepare-before-hiring-web-development-agency">
-                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>16 min read</span></span>
                         <h3 class="bcard__title">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/how-much-does-a-custom-website-cost">
-                        <span class="bimg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="" width="1200" height="670" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/how-much-does-a-custom-website-cost-cover.webp" srcset="/assets/images/blog/how-much-does-a-custom-website-cost-cover-720.webp 720w, /assets/images/blog/how-much-does-a-custom-website-cost-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
                         <h3 class="bcard__title">How Much Does a Custom Website Cost in 2026? The Complete Pricing & Architecture Guide</h3>
                     </a>

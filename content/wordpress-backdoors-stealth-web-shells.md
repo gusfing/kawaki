@@ -5,7 +5,7 @@ You discover that your WordPress website has been compromised. Spam pages are ap
 This frustrating phenomenon is known as the **persistence paradox**. When treating WordPress security incidents, administrators frequently mistake the *visible payload* (the symptom) for the *root-cause compromise* (the entry point and persistence mechanism). 
 
 > ### What is a WordPress Backdoor & Stealth Web Shell?
-> A WordPress backdoor is a persistent piece of unauthorized code planted on a server that enables attackers to bypass normal authentication, execute arbitrary server-side commands, and re-establish control over an environment at will. A stealth web shell is an advanced backdoor interface—often heavily obfuscated or compressed into a single innocuous line of PHP—designed to evade signature-based file scanners while providing remote file management, database manipulation, and automated reinfection capabilities.
+> A WordPress backdoor is a persistent piece of unauthorized code planted on a server that enables attackers to bypass normal authentication, execute arbitrary server-side commands, and re-establish control over an environment at will. A stealth web shell is an advanced backdoor interface, often heavily obfuscated or compressed into a single innocuous line of PHP, designed to evade signature-based file scanners while providing remote file management, database manipulation, and automated reinfection capabilities.
 
 When an intrusion occurs, modern threat actors rarely deploy a single, isolated script. Instead, they engineer redundant, defense-in-depth persistence: secondary PHP droppers buried in nested media directories, rogue scheduled tasks registered in `wp_options`, disguised database administrator accounts, and hijacked server configuration directives. Eradicating malware without methodically isolating and removing every persistence vector guarantees reinfection.
 
@@ -32,7 +32,7 @@ To defend against persistent server compromises, security engineers must underst
        ├── Filesystem Footholds: Secondary droppers, rogue mu-plugins, core masquerades.
        ├── Database Footholds: Injected cron tasks in wp_options, serialized payloads.
        ├── Privilege Escalation: Ghost administrator created in wp_users / wp_usermeta.
-       └── Configuration Hijack: Directives in .htaccess, .user.ini, or nginx rules.
+       └── Configuration Hijack: Directives in .htaccess.user.ini, or nginx rules.
        ▼
 [Phase 4: Monetization Payload Execution]
        │ Executes SEO spam injection (Japanese Keyword Hack), credential harvesting,
@@ -153,7 +153,7 @@ If an investigator or automated crawler visits the URL directly in a browser, th
 
 ### Measuring File Entropy for Forensic Discovery
 
-While static scanners search for specific signatures, forensic engineers search for **entropy**—the statistical measure of randomness within a file. 
+While static scanners search for specific signatures, forensic engineers search for **entropy**, the statistical measure of randomness within a file. 
 
 Legitimate human-written PHP code typically has an information entropy score between 3.5 and 4.8. Compressed, encrypted, or heavily obfuscated web shells typically exhibit Shannon entropy scores exceeding 5.8 to 7.2. Calculating filesystem entropy enables responders to isolate novel or zero-day web shells that have no known antivirus signatures.
 
@@ -194,7 +194,7 @@ Because WordPress requires `/wp-content/uploads/` to be writable by the web serv
 Attackers disguise PHP backdoors as images or nested assets:
 * Naming tricks: `logo.png.php`, `thumb_cache.php`, or files prefixed with dots (`.config.php`) to hide them from standard directory listings.
 * Header spoofing: Appending PHP code after legitimate GIF89a or JFIF image headers, bypassing naive MIME-type validation.
-* Nested deep directories: Concealing scripts 4–6 folders deep in historical upload directories (e.g., `/uploads/2019/04/old/`).
+* Nested deep directories: Concealing scripts 4 to 6 folders deep in historical upload directories (e.g., `/uploads/2019/04/old/`).
 
 Unless your web server explicitly blocks PHP execution inside `/uploads/`, any executable script placed here can be accessed directly via HTTP.
 
@@ -216,7 +216,7 @@ A standard WordPress core release contains thousands of legitimate PHP files. At
 Because these directories are expected to contain complex core logic, casual audits overlook them. Automated core checksum comparison is the only reliable method to detect rogue files in these paths.
 
 #### 4. Server Configuration Injection (`.htaccess` & `.user.ini`)
-Advanced persistence does not require modifying `.php` files directly. Attackers can leverage web server configuration overrides:
+Advanced persistence does not require modifying `.php` files directly. Attackers can use web server configuration overrides:
 * **Apache `.htaccess`:** Using `php_value auto_prepend_file` or `SetHandler application/x-httpd-php` directives to force the server to parse harmless image files (`.jpg`, `.ico`) as executable PHP, or automatically include a hidden backdoor file before running any legitimate WordPress script.
 * **PHP FastCGI `.user.ini`:** Setting `auto_prepend_file = /path/to/hidden/backdoor.gif` to ensure malicious code runs globally on every single PHP execution, completely independent of WordPress core logic.
 
@@ -308,7 +308,7 @@ If any core file (e.g., `wp-settings.php`, `wp-includes/formatting.php`) has bee
 
 ### Stage 2: Filesystem Timeline Analysis
 
-Attackers modify file timestamps (`touch -t`) to match surrounding legitimate files—a technique known as **timestomping**. However, while attackers can easily alter the modification time (`mtime`), altering the inode change time (`ctime`) on modern Linux filesystems without root access is significantly more difficult.
+Attackers modify file timestamps (`touch -t`) to match surrounding legitimate files, a technique known as **timestomping**. However, while attackers can easily alter the modification time (`mtime`), altering the inode change time (`ctime`) on modern Linux filesystems without root access is significantly more difficult.
 
 #### Read-Only Diagnostic CLI Commands
 ```bash
@@ -410,7 +410,7 @@ Before modifying a single file:
    * Do not keep inactive plugins on disk; delete them permanently.
 3. **Reinstall or Audit Themes:**
    * If using an off-the-shelf theme, delete `/wp-content/themes/[theme-name]/` and reinstall a pristine copy from the developer.
-   * If using a bespoke, custom-engineered theme, conduct a meticulous line-by-line code review and git diff comparison against your source code repository to verify that zero extraneous functions or scripts exist.
+   * If using a custom, custom-engineered theme, conduct a meticulous line-by-line code review and git diff comparison against your source code repository to verify that zero extraneous functions or scripts exist.
 
 ### Step 3: Sanitize the Uploads Directory
 Because `/wp-content/uploads/` cannot be completely deleted without losing legitimate media assets, sanitize it forensically:
@@ -441,7 +441,7 @@ Before releasing the platform back to public traffic, verify integrity:
 * Monitor server access logs in real time for requests attempting to access the now-deleted backdoor URLs (these should return clean `HTTP 404` errors).
 * Check Google Search Console for new crawl anomalies or security flags.
 
-If your organization requires end-to-end incident response, our comprehensive [WordPress Malware Removal & Hacked Site Recovery](/services/wordpress-malware-removal) service manages this full lifecycle—from containment to post-remediation monitoring.
+If your organization requires end-to-end incident response, our comprehensive [WordPress Malware Removal & Hacked Site Recovery](/services/wordpress-malware-removal) service manages this full lifecycle, from containment to post-remediation monitoring.
 
 ---
 
@@ -459,7 +459,7 @@ Eradicating backdoors without addressing the vulnerability that allowed their in
 ├────────────────────────────────────────────────────────────────────────┤
 │ Web Server Layer (Nginx / Apache Directives):                          │
 │ - Complete execution block on PHP inside /wp-content/uploads/.         │
-│ - Hidden dotfile protection (.git, .env, .htaccess).                   │
+│ - Hidden dotfile protection (.git.env.htaccess).                   │
 │ - Global disablement of XML-RPC endpoint.                              │
 ├────────────────────────────────────────────────────────────────────────┤
 │ PHP Runtime Layer (php.ini & wp-config.php):                           │
@@ -528,10 +528,10 @@ To implement these architectural protections systematically across your producti
 ## 10. Frequently Asked Questions (FAQ)
 
 ### 1. Why didn't our security plugin detect the backdoor that caused reinfection?
-Standard security plugins rely heavily on signature matching—evaluating files against known databases of malware strings and checksums. Sophisticated web shells use variable functions, dynamic string concatenation, multi-layer decompression, or request-bound authentication keys that produce zero signature matches. Furthermore, database-resident cron jobs and hidden SQL admin accounts exist entirely outside the filesystem scanned by traditional plugins.
+Standard security plugins rely heavily on signature matching, evaluating files against known databases of malware strings and checksums. Sophisticated web shells use variable functions, dynamic string concatenation, multi-layer decompression, or request-bound authentication keys that produce zero signature matches. Furthermore, database-resident cron jobs and hidden SQL admin accounts exist entirely outside the filesystem scanned by traditional plugins.
 
 ### 2. Can a backdoor survive if we delete all website files and restore a database backup?
-Yes. If the attacker established database persistence—such as injecting malicious scheduled tasks into `wp_options.cron`, creating rogue administrative accounts in `wp_users`, or embedding Base64 payloads inside theme options—restoring an infected database backup onto a fresh filesystem will trigger automated reinfection. Complete remediation requires sanitizing both the filesystem and the database simultaneously.
+Yes. If the attacker established database persistence, such as injecting malicious scheduled tasks into `wp_options.cron`, creating rogue administrative accounts in `wp_users`, or embedding Base64 payloads inside theme options, restoring an infected database backup onto a fresh filesystem will trigger automated reinfection. Complete remediation requires sanitizing both the filesystem and the database simultaneously.
 
 ### 3. What is the difference between an arbitrary file upload vulnerability and a web shell?
 An arbitrary file upload vulnerability is the security flaw (often found in an unpatched plugin, theme, or form handler) that allows an unauthenticated user to upload a file of their choice to your server. A web shell is the actual malicious program (the backdoor) that the attacker uploads through that flaw to achieve ongoing remote command execution and control.

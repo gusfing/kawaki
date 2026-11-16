@@ -13,14 +13,14 @@
     <meta property="og:description" content="An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals." />
     <meta property="og:site_name" content="Kawaki Studios" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-performance-architecture-hero.jpg" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-performance-architecture-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="Next.js Performance Architecture Guide | Kawaki Studios" />
     <meta name="twitter:description" content="An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals." />
-    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-performance-architecture-hero.jpg" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-performance-architecture-cover.jpg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -34,7 +34,7 @@
           "@id": "https://kawaki.co.in/blog/nextjs-performance-architecture#article",
           "headline": "Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals",
           "description": "An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals.",
-          "image": "https://kawaki.co.in/assets/images/blog/nextjs-performance-architecture-hero.jpg",
+          "image": "https://kawaki.co.in/assets/images/blog/nextjs-performance-architecture-cover.jpg",
           "datePublished": "2026-09-21T20:29:59.000Z",
           "dateModified": "2026-09-21T20:29:59.000Z",
           "author": {
@@ -226,7 +226,7 @@
                 <p class="art__by">By Kunal Sharma</p>
             </header>
             <figure class="art__figure wrap">
-                <div class="art__frame"><img src="/assets/images/blog/nextjs-performance-architecture-hero.webp" srcset="/assets/images/blog/nextjs-performance-architecture-hero-720.webp 720w, /assets/images/blog/nextjs-performance-architecture-hero.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+                <div class="art__frame"><img src="/assets/images/blog/nextjs-performance-architecture-cover.webp" srcset="/assets/images/blog/nextjs-performance-architecture-cover-720.webp 720w, /assets/images/blog/nextjs-performance-architecture-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="Next.js Performance Architecture: Rendering, JavaScript, Images, and Core Web Vitals" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
             </figure>
             <div class="art__layout wrap grid">
                 <aside class="art__aside" aria-label="On this page">
@@ -243,7 +243,7 @@
 <li><a href="/blog/nextjs-state-management-api-boundaries">State Management &amp; API Boundaries in Next.js</a> demonstrated how state ownership and data flow determine where computation occurs.</li>
 </ol>
 <p>This resource explains how Next.js architecture influences rendering, JavaScript delivery, asset loading, and Core Web Vitals.</p>
-<p>When engineering web platforms at <a href="/services/custom-web-development">Kawaki Studios</a>, we treat performance not as a post-launch audit checklist, but as a system of physical constraints: network bandwidth, device memory, CPU execution time, and browser layout engines. In this guide, we break down how to design Next.js architectures that systematically satisfy Google's <strong>Core Web Vitals</strong>—Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS)—without sacrificing visual expressiveness or feature complexity.</p>
+<p>When engineering web platforms at <a href="/services/custom-web-development">Kawaki Studios</a>, we treat performance not as a post-launch audit checklist, but as a system of physical constraints: network bandwidth, device memory, CPU execution time, and browser layout engines. In this guide, we break down how to design Next.js architectures that systematically satisfy Google's <strong>Core Web Vitals</strong>, Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS), without sacrificing visual expressiveness or feature complexity.</p>
 <hr />
 <h2 id="h-1-the-performance-geometry-of-next-js">1. The Performance Geometry of Next.js</h2>
 <p>Too many engineering teams approach web performance through isolated metrics. They run a Lighthouse audit, see an amber LCP score, and arbitrarily add <code>fetchpriority="high"</code> to an image, only to find their Interaction to Next Paint (INP) regresses on mobile devices.</p>
@@ -291,7 +291,7 @@
 <ul>
 <li>Current Next.js releases introduce the <strong>Cache Components</strong> model powered by <code>use cache</code>, alongside <strong>Partial Prerendering (PPR)</strong>.</li>
 <li>In this model, static layout shells and navigational chrome are prerendered and served instantly from the cache, while dynamic holes within the page are streamed concurrently over the same HTTP connection.</li>
-<li>Furthermore, modern Next.js client routers leverage partial prefetching, fetching static layout segments in the background so client-side navigation feels instantaneous.</li>
+<li>Furthermore, modern Next.js client routers use partial prefetching, fetching static layout segments in the background so client-side navigation feels instantaneous.</li>
 </ul>
 </li>
 </ol>
@@ -323,7 +323,7 @@ export default function DashboardPage() {
 </ul>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-critical-rendering-path-waterfall.webp" alt="Step-by-step rendering waterfall diagram showing edge DNS, critical CSS inlining, and streaming Suspense" width="1200" height="675" loading="lazy" decoding="async" />
-  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Critical rendering path optimization for sub-second Core Web Vitals.</figcaption>
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 2: Critical rendering path optimization for fast Core Web Vitals.</figcaption>
 </figure><hr />
 <h2 id="h-3-javascript-payload-amp-hydration-economics">3. JavaScript Payload &amp; Hydration Economics</h2>
 <p>In web development, byte-for-byte, <strong>JavaScript is significantly more expensive than HTML, CSS, or images</strong>. </p>
@@ -343,7 +343,7 @@ export default function DashboardPage() {
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/nextjs-image-optimization-pipeline.webp" alt="Three-step image optimization pipeline showing raw ingestion, edge libvips format negotiation, and caching" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 4: Automated media optimization pipeline serving format-negotiated AVIF and WebP.</figcaption>
-</figure><p>Only Client Components—and the modules in their explicit dependency subtrees—are packaged into browser bundles.</p>
+</figure><p>Only Client Components, and the modules in their explicit dependency subtrees, are packaged into browser bundles.</p>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
 │ Server Component Tree (Zero Client JS)                          │
 │ - Markdown parser (marked, remark): 120KB executed on server    │
@@ -462,7 +462,7 @@ export function ProductCardImage({ src, alt }: { src: string; alt: string }) {
 <li>Automatically set <code>fetchpriority="high"</code> on the <code>&lt;img&gt;</code> element.</li>
 <li>Disable lazy loading so the browser requests the image immediately upon receiving the HTML stream.</li>
 </ul>
-<p><strong>Caution:</strong> Apply <code>priority</code> to only <strong>one</strong> image per page—the actual LCP candidate. Overusing <code>priority</code> causes network contention, delaying stylesheets and fonts.</p>
+<p><strong>Caution:</strong> Apply <code>priority</code> to only <strong>one</strong> image per page, the actual LCP candidate. Overusing <code>priority</code> causes network contention, delaying stylesheets and fonts.</p>
 <hr />
 <h2 id="h-6-font-optimization-amp-zero-shift-typography-next-font">6. Font Optimization &amp; Zero-Shift Typography (<code>next/font</code>)</h2>
 <p>Typography is a cornerstone of digital craft, but web fonts are historically responsible for severe Cumulative Layout Shift (CLS) and delayed First Contentful Paint (FCP).</p>
@@ -521,11 +521,11 @@ export const playfair = Playfair_Display({
 <p>When a user clicks a button, the browser's main thread must not be blocked by heavy synchronous JavaScript execution. If a JavaScript task exceeds 50ms, any user interaction occurring during that window is queued and delayed.</p>
 <pre><code>Long Task Anti-Pattern (&gt;50ms):
 [User Clicks] ──► [─── Heavy Synchronous Computation: 180ms ───] ──► [Visual Feedback]
-                  (Main Thread Blocked — INP: 180ms ❌)
+                  (Main Thread Blocked, INP: 180ms ❌)
 
 Optimized Task Slicing:
 [User Clicks] ──► [State Update: 15ms] ──► [Visual Feedback: 20ms] ──► [scheduler.yield()] ──► [Background Work]
-                  (Main Thread Responsive — INP: 35ms ✅)
+                  (Main Thread Responsive, INP: 35ms ✅)
 </code></pre>
 <h3 id="h-yielding-execution-with-scheduler-yield">Yielding Execution with <code>scheduler.yield()</code></h3>
 <p>For heavy computations that must run on the client (e.g., filtering a client-side dataset of 5,000 items), yield control back to the browser between chunks:</p>
@@ -541,7 +541,7 @@ export async function yieldToMain() {
 </code></pre>
 <p>By calling <code>await yieldToMain()</code> during intensive data processing loops, you give the browser an opportunity to paint user input responses and process micro-animations smoothly.</p>
 <h3 id="h-pushing-state-to-leaf-components">Pushing State to Leaf Components</h3>
-<p>As established in our <a href="/blog/nextjs-state-management-api-boundaries">Next.js State Management guide</a>, keeping state localized prevents large component subtrees from re-rendering during user interactions. A click that toggles a mobile drawer should only re-render the drawer component—not the entire page layout.</p>
+<p>As established in our <a href="/blog/nextjs-state-management-api-boundaries">Next.js State Management guide</a>, keeping state localized prevents large component subtrees from re-rendering during user interactions. A click that toggles a mobile drawer should only re-render the drawer component, not the entire page layout.</p>
 <hr />
 <h2 id="h-9-cumulative-layout-shift-cls-prevention">9. Cumulative Layout Shift (CLS) Prevention</h2>
 <p>Cumulative Layout Shift (CLS) evaluates the visual stability of a web page by measuring unexpected layout movements. A score of <strong>0.00</strong> indicates zero shifts.</p>
@@ -596,7 +596,7 @@ export async function updateProductPrice(productId: string, newPrice: number) {
 <p>For deeper auditing workflows, explore our dedicated <a href="/services/website-performance-optimization">website performance optimization services</a>.</p>
 <hr />
 <h2 id="h-11-third-party-script-management-next-script">11. Third-Party Script Management (<code>next/script</code>)</h2>
-<p>Third-party scripts—Google Tag Manager, analytics platforms, marketing pixels, and customer support chat widgets—are often the primary cause of main thread contention on production websites.</p>
+<p>Third-party scripts, Google Tag Manager, analytics platforms, marketing pixels, and customer support chat widgets, are often the primary cause of main thread contention on production websites.</p>
 <p>Next.js provides the <code>next/script</code> component to manage script loading strategies cleanly (<a href="https://nextjs.org/docs/app/building-your-application/optimizing/scripts">Next.js Documentation</a>).</p>
 <h3 id="h-loading-strategy-decision-guide">Loading Strategy Decision Guide:</h3>
 <table>
@@ -663,7 +663,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ┌────────────────────────────────────────────────────────┐
 │  Edge CDN Cache Layer                                  │
 │  - Evaluates static cache status                       │
-│  - Returns prerendered static shell (sub-second FCP)   │
+│  - Returns prerendered static shell (fast FCP)   │
 └──────────────────┬─────────────────────────────────────┘
                    │ (Dynamic Data Required)
                    ▼
@@ -751,13 +751,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 <h3 id="h-how-do-server-components-improve-core-web-vitals">How do Server Components improve Core Web Vitals?</h3>
 <p>Server Components can reduce the amount of JavaScript sent to and evaluated by the browser. By executing heavy dependencies (parsers, date utilities, database drivers) exclusively on the server, the browser has less JavaScript to download, parse, and hydrate. This frees up the main thread and directly improves <strong>Interaction to Next Paint (INP)</strong>.</p>
 <h3 id="h-what-is-the-most-common-reason-websites-fail-largest-contentful-paint-lcp">What is the most common reason websites fail Largest Contentful Paint (LCP)?</h3>
-<p>The most frequent cause is unoptimized above-the-fold media—such as high-resolution hero images lacking modern compression (AVIF/WebP), missing explicit <code>sizes</code> attributes, or failing to use the <code>priority</code> attribute on the <code>next/image</code> component. Another common contributor is slow server Time to First Byte (TTFB) on un-cached dynamic routes.</p>
+<p>The most frequent cause is unoptimized above-the-fold media, such as high-resolution hero images lacking modern compression (AVIF/WebP), missing explicit <code>sizes</code> attributes, or failing to use the <code>priority</code> attribute on the <code>next/image</code> component. Another common contributor is slow server Time to First Byte (TTFB) on un-cached dynamic routes.</p>
 <h3 id="h-how-does-next-font-prevent-cumulative-layout-shift-cls">How does <code>next/font</code> prevent Cumulative Layout Shift (CLS)?</h3>
 <p><code>next/font</code> downloads Google Fonts at build time and self-hosts them locally. It automatically calculates CSS font-override properties (<code>size-adjust</code>, <code>ascent-override</code>, <code>descent-override</code>) for the system fallback font. When the custom font file loads, it occupies the exact same dimensions as the fallback font, preventing text reflow and eliminating layout shifts (0.00 CLS).</p>
 <h3 id="h-why-did-google-replace-first-input-delay-fid-with-interaction-to-next-paint-inp">Why did Google replace First Input Delay (FID) with Interaction to Next Paint (INP)?</h3>
 <p>FID only measured the initial delay of the very first click or tap on a page. INP evaluates all user interactions across the entire session, measuring the time from user input until the browser paints updated visual feedback. It provides a far more accurate assessment of real-world application responsiveness.</p>
 <h3 id="h-when-should-i-use-next-dynamic-instead-of-a-regular-import">When should I use <code>next/dynamic</code> instead of a regular import?</h3>
-<p>Use <code>next/dynamic</code> for heavy, non-critical Client Components that are not needed during initial page render—such as modals, rich text editors, graphing libraries, or complex filter drawers. This splits the code into a separate bundle that loads only when required.</p>
+<p>Use <code>next/dynamic</code> for heavy, non-critical Client Components that are not needed during initial page render, such as modals, rich text editors, graphing libraries, or complex filter drawers. This splits the code into a separate bundle that loads only when required.</p>
 <h3 id="h-does-edge-delivery-guarantee-sub-50ms-ttfb">Does edge delivery guarantee sub-50ms TTFB?</h3>
 <p>No. While Edge CDNs minimize physical network distance between the user and the server, actual Time to First Byte depends on cache hit ratios, backend database query latency, geographic distance to origin data stores, and dynamic compute time. Caching static segments is key to achieving optimal TTFB.</p>
 <h3 id="h-what-is-the-difference-between-partial-prerendering-ppr-and-traditional-ssr">What is the difference between Partial Prerendering (PPR) and traditional SSR?</h3>
@@ -767,7 +767,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 <hr />
 <h2 id="h-engineering-high-performance-web-platforms">Engineering High-Performance Web Platforms</h2>
 <p>High-performance web applications are the product of rigorous architectural decisions: establishing clean component boundaries, minimizing client bundle weights, and designing deterministic caching workflows.</p>
-<p>If your team is modernizing an existing Next.js application, untangling Core Web Vitals bottlenecks, or engineering a sub-second digital flagship, explore our <a href="/services/website-performance-optimization">website performance optimization services</a>, learn about our <a href="/services/custom-web-development">custom web development</a> capabilities, or <a href="/contact">schedule an architectural briefing with Kawaki Studios</a>.</p>
+<p>If your team is modernizing an existing Next.js application, untangling Core Web Vitals bottlenecks, or engineering a fast brand website, explore our <a href="/services/website-performance-optimization">website performance optimization services</a>, learn about our <a href="/services/custom-web-development">custom web development</a> capabilities, or <a href="/contact">schedule an architectural briefing with Kawaki Studios</a>.</p>
 
                     <ul class="art__tags" aria-label="Topics"><li>Next.js</li><li>Performance</li><li>Core Web Vitals</li><li>Web Architecture</li></ul>
                     <div class="art__author"><p class="art__label">Written by</p><p><strong>Kunal Sharma</strong> founded Kawaki Studios in New Delhi and leads its engineering. He writes about the systems the studio designs and builds for clients.</p></div>
@@ -783,21 +783,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <ul class="bcards">
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/website-redesign-brief-goals-scope-integrations">
-                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-hero.webp" srcset="/assets/images/blog/website-redesign-brief-hero-720.webp 720w, /assets/images/blog/website-redesign-brief-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp" srcset="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover-720.webp 720w, /assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>10 min read</span></span>
                         <h3 class="bcard__title">Website Redesign Brief: Goals, Scope, Content and Integrations (2026 Template)</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/what-to-prepare-before-hiring-web-development-agency">
-                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>16 min read</span></span>
                         <h3 class="bcard__title">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/how-much-does-a-custom-website-cost">
-                        <span class="bimg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="" width="1200" height="670" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/how-much-does-a-custom-website-cost-cover.webp" srcset="/assets/images/blog/how-much-does-a-custom-website-cost-cover-720.webp 720w, /assets/images/blog/how-much-does-a-custom-website-cost-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
                         <h3 class="bcard__title">How Much Does a Custom Website Cost in 2026? The Complete Pricing & Architecture Guide</h3>
                     </a>

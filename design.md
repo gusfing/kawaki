@@ -129,3 +129,13 @@ FOOTER (finale)       links | contact | social ; giant wordmark ; legal
 - Focus ring: 2px red on indigo, 2px indigo on the red finale.
 - Reduced motion: no smooth scroll, no parallax, reel waits for Play, badges still, ticker static, process line full.
 - FAQ answers are visible without JavaScript; JS collapses all but the first.
+
+## Inner pages and shared system (November 2026)
+
+Every page now uses the homepage system: one stylesheet (`public/assets/css/site.css`), one script (`public/assets/js/site.js`), and one shell (header, menu, red closing section, footer) from `scripts/lib/shell.js`. The working rules for anyone editing, human or agent, are in `AGENTS.md`; this section records the design decisions behind them.
+
+- **Page hero** (`.phero`): mono breadcrumb, heavy condensed title with the red asterisk badge, mono-caps lede on the right, then the struck/kept keyword strip. The strip says what a page's work includes and what it leaves out.
+- **Sections** open with `.sec-head`: a large condensed heading left, a short muted aside right. Content below uses one of a few patterns: two columns of dash lists (`.duo`), numbered cards on hairlines (`.cards`), the six- or five-stage red path (`.steps`), the spec sheet (`.spec`: mono label, the choice, the reason), browser-framed live work (`.cases`), rows that draw a red line on hover (`.rows`), and the FAQ.
+- **Articles** (`.art`, `.prose`): a sticky contents list on the left, text column of about 74 characters, red dash bullets, mono captions. Covers are typographic, rendered from `templates/blog-cover/cover.html`; in-article diagrams use the indigo, red and lilac palette.
+- **Proof**: live sites in browser frames, real project photography, client quotes only when the client approved the words (`data/reviews.json`). No telemetry gimmicks, no invented numbers.
+- **Copy**: plain, specific and checked by `scripts/check-writing.js` on every build. No em dashes.

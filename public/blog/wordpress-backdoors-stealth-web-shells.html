@@ -13,14 +13,14 @@
     <meta property="og:description" content="A forensic engineering guide to detecting, analyzing, and eradicating stealth WordPress backdoors, obfuscated web shells, and persistent database cron hooks." />
     <meta property="og:site_name" content="Kawaki Studios" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/wordpress-backdoors-stealth-web-shells-hero.jpg" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/wordpress-backdoors-stealth-web-shells-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="WordPress Backdoor and Web Shell Removal | Kawaki Studios" />
     <meta name="twitter:description" content="A forensic engineering guide to detecting, analyzing, and eradicating stealth WordPress backdoors, obfuscated web shells, and persistent database cron hooks." />
-    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/wordpress-backdoors-stealth-web-shells-hero.jpg" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/wordpress-backdoors-stealth-web-shells-cover.jpg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -34,7 +34,7 @@
           "@id": "https://kawaki.co.in/blog/wordpress-backdoors-stealth-web-shells#article",
           "headline": "WordPress Backdoors & Stealth Web Shells: Forensic Detection, Obfuscation Decoding, and Persistent Cron Eradication",
           "description": "A forensic engineering guide to detecting, analyzing, and eradicating stealth WordPress backdoors, obfuscated web shells, and persistent database cron hooks.",
-          "image": "https://kawaki.co.in/assets/images/blog/wordpress-backdoors-stealth-web-shells-hero.jpg",
+          "image": "https://kawaki.co.in/assets/images/blog/wordpress-backdoors-stealth-web-shells-cover.jpg",
           "datePublished": "2026-09-25T10:00:00.000Z",
           "dateModified": "2026-09-25T10:00:00.000Z",
           "author": {
@@ -226,7 +226,7 @@
                 <p class="art__by">By Kunal Sharma</p>
             </header>
             <figure class="art__figure wrap">
-                <div class="art__frame"><img src="/assets/images/blog/wordpress-backdoors-stealth-web-shells-hero.webp" srcset="/assets/images/blog/wordpress-backdoors-stealth-web-shells-hero-720.webp 720w, /assets/images/blog/wordpress-backdoors-stealth-web-shells-hero.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="WordPress Backdoors &amp; Stealth Web Shells: Forensic Detection, Obfuscation Decoding, and Persistent Cron Eradication" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+                <div class="art__frame"><img src="/assets/images/blog/wordpress-backdoors-stealth-web-shells-cover.webp" srcset="/assets/images/blog/wordpress-backdoors-stealth-web-shells-cover-720.webp 720w, /assets/images/blog/wordpress-backdoors-stealth-web-shells-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="WordPress Backdoors &amp; Stealth Web Shells: Forensic Detection, Obfuscation Decoding, and Persistent Cron Eradication" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
             </figure>
             <div class="art__layout wrap grid">
                 <aside class="art__aside" aria-label="On this page">
@@ -240,7 +240,7 @@
 <p>This frustrating phenomenon is known as the <strong>persistence paradox</strong>. When treating WordPress security incidents, administrators frequently mistake the <em>visible payload</em> (the symptom) for the <em>root-cause compromise</em> (the entry point and persistence mechanism). </p>
 <blockquote>
 <h3 id="h-what-is-a-wordpress-backdoor-amp-stealth-web-shell">What is a WordPress Backdoor &amp; Stealth Web Shell?</h3>
-<p>A WordPress backdoor is a persistent piece of unauthorized code planted on a server that enables attackers to bypass normal authentication, execute arbitrary server-side commands, and re-establish control over an environment at will. A stealth web shell is an advanced backdoor interface—often heavily obfuscated or compressed into a single innocuous line of PHP—designed to evade signature-based file scanners while providing remote file management, database manipulation, and automated reinfection capabilities.</p>
+<p>A WordPress backdoor is a persistent piece of unauthorized code planted on a server that enables attackers to bypass normal authentication, execute arbitrary server-side commands, and re-establish control over an environment at will. A stealth web shell is an advanced backdoor interface, often heavily obfuscated or compressed into a single innocuous line of PHP, designed to evade signature-based file scanners while providing remote file management, database manipulation, and automated reinfection capabilities.</p>
 </blockquote>
 <p>When an intrusion occurs, modern threat actors rarely deploy a single, isolated script. Instead, they engineer redundant, defense-in-depth persistence: secondary PHP droppers buried in nested media directories, rogue scheduled tasks registered in <code>wp_options</code>, disguised database administrator accounts, and hijacked server configuration directives. Eradicating malware without methodically isolating and removing every persistence vector guarantees reinfection.</p>
 <p>This forensic guide provides an engineering-level breakdown of how WordPress backdoors operate, how stealth web shells evade detection through multi-layered obfuscation, where persistent footholds conceal themselves across filesystems and databases, and how to execute systematic eradication and hardening to permanently secure your platform.</p>
@@ -263,7 +263,7 @@
        ├── Filesystem Footholds: Secondary droppers, rogue mu-plugins, core masquerades.
        ├── Database Footholds: Injected cron tasks in wp_options, serialized payloads.
        ├── Privilege Escalation: Ghost administrator created in wp_users / wp_usermeta.
-       └── Configuration Hijack: Directives in .htaccess, .user.ini, or nginx rules.
+       └── Configuration Hijack: Directives in .htaccess.user.ini, or nginx rules.
        ▼
 [Phase 4: Monetization Payload Execution]
        │ Executes SEO spam injection (Japanese Keyword Hack), credential harvesting,
@@ -375,7 +375,7 @@
 </ul>
 <p>If an investigator or automated crawler visits the URL directly in a browser, the script returns a normal <code>HTTP 200</code> blank page, an <code>HTTP 404 Not Found</code> header, or redirects to Google. This behavior mirrors the cloaking mechanisms analyzed in our forensic investigation of the <a href="/blog/japanese-keyword-hack-wordpress">Japanese Keyword Hack on WordPress</a>.</p>
 <h3 id="h-measuring-file-entropy-for-forensic-discovery">Measuring File Entropy for Forensic Discovery</h3>
-<p>While static scanners search for specific signatures, forensic engineers search for <strong>entropy</strong>—the statistical measure of randomness within a file. </p>
+<p>While static scanners search for specific signatures, forensic engineers search for <strong>entropy</strong>, the statistical measure of randomness within a file. </p>
 <p>Legitimate human-written PHP code typically has an information entropy score between 3.5 and 4.8. Compressed, encrypted, or heavily obfuscated web shells typically exhibit Shannon entropy scores exceeding 5.8 to 7.2. Calculating filesystem entropy enables responders to isolate novel or zero-day web shells that have no known antivirus signatures.</p>
 <hr />
 <h2 id="h-4-primary-filesystem-persistence-footholds">4. Primary Filesystem Persistence Footholds</h2>
@@ -408,7 +408,7 @@
 <ul>
 <li>Naming tricks: <code>logo.png.php</code>, <code>thumb_cache.php</code>, or files prefixed with dots (<code>.config.php</code>) to hide them from standard directory listings.</li>
 <li>Header spoofing: Appending PHP code after legitimate GIF89a or JFIF image headers, bypassing naive MIME-type validation.</li>
-<li>Nested deep directories: Concealing scripts 4–6 folders deep in historical upload directories (e.g., <code>/uploads/2019/04/old/</code>).</li>
+<li>Nested deep directories: Concealing scripts 4 to 6 folders deep in historical upload directories (e.g., <code>/uploads/2019/04/old/</code>).</li>
 </ul>
 <p>Unless your web server explicitly blocks PHP execution inside <code>/uploads/</code>, any executable script placed here can be accessed directly via HTTP.</p>
 <h4>2. The Must-Use Plugins Blind Spot (<code>/wp-content/mu-plugins/</code>)</h4>
@@ -428,7 +428,7 @@
 </ul>
 <p>Because these directories are expected to contain complex core logic, casual audits overlook them. Automated core checksum comparison is the only reliable method to detect rogue files in these paths.</p>
 <h4>4. Server Configuration Injection (<code>.htaccess</code> &amp; <code>.user.ini</code>)</h4>
-<p>Advanced persistence does not require modifying <code>.php</code> files directly. Attackers can leverage web server configuration overrides:</p>
+<p>Advanced persistence does not require modifying <code>.php</code> files directly. Attackers can use web server configuration overrides:</p>
 <ul>
 <li><strong>Apache <code>.htaccess</code>:</strong> Using <code>php_value auto_prepend_file</code> or <code>SetHandler application/x-httpd-php</code> directives to force the server to parse harmless image files (<code>.jpg</code>, <code>.ico</code>) as executable PHP, or automatically include a hidden backdoor file before running any legitimate WordPress script.</li>
 <li><strong>PHP FastCGI <code>.user.ini</code>:</strong> Setting <code>auto_prepend_file = /path/to/hidden/backdoor.gif</code> to ensure malicious code runs globally on every single PHP execution, completely independent of WordPress core logic.</li>
@@ -503,7 +503,7 @@ wp plugin verify-checksums
 </code></pre>
 <p>If any core file (e.g., <code>wp-settings.php</code>, <code>wp-includes/formatting.php</code>) has been modified, <code>wp core verify-checksums</code> will immediately report a hash mismatch. Any extra, unrecognized files residing in core directories will be flagged as warnings.</p>
 <h3 id="h-stage-2-filesystem-timeline-analysis">Stage 2: Filesystem Timeline Analysis</h3>
-<p>Attackers modify file timestamps (<code>touch -t</code>) to match surrounding legitimate files—a technique known as <strong>timestomping</strong>. However, while attackers can easily alter the modification time (<code>mtime</code>), altering the inode change time (<code>ctime</code>) on modern Linux filesystems without root access is significantly more difficult.</p>
+<p>Attackers modify file timestamps (<code>touch -t</code>) to match surrounding legitimate files, a technique known as <strong>timestomping</strong>. However, while attackers can easily alter the modification time (<code>mtime</code>), altering the inode change time (<code>ctime</code>) on modern Linux filesystems without root access is significantly more difficult.</p>
 <h4>Read-Only Diagnostic CLI Commands</h4>
 <pre><code class="language-bash">## Find files modified within the last 7 days (read-only diagnostic)
 find /var/www/html/ -type f -name "*.php" -mtime -7 -ls
@@ -622,7 +622,7 @@ LIMIT 25;
 </li>
 <li><strong>Reinstall or Audit Themes:</strong><ul>
 <li>If using an off-the-shelf theme, delete <code>/wp-content/themes/[theme-name]/</code> and reinstall a pristine copy from the developer.</li>
-<li>If using a bespoke, custom-engineered theme, conduct a meticulous line-by-line code review and git diff comparison against your source code repository to verify that zero extraneous functions or scripts exist.</li>
+<li>If using a custom, custom-engineered theme, conduct a meticulous line-by-line code review and git diff comparison against your source code repository to verify that zero extraneous functions or scripts exist.</li>
 </ul>
 </li>
 </ol>
@@ -658,7 +658,7 @@ wp cron event delete [hook_name]
 <li>Monitor server access logs in real time for requests attempting to access the now-deleted backdoor URLs (these should return clean <code>HTTP 404</code> errors).</li>
 <li>Check Google Search Console for new crawl anomalies or security flags.</li>
 </ul>
-<p>If your organization requires end-to-end incident response, our comprehensive <a href="/services/wordpress-malware-removal">WordPress Malware Removal &amp; Hacked Site Recovery</a> service manages this full lifecycle—from containment to post-remediation monitoring.</p>
+<p>If your organization requires end-to-end incident response, our comprehensive <a href="/services/wordpress-malware-removal">WordPress Malware Removal &amp; Hacked Site Recovery</a> service manages this full lifecycle, from containment to post-remediation monitoring.</p>
 <hr />
 <h2 id="h-9-defense-in-depth-hardening-eliminating-re-entry-vectors">9. Defense-in-Depth Hardening: Eliminating Re-entry Vectors</h2>
 <p>Eradicating backdoors without addressing the vulnerability that allowed their installation leaves your site exposed to reinfection. Hardening transforms your server from a permissive environment into a resilient, defense-in-depth perimeter.</p>
@@ -671,7 +671,7 @@ wp cron event delete [hook_name]
 ├────────────────────────────────────────────────────────────────────────┤
 │ Web Server Layer (Nginx / Apache Directives):                          │
 │ - Complete execution block on PHP inside /wp-content/uploads/.         │
-│ - Hidden dotfile protection (.git, .env, .htaccess).                   │
+│ - Hidden dotfile protection (.git.env.htaccess).                   │
 │ - Global disablement of XML-RPC endpoint.                              │
 ├────────────────────────────────────────────────────────────────────────┤
 │ PHP Runtime Layer (php.ini &amp; wp-config.php):                           │
@@ -726,9 +726,9 @@ define('FORCE_SSL_ADMIN', true);
 <hr />
 <h2 id="h-10-frequently-asked-questions-faq">10. Frequently Asked Questions (FAQ)</h2>
 <h3 id="h-1-why-didn-t-our-security-plugin-detect-the-backdoor-that-caused-reinfection">1. Why didn't our security plugin detect the backdoor that caused reinfection?</h3>
-<p>Standard security plugins rely heavily on signature matching—evaluating files against known databases of malware strings and checksums. Sophisticated web shells use variable functions, dynamic string concatenation, multi-layer decompression, or request-bound authentication keys that produce zero signature matches. Furthermore, database-resident cron jobs and hidden SQL admin accounts exist entirely outside the filesystem scanned by traditional plugins.</p>
+<p>Standard security plugins rely heavily on signature matching, evaluating files against known databases of malware strings and checksums. Sophisticated web shells use variable functions, dynamic string concatenation, multi-layer decompression, or request-bound authentication keys that produce zero signature matches. Furthermore, database-resident cron jobs and hidden SQL admin accounts exist entirely outside the filesystem scanned by traditional plugins.</p>
 <h3 id="h-2-can-a-backdoor-survive-if-we-delete-all-website-files-and-restore-a-database-backup">2. Can a backdoor survive if we delete all website files and restore a database backup?</h3>
-<p>Yes. If the attacker established database persistence—such as injecting malicious scheduled tasks into <code>wp_options.cron</code>, creating rogue administrative accounts in <code>wp_users</code>, or embedding Base64 payloads inside theme options—restoring an infected database backup onto a fresh filesystem will trigger automated reinfection. Complete remediation requires sanitizing both the filesystem and the database simultaneously.</p>
+<p>Yes. If the attacker established database persistence, such as injecting malicious scheduled tasks into <code>wp_options.cron</code>, creating rogue administrative accounts in <code>wp_users</code>, or embedding Base64 payloads inside theme options, restoring an infected database backup onto a fresh filesystem will trigger automated reinfection. Complete remediation requires sanitizing both the filesystem and the database simultaneously.</p>
 <h3 id="h-3-what-is-the-difference-between-an-arbitrary-file-upload-vulnerability-and-a-web-shell">3. What is the difference between an arbitrary file upload vulnerability and a web shell?</h3>
 <p>An arbitrary file upload vulnerability is the security flaw (often found in an unpatched plugin, theme, or form handler) that allows an unauthenticated user to upload a file of their choice to your server. A web shell is the actual malicious program (the backdoor) that the attacker uploads through that flaw to achieve ongoing remote command execution and control.</p>
 <h3 id="h-4-why-is-rotating-wordpress-salts-mandatory-during-backdoor-cleanup">4. Why is rotating WordPress salts mandatory during backdoor cleanup?</h3>
@@ -780,21 +780,21 @@ define('FORCE_SSL_ADMIN', true);
             <ul class="bcards">
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/website-redesign-brief-goals-scope-integrations">
-                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-hero.webp" srcset="/assets/images/blog/website-redesign-brief-hero-720.webp 720w, /assets/images/blog/website-redesign-brief-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp" srcset="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover-720.webp 720w, /assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>10 min read</span></span>
                         <h3 class="bcard__title">Website Redesign Brief: Goals, Scope, Content and Integrations (2026 Template)</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/what-to-prepare-before-hiring-web-development-agency">
-                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>16 min read</span></span>
                         <h3 class="bcard__title">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/how-much-does-a-custom-website-cost">
-                        <span class="bimg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="" width="1200" height="670" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/how-much-does-a-custom-website-cost-cover.webp" srcset="/assets/images/blog/how-much-does-a-custom-website-cost-cover-720.webp 720w, /assets/images/blog/how-much-does-a-custom-website-cost-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
                         <h3 class="bcard__title">How Much Does a Custom Website Cost in 2026? The Complete Pricing & Architecture Guide</h3>
                     </a>

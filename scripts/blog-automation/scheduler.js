@@ -58,6 +58,10 @@ async function runDailyBatch(force = false) {
   if (!fs.existsSync(mdPath)) {
     console.log(`\n✍️ Drafting content using Kawaki Editorial Generator...`);
     const generated = await generateArticleForQueueItem(item);
+    if (!generated) {
+      console.log(`\u23f8 Skipping today: "${item.title}" has no written draft yet. Nothing was published.`);
+      return { executed: false, message: 'No written draft', item };
+    }
     targetMd = generated.filePath;
   } else {
     console.log(`\n📄 Found pre-existing markdown file at: ${mdPath}`);

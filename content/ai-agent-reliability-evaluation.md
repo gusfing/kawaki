@@ -2,7 +2,7 @@
 
 In enterprise software engineering, business automation has historically depended on determinism: given an input payload, an API executes a compiled abstract syntax tree, commits a database transaction, or returns a typed error. Large Language Models (LLMs) operate under an entirely different paradigm: they are probabilistic reasoning engines predicting next tokens from statistical distributions.
 
-When deployed as autonomous agents—coordinating multiple tool calls, querying external APIs, updating internal state, and executing business operations—models exhibit systemic behavior that simple prompt engineering cannot constrain. A language model generating a plausible answer in an offline playground demonstrates *linguistic capability*; an agent safely completing an asynchronous multi-step invoice reconciliation demonstrates *systemic reliability*.
+When deployed as autonomous agents, coordinating multiple tool calls, querying external APIs, updating internal state, and executing business operations, models exhibit systemic behavior that simple prompt engineering cannot constrain. A language model generating a plausible answer in an offline playground demonstrates *linguistic capability*; an agent safely completing an asynchronous multi-step invoice reconciliation demonstrates *systemic reliability*.
 
 Model intelligence is probabilistic; enterprise reliability must be deterministic.
 
@@ -203,7 +203,7 @@ The term $\frac{\binom{n-c}{k}}{\binom{n}{k}}$ calculates the probability that e
 
 ### pass@k Scope and Production Constraints
 
-While `pass@k` is mathematically sound for offline evaluation settings—such as evaluating standalone code synthesis, SQL generation, or translation where multiple candidates can be executed in an isolated sandbox to test whether at least one candidate passes—**live side-effecting workflows operate under fundamentally different constraints**:
+While `pass@k` is mathematically sound for offline evaluation settings, such as evaluating standalone code synthesis, SQL generation, or translation where multiple candidates can be executed in an isolated sandbox to test whether at least one candidate passes, **live side-effecting workflows operate under fundamentally different constraints**:
 
 1. **Live Side Effects:** An agent interacting with a payment gateway, customer database, or external API cannot generate $k=5$ candidate tool calls, execute all five concurrently, and discard the four failures. Every mutating tool call has immediate operational consequences.
 2. **Sequential Dependency:** In a multi-step workflow spanning sequential tool calls, Step 4 depends directly on the real observation returned by Step 3. Independent candidate sampling across multi-step execution graphs is rarely viable.
@@ -280,7 +280,7 @@ In traditional software, updating an unrelated utility does not alter database c
 
 Before merging prompt or agent updates, candidates should pass an automated regression evaluation matrix across frozen test suites:
 
-> *Example evaluation matrix — values shown below are illustrative placeholders and should be replaced with measured results from the team's own evaluation suite.*
+> *Example evaluation matrix, values shown below are illustrative placeholders and should be replaced with measured results from the team's own evaluation suite.*
 
 ```
 [PR Trigger: Modify Agent Prompt or Tool Definition]
@@ -615,7 +615,7 @@ True reliability does not require eliminating human involvement; it requires alg
 │ Dimension           │ Low Risk     │ Medium Risk      │ High Risk      │
 │                     │ (Autonomous) │ (Notify/Log)     │ (Block & Gate) │
 ├─────────────────────┼──────────────┼──────────────────┼────────────────┤
-│ Financial Value     │ < $50.00     │ $50.00 – $500.00 │ > $500.00      │
+│ Financial Value     │ < $50.00     │ $50.00  to $500.00 │ > $500.00      │
 │ Reversibility       │ Instant undo │ Complex rollback │ Irreversible   │
 │ Security Privilege  │ Read-only    │ Tenant metadata  │ Role/Perm/Keys │
 │ Compliance Exposure │ Internal log │ Customer profile │ PII / Tax / IP │
@@ -963,6 +963,6 @@ Deploying autonomous agents into enterprise systems requires reliability enginee
 
 - **[AI Automation Architecture: Designing Reliable Workflows, Agents, and Human Approval Loops](/blog/ai-automation-architecture):** Explore R01 for foundational system topology, state machine design, and human-in-the-loop patterns.
 - **[Enterprise AI Automation Services](/services/ai-automation):** Learn about Kawaki Studios' architectural approach to designing and structuring hardened, bounded automated workflows.
-- **[Custom Web Application Development](/services/web-application-development):** Discover our full-stack engineering standards for Next.js architectures, sub-second latency, and scalable digital platforms.
+- **[Custom Web Application Development](/services/web-application-development):** Discover our full-stack engineering standards for Next.js architectures, fast latency, and scalable digital platforms.
 
-If your organization is designing mission-critical AI workflows or needs an architectural audit of existing agent systems, [schedule a technical discovery session with Kawaki Studios](/contact).
+If your organization is designing critical AI workflows or needs an architectural audit of existing agent systems, [schedule a technical discovery session with Kawaki Studios](/contact).

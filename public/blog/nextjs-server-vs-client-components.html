@@ -13,14 +13,14 @@
     <meta property="og:description" content="An architectural guide to designing the server/client boundary in Next.js App Router. Learn when to render on the server, when client state is necessary, and how to avoid hydration costs." />
     <meta property="og:site_name" content="Kawaki Studios" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-server-vs-client-components-hero.jpg" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/nextjs-server-vs-client-components-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="Next.js Server vs Client Components | Kawaki Studios" />
     <meta name="twitter:description" content="An architectural guide to designing the server/client boundary in Next.js App Router. Learn when to render on the server, when client state is necessary, and how to avoid hydration costs." />
-    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-server-vs-client-components-hero.jpg" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/nextjs-server-vs-client-components-cover.jpg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -34,7 +34,7 @@
           "@id": "https://kawaki.co.in/blog/nextjs-server-vs-client-components#article",
           "headline": "Next.js Server vs Client Components: How to Design the Boundary",
           "description": "An architectural guide to designing the server/client boundary in Next.js App Router. Learn when to render on the server, when client state is necessary, and how to avoid hydration costs.",
-          "image": "https://kawaki.co.in/assets/images/blog/nextjs-server-vs-client-components-hero.jpg",
+          "image": "https://kawaki.co.in/assets/images/blog/nextjs-server-vs-client-components-cover.jpg",
           "datePublished": "2026-09-18T10:00:00.000Z",
           "dateModified": "2026-09-21T18:00:00.000Z",
           "author": {
@@ -226,7 +226,7 @@
                 <p class="art__by">By Kunal Sharma</p>
             </header>
             <figure class="art__figure wrap">
-                <div class="art__frame"><img src="/assets/images/blog/nextjs-server-vs-client-components-hero.webp" srcset="/assets/images/blog/nextjs-server-vs-client-components-hero-720.webp 720w, /assets/images/blog/nextjs-server-vs-client-components-hero.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="Next.js Server vs Client Components: How to Design the Boundary" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+                <div class="art__frame"><img src="/assets/images/blog/nextjs-server-vs-client-components-cover.webp" srcset="/assets/images/blog/nextjs-server-vs-client-components-cover-720.webp 720w, /assets/images/blog/nextjs-server-vs-client-components-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="Next.js Server vs Client Components: How to Design the Boundary" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
             </figure>
             <div class="art__layout wrap grid">
                 <aside class="art__aside" aria-label="On this page">
@@ -240,7 +240,7 @@
 <p>Since the introduction of React Server Components (RSC), Next.js defaults to rendering components on the server. While the Pages Router remains supported for backward compatibility, the App Router requires a different mental model. Too often, developers either treat Server Components as a magic bullet that makes every page faster, or reflexively declare <code>'use client'</code> at the top of a layout the moment an interactive widget is needed.</p>
 <p>Both approaches miss the fundamental architectural reality:</p>
 <blockquote>
-<p><strong>The server/client boundary is not a component divider—it is a network serialization boundary.</strong></p>
+<p><strong>The server/client boundary is not a component divider, it is a network serialization boundary.</strong></p>
 </blockquote>
 <p>The boundary determines which code executes in a trusted Node.js or Edge runtime, what data crosses the wire as serialized JSON payloads, and how much JavaScript the browser must download, parse, and hydrate.</p>
 <p>At <a href="/services/custom-web-development">Kawaki Studios</a>, we treat boundary placement as a primary design decision in our <a href="/services/custom-web-development">custom web engineering</a> and <a href="/services/web-application-development">web application development</a>. In this guide, we break down the mechanics of the server/client boundary, a practical decision framework, common anti-patterns, and the architectural principles needed to build high-performance Next.js platforms.</p>
@@ -278,7 +278,7 @@
 <li>Access browser-exclusive APIs (<code>window</code>, <code>document</code>, <code>localStorage</code>, <code>navigator</code>).</li>
 <li>Use custom hooks that depend on client state.</li>
 </ul>
-<p><em>Technical accuracy note:</em> Server Components do not use a <code>'use server'</code> directive. The <code>'use server'</code> directive in React is used exclusively to declare Server Actions—callable server-side RPC functions (<a href="https://react.dev/reference/rsc/directives">React Documentation</a>).</p>
+<p><em>Technical accuracy note:</em> Server Components do not use a <code>'use server'</code> directive. The <code>'use server'</code> directive in React is used exclusively to declare Server Actions, callable server-side RPC functions (<a href="https://react.dev/reference/rsc/directives">React Documentation</a>).</p>
 <hr />
 <h2 id="h-3-client-components-handling-tactile-interactivity">3. Client Components: Handling Tactile Interactivity</h2>
 <p>A Client Component is declared by placing the <code>'use client'</code> directive at the very top of a file, before any import statements (<a href="https://react.dev/reference/rsc/use-client">React Documentation</a>).</p>
@@ -396,7 +396,7 @@ export default async function Page() {
   );
 }
 </code></pre>
-<p>In this pattern, <code>HeavyServerContent</code> executes strictly on the server. Its code never enters the browser bundle, yet it renders seamlessly inside the interactive <code>InteractiveShell</code>.</p>
+<p>In this pattern, <code>HeavyServerContent</code> executes strictly on the server. Its code never enters the browser bundle, yet it renders smoothly inside the interactive <code>InteractiveShell</code>.</p>
 <hr />
 <h2 id="h-7-data-fetching-and-api-boundaries">7. Data Fetching and API Boundaries</h2>
 <p>Data fetching architecture differs fundamentally between Server and Client Components:</p>
@@ -457,7 +457,7 @@ export default async function AdminRoute() {
 <p>For performance-critical systems, pairing thoughtful boundary placement with <a href="/services/website-performance-optimization">website performance optimization</a> ensures smooth Core Web Vitals across diverse client hardware.</p>
 <hr />
 <h2 id="h-10-when-client-components-are-exactly-the-right-choice">10. When Client Components Are Exactly the Right Choice</h2>
-<p>Client Components are not an anti-pattern—they are an essential tool for rich user experiences. Use them confidently for:</p>
+<p>Client Components are not an anti-pattern, they are an essential tool for rich user experiences. Use them confidently for:</p>
 <ul>
 <li><strong>E-Commerce Cart Drawers:</strong> Instant open/close triggers, quantity increments, and optimistic cart badge updates.</li>
 <li><strong>Interactive Multi-Step Forms:</strong> Step-by-step validation, client-side error states, and responsive input masks.</li>
@@ -593,21 +593,21 @@ export default async function AdminRoute() {
             <ul class="bcards">
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/website-redesign-brief-goals-scope-integrations">
-                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-hero.webp" srcset="/assets/images/blog/website-redesign-brief-hero-720.webp 720w, /assets/images/blog/website-redesign-brief-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp" srcset="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover-720.webp 720w, /assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>10 min read</span></span>
                         <h3 class="bcard__title">Website Redesign Brief: Goals, Scope, Content and Integrations (2026 Template)</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/what-to-prepare-before-hiring-web-development-agency">
-                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>16 min read</span></span>
                         <h3 class="bcard__title">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/how-much-does-a-custom-website-cost">
-                        <span class="bimg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="" width="1200" height="670" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/how-much-does-a-custom-website-cost-cover.webp" srcset="/assets/images/blog/how-much-does-a-custom-website-cost-cover-720.webp 720w, /assets/images/blog/how-much-does-a-custom-website-cost-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
                         <h3 class="bcard__title">How Much Does a Custom Website Cost in 2026? The Complete Pricing & Architecture Guide</h3>
                     </a>

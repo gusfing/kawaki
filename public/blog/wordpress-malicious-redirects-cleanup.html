@@ -13,14 +13,14 @@
     <meta property="og:description" content="A forensic engineering guide to detecting, diagnosing, and eradicating WordPress malicious redirects, injected JavaScript, conditional .htaccess hijacks, and mobile traffic gating." />
     <meta property="og:site_name" content="Kawaki Studios" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/wordpress-malicious-redirects-cleanup-hero.jpg" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/wordpress-malicious-redirects-cleanup-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kawakistudios" />
     <meta name="twitter:title" content="WordPress Malicious Redirect Cleanup | Kawaki Studios" />
     <meta name="twitter:description" content="A forensic engineering guide to detecting, diagnosing, and eradicating WordPress malicious redirects, injected JavaScript, conditional .htaccess hijacks, and mobile traffic gating." />
-    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/wordpress-malicious-redirects-cleanup-hero.jpg" />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/wordpress-malicious-redirects-cleanup-cover.jpg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -34,7 +34,7 @@
           "@id": "https://kawaki.co.in/blog/wordpress-malicious-redirects-cleanup#article",
           "headline": "WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation",
           "description": "A forensic engineering guide to detecting, diagnosing, and eradicating WordPress malicious redirects, injected JavaScript, conditional .htaccess hijacks, and mobile traffic gating.",
-          "image": "https://kawaki.co.in/assets/images/blog/wordpress-malicious-redirects-cleanup-hero.jpg",
+          "image": "https://kawaki.co.in/assets/images/blog/wordpress-malicious-redirects-cleanup-cover.jpg",
           "datePublished": "2026-09-26T10:00:00.000Z",
           "dateModified": "2026-09-26T10:00:00.000Z",
           "author": {
@@ -226,7 +226,7 @@
                 <p class="art__by">By Kunal Sharma</p>
             </header>
             <figure class="art__figure wrap">
-                <div class="art__frame"><img src="/assets/images/blog/wordpress-malicious-redirects-cleanup-hero.webp" srcset="/assets/images/blog/wordpress-malicious-redirects-cleanup-hero-720.webp 720w, /assets/images/blog/wordpress-malicious-redirects-cleanup-hero.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+                <div class="art__frame"><img src="/assets/images/blog/wordpress-malicious-redirects-cleanup-cover.webp" srcset="/assets/images/blog/wordpress-malicious-redirects-cleanup-cover-720.webp 720w, /assets/images/blog/wordpress-malicious-redirects-cleanup-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="WordPress Malicious Redirects: Forensic Investigation of Injected JavaScript, Conditional .htaccess Hijacks, and Mobile-Only Redirect Remediation" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
             </figure>
             <div class="art__layout wrap grid">
                 <aside class="art__aside" aria-label="On this page">
@@ -236,7 +236,7 @@
                     <p class="art__share"><a href="https://twitter.com/intent/tweet?text=WordPress%20Malicious%20Redirects%3A%20Forensic%20Investigation%20of%20Injected%20JavaScript%2C%20Conditional%20.htaccess%20Hijacks%2C%20and%20Mobile-Only%20Redirect%20Remediation&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fwordpress-malicious-redirects-cleanup" target="_blank" rel="noopener">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fwordpress-malicious-redirects-cleanup" target="_blank" rel="noopener">Share on LinkedIn</a></p>
                 </aside>
                 <div class="art__body prose" id="articleContent">
-                    <p>You enter your website URL into your desktop browser, and the page loads cleanly. Your navigation menus respond instantly, the layout is flawless, and your analytics dashboard shows active visitors. Then customer support tickets begin trickling in: visitors clicking your links from Google search on their smartphones are being routed to deceptive lottery wheels, fraudulent antivirus warnings, adult portals, or credential-harvesting phishing forms. You test the site again from your office laptop—everything renders normally. </p>
+                    <p>You enter your website URL into your desktop browser, and the page loads cleanly. Your navigation menus respond instantly, the layout is flawless, and your analytics dashboard shows active visitors. Then customer support tickets begin trickling in: visitors clicking your links from Google search on their smartphones are being routed to deceptive lottery wheels, fraudulent antivirus warnings, adult portals, or credential-harvesting phishing forms. You test the site again from your office laptop, everything renders normally. </p>
 <p>This baffling discrepancy is the hallmark of a <strong>WordPress malicious redirect</strong>. </p>
 <blockquote>
 <h3 id="h-what-is-a-wordpress-malicious-redirect">What is a WordPress Malicious Redirect?</h3>
@@ -246,7 +246,7 @@
 <p>This engineering guide provides a comprehensive forensic breakdown of how WordPress malicious redirects operate, why they evade casual detection through conditional execution, where redirect payloads conceal themselves across the technology stack, and how to execute a systematic 10-stage eradication and hardening protocol to permanently secure your web platform.</p>
 <hr />
 <h2 id="h-1-how-wordpress-malicious-redirects-work">1. How WordPress Malicious Redirects Work</h2>
-<p>To investigate and dismantle a redirect infection, responders must first categorize the execution layer where the detour occurs. Redirection can occur at multiple stages of the web request lifecycle—from early network routing and web server daemon evaluation down to client-side DOM execution inside the user's browser.</p>
+<p>To investigate and dismantle a redirect infection, responders must first categorize the execution layer where the detour occurs. Redirection can occur at multiple stages of the web request lifecycle, from early network routing and web server daemon evaluation down to client-side DOM execution inside the user's browser.</p>
 <figure class="article-diagram-wrapper" style="margin:2.5rem 0">
   <img src="/assets/images/blog/wordpress-malicious-redirect-execution-flow.webp" alt="Flowchart showing malicious redirect execution from visitor arrival to conditional check and destination" width="1200" height="675" loading="lazy" decoding="async" />
   <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: Malicious redirect execution flow and user-agent evasion filters.</figcaption>
@@ -275,11 +275,11 @@
 <p>Server-level redirects occur before WordPress bootstraps its environment. When a web server (such as Apache, LiteSpeed, or Nginx) processes an incoming HTTP request, rewrite modules evaluate configuration directives:</p>
 <ul>
 <li><strong>HTTP 301 (Moved Permanently):</strong> Instructs browsers and search engine crawlers to cache the destination indefinitely. When attackers deploy 301 redirects, victims' browsers continue redirecting even after the malicious rule is excised from the server, until local browser caches are manually purged.</li>
-<li><strong>HTTP 302 (Found) &amp; HTTP 307 (Temporary Redirect):</strong> The most common status codes leveraged by attackers. Temporary redirects tell the client to check the original URL on future visits, preventing aggressive browser caching while instantly forwarding the visitor.</li>
+<li><strong>HTTP 302 (Found) &amp; HTTP 307 (Temporary Redirect):</strong> The most common status codes used by attackers. Temporary redirects tell the client to check the original URL on future visits, preventing aggressive browser caching while instantly forwarding the visitor.</li>
 </ul>
 <p>Because server-level redirects return HTTP headers immediately, no HTML or JavaScript is ever parsed by the client.</p>
 <h3 id="h-b-application-layer-php-redirection">B. Application-Layer PHP Redirection</h3>
-<p>If the web server directives are pristine, the hijack may originate within the WordPress PHP execution lifecycle. Attackers hook into early WordPress action hooks—most commonly <code>init</code>, <code>wp_loaded</code>, or <code>template_redirect</code>:</p>
+<p>If the web server directives are pristine, the hijack may originate within the WordPress PHP execution lifecycle. Attackers hook into early WordPress action hooks, most commonly <code>init</code>, <code>wp_loaded</code>, or <code>template_redirect</code>:</p>
 <ul>
 <li>Utilizing native WordPress functions such as <code>wp_redirect()</code> or <code>wp_safe_redirect()</code>.</li>
 <li>Invoking raw PHP transport headers: <code>header("Location: https://malicious-traffic-broker.com/in"); exit;</code>.</li>
@@ -378,8 +378,8 @@
 <h4>6. Time-Delayed and Interaction-Based Execution</h4>
 <p>Rather than redirecting on page load, modern JavaScript payloads bind event listeners to user interactions:</p>
 <ul>
-<li><code>document.addEventListener('click', ...)</code>: The first click anywhere on the page—even on dead whitespace—opens a pop-under tab routing to the malicious destination.</li>
-<li><code>window.addEventListener('scroll', ...)</code>: Redirection triggers only after the visitor has scrolled 500 pixels down the page, ensuring automated headless crawlers (which rarely simulate deep scroll events) miss the trigger.</li>
+<li><code>document.addEventListener('click'...)</code>: The first click anywhere on the page, even on dead whitespace, opens a pop-under tab routing to the malicious destination.</li>
+<li><code>window.addEventListener('scroll'...)</code>: Redirection triggers only after the visitor has scrolled 500 pixels down the page, ensuring automated headless crawlers (which rarely simulate deep scroll events) miss the trigger.</li>
 </ul>
 <h4>7. Search Crawler and Bot Exemption</h4>
 <p>To avoid detection by automated Googlebot security scans and search quality evaluators, the redirect script checks for common crawler user-agents (<code>Googlebot</code>, <code>bingbot</code>, <code>Baiduspider</code>, <code>YandexBot</code>). The malware serves 100% clean, pristine content to search crawlers, ensuring the site retains its organic rankings while real human search visitors are diverted to affiliate scams.</p>
@@ -416,12 +416,12 @@
 <p>Active themes are prime targets because they directly construct the HTML document returned to visitors:</p>
 <ul>
 <li>In <code>header.php</code>: Attackers insert minified or encoded JavaScript tags directly before the closing <code>&lt;/head&gt;</code> tag.</li>
-<li>In <code>functions.php</code>: Attackers append PHP hooks that intercept WordPress routing (<code>add_action('template_redirect', ...)</code>).</li>
+<li>In <code>functions.php</code>: Attackers append PHP hooks that intercept WordPress routing (<code>add_action('template_redirect'...)</code>).</li>
 </ul>
 <h3 id="h-2-must-use-plugins-wp-content-mu-plugins">2. Must-Use Plugins (<code>/wp-content/mu-plugins/</code>)</h3>
 <p>The <code>mu-plugins</code> directory is a critical architectural blind spot. Any single PHP file placed here is automatically executed by WordPress in alphabetical order before any standard plugins initialize. Crucially, Must-Use plugins <strong>do not appear in the standard WordPress Plugins dashboard</strong>, cannot be deactivated through the UI, and survive standard plugin updates.</p>
 <h3 id="h-3-server-configuration-files-htaccess-amp-user-ini">3. Server Configuration Files (<code>.htaccess</code> &amp; <code>.user.ini</code>)</h3>
-<p>On Apache and LiteSpeed servers, <code>.htaccess</code> files permit directory-level rewrite rules. Attackers insert conditional rules directly at the top of the file before WordPress's standard <code># BEGIN WordPress</code> block. On PHP FastCGI environments, attackers leverage <code>.user.ini</code> to set <code>auto_prepend_file = /path/to/malicious_loader.php</code>, executing malicious redirect logic globally across every PHP execution without modifying a single WordPress file.</p>
+<p>On Apache and LiteSpeed servers, <code>.htaccess</code> files permit directory-level rewrite rules. Attackers insert conditional rules directly at the top of the file before WordPress's standard <code># BEGIN WordPress</code> block. On PHP FastCGI environments, attackers use <code>.user.ini</code> to set <code>auto_prepend_file = /path/to/malicious_loader.php</code>, executing malicious redirect logic globally across every PHP execution without modifying a single WordPress file.</p>
 <h3 id="h-4-core-file-masquerading-wp-includes-amp-root">4. Core File Masquerading (<code>/wp-includes/</code> &amp; Root)</h3>
 <p>Core files are frequently tampered with or paired with imitation files. Attackers inject redirect functions into legitimate core files like <code>wp-blog-header.php</code>, <code>wp-settings.php</code>, or drop fake classes like <code>wp-includes/class-wp-session-cache.php</code>. For an in-depth analysis of how stealth droppers masquerade across core file trees, review our companion guide on <a href="/blog/wordpress-backdoors-stealth-web-shells">WordPress Backdoors &amp; Stealth Web Shells</a>.</p>
 <h3 id="h-5-the-database-layer-wp-options-amp-wp-posts">5. The Database Layer (<code>wp_options</code> &amp; <code>wp_posts</code>)</h3>
@@ -707,7 +707,7 @@ find /var/www/html/ -type f -name "*.php" -mtime -7 -ls
 <li><strong>Google Safe Browsing Blacklisting:</strong> When Google's security systems detect that your domain routes users to deceptive endpoints, Google flags your domain globally. Visitors using Chrome, Firefox, or Safari are greeted with a full-screen red warning interstitial (<em>"The site ahead contains harmful programs"</em>), driving bounce rates to 100%.</li>
 <li><strong>Crawl Budget and Canonical Dissolution:</strong> If search engine crawlers encounter temporary or permanent redirects on your primary URLs, search algorithms may canonicalize your high-ranking pages to the malicious destination, stripping your titles and meta descriptions from search results.</li>
 <li><strong>Soft 404 Penalties and Deindexing:</strong> If the redirect routes to broken or parked domains, search engines register soft 404 errors, systematically dropping your legitimate landing pages from organic indexes.</li>
-<li><strong>Immediate Paid Ad Suspension:</strong> Google Ads and Meta Ads run automated landing page validation bots. If a redirect fires on their tracking clicks, your advertising accounts face immediate suspension for "Circumventing Systems" or "Malicious or Unwanted Software"—penalties that can take weeks to appeal.</li>
+<li><strong>Immediate Paid Ad Suspension:</strong> Google Ads and Meta Ads run automated landing page validation bots. If a redirect fires on their tracking clicks, your advertising accounts face immediate suspension for "Circumventing Systems" or "Malicious or Unwanted Software", penalties that can take weeks to appeal.</li>
 </ol>
 <hr />
 <h2 id="h-11-eradication-and-post-cleanup-validation">11. Eradication and Post-Cleanup Validation</h2>
@@ -723,7 +723,7 @@ find /var/www/html/ -type f -name "*.php" -mtime -7 -ls
 <ol>
 <li><strong>Core Replacement:</strong> Delete <code>/wp-admin/</code>, <code>/wp-includes/</code>, and all root PHP files (preserving only <code>wp-config.php</code> and <code>/wp-content/</code>). Download a clean release from <code>WordPress.org</code> and unpack pristine core binaries.</li>
 <li><strong>Plugin Reinstallation:</strong> Delete the entire <code>/wp-content/plugins/</code> directory. Download and restore clean copies of all active plugins directly from official repositories. Permanently delete inactive plugins.</li>
-<li><strong>Theme Audit:</strong> Reinstall off-the-shelf themes from developer sources. For custom bespoke themes, perform a meticulous <code>git diff</code> comparison against your version-controlled code repository to isolate every extraneous line of injected code.</li>
+<li><strong>Theme Audit:</strong> Reinstall off-the-shelf themes from developer sources. For custom custom themes, perform a meticulous <code>git diff</code> comparison against your version-controlled code repository to isolate every extraneous line of injected code.</li>
 </ol>
 <h3 id="h-step-3-sanitize-the-uploads-directory">Step 3: Sanitize the Uploads Directory</h3>
 <ul>
@@ -781,7 +781,7 @@ RewriteRule . /index.php [L]
 │                     │ - Rate limiting on /wp-login.php &amp; /xmlrpc.php.  │
 ├─────────────────────┼──────────────────────────────────────────────────┤
 │ Web Server Daemon   │ - Deny PHP execution in /wp-content/uploads/.    │
-│                     │ - Protect hidden dotfiles (.git, .env, .user.ini)│
+│                     │ - Protect hidden dotfiles (.git.env.user.ini)│
 ├─────────────────────┼──────────────────────────────────────────────────┤
 │ PHP Runtime         │ - disable_functions = system, exec, shell_exec...│
 │                     │ - DISALLOW_FILE_EDIT = true in wp-config.php.    │
@@ -861,21 +861,21 @@ location ~* ^/wp-content/uploads/.*\.php$ {
             <ul class="bcards">
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/website-redesign-brief-goals-scope-integrations">
-                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-hero.webp" srcset="/assets/images/blog/website-redesign-brief-hero-720.webp 720w, /assets/images/blog/website-redesign-brief-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp" srcset="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover-720.webp 720w, /assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>10 min read</span></span>
                         <h3 class="bcard__title">Website Redesign Brief: Goals, Scope, Content and Integrations (2026 Template)</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/what-to-prepare-before-hiring-web-development-agency">
-                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-hero.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>16 min read</span></span>
                         <h3 class="bcard__title">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</h3>
                     </a>
                 </li>
                 <li class="bcard">
                     <a class="bcard__link" href="/blog/how-much-does-a-custom-website-cost">
-                        <span class="bimg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="" width="1200" height="670" loading="lazy" decoding="async" /></span>
+                        <span class="bimg"><img src="/assets/images/blog/how-much-does-a-custom-website-cost-cover.webp" srcset="/assets/images/blog/how-much-does-a-custom-website-cost-cover-720.webp 720w, /assets/images/blog/how-much-does-a-custom-website-cost-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
                         <h3 class="bcard__title">How Much Does a Custom Website Cost in 2026? The Complete Pricing & Architecture Guide</h3>
                     </a>

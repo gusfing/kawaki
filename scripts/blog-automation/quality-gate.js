@@ -117,6 +117,31 @@ function auditArticle(articleData) {
     }
   }
 
+  // 4b. Writing rules: banned phrases and dashes (data/writing-rules.json, AGENTS.md)
+  try {
+    const path = require('path');
+    const rules = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '..', 'data', 'writing-rules.json'), 'utf8'));
+    const prose = [title, excerpt, seoDescription, content.replace(/```[\s\S]*?```/g, ' ').replace(/`[^`]*`/g, ' ').replace(/\]\([^)]*\)/g, ']')].join(' \n ');
+    for (const p of rules.bannedPhrases) {
+      const m = prose.match(new RegExp(p, 'i'));
+      if (m) issues.push(`Banned phrase "${m[0]}": rewrite it in plain language (see AGENTS.md, Writing).`);
+    }
+    for (const ch of rules.bannedCharacters) {
+      const n = prose.split(ch).length - 1;
+      if (n) issues.push(`${n} ${ch === '\u2014' ? 'em' : 'en'} dash(es): use commas, colons or "to" instead.`);
+    }
+    // Image rules: a local hero image with its WebP pair, never a stock hotlink.
+    const img = articleData.featuredImage || '';
+    if (!img) issues.push('No featuredImage. Make one following AGENTS.md, Blog images.');
+    else if (/^https?:/i.test(img)) issues.push(`featuredImage is a hotlink (${img}). Use a local image made to AGENTS.md, Blog images.`);
+    else {
+      const base = path.resolve(__dirname, '..', '..', 'public') + img.replace(/\.(jpe?g|png)$/i, '');
+      if (!fs.existsSync(base + '.webp') || !fs.existsSync(base + '-720.webp')) issues.push(`featuredImage needs ${img.replace(/\.(jpe?g|png)$/i, '')}.webp and -720.webp next to it (AGENTS.md, Blog images).`);
+    }
+  } catch (e) {
+    issues.push(`Writing rules could not be checked: ${e.message}`);
+  }
+
   // 5. Internal link verification
   const linkMatches = content.match(/\[[^\]]+\]\((\/[^\)]+)\)/g) || [];
   if (linkMatches.length < 2) {

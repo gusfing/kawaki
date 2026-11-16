@@ -179,4 +179,4 @@ function blogIndexPage(articles, h) {
   return S.head({ title, description, path: pagePath, jsonLd: { '@context': 'https://schema.org', '@graph': graph } }, v) + S.body({ path: pagePath, main }, v);
 }
 
-module.exports = { articlePage, blogIndexPage };
+module.exports = { articlePage, blogIndexPage, SEO_TITLES };
