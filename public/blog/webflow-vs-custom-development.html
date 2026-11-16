@@ -36,15 +36,12 @@
           "description": "Comparing Webflow vs custom development in 2026. Explore performance limits, CMS scaling, total cost of ownership, and when your brand needs custom code.",
           "image": "https://kawaki.co.in/assets/images/blog/webflow-vs-custom-development-cover.jpg",
           "datePublished": "2026-09-03T14:00:00.000Z",
-          "dateModified": "2026-10-20T20:08:03.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,60 @@
               "position": 3,
               "name": "Webflow vs Custom Web Development",
               "item": "https://kawaki.co.in/blog/webflow-vs-custom-development"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/webflow-vs-custom-development#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can I export Webflow code and host it on my own server?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Webflow allows you to export static HTML, CSS, and JS files on paid workspace plans. However, this breaks all dynamic CMS collections, search bars, and native forms. The exported code is static snapshot markup, not a maintainable software application. If you make code updates, you cannot re-import them back into Webflow. For true hosting independence, custom development is far superior."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Webflow bad for SEO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, Webflow is not inherently \"bad\" for SEO. It offers excellent on-page metadata controls, 301 redirect managers, and automated XML sitemaps. However, Webflow faces technical SEO ceilings at scale. Its Time to First Byte (TTFB) is often slower than edge-rendered custom stacks, and excessive third-party scripts frequently degrade Core Web Vitals (LCP and INP). Furthermore, programmatic SEO (generating thousands of dynamic landing pages from databases) is virtually impossible due to collection limits."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can we use Webflow as a headless CMS with a custom Next.js frontend?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, this hybrid pattern is gaining popularity. Marketing teams continue designing and editing content inside Webflow's visual interface, while engineers fetch the content via Webflow’s REST API v2 to render a custom, high-performance Next.js or Astro frontend. However, for large enterprise publishing, dedicated headless CMS platforms like Sanity, Strapi, or Contentful offer vastly superior editorial workflows, revision histories, and relational querying."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does it cost to rebuild a Webflow site in custom code?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A professional agency rebuild of a Webflow site into a custom Next.js platform typically ranges between $10,000 to $30,000, depending on page count, interactive complexity, and data migration needs. While this requires an upfront investment, it eliminates thousands of dollars in recurring SaaS fees and gives you room to grow on performance and scale."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does a Webflow-to-code migration take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A focused migration executed by an experienced engineering team typically takes 3 to 6 weeks. This timeline includes schema extraction, design system translation, component engineering, staging QA, and comprehensive SEO redirect auditing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does custom development mean marketing can never edit pages again?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely not. Modern custom development decouples code from content by pairing high-performance frameworks with visual headless CMS tools (such as Sanity Studio, Strapi, or TinaCMS). Marketing teams retain visual block-editing capabilities and real-time previews, while engineers maintain 100% control over site speed, code quality, and security. ---"
+              }
             }
           ]
         }

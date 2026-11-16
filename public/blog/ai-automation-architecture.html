@@ -36,15 +36,12 @@
           "description": "An architectural guide to reliable AI automation. Learn how to design bounded workflows, tool permission boundaries, human approval gates, and state persistence.",
           "image": "https://kawaki.co.in/assets/images/blog/ai-automation-architecture-cover.jpg",
           "datePublished": "2026-09-21T20:38:56.000Z",
-          "dateModified": "2026-09-21T20:38:56.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,92 @@
               "position": 3,
               "name": "AI Automation Architecture and Workflows",
               "item": "https://kawaki.co.in/blog/ai-automation-architecture"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/ai-automation-architecture#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is AI automation architecture?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AI automation architecture is the engineering discipline of designing systems that integrate language models into business workflows. It establishes the boundaries, validation layers, permission controls, state persistence, and human oversight mechanisms required to make probabilistic models operate reliably in production environments."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between a workflow and an AI agent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A workflow is a predetermined sequence of deterministic steps where the execution path is fixed by code. An AI agent is a system where a language model actively participates in deciding what happens next, evaluating context, choosing from allowed tools, and iterating to accomplish a goal."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should I use an AI agent instead of deterministic automation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use deterministic automation for rules-based processes where the inputs, steps, and outputs are structured and predictable (data syncs, calculations, notifications). Use AI agents only when the task involves ambiguity, polymorphic document structures, natural language interpretation, or open-ended tool selection."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I safely give an AI access to business tools?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Separate read-only tools from mutating tools. Require explicit JSON Schemas for all arguments, enforce least-privilege API tokens, validate domain constraints in code before execution, and require human approval for high-risk operations. Never give an agent raw, unrestricted API keys."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is human-in-the-loop (HITL) automation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Human-in-the-loop automation is a design pattern where an automated system handles data gathering, synthesis, and proposal generation, but pauses execution to allow a human reviewer to inspect, approve, reject, or edit high-risk actions before they are executed."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you prevent an AI workflow from taking an unsafe action?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "By placing an authorization and policy gate between the model's output and the tool execution layer. The model never executes actions directly; it only proposes them. Deterministic software validates the proposal against business rules and user permissions before invoking external systems."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is idempotency in AI automation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Idempotency is the property of an operation whereby it can be applied multiple times without changing the result beyond the initial application. In AI automation, idempotency keys ensure that if a network glitch causes an automated step to retry, the external system does not perform duplicate actions (such as charging a customer twice)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How should AI automation handle failures?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "By categorizing failure types (input errors, model reasoning errors, external API downtime, authorization failures) and assigning specific recovery strategies to each. Permanent failures should be routed to human escalation queues; transient failures should be retried with exponential backoff and idempotency protection."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can platforms like n8n or Make be used for AI agents?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Platforms like n8n and Make provide excellent visual workflow foundations for ingesting webhooks, connecting to SaaS APIs, and orchestrating LLM nodes. For complex enterprise logic, they are best paired with custom code microservices that handle heavy validation, security gates, and domain rules."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How should AI automation costs be controlled?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "By filtering out non-viable requests with deterministic code before invoking models, routing tasks to appropriately sized models rather than defaulting to frontier reasoning models, budgeting context windows to prevent token bloat, and enforcing hard execution step limits on agent loops. ---"
+              }
             }
           ]
         }

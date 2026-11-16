@@ -20,7 +20,10 @@ const SEO_TITLES = {
   'webflow-vs-custom-development': 'Webflow vs Custom Web Development',
   'wordpress-backdoors-stealth-web-shells': 'WordPress Backdoor and Web Shell Removal',
   'wordpress-malicious-redirects-cleanup': 'WordPress Malicious Redirect Cleanup',
-  'how-to-evaluate-a-web-development-proposal-beyond-price': 'How to Evaluate a Web Development Proposal'
+  'how-to-evaluate-a-web-development-proposal-beyond-price': 'How to Evaluate a Web Development Proposal',
+  'how-much-does-a-custom-website-cost': 'Custom Website Cost in India and Abroad',
+  'shopify-apps-vs-custom-integrations': 'Shopify Apps vs Custom Integrations',
+  'website-redesign-brief-goals-scope-integrations': 'How to Write a Website Redesign Brief'
 };
 
 const readTime = a => Math.max(4, Math.ceil(String(a.content || '').split(/\s+/).filter(Boolean).length / 200));
@@ -28,6 +31,30 @@ const iso = d => String(d || '2026-09-01T09:00:00.000Z').slice(0, 10);
 const fs = require('fs');
 const path = require('path');
 const FALLBACK_IMG = '/assets/images/blog/website-redesign-brief-hero.jpg';
+
+/* Real change dates from the sitemap builder (data/sitemap-lastmod.json): a post rewritten later shows it. */
+let LASTMOD = {};
+try { LASTMOD = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'sitemap-lastmod.json'), 'utf8')); } catch (e) { /* first build */ }
+const latestDate = (a, b) => (b && String(b) > String(a).slice(0, 10) ? b + 'T09:00:00.000Z' : a);
+
+/* FAQPage data from a post's "Frequently Asked Questions" section (## heading, ### questions).
+   Answer engines read question and answer pairs directly; the visible FAQ stays as it is. */
+function faqFromMarkdown(md) {
+  const start = /^##\s+(?:\d+\.\s*)?(?:Frequently Asked Questions|FAQs?)\b[^\n]*$/im.exec(md);
+  if (!start) return null;
+  const rest = md.slice(start.index + start[0].length);
+  const end = rest.search(/^##\s/m);
+  const section = end === -1 ? rest : rest.slice(0, end);
+  const plain = s => s.replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/[*_`>#]/g, '').replace(/^\s*[-+]\s+/gm, '').replace(/\s+/g, ' ').trim();
+  const parts = section.split(/^###\s+/m).slice(1);
+  const qa = parts.map(p => {
+    const nl = p.indexOf('\n');
+    return { q: plain(nl === -1 ? p : p.slice(0, nl)), a: plain(nl === -1 ? '' : p.slice(nl + 1)) };
+  }).filter(x => x.q && x.a);
+  if (qa.length < 2) return null;
+  return { '@type': 'FAQPage', mainEntity: qa.map(x => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) };
+}
 const imageOf = a => a.featuredImage || FALLBACK_IMG;
 
 /* A post's image: the local WebP pair when it exists, otherwise the original file. */
@@ -60,7 +87,8 @@ function articlePage(article, allArticles, h) {
   const seoDesc = article.seoDescription || article.excerpt || `${title}, from the Kawaki Studios blog.`;
   const author = article.author || 'Kunal Sharma';
   const published = article.createdAt || '2026-09-01T09:00:00.000Z';
-  const modified = article.updatedAt || published;
+  const modified = latestDate(article.updatedAt || published, LASTMOD['/blog/' + slug] && LASTMOD['/blog/' + slug].lastmod);
+  const faqLd = faqFromMarkdown(article.content || '');
   const image = article.featuredImage || '/assets/images/blog/custom-code-vs-nocode-decision-matrix-chart.webp';
   const absImage = image.startsWith('http') ? image : S.SITE + image;
   const category = (article.tags && article.tags[0]) || 'Engineering';
@@ -83,12 +111,16 @@ function articlePage(article, allArticles, h) {
     {
       '@type': 'BlogPosting', '@id': url + '#article', headline: title, description: seoDesc, image: absImage,
       datePublished: published, dateModified: modified,
-      author: { '@type': 'Person', name: author, worksFor: { '@type': 'Organization', name: 'Kawaki Studios', url: S.SITE } },
+      // The founder's Person node lives on /about (#founder); linking it ties every post to one known author.
+      author: author === 'Kunal Sharma'
+        ? { '@type': 'Person', '@id': S.SITE + '/about#founder', name: author, url: S.SITE + '/about' }
+        : { '@type': 'Person', name: author, worksFor: { '@type': 'Organization', '@id': S.SITE + '/#organization', name: 'Kawaki Studios' } },
       publisher: { '@type': 'Organization', '@id': S.SITE + '/#organization', name: 'Kawaki Studios', url: S.SITE, logo: S.SITE + '/assets/images/kawaki-logo.png' },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url }
     },
     S.breadcrumbLd(pagePath, [['Blog', '/blog'], [crumbName, pagePath]])
   ];
+  if (faqLd) graph.push(Object.assign({ '@id': url + '#faq' }, faqLd));
 
   const row = (href, name, desc) => `<li><a class="row svc" href="${href}"><h3 class="row__name">${S.esc(name)}</h3><span class="svc__desc">${S.esc(desc)}</span>${S.ROW_GO}</a></li>`;
 

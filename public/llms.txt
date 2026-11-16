@@ -4,9 +4,9 @@
 
 ## Core Capabilities
 
-1. [Custom web development](https://kawaki.co.in/services/custom-web-development): Bespoke digital platforms engineered with Next.js App Router, TypeScript, and modern CSS architectures.
+1. [Custom web development](https://kawaki.co.in/services/custom-web-development): Custom websites and web platforms built with Next.js, React and TypeScript, designed and coded by hand.
 2. [Modern web application development](https://kawaki.co.in/services/web-application-development): Full-stack web applications with complex state, dedicated API boundaries, and clear intellectual property ownership.
-3. [Shopify and headless commerce engineering](https://kawaki.co.in/services/shopify-development): Custom Liquid themes, Storefront API integrations, and sub-second decoupled commerce storefronts.
+3. [Shopify and headless commerce engineering](https://kawaki.co.in/services/shopify-development): Custom Liquid themes, Storefront API integrations, and headless storefronts when the catalogue needs one.
 4. [AI workflow automation and bounded AI agents](https://kawaki.co.in/services/ai-automation): Deterministic workflow orchestration (n8n/Make/code) and task-specific AI agents with strict runtime guardrails.
 5. [AI search optimization and search engineering](https://kawaki.co.in/services/ai-search-optimization): Technical search engineering, entity clarity, Schema.org JSON-LD structured data, and answer-first content discoverability.
 6. [WordPress malware removal and security recovery](https://kawaki.co.in/services/wordpress-malware-removal): Incident response, malicious code and backdoor extraction, database cleanup, and security hardening.
@@ -15,11 +15,11 @@
 
 ## About Kawaki Studios
 
-Kawaki Studios is an independent digital engineering studio founded and led by Kunal Sharma. The studio bridges thoughtful visual design with disciplined software engineering, delivering bespoke web platforms, modern web applications, e-commerce storefronts, and automated workflows.
+Kawaki Studios is an independent digital engineering studio founded and led by Kunal Sharma. The studio bridges thoughtful visual design with disciplined software engineering, delivering custom websites, web applications, ecommerce storefronts and automated workflows.
 
 Based in New Delhi, India, the studio works directly with a select roster of clients globally. We operate without junior account managers or sales intermediaries; every project is architected and executed directly by senior engineering leadership.
 
-Our engineering philosophy prioritizes deterministic systems, verifiable performance, sub-second latency, security hygiene, and clean architectural boundaries.
+Our engineering philosophy prioritizes predictable systems, measured performance, security hygiene and clean boundaries between parts of a system.
 
 ## What Kawaki Does
 
@@ -37,13 +37,13 @@ We design, develop, and maintain high-performance digital systems across six pri
 ### Custom Web Development
 
 **Definition**
-Bespoke digital platform engineering utilizing modern web standards, component-driven frontend architecture, and server-side rendering to create high-performance web presences tailored to exact operational requirements.
+Custom websites and web platforms built with modern web standards, component-based front ends and server-side rendering, shaped around how the business actually works.
 
 **What Kawaki Delivers**
 - Modular frontend architectures built on Next.js App Router and React Server Components
 - TypeScript codebases engineered for type safety, maintainability, and clean separation of concerns
 - Publication-grade typographic hierarchies and custom design implementations without generic templates
-- Sub-second page transitions, responsive viewports, and asset-budgeted media delivery
+- Fast page loads on a performance budget, responsive layouts, and media sized for the device
 - Direct API integrations, webhook handlers, and database connections
 
 **Typical Problems Addressed**
@@ -55,11 +55,11 @@ Bespoke digital platform engineering utilizing modern web standards, component-d
 **Technical Areas**
 - Next.js App Router, React Server Components (RSC), TypeScript
 - Modern CSS architectures, fluid typography (CSS clamp), semantic HTML5
-- REST & GraphQL API design, serverless microservices
+- REST and webhook API design and integration
 - Edge caching, CDN routing, and Core Web Vitals engineering
 
 **When This Service Is Appropriate**
-Appropriate when a business requires a distinctive, highly tailored digital flagship that cannot be constrained by off-the-shelf website builders or generic themes.
+Appropriate when a business requires a distinctive site with its own design and flows that cannot be constrained by off-the-shelf website builders or generic themes.
 
 **Related Services**
 - <https://kawaki.co.in/services/web-application-development>
@@ -96,7 +96,7 @@ Full-stack software engineering for complex interactive web applications, intern
 **Technical Areas**
 - Next.js, React 19, TypeScript, Node.js
 - Client state management, optimistic mutations, server action contracts
-- PostgreSQL, SQLite, Redis caching, structured data migrations
+- PostgreSQL, SQLite and structured data migrations
 - JWT/Session authentication, CORS security envelopes, API Route Handlers
 
 **When This Service Is Appropriate**
@@ -115,10 +115,10 @@ Appropriate when a business requires an interactive software tool, dashboard, po
 ### Shopify Development
 
 **Definition**
-Custom e-commerce engineering for Shopify stores, ranging from bespoke Liquid theme development and checkout optimizations to decoupled headless storefronts powered by the Shopify Storefront GraphQL API.
+Custom e-commerce engineering for Shopify stores, ranging from custom Liquid theme development and checkout improvements to headless storefronts built on the Shopify Storefront API.
 
 **What Kawaki Delivers**
-- Bespoke Shopify Liquid themes built without bloated multi-purpose commercial themes
+- Custom Shopify Liquid themes instead of heavy multi-purpose bought themes
 - Decoupled headless storefronts utilizing Next.js, Shopify Hydrogen, and Edge caching
 - Custom product detail pages (PDPs) with narrative layouts and dynamic variant pickers
 - Optimistic cart drawer mutations providing instantaneous customer feedback
@@ -132,12 +132,12 @@ Custom e-commerce engineering for Shopify stores, ranging from bespoke Liquid th
 
 **Technical Areas**
 - Shopify Liquid, Theme App Extensions, Theme Customizer JSON schemas
-- Shopify Storefront GraphQL API (v2026-01+), cartLinesAdd mutations
-- Next.js App Router, React Server Components, Vercel Edge / Cloudflare Workers
+- Shopify Storefront API for headless carts and catalogues
+- Next.js App Router and React Server Components, deployed on Vercel
 - Stale-while-revalidate (SWR) edge caching with automated inventory webhooks
 
 **When This Service Is Appropriate**
-Appropriate for ambitious e-commerce brands needing either a high-performance custom Liquid theme or a sub-second decoupled headless storefront.
+Appropriate for ambitious e-commerce brands needing either a fast custom Liquid theme or a headless storefront.
 
 **Related Services**
 - <https://kawaki.co.in/services/custom-web-development>
@@ -273,7 +273,7 @@ Systematic Core Web Vitals engineering targeting Largest Contentful Paint (LCP <
 **Canonical URL**: <https://kawaki.co.in/services/website-performance-optimization>
 
 ### WordPress Development
-Clean, bespoke WordPress theme and backend engineering for publishers and organizations that require WordPress for content management but demand custom code, fast load times, and minimal plugin dependencies.
+Clean, custom WordPress theme and backend engineering for publishers and organizations that require WordPress for content management but demand custom code, fast load times, and minimal plugin dependencies.
 **Canonical URL**: <https://kawaki.co.in/services/wordpress-development>
 
 ## WordPress Security & Recovery
@@ -374,7 +374,7 @@ Search engines do not use machine-readable documentation files (such as llms.txt
 We develop lightweight, custom Shopify Liquid themes that eliminate third-party app bloat and maintain fast mobile loading speeds.
 
 ### Headless Shopify Architecture
-For enterprise e-commerce requirements, we decouple frontend presentation using Next.js, querying Shopify's Storefront GraphQL API and utilizing edge caching with automated inventory webhook invalidation.
+For enterprise e-commerce requirements, we decouple frontend presentation using Next.js, reading from Shopify's Storefront API, with caching that refreshes when inventory webhooks fire.
 
 ## Published Architecture Guides & Resources
 
@@ -494,7 +494,7 @@ For enterprise e-commerce requirements, we decouple frontend presentation using 
 
 ### [Fintech ROI Calculator Architecture](https://kawaki.co.in/case-studies/fintech-roi-calculator)
 - **Status**: Architectural Reference Design
-- **Summary**: A conceptual reference architecture exploring client-side interactive financial modeling. Demonstrates zero-dependency SVG chart rendering, parametric sensitivity calculations, sub-second reactivity, and lead qualification webhook integration.
+- **Summary**: A conceptual reference architecture exploring client-side interactive financial modeling. Demonstrates zero-dependency SVG chart rendering, parametric sensitivity calculations, instant recalculation as inputs change, and lead qualification webhook integration.
 - **Canonical URL**: <https://kawaki.co.in/case-studies/fintech-roi-calculator>
 
 ## Company Entity
@@ -538,7 +538,7 @@ Kawaki Studios is based in New Delhi, India. The studio delivers projects and co
 ### What does Kawaki Studios do?
 **Category**: General
 
-Kawaki Studios is an independent digital engineering studio founded by Kunal Sharma. We engineer custom web platforms, modern web applications, bespoke Shopify storefronts, deterministic AI workflow automations, AI search architectures, and WordPress security recovery.
+Kawaki Studios is an independent digital engineering studio founded by Kunal Sharma. We engineer custom web platforms, modern web applications, custom Shopify storefronts, AI workflow automations, AI search architectures, and WordPress security recovery.
 
 ### Where is Kawaki Studios based?
 **Category**: General
@@ -553,7 +553,7 @@ Custom web development is the engineering of a digital platform using modern pro
 ### When should a business choose custom development over a site builder?
 **Category**: Web Development
 
-Custom development is appropriate when a business requires a distinctive design identity, specialized user flows, sub-second loading performance, complete code ownership, or deep API and database integrations that off-the-shelf builders cannot support.
+Custom development is appropriate when a business requires a distinctive design identity, specialized user flows, fast loading, ownership of the code, or deep API and database integrations that off-the-shelf builders cannot support.
 
 ### Who retains ownership of the custom web application source code?
 **Category**: Web Development
@@ -578,7 +578,7 @@ Human authorization gates are required when an action crosses pre-defined risk t
 ### When is headless Shopify appropriate?
 **Category**: Shopify
 
-Headless Shopify is appropriate for high-volume merchants whose conversion rates or brand experience are constrained by Liquid templating, app script bloat, or multi-market international catalog requirements requiring sub-second edge rendering.
+Headless Shopify is appropriate for high-volume merchants whose conversion rates or brand experience are constrained by Liquid templating, app script bloat, or multi-market international catalogues that a theme cannot handle well.
 
 ### What is the distinction between WordPress Development and WordPress Security?
 **Category**: WordPress Security
@@ -588,7 +588,7 @@ WordPress Development focuses on engineering, customizing, and maintaining clean
 ### Why does WordPress malware frequently return after deletion?
 **Category**: WordPress Security
 
-Malware recurs because attackers install stealth backdoors—obfuscated PHP files, rogue administrative users, or database cron jobs—that re-download malicious payloads after surface files are deleted. Complete recovery requires eradicating all persistence vectors.
+Malware recurs because attackers install hidden backdoors (obfuscated PHP files, rogue administrator accounts or database cron jobs) that re-download malicious payloads after surface files are deleted. Complete recovery requires eradicating all persistence vectors.
 
 ### What is the difference between SEO, AEO, and GEO?
 **Category**: AI Search

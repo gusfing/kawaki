@@ -36,15 +36,12 @@
           "description": "An architectural guide to Next.js performance. Learn how rendering models, JavaScript bundle budgets, next/image, next/font, and caching affect Core Web Vitals.",
           "image": "https://kawaki.co.in/assets/images/blog/nextjs-performance-architecture-cover.jpg",
           "datePublished": "2026-09-21T20:29:59.000Z",
-          "dateModified": "2026-09-21T20:29:59.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,76 @@
               "position": 3,
               "name": "Next.js Performance Architecture Guide",
               "item": "https://kawaki.co.in/blog/nextjs-performance-architecture"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/nextjs-performance-architecture#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do Server Components improve Core Web Vitals?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Server Components can reduce the amount of JavaScript sent to and evaluated by the browser. By executing heavy dependencies (parsers, date utilities, database drivers) exclusively on the server, the browser has less JavaScript to download, parse, and hydrate. This frees up the main thread and directly improves Interaction to Next Paint (INP)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the most common reason websites fail Largest Contentful Paint (LCP)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The most frequent cause is unoptimized above-the-fold media, such as high-resolution hero images lacking modern compression (AVIF/WebP), missing explicit sizes attributes, or failing to use the priority attribute on the next/image component. Another common contributor is slow server Time to First Byte (TTFB) on un-cached dynamic routes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does next/font prevent Cumulative Layout Shift (CLS)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "next/font downloads Google Fonts at build time and self-hosts them locally. It automatically calculates CSS font-override properties (size-adjust, ascent-override, descent-override) for the system fallback font. When the custom font file loads, it occupies the exact same dimensions as the fallback font, preventing text reflow and eliminating layout shifts (0.00 CLS)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why did Google replace First Input Delay (FID) with Interaction to Next Paint (INP)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "FID only measured the initial delay of the very first click or tap on a page. INP evaluates all user interactions across the entire session, measuring the time from user input until the browser paints updated visual feedback. It provides a far more accurate assessment of real-world application responsiveness."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should I use next/dynamic instead of a regular import?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use next/dynamic for heavy, non-critical Client Components that are not needed during initial page render, such as modals, rich text editors, graphing libraries, or complex filter drawers. This splits the code into a separate bundle that loads only when required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does edge delivery guarantee sub-50ms TTFB?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. While Edge CDNs minimize physical network distance between the user and the server, actual Time to First Byte depends on cache hit ratios, backend database query latency, geographic distance to origin data stores, and dynamic compute time. Caching static segments is key to achieving optimal TTFB."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between Partial Prerendering (PPR) and traditional SSR?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Traditional SSR requires the server to generate the entire page HTML dynamically before responding. Partial Prerendering (PPR) serves a prerendered static layout shell immediately from the edge cache, while streaming dynamic data holes concurrently over the same HTTP connection."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How should third-party tracking scripts be loaded to protect performance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Load non-critical third-party scripts using next/script with strategy=\"lazyOnload\" so they execute during browser idle time, or offload them to a web worker using strategy=\"worker\". This prevents third-party analytics and chat widgets from competing with critical resources or blocking the main thread. ---"
+              }
             }
           ]
         }

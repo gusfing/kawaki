@@ -380,6 +380,36 @@
       "source": "/resources",
       "destination": "https://kawaki.co.in/blog",
       "permanent": true
+    },
+    {
+      "source": "/services/custom-web-applications",
+      "destination": "https://kawaki.co.in/services/web-application-development",
+      "permanent": true
+    },
+    {
+      "source": "/chandigarh/web-development-company",
+      "destination": "https://kawaki.co.in/chandigarh",
+      "permanent": true
+    },
+    {
+      "source": "/icons/favicon.svg",
+      "destination": "https://kawaki.co.in/favicon.svg",
+      "permanent": true
+    },
+    {
+      "source": "/icons/favicon-48x48.png",
+      "destination": "https://kawaki.co.in/favicon-96x96.png",
+      "permanent": true
+    },
+    {
+      "source": "/icons/favicon.ico",
+      "destination": "https://kawaki.co.in/favicon.ico",
+      "permanent": true
+    },
+    {
+      "source": "/icons/apple-touch-icon.png",
+      "destination": "https://kawaki.co.in/apple-touch-icon.png",
+      "permanent": true
     }
   ],
   "headers": [

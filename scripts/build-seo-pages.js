@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const shell = require('./lib/shell');
-const { serviceCopy, display, lower } = require('./lib/service-copy');
+const { serviceCopy, display, lower, groupOf } = require('./lib/service-copy');
 const { cityServiceCopy, cityHubCopy } = require('./lib/city-copy');
 const { solutionCopy } = require('./lib/solution-copy');
 
@@ -286,30 +286,48 @@ function generateDifferentiatedContent(entry) {
 
 // Generate Complete Page HTML
 function getRelatedPages(entry) {
-  const loc = entry.location;
+  /* Related links are how Google finds its way to these pages, so every page must receive some.
+     Each cluster (a topic group, a city, a page type) is sorted into a ring and every page links to the
+     pages after it, which gives every page the same number of links from its neighbours.
+     (The old picker treated the default location "Delhi" as a city and sent every page to the same three.) */
   const currentUrl = entry.kawakiUrl;
-  const STOP = new Set(['and', 'for', 'the', 'services', 'service', 'agency', 'company', 'development', 'in', 'of', 'a']);
-  const words = e => new Set(String(e.primaryKeyword || e.service || '').toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 2 && !STOP.has(w)));
-  const mine = words(entry);
   const short = e => {
     const d = String(e.metaDescription || '').split(/(?<=\.)\s/)[0];
     return d.length > 96 ? d.slice(0, d.lastIndexOf(' ', 92)) + '\u2026' : d;
   };
-  const pool = registry.filter(e => e.kawakiUrl !== currentUrl && e.kawakiUrl !== '/' && e.indexable !== false && e.pageType !== 'core' && e.pageType !== 'legal');
-  let picks;
-  if (loc) {
-    const sameLoc = pool.filter(e => e.location === loc);
-    const sameServ = pool.filter(e => e.service === entry.service && e.location && e.location !== loc);
-    picks = sameLoc.slice(0, 3).concat(sameServ.slice(0, 2));
+  const pool = registry.filter(e => e.kawakiUrl !== '/' && e.indexable !== false && e.pageType !== 'core' && e.pageType !== 'legal');
+  const ring = (list, n) => {
+    const l = list.slice().sort((x, y) => x.kawakiUrl.localeCompare(y.kawakiUrl));
+    let i = l.findIndex(e => e.kawakiUrl === currentUrl);
+    // Not in this list (a top-up from another cluster): start where the page would sit alphabetically.
+    if (i === -1) i = l.filter(e => e.kawakiUrl < currentUrl).length - 1;
+    const out = [];
+    for (let k = 1; k <= l.length && out.length < n; k++) {
+      const e = l[(i + k + l.length) % l.length];
+      if (e && e.kawakiUrl !== currentUrl) out.push(e);
+    }
+    return out;
+  };
+  const group = e => groupOf(e.kawakiUrl.replace(/^\//, ''));
+  let picks = [];
+  if (entry.pageType === 'location-service') {
+    const hub = pool.find(e => e.pageType === 'location' && e.location === entry.location);
+    picks = (hub ? [hub] : [])
+      .concat(ring(pool.filter(e => e.pageType === 'location-service' && e.location === entry.location), 2))
+      .concat(ring(pool.filter(e => e.pageType === 'location-service' && e.service === entry.service), 2));
+  } else if (entry.pageType === 'location') {
+    picks = pool.filter(e => e.pageType === 'location-service' && e.location === entry.location).slice(0, 3)
+      .concat(ring(pool.filter(e => e.pageType === 'location'), 2));
+  } else if (entry.pageType === 'service') {
+    picks = ring(pool.filter(e => e.pageType === 'service' && group(e) === group(entry)), 4);
   } else {
-    picks = pool.filter(e => !e.location)
-      .map(e => ({ e, score: [...words(e)].filter(w => mine.has(w)).length + (e.pageType === entry.pageType ? 0.5 : 0) }))
-      .filter(x => x.score >= 1)
-      .sort((x, y) => y.score - x.score || x.e.kawakiUrl.localeCompare(y.e.kawakiUrl))
-      .slice(0, 5).map(x => x.e);
-    const cities = pool.filter(e => e.location && e.service === entry.service).slice(0, 5 - picks.length > 0 ? 2 : 1);
-    picks = picks.concat(cities);
+    picks = ring(pool.filter(e => e.pageType === entry.pageType), 3);
   }
+  // Top up small clusters: first service pages on the same topic, then the wider list.
+  if (picks.length < 5) picks = picks.concat(ring(pool.filter(e => e.pageType === 'service' && group(e) === group(entry)), 5));
+  if (picks.length < 5) picks = picks.concat(ring(pool.filter(e => e.pageType === 'service'), 5));
+  const seen = new Set();
+  picks = picks.filter(e => e.kawakiUrl !== currentUrl && !seen.has(e.kawakiUrl) && seen.add(e.kawakiUrl));
   const rel = picks.slice(0, 5).map(e => ({ title: e.h1 || e.title, url: e.kawakiUrl, badge: short(e) }));
   rel.push({ title: 'Every page on the site', url: '/directory', badge: 'Services, cities, guides and case studies, in one index.' });
   return rel;

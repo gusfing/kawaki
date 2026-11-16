@@ -1,91 +1,90 @@
+/* IndexNow: tell Bing (and the other IndexNow engines) about pages that changed.
+
+   node scripts/submit-indexnow.js <url> [url...]   submit these URLs
+   node scripts/submit-indexnow.js --changed        submit pages whose sitemap lastmod is newer than the last run
+   add --wait                                       wait up to 6 minutes for each URL to go live (after a push)
+   node scripts/submit-indexnow.js --all            every sitemap URL. Rarely right: Bing reads resubmitting
+                                                    unchanged pages as noise, and that is how 2,400 submissions
+                                                    piled up for a 230-page site in 2026.
+
+   Every URL is checked first: only pages answering 200 on https://kawaki.co.in are sent, never 404s or redirects.
+   One endpoint is enough; IndexNow engines share submissions with each other. */
 const fs = require('fs');
 const path = require('path');
 
-const publicDir = path.resolve(__dirname, '..', 'public');
-const sitemapPath = path.resolve(publicDir, 'sitemap.xml');
+const rootDir = path.resolve(__dirname, '..');
+const publicDir = path.join(rootDir, 'public');
+const stateFile = path.join(rootDir, 'data', 'indexnow-state.json');
+const args = process.argv.slice(2);
+const flag = f => args.includes(f);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// 1. Locate IndexNow Key
-const files = fs.readdirSync(publicDir);
-let indexNowKey = null;
-
-for (const f of files) {
-  if (f.endsWith('.txt') && f.length >= 32) {
-    const keyCandidate = f.slice(0, -4);
-    const content = fs.readFileSync(path.join(publicDir, f), 'utf8').trim();
-    if (content === keyCandidate) {
-      indexNowKey = keyCandidate;
-      break;
-    }
+function key() {
+  for (const f of fs.readdirSync(publicDir)) {
+    if (!f.endsWith('.txt') || f.length < 36) continue;
+    const candidate = f.slice(0, -4);
+    if (fs.readFileSync(path.join(publicDir, f), 'utf8').trim() === candidate) return candidate;
   }
-}
-
-if (!indexNowKey) {
-  console.error('❌ [IndexNow] Error: No valid IndexNow key file found in public/ directory!');
+  console.error('[IndexNow] No key file (public/<key>.txt containing the key) found.');
   process.exit(1);
 }
 
-console.log(`⚡ [IndexNow] Using Key: ${indexNowKey}`);
-console.log(`   Key Location: https://kawaki.co.in/${indexNowKey}.txt`);
-
-// 2. Read Canonical URLs from sitemap.xml
-if (!fs.existsSync(sitemapPath)) {
-  console.error('❌ [IndexNow] Error: public/sitemap.xml not found!');
-  process.exit(1);
+function sitemapUrls() {
+  const xml = fs.readFileSync(path.join(publicDir, 'sitemap.xml'), 'utf8');
+  return [...xml.matchAll(/<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)].map(m => ({ loc: m[1].trim(), lastmod: m[2].trim() }));
 }
 
-const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
-const locMatches = [...sitemapContent.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].trim());
+async function isLive(url) {
+  try {
+    const r = await fetch(url, { method: 'HEAD', redirect: 'manual', signal: AbortSignal.timeout(15000) });
+    return r.status === 200;
+  } catch (e) {
+    return false;
+  }
+}
 
-const passedUrls = process.argv.slice(2).filter(u => u.startsWith('http'));
-const urlsToSubmit = passedUrls.length > 0 ? passedUrls : locMatches;
-
-console.log(`   Submitting ${urlsToSubmit.length} canonical URLs to IndexNow network...\n`);
-
-const payload = JSON.stringify({
-  host: 'kawaki.co.in',
-  key: indexNowKey,
-  keyLocation: `https://kawaki.co.in/${indexNowKey}.txt`,
-  urlList: urlsToSubmit
-});
-
-const endpoints = [
-  { name: 'Microsoft Bing', url: 'https://www.bing.com/indexnow' },
-  { name: 'IndexNow Global', url: 'https://api.indexnow.org/indexnow' },
-  { name: 'Yandex', url: 'https://yandex.com/indexnow' }
-];
-
-async function submitAll() {
-  let anySuccess = false;
-
-  for (const ep of endpoints) {
-    try {
-      const res = await fetch(ep.url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8'
-        },
-        body: payload,
-        signal: AbortSignal.timeout(10000)
-      });
-
-      const bodyText = await res.text();
-      if (res.status === 200 || res.status === 202) {
-        console.log(`✓ [${ep.name}] Status ${res.status} OK: Successfully submitted ${urlsToSubmit.length} URLs.`);
-        anySuccess = true;
-      } else {
-        console.warn(`⚠️ [${ep.name}] Response ${res.status}: ${bodyText.slice(0, 100)}`);
-      }
-    } catch (err) {
-      console.warn(`⚠️ [${ep.name}] Connection notice: ${err.message}`);
-    }
+async function main() {
+  const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, 'utf8')) : {};
+  let urls = args.filter(a => /^https?:\/\//.test(a));
+  if (flag('--changed')) {
+    const since = state.lastRun || '0000-00-00';
+    urls = urls.concat(sitemapUrls().filter(u => u.lastmod > since).map(u => u.loc));
+  } else if (flag('--all')) {
+    urls = urls.concat(sitemapUrls().map(u => u.loc));
+  }
+  urls = [...new Set(urls)].filter(u => /^https:\/\/kawaki\.co\.in(\/|$)/.test(u));
+  if (!urls.length) {
+    console.log('[IndexNow] Nothing to submit. Pass URLs, or --changed (see the top of this file).');
+    return;
   }
 
-  if (anySuccess) {
-    console.log('\n🚀 [IndexNow] Batch submission completed successfully across active search gateways.');
+  const live = [];
+  for (const u of urls) {
+    let ok = await isLive(u);
+    for (let i = 0; !ok && flag('--wait') && i < 18; i++) { await sleep(20000); ok = await isLive(u); }
+    if (ok) live.push(u); else console.log(`  skipped (not 200 on the live site): ${u}`);
+  }
+  if (!live.length) {
+    console.log('[IndexNow] No live URLs to submit.');
+    return;
+  }
+
+  const k = key();
+  const res = await fetch('https://www.bing.com/indexnow', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    body: JSON.stringify({ host: 'kawaki.co.in', key: k, keyLocation: `https://kawaki.co.in/${k}.txt`, urlList: live }),
+    signal: AbortSignal.timeout(15000)
+  });
+  if (res.status === 200 || res.status === 202) {
+    console.log(`[IndexNow] HTTP ${res.status} Accepted: ${live.length} URL(s) sent.`);
+    state.lastRun = new Date().toISOString().split('T')[0];
+    state.lastCount = live.length;
+    fs.writeFileSync(stateFile, JSON.stringify(state, null, 2) + '\n');
   } else {
-    console.error('\n❌ [IndexNow] Failed to reach any IndexNow endpoint.');
+    console.error(`[IndexNow] HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
     process.exit(1);
   }
 }
 
-submitAll();
+main().catch(e => { console.error('[IndexNow] ' + e.message); process.exit(1); });

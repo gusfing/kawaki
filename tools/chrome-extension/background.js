@@ -26,6 +26,8 @@ let reconnectTimer = null;
 let heartbeatTimer = null;
 let agentTabId = null;
 let agentWindowId = null;
+let agentLost = false;   // the agent had a tab and it was closed: refuse to fall back to the person's tab
+let lastAgentTab = null;
 let cdpBlockedUntil = 0;
 const activity = [];
 const attached = new Map(); // tabId -> idle detach timer
@@ -36,9 +38,16 @@ const clip = (s, n) => { s = String(s == null ? '' : s); return s.length > n ? s
 chrome.storage.session.get(['agentTabId', 'agentWindowId']).then(s => {
   if (agentTabId == null && s.agentTabId != null) agentTabId = s.agentTabId;
   if (agentWindowId == null && s.agentWindowId != null) agentWindowId = s.agentWindowId;
+  if (s.agentLost) agentLost = true;
 }).catch(() => {});
 
-function setAgentTab(id) { agentTabId = id; chrome.storage.session.set({ agentTabId: id }).catch(() => {}); }
+function setAgentTab(id) {
+  agentTabId = id;
+  if (id != null) agentLost = false;
+  chrome.storage.session.set({ agentTabId: id, agentLost }).catch(() => {});
+  // Memory Saver would otherwise discard the agent's background tab mid-task.
+  if (id != null) chrome.tabs.update(id, { autoDiscardable: false }).catch(() => {});
+}
 function setAgentWindow(id) { agentWindowId = id; chrome.storage.session.set({ agentWindowId: id }).catch(() => {}); }
 
 /* ---------- connection ---------- */
@@ -124,10 +133,15 @@ async function getActiveTabId() {
 async function tabFor(p) {
   if (p.tabId) return Number(p.tabId);
   if (agentTabId != null) {
-    try { await chrome.tabs.get(agentTabId); return agentTabId; } catch (e) { setAgentTab(null); }
+    try { await chrome.tabs.get(agentTabId); return agentTabId; } catch (e) { lastAgentTab = agentTabId; agentLost = true; }
   }
+  // Never fall back to the person's active tab once the agent had its own: that is how actions land in the wrong place.
+  if (agentLost) throw new Error('The agent tab was closed or replaced. Run "open <url>" or "use <tabId>" (see "tabs").');
   return getActiveTabId();
 }
+
+// Chrome swaps tab IDs when it discards and restores a tab (Memory Saver, prerender): follow the agent tab.
+chrome.tabs.onReplaced.addListener((added, removed) => { if (removed === agentTabId || removed === lastAgentTab) setAgentTab(added); });
 
 /* Waits for a page load. With expectNav it ignores the "complete" state of the page being left. */
 function waitForTabLoad(tabId, timeoutMs = 30000, expectNav = false) {
@@ -160,7 +174,7 @@ async function pageInfo(tabId, extra) {
 }
 
 chrome.tabs.onRemoved.addListener(id => {
-  if (id === agentTabId) setAgentTab(null);
+  if (id === agentTabId) { lastAgentTab = id; agentTabId = null; agentLost = true; chrome.storage.session.set({ agentTabId: null, agentLost: true }).catch(() => {}); }
   if (attached.has(id)) { clearTimeout(attached.get(id)); attached.delete(id); }
 });
 chrome.windows.onRemoved.addListener(id => { if (id === agentWindowId) setAgentWindow(null); });
@@ -186,7 +200,8 @@ function snapshotFn(o) {
     const ROLES = new Set(['button', 'link', 'tab', 'menuitem', 'menuitemcheckbox', 'menuitemradio', 'checkbox', 'radio', 'switch', 'option', 'combobox', 'textbox', 'searchbox', 'slider', 'spinbutton', 'treeitem']);
     const NESTED = 'a[href],button,input,select,textarea,[role=button],[role=link],[role=checkbox],[role=tab],[role=menuitem],[role=option],[role=switch]';
     const TABLES = 'table,[role=table],[role=grid],[role=treegrid]';
-    const allTables = Array.from(document.querySelectorAll(TABLES)).filter(t => !(t.parentElement && t.parentElement.closest(TABLES)));
+    // Visible, outermost tables only, numbered the same way as the table action.
+    const allTables = Array.from(document.querySelectorAll(TABLES)).filter(t => !(t.parentElement && t.parentElement.closest(TABLES)) && (!t.checkVisibility || t.checkVisibility()));
     const refs = [];
     const lines = [];
     let buf = '';
@@ -301,9 +316,10 @@ function snapshotFn(o) {
         if (tag === 'IFRAME' || tag === 'FRAME') { flush(); add('[iframe] ' + cut(el.src || '', 100)); continue; }
         const cs = getComputedStyle(el);
         if (cs.display === 'none' || cs.visibility === 'hidden' || cs.visibility === 'collapse') continue;
-        if (cs.opacity === '0' && tag !== 'INPUT') continue;
-        if (o.viewport && cs.display !== 'contents' && cs.position !== 'fixed' && !inView(el)) continue;
         const role = (el.getAttribute('role') || '').toLowerCase();
+        // Opacity 0 usually means hidden, but menus in background windows can stall mid fade-in.
+        if (cs.opacity === '0' && tag !== 'INPUT' && !/^(menu|listbox|dialog|alertdialog)$/.test(role)) continue;
+        if (o.viewport && cs.display !== 'contents' && cs.position !== 'fixed' && !inView(el)) continue;
         const block = cs.display !== 'inline' && cs.display !== 'contents';
 
         if (o.tables !== 'walk' && (tag === 'TABLE' || role === 'table' || role === 'grid' || role === 'treegrid')) { flush(); emitTable(el); continue; }
@@ -398,19 +414,24 @@ function actFn(op, o) {
     function byText(text, role, nth) {
       const want = clean(text).toLowerCase();
       const nm = e => clean(e.getAttribute('aria-label') || e.innerText || e.value || e.title || e.getAttribute('placeholder') || '').toLowerCase();
-      let cands = Array.from(document.querySelectorAll('a[href],button,input,select,textarea,summary,label,[role],[onclick],[tabindex]'))
-        .filter(e => !/^(presentation|none|generic|group|region|main|navigation|banner|contentinfo|complementary|document|application|list|listitem|img)$/.test(e.getAttribute('role') || ''))
-        .filter(vis);
-      if (role) cands = cands.filter(e => roleOf(e) === role);
+      const all0 = Array.from(document.querySelectorAll('a[href],button,input,select,textarea,summary,label,[role],[onclick],[tabindex]'))
+        .filter(e => !/^(presentation|none|generic|group|region|main|navigation|banner|contentinfo|complementary|document|application|list|listitem|img)$/.test(e.getAttribute('role') || ''));
+      // Laid out but possibly transparent: menus in background windows can stall at opacity 0.
+      const laidOut = e => (!e.checkVisibility || e.checkVisibility({ visibilityProperty: true, checkVisibilityCSS: true })) && e.getBoundingClientRect().width > 0;
       const innermost = hits => hits.filter(e => !hits.some(x => x !== e && e.contains(x)));
-      for (const test of [n => n === want, n => n.startsWith(want), n => n.includes(want)]) {
-        const hits = innermost(cands.filter(e => test(nm(e))));
-        if (hits.length) return hits[nth || 0] || null;
+      for (const pass of [vis, laidOut]) {
+        let cands = all0.filter(pass);
+        if (role) cands = cands.filter(e => roleOf(e) === role);
+        for (const test of [n => n === want, n => n.startsWith(want), n => n.includes(want)]) {
+          const hits = innermost(cands.filter(e => test(nm(e))));
+          if (hits.length) return hits[nth || 0] || null;
+        }
       }
       if (role) return null;
       // Any visible element whose own text matches, then its nearest clickable ancestor.
       const all = Array.from(document.body.querySelectorAll('*')).filter(e => !/^(SCRIPT|STYLE|NOSCRIPT|TEMPLATE)$/.test(e.tagName));
-      let hits = all.filter(e => (e.innerText || '').toLowerCase().includes(want) && vis(e));
+      // Only elements whose text is close to the wanted text, never a big container that merely contains it.
+      let hits = all.filter(e => { const t = (e.innerText || '').toLowerCase(); return t.includes(want) && t.length <= want.length * 3 + 40 && laidOut(e); });
       hits = innermost(hits);
       const exact = hits.filter(e => clean(e.innerText).toLowerCase() === want);
       const pick = (exact.length ? exact : hits)[nth || 0];
@@ -560,7 +581,8 @@ function actFn(op, o) {
 
     if (op === 'table') {
       const SEL = 'table,[role=table],[role=grid],[role=treegrid]';
-      let tables = Array.from(document.querySelectorAll(SEL)).filter(t => !(t.parentElement && t.parentElement.closest(SEL)));
+      // Visible tables only: apps like Search Console keep hidden tabs' tables in the page.
+      let tables = Array.from(document.querySelectorAll(SEL)).filter(t => !(t.parentElement && t.parentElement.closest(SEL)) && (!t.checkVisibility || t.checkVisibility()));
       if (o.selector) {
         const s = document.querySelector(o.selector);
         if (!s) throw new Error('No element matches ' + o.selector);
@@ -610,6 +632,42 @@ function actFn(op, o) {
     return { error: 'Unknown page op ' + op };
   } catch (e) {
     return { error: (e && e.message) || String(e) };
+  }
+}
+
+/* Runs in the page's MAIN world: KeyboardEvent init ignores keyCode, so define it on the event itself.
+   Used when the tab is hidden (minimised or covered window), where Chrome drops trusted CDP input. */
+function keyMainFn(o) {
+  const el = document.activeElement || document.body;
+  const codes = { Enter: 13, Tab: 9, Escape: 27, Backspace: 8, Delete: 46, Space: 32, ArrowUp: 38, ArrowDown: 40, ArrowLeft: 37, ArrowRight: 39, Home: 36, End: 35, PageUp: 33, PageDown: 34 };
+  const kc = codes[o.key] || (o.key.length === 1 ? o.key.toUpperCase().charCodeAt(0) : 0);
+  let go = true;
+  for (const type of ['keydown', 'keypress', 'keyup']) {
+    const e = new KeyboardEvent(type, { key: o.key === 'Space' ? ' ' : o.key, code: o.key, bubbles: true, cancelable: true, ctrlKey: !!o.ctrl, shiftKey: !!o.shift, altKey: !!o.alt, metaKey: !!o.meta });
+    Object.defineProperty(e, 'keyCode', { get: () => kc });
+    Object.defineProperty(e, 'which', { get: () => kc });
+    if (type === 'keypress') Object.defineProperty(e, 'charCode', { get: () => (o.key === 'Enter' ? 13 : o.key.length === 1 ? o.key.charCodeAt(0) : 0) });
+    const ok = el.dispatchEvent(e);
+    if (type === 'keydown') go = ok;
+  }
+  if (o.key === 'Enter' && go && el.form && el.tagName === 'INPUT') { try { el.form.requestSubmit(); } catch (err) { el.form.submit(); } }
+  return { pressed: o.key, synthetic: true };
+}
+
+async function tabHidden(tabId) {
+  try { return await inject(tabId, () => document.visibilityState === 'hidden'); } catch (e) { return false; }
+}
+
+/* Trusted key through CDP when the tab is visible, page-world synthetic key when it is hidden. */
+async function sendKey(tabId, combo) {
+  const k = parseKey(combo);
+  if (await tabHidden(tabId)) return inject(tabId, keyMainFn, [k], 'MAIN');
+  try {
+    await pressKey(tabId, combo);
+    return { pressed: combo };
+  } catch (e) {
+    if (/Unknown key/.test(e.message)) throw e;
+    return inject(tabId, keyMainFn, [k], 'MAIN');
   }
 }
 
@@ -725,10 +783,14 @@ async function pressKey(tabId, combo) {
 async function evalCode(tabId, code) {
   const src = String(code || '').trim().replace(/;+\s*$/, '');
   try {
-    const asExpr = '(async () => (\n' + src + '\n))()';
-    const check = await cdp(tabId, 'Runtime.compileScript', { expression: asExpr, sourceURL: '', persistScript: false });
-    const expression = check.exceptionDetails ? '(async () => {\n' + src + '\n})()' : asExpr;
-    const r = await cdp(tabId, 'Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true, userGesture: true, timeout: 30000 });
+    // Try it as an expression first; a parse error (SyntaxError with no stack: it never ran) means statements.
+    // Runtime.compileScript is not used because Trusted Types pages (Search Console) block it.
+    const opts = { returnByValue: true, awaitPromise: true, userGesture: true, timeout: 30000 };
+    let r = await cdp(tabId, 'Runtime.evaluate', Object.assign({ expression: '(async () => (\n' + src + '\n))()' }, opts));
+    const ex0 = r.exceptionDetails;
+    if (ex0 && ex0.exception && ex0.exception.className === 'SyntaxError' && !ex0.stackTrace) {
+      r = await cdp(tabId, 'Runtime.evaluate', Object.assign({ expression: '(async () => {\n' + src + '\n})()' }, opts));
+    }
     if (r.exceptionDetails) {
       const ex = r.exceptionDetails;
       throw Object.assign(new Error((ex.exception && ex.exception.description) || ex.text || 'Script error'), { fromPage: true });
@@ -758,7 +820,7 @@ async function evalCode(tabId, code) {
     }
     const v = res && res[0] && res[0].result;
     if (!v) throw new Error(e.message);
-    if (!v.ok) throw new Error(v.error + (/unsafe-eval|Content Security Policy/i.test(v.error) ? ' (and the debugger was unavailable: ' + e.message + ')' : ''));
+    if (!v.ok) throw new Error(v.error + ' (debugger route failed first: ' + e.message + ')');
     return { value: v.value };
   }
 }
@@ -1012,9 +1074,7 @@ async function handleCommand(action, p = {}) {
       } else {
         r = await inject(tabId, actFn, ['type', p]);
       }
-      if (p.enter) {
-        try { await pressKey(tabId, 'Enter'); } catch (e) { await inject(tabId, actFn, ['key', { key: 'Enter' }]); }
-      }
+      if (p.enter) await sendKey(tabId, 'Enter');
       return Object.assign({ typed: r.desc }, await afterAction(tabId, before, Object.assign({}, p, { settle: p.enter ? p.settle : 0 })));
     }
 
@@ -1027,15 +1087,8 @@ async function handleCommand(action, p = {}) {
     case 'press': {
       const tabId = await tabFor(p);
       const before = (await chrome.tabs.get(tabId)).url;
-      let synthetic = false;
-      try {
-        await pressKey(tabId, p.key);
-      } catch (e) {
-        if (/Unknown key/.test(e.message)) throw e;
-        await inject(tabId, actFn, ['key', parseKey(p.key)]);
-        synthetic = true;
-      }
-      return Object.assign({ pressed: p.key }, synthetic ? { synthetic } : {}, await afterAction(tabId, before, p));
+      const r = await sendKey(tabId, p.key);
+      return Object.assign(r, await afterAction(tabId, before, p));
     }
 
     case 'scroll': {

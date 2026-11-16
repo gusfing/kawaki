@@ -36,15 +36,12 @@
           "description": "An architectural guide to state ownership and API boundaries in Next.js. Learn where state belongs, when to use Route Handlers vs direct server data access, and how to design clean data flow.",
           "image": "https://kawaki.co.in/assets/images/blog/nextjs-state-management-api-boundaries-cover.jpg",
           "datePublished": "2026-09-19T10:00:00.000Z",
-          "dateModified": "2026-09-22T00:00:00.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,76 @@
               "position": 3,
               "name": "Next.js State Management and API Flow",
               "item": "https://kawaki.co.in/blog/nextjs-state-management-api-boundaries"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/nextjs-state-management-api-boundaries#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What state belongs in a Client Component?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "State that controls immediate visual interactivity (modal visibility, drawer open/close, accordion expansion), temporary form input before submission, animation coordinates, or interactions requiring browser-exclusive APIs (Canvas, Geolocation)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should state be stored in the URL instead of client state?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Whenever the state controls what content is displayed, such as search queries, category filters, sorting options, pagination numbers, or tab selections. URL state makes the view shareable, bookmarkable, and refresh-safe."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should Server Components fetch data directly from databases?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. In Next.js App Router, Server Components run exclusively in a secure server environment. Direct database queries via ORMs or SQL clients eliminate HTTP serialization overhead and reduce network latency."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should I use a Route Handler instead of a Server Action?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use Route Handlers (route.ts) when you need standard HTTP endpoints for external consumers: third-party webhooks (Stripe, GitHub), mobile apps (iOS/Android), or public REST APIs. Use Server Actions for user-driven mutations originating from your own Next.js frontend."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are Server Actions automatically secure?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Server Actions compile into publicly accessible HTTP POST endpoints. You must authenticate the user session, authorize access to the specific resource, and validate all input data inside the action."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When is a client-side data fetch appropriate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Client-side fetching is appropriate for dynamic live search (typeahead), infinite scroll pagination, polling for real-time status updates, or fetching non-critical data after the primary page has already loaded."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where should authorization decisions happen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Authorization must always happen on the server, inside the Server Component before querying data, or inside the Server Action / Route Handler before executing a mutation. UI conditional rendering is for presentation only, not security."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does every modern web application need a global state library?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Most Next.js applications that properly use Server Components for domain data and URL search parameters for navigation require little to no global client state. Local component state and targeted React Context are often sufficient. ---"
+              }
             }
           ]
         }

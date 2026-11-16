@@ -36,15 +36,12 @@
           "description": "An engineering guide to choosing between AI automation and AI agents: 18-dimension decision matrix, autonomy spectrum, reliability mitigations, and reference designs.",
           "image": "https://kawaki.co.in/assets/images/blog/ai-automation-vs-ai-agents-cover.jpg",
           "datePublished": "2026-09-29T10:00:00.000Z",
-          "dateModified": "2026-09-29T10:00:00.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,92 @@
               "position": 3,
               "name": "AI Automation vs AI Agents",
               "item": "https://kawaki.co.in/blog/ai-automation-vs-ai-agents"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/ai-automation-vs-ai-agents#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the difference between AI automation and an AI agent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AI automation is a software architecture where the sequence of execution steps is fixed at design time by human engineers, using APIs, conditional logic, and optionally AI models for bounded cognitive tasks (like parsing text). An AI agent is a software architecture where a model is given an objective, context, and callable tools, and autonomously determines its own sequence of actions at runtime through an iterative reasoning-observation loop."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is every AI workflow an agent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. In fact, the vast majority of reliable production AI systems are not agents. Calling an LLM to classify an email, summarize a document, or extract JSON from an invoice is AI-assisted automation. It only becomes an agent if the model is helped to evaluate intermediate observations and dynamically choose what tools or actions to take next."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are AI agents more reliable than automation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Traditional deterministic automation is mathematically more reliable than AI agents. Deterministic code executes with 100% predictability when inputs match specifications. AI agents rely on probabilistic inference; as multi-step agentic chains lengthen, the likelihood of compounding errors, hallucinated parameters, or loop stalls increases exponentially."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should a business use an AI agent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A business should consider an AI agent only when the problem domain involves meaningful ambiguity, the execution path cannot be mapped out in advance, the environment changes during execution, and the system must dynamically select from multiple tools to investigate or solve a problem."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can AI automation use an LLM without being agentic?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Embedding an LLM as a single cognitive processing node within a deterministic pipeline (e.g., using a model to extract structured data from messy PDFs, followed by deterministic validation and database writes) is standard AI-assisted automation. The model performs a transformation, but does not control workflow sequencing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a bounded AI agent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A bounded AI agent is an agentic system whose operational authority is strictly constrained by software guardrails: explicit system instructions, curated minimal context, strictly typed tool schemas, runtime policy gates, hard iteration caps (e.g., maximum 5 turns), token budgets, and human escalation fallbacks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should AI agents have human approval?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. In production enterprise architectures, any action with significant financial, legal, security, or data integrity consequences must require human approval before execution. The agent stages the proposed action and rationale; an authenticated human operator authorizes or rejects the write."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are AI agents more expensive?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Generally, yes. While deterministic automation incurs negligible compute costs, an agentic loop requires multiple sequential model invocations across expanding context windows, consuming tens of thousands of tokens per task. However, if the agent successfully automates complex manual knowledge work, the return on investment can far outweigh the compute cost."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can automation and agents be combined?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. This is called a hybrid architecture, and it represents the most resilient enterprise pattern. A deterministic orchestrator governs the overarching business workflow, state persistence, and security gates, while delegating narrow, ambiguous subtasks to bounded agents."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the safest way to deploy an AI agent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The safest deployment methodology is: 1. Limit tools strictly to read-only operations initially. 2. Run the agent in shadow mode alongside human operators to benchmark accuracy against human decisions. 3. Enforce strict parameter validation and policy gates on all tools. 4. Require mandatory human approval for all write actions. 5. Deploy comprehensive telemetry and automated evaluation harnesses before granting bounded execution autonomy. ---"
+              }
             }
           ]
         }

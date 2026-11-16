@@ -36,15 +36,12 @@
           "description": "Learn how Japanese keyword hacks compromise WordPress, generate spam URLs, hide via cloaking, and how to fix them with HTTP 410 and root-cause cleanup.",
           "image": "https://kawaki.co.in/assets/images/blog/japanese-keyword-hack-wordpress-cover.jpg",
           "datePublished": "2026-09-24T10:00:00.000Z",
-          "dateModified": "2026-09-24T10:00:00.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,92 @@
               "position": 3,
               "name": "Japanese Keyword Hack Cleanup Guide",
               "item": "https://kawaki.co.in/blog/japanese-keyword-hack-wordpress"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/japanese-keyword-hack-wordpress#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the Japanese Keyword Hack in WordPress?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Japanese Keyword Hack is a search engine poisoning attack where intruders exploit an application or server vulnerability to inject scripts that dynamically generate thousands of spam pages targeting Japanese commercial search terms. It typically uses server-side cloaking to show spam to search engine crawlers while hiding it from ordinary site visitors."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why are Japanese spam pages appearing on my website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Japanese spam appears because an attacker gained unauthorized access to your WordPress environment, most commonly through an unpatched plugin, a stolen password, or an existing backdoor. The attacker injected automated code that dynamically generates commercial spam pages to exploit your site's domain authority on search engines."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can a WordPress site look completely normal while still being hacked?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Attackers frequently implement server-side cloaking, checking the visitor's HTTP User-Agent and Referer headers. If a human visits the site directly, the server renders the authentic company website. If Googlebot or Bingbot visits, the server returns the spam payload."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I find Japanese spam URLs on my WordPress site?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can discover spam URLs by checking the Pages and Security Issues reports in Google Search Console, inspecting server access logs for Googlebot requests returning 200 OK on unfamiliar paths, reviewing rogue XML sitemaps, and performing site:yourdomain.com searches on Google."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does deleting the spam pages fix the hack?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Deleting the visible spam pages or posts only addresses the symptom. If the underlying vulnerability (such as a compromised plugin or persistent PHP backdoor) is not identified and eradicated, the malicious script will simply regenerate the spam pages automatically."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should hacked spam URLs return HTTP 404 or HTTP 410?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Both HTTP 404 (Not Found) and HTTP 410 (Gone) will permanently deindex pages in Google Search over time. However, HTTP 410 Gone is preferred for known spam inventories because it sends an explicit, permanent signal to crawlers that the page was intentionally destroyed, which can expedite deindexing and reduce repetitive re-crawling."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does cloaking make WordPress spam harder to detect?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cloaking hides malicious content from standard browser sessions by evaluating incoming HTTP request headers on the server. Because the script serves legitimate theme HTML to regular human visitors and restricts spam payloads exclusively to search crawlers, site owners often remain unaware of the compromise until Google Search Console issues a security alert."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why did Google index pages that I cannot find on my server?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Attackers frequently use virtual dynamic routing rather than generating physical files on disk. The malware intercepts web server requests via .htaccess or WordPress routing hooks, dynamically rendering spam content on the fly. Because no physical HTML files exist on your server, standard file searches cannot locate them."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can a malware cleanup remove the spam from Google immediately?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. While security cleanup can instantly stop your server from serving spam, search engine deindexing depends on Google's crawl budget and re-crawl frequency. It typically takes several weeks for Googlebot to re-crawl thousands of affected URLs, register the 404/410 status codes, and retire them from the search index."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I prevent Japanese SEO spam from returning?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Prevent reinfection by disabling PHP execution in the /wp-content/uploads/ directory, maintaining updated plugins and themes, enforcing two-factor authentication, rotating all database and salt credentials, implementing a Web Application Firewall (WAF), and establishing continuous file integrity monitoring. ---"
+              }
             }
           ]
         }

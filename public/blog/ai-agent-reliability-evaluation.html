@@ -36,15 +36,12 @@
           "description": "An architectural guide to AI agent reliability in production. Learn how to engineer deterministic eval harnesses, multi-layer guardrails, and autonomous failure recovery.",
           "image": "https://kawaki.co.in/assets/images/blog/ai-agent-reliability-evaluation-cover.jpg",
           "datePublished": "2026-09-24T06:00:00.000Z",
-          "dateModified": "2026-09-24T06:00:00.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,60 @@
               "position": 3,
               "name": "AI Agent Reliability and Evaluation",
               "item": "https://kawaki.co.in/blog/ai-agent-reliability-evaluation"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/ai-agent-reliability-evaluation#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the fundamental difference between LLM accuracy and agent reliability?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "LLM accuracy measures whether a model generates a correct response to a static text prompt. Agent reliability measures whether a system can execute a multi-step workflow across external APIs, self-heal transient errors, preserve security invariants, and reach a verified goal state without unintended side effects."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is pass@k not suitable as a direct production reliability metric?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The pass@k metric calculates the probability that at least one of k generated candidates passes offline unit tests, which is useful when evaluating model capabilities in isolated sandboxes. In production automation with live side effects (such as payments or database mutations), an agent cannot execute multiple speculative attempts against external systems and discard the failures. For live side-effecting workflows, single-attempt success is more directly relevant than pass@k, but neither metric alone captures production reliability. Production systems require a multi-dimensional framework evaluating correctness, safety boundaries, recoverability, invariant enforcement, observability, availability, and cost."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you prevent an AI agent from entering an infinite retry loop?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Infinite loops are prevented by enforcing a hard maximum retry cap (typically 3 attempts) per step, returning structured observation contracts where the system sets retryable: false on unrecoverable errors, and executing loop-detection middleware that halts execution if an identical tool signature is invoked consecutively."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between model-level instructions and deterministic guardrails?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Model-level instructions are advisory prompts that guide reasoning but can be bypassed under adversarial inputs or context confusion. Deterministic guardrails are programmatic software controls (such as schema validators, cryptographic permission checks, and execution timeouts) enforced outside the model in application runtime that cannot be overridden through ordinary model output."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should an AI agent workflow mandate human-in-the-loop approval?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Workflows should mandate human approval when actions cross high-risk operational thresholds: financial transactions exceeding pre-set limits, irreversible data mutations, credential or permission alterations, and sensitive compliance operations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the Saga pattern apply to distributed AI agent workflows?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Because distributed agent workflows span third-party APIs where database locks are impossible, the Saga pattern pairs every mutating tool with an explicit compensating action. If a downstream step fails permanently, the orchestrator executes compensating actions in reverse order to restore enterprise consistency. ---"
+              }
             }
           ]
         }

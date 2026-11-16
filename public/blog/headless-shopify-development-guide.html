@@ -36,15 +36,12 @@
           "description": "Comprehensive technical guide to building headless Shopify Plus platforms. Learn how edge caching, optimistic UI, and custom APIs deliver fast commerce experiences.",
           "image": "https://kawaki.co.in/assets/images/blog/headless-shopify-development-guide-cover.jpg",
           "datePublished": "2026-09-02T11:00:00.000Z",
-          "dateModified": "2026-09-05T12:00:00.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,36 @@
               "position": 3,
               "name": "Headless Shopify Development Guide",
               "item": "https://kawaki.co.in/blog/headless-shopify-development-guide"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/headless-shopify-development-guide#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does going headless break standard Shopify apps?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Front-end widget apps (such as basic review stars or pop-up countdowns) do not automatically inject into a custom headless frontend. Instead, you integrate review systems (such as Yotpo, Okendo, or Stamped) via their official REST/GraphQL APIs, resulting in faster load times and complete styling control. Back-office apps (shipping, ERP, inventory, taxes) function completely undisturbed."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does checkout work in headless Shopify?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Checkout operates natively through Shopify's PCI-compliant, one-page checkout. When the customer is ready to transact, the frontend calls the Storefront API to generate a verified checkout URL and redirects the buyer smoothly, preserving all discounts, gift cards, and Shop Pay preferences."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the typical scope for a custom headless build?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Headless build scope varies based on catalog complexity, third-party integrations, and performance requirements, from focused storefront migrations to multi-brand international deployments. Explore our Services or Contact us to discuss technical requirements. ---"
+              }
             }
           ]
         }

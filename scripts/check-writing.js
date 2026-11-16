@@ -60,5 +60,15 @@ for (const f of walk(PUB)) {
   console.error(`✗ ${path.relative(PUB, f)}: ${hits.length}`);
   hits.slice(0, 4).forEach(h => console.error('   … ' + h));
 }
+// llms.txt and llms-full.txt are what AI assistants read about the studio: same rules.
+for (const name of ['llms.txt', 'llms-full.txt']) {
+  const f = path.join(PUB, name);
+  if (!fs.existsSync(f)) continue;
+  const hits = check(markdownText(fs.readFileSync(f, 'utf8')));
+  if (!hits.length) continue;
+  bad++; total += hits.length;
+  console.error(`✗ ${name}: ${hits.length}`);
+  hits.slice(0, 4).forEach(h => console.error('   … ' + h));
+}
 if (bad) { console.error(`\n✗ [check-writing] ${total} banned phrase(s) on ${bad} page(s). Rewrite them in plain language (rules: data/writing-rules.json, AGENTS.md).`); process.exit(1); }
 console.log('✓ [check-writing] every public page passes the writing rules');

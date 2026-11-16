@@ -30,7 +30,7 @@ const publicDir = path.resolve(rootDir, 'public');
 
 const filesToValidate = [
   { name: 'llms.txt', path: path.resolve(publicDir, 'llms.txt'), expectedTitle: '# Kawaki Studios' },
-  { name: 'llms-full.txt', path: path.resolve(publicDir, 'llms-full.txt'), expectedTitle: '# Kawaki Studios — Full Machine-Readable Knowledge Base & System Architecture' }
+  { name: 'llms-full.txt', path: path.resolve(publicDir, 'llms-full.txt'), expectedTitle: '# Kawaki Studios: full reference for AI assistants' }
 ];
 
 let totalErrors = 0;

@@ -36,15 +36,12 @@
           "description": "An engineering decision framework for choosing between Shopify Liquid and Headless Shopify. Features a 12-dimension decision matrix, root-cause speed analysis, optimization sequence, and migration guide.",
           "image": "https://kawaki.co.in/assets/images/blog/shopify-liquid-vs-headless-cover.jpg",
           "datePublished": "2026-09-28T10:00:00.000Z",
-          "dateModified": "2026-09-28T10:00:00.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,68 @@
               "position": 3,
               "name": "Shopify Liquid vs Headless Shopify",
               "item": "https://kawaki.co.in/blog/shopify-liquid-vs-headless"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/shopify-liquid-vs-headless#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is headless Shopify faster?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not automatically. A well-engineered headless storefront (built with Hydrogen, Next.js, or similar modern frameworks) can achieve exceptional performance through static generation, incremental revalidation, and edge caching. However, a bloated headless site with unvetted third-party scripts, unoptimized client-side hydration, and heavy JavaScript bundles will perform worse than a lean Liquid theme. Performance is a reflection of engineering discipline, asset optimization, tag governance, and payload budgeting, not the templating framework alone."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Shopify Liquid bad for performance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Shopify Liquid compiles server-side into lightweight HTML in tens of milliseconds, and Shopify serves rendered pages from an integrated global Cloudflare CDN. Sluggish Liquid stores are almost always caused by third-party tracking scripts, unoptimized commercial themes, and heavy uncompressed imagery, not the Liquid templating language."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is headless Shopify worth it for a small store?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Typically not. For stores whose storefront requirements fit standard e-commerce patterns and whose teams rely on visual theme editing, the additional development overhead, hosting infrastructure, and ongoing engineering dependency rarely justify the investment. A well-engineered custom Liquid theme provides superior capital and operational efficiency."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should a Shopify store move to headless?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A store should transition to headless only when concrete business requirements cannot be fulfilled within Liquid: when building custom 3D WebGL product customizers, unifying e-commerce across multiple digital touchpoints (web, mobile apps, kiosks) from a single API, or integrating publication-grade editorial storytelling via a dedicated headless CMS."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can Shopify Liquid be optimized instead of rebuilding?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. In the majority of e-commerce performance audits, executing a disciplined optimization protocol, purging orphaned app scripts, migrating marketing tags to server-side Google Tag Manager (sGTM), implementing responsive imagetag helpers, and streamlining theme CSS, restores fast loading times and passing Core Web Vitals on existing Liquid themes without a costly rebuild."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does headless improve SEO automatically?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Search engines rank pages based on content quality, backlink authority, user experience, and technical signals (clean HTML, fast Core Web Vitals, semantic schema, logical URL structure). Both Liquid and headless can achieve flawless technical SEO. In fact, headless migrations introduce substantial SEO risk if URL slug parity, 301 redirect trees, and server-rendered structured data are mismanaged during deployment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does headless Shopify add that Liquid doesn't?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Headless Shopify opens up complete frontend architectural freedom: the ability to build complex client-side applications in modern frameworks (Hydrogen, Next.js, Remix, etc.), integrate a dedicated headless CMS with more flexible relational content modeling, serve app-like transitions without page reloads, and power multiple independent consumer touchpoints (web, native iOS/Android apps, IoT, POS) from a single centralized Shopify commerce engine. ---"
+              }
             }
           ]
         }

@@ -37,6 +37,35 @@ const allHtmlFiles = getHtmlFiles(publicDir);
 const canonicalEntries = [];
 const skipped = [];
 
+/* Real lastmod dates. Every build used to stamp today's date on every URL, which teaches Google and Bing to
+   ignore lastmod. Now each page keeps a content hash in data/sitemap-lastmod.json and its date only moves
+   when the page itself changes. New pages start from the date git last changed the built file. */
+const crypto = require('crypto');
+const { execFileSync } = require('child_process');
+const lastmodFile = path.resolve(rootDir, 'data', 'sitemap-lastmod.json');
+const lastmodMap = fs.existsSync(lastmodFile) ? JSON.parse(fs.readFileSync(lastmodFile, 'utf8')) : {};
+const todayIso = new Date().toISOString().split('T')[0];
+let gitDates = null;
+function gitDate(rel) {
+  if (gitDates === null) {
+    gitDates = {};
+    try {
+      const out = execFileSync('git', ['log', '--format=@%cs', '--name-only', '--', 'public'], { cwd: rootDir, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+      let date = null;
+      for (const line of out.split('\n')) {
+        if (line.startsWith('@')) date = line.slice(1);
+        else if (line && date && !gitDates[line]) gitDates[line] = date;
+      }
+    } catch (e) { /* no git (some CI builds): new pages get today's date */ }
+  }
+  return gitDates['public/' + rel] || todayIso;
+}
+function pageHash(html) {
+  // Ignore asset cache-busting stamps, which change without the page changing.
+  return crypto.createHash('sha1').update(html.replace(/\?v=[A-Za-z0-9]+/g, '')).digest('hex').slice(0, 16);
+}
+let lastmodChanged = 0;
+
 allHtmlFiles.forEach(filePath => {
   const rel = path.relative(publicDir, filePath).split(path.sep).join('/');
   // Exclude 404 and admin dashboard
@@ -89,14 +118,22 @@ allHtmlFiles.forEach(filePath => {
     changefreq = 'monthly';
   }
 
-  const today = new Date().toISOString().split('T')[0];
+  const hash = pageHash(html);
+  const known = lastmodMap[route];
+  let lastmod;
+  if (known && known.hash === hash) lastmod = known.lastmod;
+  else {
+    lastmod = known ? todayIso : gitDate(rel);
+    lastmodMap[route] = { hash, lastmod };
+    lastmodChanged++;
+  }
 
   canonicalEntries.push({
     loc: expectedCanonical,
     route,
     priority,
     changefreq,
-    lastmod: today
+    lastmod
   });
 });
 
@@ -123,6 +160,13 @@ canonicalEntries.sort((a, b) => {
   if (b.route === '/') return 1;
   return a.loc.localeCompare(b.loc);
 });
+
+// Keep the lastmod map in step with the pages that exist (sorted keys, so diffs stay small).
+const liveRoutes = new Set(canonicalEntries.map(e => e.route));
+const nextMap = {};
+Object.keys(lastmodMap).filter(r => liveRoutes.has(r)).sort().forEach(r => { nextMap[r] = lastmodMap[r]; });
+fs.writeFileSync(lastmodFile, JSON.stringify(nextMap, null, 1) + '\n');
+console.log(`  ✓ lastmod: ${lastmodChanged} page(s) new or changed, ${canonicalEntries.length - lastmodChanged} unchanged (data/sitemap-lastmod.json)`);
 
 // 4. Build XML
 let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;

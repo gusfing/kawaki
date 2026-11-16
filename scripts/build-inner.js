@@ -29,6 +29,8 @@ function jsonLd(meta, faq) {
     });
   }
   graph.push(shell.breadcrumbLd(meta.path, meta.crumbs));
+  // Extra schema nodes declared in a template's @meta (the About page uses it for the founder).
+  if (Array.isArray(meta.ld)) meta.ld.forEach(node => graph.push(node));
   if (faq && faq.length) {
     graph.push({
       '@type': 'FAQPage', '@id': url + '#faq',

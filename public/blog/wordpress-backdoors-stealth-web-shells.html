@@ -36,15 +36,12 @@
           "description": "A forensic engineering guide to detecting, analyzing, and eradicating stealth WordPress backdoors, obfuscated web shells, and persistent database cron hooks.",
           "image": "https://kawaki.co.in/assets/images/blog/wordpress-backdoors-stealth-web-shells-cover.jpg",
           "datePublished": "2026-09-25T10:00:00.000Z",
-          "dateModified": "2026-09-25T10:00:00.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,52 @@
               "position": 3,
               "name": "WordPress Backdoor and Web Shell Removal",
               "item": "https://kawaki.co.in/blog/wordpress-backdoors-stealth-web-shells"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/wordpress-backdoors-stealth-web-shells#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "1. Why didn't our security plugin detect the backdoor that caused reinfection?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard security plugins rely heavily on signature matching, evaluating files against known databases of malware strings and checksums. Sophisticated web shells use variable functions, dynamic string concatenation, multi-layer decompression, or request-bound authentication keys that produce zero signature matches. Furthermore, database-resident cron jobs and hidden SQL admin accounts exist entirely outside the filesystem scanned by traditional plugins."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "2. Can a backdoor survive if we delete all website files and restore a database backup?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. If the attacker established database persistence, such as injecting malicious scheduled tasks into wpoptions.cron, creating rogue administrative accounts in wpusers, or embedding Base64 payloads inside theme options, restoring an infected database backup onto a fresh filesystem will trigger automated reinfection. Complete remediation requires sanitizing both the filesystem and the database simultaneously."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "3. What is the difference between an arbitrary file upload vulnerability and a web shell?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An arbitrary file upload vulnerability is the security flaw (often found in an unpatched plugin, theme, or form handler) that allows an unauthenticated user to upload a file of their choice to your server. A web shell is the actual malicious program (the backdoor) that the attacker uploads through that flaw to achieve ongoing remote command execution and control."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "4. Why is rotating WordPress salts mandatory during backdoor cleanup?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WordPress security keys and salts (defined in wp-config.php) encrypt and verify authentication cookies stored in user browsers. If an attacker has compromised your database, intercepted server environment variables, or extracted password hashes, rotating your security salts immediately invalidates all active user sessions, cookies, and tokens across the entire site, instantly locking out unauthorized sessions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "5. How can we verify that our server is completely free of persistent backdoors?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "True verification requires multi-layer validation: 1. Cryptographic confirmation that all core and plugin files match authoritative WordPress.org hashes (wp core verify-checksums). 2. Verification that no PHP files exist inside /wp-content/uploads/. 3. Database inspection confirming zero unauthorized administrators and clean cron option arrays. 4. Server log analysis confirming that post-cleanup requests to suspected backdoor URLs return clean HTTP 404 errors without outbound C2 network connections. ---"
+              }
             }
           ]
         }

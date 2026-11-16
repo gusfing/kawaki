@@ -36,15 +36,12 @@
           "description": "An architectural guide to designing the server/client boundary in Next.js App Router. Learn when to render on the server, when client state is necessary, and how to avoid hydration costs.",
           "image": "https://kawaki.co.in/assets/images/blog/nextjs-server-vs-client-components-cover.jpg",
           "datePublished": "2026-09-18T10:00:00.000Z",
-          "dateModified": "2026-09-21T18:00:00.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,60 @@
               "position": 3,
               "name": "Next.js Server vs Client Components",
               "item": "https://kawaki.co.in/blog/nextjs-server-vs-client-components"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/nextjs-server-vs-client-components#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the core difference between Server and Client Components in Next.js?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Server Components execute only on the server and emit HTML/RSC payload without shipping their JavaScript dependencies to the browser. Client Components pre-render HTML on the server and then hydrate in the browser, enabling state, effects, and event handling."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should I use the 'use client' directive?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use 'use client' only when a component requires browser APIs, React state hooks (useState, useReducer), lifecycle effects (useEffect), or event listeners (onClick, onChange). Keep the directive as close to the interactive leaves of your DOM tree as possible."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are Server Components always faster than Client Components?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not universally. Server Components reduce client-side bundle size and eliminate hydration overhead, but if a server-side data fetch is slow and un-cached, it can delay Time to First Byte (TTFB). Architectural performance depends on proper caching, parallel data retrieval, and streaming with Suspense."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can a Server Component render a Client Component?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. A Server Component can import and render a Client Component directly. The server renders the component to HTML and serializes its props into the RSC payload for client hydration."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can a Client Component render a Server Component?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A Client Component cannot directly import a Server Component (because the server code cannot run in the browser). However, a Client Component can accept a Server Component as a children prop, allowing server-rendered content to be composed inside an interactive client shell."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this architecture apply to the Next.js Pages Router?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The server/client component boundary model is specific to the Next.js App Router. The Pages Router uses traditional SSR (getServerSideProps), SSG (getStaticProps), and full-page client-side hydration. Both routers continue to be supported by Next.js, but modern React features like RSC require the App Router. ---"
+              }
             }
           ]
         }

@@ -1,4 +1,4 @@
-# Kawaki Studios — Full Machine-Readable Knowledge Base & System Architecture
+# Kawaki Studios: full reference for AI assistants
 
 > Kawaki Studios is a founder-led digital engineering studio based in New Delhi, India, focused on custom web development, web applications, Shopify development, AI automation, AI search optimization, and WordPress security and recovery.
 
@@ -22,7 +22,7 @@
 
 ### Capability 1: Custom web development
 - **Canonical URL**: <https://kawaki.co.in/services/custom-web-development>
-- **Summary**: Bespoke digital platforms engineered with Next.js App Router, TypeScript, and modern CSS architectures.
+- **Summary**: Custom websites and web platforms built with Next.js, React and TypeScript, designed and coded by hand.
 
 ### Capability 2: Modern web application development
 - **Canonical URL**: <https://kawaki.co.in/services/web-application-development>
@@ -30,7 +30,7 @@
 
 ### Capability 3: Shopify and headless commerce engineering
 - **Canonical URL**: <https://kawaki.co.in/services/shopify-development>
-- **Summary**: Custom Liquid themes, Storefront API integrations, and sub-second decoupled commerce storefronts.
+- **Summary**: Custom Liquid themes, Storefront API integrations, and headless storefronts when the catalogue needs one.
 
 ### Capability 4: AI workflow automation and bounded AI agents
 - **Canonical URL**: <https://kawaki.co.in/services/ai-automation>
@@ -56,13 +56,13 @@
 
 ### Service: Custom Web Development
 - **URL**: <https://kawaki.co.in/services/custom-web-development>
-- **Core Definition**: Bespoke digital platform engineering utilizing modern web standards, component-driven frontend architecture, and server-side rendering to create high-performance web presences tailored to exact operational requirements.
+- **Core Definition**: Custom websites and web platforms built with modern web standards, component-based front ends and server-side rendering, shaped around how the business actually works.
 
 #### Detailed Deliverables
 - Modular frontend architectures built on Next.js App Router and React Server Components
 - TypeScript codebases engineered for type safety, maintainability, and clean separation of concerns
 - Publication-grade typographic hierarchies and custom design implementations without generic templates
-- Sub-second page transitions, responsive viewports, and asset-budgeted media delivery
+- Fast page loads on a performance budget, responsive layouts, and media sized for the device
 - Direct API integrations, webhook handlers, and database connections
 
 #### Problem Scenarios Addressed
@@ -74,11 +74,11 @@
 #### Technical Implementations & Patterns
 - Next.js App Router, React Server Components (RSC), TypeScript
 - Modern CSS architectures, fluid typography (CSS clamp), semantic HTML5
-- REST & GraphQL API design, serverless microservices
+- REST and webhook API design and integration
 - Edge caching, CDN routing, and Core Web Vitals engineering
 
 #### Qualification & Suitability
-Appropriate when a business requires a distinctive, highly tailored digital flagship that cannot be constrained by off-the-shelf website builders or generic themes.
+Appropriate when a business requires a distinctive site with its own design and flows that cannot be constrained by off-the-shelf website builders or generic themes.
 
 #### Cross-Service Interconnections
 - Related Service: <https://kawaki.co.in/services/web-application-development>
@@ -112,7 +112,7 @@ Appropriate when a business requires a distinctive, highly tailored digital flag
 #### Technical Implementations & Patterns
 - Next.js, React 19, TypeScript, Node.js
 - Client state management, optimistic mutations, server action contracts
-- PostgreSQL, SQLite, Redis caching, structured data migrations
+- PostgreSQL, SQLite and structured data migrations
 - JWT/Session authentication, CORS security envelopes, API Route Handlers
 
 #### Qualification & Suitability
@@ -128,10 +128,10 @@ Appropriate when a business requires an interactive software tool, dashboard, po
 
 ### Service: Shopify Development
 - **URL**: <https://kawaki.co.in/services/shopify-development>
-- **Core Definition**: Custom e-commerce engineering for Shopify stores, ranging from bespoke Liquid theme development and checkout optimizations to decoupled headless storefronts powered by the Shopify Storefront GraphQL API.
+- **Core Definition**: Custom e-commerce engineering for Shopify stores, ranging from custom Liquid theme development and checkout improvements to headless storefronts built on the Shopify Storefront API.
 
 #### Detailed Deliverables
-- Bespoke Shopify Liquid themes built without bloated multi-purpose commercial themes
+- Custom Shopify Liquid themes instead of heavy multi-purpose bought themes
 - Decoupled headless storefronts utilizing Next.js, Shopify Hydrogen, and Edge caching
 - Custom product detail pages (PDPs) with narrative layouts and dynamic variant pickers
 - Optimistic cart drawer mutations providing instantaneous customer feedback
@@ -145,12 +145,12 @@ Appropriate when a business requires an interactive software tool, dashboard, po
 
 #### Technical Implementations & Patterns
 - Shopify Liquid, Theme App Extensions, Theme Customizer JSON schemas
-- Shopify Storefront GraphQL API (v2026-01+), cartLinesAdd mutations
-- Next.js App Router, React Server Components, Vercel Edge / Cloudflare Workers
+- Shopify Storefront API for headless carts and catalogues
+- Next.js App Router and React Server Components, deployed on Vercel
 - Stale-while-revalidate (SWR) edge caching with automated inventory webhooks
 
 #### Qualification & Suitability
-Appropriate for ambitious e-commerce brands needing either a high-performance custom Liquid theme or a sub-second decoupled headless storefront.
+Appropriate for ambitious e-commerce brands needing either a fast custom Liquid theme or a headless storefront.
 
 #### Cross-Service Interconnections
 - Related Service: <https://kawaki.co.in/services/custom-web-development>
@@ -276,7 +276,7 @@ Appropriate when a WordPress website has been breached, blacklisted, suspended b
 
 ### WordPress Development
 - **Canonical URL**: <https://kawaki.co.in/services/wordpress-development>
-- **Scope & Description**: Clean, bespoke WordPress theme and backend engineering for publishers and organizations that require WordPress for content management but demand custom code, fast load times, and minimal plugin dependencies.
+- **Scope & Description**: Clean, custom WordPress theme and backend engineering for publishers and organizations that require WordPress for content management but demand custom code, fast load times, and minimal plugin dependencies.
 
 ## 5. WordPress Security, Forensics & Recovery Sub-System
 
@@ -378,7 +378,7 @@ For live side-effecting workflows, single-attempt success is more directly relev
 - **Author**: Kunal Sharma
 - **Primary Topics**: Web Development, Agency Evaluation, Proposal Review, Engineering Strategy
 - **Executive Summary**: A practical technical guide for founders and business leaders on how to evaluate web development proposals beyond price, vet architectural integrity, assess code ownership, and uncover hidden costs.
-- **Key Concepts**: ["how to evaluate a web development proposal","how to evaluate web development proposals beyond price","web development proposal evaluation checklist","website proposal comparison matrix","questions to ask before signing web development contract","hidden costs in web development proposals","fixed price vs milestone web development proposal","red flags in agency website proposals","custom web development agency vetting"]
+- **Key Concepts**: ["how to evaluate a web development proposal", "how to evaluate web development proposals beyond price", "web development proposal evaluation checklist", "website proposal comparison matrix", "questions to ask before signing web development contract", "hidden costs in web development proposals", "fixed price vs milestone web development proposal", "red flags in agency website proposals", "custom web development agency vetting"]
 
 ### [How AI Search Engines Cite Sources: RAG Architecture, Query Fan-Out, and Generative Engine Optimization](https://kawaki.co.in/blog/how-ai-search-engines-cite-sources)
 - **Canonical URL**: https://kawaki.co.in/blog/how-ai-search-engines-cite-sources
@@ -483,7 +483,7 @@ For live side-effecting workflows, single-attempt success is more directly relev
 - **Author**: Kunal Sharma
 - **Primary Topics**: Editorial Engineering, Web Architecture, Design Systems, Typography
 - **Executive Summary**: Discover why modern brand websites are trading generic component libraries for editorial engineering, a discipline bridging publication-grade typography, narrative motion, and fast web architecture.
-- **Key Concepts**: editorial engineering, editorial web development, custom cms development, digital flagships, typography systems, web architecture
+- **Key Concepts**: editorial engineering, editorial web development, custom cms development, typography systems, web architecture
 
 ## 9. Architectural Reference Designs (Case Studies)
 
@@ -492,14 +492,14 @@ For live side-effecting workflows, single-attempt success is more directly relev
 ### Reference Design: Fintech ROI Calculator Architecture
 - **Canonical URL**: <https://kawaki.co.in/case-studies/fintech-roi-calculator>
 - **Designation**: Architectural Reference Design
-- **Detailed Blueprint**: A conceptual reference architecture exploring client-side interactive financial modeling. Demonstrates zero-dependency SVG chart rendering, parametric sensitivity calculations, sub-second reactivity, and lead qualification webhook integration.
+- **Detailed Blueprint**: A conceptual reference architecture exploring client-side interactive financial modeling. Demonstrates zero-dependency SVG chart rendering, parametric sensitivity calculations, instant recalculation as inputs change, and lead qualification webhook integration.
 
 ## 10. Comprehensive Frequently Asked Questions
 
 ### Q: What does Kawaki Studios do?
 **Domain**: General
 
-Kawaki Studios is an independent digital engineering studio founded by Kunal Sharma. We engineer custom web platforms, modern web applications, bespoke Shopify storefronts, deterministic AI workflow automations, AI search architectures, and WordPress security recovery.
+Kawaki Studios is an independent digital engineering studio founded by Kunal Sharma. We engineer custom web platforms, modern web applications, custom Shopify storefronts, AI workflow automations, AI search architectures, and WordPress security recovery.
 
 ### Q: Where is Kawaki Studios based?
 **Domain**: General
@@ -514,7 +514,7 @@ Custom web development is the engineering of a digital platform using modern pro
 ### Q: When should a business choose custom development over a site builder?
 **Domain**: Web Development
 
-Custom development is appropriate when a business requires a distinctive design identity, specialized user flows, sub-second loading performance, complete code ownership, or deep API and database integrations that off-the-shelf builders cannot support.
+Custom development is appropriate when a business requires a distinctive design identity, specialized user flows, fast loading, ownership of the code, or deep API and database integrations that off-the-shelf builders cannot support.
 
 ### Q: Who retains ownership of the custom web application source code?
 **Domain**: Web Development
@@ -539,7 +539,7 @@ Human authorization gates are required when an action crosses pre-defined risk t
 ### Q: When is headless Shopify appropriate?
 **Domain**: Shopify
 
-Headless Shopify is appropriate for high-volume merchants whose conversion rates or brand experience are constrained by Liquid templating, app script bloat, or multi-market international catalog requirements requiring sub-second edge rendering.
+Headless Shopify is appropriate for high-volume merchants whose conversion rates or brand experience are constrained by Liquid templating, app script bloat, or multi-market international catalogues that a theme cannot handle well.
 
 ### Q: What is the distinction between WordPress Development and WordPress Security?
 **Domain**: WordPress Security
@@ -549,7 +549,7 @@ WordPress Development focuses on engineering, customizing, and maintaining clean
 ### Q: Why does WordPress malware frequently return after deletion?
 **Domain**: WordPress Security
 
-Malware recurs because attackers install stealth backdoors—obfuscated PHP files, rogue administrative users, or database cron jobs—that re-download malicious payloads after surface files are deleted. Complete recovery requires eradicating all persistence vectors.
+Malware recurs because attackers install hidden backdoors (obfuscated PHP files, rogue administrator accounts or database cron jobs) that re-download malicious payloads after surface files are deleted. Complete recovery requires eradicating all persistence vectors.
 
 ### Q: What is the difference between SEO, AEO, and GEO?
 **Domain**: AI Search

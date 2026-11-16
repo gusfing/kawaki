@@ -36,15 +36,12 @@
           "description": "A forensic engineering guide to detecting, diagnosing, and eradicating WordPress malicious redirects, injected JavaScript, conditional .htaccess hijacks, and mobile traffic gating.",
           "image": "https://kawaki.co.in/assets/images/blog/wordpress-malicious-redirects-cleanup-cover.jpg",
           "datePublished": "2026-09-26T10:00:00.000Z",
-          "dateModified": "2026-09-26T10:00:00.000Z",
+          "dateModified": "2026-11-16T09:00:00.000Z",
           "author": {
             "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Kawaki Studios",
-              "url": "https://kawaki.co.in"
-            }
+            "url": "https://kawaki.co.in/about"
           },
           "publisher": {
             "@type": "Organization",
@@ -79,6 +76,68 @@
               "position": 3,
               "name": "WordPress Malicious Redirect Cleanup",
               "item": "https://kawaki.co.in/blog/wordpress-malicious-redirects-cleanup"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/wordpress-malicious-redirects-cleanup#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "1. Why does my WordPress site redirect only on mobile devices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Attackers intentionally program conditional gating logic using the HTTP User-Agent header. Mobile traffic commands higher ad arbitrage and affiliate payouts, while mobile users are far less likely to inspect network waterfalls or examine page source code. Restricting the redirect to mobile devices also conceals the compromise from site owners who browse their site primarily from desktop workstations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "2. Why can't I reproduce the redirect when logged in as an administrator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Malicious redirect scripts inspect incoming browser cookies for WordPress session tokens (such as wordpressloggedin). If the script detects an active administrator session, it suppresses the redirect and renders the authentic site cleanly. This stealth mechanism ensures administrators remain unaware of the problem until external customers report it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "3. Can a modified .htaccess file cause a WordPress redirect hack?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Apache and LiteSpeed web servers process .htaccess rewrite rules before WordPress core or PHP scripts are evaluated. Attackers insert conditional RewriteCond rules matching mobile user-agents and search engine referrers, routing visitors to external domains via HTTP 302 headers before any WordPress application logic executes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "4. Can a malicious redirect survive after all infected files are deleted?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. If the redirect logic is stored within the MySQL database (such as modified siteurl/home records in wpoptions, autoloaded transient scripts, or injected <script tags in wpposts), replacing physical files on disk will not remove the redirect. Complete remediation requires sanitizing both the filesystem and the database simultaneously."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "5. How do I determine whether a redirect is driven by JavaScript or server-side configuration?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Inspect the raw HTTP response headers using curl -sIL -A \"Mobile User Agent\" https://example.com/. If the server immediately returns an HTTP/1.1 301 or 302 response with a Location: header pointing to the external domain, the redirect is executed server-side (.htaccess, Nginx, or PHP). If the server returns an HTTP/1.1 200 OK document containing inline script tags (window.location = ...), the redirect is executed client-side via JavaScript."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "6. Why did our automated security plugin scan report zero malware while redirects continue?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard security plugins evaluate files on disk against databases of known malware signatures. Custom-obfuscated JavaScript, dynamic database options, and server rewrite directives (.htaccess) frequently evade static signature matching. Furthermore, if the redirect fetches configuration parameters dynamically from an external C2 server, no malicious code footprint exists on disk for the scanner to detect."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "7. What forensic evidence should we preserve before cleaning a compromised site?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Always capture a complete, offline compressed archive of the entire web root (tar -czf) and an authoritative database export (mysqldump) before modifying or deleting a single file. Additionally, archive your recent web server access logs (access.log and error.log) to preserve timestamp evidence linking rogue file modifications to specific IP addresses and entry vectors. ---"
+              }
             }
           ]
         }
