@@ -56,3 +56,9 @@ service-account.json
 .claude/
 .agents/
 .jury/
+
+# Secrets and private search data (never commit)
+.env
+.env.*
+!.env.example
+reports/seo/
