@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const shell = require('./lib/shell');
 const { serviceCopy, display, lower } = require('./lib/service-copy');
+const { cityServiceCopy, cityHubCopy } = require('./lib/city-copy');
+const { solutionCopy } = require('./lib/solution-copy');
 
 const rootDir = path.resolve(__dirname, '..');
 const publicDir = path.resolve(rootDir, 'public');
@@ -168,240 +170,47 @@ function generateDifferentiatedContent(entry) {
   // 1. LOCATION HUB PAGES (14 pages)
   // =========================================================================
   if (pType === 'location') {
-    section1Tag = '[ 01 / REGIONAL ENGAGEMENT ]';
-    section1Title = `Digital Engineering & Web Systems for ${loc} Businesses`;
-    overviewParagraph = `Operating from our primary studio in New Delhi, Kawaki Studios partners with businesses in ${loc} that require bespoke web development, full-stack web applications, and headless ecommerce storefronts. ${profile.context} Rather than relying on generic visual site builders or bloated off-the-shelf themes, we construct clean, maintainable software architectures aligned with ${loc} commercial goals.`;
-
-    valueCards = [
-      { num: '01.01', title: `Modular Frontend Architecture for ${loc}`, body: `Component-driven frontend architectures engineered in TypeScript and React to eliminate framework weight for ${loc} businesses.` },
-      { num: '01.02', title: `Search Crawlability & Entity Clarity in ${loc}`, body: `Semantic HTML hierarchy, programmatic metadata, and verified JSON-LD schema engineered for commercial discovery across ${loc}.` },
-      { num: '01.03', title: `Direct Engineering Collaboration with ${loc} Teams`, body: `Direct sprint collaboration with our practicing software engineers in New Delhi, ensuring milestone visibility for ${loc} leadership teams.` }
-    ];
-
-    challengeTitle = `Commercial & Technical Landscape in ${loc}`;
-    challengeDesc = `${profile.ecosystem} Addressing these dynamics demands reliable digital systems that load smoothly on mobile networks and clearly articulate commercial positioning. ${profile.challenge}`;
-
-    deliverables = [
-      { title: `Responsive Frontend Engineering in ${loc}`, body: `Mobile-first layouts built with semantic CSS and React, delivering predictable responsiveness across varied network conditions in ${loc}.` },
-      { title: `Relational Schemas & API Pipelines for ${loc}`, body: `Structured database schemas in SQLite or PostgreSQL, connected to external services via clean REST and webhook connectors for ${loc} operations.` },
-      { title: `Structured Schema & Crawl Optimization in ${loc}`, body: `Accurate organization and service schema markup ensuring search engines index key commercial capabilities in ${loc} without ambiguity.` },
-      { title: `Transparent Code Handoff for ${loc} Clients`, body: `Every ${loc} client receives full access to a modular Git codebase with clear documentation, avoiding proprietary vendor dependency.` }
-    ];
-
-    archTitle = `Remote Collaboration Framework for ${loc} Teams`;
-    archDesc = `${profile.collaboration} We structure engagements through milestone sprints, weekly video walkthroughs, and live staging environments on Vercel for ${loc} deployments.`;
-
-    processSteps = [
-      { num: '01 / DISCOVERY', title: `Requirements & Architecture Audit for ${loc}`, desc: `Define core user flows, technical dependencies, and data schemas for your ${loc} commercial operations.` },
-      { num: '02 / DESIGN', title: `Typographic & Visual Systems for ${loc}`, desc: `Craft clean layout grids, typographic hierarchies, and responsive interfaces in Figma tailored for ${loc} market expectations.` },
-      { num: '03 / SPRINT', title: `Milestone Engineering for ${loc}`, desc: `Build modular full-stack features with ongoing staging previews on Vercel for your ${loc} deployment.` },
-      { num: '04 / QA & LAUNCH', title: `Cross-Device QA & Cutover for ${loc}`, desc: `Execute semantic markup audits, mobile responsiveness checks, and disciplined production cutover for ${loc}.` }
-    ];
-
-    faqs = [
-      { q: `Where is Kawaki Studios based, and how do you collaborate with ${loc} organizations?`, a: `Kawaki Studios is headquartered in New Delhi. We serve clients in ${loc} through a structured remote engineering model using video strategy sessions, Linear sprint tracking, and live staging previews on Vercel.` },
-      { q: `Does Kawaki Studios operate a physical satellite office in ${loc}?`, a: `No. We intentionally maintain a centralized engineering and design studio in New Delhi rather than maintaining a distributed sales office in ${loc}. This allows our senior developers to work directly on your codebase without agency overhead.` },
-      { q: `What technologies do you use for web projects in ${loc}?`, a: `We primarily engineer systems using Next.js, React, TypeScript, Node.js, Python, SQLite, PostgreSQL, and Shopify Liquid/Storefront APIs for ${loc} deployments.` },
-      { q: `How do we track project milestones and code progress from ${loc}?`, a: `We provide weekly video walkthroughs, transparent Git commits, staging links on Vercel, and direct communication with practicing engineers throughout your ${loc} project.` }
-    ];
+    const cc = cityHubCopy(entry);
+    section1Title = cc.section1Title;
+    overviewParagraph = cc.overviewParagraph;
+    valueCards = cc.valueCards;
+    challengeTitle = cc.challengeTitle;
+    challengeDesc = cc.challengeDesc;
+    deliverables = cc.deliverables;
+    archTitle = cc.archTitle;
+    archDesc = cc.archDesc;
+    processSteps = cc.processSteps;
+    faqs = cc.faqs;
   }
 
-  // =========================================================================
-  // 2. LOCATION-SERVICE PAGES (54 pages)
-  // =========================================================================
   else if (pType === 'location-service') {
-    section1Tag = '[ 01 / REGIONAL SERVICE ARCHITECTURE ]';
-    section1Title = `Bespoke ${sName} for ${loc} Organizations`;
-    overviewParagraph = `Kawaki Studios delivers professional ${sName.toLowerCase()} tailored for commercial organizations in ${loc}. ${profile.context} Rather than applying generic templates, we architect bespoke web solutions designed around your specific business model and market realities for ${h.toLowerCase()}.`;
-
-    valueCards = [
-      { num: '01.01', title: `${sName} Strategy for ${loc}`, body: `Custom system architecture engineered specifically for ${sName.toLowerCase()} requirements among ${loc} commercial organizations.` },
-      { num: '01.02', title: `Commercial Impact in ${loc}`, body: `Refined typography, clear service taxonomy, and conversion-focused user journeys built to differentiate your ${sName.toLowerCase()} brand in ${loc}.` },
-      { num: '01.03', title: `Centralized Engineering Direct to ${loc}`, body: `Direct technical coordination from our New Delhi development team, offering clear milestone accountability for ${sName.toLowerCase()} project leads in ${loc}.` }
-    ];
-
-    challengeTitle = `${sName} Demands in the ${loc} Ecosystem`;
-    challengeDesc = `${profile.ecosystem} For businesses investing in ${sName.toLowerCase()} across ${loc}, the primary challenge is overcoming generic templates, unmaintained visual plugins, and slow mobile loading speeds that undermine buyer conversion.`;
-
-    deliverables = [
-      { title: `Tailored ${sName} Systems in ${loc}`, body: `Bespoke digital architecture engineered to solve the specific operational bottlenecks faced by ${loc} organizations investing in ${sName.toLowerCase()}.` },
-      { title: `Mobile Performance Across ${loc}`, body: `Mobile-first fluid layouts that render cleanly across mobile broadband in ${loc} without unexpected layout shifts for ${sName.toLowerCase()}.` },
-      { title: `Structured Data & Regional Crawlability in ${loc}`, body: `Comprehensive schema markup and semantic headings ensuring search engines index your ${sName.toLowerCase()} offerings accurately across ${loc}.` },
-      { title: `Secure API & Data Connectors for ${loc}`, body: `Sanitized input handling and disciplined REST/webhook integrations connecting your ${sName.toLowerCase()} platform with existing operational software in ${loc}.` }
-    ];
-
-    archTitle = `Remote Engineering Standards for ${sName} in ${loc}`;
-    archDesc = `All our development for ${loc} clients follows modern web standards with strict TypeScript typing, clean semantic CSS, and disciplined testing from our New Delhi studio for ${h.toLowerCase()}.`;
-
-    processSteps = [
-      { num: '01 / SCOPE', title: `Domain Discovery for ${sName} in ${loc}`, desc: `Map functional specifications and commercial objectives for your ${sName.toLowerCase()} audience in ${loc}.` },
-      { num: '02 / ARCH', title: `Data Modeling for ${sName} in ${loc}`, desc: `Define relational models, component boundaries, and integration endpoints for ${sName.toLowerCase()} serving the ${loc} market.` },
-      { num: '03 / BUILD', title: `Iterative Sprint Development for ${loc}`, desc: `Develop modular full-stack components with continuous staging reviews on Vercel for your ${loc} deployment of ${sName.toLowerCase()}.` },
-      { num: '04 / DEPLOY', title: `Verification & Production Release in ${loc}`, desc: `Perform schema validation, cross-browser audits, and live DNS cutover for your ${loc} ${sName.toLowerCase()} platform.` }
-    ];
-
-    faqs = [
-      { q: `Why choose custom ${sName.toLowerCase()} over pre-made templates in ${loc}?`, a: `Pre-made templates often bundle unneeded plugins and generic layouts for ${sName.toLowerCase()}. Custom engineering provides complete code control, clean maintainability, and distinct visual identity tailored to ${loc} commercial standards.` },
-      { q: `How do you manage communication and project progress for ${sName.toLowerCase()} in ${loc}?`, a: `We provide weekly video walkthroughs, shared sprint boards, continuous staging previews on Vercel, and direct developer communication for your ${loc} ${sName.toLowerCase()} build.` },
-      { q: `Can you connect our ${sName.toLowerCase()} platform with our operational databases in ${loc}?`, a: `Yes. We build secure REST and webhook connectors to synchronize data with your external databases, CRM systems, and operational software for ${sName.toLowerCase()} in ${loc}.` },
-      { q: `How does Kawaki Studios ensure long-term codebase maintainability for ${sName.toLowerCase()} in ${loc}?`, a: `We write modular TypeScript and semantic HTML with full codebase access, delivering clean Git repositories that any competent engineer can maintain for ${sName.toLowerCase()} in ${loc}.` }
-    ];
+    const cc = cityServiceCopy(entry);
+    section1Title = cc.section1Title;
+    overviewParagraph = cc.overviewParagraph;
+    valueCards = cc.valueCards;
+    challengeTitle = cc.challengeTitle;
+    challengeDesc = cc.challengeDesc;
+    deliverables = cc.deliverables;
+    archTitle = cc.archTitle;
+    archDesc = cc.archDesc;
+    processSteps = cc.processSteps;
+    faqs = cc.faqs;
   }
 
-  // =========================================================================
-  // 3. SOLUTION PAGES (13 pages)
-  // =========================================================================
   else if (pType === 'solution') {
-    section1Tag = '[ 01 / DOMAIN BLUEPRINT ]';
-    section1Title = `Purpose-Built Solution Architecture: ${sName}`;
-
-    if (url.includes('healthcare') || url.includes('clinic') || url.includes('medical') || url.includes('surgical') || url.includes('hospital') || url.includes('spine') || url.includes('endocrinology')) {
-      overviewParagraph = `Healthcare and clinical web platforms require precise information architecture, patient-centric navigation, and clear procedural guidance. Our ${sName.toLowerCase()} practice addresses patient intake workflows, clinician directory routing, and privacy-sensitive data handling for ${h.toLowerCase()} without unnecessary third-party tracking scripts.`;
-
-      valueCards = [
-        { num: '01.01', title: 'Patient-Centered Information Design', body: `Clear procedural breakdowns, physician credential showcases, and friction-free consultation booking funnels tailored for ${h.toLowerCase()}.` },
-        { num: '01.02', title: 'Privacy-Sensitive Data Handling', body: `Sanitized form inputs, role-based database storage, and secure transmission protocols for sensitive patient inquiries across ${url}.` },
-        { num: '01.03', title: 'Demonstrated Healthcare Experience', body: `Adjacent experience demonstrated in our NursePass healthcare platform, supporting high-volume adaptive test workflows relevant to ${sName.toLowerCase()}.` }
-      ];
-
-      challengeTitle = `Operational & Regulatory Realities in Healthcare Digital Systems`;
-      challengeDesc = `Patients searching for specialized healthcare services need immediate reassurance, verifiable clinician credentials, and clear directions. Generic templates often fail accessibility requirements and introduce data leakage through intrusive third-party plugins for ${kw}.`;
-
-      deliverables = [
-        { title: 'Clinician Directory & Department Routing', body: `Structured profiles highlighting doctor qualifications, clinical specialties, and direct appointment scheduling for ${sName.toLowerCase()}.` },
-        { title: 'Pre-Consultation Intake Funnels', body: `Step-by-step patient intake forms with client-side validation and secure database submission for ${url}.` },
-        { title: 'Medical Schema & Local Entity Markup', body: `Accurate MedicalOrganization and Physician JSON-LD markup ensuring search engines parse clinical specialties correctly for ${sName.toLowerCase()}.` },
-        { title: 'Fast Mobile Access for Urgent Inquiries', body: `Lightweight HTML/CSS assets delivering rapid page rendering on mobile networks for patients seeking urgent care across ${h.toLowerCase()}.` }
-      ];
-
-      archTitle = `Clinical Platform Implementation & Architecture`;
-      archDesc = `We construct healthcare solutions with modular React/Next.js components, structured SQLite or PostgreSQL databases, and secure webhook notification pipelines for ${sName.toLowerCase()}.`;
-
-      processSteps = [
-        { num: '01 / INTAKE', title: 'Clinical Workflow Discovery', desc: `Audit patient journeys, medical department hierarchies, and appointment routing requirements for ${sName.toLowerCase()}.` },
-        { num: '02 / TAXONOMY', title: 'Medical Taxonomy & Schema', desc: `Establish clinical condition pages, specialist directories, and healthcare structured data for ${h.toLowerCase()}.` },
-        { num: '03 / SPRINT', title: 'Secure Interface Engineering', desc: `Build responsive clinical portals with sanitized input handling and staging previews for ${url}.` },
-        { num: '04 / VERIFY', title: 'Accessibility & Security Audit', desc: `Verify WCAG contrast standards, input sanitization, and production DNS deployment for ${sName.toLowerCase()}.` }
-      ];
-
-      faqs = [
-        { q: `What kind of healthcare platforms can Kawaki Studios engineer for ${sName.toLowerCase()}?`, a: `We build hospital department portals, specialist clinic websites, patient inquiry systems, and adaptive medical education software for ${sName.toLowerCase()} like our verified NursePass platform.` },
-        { q: `How do you handle patient data privacy for ${sName.toLowerCase()}?`, a: `We implement sanitized form inputs, secure HTTPS transmission, role-based backend access, and avoid third-party marketing tracking scripts across ${sName.toLowerCase()} pages.` },
-        { q: `Can the platform integrate with our hospital management software?`, a: `Yes. We can build custom REST and webhook connectors to synchronize appointment requests with external clinical management systems for ${url}.` },
-        { q: `How do you structure medical credentials for local search visibility?`, a: `We implement structured MedicalOrganization and Physician schema markup detailing clinical qualifications, clinic locations, and accepted consultation methods for ${sName.toLowerCase()}.` }
-      ];
-    } else if (url.includes('school') || url.includes('erp')) {
-      overviewParagraph = `Multi-campus educational institutions require robust digital platforms that coordinate admissions, attendance records, fee collections, and student gradebooks. Our ${sName.toLowerCase()} solution applies structured relational data modeling and role-based access control to simplify administrative operations for ${h.toLowerCase()}.`;
-
-      valueCards = [
-        { num: '01.01', title: 'Multi-Role User Portals', body: `Dedicated, role-protected dashboards for school administrators, teachers, parents, and students within ${h.toLowerCase()}.` },
-        { num: '01.02', title: 'Admissions & Fee Management', body: `Structured digital intake pipelines for applicant documentation, fee receipt generation, and enrollment tracking for ${url}.` },
-        { num: '01.03', title: 'Verified NextSchool ERP Provenance', body: `Directly supported by our verified NextSchool ERP build, managing campus operations and student academic profiles for ${sName.toLowerCase()}.` }
-      ];
-
-      challengeTitle = `Administrative Complexity in Modern Education Management`;
-      challengeDesc = `Disjointed spreadsheets and legacy paper processes lead to communication breakdowns between departments and parents. Educational institutions need a single reliable system that maintains data integrity across academic terms for ${kw}.`;
-
-      deliverables = [
-        { title: 'Student Lifecycle & Admissions Portal', body: `Digital enrollment forms, document upload workflows, and automated application status notifications for ${sName.toLowerCase()}.` },
-        { title: 'Fee Tracking & Ledger Synchronization', body: `Fee schedule configuration, automated payment status updates, and digital receipt generation for ${url}.` },
-        { title: 'Attendance & Academic Gradebooks', body: `Teacher portals for daily attendance logging, term grade recording, and report card generation for ${h.toLowerCase()}.` },
-        { title: 'Role-Based Database Isolation', body: `Fine-grained permission models ensuring teachers, parents, and administrators access only authorized data within ${sName.toLowerCase()}.` }
-      ];
-
-      archTitle = `Educational System Architecture & Data Modeling`;
-      archDesc = `Engineered using Next.js, Node.js, and relational databases (PostgreSQL/SQLite) with normalized schemas for terms, classes, students, and financial records for ${sName.toLowerCase()}.`;
-
-      processSteps = [
-        { num: '01 / SCOPE', title: 'Campus Workflow Mapping', desc: `Map administrative structures, academic calendars, fee tiers, and user role requirements for ${sName.toLowerCase()}.` },
-        { num: '02 / SCHEMA', title: 'Relational Database Design', desc: `Architect normalized schemas connecting campuses, classes, student records, and ledger accounts for ${h.toLowerCase()}.` },
-        { num: '03 / BUILD', title: 'Role-Based Portal Sprints', desc: `Develop authenticated interfaces for administrators, faculty, and parent portals for ${url}.` },
-        { num: '04 / CUTOVER', title: 'Data Migration & Staff Handoff', desc: `Assist with initial data ingestion, permission testing, and operational deployment for ${sName.toLowerCase()}.` }
-      ];
-
-      faqs = [
-        { q: `What core modules are included in your school ERP architecture?`, a: `Our architecture covers student admissions, attendance tracking, fee management, examination gradebooks, and role-based administrative dashboards for ${h.toLowerCase()}.` },
-        { q: `Can parents and students access the system from mobile devices?`, a: `Yes. All interfaces are responsive web applications optimized for mobile screens without requiring proprietary app-store downloads.` },
-        { q: `How do you manage permissions between teachers and administrators?`, a: `We implement strict role-based access control (RBAC), parameterized SQL queries, and sanitized form inputs for ${h.toLowerCase()} to ensure disciplined data hygiene.` },
-        { q: `What verified project highlights Kawaki Studios' education capability?`, a: `Our NextSchool ERP platform is an active multi-campus operations portal engineered for comprehensive student and fee management.` }
-      ];
-    } else if (url.includes('fashion') || url.includes('ecommerce')) {
-      overviewParagraph = `Apparel brands require fast, visually engaging digital storefronts that handle rich photography, variant filtering, and high-converting checkout flows. Our ${sName.toLowerCase()} solution combines custom Shopify Liquid theme development or headless Storefront API architectures for ${h.toLowerCase()}.`;
-
-      valueCards = [
-        { num: '01.01', title: 'Custom Shopify Liquid & Storefront API', body: `Clean theme code without plugin bloat, delivering fast collection rendering and custom product detail layouts for ${h.toLowerCase()}.` },
-        { num: '01.02', title: 'Intuitive Catalog & Variant Filtering', body: `Facet-based filtering by size, color, fit, and price that updates seamlessly without full-page reloads across ${url}.` },
-        { num: '01.03', title: 'Demonstrated Bazzaro Fashion Showcase', body: `Adjacent experience demonstrated in our custom Bazzaro apparel storefront, engineered for smooth discovery and tailored for ${sName.toLowerCase()}.` }
-      ];
-
-      challengeTitle = `Conversion Bottlenecks in Modern Fashion Ecommerce`;
-      challengeDesc = `Pre-made marketplace themes frequently introduce excessive JavaScript, slow mobile load speeds, and rigid design limitations. High-growth fashion brands need bespoke storefronts that highlight garment craft while maintaining rapid checkout speeds for ${kw}.`;
-
-      deliverables = [
-        { title: 'Bespoke Collection & Product Grids', body: `Fluid responsive grids featuring hover states, lifestyle imagery galleries, and instant variant switching for ${sName.toLowerCase()}.` },
-        { title: 'Facet Filtering & Search Architecture', body: `Instant filtering across complex clothing catalogs without sluggish page reloads across ${url}.` },
-        { title: 'Conversion-Focused Cart Drawers', body: `Lightweight slide-out cart experiences with upsell slots, free shipping bars, and friction-free checkout pathways for ${h.toLowerCase()}.` },
-        { title: 'Clean Liquid & API Integration', body: `Clean Liquid templates connected with Shopify APIs, avoiding unstable third-party visual page builders in ${sName.toLowerCase()}.` }
-      ];
-
-      archTitle = `Storefront Architecture & Catalog Engineering`;
-      archDesc = `Constructed with modern frontend tooling, semantic HTML/CSS, and Shopify Liquid or Storefront API endpoints for reliable ecommerce performance in ${sName.toLowerCase()}.`;
-
-      processSteps = [
-        { num: '01 / AUDIT', title: 'Catalog & Brand Strategy', desc: `Analyze product variants, visual assets, and customer conversion pathways for ${sName.toLowerCase()}.` },
-        { num: '02 / DESIGN', title: 'Editorial UI & Mobile Layouts', desc: `Craft high-contrast product pages, typography, and collection lookbooks in Figma for ${h.toLowerCase()}.` },
-        { num: '03 / SPRINT', title: 'Theme Development & API Connectors', desc: `Engineer custom Liquid templates, cart drawers, and filter scripts with staging previews for ${url}.` },
-        { num: '04 / LAUNCH', title: 'Checkout Testing & Store Launch', desc: `Verify mobile speed, payment gateway connectivity, inventory sync, and live store launch for ${sName.toLowerCase()}.` }
-      ];
-
-      faqs = [
-        { q: `Do you build fashion stores using standard Shopify themes or custom code?`, a: `We engineer custom themes in Shopify Liquid or headless Storefront API architectures, ensuring your store is distinctive and free of unneeded plugin code for ${h.toLowerCase()}.` },
-        { q: `Can you migrate our existing store without disrupting live catalog orders?`, a: `Yes. We develop new storefronts in staging environments, migrating product data and customer records cleanly before executing DNS cutovers.` },
-        { q: `How do you optimize high-resolution clothing images for mobile speed?`, a: `We implement modern image formats (WebP), responsive srcset attributes, and disciplined lazy loading to ensure high-fidelity imagery without mobile lag.` },
-        { q: `What verified project highlights Kawaki Studios' fashion ecommerce work?`, a: `Our Bazzaro case study showcases a custom Shopify apparel storefront featuring fluid collection discovery and brand storytelling.` }
-      ];
-    } else {
-      // Default Solution (SaaS, Hardware, Media, Publishing)
-      overviewParagraph = `Our ${sName.toLowerCase()} solution addresses specialized technical and operational challenges for ${h.toLowerCase()}. We engineer dependable digital systems with structured databases, role-based workflows, and clean user interfaces designed to scale smoothly with your business.`;
-
-      valueCards = [
-        { num: '01.01', title: 'Tailored Relational Data Modeling', body: `Relational schemas in SQLite or PostgreSQL structured to enforce data integrity across complex business records for ${h.toLowerCase()}.` },
-        { num: '01.02', title: 'Authenticated Portals & Workspaces', body: `Role-based dashboards and client workspaces protected by clean session authentication across ${url}.` },
-        { num: '01.03', title: 'Verified Product Engineering Provenance', body: `Demonstrated in active platforms like Pixza and Kova, providing proven architecture patterns for ${sName.toLowerCase()}.` }
-      ];
-
-      challengeTitle = `System Bottlenecks in ${sName}`;
-      challengeDesc = `Off-the-shelf software often forces organizations into rigid, pre-determined workflows that fail to match actual operational requirements. Custom engineering bridges this gap with tailored data schemas and intuitive role-specific interfaces for ${kw}.`;
-
-      deliverables = [
-        { title: 'Custom Data Modeling & Database Design', body: `Carefully designed relational schemas that enforce data integrity and support complex multi-entity relationships for ${sName.toLowerCase()}.` },
-        { title: 'Role-Based Access & Secure Portals', body: `Intuitive administrative dashboards and end-user portals protected by secure session authentication within ${url}.` },
-        { title: 'Event-Driven Webhook Pipelines', body: `Event-driven triggers for transactional notifications, email alerts, and external platform updates for ${h.toLowerCase()}.` },
-        { title: 'Comprehensive Technical Documentation', body: `Clear documentation covering API schemas, deployment procedures, and administrative operational guides for ${sName.toLowerCase()}.` }
-      ];
-
-      archTitle = `Architectural Blueprint & Implementation`;
-      archDesc = `We construct solutions with modular component patterns, documented REST endpoints, and secure database interactions, ensuring high maintainability and straightforward future enhancements for ${sName.toLowerCase()}.`;
-
-      processSteps = [
-        { num: '01 / SCOPE', title: 'System Requirements Modeling', desc: `Analyze data entities, user roles, and operational requirements for ${sName.toLowerCase()}.` },
-        { num: '02 / ARCH', title: 'Database & API Specification', desc: `Define schema boundaries, endpoint contracts, and session authentication patterns for ${h.toLowerCase()}.` },
-        { num: '03 / SPRINT', title: 'Modular Full-Stack Sprints', desc: `Develop frontend views and backend endpoints with regular staging previews for ${url}.` },
-        { num: '04 / DEPLOY', title: 'System Verification & Release', desc: `Conduct security checks, integration testing, and production deployment for ${sName.toLowerCase()}.` }
-      ];
-
-      faqs = [
-        { q: `What makes a custom ${sName.toLowerCase()} superior to generic SaaS?`, a: `Custom platforms give you total data ownership, tailored feature roadmaps, zero recurring per-seat software taxes, and workflows that match your exact business processes for ${h.toLowerCase()}.` },
-        { q: `Can this ${sName.toLowerCase()} solution integrate with our existing operational tools?`, a: `Yes. We build custom REST and webhook connectors to synchronize ${sName.toLowerCase()} workflows with your existing databases, CRM tools, and internal services.` },
-        { q: `How do you approach user permissions and data security in ${sName.toLowerCase()}?`, a: `We implement strict role-based access control (RBAC), parameterized SQL queries, and sanitized form inputs for ${h.toLowerCase()} to ensure disciplined data hygiene.` },
-        { q: `How do you deliver code and maintainability upon ${sName.toLowerCase()} project completion?`, a: `You receive a clean Git repository, schema documentation, and deployment configurations for ${sName.toLowerCase()} without proprietary lock-ins.` }
-      ];
-    }
+    const cc = solutionCopy(entry);
+    section1Title = cc.section1Title;
+    overviewParagraph = cc.overviewParagraph;
+    valueCards = cc.valueCards;
+    challengeTitle = cc.challengeTitle;
+    challengeDesc = cc.challengeDesc;
+    deliverables = cc.deliverables;
+    archTitle = cc.archTitle;
+    archDesc = cc.archDesc;
+    processSteps = cc.processSteps;
+    faqs = cc.faqs;
   }
 
-  // =========================================================================
-  // 4. RESOURCE PAGES (11 pages)
-  // =========================================================================
   else if (pType === 'resource') {
     section1Tag = '[ 01 / ENGINEERING REFERENCE ]';
     section1Title = `Technical Analysis & Guide: ${sName}`;

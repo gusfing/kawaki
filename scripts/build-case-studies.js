@@ -6,6 +6,20 @@ const shell = require('./lib/shell');
 const S = shell;
 
 const cases = JSON.parse(fs.readFileSync(path.join(S.ROOT, 'data', 'case-studies.json'), 'utf8'));
+const reviewsFile = path.join(S.ROOT, 'data', 'reviews.json');
+const reviews = fs.existsSync(reviewsFile) ? JSON.parse(fs.readFileSync(reviewsFile, 'utf8')) : [];
+/* A client's own words on their case study, when they have approved a quote. */
+function quoteBlock(slug) {
+  const r = reviews.find(x => x.caseStudy === slug);
+  if (!r) return '';
+  return `
+        <section class="sec wrap" aria-label="What the client said" style="margin-top: var(--space-sec);">
+            <figure class="pull">
+                <blockquote class="pull__quote">${S.esc(r.quote)}</blockquote>
+                <figcaption class="pull__by"><span class="pull__name">${S.esc(r.name || r.company)}</span><span class="pull__meta">${S.esc(r.name ? [r.role, r.company].filter(Boolean).join(', ') : (r.source || ''))}</span></figcaption>
+            </figure>
+        </section>`;
+}
 const OUT = path.join(S.PUB, 'case-studies');
 const EXT = '<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const row = (href, name, desc) => `<li><a class="row svc" href="${href}"><h3 class="row__name">${S.esc(name)}</h3><span class="svc__desc">${S.esc(desc)}</span>${S.ROW_GO}</a></li>`;
@@ -69,6 +83,7 @@ function casePage(c, i) {
                 ${c.built.map(b => `<li>${S.esc(b)}</li>`).join('\n                ')}
             </ul>
         </section>
+${quoteBlock(c.slug)}
 ${gallery}
         <section class="sec sec--line wrap related" aria-labelledby="next-title" style="margin-top: var(--space-sec); padding-bottom: var(--space-sec);">
             <div class="sec-head grid"><h2 class="h2" id="next-title" data-reveal>More work</h2><div class="sec-head__aside"><a class="draw" href="/case-studies">All case studies${S.ARROW}</a></div></div>

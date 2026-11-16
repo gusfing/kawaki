@@ -1,0 +1,343 @@
+[
+  {
+    "slug": "web-application-development",
+    "name": "Web application development",
+    "title": "Web Application Development Services | Kawaki Studios",
+    "description": "Custom web applications from Kawaki Studios: portals, dashboards and internal tools with sign-in, user roles, relational data and integrations.",
+    "lede": "Portals, dashboards and internal tools where people sign in and get work done, designed and built by the developers you speak to.",
+    "strip": [["kept", "TypeScript"], ["cut", "Spreadsheet chaos"], ["kept", "User roles"], ["kept", "PostgreSQL"], ["cut", "Black-box SaaS"], ["kept", "REST and webhooks"], ["kept", "Staging links"], ["cut", "Vendor lock-in"]],
+    "intro": { "title": "What we build", "aside": "Software that runs in the browser, for your customers or for your own team.",
+      "cols": [
+        { "title": "For your customers", "note": "Products people sign up for, log into and come back to, on any device.", "items": ["Client portals and member areas", "SaaS products and MVPs", "Booking and ordering systems", "Course and learning platforms"] },
+        { "title": "For your team", "note": "Tools that replace spreadsheets, paper registers and copy-paste between systems.", "items": ["Admin dashboards and reporting", "Operations and ERP modules", "Approval and workflow tools", "Data entry with validation"] }
+      ] },
+    "work": ["nextschool-erp", "nursepass"], "workTitle": "Web apps we built", "workAside": "Both are live, with full case studies.",
+    "stepsTitle": "How a web app gets built", "stepsAside": "Every milestone is deployed to staging so you can click through it.",
+    "steps": [["Discovery", "Users, roles, data and the systems the app must talk to, written down."], ["Data model", "Tables, relationships and permissions designed before any screens."], ["Prototype", "The main flows clickable on real data, reviewed with your team."], ["Build in milestones", "Features shipped in sprints, each one on a staging link."], ["Launch and handoff", "Production deployment, monitoring and the repository handed to you."]],
+    "specTitle": "What it is built with", "specAside": "The defaults. The project decides.",
+    "spec": [["Interface", "Next.js, React, TypeScript", "Fast screens with types shared between the interface and the API."], ["Data", "PostgreSQL or SQLite", "Relational models with constraints, so bad data never gets in."], ["Access", "Roles and permissions", "Each user sees and changes only what their role allows."], ["Integrations", "REST and webhooks", "Payments, email, CRMs and your existing tools, with verified webhooks."]],
+    "faq": [
+      ["How much does a custom web application cost?", "Most web applications start from the top of our website range, ₹5,00,000 or $10,000, and depend on the number of roles, screens and integrations. Discovery fixes the scope, and each milestone is priced before it starts."],
+      ["Should we build an MVP first?", "Usually, yes. A first version with the one workflow that matters most gets real users sooner, and the data model is planned so the next features fit without a rewrite."],
+      ["Can the app work with our existing systems?", "If they have an API or can send webhooks, yes. Where they do not, we look at exports or a small connector before suggesting a replacement."],
+      ["Who owns the code and the data?", "You do. The repository, database and hosting accounts are yours, and the handoff includes documentation of how everything runs."]
+    ],
+    "related": [["/services/custom-web-development", "Custom web development", "Company and marketing sites, designed and coded by hand."], ["/services/mobile-app-development", "Mobile app development", "iOS and Android apps that share an API with your web app."], ["/services/ai-automation", "AI automation", "Workflows that move data between your app and other tools."], ["/solutions/ai-saas-mvp-development", "SaaS MVP development", "A first version of a SaaS product, built to grow."]]
+  },
+  {
+    "slug": "mobile-app-development",
+    "name": "Mobile app development",
+    "title": "Mobile App Development Services | Kawaki Studios",
+    "description": "iOS and Android apps from Kawaki Studios, built in Flutter, React Native, Swift or Kotlin, with offline support and a backend you own.",
+    "lede": "iOS and Android apps in Flutter, React Native, Swift or Kotlin, planned around how people actually use them: one-handed, offline and in a hurry.",
+    "strip": [["kept", "Flutter"], ["kept", "React Native"], ["cut", "Webview wrappers"], ["kept", "Swift"], ["kept", "Kotlin"], ["cut", "Template apps"], ["kept", "Offline sync"], ["kept", "Store releases"]],
+    "intro": { "title": "Which kind of app", "aside": "The right technology depends on who uses the app and where.",
+      "cols": [
+        { "title": "Cross-platform", "note": "One codebase for iOS and Android when the app's job is the same on both.", "items": ["Flutter or React Native", "Booking, ordering and member apps", "Companion apps for a web platform", "Faster to launch and maintain"] },
+        { "title": "Native", "note": "Swift and Kotlin when the app leans on the device: camera, sensors, background work.", "items": ["Swift and SwiftUI for iOS", "Kotlin and Jetpack Compose for Android", "Heavy media or hardware use", "Platform-specific design"] }
+      ] },
+    "work": ["iptv-mobile", "spa-salon"], "workTitle": "Apps we built", "workAside": "Both built in Flutter, with case studies.",
+    "stepsTitle": "How an app gets built", "stepsAside": "Test builds reach your phone at every milestone.",
+    "steps": [["Discovery", "Who uses it, where, and what it must do offline."], ["Flows and design", "Screens designed for thumbs and small screens, then reviewed."], ["Build", "App and API built in milestones, with test builds on your devices."], ["Store release", "Store listings, review submission and the first public release."], ["After launch", "Crash reports, updates and new features on a retainer."]],
+    "specTitle": "What it is built with", "specAside": "Chosen per project.",
+    "spec": [["Cross-platform", "Flutter and Dart, React Native and Expo", "One codebase for both stores when the app's job allows it."], ["Native", "Swift and SwiftUI, Kotlin and Jetpack Compose", "For apps that depend on the camera, sensors or background tasks."], ["Backend", "Node.js or Python, PostgreSQL", "An API shared with your website or web app where one exists."], ["Offline", "Local storage and sync", "Work continues without signal and syncs when it returns."]],
+    "faq": [
+      ["Flutter, React Native or native?", "Flutter or React Native when one codebase can serve both platforms well, which covers most booking, ordering and member apps. Native Swift and Kotlin when the app depends on device features or platform-specific behaviour."],
+      ["Do you publish the app to the App Store and Google Play?", "Yes. We prepare the store listings, handle review submission and release the first version under your own developer accounts."],
+      ["Can the app share a backend with our website?", "Yes, and it usually should. One API and one database keep the app, the website and any admin tools consistent."],
+      ["How much does a mobile app cost?", "It depends on the number of screens, offline needs and integrations. After discovery, the build is split into milestones and each is priced before it starts."]
+    ],
+    "related": [["/services/web-application-development", "Web application development", "The web side of your product, on the same API."], ["/services/custom-web-development", "Custom web development", "The marketing site that sends people to the app."], ["/case-studies/lms-ecosystem", "LMS Ecosystem", "Flutter apps for teachers, students and parents."], ["/services/ai-automation", "AI automation", "Notifications and workflows behind the app."]]
+  },
+  {
+    "slug": "shopify-development",
+    "name": "Shopify development",
+    "title": "Shopify Development Services | Kawaki Studios",
+    "description": "Custom Shopify stores from Kawaki Studios: hand-built Liquid themes, or a headless storefront on the Storefront API when the catalogue needs one.",
+    "lede": "Custom Liquid themes instead of bought ones, or a headless storefront on the Storefront API when the catalogue outgrows a theme.",
+    "strip": [["kept", "Custom Liquid"], ["cut", "Bought themes"], ["kept", "Storefront API"], ["kept", "Fast product pages"], ["cut", "App script piles"], ["kept", "Clean checkout"], ["kept", "Structured data"], ["cut", "Theme lock-in"]],
+    "intro": { "title": "Two ways to build", "aside": "Most stores need the first. Some outgrow it.",
+      "cols": [
+        { "title": "Custom Liquid theme", "note": "Your own theme, written for your products, on Shopify's standard storefront.", "items": ["Sections your team can rearrange", "Collection and product pages built for your catalogue", "Apps only where they earn their place", "Shopify's checkout, untouched"] },
+        { "title": "Headless storefront", "note": "A separate front end on the Storefront API, for catalogues and content a theme cannot handle.", "items": ["Next.js storefront on the Storefront API", "Editorial content alongside products", "Several markets or brands from one store", "Shopify still handles checkout"] }
+      ] },
+    "work": ["bazzaro"], "workTitle": "A store we built", "workAside": "A custom Shopify storefront, with the case study.",
+    "stepsTitle": "How a store gets built", "stepsAside": "Built on a development theme, reviewed before it replaces the live one.",
+    "steps": [["Catalogue review", "Products, variants, collections and the apps you rely on."], ["Design", "Homepage, collection and product templates designed on real products."], ["Theme build", "Sections coded in Liquid, tested on a development theme."], ["Migration", "Products, redirects and SEO settings carried over."], ["Launch", "Theme published, analytics checked and your team trained."]],
+    "specTitle": "What it is built with", "specAside": "Shopify does the commerce; we do the storefront.",
+    "spec": [["Theme", "Shopify Liquid", "Hand-written sections and templates, no page-builder app."], ["Headless", "Next.js and the Storefront API", "For large catalogues, content-led stores or several markets."], ["Speed", "Lean scripts, modern images", "Fewer app scripts and right-sized images on every template."], ["Search", "Product structured data", "Product, offer and breadcrumb JSON-LD on the right templates."]],
+    "faq": [
+      ["Why not use a bought Shopify theme?", "A bought theme carries code for every feature it advertises, and you end up working around it. A custom theme contains only what your store uses, which keeps it fast and easy to change."],
+      ["When does headless Shopify make sense?", "When the catalogue, content or markets go beyond what a theme handles comfortably. For most stores, a well-built Liquid theme is cheaper, faster to launch and easier to maintain."],
+      ["Can you move our store from WooCommerce or another platform?", "Yes. Products, customers and orders are migrated, every old URL is redirected, and SEO settings are carried over before launch."],
+      ["Will our existing apps still work?", "Most will. We review each app first, keep the ones that earn their place and replace heavy script-based ones with theme code where it makes sense."]
+    ],
+    "related": [["/shopify-seo", "Shopify SEO", "Technical fixes and structure for Shopify stores."], ["/services/website-performance-optimization", "Website performance optimization", "Faster product and collection pages."], ["/solutions/fashion-ecommerce-development", "Fashion ecommerce", "Stores built around photography and collections."], ["/services/custom-web-development", "Custom web development", "For brands that need more than a store."]]
+  },
+  {
+    "slug": "wordpress-development",
+    "name": "WordPress development",
+    "title": "WordPress Development Services | Kawaki Studios",
+    "description": "Custom WordPress themes from Kawaki Studios, kept lean: no page builder, few plugins, and an editing setup your team can actually use.",
+    "lede": "Custom WordPress themes kept lean: no page builder, a short list of plugins, and an editor your team can use without breaking the layout.",
+    "strip": [["kept", "Custom theme"], ["cut", "Page builders"], ["kept", "Block editor"], ["cut", "Plugin piles"], ["kept", "Custom fields"], ["kept", "Staging site"], ["cut", "Nulled themes"], ["kept", "Hardened setup"]],
+    "intro": { "title": "When WordPress fits", "aside": "We use WordPress when it is the right tool, not by default.",
+      "cols": [
+        { "title": "Good fit", "note": "Sites your team updates often, with posts, pages and simple forms.", "items": ["Company and marketing sites", "Blogs and news sections", "Sites your team edits every week", "Multilingual content"] },
+        { "title": "What we avoid", "note": "The habits that make WordPress sites slow, fragile and easy to hack.", "items": ["Visual page builders", "A plugin for every small feature", "Bought or nulled themes", "Editing live without a staging copy"] }
+      ] },
+    "work": [], "stepsTitle": "How a WordPress build runs", "stepsAside": "Built on a staging copy, launched when you approve it.",
+    "steps": [["Content model", "Post types, fields and templates planned around your content."], ["Design", "Templates designed on real content and reviewed."], ["Theme build", "A custom theme with blocks your editors can use safely."], ["Launch", "Migration, redirects, hardening and a short editor guide."]],
+    "specTitle": "What it is built with", "specAside": "Standard WordPress, done carefully.",
+    "spec": [["Theme", "Custom PHP theme", "Written for your site, with no page-builder dependency."], ["Editing", "Block editor and custom fields", "Editors change content without breaking the design."], ["Plugins", "A short, reviewed list", "Each plugin chosen for a reason and kept updated."], ["Security", "Hardened from day one", "Updates, permissions and backups set up at launch."]],
+    "faq": [
+      ["Do you use Elementor or Divi?", "No. Page builders add weight to every page and make layouts easy to break. We build custom themes with blocks designed for your content instead."],
+      ["Can you take over our existing WordPress site?", "Yes. We start with an audit of the theme, plugins and hosting, then fix, rebuild or migrate depending on what we find."],
+      ["Will our team be able to edit the site?", "Yes. Editors get blocks and fields that match the design, plus a short guide, so updates do not need a developer."],
+      ["Is WordPress secure?", "It can be, when it is kept updated, uses few plugins and is set up carefully. Hardening is part of every build we hand over."]
+    ],
+    "related": [["/services/wordpress-security-audit", "WordPress security audit", "A check of an existing install, with a ranked list of fixes."], ["/services/wordpress-malware-removal", "WordPress malware removal", "For WordPress sites that have been hacked."], ["/woocommerce-development", "WooCommerce development", "Stores built on WordPress."], ["/services/custom-web-development", "Custom web development", "When a site has outgrown WordPress."]]
+  },
+  {
+    "slug": "website-redesign",
+    "name": "Website redesign",
+    "title": "Website Redesign Services | Kawaki Studios",
+    "description": "Website redesigns from Kawaki Studios: a new design and codebase for an existing site, with content carried over and every old URL redirected.",
+    "lede": "A new design and codebase for a site that has fallen behind, with your content carried over and every old URL redirected so search rankings follow.",
+    "strip": [["kept", "New design"], ["kept", "Clean code"], ["cut", "Lost rankings"], ["kept", "301 redirects"], ["kept", "Content carried over"], ["cut", "Broken links"], ["kept", "Staging review"], ["cut", "Big-bang surprises"]],
+    "intro": { "title": "What a redesign covers", "aside": "More than a new look: structure, code and content together.",
+      "cols": [
+        { "title": "What changes", "note": "Everything that makes the current site slow, dated or hard to use.", "items": ["Design and type system", "Page structure and navigation", "Front-end code and templates", "Speed and accessibility"] },
+        { "title": "What carries over", "note": "Everything search engines and returning visitors already rely on.", "items": ["Content worth keeping", "Rankings, through 301 redirects", "Structured data and titles", "Analytics and tracking"] }
+      ] },
+    "work": ["kala-design", "decor-lab"], "workTitle": "Redesigns we shipped", "workAside": "Both replaced older sites, with case studies.",
+    "stepsTitle": "How a redesign runs", "stepsAside": "The old site stays live until the new one is approved.",
+    "steps": [["Audit", "Traffic, rankings, content and what visitors actually use."], ["URL map", "Every current URL mapped to its new home before design starts."], ["Design and build", "New templates built on real content, on a staging site."], ["Launch", "Redirects tested, the switch made and Search Console watched."]],
+    "specTitle": "What protects your rankings", "specAside": "The steps that keep search traffic through the switch.",
+    "spec": [["Redirects", "Every old URL mapped", "Permanent 301 redirects from each old address to its new one."], ["Metadata", "Titles and descriptions carried over", "Then improved where the data shows they underperform."], ["Structured data", "JSON-LD on every template", "Organisation, service, article and breadcrumb data where it fits."], ["Monitoring", "Search Console after launch", "Crawl errors and traffic checked in the weeks after the switch."]],
+    "faq": [
+      ["Will a redesign hurt our Google rankings?", "Not if it is planned. Every old URL is redirected, titles and structured data are carried over, and the launch is checked in Search Console so problems are fixed early."],
+      ["Do we have to rewrite all our content?", "No. We keep what works, tighten what does not, and only write new copy where pages are missing or thin."],
+      ["Can you redesign without changing platform?", "Yes. Sometimes the platform is fine and only the theme and structure need replacing. We recommend a change only when the platform is the problem."],
+      ["How long does a redesign take?", "A typical marketing site takes 4 to 8 weeks from audit to launch. Larger sites are scheduled after the audit, once the content and integrations are known."]
+    ],
+    "related": [["/services/custom-web-development", "Custom web development", "The build behind most redesigns."], ["/website-migration", "Website migration", "Moving platforms or hosting safely."], ["/technical-seo", "Technical SEO", "The search groundwork for the new site."], ["/services/website-performance-optimization", "Website performance optimization", "When speed is the main problem."]]
+  },
+  {
+    "slug": "website-performance-optimization",
+    "name": "Website performance optimization",
+    "title": "Website Performance Optimization | Kawaki Studios",
+    "description": "Website speed work from Kawaki Studios: Core Web Vitals fixed at the source, from images and fonts to scripts and templates, then measured.",
+    "lede": "Load time and Core Web Vitals fixed where the delay comes from: images, fonts, scripts and templates, measured before and after.",
+    "strip": [["kept", "Measured first"], ["cut", "Speed plugins"], ["kept", "Right-sized images"], ["kept", "Subset fonts"], ["cut", "Script piles"], ["kept", "Lean templates"], ["kept", "Core Web Vitals"], ["cut", "Guesswork"]],
+    "intro": { "title": "Where speed goes", "aside": "Most slow sites share the same few causes.",
+      "cols": [
+        { "title": "What we measure", "note": "Real numbers from real devices, not a single lab score.", "items": ["Largest Contentful Paint", "Interaction to Next Paint", "Cumulative Layout Shift", "What loads before the first paint"] },
+        { "title": "What we usually fix", "note": "Changes made in the code, so they last after the next update.", "items": ["Oversized and unoptimised images", "Fonts that block rendering", "Third-party and app scripts", "Templates doing too much work"] }
+      ] },
+    "work": ["kala-design"], "workTitle": "A light build", "workAside": "Image-led, yet built to stay quick.",
+    "stepsTitle": "How speed work runs", "stepsAside": "Every change is measured against the baseline.",
+    "steps": [["Baseline", "Field data and lab tests on your key templates."], ["Diagnose", "What blocks rendering, what is oversized, what can wait."], ["Fix", "Images, fonts, scripts and templates fixed in the code."], ["Measure again", "The same tests rerun, with results side by side."]],
+    "specTitle": "What we look at", "specAside": "In this order, because it is usually where the time goes.",
+    "spec": [["Images", "Format, size and loading", "WebP or AVIF at the right size, lazy-loaded below the fold."], ["Fonts", "Subset and preloaded", "Only the characters and weights the site uses."], ["Scripts", "Deferred or removed", "Third-party scripts loaded after the page, or dropped."], ["Templates", "Less work per page", "Server-rendered HTML where the browser was doing too much."]],
+    "faq": [
+      ["Can't a speed plugin fix this?", "Plugins hide some symptoms, but they cannot remove heavy themes, oversized images or third-party scripts. Fixing those in the code is what moves the numbers and keeps them there."],
+      ["Which numbers do you report?", "Core Web Vitals from field data where it exists, plus lab measurements of your key templates, before and after the work."],
+      ["Do you work on Shopify and WordPress sites?", "Yes. The causes are similar on every platform: themes, apps or plugins, images, fonts and scripts."],
+      ["Will faster pages improve our rankings?", "Speed is one of many signals, so we do not promise ranking changes. Faster pages do reduce drop-off, especially on phones."]
+    ],
+    "related": [["/technical-seo", "Technical SEO", "Crawling, structure and structured data."], ["/services/website-redesign", "Website redesign", "When the theme itself is the problem."], ["/services/shopify-development", "Shopify development", "Lean themes for faster stores."], ["/blog/nextjs-performance-architecture", "Next.js performance guide", "How we approach speed in our own builds."]]
+  },
+  {
+    "slug": "ai-automation",
+    "name": "AI automation",
+    "title": "AI Automation Services | Kawaki Studios",
+    "description": "AI automation from Kawaki Studios: n8n and Make.com workflows and AI agents that move work between the tools your team already uses.",
+    "lede": "Workflows in n8n and Make.com, and AI agents where they help, connecting the tools your team already uses so repeated work runs by itself.",
+    "strip": [["kept", "n8n"], ["kept", "Make.com"], ["cut", "Copy and paste"], ["kept", "Webhooks"], ["kept", "AI steps"], ["cut", "Black-box bots"], ["kept", "Alerts on failure"], ["kept", "Documented flows"]],
+    "intro": { "title": "What we automate", "aside": "The repeated work between tools that nobody enjoys.",
+      "cols": [
+        { "title": "Workflows", "note": "Fixed steps that run the same way every time, built in n8n or Make.com.", "items": ["Lead capture, scoring and routing", "CRM, sheet and database sync", "Invoices, reminders and follow-ups", "Scheduled reports"] },
+        { "title": "AI steps and agents", "note": "Language models where judgement helps, with a person approving what matters.", "items": ["Classifying and summarising enquiries", "Drafting replies for review", "Answering from your own documents", "Extracting data from emails and files"] }
+      ] },
+    "work": [], "stepsTitle": "How automation gets built", "stepsAside": "One workflow proven on real data before the rest.",
+    "steps": [["Process map", "Who does what today, and where it breaks."], ["First workflow", "The most valuable flow built and tested on real records."], ["Rollout", "Further workflows added one at a time, each with alerts."], ["Handoff", "Documentation and a walkthrough for your team."]],
+    "specTitle": "What it is built with", "specAside": "Tools you can see into and change.",
+    "spec": [["Platforms", "n8n and Make.com", "Visual workflows your team can read, hosted in your accounts."], ["Connections", "REST and webhook APIs", "Your existing tools, connected through their own interfaces."], ["AI", "Language models with limits", "Used for judgement steps, with sources and a person in the loop."], ["Reliability", "Logs, retries and alerts", "Failures are caught, retried where safe and reported."]],
+    "faq": [
+      ["n8n or Make.com?", "n8n suits higher volumes and self-hosting; Make.com suits teams that want a managed tool. We choose per project, based on run volume, data sensitivity and who maintains the flows."],
+      ["Where does AI actually help?", "In steps that need judgement: sorting enquiries, summarising messages, drafting replies or reading documents. Fixed rules handle everything else, because they are cheaper and predictable."],
+      ["What happens when something fails?", "Every workflow logs its runs, retries steps that can safely retry and alerts a named person when a human is needed."],
+      ["Can our team change the workflows later?", "Yes. They live in your own accounts, and the handoff includes documentation of each one."]
+    ],
+    "related": [["/n8n-automation", "n8n automation", "Workflows built and hosted on n8n."], ["/make-automation", "Make.com automation", "Scenarios built in Make.com."], ["/ai-agent-development", "AI agent development", "Agents that answer and act from your data."], ["/whatsapp-automation", "WhatsApp automation", "Enquiries and updates over WhatsApp."]]
+  },
+  {
+    "slug": "ai-search-optimization",
+    "name": "AI search optimization",
+    "title": "AI Search Optimization Services | Kawaki Studios",
+    "description": "AI search optimization from Kawaki Studios: structure, facts and structured data that help ChatGPT, Gemini, Perplexity and AI Overviews cite you.",
+    "lede": "Page structure, quotable facts and structured data that help ChatGPT, Gemini, Perplexity and Google's AI Overviews understand and cite your business.",
+    "strip": [["kept", "Clear answers"], ["kept", "JSON-LD"], ["cut", "Keyword stuffing"], ["kept", "Consistent facts"], ["kept", "Entity clarity"], ["cut", "AI-written filler"], ["kept", "Real prompts"], ["cut", "Vanity scores"]],
+    "intro": { "title": "What AI search reads", "aside": "AI tools quote pages that are clear, consistent and easy to parse.",
+      "cols": [
+        { "title": "On your site", "note": "The parts of AI search you control directly.", "items": ["Answers near the top of each page", "Facts stated once, plainly", "Organization, Service and FAQ data", "Pages merged where they compete"] },
+        { "title": "Across the web", "note": "Where AI tools check whether your details hold up.", "items": ["Business profiles and directories", "Consistent name, services and location", "Mentions in trusted sources", "Reviews and community answers"] }
+      ] },
+    "work": [], "stepsTitle": "How the work runs", "stepsAside": "Measured with the same prompts before and after.",
+    "steps": [["Baseline", "Real buyer questions run through the AI tools that matter."], ["Fix the site", "Structure, facts and structured data corrected."], ["Fix the web", "Profiles and listings brought into line."], ["Measure again", "The same prompts rerun, results compared."]],
+    "specTitle": "What we change", "specAside": "Mostly on your own site.",
+    "spec": [["Structure", "Answer first", "Pages lead with the answer, then the detail."], ["Facts", "One version everywhere", "Services, prices and locations stated the same way on every page."], ["Structured data", "JSON-LD that matches the page", "Organization, Service, FAQ and Article markup."], ["Measurement", "Fixed prompt set", "Recorded citations before and after, not a vanity score."]],
+    "faq": [
+      ["Can you guarantee we appear in ChatGPT answers?", "No. AI tools choose their own sources. What we do is remove the reasons you are left out, and measure the change with the same questions before and after."],
+      ["Is this different from SEO?", "It builds on SEO: crawlable pages, clear structure and accurate facts. AI search adds attention to how models summarise and quote, so answers must hold up out of context."],
+      ["How do you measure progress?", "We run a fixed set of questions your buyers ask through the AI tools that matter to you, record how you are cited, and repeat the set after the work."],
+      ["Do we need new content?", "Sometimes, but usually less than expected. Restructuring and correcting existing pages often matters more than publishing more."]
+    ],
+    "related": [["/technical-seo", "Technical SEO", "The crawlable foundation AI search builds on."], ["/generative-engine-optimization", "Generative engine optimization", "Structuring content for AI answers."], ["/chatgpt-seo", "ChatGPT SEO", "Visibility in ChatGPT's answers."], ["/blog/how-ai-search-engines-cite-sources", "How AI search engines cite sources", "Our guide to how citation works."]]
+  },
+  {
+    "slug": "wordpress-malware-removal",
+    "name": "WordPress malware removal",
+    "title": "WordPress Malware Removal | Kawaki Studios",
+    "description": "WordPress malware removal from Kawaki Studios: infected files, backdoors and spam removed, the entry point closed, and the site hardened.",
+    "lede": "Infected WordPress sites cleaned properly: malicious code, backdoors and spam removed, the way the attacker got in found and closed.",
+    "strip": [["kept", "Full file scan"], ["kept", "Database check"], ["cut", "Quick patch jobs"], ["kept", "Entry point closed"], ["kept", "Users reviewed"], ["cut", "Reinfection"], ["kept", "Tested backups"], ["kept", "Written report"]],
+    "intro": { "title": "Signs of infection", "aside": "If any of these sound familiar, the site needs a proper cleanup.",
+      "cols": [
+        { "title": "What visitors see", "note": "Symptoms that usually reach you through customers first.", "items": ["Redirects to spam or scam sites", "Pop-ups or ads you did not add", "Browser security warnings", "Strange pages in Google results"] },
+        { "title": "What we find", "note": "What usually sits behind those symptoms.", "items": ["Injected code in theme and plugin files", "Hidden admin users", "Backdoors that reinstall the malware", "Spam pages in the database"] }
+      ] },
+    "work": [], "stepsTitle": "How a cleanup runs", "stepsAside": "A full copy is taken before anything changes.",
+    "steps": [["Contain", "Full backup taken, site isolated if needed."], ["Clean", "Files, database, users and scheduled tasks cleaned."], ["Close the door", "Entry point patched, passwords rotated."], ["Harden and report", "Hardening, tested backups and a written report."]],
+    "specTitle": "What gets checked", "specAside": "Not just the files a scanner flags.",
+    "spec": [["Files", "Core, themes and plugins", "Compared against clean copies, injected code removed."], ["Database", "Posts, options and users", "Spam content, injected scripts and rogue admins removed."], ["Access", "Users, keys and passwords", "Every account reviewed and credentials rotated."], ["Afterwards", "Backups and monitoring", "Off-site backups and alerts, so a repeat is caught early."]],
+    "faq": [
+      ["How quickly can you start?", "Active infections are prioritised. Send the site address on WhatsApp with hosting access ready, and we confirm timing once we have looked."],
+      ["Will the malware come back?", "Not through the same route, because finding and closing the entry point is part of the job. No site is beyond attack, so we also set up monitoring and backups."],
+      ["Will we lose content?", "No legitimate content is removed. We work from a full copy, and anything damaged is restored from the cleanest available backup."],
+      ["Do you clean sites built by other developers?", "Yes. Most cleanups are on sites someone else built, on any host."]
+    ],
+    "related": [["/services/wordpress-backdoor-removal", "WordPress backdoor removal", "For hacks that keep coming back."], ["/services/malicious-redirect-removal", "Malicious redirect removal", "When visitors are sent to spam sites."], ["/services/seo-spam-removal", "SEO spam removal", "Spam pages in Google results."], ["/services/website-security-hardening", "Website security hardening", "Closing the gaps after a cleanup."]]
+  },
+  {
+    "slug": "wordpress-backdoor-removal",
+    "name": "WordPress backdoor removal",
+    "title": "WordPress Backdoor Removal | Kawaki Studios",
+    "description": "WordPress backdoor removal from Kawaki Studios: hidden shells, rogue admin users and scheduled tasks found and removed so a hack stops returning.",
+    "lede": "When a hack keeps coming back, something is letting it in. We find the hidden shells, rogue users and scheduled tasks and remove every one.",
+    "strip": [["kept", "Shell hunting"], ["kept", "Rogue users removed"], ["cut", "Repeat infections"], ["kept", "Cron jobs checked"], ["kept", "Keys rotated"], ["cut", "Surface cleanups"], ["kept", "File comparison"], ["kept", "Root cause found"]],
+    "intro": { "title": "Why hacks come back", "aside": "Cleaning the visible damage is not enough.",
+      "cols": [
+        { "title": "The signs", "note": "When a cleaned site gets reinfected, there is usually a backdoor left behind.", "items": ["Malware returns days after a cleanup", "Unknown admin accounts appear", "Files change without anyone editing them", "The host keeps suspending the site"] },
+        { "title": "Where backdoors hide", "note": "Places a quick scan tends to miss.", "items": ["Disguised PHP files in uploads", "Modified core or plugin files", "Scheduled tasks that reinstall code", "Database options and widgets"] }
+      ] },
+    "work": [], "stepsTitle": "How it runs", "stepsAside": "Every change made against a full backup.",
+    "steps": [["Snapshot", "Full copy of files and database kept as evidence."], ["Hunt", "Files compared with clean copies, uploads and tasks inspected."], ["Remove", "Shells, rogue users and tasks removed, credentials rotated."], ["Verify", "File changes monitored to confirm nothing returns."]],
+    "specTitle": "What we check", "specAside": "Line by line where it matters.",
+    "spec": [["Uploads", "No executable code", "PHP files in media folders removed and blocked."], ["Core files", "Compared with originals", "Any modified WordPress, theme or plugin file replaced."], ["Scheduled tasks", "Cron reviewed", "Tasks that reinstall malicious code removed."], ["Accounts", "Users and keys", "Unknown users removed, salts and passwords changed."]],
+    "faq": [
+      ["What is a WordPress backdoor?", "A hidden piece of code, account or scheduled task that lets an attacker back in after the visible malware is removed. It is the usual reason a hack keeps coming back."],
+      ["Our site was cleaned before. Why is it infected again?", "Most likely a backdoor or the original weakness was left in place. Finding and closing it is the focus of this work."],
+      ["How do you know the backdoor is gone?", "We compare every file against clean originals, review users and scheduled tasks, and monitor file changes afterwards to confirm nothing returns."],
+      ["Do you also fix the original weakness?", "Yes. An outdated plugin, a weak password or poor permissions is usually the cause, and closing it is part of the job."]
+    ],
+    "related": [["/services/wordpress-malware-removal", "WordPress malware removal", "The full cleanup of an infected site."], ["/services/wordpress-security-audit", "WordPress security audit", "Find weaknesses before attackers do."], ["/services/website-security-hardening", "Website security hardening", "Locking the site down afterwards."], ["/blog/wordpress-backdoors-stealth-web-shells", "WordPress backdoors guide", "How backdoors and web shells work."]]
+  },
+  {
+    "slug": "malicious-redirect-removal",
+    "name": "Malicious redirect removal",
+    "title": "Malicious Redirect Removal | Kawaki Studios",
+    "description": "Malicious redirect removal from Kawaki Studios: redirects to spam and scam sites traced to their source in files, database or server config and removed.",
+    "lede": "Visitors being sent to spam, scam or adult sites? We trace the redirect to its source, in files, database or server settings, and remove it for good.",
+    "strip": [["kept", "Source traced"], ["kept", "Server config checked"], ["cut", "Visitors hijacked"], ["kept", "Database cleaned"], ["kept", "Search warnings cleared"], ["cut", "Lost trust"], ["kept", "Entry point closed"], ["kept", "Monitoring set"]],
+    "intro": { "title": "How redirects hide", "aside": "Many only trigger for some visitors, which makes them hard to catch.",
+      "cols": [
+        { "title": "Who sees it", "note": "Redirect malware often targets specific visitors to stay hidden from owners.", "items": ["Only mobile visitors", "Only visitors from Google", "Only first-time visitors", "Only at certain times"] },
+        { "title": "Where it lives", "note": "The places we trace a redirect back to.", "items": ["Server rewrite rules", "Injected JavaScript in themes or plugins", "Database options and posts", "Compromised third-party scripts"] }
+      ] },
+    "work": [], "stepsTitle": "How it runs", "stepsAside": "We reproduce the redirect before removing it.",
+    "steps": [["Reproduce", "Triggered as a search visitor, on mobile and desktop."], ["Trace", "Followed to the code, setting or script behind it."], ["Remove", "Malicious code and rules removed, entry point closed."], ["Clear warnings", "Search and browser warnings cleared once clean."]],
+    "specTitle": "What gets checked", "specAside": "Every layer a redirect can sit in.",
+    "spec": [["Server", "Rewrite rules", "Server and configuration files checked for injected rules."], ["Code", "Themes and plugins", "Injected scripts removed and files restored."], ["Database", "Options and content", "Malicious script tags and URLs removed."], ["Reputation", "Search and browser warnings", "Review requests filed once the site is verifiably clean."]],
+    "faq": [
+      ["Why can't we see the redirect ourselves?", "Many redirects only fire for certain visitors, such as mobile users arriving from Google, and skip logged-in owners. We test as different visitors to reproduce it."],
+      ["Will Google remove the warning?", "Once the site is clean, we request a review. Warnings are usually lifted after Google confirms the site is safe."],
+      ["Is this only a WordPress problem?", "No. It is most common on WordPress, but we trace redirects on any platform or custom PHP site."],
+      ["How do we stop it happening again?", "By closing the entry point, updating vulnerable software and setting up monitoring, all part of this work."]
+    ],
+    "related": [["/services/wordpress-malware-removal", "WordPress malware removal", "The full cleanup of an infected site."], ["/services/seo-spam-removal", "SEO spam removal", "Spam pages in Google results."], ["/website-blacklist-removal", "Website blacklist removal", "Getting warnings lifted."], ["/blog/wordpress-malicious-redirects-cleanup", "Redirect cleanup guide", "How malicious redirects work."]]
+  },
+  {
+    "slug": "seo-spam-removal",
+    "name": "SEO spam removal",
+    "title": "SEO Spam Removal | Kawaki Studios",
+    "description": "SEO spam removal from Kawaki Studios: Japanese keyword, pharma and casino spam pages removed from your site and cleaned out of Google's index.",
+    "lede": "Spam pages in Japanese, pharmacy or casino terms showing under your domain in Google? We remove them at the source and clean them out of the index.",
+    "strip": [["kept", "Spam pages removed"], ["kept", "Index cleaned"], ["cut", "Japanese keyword hack"], ["kept", "Sitemaps checked"], ["kept", "Search Console"], ["cut", "Pharma spam"], ["kept", "Entry point closed"], ["kept", "Rankings recovered"]],
+    "intro": { "title": "How SEO spam works", "aside": "Attackers borrow your domain's reputation to rank their pages.",
+      "cols": [
+        { "title": "What you notice", "note": "Usually spotted in Google results or Search Console first.", "items": ["Japanese or pharmacy titles under your domain", "Thousands of unknown pages indexed", "Strange sitemaps in Search Console", "Rankings for your real pages dropping"] },
+        { "title": "What we remove", "note": "Everything that creates and feeds the spam pages.", "items": ["Generated spam pages and folders", "Injected sitemaps", "Cloaking code that hides spam from you", "The backdoor that created it all"] }
+      ] },
+    "work": [], "stepsTitle": "How it runs", "stepsAside": "Clean the site first, then clean the index.",
+    "steps": [["Find", "Spam pages, sitemaps and cloaking code identified."], ["Remove", "Spam and its source removed, entry point closed."], ["Clean the index", "Removals and sitemaps handled in Search Console."], ["Watch", "Indexed pages tracked until the spam has gone."]],
+    "specTitle": "What gets fixed", "specAside": "On your site and in Google.",
+    "spec": [["Pages", "Spam removed", "Generated pages and folders deleted, returning 404 or 410."], ["Cloaking", "Hidden code removed", "Scripts that show spam only to search engines taken out."], ["Search Console", "Index cleaned", "Spam sitemaps removed, removals requested."], ["Prevention", "Entry point closed", "The weakness that let the spam in is fixed."]],
+    "faq": [
+      ["What is the Japanese keyword hack?", "An attack that creates pages in Japanese on your domain to sell counterfeit goods, often hidden from you through cloaking. It is one of the most common forms of SEO spam."],
+      ["How long until the spam disappears from Google?", "Once the site is clean, spam URLs drop out as Google recrawls them, which can take weeks. Search Console removals and correct status codes speed that up."],
+      ["Will our real rankings recover?", "Usually, once the spam is gone and the site is clean, though we cannot promise how quickly. We track your real pages as part of the work."],
+      ["Do you need Search Console access?", "Yes, or we guide you through it. It is how the spam is found and how its removal is confirmed."]
+    ],
+    "related": [["/japanese-keyword-hack-removal", "Japanese keyword hack removal", "The most common form of SEO spam."], ["/pharma-hack-removal", "Pharma hack removal", "Pharmacy spam on your domain."], ["/services/wordpress-malware-removal", "WordPress malware removal", "The full cleanup of an infected site."], ["/blog/japanese-keyword-hack-wordpress", "Japanese keyword hack guide", "How the attack works and how to spot it."]]
+  },
+  {
+    "slug": "website-security-hardening",
+    "name": "Website security hardening",
+    "title": "Website Security Hardening | Kawaki Studios",
+    "description": "Website security hardening from Kawaki Studios: updates, permissions, firewall rules, login protection and tested off-site backups.",
+    "lede": "The work that makes a site hard to break into: updates, permissions, firewall rules, login protection and backups you have actually tested.",
+    "strip": [["kept", "Updates"], ["kept", "Least privilege"], ["cut", "Default settings"], ["kept", "Firewall rules"], ["kept", "Login protection"], ["cut", "Untested backups"], ["kept", "Monitoring"], ["kept", "Security headers"]],
+    "intro": { "title": "What hardening covers", "aside": "Most attacks use a known gap. Hardening closes them.",
+      "cols": [
+        { "title": "Keep attackers out", "note": "The changes that stop the most common attacks.", "items": ["Software and plugins updated", "Strong logins and two-factor sign-in", "File permissions tightened", "Firewall and security headers"] },
+        { "title": "Recover fast", "note": "For the day something still goes wrong.", "items": ["Off-site backups on a schedule", "Restores tested, not assumed", "File change monitoring", "A plan for who does what"] }
+      ] },
+    "work": [], "stepsTitle": "How it runs", "stepsAside": "Changes tested on staging before production.",
+    "steps": [["Review", "Software, users, permissions, hosting and backups checked."], ["Harden", "Updates, permissions, login rules and headers applied."], ["Back up", "Off-site backups set up and a restore tested."], ["Monitor", "Alerts for file changes, downtime and failed logins."]],
+    "specTitle": "What gets set up", "specAside": "Practical measures, not a checklist for show.",
+    "spec": [["Software", "Updated and reviewed", "Unused plugins removed, the rest updated."], ["Access", "Least privilege", "Each user has only the access their work needs."], ["Edge", "Firewall and headers", "Rules against common attacks and modern security headers."], ["Recovery", "Tested backups", "Stored off the server, with a restore actually performed."]],
+    "faq": [
+      ["Is hardening worth it if we have never been hacked?", "Yes. It costs far less than a cleanup, and most attacks are automated scans looking for exactly the gaps hardening closes."],
+      ["Does hardening make a site unhackable?", "No site is beyond attack. Hardening removes the common openings and makes sure you can recover quickly if something gets through."],
+      ["Will hardening break our site?", "Changes are tested on a staging copy first, and we keep a full backup so anything can be rolled back."],
+      ["Do you work on non-WordPress sites?", "Yes. The principles apply to any site: updates, access, edge protection and backups."]
+    ],
+    "related": [["/services/wordpress-security-audit", "WordPress security audit", "A ranked list of weaknesses first."], ["/website-firewall-setup", "Website firewall setup", "Edge rules against common attacks."], ["/website-backup-setup", "Website backup setup", "Off-site backups you can restore."], ["/website-monitoring", "Website monitoring", "Alerts when something changes."]]
+  },
+  {
+    "slug": "wordpress-security-audit",
+    "name": "WordPress security audit",
+    "title": "WordPress Security Audit | Kawaki Studios",
+    "description": "WordPress security audits from Kawaki Studios: plugins, users, permissions, hosting and backups checked, with a ranked list of fixes.",
+    "lede": "A careful check of a WordPress site before attackers find the gaps: plugins, users, permissions, hosting and backups, with fixes ranked by risk.",
+    "strip": [["kept", "Plugins reviewed"], ["kept", "Users checked"], ["cut", "Guesswork"], ["kept", "Permissions"], ["kept", "Hosting config"], ["cut", "Generic checklists"], ["kept", "Ranked fixes"], ["kept", "Plain report"]],
+    "intro": { "title": "What an audit covers", "aside": "Every layer of a WordPress install, in order of risk.",
+      "cols": [
+        { "title": "Inside WordPress", "note": "Where most WordPress compromises start.", "items": ["Outdated or abandoned plugins", "Unknown or excess admin users", "Weak login protection", "Risky theme code"] },
+        { "title": "Around it", "note": "The hosting and setup the site depends on.", "items": ["File and folder permissions", "Server and PHP configuration", "Backup coverage and restore test", "Security headers and HTTPS"] }
+      ] },
+    "work": [], "stepsTitle": "How an audit runs", "stepsAside": "Read-only access is enough to start.",
+    "steps": [["Access", "Read-only access to WordPress and hosting."], ["Inspect", "Plugins, users, files, configuration and backups checked."], ["Rank", "Findings sorted by risk and effort to fix."], ["Report", "A plain report with what to fix first, and offer to fix it."]],
+    "specTitle": "What you receive", "specAside": "Something you can act on, not a score.",
+    "spec": [["Findings", "Ranked by risk", "Each issue rated by how likely and how harmful it is."], ["Evidence", "Where and why", "Exactly where each problem is and why it matters."], ["Fixes", "In order", "What to do first, with effort estimates."], ["Option", "We fix it", "Or your team does, using the report."]],
+    "faq": [
+      ["How is this different from a security plugin scan?", "A plugin scan checks for known malware signatures. An audit also looks at users, permissions, configuration, hosting and backups, where most real weaknesses sit."],
+      ["Do you need admin access?", "Read-only access is enough for most of the audit. Some server checks need hosting access, which we arrange with you."],
+      ["What happens after the audit?", "You get a ranked report. Your team can work through it, or we can fix the issues as a follow-on project."],
+      ["Should we audit before or after a hack?", "Before is cheaper. After a hack, start with malware removal, then audit to close the gaps."]
+    ],
+    "related": [["/services/website-security-hardening", "Website security hardening", "Fixing what the audit finds."], ["/services/wordpress-malware-removal", "WordPress malware removal", "If the site is already infected."], ["/services/wordpress-development", "WordPress development", "Rebuilding a theme that cannot be saved."], ["/website-security-audit", "Website security audit", "For sites not built on WordPress."]]
+  }
+]

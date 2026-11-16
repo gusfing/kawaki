@@ -460,5 +460,49 @@
     });
   }
 
+  /* ---------- Sliders: buttons, arrow keys or swipe; no autoplay, the reader sets the pace ---------- */
+  $$('[data-slider]').forEach(function (slider) {
+    var section = slider.closest('section') || document;
+    var track = $('[data-slider-track]', slider);
+    var slides = $$('.slide', track);
+    var prev = $('[data-slider-prev]', section), next = $('[data-slider-next]', section);
+    var idxEl = $('[data-slider-index]', section), bar = $('[data-slider-bar]', slider);
+    if (!track || !slides.length) return;
+    var origin = function () { return slides[0].offsetLeft; };
+    var index = function () {
+      var x = track.scrollLeft, best = 0, d = Infinity;
+      slides.forEach(function (s, i) { var dd = Math.abs(s.offsetLeft - origin() - x); if (dd < d) { d = dd; best = i; } });
+      return best;
+    };
+    var atEnd = function () { return track.scrollLeft >= track.scrollWidth - track.clientWidth - 4; };
+    var go = function (i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft - origin(), behavior: reduce ? 'auto' : 'smooth' });
+    };
+    var update = function () {
+      var i = atEnd() ? slides.length - 1 : index();
+      if (idxEl) idxEl.textContent = String(i + 1).padStart(2, '0');
+      if (bar) bar.style.transform = 'scaleX(' + ((i + 1) / slides.length) + ')';
+      if (prev) prev.disabled = track.scrollLeft <= 4;
+      if (next) next.disabled = atEnd();
+    };
+    if (prev) prev.addEventListener('click', function () { go(index() - 1); });
+    if (next) next.addEventListener('click', function () { go(atEnd() ? slides.length - 1 : index() + 1); });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
+      else if (e.key === 'Home') { e.preventDefault(); go(0); }
+      else if (e.key === 'End') { e.preventDefault(); go(slides.length - 1); }
+    });
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; update(); });
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+
   if (hasGsap && document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ST.refresh(); });
 })();

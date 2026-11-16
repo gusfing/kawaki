@@ -45,14 +45,30 @@ function reviewsHtml() {
   const list = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : [];
   if (!list.length) return '';
   const e = shell.esc;
+  const n = list.length;
+  const pad = i => String(i).padStart(2, '0');
+  const ARROW_L = '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13 8H3.5M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ARROW_R = '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   return `<section class="sec sec--line wrap" aria-labelledby="reviews-title" style="margin-top: var(--space-sec);">
-            <div class="sec-head grid"><h2 class="h2" id="reviews-title" data-reveal>What clients say</h2></div>
-            <ul class="reviews">
-                ${list.map(r => `<li class="review">
+            <div class="sec-head grid">
+                <h2 class="h2" id="reviews-title" data-reveal>What clients say</h2>
+                <div class="sec-head__aside">
+                    <div class="slider__nav">
+                        <button type="button" class="slider__btn" data-slider-prev aria-label="Previous review">${ARROW_L}</button>
+                        <span class="slider__count" aria-hidden="true"><span data-slider-index>01</span> / ${pad(n)}</span>
+                        <button type="button" class="slider__btn" data-slider-next aria-label="Next review">${ARROW_R}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slider" data-slider>
+                <ul class="slider__track" data-slider-track data-lenis-prevent-wheel tabindex="0" aria-label="Client reviews, ${n} in total. Use the arrow keys to move between them.">
+                ${list.map((r, i) => `<li class="review slide" aria-label="${i + 1} of ${n}">
                     <blockquote class="review__quote"><p>${e(r.quote)}</p></blockquote>
-                    <p class="review__by"><span class="review__name">${e(r.name)}</span><span class="review__meta">${e([r.role, r.company].filter(Boolean).join(', '))}${r.source ? ` &middot; ${r.sourceUrl ? `<a href="${e(r.sourceUrl)}" target="_blank" rel="noopener">${e(r.source)}</a>` : e(r.source)}` : ''}</span></p>
+                    <p class="review__by"><span class="review__name">${e(r.name || r.company)}</span><span class="review__meta">${[r.name ? [r.role, r.company].filter(Boolean).join(', ') : '', r.source ? (r.sourceUrl ? `<a href="${e(r.sourceUrl)}" target="_blank" rel="noopener">${e(r.source)}</a>` : e(r.source)) : ''].filter(Boolean).map((x, j) => j === 0 && r.name ? e(x) : x).join(' &middot; ')}</span></p>
                 </li>`).join('\n                ')}
-            </ul>
+                </ul>
+                <div class="slider__bar" aria-hidden="true"><span data-slider-bar></span></div>
+            </div>
         </section>`;
 }
 

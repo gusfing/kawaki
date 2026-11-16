@@ -38,7 +38,6 @@ const studio = [
   ['/contact', 'Contact', 'Send a brief, message on WhatsApp or book a call.'],
   ['/locations', 'Where we work', 'Cities we work with, from New Delhi.'],
   ['/industries', 'Industries', 'The industries we build for.'],
-  ['/resources', 'Guides', 'Longer guides on SEO, AI search and web projects.'],
   ['/privacy-policy', 'Privacy policy', 'What we collect and how to have it changed or deleted.'],
   ['/terms-of-service', 'Terms of service', 'The rules for using this website.']
 ].map(([url, title, desc]) => ({ url, title, desc }));

@@ -25,13 +25,14 @@ const lower = name => words(name).join(' ').replace(/google business profile/i, 
 const GROUPS = {
   automation: /automation|n8n|zapier|make-automation|api-integration/,
   agents: /ai-agent|chatbot|voice-agents|receptionist/,
-  aisearch: /chatgpt|claude-seo|gemini|perplexity|generative-engine|answer-engine|ai-overview|ai-visibility|digital-pr-ai|entity-seo|semantic-seo|local-ai-search|saas-ai-seo/,
+  aisearch: /ai-seo|chatgpt|claude-seo|gemini|perplexity|generative-engine|answer-engine|ai-overview|ai-visibility|digital-pr-ai|entity-seo|semantic-seo|local-ai-search|saas-ai-seo/,
   local: /local-seo|google-business-profile|google-maps|local-citation|local-business/,
   security: /security|malware|blacklist|backup|database-recovery|firewall|monitoring|website-recovery|hack-removal/,
   reddit: /reddit/,
   build: /website-development|^web-development|landing-page|wordpress-website-design|woocommerce|ecommerce-development|website-maintenance|website-migration|conversion-rate/,
-  marketing: /content-|lead-generation-services|growth-marketing|digital-marketing/,
-  seo: /seo|technical-audit|link-building/,
+  marketing: /content-|lead-generation-services|growth-marketing|digital-marketing|marketing-agency/,
+  mobile: /mobile-app/,
+  seo: /seo|technical-audit|technical-search|link-building/,
   webdev: /.*/
 };
 const groupOf = slug => { const g = Object.keys(GROUPS).find(k => GROUPS[k].test(slug)); return g === 'build' ? 'webdev' : g; };
@@ -170,6 +171,21 @@ const COPY = {
       { q: 'How long before we see results?', a: `Trust in a community builds over weeks of consistent, useful answers. ${N} reports on mentions, sentiment and referral traffic from the start.` }
     ]
   }),
+  mobile: (N, n) => ({
+    overview: `${N} at Kawaki Studios means iOS and Android apps planned around how people actually use them: one-handed, often offline, in a hurry. We build in Flutter or React Native when one codebase fits, and in Swift or Kotlin when the app leans on the device.`,
+    cards: [C('Built for thumbs', 'Screens designed for small displays and one-handed use.'), C('Works offline', 'Data saved on the device and synced when the signal returns.'), C('Yours to publish', 'Released under your own App Store and Google Play accounts.')],
+    challengeTitle: `What ${n} usually involves`,
+    challenge: `Most apps start as a booking, ordering, learning or member experience that a website handles badly on a phone. ${N} turns that into an app people keep, with an API your website can share.`,
+    deliverables: [C('Cross-platform apps', 'Flutter or React Native, one codebase for iOS and Android.'), C('Native apps', 'Swift and Kotlin when the camera, sensors or background work matter.'), C('Backend and API', 'Node.js or Python with PostgreSQL, shared with your website.'), C('Store release', 'Listings, review submission and the first public release.')],
+    archTitle: `How ${n} runs`,
+    arch: `Five stages, with test builds of ${n} reaching your own phone at every milestone.`,
+    steps: [STEP(1, 'Discovery', 'Who uses it, where, and what must work offline.'), STEP(2, 'Design', 'Flows and screens designed for small screens and reviewed.'), STEP(3, 'Build', 'App and API built in milestones, with test builds.'), STEP(4, 'Release', 'Store listings, review and the first public version.'), STEP(5, 'Support', 'Crash reports, updates and new features after launch.')],
+    faqs: [
+      { q: `Flutter, React Native or native for ${n}?`, a: `Flutter or React Native when one codebase serves both platforms well, which covers most booking, ordering and member apps. For ${n} that rely on device features, native Swift and Kotlin.` },
+      { q: `How much does ${n} cost?`, a: `It depends on screens, offline needs and integrations. ${N} is scoped in a discovery call, then split into milestones, each priced before it starts.` },
+      { q: 'Do you publish the app to the stores?', a: `Yes. For ${n}, we prepare the listings, handle review submission and release the first version under your own developer accounts.` }
+    ]
+  }),
   webdev: (N, n) => ({
     overview: `${N} at Kawaki Studios is designed and coded by the developers you speak to, with no page builder underneath. We plan the structure around what visitors need to do, write semantic and fast front-end code, and hand over a site your team can edit and a repository you own.`,
     cards: [C('Designed for the job', 'Layouts built around what visitors need to find and do.'), C('Fast by construction', 'Lean templates and optimised media, checked against Core Web Vitals.'), C('Yours to keep', 'Repository, documentation and access handed over at launch.')],
@@ -227,6 +243,7 @@ const META = {
   security: N => `${N} from Kawaki Studios: malicious code and backdoors removed, the entry point closed, backups and monitoring set up.`,
   marketing: N => `${N} from Kawaki Studios: topics planned from real buyer questions, pages written plainly and drop-off points fixed.`,
   reddit: N => `${N} from Kawaki Studios: honest participation in the right communities, mention monitoring and response guidance.`,
+  mobile: N => `${N} from Kawaki Studios: iOS and Android apps in Flutter, React Native, Swift or Kotlin, released under your own accounts.`,
   webdev: N => `${N} from Kawaki Studios: designed and coded by the developers you speak to, no page builder, repository handed over.`
 };
 function serviceMeta(entry) {
@@ -234,4 +251,4 @@ function serviceMeta(entry) {
   return META[g](display(entry.service));
 }
 
-module.exports = { display, lower, serviceCopy, serviceH1, serviceMeta, groupOf };
+module.exports = { display, lower, serviceCopy, serviceH1, serviceMeta, groupOf, COPY, META };
