@@ -365,12 +365,6 @@ const SECURITY_SUB_SERVICES = [
 
 const CASE_STUDIES = [
   {
-    title: "Acme Headless Commerce Architecture",
-    url: "https://kawaki.co.in/case-studies/acme-headless-ecommerce",
-    status: "Architectural Reference Design",
-    summary: "A conceptual reference architecture demonstrating how ambitious e-commerce brands decouple Shopify backend commerce from customer-facing presentation. Explores Next.js App Router, Shopify Storefront GraphQL API v2026, edge caching (SWR), and optimistic cart mutations targeting sub-second page transitions."
-  },
-  {
     title: "Fintech ROI Calculator Architecture",
     url: "https://kawaki.co.in/case-studies/fintech-roi-calculator",
     status: "Architectural Reference Design",

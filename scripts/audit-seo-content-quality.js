@@ -107,6 +107,7 @@ for (const entry of registry) {
     .replace(/<style[\s\S]*?<\/style>/gi, '')
     .replace(/<div class="seo-breadcrumb-nav"[\s\S]*?<\/div>\s*<\/div>/gi, '')
     .replace(/<section class="seo-cta-section"[\s\S]*?<\/section>/gi, '')
+    .replace(/<section class="finale"[\s\S]*?<\/section>/gi, '') // shared closing section (site shell)
     .replace(/<section class="seo-section">\s*<div class="seo-container">\s*<span class="seo-section-tag">\[ 04 \/ DEMONSTRATED WORK \][\s\S]*?<\/section>/gi, ''); // verified case studies section
 
   // Extract substantive paragraphs (<p class="seo-section-desc">, <p class="seo-card-body">)

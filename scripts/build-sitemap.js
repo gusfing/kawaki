@@ -87,9 +87,6 @@ allHtmlFiles.forEach(filePath => {
   } else if (route.startsWith('/blog/')) {
     priority = '0.80';
     changefreq = 'monthly';
-  } else if (route === '/terminal') {
-    priority = '0.70';
-    changefreq = 'monthly';
   }
 
   const today = new Date().toISOString().split('T')[0];
@@ -151,7 +148,7 @@ function writeSubSitemap(filename, filterFn) {
 }
 
 console.log('⚡ Generating granular topic sub-sitemaps:');
-writeSubSitemap('sitemap-core.xml', e => ['/', '/about', '/services', '/case-studies', '/blog', '/contact', '/directory', '/pricing', '/privacy-policy', '/terms-of-service', '/terminal'].includes(e.route));
+writeSubSitemap('sitemap-core.xml', e => ['/', '/about', '/services', '/case-studies', '/blog', '/contact', '/directory', '/pricing', '/privacy-policy', '/terms-of-service'].includes(e.route));
 writeSubSitemap('sitemap-services.xml', e => e.route.startsWith('/services/') || e.route.startsWith('/ai-') || e.route.includes('automation') || e.route.includes('optimization'));
 writeSubSitemap('sitemap-case-studies.xml', e => e.route.startsWith('/case-studies/'));
 writeSubSitemap('sitemap-blog.xml', e => e.route.startsWith('/blog/'));

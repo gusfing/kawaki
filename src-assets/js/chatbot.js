@@ -1,757 +1,436 @@
-/**
- * KAWAKI STUDIOS — CLIENT CHATBOT & LEAD CONSULTANT
- * Luxury Digital Product Engineering Studio Assistant
- * 
- * Features:
- * - Robust Lead Capture & Validation (Email, Phone, WhatsApp, Service, Budget)
- * - Automatic background synchronization with /api/leads -> Google Sheets & Email Alert
- * - Interactive Project Scope Micro-Card inside chat
- * - Voice dictation & audio feedback
- * - Comprehensive Studio Knowledge Base (React/Next.js, Headless Shopify, AI Automation, Security)
- */
-
+/* Kawaki Studios: studio assistant.
+   A scripted assistant (no AI calls): answers come only from the studio's verified facts,
+   and anything it cannot answer goes to a person through WhatsApp, email or the brief form.
+   Briefs post to /api/leads, the same endpoint as the contact form. */
 (function () {
   'use strict';
+  if (window.__kawakiChat) return;
+  window.__kawakiChat = true;
 
-  // Lead Qualification State
-  const leadState = {
-    step: 'IDLE', // IDLE | AWAITING_SERVICE | AWAITING_NAME | AWAITING_CONTACT | AWAITING_DETAILS | COMPLETE
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    service: '',
-    budget: '',
-    timeline: '',
-    notes: '',
-    synced: false,
-    messages: []
+  var ASSET_VER = '95bb99f1fa';
+  var WHATSAPP = '917678123943';
+  var EMAIL = 'hello@kawaki.co.in';
+  var STORE = 'kc_conversation_v3';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* The stylesheet stays off the critical path: pages built on the new shell do not link it,
+     so it is injected here and the launcher only appears once it has loaded. */
+  var me = document.currentScript;
+  var CSS_VER = (me && me.getAttribute('data-css-v')) || ASSET_VER;
+  var cssReady = true, pendingMount = null;
+  if (!document.querySelector('link[href*="/assets/css/chatbot.css"]')) {
+    cssReady = false;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = '/assets/css/chatbot.css?v=' + CSS_VER;
+    css.onload = css.onerror = function () { cssReady = true; if (pendingMount) { var m = pendingMount; pendingMount = null; m(); } };
+    document.head.appendChild(css);
+  }
+
+  /* ---------- Small helpers ---------- */
+  function el(tag, attrs, html) {
+    var n = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (k === 'class') n.className = attrs[k];
+      else if (k === 'text') n.textContent = attrs[k];
+      else n.setAttribute(k, attrs[k]);
+    });
+    if (html != null) n.innerHTML = html;
+    return n;
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
+  }
+  /* Tiny formatter for scripted answers: **bold**, [label](/link), "- " bullets, blank-line paragraphs. */
+  function format(src) {
+    return src.split(/\n\n+/).map(function (block) {
+      var lines = block.split('\n');
+      var inline = function (t) {
+        return esc(t)
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\[(.+?)\]\(((?:\/|https:\/\/|mailto:)[^)\s]*)\)/g, function (m, label, href) {
+            var ext = /^https:/.test(href);
+            return '<a href="' + href + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' + label + '</a>';
+          });
+      };
+      if (lines.every(function (l) { return /^- /.test(l); })) {
+        return '<ul>' + lines.map(function (l) { return '<li>' + inline(l.slice(2)) + '</li>'; }).join('') + '</ul>';
+      }
+      return '<p>' + lines.map(inline).join('<br>') + '</p>';
+    }).join('');
+  }
+  var waLink = function (text) { return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text || 'Hi Kunal, I would like to discuss a project with Kawaki Studios.'); };
+  var ICON = {
+    ast: '<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>',
+    arrow: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    close: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    send: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13L13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    wa: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.6a6.4 6.4 0 0 0-5.5 9.7L1.7 14.4l3.2-.8A6.4 6.4 0 1 0 8 1.6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M5.8 5.2c.2-.4.6-.4.8 0l.5 1.1c.1.2 0 .4-.1.6l-.3.4c.4.9 1.1 1.6 2 2l.4-.3c.2-.1.4-.2.6-.1l1.1.5c.4.2.4.6 0 .8-.6.5-1.4.6-2.2.3a5.6 5.6 0 0 1-3.2-3.2c-.2-.8-.1-1.6.4-2.1z" fill="currentColor"/></svg>',
+    mail: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 3.5h12v9H2z M2 4l6 4.5L14 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>',
+    call: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 2.5h10v11H3z M3 6h10 M6 1.5v2M10 1.5v2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
   };
 
-  let recognition = null;
-  let isListening = false;
-
-  // Restore draft state from localStorage if available
-  try {
-    const saved = localStorage.getItem('kawaki_chat_lead_draft');
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      if (parsed && typeof parsed === 'object') {
-        Object.assign(leadState, parsed);
-      }
-    }
-  } catch (e) {}
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initChatbot);
-  } else {
-    initChatbot();
-  }
-
-  // Lazy load exit intent popup
-  function loadExitPopup() {
-    if (document.getElementById('kawaki-exit-popup-script')) return;
-    const script = document.createElement('script');
-    script.id = 'kawaki-exit-popup-script';
-    script.src = '/assets/js/exit-popup.js?v=20261007_light_v1';
-    script.defer = true;
-    document.body.appendChild(script);
-  }
-  if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(loadExitPopup, { timeout: 3500 });
-  } else {
-    setTimeout(loadExitPopup, 1200);
-  }
-
-  function initChatbot() {
-    renderChatbotDOM();
-    setupChatEvents();
-    initVoiceRecognition();
-  }
-
-  /* --------------------------------------------------------------------------
-     1. DOM INJECTION
-     -------------------------------------------------------------------------- */
-  function renderChatbotDOM() {
-    if (document.getElementById('kawakiChatLauncher')) return;
-
-    const html = `
-      <!-- Floating Center Launcher Pill -->
-      <div class="kawaki-chat-launcher-pill" id="kawakiChatLauncher" title="Chat with Kawaki Studios">
-        <div class="launcher-pill-left">
-          <span class="launcher-pill-dot"></span>
-          <span class="launcher-pill-text">Kawaki <em>Studios</em></span>
-        </div>
-        <div class="launcher-pill-circle" id="launcherPillBtn" aria-label="Open Chat">
-          <svg class="launcher-arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-          </svg>
-          <svg class="launcher-close-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Chat Window -->
-      <div class="kawaki-chat-window" id="kawakiChatWindow">
-        
-        <!-- Header -->
-        <div class="kawaki-chat-header">
-          <div class="kawaki-chat-header-brand">
-            <div class="kawaki-chat-logo-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
-                <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
-                <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
-                <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
-              </svg>
-            </div>
-            <div class="kawaki-chat-title-group">
-              <div class="kawaki-chat-title-row">
-                <span class="kawaki-chat-title">Kawaki Studios <em>Consultant</em></span>
-              </div>
-              <span class="kawaki-chat-feature-tag"><span class="dot-status"></span> STUDIO CONSULTATION • ACTIVE</span>
-            </div>
-          </div>
-
-          <div class="kawaki-chat-header-actions">
-            <button class="kawaki-chat-action-btn" id="kawakiChatClearBtn" title="Reset Conversation">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
-                <path d="M21 3v5h-5"></path>
-                <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
-                <path d="M3 21v-5h5"></path>
-              </svg>
-            </button>
-            <button class="kawaki-chat-action-btn" id="kawakiChatMinimizeBtn" title="Close Chat">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Messages Feed -->
-        <div class="kawaki-chat-messages" id="kawakiChatMessages">
-          
-          <!-- Default Greeting -->
-          <div class="kawaki-chat-msg ai">
-            <div class="kawaki-chat-msg-text">
-              Hello. Welcome to <strong>Kawaki Studios</strong>. We are a digital product engineering studio building bespoke web platforms, <a href="/blog/nextjs-performance-architecture">Next.js applications</a>, <a href="/services/shopify-development">headless Shopify systems</a>, and <a href="/services/ai-automation">AI workflows</a>.<br><br>How can our engineering team assist your project today?
-            </div>
-            <div class="kawaki-chat-msg-time">STUDIO // JUST NOW</div>
-          </div>
-
-          <!-- Quick Suggestions Chips -->
-          <div class="kawaki-chat-suggestions" id="kawakiChatSuggestions">
-            <button class="kawaki-chat-chip" data-query="Start a Project">
-              💬 Request Project Scope & Estimate
-            </button>
-            <button class="kawaki-chat-chip" data-query="What services do you offer?">
-              🛠️ Capabilities & Tech Stack
-            </button>
-            <button class="kawaki-chat-chip" data-query="Show me your case studies">
-              💼 Flagship Case Studies
-            </button>
-            <button class="kawaki-chat-chip" data-query="How can I contact your engineers?">
-              📅 Book Engineering Consultation
-            </button>
-          </div>
-
-        </div>
-
-        <!-- Input Bar Area -->
-        <div class="kawaki-chat-input-wrapper">
-          <div class="kawaki-chat-input-bar">
-            <input type="text" class="kawaki-chat-input" id="kawakiChatInput" placeholder="Ask an architectural question or discuss a project..." autocomplete="off">
-            
-            <button class="kawaki-chat-tool-btn" id="kawakiChatMicBtn" title="Voice Dictation (Speak)">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-                <line x1="12" x2="12" y1="19" y2="22"></line>
-              </svg>
-            </button>
-
-            <button class="kawaki-chat-send-btn" id="kawakiChatSendBtn" title="Send Message">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-      </div>
-    `;
-
-    const container = document.createElement('div');
-    container.id = 'kawakiChatbotRoot';
-    container.innerHTML = html;
-    document.body.appendChild(container);
-  }
-
-  /* --------------------------------------------------------------------------
-     2. EVENT HANDLERS & NAVIGATION
-     -------------------------------------------------------------------------- */
-  function setupChatEvents() {
-    const launcher = document.getElementById('kawakiChatLauncher');
-    const win = document.getElementById('kawakiChatWindow');
-    const minBtn = document.getElementById('kawakiChatMinimizeBtn');
-    const clearBtn = document.getElementById('kawakiChatClearBtn');
-    const sendBtn = document.getElementById('kawakiChatSendBtn');
-    const input = document.getElementById('kawakiChatInput');
-    const suggestions = document.getElementById('kawakiChatSuggestions');
-
-    if (!launcher || !win) return;
-
-    function toggleChat() {
-      const isOpen = win.classList.contains('open');
-      if (isOpen) {
-        win.classList.remove('open');
-        launcher.classList.remove('active');
-      } else {
-        win.classList.add('open');
-        launcher.classList.add('active');
-        if (input) setTimeout(() => input.focus(), 300);
-      }
-    }
-
-    launcher.addEventListener('click', toggleChat);
-    if (minBtn) {
-      minBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleChat();
-      });
-    }
-
-    if (clearBtn) {
-      clearBtn.addEventListener('click', () => {
-        const feed = document.getElementById('kawakiChatMessages');
-        if (!feed) return;
-        feed.innerHTML = `
-          <div class="kawaki-chat-msg ai">
-            <div class="kawaki-chat-msg-text">
-              Conversation reset. How can our engineering team assist you with your web or software project?
-            </div>
-            <div class="kawaki-chat-msg-time">STUDIO // JUST NOW</div>
-          </div>
-          <div class="kawaki-chat-suggestions" id="kawakiChatSuggestions">
-            <button class="kawaki-chat-chip" data-query="Start a Project">
-              💬 Request Project Scope & Estimate
-            </button>
-            <button class="kawaki-chat-chip" data-query="What services do you offer?">
-              🛠️ Capabilities & Tech Stack
-            </button>
-            <button class="kawaki-chat-chip" data-query="Show me your case studies">
-              💼 Flagship Case Studies
-            </button>
-          </div>
-        `;
-        leadState.step = 'IDLE';
-        leadState.messages = [];
-        setupChipEvents();
-      });
-    }
-
-    if (sendBtn) sendBtn.addEventListener('click', handleSend);
-    if (input) {
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          handleSend();
-        }
-      });
-    }
-
-    setupChipEvents();
-
-    // Auto-save lead beacon on page exit
-    window.addEventListener('beforeunload', () => {
-      if ((leadState.email || leadState.phone) && !leadState.synced) {
-        syncLeadToBackend(true);
-      }
-    });
-  }
-
-  function setupChipEvents() {
-    const chips = document.querySelectorAll('.kawaki-chat-chip');
-    chips.forEach(chip => {
-      chip.addEventListener('click', (e) => {
-        e.preventDefault();
-        const query = chip.getAttribute('data-query') || chip.innerText.trim();
-        const suggestions = document.getElementById('kawakiChatSuggestions');
-        if (suggestions) suggestions.style.display = 'none';
-
-        sendMessage(query, 'user');
-        processUserMessage(query);
-      });
-    });
-  }
-
-  function handleSend() {
-    const input = document.getElementById('kawakiChatInput');
-    if (!input) return;
-    const text = input.value.trim();
-    if (!text) return;
-
-    input.value = '';
-
-    const suggestions = document.getElementById('kawakiChatSuggestions');
-    if (suggestions) suggestions.style.display = 'none';
-
-    sendMessage(text, 'user');
-    processUserMessage(text);
-  }
-
-  function sendMessage(text, sender) {
-    const feed = document.getElementById('kawakiChatMessages');
-    if (!feed) return;
-
-    leadState.messages.push({ sender, text, timestamp: new Date() });
-
+  /* ---------- Studio hours: Monday to Friday, 10:00 to 19:00 IST ---------- */
+  function studio() {
+    var now = new Date(), wd = 'Mon', h = 12, m = 0;
     try {
-      localStorage.setItem('kawaki_chat_lead_draft', JSON.stringify({
-        name: leadState.name,
-        email: leadState.email,
-        phone: leadState.phone,
-        service: leadState.service,
-        company: leadState.company
-      }));
-    } catch(e) {}
-
-    let formatted = escapeHtml(text);
-    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    formatted = formatted.replace(/\n/g, '<br>');
-    formatted = formatted.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-
-    const timeStr = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-
-    const msgEl = document.createElement('div');
-    msgEl.className = `kawaki-chat-msg ${sender}`;
-    msgEl.innerHTML = `
-      <div class="kawaki-chat-msg-text">${formatted}</div>
-      <div class="kawaki-chat-msg-time">${sender === 'user' ? 'YOU' : 'STUDIO'} // ${timeStr}</div>
-    `;
-    feed.appendChild(msgEl);
-    feed.scrollTop = feed.scrollHeight;
+      var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(now);
+      parts.forEach(function (p) { if (p.type === 'weekday') wd = p.value; if (p.type === 'hour') h = +p.value % 24; if (p.type === 'minute') m = +p.value; });
+    } catch (e) { /* Intl without time zones: assume open hours */ }
+    var t = h * 60 + m;
+    var day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(wd);
+    var weekday = day > -1 && day < 5;
+    var open = weekday && t >= 600 && t < 1140;
+    var time = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+    var back;
+    if (open) back = 'Replies until 19:00';
+    else if (weekday && t < 600) back = 'Back today at 10:00';
+    else if (day > -1 && day < 4) back = 'Back tomorrow at 10:00';
+    else if (day === 6) back = 'Back tomorrow at 10:00';
+    else back = 'Back Monday at 10:00';
+    return { open: open, time: time, flag: open ? 'Open' : 'Closed', label: 'New Delhi ' + time + ' IST. ' + back };
   }
 
-  /* --------------------------------------------------------------------------
-     3. INTERACTIVE LEAD MICRO-CARD COMPONENT
-     -------------------------------------------------------------------------- */
-  function renderLeadCaptureCard(defaultService) {
-    const feed = document.getElementById('kawakiChatMessages');
-    if (!feed) return;
+  /* ---------- What the assistant knows (from the studio's verified facts) ---------- */
+  var KB = [
+    { id: 'hello', words: ['hi', 'hello', 'hey', 'namaste', 'good morning', 'good evening', 'yo'],
+      answer: 'Hello. I can answer questions about services, pricing, timelines and our work, or pass a brief straight to the developers. What are you planning?',
+      chips: ['Start a project', 'What does it cost?', 'How long does it take?', 'See the work'] },
+    { id: 'start', words: ['start a project', 'start project', 'new project', 'hire', 'quote', 'estimate', 'proposal', 'work with you', 'get started', 'book', 'brief', 'scope', 'need a website', 'build a website', 'build an app', 'want a website'],
+      answer: 'Good. Tell me a little about it in the form below and it goes to the team with this conversation. If you prefer, WhatsApp or email work just as well.', form: true },
+    { id: 'pricing', words: ['price', 'pricing', 'cost', 'costs', 'budget', 'how much', 'rate', 'rates', 'fees', 'charges', 'charge', 'expensive', 'cheap', 'affordable', 'inr', 'rupees', 'dollars', 'usd'],
+      answer: 'Most custom builds fall between **₹1,50,000 and ₹5,00,000** for Indian startups and growing brands, or between **$2,500 and $10,000** for international founders.\n\nThe final figure depends on scope, interactive complexity and integrations such as headless Shopify, custom APIs or AI automation. Work is billed against fixed milestones, so the price of each stage is agreed before it starts.',
+      chips: ['Start a project', 'How long does it take?', 'What do you build?'] },
+    { id: 'timeline', words: ['how long', 'timeline', 'time line', 'weeks', 'months', 'deadline', 'turnaround', 'when can', 'how fast', 'how quickly', 'duration', 'launch date'],
+      answer: 'A marketing website usually takes **4 to 8 weeks** from discovery to launch. Web applications and larger builds are scoped after discovery, because their timeline depends on the data and integrations involved.',
+      chips: ['How do you work?', 'What does it cost?', 'Start a project'] },
+    { id: 'process', words: ['process', 'how do you work', 'steps', 'workflow', 'sprint', 'sprints', 'milestone', 'milestones', 'staging', 'methodology', 'approach'],
+      answer: 'Every project runs through six stages, in this order:\n\n- **Discovery**: what the site has to do and what it connects to\n- **Architecture**: page structure, data schema and integrations\n- **Interface**: layouts and a type system, reviewed with you\n- **Build**: frontend and backend in milestone sprints\n- **Verification**: performance, security and cross-browser checks\n- **Launch and handoff**: production deployment and the repository\n\nEach milestone lands on a staging link you can open and review, and you talk directly to the developers doing the work.',
+      chips: ['What does it cost?', 'Start a project'] },
+    { id: 'services', words: ['service', 'services', 'what do you do', 'what do you build', 'what do you offer', 'offer', 'capabilities', 'expertise', 'help with', 'can you build', 'do you do'],
+      answer: 'We design and engineer:\n\n- [Custom web development](/services/custom-web-development)\n- [Web application development](/services/web-application-development)\n- [Shopify development](/services/shopify-development)\n- [Mobile app development](/services/mobile-app-development)\n- [AI automation](/services/ai-automation)\n- [AI search optimization](/services/ai-search-optimization)\n- [Technical SEO](/technical-seo)\n- [WordPress development](/services/wordpress-development)\n- [Hacked WordPress cleanup](/services/wordpress-malware-removal)\n\nWhich one is closest to what you need?',
+      chips: ['Start a project', 'What does it cost?', 'See the work'] },
+    { id: 'work', words: ['work', 'portfolio', 'case study', 'case studies', 'examples', 'example', 'projects', 'clients', 'previous work', 'show me'],
+      answer: 'A few recent builds, each with a full write-up:\n\n- [Kala Design Co](/case-studies/kala-design): editorial site for an architecture studio\n- [BAZZARO](/case-studies/bazzaro): our own fashion label on a custom Shopify storefront\n- [NextSchool ERP](/case-studies/nextschool-erp): multi-campus school portal\n- [NursePass](/case-studies/nursepass): course platform for nurses seeking recognition in Germany\n\nEverything else is on the [case studies page](/case-studies).',
+      chips: ['Start a project', 'What do you build?'] },
+    { id: 'shopify', words: ['shopify', 'ecommerce', 'e-commerce', 'online store', 'store', 'headless', 'liquid', 'storefront', 'woocommerce', 'sell online'],
+      answer: 'We build custom Shopify themes in Liquid, or a headless storefront on the Storefront API when the catalogue needs one. [BAZZARO](/case-studies/bazzaro), our own fashion label, runs on a custom Shopify storefront.\n\nMore on the [Shopify development page](/services/shopify-development).',
+      chips: ['What does it cost?', 'Start a project'] },
+    { id: 'webapp', words: ['web app', 'webapp', 'web application', 'portal', 'dashboard', 'saas', 'erp', 'lms', 'crm', 'internal tool', 'admin panel', 'platform', 'mvp'],
+      answer: 'Web applications are portals, dashboards and internal tools with relational data, user roles and REST or webhook integrations. [NextSchool ERP](/case-studies/nextschool-erp) and [NursePass](/case-studies/nursepass) are two we built.\n\nDetails on the [web application page](/services/web-application-development).',
+      chips: ['How long does it take?', 'Start a project'] },
+    { id: 'mobile', words: ['mobile app', 'ios', 'android', 'flutter', 'react native', 'swift', 'kotlin', 'app store', 'play store', 'phone app'],
+      answer: 'We build iOS and Android apps in Flutter, React Native, Swift or Kotlin. See the [mobile app development page](/services/mobile-app-development).',
+      chips: ['What does it cost?', 'Start a project'] },
+    { id: 'automation', words: ['automation', 'automate', 'n8n', 'make.com', 'zapier', 'workflow automation', 'ai agent', 'agents', 'chatbot', 'integration', 'integrations', 'api'],
+      answer: 'We set up n8n and Make.com workflows and agent integrations that move work between the tools your team already uses, connected through REST and webhook APIs. See [AI automation](/services/ai-automation).',
+      chips: ['Start a project', 'What does it cost?'] },
+    { id: 'seo', words: ['seo', 'google', 'ranking', 'rank', 'search', 'chatgpt', 'perplexity', 'gemini', 'ai search', 'geo', 'aeo', 'llm', 'visibility', 'traffic'],
+      answer: 'Two services cover search:\n\n- [AI search optimization](/services/ai-search-optimization): page structure, schema and content aimed at being read and cited by AI search tools\n- [Technical SEO](/technical-seo): crawlable architecture, clean URLs, internal links and JSON-LD, fixed in the code\n\nWe do not promise rankings; we fix what the code controls.',
+      chips: ['Start a project', 'What do you build?'] },
+    { id: 'security', words: ['hacked', 'hack', 'malware', 'virus', 'redirect', 'redirects', 'spam', 'japanese keyword', 'backdoor', 'blacklist', 'blacklisted', 'infected', 'security', 'compromised', 'pharma'],
+      answer: 'Yes, we clean infected WordPress sites: backdoors, malicious redirects and spam pages are removed, then the site is hardened to close the way the attacker got in.\n\nThe fastest start is to send the site address on WhatsApp. More on the [malware removal page](/services/wordpress-malware-removal).',
+      chips: ['Message on WhatsApp', 'Start a project'] },
+    { id: 'wordpress', words: ['wordpress', 'wp', 'elementor', 'divi', 'theme', 'plugin', 'plugins'],
+      answer: 'We build custom WordPress themes kept lean, without a stack of plugins doing the work. See [WordPress development](/services/wordpress-development). If the site has been hacked, the [malware removal page](/services/wordpress-malware-removal) covers that.',
+      chips: ['Start a project', 'What does it cost?'] },
+    { id: 'stack', words: ['tech', 'technology', 'stack', 'next.js', 'nextjs', 'react', 'typescript', 'node', 'python', 'postgres', 'postgresql', 'sqlite', 'tailwind', 'framework'],
+      answer: 'Typical stack: **Next.js, React and TypeScript** on the frontend, **Node.js or Python** behind it, **PostgreSQL or SQLite** for data, **Shopify Liquid and the Storefront API** for commerce, and **n8n or Make.com** for automation. The choice follows the project, not the other way round.',
+      chips: ['How do you work?', 'Start a project'] },
+    { id: 'location', words: ['where', 'location', 'located', 'delhi', 'india', 'office', 'address', 'remote', 'usa', 'uk', 'london', 'dubai', 'canada', 'abroad', 'international', 'country'],
+      answer: 'Kawaki Studios LLP is based in **New Delhi**. We work with clients across India and abroad remotely, through milestone sprints, a shared Git repository and staging links.',
+      chips: ['Studio hours', 'Start a project'] },
+    { id: 'hours', words: ['hours', 'open', 'available', 'availability', 'working hours', 'time zone', 'timezone', 'ist', 'weekend'],
+      answer: function () { return 'Studio hours are **Monday to Friday, 10:00 to 19:00 IST** (UTC+05:30). ' + (studio().open ? 'The studio is open right now.' : 'The studio is closed right now; messages are read on the next working day.'); },
+      chips: ['Message on WhatsApp', 'Start a project'] },
+    { id: 'about', words: ['who are you', 'about', 'founder', 'kunal', 'team', 'company', 'studio', 'llp', 'experience', 'aws'],
+      answer: 'Kawaki Studios LLP is an engineering studio in New Delhi, founded by **Kunal Sharma**, an AWS Certified AI Practitioner. You work directly with the developers writing your code. More on the [about page](/about).',
+      chips: ['See the work', 'Start a project'] },
+    { id: 'code', words: ['source code', 'repository', 'repo', 'git', 'github', 'handover', 'handoff', 'own the code', 'ownership'],
+      answer: 'Work runs in a Git repository with a staging link at every milestone, and launch includes a handoff of the repository and how it runs. Contract terms are agreed with the team before work starts.',
+      chips: ['How do you work?', 'Talk to a person'] },
+    { id: 'human', words: ['human', 'person', 'talk to', 'speak', 'call', 'phone', 'contact', 'whatsapp', 'email', 'mail', 'reach', 'meeting'],
+      answer: 'Happy to hand you over. **WhatsApp** is quickest, **email** suits longer briefs, or **book a 15 minute call**. The links sit under the message box.',
+      chips: ['Message on WhatsApp', 'Book a call'] },
+    { id: 'thanks', words: ['thanks', 'thank you', 'thx', 'great', 'cool', 'ok', 'okay', 'awesome', 'bye', 'goodbye'],
+      answer: 'Any time. If anything else comes up, ask here or message the studio directly.',
+      chips: ['Start a project', 'See the work'] }
+  ];
+  var CHIP_TO_TEXT = {
+    'Start a project': 'start a project', 'What does it cost?': 'pricing', 'Pricing': 'pricing', 'How long does it take?': 'how long does a project take',
+    'See the work': 'show me your work', 'What do you build?': 'what do you build', 'How do you work?': 'how do you work',
+    'Studio hours': 'studio hours', 'Talk to a person': 'talk to a person', 'Fix a hacked site': 'my site is hacked'
+  };
+  var GREETING_CHIPS = ['Start a project', 'What does it cost?', 'How long does it take?', 'See the work', 'Fix a hacked site'];
 
-    const existingCard = document.getElementById('kawakiInlineLeadCard');
-    if (existingCard) existingCard.remove();
+  function normalize(t) { return ' ' + String(t).toLowerCase().replace(/[^a-z0-9.+#\s-]/g, ' ').replace(/\s+/g, ' ').trim() + ' '; }
+  function match(text) {
+    var n = normalize(text), best = null, bestScore = 0;
+    KB.forEach(function (it) {
+      var score = 0;
+      it.words.forEach(function (w) { if (n.indexOf(' ' + w + ' ') !== -1 || (w.length > 4 && n.indexOf(w) !== -1)) score += w.split(' ').length; });
+      if (it.id === 'hello' || it.id === 'thanks') score *= 0.5;
+      if (it.id === 'services' || it.id === 'human' || it.id === 'about') score *= 0.6;
+      if (score > bestScore) { bestScore = score; best = it; }
+    });
+    return bestScore > 0 ? best : null;
+  }
 
-    const card = document.createElement('div');
-    card.className = 'kawaki-lead-card';
-    card.id = 'kawakiInlineLeadCard';
+  /* ---------- Build the widget ---------- */
+  var root = el('div', { class: 'kc-root' });
+  var LAUNCH = '<span class="kc-launcher__badge">' + ICON.ast + '</span><span class="kc-launcher__label">Ask the studio</span>';
+  var launcher = el('button', { type: 'button', class: 'kc-launcher', 'aria-expanded': 'false', 'aria-controls': 'kcPanel', 'aria-label': 'Open chat with Kawaki Studios' }, LAUNCH);
+  var panel = el('section', { class: 'kc-panel', id: 'kcPanel', role: 'dialog', 'aria-label': 'Chat with Kawaki Studios', tabindex: '-1', hidden: '' });
+  panel.innerHTML =
+    '<header class="kc-head">' +
+      '<span class="kc-head__mark" role="img" aria-label="Kawaki Studios"></span>' +
+      '<button type="button" class="kc-icon-btn" data-close aria-label="Close chat">' + ICON.close + '</button>' +
+    '</header>' +
+    '<p class="kc-status"><span class="kc-status__flag" data-flag></span><span data-status></span></p>' +
+    '<div class="kc-log" role="log" aria-live="polite" aria-relevant="additions" data-log></div>' +
+    '<div class="kc-foot">' +
+      '<form class="kc-compose" data-compose>' +
+        '<label class="kc-sr" for="kcInput">Your message</label>' +
+        '<textarea class="kc-input" id="kcInput" rows="1" placeholder="Type a question" autocomplete="off"></textarea>' +
+        '<button type="submit" class="kc-send">Send' + ICON.arrow + '</button>' +
+      '</form>' +
+      '<p class="kc-direct"><span>Or directly</span>' +
+        '<a data-wa target="_blank" rel="noopener" href="' + waLink() + '">WhatsApp</a>' +
+        '<a href="mailto:' + EMAIL + '">Email</a>' +
+        '<a href="/contact">Book a call</a>' +
+      '</p>' +
+    '</div>';
+  root.appendChild(panel);
+  root.appendChild(launcher);
 
-    card.innerHTML = `
-      <div class="kawaki-lead-card-header">
-        <span class="kawaki-lead-card-badge">// ARCHITECTURAL SCOPE</span>
-        <span class="kawaki-lead-card-title">Project Discovery Brief</span>
-      </div>
-      <div class="kawaki-lead-card-desc">
-        Share your details and our senior engineers will prepare a custom architecture proposal within 24 hours.
-      </div>
-      <form class="kawaki-lead-form" id="kawakiInlineLeadForm">
-        <input type="text" class="kawaki-lead-input-field" id="kwLeadName" placeholder="Your Name or Company" value="${escapeHtml(leadState.name || '')}" required />
-        <input type="text" class="kawaki-lead-input-field" id="kwLeadContact" placeholder="Email Address or WhatsApp / Phone" value="${escapeHtml(leadState.email || leadState.phone || '')}" required />
-        <select class="kawaki-lead-select-field" id="kwLeadService">
-          <option value="Custom Web Development" ${defaultService && defaultService.includes('Web') ? 'selected' : ''}>🌐 Bespoke Web & Next.js App</option>
-          <option value="Shopify Development" ${defaultService && defaultService.includes('Shopify') ? 'selected' : ''}>🛍️ Headless Shopify / E-Commerce</option>
-          <option value="AI Automation" ${defaultService && defaultService.includes('AI') ? 'selected' : ''}>🤖 AI Automation & Workflows</option>
-          <option value="Security & Malware Recovery" ${defaultService && defaultService.includes('Security') ? 'selected' : ''}>🔒 Security Hardening & Malware Recovery</option>
-          <option value="Brand & Visual Identity">🎨 Brand Strategy & Identity</option>
-        </select>
-        <select class="kawaki-lead-select-field" id="kwLeadBudget">
-          <option value="$5,000 - $15,000">$5,000 – $15,000 (Standard Sprint)</option>
-          <option value="$15,000 - $35,000">$15,000 – $35,000 (Multi-Sprint Platform)</option>
-          <option value="$35,000+">$35,000+ (Enterprise Architecture)</option>
-          <option value="Undetermined">Budget Undetermined</option>
-        </select>
-        <button type="submit" class="kawaki-lead-submit-btn" id="kwLeadSubmitBtn">
-          <span>Request Project Blueprint</span>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </button>
-      </form>
-    `;
+  var log = panel.querySelector('[data-log]');
+  var input = panel.querySelector('#kcInput');
+  var statusText = panel.querySelector('[data-status]');
+  var statusFlag = panel.querySelector('[data-flag]');
+  var history = [];
+  try { history = JSON.parse(sessionStorage.getItem(STORE) || '[]'); } catch (e) { history = []; }
 
-    feed.appendChild(card);
-    feed.scrollTop = feed.scrollHeight;
+  function save() { try { sessionStorage.setItem(STORE, JSON.stringify(history.slice(-40))); } catch (e) { /* storage unavailable */ } }
+  function scrollDown() { log.scrollTop = log.scrollHeight; }
+  function updateStatus() { var s = studio(); statusText.textContent = s.label; statusFlag.textContent = s.flag; statusFlag.classList.toggle('is-open', s.open); }
 
-    const form = document.getElementById('kawakiInlineLeadForm');
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const submitBtn = document.getElementById('kwLeadSubmitBtn');
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = '<span>Synchronizing with Engineering...</span>';
-        }
+  function stamp() { var d = new Date(); return (d.getHours() < 10 ? '0' : '') + d.getHours() + ':' + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes(); }
+  function entry(from, html, t) {
+    return el('div', { class: 'kc-msg kc-msg--' + from },
+      '<p class="kc-msg__by">' + (from === 'user' ? 'You' : 'Kawaki') + (t ? '<time>' + t + '</time>' : '') + '</p>' +
+      '<div class="kc-msg__body">' + html + '</div>');
+  }
+  function addMessage(from, html, persist) {
+    var t = stamp();
+    var m = entry(from, html, t);
+    log.appendChild(m);
+    if (persist !== false) { history.push({ from: from, html: html, t: t }); save(); }
+    scrollDown();
+    return m;
+  }
+  function clearChips() { Array.prototype.forEach.call(log.querySelectorAll('.kc-chips'), function (c) { c.remove(); }); }
+  function addChips(list) {
+    if (!list || !list.length) return;
+    var wrap = el('div', { class: 'kc-chips', role: 'group', 'aria-label': 'Suggested questions' });
+    list.forEach(function (label, i) {
+      var b = el('button', { type: 'button', class: 'kc-chip' },
+        '<span class="kc-chip__n" aria-hidden="true">' + (i < 9 ? '0' : '') + (i + 1) + '</span><span class="kc-chip__t">' + esc(label) + '</span>' + ICON.arrow);
+      b.addEventListener('click', function () { onChip(label); });
+      wrap.appendChild(b);
+    });
+    log.appendChild(wrap);
+    scrollDown();
+  }
+  function typing(ms, then) {
+    var t = el('div', { class: 'kc-typing', 'aria-hidden': 'true' }, '<p class="kc-msg__by">Kawaki</p><span class="kc-typing__bar"></span>');
+    log.appendChild(t); scrollDown();
+    setTimeout(function () { t.remove(); then(); }, reduce ? 0 : ms);
+  }
 
-        const nameVal = document.getElementById('kwLeadName').value.trim();
-        const contactVal = document.getElementById('kwLeadContact').value.trim();
-        const serviceVal = document.getElementById('kwLeadService').value;
-        const budgetVal = document.getElementById('kwLeadBudget').value;
+  function reply(text) {
+    clearChips();
+    var contact = (text.match(/[\w.+-]+@[\w-]+\.[\w.-]+/) || text.match(/\+?\d[\d\s-]{7,}\d/) || [])[0];
+    if (contact) {
+      typing(500, function () {
+        addMessage('bot', format('Thanks. Shall I send **' + contact + '** to the team along with this conversation? They reply on working days, Monday to Friday, 10:00 to 19:00 IST.'));
+        addForm(contact);
+      });
+      return;
+    }
+    var hit = match(text);
+    if (!hit) {
+      typing(450, function () {
+        addMessage('bot', format('I don\'t have a reliable answer to that one, and I would rather not guess. The team can answer directly: WhatsApp and email links sit under the message box, or send a brief and they will reply.'));
+        addChips(['Start a project', 'Talk to a person', 'What do you build?']);
+      });
+      return;
+    }
+    var answer = typeof hit.answer === 'function' ? hit.answer() : hit.answer;
+    typing(Math.min(900, 300 + answer.length * 1.5), function () {
+      addMessage('bot', format(answer));
+      if (hit.form) addForm();
+      else addChips(hit.chips);
+    });
+  }
 
-        leadState.name = nameVal || 'Project Inquirer';
-        leadState.service = serviceVal;
-        leadState.budget = budgetVal;
+  function onChip(label) {
+    if (label === 'Message on WhatsApp') { window.open(waLink(), '_blank', 'noopener'); return; }
+    if (label === 'Book a call') { window.location.href = '/contact'; return; }
+    addMessage('user', esc(label));
+    reply(CHIP_TO_TEXT[label] || label);
+  }
 
-        // Determine if contact is email or phone
-        if (contactVal.includes('@')) {
-          leadState.email = contactVal;
-        } else {
-          leadState.phone = contactVal;
-          leadState.contact = contactVal;
-        }
+  /* ---------- Brief form inside the conversation ---------- */
+  function transcript() {
+    var tmp = document.createElement('div');
+    return history.slice(-14).map(function (h) {
+      tmp.innerHTML = h.html.replace(/<\/p>|<\/li>|<br>/g, '$&\n').replace(/<li>/g, '<li>- ');
+      var text = tmp.textContent.split('\n').map(function (l) { return l.trim(); }).filter(Boolean).join('\n');
+      return (h.from === 'user' ? 'Visitor: ' : 'Assistant: ') + text;
+    }).join('\n\n');
+  }
+  function addForm(prefill) {
+    var id = 'kcf' + Date.now();
+    var f = el('form', { class: 'kc-form', novalidate: '' });
+    f.innerHTML =
+      '<p class="kc-form__title">Send a brief</p><p class="kc-form__sub">It goes to the studio with this conversation.</p>' +
+      '<div class="kc-field"><label for="' + id + 'n">Your name</label><input id="' + id + 'n" name="name" autocomplete="name" required></div>' +
+      '<div class="kc-field"><label for="' + id + 'c">Email or WhatsApp number</label><input id="' + id + 'c" name="contact" autocomplete="email" required></div>' +
+      '<div class="kc-field"><label for="' + id + 's">What do you need?</label><select id="' + id + 's" name="service">' +
+        ['Custom website', 'Web application', 'Shopify store', 'Mobile app', 'AI automation', 'AI search or SEO', 'Hacked site cleanup', 'Not sure yet'].map(function (o) { return '<option>' + o + '</option>'; }).join('') +
+      '</select></div>' +
+      '<div class="kc-field"><label for="' + id + 'b">Budget</label><select id="' + id + 'b" name="budget">' +
+        ['Not sure yet', 'Under ₹1,50,000 or $2,500', '₹1,50,000 to ₹5,00,000 or $2,500 to $10,000', 'Above ₹5,00,000 or $10,000'].map(function (o) { return '<option>' + o + '</option>'; }).join('') +
+      '</select></div>' +
+      '<div class="kc-field"><label for="' + id + 'm">Anything else? (optional)</label><textarea id="' + id + 'm" name="message" rows="2"></textarea></div>' +
+      '<p class="kc-form__error" role="alert" hidden></p>' +
+      '<button type="submit" class="kc-btn">Send brief' + ICON.arrow + '</button>';
+    if (prefill) f.querySelector('[name="contact"]').value = prefill;
+    log.appendChild(f);
+    scrollDown();
+    setTimeout(function () { f.elements.namedItem('name').focus({ preventScroll: true }); }, 50);
 
-        syncLeadToBackend(false, () => {
-          card.remove();
-          sendMessage(`I have submitted a project request for **${serviceVal}** (${budgetVal}). Contact: **${contactVal}**`, 'user');
-          showTypingIndicator();
-          setTimeout(() => {
-            removeTypingIndicator();
-            sendMessage(`🎉 **Inquiry Confirmed, ${leadState.name}!**\n\nYour project brief has been logged and instantly forwarded to **Kunal Sharma** and our senior engineering team at Kawaki Studios.\n\nWe will review your requirements and reach out to **${contactVal}** within 24 hours. In the meantime, feel free to inspect our [Case Studies](/case-studies) or [Technical Guides](/blog).`, 'ai');
-          }, 600);
+    f.addEventListener('input', function () { var er = f.querySelector('.kc-form__error'); er.hidden = true; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('.kc-form__error');
+      var nameField = f.elements.namedItem('name');
+      var name = nameField.value.trim(), contact = f.contact.value.trim();
+      var isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
+      var isPhone = contact.replace(/\D/g, '').length >= 8;
+      f.contact.setAttribute('aria-invalid', String(!(isEmail || isPhone)));
+      if (!name || !(isEmail || isPhone)) {
+        err.textContent = !name ? 'Please add your name.' : 'Please add an email address or a phone number with country code.';
+        err.hidden = false;
+        (!name ? nameField : f.contact).focus();
+        return;
+      }
+      err.hidden = true;
+      var btn = f.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = 'Sending\u2026';
+      var payload = {
+        name: name,
+        email: isEmail ? contact : '',
+        contact: contact,
+        service: f.service.value,
+        budget: f.budget.value,
+        stage: 'Chat brief',
+        notes: (f.message.value.trim() ? f.message.value.trim() + '\n\n' : '') + 'Page: ' + location.pathname + '\n\n' + transcript(),
+        slot_date: new Date().toDateString(),
+        slot_time: new Date().toTimeString().slice(0, 5)
+      };
+      fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json().catch(function () { return {}; }); })
+        .then(function () {
+          f.remove();
+          addMessage('bot', format('Thanks, **' + name + '**. Your brief is with the studio. They reply on working days, Monday to Friday, 10:00 to 19:00 IST. If it is urgent, WhatsApp is quickest.'));
+          addChips(['See the work', 'How do you work?']);
+          try { localStorage.setItem('kc_brief_sent', String(Date.now())); } catch (e2) { /* storage unavailable */ }
+        })
+        .catch(function () {
+          btn.disabled = false; btn.innerHTML = 'Send brief' + ICON.arrow;
+          err.innerHTML = 'That did not send. Please use <a href="' + waLink('Hi, my name is ' + name + '. ' + f.message.value.trim()) + '" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:' + EMAIL + '">' + EMAIL + '</a> instead.';
+          err.hidden = false;
         });
-      });
-    }
-  }
-
-  /* --------------------------------------------------------------------------
-     4. COMPREHENSIVE LEAD SYNCHRONIZATION WITH BACKEND API (/api/leads)
-     -------------------------------------------------------------------------- */
-  function syncLeadToBackend(isBeacon = false, callback = null) {
-    if (!leadState.email && !leadState.phone && !leadState.contact) {
-      if (callback) callback();
-      return;
-    }
-
-    const conversationTranscript = leadState.messages
-      .map(m => `[${m.sender.toUpperCase()} - ${new Date(m.timestamp).toLocaleTimeString()}]: ${m.text}`)
-      .join('\n');
-
-    const contactMethod = leadState.phone || leadState.contact || 'Website Live Chat';
-    const emailAddress = leadState.email || `lead-${(leadState.phone || '').replace(/[^0-9]/g, '') || Date.now()}@kawaki-inquiry.com`;
-
-    const payload = {
-      name: leadState.name || 'Website Chat Lead',
-      email: emailAddress,
-      contact: contactMethod,
-      service: leadState.service || 'Web Development Inquiry',
-      stage: 'Chatbot Qualified Lead',
-      budget: leadState.budget || 'Undetermined',
-      notes: `Captured via Kawaki Studios Live Chatbot.\n\nName: ${leadState.name || 'Visitor'}\nEmail: ${leadState.email || 'N/A'}\nPhone/WhatsApp: ${leadState.phone || 'N/A'}\nService: ${leadState.service || 'General'}\nCompany: ${leadState.company || 'N/A'}\nBudget: ${leadState.budget || 'N/A'}\n\nTranscript:\n${conversationTranscript}`,
-      slot_date: new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }),
-      slot_time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-    };
-
-    leadState.synced = true;
-
-    if (isBeacon && navigator.sendBeacon) {
-      const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-      navigator.sendBeacon('/api/leads', blob);
-      if (callback) callback();
-      return;
-    }
-
-    fetch('/api/leads', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log('[Kawaki Chatbot] Lead synchronized successfully:', data);
-        if (callback) callback();
-      })
-      .catch(err => {
-        console.warn('[Kawaki Chatbot] Lead sync note:', err.message);
-        if (callback) callback();
-      });
-  }
-
-  /* --------------------------------------------------------------------------
-     5. CONVERSATIONAL LOGIC & ENTITY EXTRACTION
-     -------------------------------------------------------------------------- */
-  function processUserMessage(userText) {
-    showTypingIndicator();
-
-    const lower = userText.toLowerCase().trim();
-    let reply = "";
-    let options = null;
-    let shouldRenderCard = false;
-    let delay = 450 + Math.random() * 250;
-
-    // Entity Extraction 1: Email detection anywhere in text
-    const emailMatch = userText.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/i);
-    if (emailMatch) {
-      leadState.email = emailMatch[0];
-      syncLeadToBackend();
-    }
-
-    // Entity Extraction 2: Phone number / WhatsApp detection
-    const phoneMatch = userText.match(/(?:\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}|\+?\d{10,14}/);
-    if (phoneMatch && !emailMatch) {
-      const cleanPhone = phoneMatch[0].trim();
-      if (cleanPhone.length >= 10) {
-        leadState.phone = cleanPhone;
-        syncLeadToBackend();
-      }
-    }
-
-    // State Machine logic
-    if (leadState.step === 'AWAITING_SERVICE') {
-      leadState.service = userText;
-      leadState.step = 'AWAITING_CONTACT';
-      shouldRenderCard = true;
-      reply = `Superb choice! We engineer custom platforms for **${userText}**.\n\nYou can fill out our quick scope card below, or share your email / WhatsApp right here so our lead engineers can prepare an architectural estimate.`;
-    } 
-    else if (leadState.step === 'AWAITING_NAME') {
-      leadState.name = userText.replace(/^(my name is|i am|i'm|this is)\s+/i, '').trim();
-      leadState.step = 'AWAITING_CONTACT';
-      if (leadState.email || leadState.phone) {
-        leadState.step = 'COMPLETE';
-        syncLeadToBackend();
-        reply = `Pleased to connect, **${leadState.name}**! We have your contact information safely logged.\n\nOur engineering team will review your **${leadState.service || 'project'}** requirements. Would you like to share your current website URL or target launch timeframe?`;
-      } else {
-        reply = `Pleased to connect, **${leadState.name}**! What is the best **email address or WhatsApp number** to send your project scope and consultation details?`;
-      }
-    } 
-    else if (leadState.step === 'AWAITING_CONTACT') {
-      if (emailMatch || phoneMatch) {
-        leadState.step = 'COMPLETE';
-        syncLeadToBackend();
-        const contactMethod = emailMatch ? emailMatch[0] : phoneMatch[0];
-        reply = `🎉 Thank you, **${leadState.name || 'there'}**! We've recorded your contact as **${contactMethod}**.\n\nOur engineering lead will review your project requirements and get in touch within 24 hours. You can also inspect our [Case Studies](/case-studies) or review our [Custom Web Development Services](/services/custom-web-development).`;
-      } else {
-        reply = "Please share a valid email address (e.g. name@company.com) or phone number so our team can send over the technical estimate.";
-      }
-    } 
-    // Direct trigger for Project Scope / Quote
-    else if (
-      lower.includes('start a project') || 
-      lower.includes('get a quote') || 
-      lower.includes('quote') || 
-      lower.includes('estimate') || 
-      lower.includes('hire') || 
-      lower.includes('build a website') || 
-      lower.includes('new project') || 
-      lower.includes('book consultation')
-    ) {
-      leadState.step = 'AWAITING_SERVICE';
-      shouldRenderCard = true;
-      reply = "We would be thrilled to engineer your project! You can use our **Project Discovery Card** below to share your requirements, or select a service category to begin:";
-      options = [
-        { label: "🌐 Bespoke Web & Next.js App", value: "Custom Web Development" },
-        { label: "🛍️ Headless Shopify Storefront", value: "Shopify Development" },
-        { label: "🤖 AI Automation & Workflows", value: "AI Automation" },
-        { label: "🔒 WordPress Security & Recovery", value: "Security & Malware Removal" }
-      ];
-    } 
-    // Phone or email dropped naturally
-    else if (emailMatch || phoneMatch) {
-      syncLeadToBackend();
-      const contactVal = emailMatch ? emailMatch[0] : phoneMatch[0];
-      leadState.step = 'AWAITING_NAME';
-      reply = `Thank you for sharing your contact details (**${contactVal}**)! What is your name and the vision for your project?`;
-    } 
-    // Standard Studio Knowledge Base
-    else {
-      reply = answerStudioKnowledge(lower, userText);
-    }
-
-    setTimeout(() => {
-      removeTypingIndicator();
-      sendMessage(reply, 'ai');
-      if (options) {
-        renderInteractiveOptions(options);
-      }
-      if (shouldRenderCard) {
-        renderLeadCaptureCard(leadState.service);
-      }
-    }, delay);
-  }
-
-  /* --------------------------------------------------------------------------
-     6. FACTUAL STUDIO KNOWLEDGE BASE (KAWAKI CORE CAPABILITIES)
-     -------------------------------------------------------------------------- */
-  function answerStudioKnowledge(lower, rawText) {
-    // Services / Capabilities
-    if (lower.includes('service') || lower.includes('what do you do') || lower.includes('capabilities') || lower.includes('what do you build')) {
-      return "Kawaki Studios specializes in full-stack digital product engineering:\n\n" +
-        "• **[Custom Web Development](/services/custom-web-development)**: Sub-second bespoke web platforms engineered with Next.js, React, and modern TypeScript.\n" +
-        "• **[Shopify & Headless E-commerce](/services/shopify-development)**: High-converting custom Liquid and Storefront API headless architectures with zero bloat.\n" +
-        "• **[AI Automation & Workflow Architecture](/services/ai-automation)**: Autonomous agent loops and n8n/Make orchestration for business operations.\n" +
-        "• **[AI Search Optimization (GEO/AEO)](/services/ai-search-optimization)**: Entity architecture ensuring your brand is recommended across ChatGPT, Claude, and Perplexity.\n" +
-        "• **[WordPress Malware Removal & Security](/services/wordpress-malware-removal)**: Forensic cleanup of backdoors, malicious redirects, and Japanese keyword hacks.\n\n" +
-        "Would you like an architectural recommendation for your upcoming project?";
-    }
-
-    // Pricing / Rates / Timeline
-    if (lower.includes('price') || lower.includes('cost') || lower.includes('budget') || lower.includes('rate') || lower.includes('how much')) {
-      return "Our engineering investments are milestone-based, guaranteeing transparent delivery with zero scope surprises:\n\n" +
-        "• **Bespoke Websites & Digital Flagships**: Typically $5,000 – $15,000 (4–8 week sprint cycles).\n" +
-        "• **Complex Web Apps & SaaS Systems**: Typically $15,000 – $40,000+ depending on database models and APIs.\n" +
-        "• **Security Recovery & Forensic Eradication**: Fixed emergency turnaround packages.\n\n" +
-        "We commit code directly to your private GitHub from Sprint 1. Would you like a customized scope estimate?";
-    }
-
-    // Case Studies & Work
-    if (lower.includes('case stud') || lower.includes('portfolio') || lower.includes('work') || lower.includes('client') || lower.includes('sample')) {
-      return "Here are recent flagship case studies engineered by Kawaki Studios:\n\n" +
-        "• **[Kala Design Co.](/case-studies/kala-design)**: Architectural monograph featuring sub-0.8s LCP, semantic typography rails, and minimal aesthetics.\n" +
-        "• **[BAZZARO](/case-studies/bazzaro)**: High-velocity headless commerce storefront delivering instant catalog search and checkout transitions.\n" +
-        "• **[NextSchool ERP](/case-studies/nextschool-erp)**: Multi-tenant educational management system powering student enrollment and analytics.\n\n" +
-        "Would you like to review more case studies or discuss a similar platform for your brand?";
-    }
-
-    // Tech Stack & Frameworks
-    if (lower.includes('stack') || lower.includes('nextjs') || lower.includes('react') || lower.includes('shopify') || lower.includes('wordpress')) {
-      return "We are technology pragmatists who engineer for long-term performance:\n\n" +
-        "• **Front-End**: Next.js 15, React, TypeScript, Tailwind CSS, Vanilla CSS design tokens.\n" +
-        "• **Commerce**: Headless Shopify (Storefront API), Hydrogen, Custom Liquid theme development.\n" +
-        "• **Back-End & DB**: Node.js, PostgreSQL, Supabase, SQLite, Redis caching rails.\n" +
-        "• **Cloud & Edge**: Vercel Edge Network, Cloudflare Workers, AWS.\n\n" +
-        "We never build on bloated pre-bought commercial templates or fragile drag-and-drop builders.";
-    }
-
-    // Contact / Location / Meeting
-    if (lower.includes('contact') || lower.includes('email') || lower.includes('phone') || lower.includes('call') || lower.includes('location') || lower.includes('delhi')) {
-      return "Kawaki Studios is headquartered in **New Delhi, India**, collaborating with founders and engineering leaders globally.\n\n" +
-        "• **Direct Studio Email**: [hello@kawakistudios.com](mailto:hello@kawakistudios.com)\n" +
-        "• **Consultation Booking**: Visit our [Contact Page](/contact) to schedule a video call with lead engineer Kunal Sharma.\n\n" +
-        "You can also share your contact details right here in chat, and we'll reply directly!";
-    }
-
-    // General fallback
-    return "Thank you for your question. As a bespoke digital engineering studio, we specialize in high-performance web systems, headless commerce, and AI integrations.\n\nWould you like to **request a project estimate**, explore our **case studies**, or speak with our engineering director?";
-  }
-
-  function renderInteractiveOptions(options) {
-    const feed = document.getElementById('kawakiChatMessages');
-    if (!feed || !options || options.length === 0) return;
-
-    const wrap = document.createElement('div');
-    wrap.className = 'kawaki-chat-suggestions';
-    wrap.style.marginTop = '0.5rem';
-
-    options.forEach(opt => {
-      const btn = document.createElement('button');
-      btn.className = 'kawaki-chat-chip';
-      btn.innerText = opt.label;
-      btn.addEventListener('click', () => {
-        wrap.remove();
-        sendMessage(opt.label, 'user');
-        processUserMessage(opt.value || opt.label);
-      });
-      wrap.appendChild(btn);
     });
-
-    feed.appendChild(wrap);
-    feed.scrollTop = feed.scrollHeight;
   }
 
-  function showTypingIndicator() {
-    const feed = document.getElementById('kawakiChatMessages');
-    if (!feed) return null;
-
-    const typingEl = document.createElement('div');
-    typingEl.className = 'kawaki-chat-typing';
-    typingEl.id = 'kawakiTypingIndicator';
-    typingEl.innerHTML = `
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-    `;
-    feed.appendChild(typingEl);
-    feed.scrollTop = feed.scrollHeight;
-    return typingEl;
-  }
-
-  function removeTypingIndicator() {
-    const typingEl = document.getElementById('kawakiTypingIndicator');
-    if (typingEl) typingEl.remove();
-  }
-
-  function escapeHtml(str) {
-    if (!str) return '';
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
-  }
-
-  /* --------------------------------------------------------------------------
-     7. VOICE SPEECH RECOGNITION (Web Speech API)
-     -------------------------------------------------------------------------- */
-  function initVoiceRecognition() {
-    const micBtn = document.getElementById('kawakiChatMicBtn');
-    const input = document.getElementById('kawakiChatInput');
-
-    if (!micBtn || !input) return;
-
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      micBtn.style.display = 'none';
-      return;
-    }
-
-    try {
-      recognition = new SpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'en-US';
-
-      recognition.onstart = () => {
-        isListening = true;
-        micBtn.classList.add('listening');
-        input.placeholder = 'Listening... Speak your message';
-      };
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (transcript) {
-          input.value = transcript;
-          handleSend();
-        }
-      };
-
-      recognition.onerror = () => {
-        isListening = false;
-        micBtn.classList.remove('listening');
-        input.placeholder = 'Ask an architectural question or discuss a project...';
-      };
-
-      recognition.onend = () => {
-        isListening = false;
-        micBtn.classList.remove('listening');
-        input.placeholder = 'Ask an architectural question or discuss a project...';
-      };
-
-      micBtn.addEventListener('click', () => {
-        if (isListening) {
-          recognition.stop();
-        } else {
-          recognition.start();
-        }
-      });
-    } catch (e) {
-      micBtn.style.display = 'none';
+  /* ---------- Open, close, send ---------- */
+  var isOpen = false;
+  function render() {
+    log.innerHTML = '';
+    log.appendChild(el('div', { class: 'kc-intro' },
+      '<p class="kc-intro__title">What are you building?</p>' +
+      '<p class="kc-intro__text">Scripted answers on services, pricing, timelines and our work, taken from the studio\u2019s own notes. Anything else goes to the team.</p>'));
+    if (!history.length) {
+      addChips(GREETING_CHIPS);
+    } else {
+      history.forEach(function (h) { log.appendChild(entry(h.from, h.html, h.t)); });
+      addChips(['Start a project', 'What does it cost?', 'Talk to a person']);
     }
   }
+  function open(text) {
+    if (isOpen) { if (text) send(text); return; }
+    isOpen = true;
+    if (!log.childElementCount) render();
+    updateStatus();
+    panel.classList.add('kc-enter');
+    panel.hidden = false;
+    requestAnimationFrame(function () { requestAnimationFrame(function () { panel.classList.remove('kc-enter'); }); });
+    root.classList.add('is-open');
+    launcher.setAttribute('aria-expanded', 'true');
+    launcher.setAttribute('aria-label', 'Close chat');
+    launcher.innerHTML = '<span class="kc-launcher__badge">' + ICON.close + '</span>';
+    if (window.matchMedia('(max-width: 560px)').matches) document.documentElement.style.overflow = 'hidden';
+    scrollDown();
+    /* Phones: focus the panel, not the box, so the keyboard does not cover the questions. */
+    var finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+    setTimeout(function () { (finePointer ? input : panel).focus({ preventScroll: true }); }, 60);
+    if (text) send(text);
+    try { sessionStorage.setItem('kc_open', '1'); } catch (e) { /* storage unavailable */ }
+  }
+  function close() {
+    if (!isOpen) return;
+    isOpen = false;
+    panel.hidden = true;
+    root.classList.remove('is-open');
+    launcher.setAttribute('aria-expanded', 'false');
+    launcher.setAttribute('aria-label', 'Open chat with Kawaki Studios');
+    launcher.innerHTML = LAUNCH;
+    document.documentElement.style.overflow = '';
+    launcher.focus({ preventScroll: true });
+    try { sessionStorage.removeItem('kc_open'); } catch (e) { /* storage unavailable */ }
+  }
+  function send(text) {
+    text = String(text || '').trim();
+    if (!text) return;
+    addMessage('user', esc(text).replace(/\n/g, '<br>'));
+    reply(text);
+  }
+  launcher.addEventListener('click', function () { isOpen ? close() : open(); });
+  panel.querySelector('[data-close]').addEventListener('click', close);
+  panel.querySelector('[data-compose]').addEventListener('submit', function (e) { e.preventDefault(); send(input.value); input.value = ''; input.style.height = ''; });
+  input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(input.value); input.value = ''; input.style.height = ''; } });
+  input.addEventListener('input', function () { input.style.height = 'auto'; input.style.height = Math.min(120, input.scrollHeight) + 'px'; });
+  panel.addEventListener('keydown', function (e) { if (e.key === 'Escape') { e.stopPropagation(); close(); } });
+  setInterval(function () { if (isOpen) updateStatus(); }, 30000);
 
+  window.KawakiChat = { open: open, close: close };
+
+  function mount() {
+    document.body.appendChild(root);
+    try { if (sessionStorage.getItem('kc_open') === '1' && !window.matchMedia('(max-width: 560px)').matches) open(); } catch (e) { /* storage unavailable */ }
+    /* The brief popup loads once the page is idle. */
+    var loadPopup = function () {
+      if (document.getElementById('kawaki-brief-popup-script')) return;
+      var s = document.createElement('script');
+      s.id = 'kawaki-brief-popup-script';
+      s.src = '/assets/js/exit-popup.js?v=' + ASSET_VER;
+      s.defer = true;
+      document.body.appendChild(s);
+    };
+    if ('requestIdleCallback' in window) requestIdleCallback(loadPopup, { timeout: 4000 }); else setTimeout(loadPopup, 2500);
+  }
+  function whenReady() { if (cssReady) mount(); else pendingMount = mount; }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', whenReady); else whenReady();
 })();

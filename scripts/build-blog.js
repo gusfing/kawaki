@@ -223,101 +223,11 @@ function getContextualService(article) {
 
 // 5. Update Blog Index Grid & Script in public/blog.html
 function updateBlogIndexHtml(articles) {
-  let content = fs.readFileSync(blogIndexFile, 'utf8');
-
-  // Generate cards HTML
-  const fallbackImages = [
-    '/assets/images/blog/ai-citations-vs-brand-mentions-hero.jpg',
-    '/assets/images/blog/nextjs-performance-architecture-hero.jpg',
-    '/assets/images/blog/webflow-vs-custom-development-hero.jpg',
-    '/assets/images/blog/ai-automation-vs-ai-agents-hero.jpg',
-    '/assets/images/blog/what-is-editorial-engineering-hero.jpg'
-  ];
-
-  const cardsHtml = articles.map((b, idx) => {
-    const dateStr = formatDate(b.createdAt);
-    const category = (b.tags && b.tags[0]) ? b.tags[0] : 'Editorial';
-    const imgSrc = b.featuredImage || fallbackImages[idx % fallbackImages.length];
-
-    return `                <a href="/blog/${b.slug}" class="blog-card span-4 dynamic-api-card" data-category="${category}">
-                    <div class="card-meta-row">
-                        <span class="meta-date">${dateStr}</span>
-                        <span class="meta-separator"></span>
-                        <span class="meta-category">${category}</span>
-                        <span class="read-more">Read <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-                    </div>
-                    <div class="card-image-wrapper">
-                        <img src="${imgSrc}" alt="${b.title}" width="800" height="450" loading="lazy" decoding="async" onerror="this.src='${fallbackImages[0]}'">
-                    </div>
-                    <h2 class="card-title">${b.title}</h2>
-                </a>`;
-  }).join('\n');
-
-  // Replace #blogGrid container content
-  const gridRegex = /(<div class="blog-grid" id="blogGrid">)([\s\S]*?)(<\/div>\s*<\/section>)/i;
-  if (gridRegex.test(content)) {
-    content = content.replace(gridRegex, `$1\n${cardsHtml}\n            $3`);
-  } else {
-    console.warn('[Build Blog] Warning: Could not find #blogGrid in public/blog.html');
-  }
-
-  // Ensure verified Instagram profile URL in blog.html (fully idempotent)
-  content = content.replace(/href="https:\/\/instagram\.com(?:\/[^"]*)?"(?:kawaki\.agency")*/g, 'href="https://instagram.com/kawaki.agency"');
-
-  // Update client script in blog.html: remove fetch, retain filtering & Lenis
-  const scriptRegex = /<script>\s*document\.addEventListener\('DOMContentLoaded',\s*(?:async\s*)?\(\)\s*=>\s*\{[\s\S]*?<\/script>/i;
-  const newScript = `<script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") gsap.registerPlugin(ScrollTrigger);
-
-            // Lenis Smooth Scroll
-            const lenis = new Lenis();
-            lenis.on('scroll', ScrollTrigger.update);
-            gsap.ticker.add((t) => lenis.raf(t * 1000));
-            gsap.ticker.lagSmoothing(0);
-
-            // Category Filtering on Static Pre-Rendered Cards
-            const filterContainer = document.getElementById('categoryFilters');
-
-            function applyFilter(selectedCategory) {
-                const allCards = document.querySelectorAll('.blog-card');
-                allCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category') || '';
-                    if (selectedCategory === 'all' || cardCategory.toLowerCase() === selectedCategory.toLowerCase()) {
-                        card.style.display = 'flex';
-                        if (typeof gsap !== "undefined") {
-                            gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
-                        }
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-
-            if (filterContainer) {
-                filterContainer.addEventListener('click', (e) => {
-                    if (e.target.tagName !== 'A') return;
-                    e.preventDefault();
-
-                    const selectedCategory = e.target.getAttribute('data-category');
-                    filterContainer.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-                    e.target.classList.add('active');
-
-                    applyFilter(selectedCategory);
-                });
-            }
-        });
-    </script>`;
-
-  if (scriptRegex.test(content)) {
-    content = content.replace(scriptRegex, newScript);
-  }
-
-  fs.writeFileSync(blogIndexFile, content, 'utf8');
-  console.log(`✓ Updated public/blog.html with ${articles.length} pre-rendered article cards.`);
+  const html = require('./lib/article-page').blogIndexPage(articles, { formatDate });
+  fs.writeFileSync(blogIndexFile, html, 'utf8');
+  console.log(`\u2713 Wrote public/blog.html with ${articles.length} articles.`);
 }
 
-// 6. Update sitemap.xml with Clean URLs
 function updateSitemap(articles) {
   try {
     const { execSync } = require('child_process');

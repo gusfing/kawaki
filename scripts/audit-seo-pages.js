@@ -177,7 +177,7 @@ if (fs.existsSync(sitemapFile)) {
 
 console.log('\n📊 [QA Content & Architecture Audit Results]');
 console.log('----------------------------------------------------');
-console.log(`Total Source Intents Mapped : 226`);
+console.log(`Registry Pages              : ${registry.length}`);
 console.log(`Audited Distinct Kawaki URLs: ${totalAuditedPages}`);
 console.log(`Average Word Count          : ${avgWords} words/page`);
 console.log(`Missing <h1> Tags           : ${missingH1Count}`);
@@ -191,7 +191,7 @@ console.log(`Missing Sitemap Entries     : ${sitemapMissingCount}`);
 console.log('----------------------------------------------------');
 
 if (
-  totalAuditedPages === 226 &&
+  totalAuditedPages === registry.length &&
   missingH1Count === 0 &&
   duplicateH1Count === 0 &&
   duplicateTitleCount === 0 &&
@@ -201,7 +201,7 @@ if (
   disallowedClaimViolations === 0 &&
   sitemapMissingCount === 0
 ) {
-  console.log('🎉 [QA SEO Crawler] Technical SEO & Architecture Audit Passed: All 226 distinct pages verified.\n');
+  console.log(`🎉 [QA SEO Crawler] Technical SEO & Architecture Audit Passed: All ${registry.length} distinct pages verified.\n`);
   process.exit(0);
 } else {
   console.error('❌ [QA SEO Crawler] Audit Failed. Issues detected.');

@@ -54,7 +54,7 @@ async function run() {
       setVal('autocomplete', 'New Delhi, Delhi 110001, India');
       setVal('description', 'Kawaki Studios is an engineering-first digital studio building high-performance websites, custom web applications, headless Shopify stores, and AI automation systems for ambitious brands.');
       setVal('contact_person', 'Kunal Sharma');
-      setVal('phone', '+918368246502');
+      setVal('phone', '+917678123943');
       setVal('contact_email', 'contact@kawaki.co.in');
       setVal('twitter', 'https://twitter.com/kawakistudios');
       setVal('linkedin', 'https://linkedin.com/company/kawaki-studios');

@@ -1,0 +1,416 @@
+[
+  {
+    "slug": "kala-design",
+    "name": "Kala Design Co.",
+    "category": "Architecture and interiors studio",
+    "year": "2026",
+    "status": "Live",
+    "live": "https://kaladesignco.com/",
+    "domain": "kaladesignco.com",
+    "frame": {
+      "src": "/assets/images/home/kala-live.webp",
+      "w": 1280,
+      "h": 800
+    },
+    "clip": "kala",
+    "lede": "An editorial website for an architecture and interiors studio, built around large project photography.",
+    "metaDescription": "How Kawaki Studios built the Kala Design Co. website: an editorial portfolio for an architecture and interiors studio, led by its project photography.",
+    "client": "Kala Design Co. is an interior design and architecture studio working across residential, commercial and industrial projects. By the studio's own count, that is more than six years of practice, over 1.5 million square feet planned and built, and more than 135 clients.",
+    "brief": "The studio wanted a website as restrained as its buildings. Portfolio themes and corporate templates crowded the work; Kala Design Co. needed pages that let scale, proportion and material carry the story, the way a printed monograph does.",
+    "built": [
+      "An editorial homepage that opens on a featured residence",
+      "Project pages led by full-width photography and daylight studies",
+      "A quiet type system that leaves room for the images",
+      "Light, semantic markup with CSS transitions instead of a heavy framework"
+    ],
+    "stack": "Semantic HTML and CSS",
+    "gallery": [
+      {
+        "src": "/assets/images/case-studies/kala-design/nakra.jpg",
+        "w": 1200,
+        "h": 800,
+        "caption": "Nakra Residence, one of the studio's featured projects"
+      },
+      {
+        "src": "/assets/images/case-studies/kala-design/gaur-residence.jpg",
+        "w": 1200,
+        "h": 800,
+        "caption": "Gaur Residence"
+      },
+      {
+        "src": "/assets/images/case-studies/kala-design/chauhan-residence.jpg",
+        "w": 1200,
+        "h": 675,
+        "caption": "Chauhan Residence"
+      }
+    ]
+  },
+  {
+    "slug": "bazzaro",
+    "name": "BAZZARO",
+    "category": "Fashion ecommerce",
+    "year": "2026",
+    "status": "Live",
+    "live": "https://www.bazzaro.in/",
+    "domain": "bazzaro.in",
+    "frame": {
+      "src": "/assets/images/home/bazzaro-live.webp",
+      "w": 1280,
+      "h": 800
+    },
+    "clip": "bazzaro",
+    "lede": "A custom Shopify storefront for a direct-to-consumer brand of jewellery, tote bags and everyday accessories.",
+    "metaDescription": "How Kawaki Studios built the BAZZARO storefront on Shopify: custom Liquid sections, editorial collections and detailed product pages for a D2C brand.",
+    "client": "BAZZARO sells jewellery, canvas tote bags and everyday accessories directly to customers across India, under the line Art You Carry. The brand leans on photography and craft, so the store has to look like a lookbook and still sell like a shop.",
+    "brief": "Off-the-shelf Shopify themes looked generic, and stacked app scripts slowed every page. BAZZARO needed a storefront with an editorial feel, quick collection browsing and product pages detailed enough to answer questions about material and size before checkout.",
+    "built": [
+      "Custom Shopify Liquid sections instead of a bought theme",
+      "An editorial homepage that leads into collections and new drops",
+      "Product pages with material details, measurements and zoomable photography",
+      "Lean script loading and modern image formats for mobile shoppers"
+    ],
+    "stack": "Shopify, Liquid",
+    "gallery": [
+      {
+        "src": "/assets/images/case-studies/bazzaro/screenshot_2.webp",
+        "w": 2300,
+        "h": 2034,
+        "caption": "Collection page on desktop"
+      },
+      {
+        "src": "/assets/images/case-studies/bazzaro/screenshot_3.webp",
+        "w": 2260,
+        "h": 2034,
+        "caption": "Product detail on desktop"
+      },
+      {
+        "src": "/assets/images/case-studies/bazzaro/screenshot_mobile_1.webp",
+        "w": 1179,
+        "h": 2556,
+        "caption": "Homepage on a phone"
+      },
+      {
+        "src": "/assets/images/case-studies/bazzaro/screenshot_mobile_2.webp",
+        "w": 1179,
+        "h": 2556,
+        "caption": "Shopping on a phone"
+      }
+    ]
+  },
+  {
+    "slug": "decor-lab",
+    "name": "Decor Lab",
+    "category": "Architecture and interior design",
+    "status": "Live",
+    "live": "https://www.decorlabs.co.in/",
+    "domain": "decorlabs.co.in",
+    "frame": {
+      "src": "/assets/images/home/decorlab-live.webp",
+      "w": 1280,
+      "h": 800
+    },
+    "lede": "A portfolio website for a Kolkata architecture practice with three decades of work behind it.",
+    "metaDescription": "How Kawaki Studios built the Decor Lab website: project galleries, material catalogues and an enquiry path for each service of a Kolkata architecture practice.",
+    "client": "Decor Lab was founded in Kolkata in 1993 by Raja Sinha and is led today by Rajdip Sinha, who trained at The Bartlett School of Architecture, UCL. By the firm's own figures, it has completed more than 1,300 projects with a team of 275.",
+    "brief": "The practice had moved from traditional architecture into parametric and fluid design. Its website needed to show that new direction without losing three decades of work, and to turn interest from each kind of client into a specific enquiry.",
+    "built": [
+      "Project galleries with art-directed images for each screen size",
+      "Material and service catalogues for architecture and interiors",
+      "An enquiry path for each service the practice offers",
+      "WebP images and a semantic layout that keep heavy galleries smooth"
+    ],
+    "stack": "Semantic HTML, responsive images",
+    "gallery": [
+      {
+        "src": "/assets/images/case-studies/decor-lab/patna_penthouse.webp",
+        "w": 1600,
+        "h": 1066,
+        "caption": "Patna penthouse, a double-height residential project"
+      },
+      {
+        "src": "/assets/images/case-studies/decor-lab/jai_alankar.webp",
+        "w": 1600,
+        "h": 1066,
+        "caption": "Jai Alankar"
+      },
+      {
+        "src": "/assets/images/case-studies/decor-lab/santhaliya_house.webp",
+        "w": 1600,
+        "h": 2400,
+        "caption": "Santhaliya residence"
+      }
+    ]
+  },
+  {
+    "slug": "urbanland",
+    "name": "Urbanland Products",
+    "category": "B2B product catalogue",
+    "status": "Live",
+    "live": "https://urbanlandproducts.com/",
+    "domain": "urbanlandproducts.com",
+    "frame": {
+      "src": "/assets/images/home/urbanland-live.webp",
+      "w": 1280,
+      "h": 800
+    },
+    "lede": "A product catalogue for a manufacturer of outdoor street furniture, built for architects who buy by specification.",
+    "metaDescription": "How Kawaki Studios built the Urbanland Products catalogue: outdoor furniture organised by material, specification details and quote requests for architects.",
+    "client": "Urbanland Products LLP manufactures architectural outdoor furniture, transit shelters, planters and street furniture for public spaces, from Vasai in Maharashtra.",
+    "brief": "Urbanland's buyers do not pay by card. Landscape architects and contractors need dimensions, material data for WPC, NFC and aluminium ranges, drawings to download, and a simple way to put together a request for a quote.",
+    "built": [
+      "A catalogue organised by product type and material",
+      "Specification views with materials, finishes and downloadable drawings",
+      "Quote requests in place of a checkout",
+      "Local business structured data for search"
+    ],
+    "stack": "Semantic HTML, structured data",
+    "gallery": [
+      {
+        "src": "/assets/images/case-studies/urbanland/wpc-main.webp",
+        "w": 1200,
+        "h": 896,
+        "caption": "WPC range"
+      },
+      {
+        "src": "/assets/images/case-studies/urbanland/nfc-main.webp",
+        "w": 1200,
+        "h": 896,
+        "caption": "NFC range"
+      },
+      {
+        "src": "/assets/images/case-studies/urbanland/aluminium-main.webp",
+        "w": 1200,
+        "h": 896,
+        "caption": "Aluminium range"
+      }
+    ]
+  },
+  {
+    "slug": "nextschool-erp",
+    "name": "NextSchool ERP",
+    "category": "School management web app",
+    "status": "Live",
+    "live": "https://nextschoolerp.com/",
+    "domain": "nextschoolerp.com",
+    "frame": {
+      "src": "/assets/images/home/nextschool-live.webp",
+      "w": 1280,
+      "h": 800
+    },
+    "clip": "nextschool",
+    "lede": "A school operations portal for admissions, attendance, fees and gradebooks across several campuses.",
+    "metaDescription": "How Kawaki Studios built NextSchool ERP: a multi-campus school portal for admissions, attendance, fees, timetables and gradebooks, with role-based access.",
+    "client": "NextSchool ERP serves schools and groups of schools that run admissions, attendance, fees, exams and transport for hundreds of staff and thousands of students.",
+    "brief": "Schools were juggling paper registers for attendance, spreadsheets for fees, separate software for exam grading and another tool for buses. NextSchool needed one portal where each role sees its own work and every number comes from the same records.",
+    "built": [
+      "A multi-campus dashboard for enrolment, staff attendance and daily fee collections",
+      "Timetables and teacher substitutions with room availability checks",
+      "Student directories, fee ledgers and academic records in clear tables",
+      "Role-based access on a normalised relational database"
+    ],
+    "stack": "Web application, relational database",
+    "gallery": [
+      {
+        "src": "/assets/images/case-studies/nextschool/hero.webp",
+        "w": 1440,
+        "h": 900,
+        "caption": "The administration dashboard"
+      }
+    ]
+  },
+  {
+    "slug": "nursepass",
+    "name": "NursePass",
+    "category": "Healthcare education platform",
+    "status": "Live",
+    "live": "https://nursepass.de/",
+    "domain": "nursepass.de",
+    "frame": {
+      "src": "/assets/images/home/nursepass-live.webp",
+      "w": 1280,
+      "h": 800
+    },
+    "clip": "nursepass",
+    "lede": "A learning platform that takes internationally trained nurses through professional recognition in Germany.",
+    "metaDescription": "How Kawaki Studios built NursePass: courses, German medical language practice and timed test simulation for nurses seeking recognition in Germany.",
+    "client": "Germany needs many more nurses than it trains, and nurses qualified abroad must pass a recognition process, including a medical German language exam, before they can work. NursePass prepares them for it.",
+    "brief": "General course platforms could not handle what recognition requires: clinical scenarios, handover practice, specialist vocabulary and timed exams. NursePass needed a platform built around those steps, in German, that works on a phone between shifts.",
+    "built": [
+      "A course portal that breaks German healthcare rules and procedures into lessons",
+      "Medical German practice for patient intake, handovers and documentation",
+      "Timed practice tests with immediate feedback and scorecards",
+      "Test progress kept in the browser, so a dropped connection does not lose a session"
+    ],
+    "stack": "Web application",
+    "gallery": [
+      {
+        "src": "/assets/images/home/nursepass-mobile.webp",
+        "w": 780,
+        "h": 1500,
+        "caption": "The homepage on a phone"
+      },
+      {
+        "src": "/assets/images/case-studies/nursepass/about-01.jpg",
+        "w": 896,
+        "h": 1200,
+        "caption": "From the About page"
+      }
+    ]
+  },
+  {
+    "slug": "pixza",
+    "name": "Pixza",
+    "category": "AI image generation web app",
+    "status": "Product",
+    "frame": {
+      "src": "/assets/images/case-studies/pixza/live-showcase.webp",
+      "w": 1920,
+      "h": 1029
+    },
+    "domain": "Pixza",
+    "lede": "An AI image generation web app with a workspace for prompts, models and saved projects.",
+    "metaDescription": "How Kawaki Studios built Pixza: an AI image generation web app with a prompt workspace, model switching and a project library for saved work.",
+    "client": "Pixza is an AI image generation app built by Kawaki Studios for artists, creators and marketing teams who need images for real work rather than experiments.",
+    "brief": "Most image generators tie you to one model and a monthly subscription, and stop working when their provider hits an outage or a rate limit. Pixza set out to put several models behind one workspace, so the work can continue when one of them fails.",
+    "built": [
+      "A workspace for building prompts, locking aspect ratios and comparing previews",
+      "Switching between image models from one interface",
+      "A project library for saving, revisiting and exporting images",
+      "Responsive previews and caching that keep the interface quick during long runs"
+    ],
+    "stack": "Full-stack web application",
+    "gallery": [
+      {
+        "src": "/assets/images/case-studies/pixza/img-2.webp",
+        "w": 1456,
+        "h": 816,
+        "caption": "An image generated in Pixza"
+      },
+      {
+        "src": "/assets/images/case-studies/pixza/img-1.webp",
+        "w": 1200,
+        "h": 960,
+        "caption": "Another generation from the same workspace"
+      }
+    ]
+  },
+  {
+    "slug": "kova",
+    "name": "Kova",
+    "category": "AI layout builder",
+    "status": "In private testing",
+    "frame": {
+      "src": "/assets/images/case-studies/kova/live-showcase.webp",
+      "w": 1440,
+      "h": 900
+    },
+    "domain": "Kova",
+    "lede": "A visual layout builder that turns designs into production-ready web components, in private testing.",
+    "metaDescription": "How Kawaki Studios is building Kova: a visual canvas that compiles layouts into React and Tailwind components, currently in private testing.",
+    "client": "Kova is a Kawaki Studios product, currently in private testing. It sits between drag-and-drop site builders, which lock you into templates, and AI code generators, whose output is hard to edit visually.",
+    "brief": "Designers wanted to arrange layouts on a canvas and get clean code they could keep, not code they could only regenerate. Kova had to keep the canvas and the code in step, in both directions.",
+    "built": [
+      "A canvas with responsive artboards and freeform component placement",
+      "Two-way sync between the canvas and React and Tailwind output",
+      "TypeScript contracts and a JSON project tree behind every layout",
+      "Local state handling, so edits show up without waiting on a server"
+    ],
+    "stack": "TypeScript, React, Tailwind CSS",
+    "gallery": []
+  },
+  {
+    "slug": "lms-ecosystem",
+    "name": "LMS Ecosystem",
+    "category": "Education platform",
+    "frame": {
+      "src": "/assets/images/case-studies/lms-ecosystem/hero.webp",
+      "w": 1440,
+      "h": 900
+    },
+    "domain": "LMS Ecosystem",
+    "lede": "One connected platform for students, teachers, parents and school staff, with mobile apps for each.",
+    "metaDescription": "How Kawaki Studios built the LMS Ecosystem: connected web and Flutter apps for students, teachers, parents and staff, with offline attendance.",
+    "client": "The LMS Ecosystem is a school platform that brings learning, attendance and communication into one system, with separate apps for students, teachers and parents.",
+    "brief": "Teachers kept grades in one system, parents followed school updates in another and students found timetables somewhere else. The school needed one set of records, with each role seeing only what it needs.",
+    "built": [
+      "A Flutter app for teachers: attendance, homework and messages to parents",
+      "Apps for students and parents on iOS and Android",
+      "Attendance that works offline and syncs when the connection returns",
+      "A course interface with lesson trees and progress tracking"
+    ],
+    "stack": "Flutter, web application",
+    "gallery": []
+  },
+  {
+    "slug": "spa-salon",
+    "name": "Spa & Salon Platform",
+    "category": "Booking platform",
+    "frame": {
+      "src": "/assets/images/case-studies/spa-salon/live-showcase.webp",
+      "w": 1440,
+      "h": 900
+    },
+    "domain": "Spa & Salon",
+    "lede": "A booking app and scheduling system for a multi-branch spa and salon business.",
+    "metaDescription": "How Kawaki Studios built a Spa & Salon platform: a Flutter booking app and scheduling that accounts for specialist shifts, room availability and buffers.",
+    "client": "The client runs appointment-based spa, salon and wellness services across several branches.",
+    "brief": "Bookings were lost to phone tag, double bookings and idle time between treatments. The business needed customers to book themselves, and a calendar that only offers slots it can really deliver.",
+    "built": [
+      "A Flutter booking app for choosing services, specialists and packages",
+      "Scheduling that accounts for specialist shifts, room availability and cleaning time between treatments",
+      "Service catalogues for each branch",
+      "Webhook notifications that confirm each appointment straight away"
+    ],
+    "stack": "Flutter, webhooks",
+    "gallery": []
+  },
+  {
+    "slug": "iptv-mobile",
+    "name": "Slix IPTV",
+    "category": "Streaming app",
+    "frame": {
+      "src": "/assets/images/case-studies/iptv/live-showcase.webp",
+      "w": 1440,
+      "h": 900
+    },
+    "domain": "Slix IPTV",
+    "lede": "A cross-platform streaming app for live TV, films and series, built in Flutter.",
+    "metaDescription": "How Kawaki Studios built Slix IPTV: a Flutter streaming app with a programme guide, quick channel switching and support for subscriber playlists.",
+    "client": "Slix IPTV is a streaming app for subscribers who bring their own IPTV service: live television, films on demand and series.",
+    "brief": "Many IPTV apps look like old desktop software, with tiny text, spreadsheet-style grids and players that stutter during live sport. Slix needed the poster-led browsing people expect from streaming services, on a player that holds up for hours.",
+    "built": [
+      "Category carousels for live TV, films and series",
+      "An electronic programme guide with quick channel switching",
+      "Sign-in for Xtream Codes and Stalker portal playlists",
+      "A player tuned for long sessions and live broadcasts"
+    ],
+    "stack": "Flutter",
+    "gallery": [
+      {
+        "src": "/assets/images/case-studies/iptv/intro.jpg",
+        "w": 1280,
+        "h": 720,
+        "caption": "The opening screen"
+      }
+    ]
+  },
+  {
+    "slug": "fintech-roi-calculator",
+    "name": "Fintech ROI Calculator",
+    "category": "Interactive web tool",
+    "status": "Concept",
+    "domain": "ROI calculator",
+    "lede": "A concept build: a savings calculator that recalculates in the browser as each slider moves.",
+    "metaDescription": "A Kawaki Studios concept build: a financial ROI calculator that models savings in the browser, with typed inputs and an optional webhook for results.",
+    "client": "This is a concept project, built by Kawaki Studios to work through how an interactive financial calculator should behave, rather than for a client.",
+    "brief": "Many calculators send every change to a server and wait for the answer, so sliders lag and results flicker. The aim was a tool that recalculates instantly as you move a slider, with inputs that are checked and results that can be passed on.",
+    "built": [
+      "Calculations that run in the browser, with no request per slider move",
+      "Typed, validated inputs for terms, rates and capital costs",
+      "Results stored as structured data that can be saved or exported",
+      "An optional webhook to send results to a CRM or document tool"
+    ],
+    "stack": "TypeScript, client-side state",
+    "gallery": []
+  }
+]

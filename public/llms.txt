@@ -486,11 +486,6 @@ For enterprise e-commerce requirements, we decouple frontend presentation using 
 
 *Note: The following projects represent Architectural Reference Designs and conceptual systems engineered to demonstrate technical capabilities; they are not client engagements.*
 
-### [Acme Headless Commerce Architecture](https://kawaki.co.in/case-studies/acme-headless-ecommerce)
-- **Status**: Architectural Reference Design
-- **Summary**: A conceptual reference architecture demonstrating how ambitious e-commerce brands decouple Shopify backend commerce from customer-facing presentation. Explores Next.js App Router, Shopify Storefront GraphQL API v2026, edge caching (SWR), and optimistic cart mutations targeting sub-second page transitions.
-- **Canonical URL**: <https://kawaki.co.in/case-studies/acme-headless-ecommerce>
-
 ### [Fintech ROI Calculator Architecture](https://kawaki.co.in/case-studies/fintech-roi-calculator)
 - **Status**: Architectural Reference Design
 - **Summary**: A conceptual reference architecture exploring client-side interactive financial modeling. Demonstrates zero-dependency SVG chart rendering, parametric sensitivity calculations, sub-second reactivity, and lead qualification webhook integration.

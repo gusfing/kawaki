@@ -1,0 +1,412 @@
+    <meta name="theme-color" content="#23003F" />
+    <link rel="preload" href="/assets/fonts/bricolage-display.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/bricolage-text.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" as="image" type="image/webp" fetchpriority="high" imagesrcset="/assets/videos/home/reel-poster-640.webp 640w, /assets/videos/home/reel-poster.webp 960w" imagesizes="(max-width: 900px) 86vw, 56vw" />
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261115" />
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body class="home">
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="pathbar" aria-hidden="true"><span></span></div>
+
+    <header class="nav-wrapper" id="globalNav">
+        <nav aria-label="Primary">
+            <a href="/" class="nav-left" aria-label="Kawaki Studios, home"><span class="logo" aria-hidden="true"></span></a>
+            <a class="nav-center draw" href="mailto:hello@kawaki.co.in">hello@kawaki.co.in</a>
+            <a class="nav-cta btn btn--sm" href="/contact">Start a project<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <button type="button" class="nav-right" id="menuToggleBtn" aria-expanded="false" aria-controls="fullscreenMenu" aria-label="Open menu">
+                <span id="menu-toggle-text">MENU</span>
+                <span id="menu-toggle-icon" aria-hidden="true"><span class="bar bar-top"></span><span class="bar bar-bottom"></span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu">kawaki</span>
+            <div class="menu-layout">
+                <nav class="menu-col menu-col-left" aria-label="Site">
+                    <div class="main-menu-links" id="mainMenuPrimary">
+                        <ul>
+                            <li data-img="/assets/images/kawaki-home-preview.jpg" data-tag="Home" data-desc="Studio overview and recent work">
+                                <a href="/" aria-current="page"><span class="menu-text">Home</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/lms-ecosystem/hero.webp" data-tag="About" data-desc="Who builds your project, and how">
+                                <a href="/about"><span class="menu-text">About</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/bazzaro/hero.webp" data-tag="Services" data-desc="Websites, web apps, Shopify, automation, security">
+                                <a href="/services" id="menuServicesTrigger" class="menu-services-trigger" aria-haspopup="true" aria-expanded="false">
+                                    <span class="menu-text">Services</span>
+                                    <span class="menu-expand-badge" aria-hidden="true">+</span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/nursepass/hero.webp" data-tag="Work" data-desc="Case studies with the full write-up">
+                                <a href="/case-studies"><span class="menu-text">Work</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/urbanland/hero.webp" data-tag="Journal" data-desc="Notes on engineering, Shopify and AI">
+                                <a href="/blog"><span class="menu-text">Journal</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/decor-lab/hero.webp" data-tag="Contact" data-desc="Book a 15 minute call">
+                                <a href="/contact"><span class="menu-text">Contact</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="main-menu-services" id="mainMenuServices" style="display: none; opacity: 0;">
+                        <div class="menu-services-topbar">
+                            <button type="button" class="menu-services-back-btn" id="menuServicesBackBtn">
+                                <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13 8H3.5M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>Back</span>
+                            </button>
+                            <span class="menu-services-header-title">Services</span>
+                            <a href="/services" class="menu-services-hub-link">All services</a>
+                        </div>
+                        <div class="menu-services-grid">
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Web and commerce</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/kala-design/hero.webp" data-tag="Custom web development" data-desc="Hand-built company and marketing sites"><a href="/services/custom-web-development">Custom web development</a></li>
+                                    <li data-img="/assets/images/case-studies/lms-ecosystem/hero.webp" data-tag="Web applications" data-desc="Portals, dashboards and internal tools"><a href="/services/web-application-development">Web application development</a></li>
+                                    <li data-img="/assets/images/case-studies/bazzaro/hero.webp" data-tag="Shopify" data-desc="Custom themes and headless storefronts"><a href="/services/shopify-development">Shopify development</a></li>
+                                    <li data-img="/assets/images/case-studies/decor-lab/hero.webp" data-tag="WordPress" data-desc="Lean custom themes"><a href="/services/wordpress-development">WordPress development</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">AI and search</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/pixza/hero.webp" data-tag="AI automation" data-desc="n8n and Make.com workflows"><a href="/services/ai-automation">AI automation</a></li>
+                                    <li data-img="/assets/images/case-studies/kova/hero.webp" data-tag="AI search" data-desc="Being read and cited by AI search tools"><a href="/services/ai-search-optimization">AI search optimization</a></li>
+                                    <li data-img="/assets/images/case-studies/urbanland/hero.webp" data-tag="Technical SEO" data-desc="Architecture, URLs and schema"><a href="/technical-seo">Technical SEO</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Security</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/spa-salon/hero.webp" data-tag="Malware removal" data-desc="Hacked WordPress cleanup"><a href="/services/wordpress-malware-removal">WordPress malware removal</a></li>
+                                    <li data-img="/assets/images/case-studies/nursepass/hero.webp" data-tag="Hardening" data-desc="Closing the way in"><a href="/services/website-security-hardening">Website security hardening</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Mobile</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/iptv/hero.webp" data-tag="Mobile apps" data-desc="Flutter, React Native, Swift, Kotlin"><a href="/services/mobile-app-development">Mobile app development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="menu-col menu-col-right">
+                    <div class="menu-preview-card" id="menuPreviewCard" aria-hidden="true">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/kawaki-home-preview.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">Home</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">Studio overview and recent work</span>
+                        </div>
+                    </div>
+                    <div class="menu-info-block">
+                        <a href="/contact" class="menu-cta-button btn">Start a project<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <a href="mailto:hello@kawaki.co.in" class="menu-email-link">hello@kawaki.co.in</a>
+                    </div>
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">X (Twitter)</a>
+                        <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="wrap">
+                <div class="hero__row grid">
+                    <h1 class="hero__title" id="hero-title">
+                        <span class="hl">Custom websites</span>
+                        <span class="hl"><span class="glyph glyph--squiggle" aria-hidden="true"><svg viewBox="0 0 96 40" focusable="false"><path d="M4 30c8 0 9-24 18-24s9 24 18 24 9-12 16-12h34M80 9l11 9-11 9" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>and web apps<span class="glyph glyph--badge" aria-hidden="true"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span></span>
+                    </h1>
+                    <div class="hero__side">
+                        <p class="hero__lede"><span class="hero__brand">Kawaki Studios</span> designs and builds custom websites, web applications and Shopify stores in New Delhi, with nothing in the way: no page builders, no bought themes.</p>
+                        <div class="hero__actions">
+                            <a class="btn" href="/contact">Start a project<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                            <a class="draw" href="#work">See the work<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 4.5l7 7M11.5 5.5v6h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ticker ticker--strip" data-ticker>
+                <p class="sr-only">What we leave out: page builders, bought themes, plugin piles, black-box scripts. What we build: custom websites, web applications, Shopify stores, AI automation, AI search, technical SEO and security cleanup.</p>
+                <div class="ticker__viewport"><div class="ticker__track" data-track aria-hidden="true"><div class="ticker__group"><span class="strip__item">Custom websites</span><span class="strip__sep">&#10035;</span><span class="strip__item strip__item--cut">Page builders</span><span class="strip__sep"><span class="strip__arrow"></span></span><span class="strip__item">Web applications</span><span class="strip__sep">&#10035;</span><span class="strip__item">Shopify stores</span><span class="strip__sep">+</span><span class="strip__item strip__item--cut">Bought themes</span><span class="strip__sep"><span class="strip__arrow"></span></span><span class="strip__item">AI automation</span><span class="strip__sep">&#10035;</span><span class="strip__item">AI search</span><span class="strip__sep">&#10035;</span><span class="strip__item strip__item--cut">Plugin piles</span><span class="strip__sep"><span class="strip__arrow"></span></span><span class="strip__item">Technical SEO</span><span class="strip__sep">+</span><span class="strip__item">Security cleanup</span><span class="strip__sep">&#10035;</span><span class="strip__item strip__item--cut">Black-box scripts</span><span class="strip__sep"><span class="strip__arrow"></span></span></div><div class="ticker__group"><span class="strip__item">Custom websites</span><span class="strip__sep">&#10035;</span><span class="strip__item strip__item--cut">Page builders</span><span class="strip__sep"><span class="strip__arrow"></span></span><span class="strip__item">Web applications</span><span class="strip__sep">&#10035;</span><span class="strip__item">Shopify stores</span><span class="strip__sep">+</span><span class="strip__item strip__item--cut">Bought themes</span><span class="strip__sep"><span class="strip__arrow"></span></span><span class="strip__item">AI automation</span><span class="strip__sep">&#10035;</span><span class="strip__item">AI search</span><span class="strip__sep">&#10035;</span><span class="strip__item strip__item--cut">Plugin piles</span><span class="strip__sep"><span class="strip__arrow"></span></span><span class="strip__item">Technical SEO</span><span class="strip__sep">+</span><span class="strip__item">Security cleanup</span><span class="strip__sep">&#10035;</span><span class="strip__item strip__item--cut">Black-box scripts</span><span class="strip__sep"><span class="strip__arrow"></span></span></div></div></div>
+                <button type="button" class="ticker__toggle" data-ticker-toggle aria-pressed="false" aria-label="Pause ticker" hidden>Pause</button>
+            </div>
+
+            <div class="hero__stage" data-stage>
+                <figure class="scene" data-scene>
+                    <div class="scene__win scene__win--b" data-depth="0.35">
+                        <div class="browser__bar"><span class="browser__addr"><svg class="browser__lock" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 7V5.2a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>nextschoolerp.com</span></span></div>
+                        <div class="browser__view"><img data-defer-src="/assets/images/home/nextschool-live.webp" alt="NextSchool ERP, a school management web app we built, open on its homepage" width="1280" height="800" decoding="async" /></div>
+                    </div>
+                    <div class="scene__win scene__win--a" data-reel>
+                        <div class="browser__bar">
+                            <span class="browser__addr"><svg class="browser__lock" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 7V5.2a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span data-reel-domain>bazzaro.in</span></span>
+                            <button type="button" class="browser__btn" data-reel-toggle aria-pressed="false" aria-label="Pause reel" hidden>Pause</button>
+                            <span class="browser__load" aria-hidden="true"></span>
+                        </div>
+                        <div class="browser__view">
+                            <img class="reel__poster" src="/assets/videos/home/reel-poster.webp" srcset="/assets/videos/home/reel-poster-640.webp 640w, /assets/videos/home/reel-poster.webp 960w" sizes="(max-width: 900px) 86vw, 56vw" alt="" width="960" height="600" fetchpriority="high" decoding="async" />
+                            <video muted loop playsinline preload="none" width="960" height="600" aria-label="Screen recording of four live websites built by Kawaki Studios: BAZZARO, Kala Design Co, Urbanland Products and Decor Lab">
+                                <source data-src="/assets/videos/home/reel.webm" type="video/webm" />
+                                <source data-src="/assets/videos/home/reel.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+                    </div>
+                    <div class="scene__phone" data-depth="0.9"><img data-defer-src="/assets/images/home/nursepass-mobile.webp" data-defer-srcset="/assets/images/home/nursepass-mobile-390.webp 390w, /assets/images/home/nursepass-mobile.webp 780w" sizes="(max-width: 900px) 34vw, 15vw" alt="NursePass on a phone: the German homepage for internationally trained nurses" width="780" height="1500" decoding="async" /></div>
+                    <span class="scene__badge scene__badge--ast" data-depth="1.3" aria-hidden="true"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span>
+                    <span class="scene__badge scene__badge--spark" data-depth="1.1" aria-hidden="true"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 4c1.6 9.4 6.6 14.4 16 16-9.4 1.6-14.4 6.6-16 16-1.6-9.4-6.6-14.4-16-16 9.4-1.6 14.4-6.6 16-16z" fill="currentColor"/></svg></span>
+                    <figcaption class="scene__tag">Live sites we built, recorded November 2026</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="manifesto" aria-labelledby="manifesto-title" data-manifesto>
+            <div class="manifesto__stage">
+                <h2 class="manifesto__line" id="manifesto-title"><span class="mbadge" aria-hidden="true"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span> <span class="mw">Only</span> <span class="glyph glyph--squiggle mglyph" aria-hidden="true"><svg viewBox="0 0 96 40" focusable="false"><path d="M4 30c8 0 9-24 18-24s9 24 18 24 9-12 16-12h34M80 9l11 9-11 9" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <span class="mw">what&rsquo;s</span> <span class="mw">on</span> <span class="mbadge mbadge--spark" aria-hidden="true"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 4c1.6 9.4 6.6 14.4 16 16-9.4 1.6-14.4 6.6-16 16-1.6-9.4-6.6-14.4-16-16 9.4-1.6 14.4-6.6 16-16z" fill="currentColor"/></svg></span> <span class="mw">the</span> <span class="mw mw--path">critical</span> <span class="mw mw--path">path:</span></h2>
+            </div>
+        </section>
+
+        <section class="statement wrap" aria-label="Why the critical path matters">
+            <div class="grid">
+                <p class="statement__body">Before anyone sees a page, their browser has to finish a short list of requests. That list is the critical path. Page builders, heavy themes and stacked plugins make it longer. We design the site and write the code ourselves, so every request on that path has a reason to be there.</p>
+                <div class="statement__aside">
+                    <p>Kawaki Studios LLP is an engineering studio in New Delhi, founded by Kunal Sharma, an AWS Certified AI Practitioner. Work runs in milestone sprints, in a Git repository, with a staging link for every milestone.</p>
+                    <a class="draw" href="/about">About the studio<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="work wrap" id="work" aria-labelledby="work-title">
+            <div class="sec-head grid">
+                <h2 class="h2" id="work-title" data-reveal>Recent work</h2>
+                <div class="sec-head__aside">
+                    <p>Four builds, each with a full case study.</p>
+                    <a class="draw" href="/case-studies">All case studies<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+            </div>
+            <ul class="cases">
+                <li class="case grid">
+                    <figure class="case__media browser" data-clip="kala">
+                        <div class="browser__bar"><span class="browser__addr"><svg class="browser__lock" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 7V5.2a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>kaladesignco.com</span></span><span class="browser__load" aria-hidden="true"></span></div>
+                        <div class="browser__view">
+                            <img src="/assets/images/home/kala-live.webp" alt="Kala Design Co homepage: the studio introduction, project thumbnails and an interior photograph" width="1280" height="800" loading="lazy" decoding="async" />
+                            <video class="case__clip" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+                        </div>
+                    </figure>
+                    <div class="case__body">
+                        <p class="case__meta"><span>Architecture studio</span><span class="num">2026</span></p>
+                        <h3 class="case__title"><a href="/case-studies/kala-design">Kala Design Co.</a></h3>
+                        <p class="case__desc">An editorial site for an architecture and interiors studio, built around large project photography and a quiet type system.</p>
+                        <span class="case__cta" aria-hidden="true">Read the case study<svg viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                </li>
+                <li class="case case--flip grid">
+                    <figure class="case__media browser" data-clip="bazzaro">
+                        <div class="browser__bar"><span class="browser__addr"><svg class="browser__lock" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 7V5.2a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>bazzaro.in</span></span><span class="browser__load" aria-hidden="true"></span></div>
+                        <div class="browser__view">
+                            <img src="/assets/images/home/bazzaro-live.webp" alt="BAZZARO homepage: a model wearing gold earrings under the headline Beyond Ordinary" width="1280" height="800" loading="lazy" decoding="async" />
+                            <video class="case__clip" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+                        </div>
+                    </figure>
+                    <div class="case__body">
+                        <p class="case__meta"><span>Fashion ecommerce</span><span class="num">2026</span></p>
+                        <h3 class="case__title"><a href="/case-studies/bazzaro">BAZZARO</a></h3>
+                        <p class="case__desc">Our own fashion label. A custom Shopify storefront with quick collection browsing and product discovery.</p>
+                        <span class="case__cta" aria-hidden="true">Read the case study<svg viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                </li>
+                <li class="case grid">
+                    <figure class="case__media browser" data-clip="nextschool">
+                        <div class="browser__bar"><span class="browser__addr"><svg class="browser__lock" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 7V5.2a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>nextschoolerp.com</span></span><span class="browser__load" aria-hidden="true"></span></div>
+                        <div class="browser__view">
+                            <img src="/assets/images/home/nextschool-live.webp" alt="NextSchool ERP homepage with the headline One Software, Every Learning Journey beside a dashboard preview" width="1280" height="800" loading="lazy" decoding="async" />
+                            <video class="case__clip" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+                        </div>
+                    </figure>
+                    <div class="case__body">
+                        <p class="case__meta"><span>Education platform</span><span class="num">2026</span></p>
+                        <h3 class="case__title"><a href="/case-studies/nextschool-erp">NextSchool ERP</a></h3>
+                        <p class="case__desc">A multi-campus school portal for admissions, attendance, fees and gradebooks.</p>
+                        <span class="case__cta" aria-hidden="true">Read the case study<svg viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                </li>
+                <li class="case case--flip grid">
+                    <figure class="case__media browser" data-clip="nursepass">
+                        <div class="browser__bar"><span class="browser__addr"><svg class="browser__lock" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 7V5.2a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>nursepass.de</span></span><span class="browser__load" aria-hidden="true"></span></div>
+                        <div class="browser__view">
+                            <img src="/assets/images/home/nursepass-live.webp" alt="NursePass homepage in German, offering recognition courses for internationally trained nurses" width="1280" height="800" loading="lazy" decoding="async" />
+                            <video class="case__clip" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+                        </div>
+                    </figure>
+                    <div class="case__body">
+                        <p class="case__meta"><span>Healthcare education</span><span class="num">2026</span></p>
+                        <h3 class="case__title"><a href="/case-studies/nursepass">NursePass</a></h3>
+                        <p class="case__desc">A course platform that guides internationally trained nurses through professional recognition in Germany.</p>
+                        <span class="case__cta" aria-hidden="true">Read the case study<svg viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="more wrap" aria-labelledby="more-title">
+            <div class="more__head">
+                <h2 class="more__title" id="more-title">More projects</h2>
+            </div>
+            <ul class="rows" data-index>
+                {{MORE_ROWS}}
+            </ul>
+        </section>
+
+        <section class="services wrap grid" id="services" aria-labelledby="services-title">
+            <div class="services__aside">
+                <h2 class="h2" id="services-title" data-reveal>What we build</h2>
+                <p>Each one designed and coded directly by our developers. No page builders and no bought themes, whichever platform the project runs on.</p>
+                <a class="draw" href="/services">All services<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+            <ul class="rows services__list">
+                {{SERVICE_ROWS}}
+            </ul>
+        </section>
+
+        <section class="process wrap" id="process" aria-labelledby="process-title">
+            <div class="sec-head grid">
+                <h2 class="h2" id="process-title" data-reveal>How a project runs</h2>
+                <div class="sec-head__aside">
+                    <p>Six stages, always in this order. Each milestone lands on a staging link you can open and review.</p>
+                </div>
+            </div>
+            <ol class="steps" data-steps>
+                <li class="step"><span class="step__n">01</span><h3>Discovery</h3><p>What the site has to do, who uses it and what it connects to, written down before design starts.</p></li>
+                <li class="step"><span class="step__n">02</span><h3>Architecture</h3><p>Page structure, data schema and integrations specified, so the build has fixed edges.</p></li>
+                <li class="step"><span class="step__n">03</span><h3>Interface</h3><p>Layouts and a type system designed for the browser, then reviewed with you.</p></li>
+                <li class="step"><span class="step__n">04</span><h3>Build</h3><p>Frontend and backend built in milestone sprints, each one deployed to staging.</p></li>
+                <li class="step"><span class="step__n">05</span><h3>Verification</h3><p>Performance, security and cross-browser checks before anything goes live.</p></li>
+                <li class="step"><span class="step__n">06</span><h3>Launch and handoff</h3><p>Production deployment, then a handoff of the repository and how it runs.</p></li>
+                <li class="steps__path" aria-hidden="true" role="presentation"></li>
+            </ol>
+        </section>
+
+        <section class="journal wrap" id="journal" aria-labelledby="journal-title">
+            <div class="sec-head grid">
+                <h2 class="h2" id="journal-title" data-reveal>From the journal</h2>
+                <div class="sec-head__aside">
+                    <a class="draw" href="/blog">All articles<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+            </div>
+            <div class="posts grid">
+                <article class="post post--feature">
+                    <p class="post__meta"><time datetime="2026-09-29">29 Sep 2026</time><span>10 min read</span></p>
+                    <h3 class="post__title"><a href="/blog/ai-automation-vs-ai-agents"><span>AI automation vs AI agents: architecture, reliability, and when to use each</span></a></h3>
+                    <p class="post__excerpt">Fixed multi-step pipelines set against LLM agents, compared on how reliably each one handles real business work.</p>
+                </article>
+                <div class="post-list">
+                    <article class="post post--small">
+                        <p class="post__meta"><time datetime="2026-09-28">28 Sep 2026</time><span>8 min read</span></p>
+                        <h3 class="post__title"><a href="/blog/shopify-liquid-vs-headless"><span>Shopify Liquid vs headless Shopify: a practical decision framework</span></a></h3>
+                        <p class="post__excerpt">When a Liquid theme is enough, and when a headless storefront is worth the extra engineering.</p>
+                    </article>
+                    <article class="post post--small">
+                        <p class="post__meta"><time datetime="2026-09-18">18 Sep 2026</time><span>6 min read</span></p>
+                        <h3 class="post__title"><a href="/blog/what-is-editorial-engineering"><span>What is editorial engineering?</span></a></h3>
+                        <p class="post__excerpt">Why a brand site needs a strong visual system and solid engineering at the same time.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq wrap" id="faq" aria-labelledby="faq-title">
+            <div class="sec-head grid">
+                <h2 class="h2" id="faq-title" data-reveal>Questions founders ask</h2>
+                <div class="sec-head__aside">
+                    <p>Something not covered here? Ask the people who would build it.</p>
+                    <a class="draw" href="https://wa.me/917678123943?text=Hi%20Kunal%2C%20I%20would%20like%20to%20discuss%20a%20web%20project%20with%20Kawaki%20Studios" target="_blank" rel="noopener">WhatsApp the studio</a>
+                </div>
+            </div>
+            <div class="faq__list">
+                {{FAQ_HTML}}
+            </div>
+        </section>
+
+        <section class="finale" id="contact" aria-labelledby="finale-title">
+            <div class="wrap">
+                <div class="grid">
+                    <h2 class="h2 finale__title" id="finale-title">Tell us what you&rsquo;re building.</h2>
+                </div>
+                <ul class="channels">
+                    <li><a class="channel" href="https://wa.me/917678123943?text=Hi%20Kunal%2C%20I%20would%20like%20to%20discuss%20a%20web%20project%20with%20Kawaki%20Studios" target="_blank" rel="noopener"><span class="channel__label">WhatsApp</span><span class="channel__value num">+91 76781 23943</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                    <li><a class="channel" href="mailto:hello@kawaki.co.in"><span class="channel__label">Email</span><span class="channel__value">hello@kawaki.co.in</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                    <li><a class="channel" href="/contact"><span class="channel__label">Call</span><span class="channel__value">Book 15 minutes</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                </ul>
+                <p class="finale__hours">Studio hours are Monday to Friday, 10:00 to 19:00 IST. In New Delhi it is <time id="studioTime">now</time>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-foot wrap">
+        <div class="foot-grid grid">
+            <div class="foot-col">
+                <p class="foot-h">Studio</p>
+                <a href="/about">About</a>
+                <a href="/case-studies">Work</a>
+                <a href="/services">Services</a>
+                <a href="/blog">Journal</a>
+                <a href="/contact">Contact</a>
+                <a href="/directory">Directory</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Contact</p>
+                <a href="mailto:hello@kawaki.co.in">hello@kawaki.co.in</a>
+                <a href="https://wa.me/917678123943" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://maps.google.com/maps?cid=8378945977778123387" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://search.google.com/local/writereview?placeid=ChIJFV-Kjwsq6UMRezKnJfn-R3Q" target="_blank" rel="noopener">Review us on Google</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Follow</p>
+                <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">X (Twitter)</a>
+                <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Studio address</p>
+                <p>Kawaki Studios LLP<br />New Delhi, India</p>
+                <p>Monday to Friday<br />10:00 to 19:00 IST</p>
+            </div>
+        </div>
+        <span class="foot-mark" aria-hidden="true"></span>
+        <div class="foot-bottom">
+            <p>&copy; 2026 Kawaki Studios LLP</p>
+            <ul class="foot-legal">
+                <li><a href="/privacy-policy">Privacy policy</a></li>
+                <li><a href="/terms-of-service">Terms of service</a></li>
+                <li><a href="/sitemap.xml">Sitemap</a></li>
+                <li><a href="/llms.txt">llms.txt</a></li>
+            </ul>
+            <button type="button" class="footer-back-to-top" id="backToTop">Back to top<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13V3.5M4 7.5l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+    </footer>
+
+    <script src="/assets/js/vendor/gsap-3.15.0.min.js" defer></script>
+    <script src="/assets/js/vendor/ScrollTrigger-3.15.0.min.js" defer></script>
+    <script src="/assets/js/vendor/lenis-1.3.25.min.js" defer></script>
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script src="/assets/js/chatbot.js" defer></script>
+    <script src="/assets/js/site.js?v=20261115" defer></script>
+</body>
+</html>
