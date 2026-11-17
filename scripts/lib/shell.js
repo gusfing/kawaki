@@ -19,7 +19,7 @@ const between = (s, a, b, inclusive = true) => {
   return inclusive ? s.slice(i, j + b.length) : s.slice(i, j);
 };
 const ver = rel => crypto.createHash('sha1').update(fs.readFileSync(path.join(PUB, rel))).digest('hex').slice(0, 10);
-const versions = () => ({ siteCss: ver('assets/css/site.css'), siteJs: ver('assets/js/site.js'), chatCss: ver('assets/css/chatbot.css'), chatJs: ver('assets/js/chatbot.js') });
+const versions = () => ({ siteCss: ver('assets/css/site.css'), siteJs: ver('assets/js/site.js'), chatCss: ver('assets/css/chatbot.css'), chatJs: ver('assets/js/chatbot.js'), popJs: ver('assets/js/exit-popup.js') });
 
 const SHELL_TOP = between(HOME, '<a class="skip"', '<main id="main"', false).trimEnd();
 const FINALE = between(HOME, '<section class="finale"', '</section>');
@@ -29,6 +29,11 @@ const ARROW_DOWN = '<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="tru
 const ROW_GO = '<svg class="row__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const LOCK = '<svg class="browser__lock" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 7V5.2a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>';
 const ASTERISK = '<svg viewBox="0 0 40 40" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>';
+
+/* First-visit preloader. PL_HEAD decides early (no flash): once per session, never for bots, headless
+   browsers or reduced motion. PRELOADER is the overlay plus the script that lifts it (CSS in site.css). */
+const PL_HEAD = `<script>(function(){try{var d=document.documentElement;if(/bot|crawl|spider|slurp|inspectiontool|headless/i.test(navigator.userAgent))return;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(sessionStorage.getItem('kw_pl'))return;sessionStorage.setItem('kw_pl','1');d.classList.add('pl-on');}catch(e){}})();</script>`;
+const PRELOADER = between(HOME, '<div class="pl"', '<a class="skip"', false).trimEnd();
 
 const CLARITY = `<script>
         (function(c,l,a,r,i,t,y){
@@ -86,6 +91,7 @@ function head({ title, description, path: pagePath, ogType = 'website', ogImage,
     <link rel="preload" href="/assets/fonts/bricolage-text.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/assets/css/site.css?v=${v.siteCss}" />
     <script>document.documentElement.classList.add('js');</script>
+    ${PL_HEAD}
     ${CLARITY}
 </head>
 `;
@@ -94,6 +100,7 @@ function head({ title, description, path: pagePath, ogType = 'website', ogImage,
 /* <body> through </html>, around the page's own sections. */
 function body({ path: pagePath, bodyClass = 'inner', main }, v) {
   return `<body class="${bodyClass}">
+    ${PRELOADER}
     ${shellTop(pagePath)}
 
     <main id="main" tabindex="-1">
@@ -110,6 +117,7 @@ function body({ path: pagePath, bodyClass = 'inner', main }, v) {
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script src="/assets/js/chatbot.js?v=${v.chatJs}" data-css-v="${v.chatCss}" defer></script>
     <script src="/assets/js/site.js?v=${v.siteJs}" defer></script>
+    <script src="/assets/js/exit-popup.js?v=${v.popJs}" defer></script>
 </body>
 </html>
 `;
@@ -150,4 +158,4 @@ function strip(items, srText) {
             </div>`;
 }
 
-module.exports = { SITE, ROOT, PUB, esc, ver, versions, head, body, shellTop, faqHtml, crumbsHtml, breadcrumbLd, strip, ARROW, ARROW_DOWN, ROW_GO, LOCK, ASTERISK, FINALE, FOOTER };
+module.exports = { PL_HEAD, PRELOADER, SITE, ROOT, PUB, esc, ver, versions, head, body, shellTop, faqHtml, crumbsHtml, breadcrumbLd, strip, ARROW, ARROW_DOWN, ROW_GO, LOCK, ASTERISK, FINALE, FOOTER };

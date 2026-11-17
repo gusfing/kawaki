@@ -2,7 +2,7 @@
 title: "White-Label Web Development: How Agency Partnerships Work Without Friction"
 slug: "white-label-web-development-agency-partnerships"
 excerpt: "A complete operational blueprint for white-label web development. Learn how design studios, SEO firms, and marketing agencies scale client capacity using an offshore engineering partner without quality compromises."
-featuredImage: "/assets/images/blog/white-label-web-development-hero.jpg"
+featuredImage: "/assets/images/blog/white-label-web-development-agency-partnerships-cover.jpg"
 tags: ["Web Development", "Agencies", "Partnerships", "Guides"]
 seoKeywords: "white label web development agency, white label web agency partnerships, subcontracting web development, agency engineering partner, offshore web development partner"
 seoDescription: "White-label web development partnerships: How marketing and design agencies scale capacity, eliminate technical overhead, and deliver high-performance code under their brand."

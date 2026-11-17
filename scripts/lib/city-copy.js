@@ -19,6 +19,11 @@ const CITY = {
   Chandigarh: { kind: 'india', who: 'Chandigarh clinics, education businesses and local brands' },
   Ludhiana: { kind: 'india', who: 'Ludhiana manufacturers, textile firms and exporters' },
   Kolkata: { kind: 'india', who: 'Kolkata firms, from architecture practices to retailers and schools' },
+  Ghaziabad: { kind: 'near', who: 'Ghaziabad manufacturers, schools and service businesses' },
+  Faridabad: { kind: 'near', who: 'Faridabad manufacturers, exporters and service firms' },
+  Chennai: { kind: 'india', who: 'Chennai manufacturers, healthcare groups and software firms' },
+  Lucknow: { kind: 'india', who: 'Lucknow businesses, from schools and clinics to retailers and service firms' },
+  Indore: { kind: 'india', who: 'Indore manufacturers, education businesses and startups' },
   Dubai: { kind: 'abroad', who: 'Dubai businesses, from retail and hospitality to property' },
   London: { kind: 'abroad', who: 'London startups and growing businesses' },
   Canada: { kind: 'abroad', who: 'Canadian startups and small businesses' }
@@ -104,7 +109,7 @@ function cityHubCopy(entry) {
       { q: `Do you have an office in ${city}?`, a: office(city, 'website and web app') },
       { q: `How much does a website cost for a ${city} business?`, a: `Most of our custom builds fall between ₹1,50,000 and ₹5,00,000, or $2,500 to $10,000 for clients abroad. For ${city} projects, as everywhere, each milestone is priced before work on it starts.` },
       { q: `Which services do you offer in ${city}?`, a: `Custom websites, web applications, Shopify stores, mobile apps, AI automation, technical SEO and hacked site recovery. The pages below cover the ones ${city} clients ask about most.` },
-      { q: `How do we start a project from ${city}?`, a: `Send a short brief through the contact page or on WhatsApp. We reply on working days with questions or a time for a call, and a ${city} project starts with a discovery call.` }
+      { q: `How do we start a project from ${city}?`, a: `Send a short brief through the contact page or on WhatsApp. We reply the same day with questions or a time for a call, and a ${city} project starts with a discovery call.` }
     ]
   };
 }
@@ -123,4 +128,4 @@ function cityServiceMeta(entry) {
   return base.length <= 160 ? base : base.slice(0, base.lastIndexOf(' ', 156)).replace(/[,:;]$/, '') + '.';
 }
 
-module.exports = { cityServiceCopy, cityHubCopy, cityHubH1, cityServiceH1, cityHubMeta, cityServiceMeta, NOUN };
+module.exports = { cityServiceCopy, cityHubCopy, cityHubH1, cityServiceH1, cityHubMeta, cityServiceMeta, NOUN, CITY };

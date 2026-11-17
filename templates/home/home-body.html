@@ -7,6 +7,11 @@
 </head>
 
 <body class="home">
+    <div class="pl" aria-hidden="true">
+        <div class="pl__mark"><span class="pl__badge"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span><span class="pl__word">Kawaki Studios</span></div>
+        <p class="pl__meta">Web engineering studio, New Delhi</p>
+    </div>
+    <script>(function(){var d=document.documentElement;if(!d.classList.contains('pl-on'))return;var t0=Date.now(),done=false;function end(){if(done)return;done=true;setTimeout(function(){d.classList.add('pl-out');try{document.dispatchEvent(new Event('kawaki:intro-done'));}catch(e){}setTimeout(function(){d.classList.remove('pl-on','pl-out');},750);},Math.max(0,900-(Date.now()-t0)));}if(document.readyState==='complete')end();else{addEventListener('load',end,{once:true});setTimeout(end,1200);}})();</script>
     <a class="skip" href="#main">Skip to content</a>
     <div class="pathbar" aria-hidden="true"><span></span></div>
 
@@ -353,7 +358,7 @@
                     <li><a class="channel" href="mailto:hello@kawaki.co.in"><span class="channel__label">Email</span><span class="channel__value">hello@kawaki.co.in</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
                     <li><a class="channel" href="/contact"><span class="channel__label">Call</span><span class="channel__value">Book 15 minutes</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
                 </ul>
-                <p class="finale__hours">Studio hours are Monday to Friday, 10:00 to 19:00 IST. In New Delhi it is <time id="studioTime">now</time>.</p>
+                <p class="finale__hours">Studio hours are Monday to Sunday, 10:00 to 19:00 IST. In New Delhi it is <time id="studioTime">now</time>.</p>
             </div>
         </section>
     </main>
@@ -386,7 +391,7 @@
             <div class="foot-col">
                 <p class="foot-h">Studio address</p>
                 <p>Kawaki Studios LLP<br />New Delhi, India</p>
-                <p>Monday to Friday<br />10:00 to 19:00 IST</p>
+                <p>Monday to Sunday<br />10:00 to 19:00 IST</p>
             </div>
         </div>
         <span class="foot-mark" aria-hidden="true"></span>
@@ -408,5 +413,6 @@
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
     <script src="/assets/js/chatbot.js" defer></script>
     <script src="/assets/js/site.js?v=20261115" defer></script>
+    <script src="/assets/js/exit-popup.js?v=1" defer></script>
 </body>
 </html>

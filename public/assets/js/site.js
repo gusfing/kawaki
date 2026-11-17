@@ -22,6 +22,15 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
+  /* Entry animations wait for the first-visit preloader (html.pl-on) to lift, so they are actually seen. */
+  function afterIntro(fn) {
+    if (!document.documentElement.classList.contains('pl-on')) { fn(); return; }
+    var ran = false;
+    var go = function () { if (!ran) { ran = true; fn(); } };
+    document.addEventListener('kawaki:intro-done', go, { once: true });
+    setTimeout(go, 3000);
+  }
+
   /* ---------- In-page anchors (skip link, "See the work") ---------- */
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="#"]');
@@ -94,7 +103,7 @@
   }
 
   /* ---------- Headings trace in from the left ---------- */
-  if (hasGsap && !reduce) {
+  if (hasGsap && !reduce) afterIntro(function () {
     $$('[data-reveal]').forEach(function (el) {
       gsap.fromTo(el, { clipPath: 'inset(-10% 100% -10% 0)' }, {
         clipPath: 'inset(-10% 0% -10% 0)', duration: 1.15, ease: 'expo.out',
@@ -107,7 +116,7 @@
         scrollTrigger: { trigger: fig, start: 'top 85%', once: true }
       });
     });
-  }
+  });
   $$('[data-path-mark]').forEach(function (el) {
     if (!hasGsap || reduce) { el.classList.add('is-drawn'); return; }
     ST.create({ trigger: el, start: 'top 80%', once: true, onEnter: function () { el.classList.add('is-drawn'); } });

@@ -42,7 +42,14 @@
             "url": "https://kawaki.co.in",
             "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png"
           },
-          "serviceType": "Website Backup Setup"
+          "serviceType": "Website Backup Setup",
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "India"
+            },
+            "Worldwide"
+          ]
         },
         {
           "@type": "BreadcrumbList",
@@ -112,8 +119,9 @@
     <meta name="theme-color" content="#23003F" />
     <link rel="preload" href="/assets/fonts/bricolage-display.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/bricolage-text.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/assets/css/site.css?v=22f7c02f69" />
+    <link rel="stylesheet" href="/assets/css/site.css?v=449b4f536c" />
     <script>document.documentElement.classList.add('js');</script>
+    <script>(function(){try{var d=document.documentElement;if(/bot|crawl|spider|slurp|inspectiontool|headless/i.test(navigator.userAgent))return;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(sessionStorage.getItem('kw_pl'))return;sessionStorage.setItem('kw_pl','1');d.classList.add('pl-on');}catch(e){}})();</script>
     <script>
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -123,6 +131,11 @@
     </script>
 </head>
 <body class="inner">
+    <div class="pl" aria-hidden="true">
+        <div class="pl__mark"><span class="pl__badge"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span><span class="pl__word">Kawaki Studios</span></div>
+        <p class="pl__meta">Web engineering studio, New Delhi</p>
+    </div>
+    <script>(function(){var d=document.documentElement;if(!d.classList.contains('pl-on'))return;var t0=Date.now(),done=false;function end(){if(done)return;done=true;setTimeout(function(){d.classList.add('pl-out');try{document.dispatchEvent(new Event('kawaki:intro-done'));}catch(e){}setTimeout(function(){d.classList.remove('pl-on','pl-out');},750);},Math.max(0,900-(Date.now()-t0)));}if(document.readyState==='complete')end();else{addEventListener('load',end,{once:true});setTimeout(end,1200);}})();</script>
     <a class="skip" href="#main">Skip to content</a>
     <div class="pathbar" aria-hidden="true"><span></span></div>
 
@@ -262,6 +275,18 @@
             </div>
         </section>
 
+        <section class="sec wrap glance" aria-labelledby="glance-title">
+            <div class="sec-head grid">
+                <h2 class="h2" id="glance-title" data-reveal>At a glance</h2>
+                <div class="sec-head__aside"><p>Website backup setup: done at Kawaki Studios by the developers in our New Delhi studio, quoted per project after a short call about what you need.</p></div>
+            </div>
+            <dl class="spec">
+                <div class="spec__row"><dt>Studio</dt><dd class="spec__val">Kawaki Studios, New Delhi</dd><dd class="spec__note">The developers you speak to are the people who do the work.</dd></div>
+                <div class="spec__row"><dt>Cost</dt><dd class="spec__val">Quoted per project</dd><dd class="spec__note">After a short call about the site or workflow. Billed by milestone.</dd></div>
+                <div class="spec__row"><dt>Working</dt><dd class="spec__val">Git repository and staging</dd><dd class="spec__note">Work happens in a Git repository, with a staging link to test at each milestone.</dd></div>
+            </dl>
+        </section>
+
         <section class="sec wrap" id="overview" aria-labelledby="overview-title">
             <div class="sec-head grid">
                 <h2 class="h2" id="overview-title" data-reveal>What website backup setup covers</h2>
@@ -321,7 +346,7 @@
                     <div class="case__body">
                         <p class="case__meta"><span>Fashion Ecommerce</span></p>
                         <h3 class="case__title"><a href="/case-studies/bazzaro">Bazzaro</a></h3>
-                        <p class="case__desc">Custom Shopify storefront for apparel brand featuring smooth collection navigation and product discovery.</p>
+                        <p class="case__desc">Custom Shopify storefront for a jewellery and accessories brand.</p>
                         <span class="case__cta" aria-hidden="true">Read the case study<svg viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                     </div>
                 </li>
@@ -385,7 +410,7 @@
                     <li><a class="channel" href="mailto:hello@kawaki.co.in"><span class="channel__label">Email</span><span class="channel__value">hello@kawaki.co.in</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
                     <li><a class="channel" href="/contact"><span class="channel__label">Call</span><span class="channel__value">Book 15 minutes</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
                 </ul>
-                <p class="finale__hours">Studio hours are Monday to Friday, 10:00 to 19:00 IST. In New Delhi it is <time id="studioTime">now</time>.</p>
+                <p class="finale__hours">Studio hours are Monday to Sunday, 10:00 to 19:00 IST. In New Delhi it is <time id="studioTime">now</time>.</p>
             </div>
         </section>
     </main>
@@ -418,7 +443,7 @@
             <div class="foot-col">
                 <p class="foot-h">Studio address</p>
                 <p>Kawaki Studios LLP<br />New Delhi, India</p>
-                <p>Monday to Friday<br />10:00 to 19:00 IST</p>
+                <p>Monday to Sunday<br />10:00 to 19:00 IST</p>
             </div>
         </div>
         <span class="foot-mark" aria-hidden="true"></span>
@@ -438,7 +463,8 @@
     <script src="/assets/js/vendor/ScrollTrigger-3.15.0.min.js" defer></script>
     <script src="/assets/js/vendor/lenis-1.3.25.min.js" defer></script>
     <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
-    <script src="/assets/js/chatbot.js?v=8904e2b4eb" data-css-v="caaf10d078" defer></script>
-    <script src="/assets/js/site.js?v=32f4ff5ffc" defer></script>
+    <script src="/assets/js/chatbot.js?v=1d101f865c" data-css-v="caaf10d078" defer></script>
+    <script src="/assets/js/site.js?v=339e471bba" defer></script>
+    <script src="/assets/js/exit-popup.js?v=29074d7c01" defer></script>
 </body>
 </html>

@@ -6,7 +6,8 @@
  * whenever a new engineering article or case study is published.
  */
 
-const WINDSOR_TOKEN = process.env.WINDSOR_API_TOKEN || '089684a623e6edd35e15214f85dd1775de61';
+// The token lives only in the environment (GitHub secret WINDSOR_API_TOKEN). Never put a key in code.
+const WINDSOR_TOKEN = process.env.WINDSOR_API_TOKEN || '';
 const GBP_LOCATION_ACCOUNT = process.env.GBP_LOCATION_ACCOUNT || 'locations/17760429272361351076';
 const SITE_ORIGIN = 'https://kawaki.co.in';
 
@@ -51,20 +52,15 @@ async function callWindsorTool(toolName, toolArgs = {}) {
  * Formats a clean, high-intent local update for Google Business Profile
  */
 function formatGbpSummary(article) {
-  const title = article.title || 'New Engineering Publication';
-  const excerpt = article.excerpt || article.seoDescription || '';
-  
-  // Truncate cleanly if needed, Google allows up to 1,500 chars
-  let cleanExcerpt = excerpt.replace(/\s+/g, ' ').trim();
-  if (cleanExcerpt.length > 500) {
-    cleanExcerpt = cleanExcerpt.substring(0, 497) + '...';
-  }
+  // Plain words, same rules as the site (data/writing-rules.json). No keyword lists, no claims.
+  const title = article.title || 'New post';
+  let excerpt = String(article.excerpt || article.seoDescription || '').replace(/\s+/g, ' ').trim();
+  if (excerpt.length > 500) excerpt = excerpt.slice(0, excerpt.lastIndexOf(' ', 495)) + '...';
+  return `New on the Kawaki Studios blog: ${title}
 
-  return `New from Kawaki Studios: ${title}
+${excerpt}
 
-${cleanExcerpt}
-
-Our engineering studio in New Delhi specializes in custom web development, Next.js architecture, headless Shopify, and AI automation. Read our complete technical guide on the Kawaki Studios publication.`;
+Written by the developers at our New Delhi studio.`;
 }
 
 /**
@@ -74,6 +70,18 @@ async function publishToGoogleBusinessProfile(article, canonicalUrl) {
   if (!WINDSOR_TOKEN) {
     console.log('   ℹ️ [GBP Automation] WINDSOR_API_TOKEN not configured; skipping GBP local post.');
     return { success: false, skipped: true, reason: 'No token' };
+  }
+
+  // Only post once the page answers 200 on the live site (Vercel deploys a few minutes after the push).
+  const target = canonicalUrl || `${SITE_ORIGIN}/blog/${article.slug}`;
+  let live = false;
+  for (let i = 0; i < 18 && !live; i++) {
+    try { const r = await fetch(target, { method: 'HEAD', redirect: 'manual', signal: AbortSignal.timeout(15000) }); live = r.status === 200; } catch (e) { live = false; }
+    if (!live) await new Promise(r => setTimeout(r, 20000));
+  }
+  if (!live) {
+    console.log(`   ℹ️ [GBP Automation] ${target} is not live yet; no post made, so the profile never links to a 404.`);
+    return { success: false, skipped: true, reason: 'Page not live' };
   }
 
   try {

@@ -2,11 +2,11 @@
 title: "Website Launch QA Checklist: What to Test Before Going Live (50-Point Engineering Audit)"
 slug: "website-launch-qa-checklist-before-going-live"
 excerpt: "The comprehensive 50-point website launch QA checklist used by engineering studios. Audit Core Web Vitals, 301 redirects, form webhooks, Open Graph tags, and DNS cutover protocols before flipping the switch."
-featuredImage: "/assets/images/blog/website-launch-qa-checklist-hero.jpg"
+featuredImage: "/assets/images/blog/website-launch-qa-checklist-before-going-live-cover.jpg"
 tags: ["Web Development", "QA", "Technical SEO", "Performance", "Guides"]
 seoKeywords: "website launch checklist, pre launch website qa, website launch testing checklist, go live checklist, website launch audit"
 seoDescription: "The definitive 50-point website launch QA checklist: Verify technical SEO, Core Web Vitals, form webhooks, SSL certificates, and zero-downtime DNS cutover."
-status: "pending"
+status: "published"
 author: "Kunal Sharma"
 scheduledDate: "2026-11-05"
 ---

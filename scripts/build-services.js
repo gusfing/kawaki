@@ -4,6 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const shell = require('./lib/shell');
+const { glance } = require('./lib/glance');
 const S = shell;
 
 const services = JSON.parse(fs.readFileSync(path.join(S.ROOT, 'data', 'services.json'), 'utf8'));
@@ -42,6 +43,7 @@ function page(s) {
   const faq = s.faq.map(([q, a]) => ({ q, a }));
   const n = Math.min(6, Math.max(3, s.steps.length));
 
+  const at = glance({ name: s.name.toLowerCase(), slug: s.slug });
   const main = `<section class="phero" aria-labelledby="page-title">
             <div class="wrap">
                 ${S.crumbsHtml([['Services', '/services'], [s.name, pagePath]])}
@@ -60,6 +62,8 @@ function page(s) {
             </div>
             ${S.strip(s.strip, `${s.name}. What goes in: ${s.strip.filter(x => x[0] === 'kept').map(x => x[1]).join(', ')}. What stays out: ${s.strip.filter(x => x[0] === 'cut').map(x => x[1]).join(', ')}.`)}
         </section>
+
+        ${at.html}
 
         <section class="sec wrap" id="scope" aria-labelledby="scope-title">
             <div class="sec-head grid">
@@ -132,7 +136,7 @@ ${work.length ? `
         </section>`;
 
   const graph = [
-    { '@type': 'Service', '@id': url + '#service', name: s.name, url, description: s.description, serviceType: s.name, areaServed: ['IN', 'Worldwide'],
+    { '@type': 'Service', '@id': url + '#service', name: s.name, url, description: s.description, serviceType: s.name, areaServed: at.ld.areaServed, ...(at.ld.offers ? { offers: at.ld.offers } : {}),
       provider: { '@type': 'Organization', '@id': S.SITE + '/#organization', name: 'Kawaki Studios', url: S.SITE, logo: S.SITE + '/assets/images/kawaki-logo.png' } },
     S.breadcrumbLd(pagePath, [['Services', '/services'], [s.name, pagePath]]),
     { '@type': 'FAQPage', '@id': url + '#faq', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }

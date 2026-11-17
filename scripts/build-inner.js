@@ -83,7 +83,7 @@ function build(rel) {
   const faq = faqM ? JSON.parse(faqM[1]) : null;
   let main = src.slice(src.indexOf('<!-- @body -->') + '<!-- @body -->'.length);
   if (faq) main = main.replace('{{FAQ}}', shell.faqHtml(faq));
-  main = main.replace(/\{\{ARROW\}\}/g, shell.ARROW);
+  main = main.replace(/\{\{ARROW\}\}/g, shell.ARROW).replace(/\{\{ROW_GO\}\}/g, shell.ROW_GO);
   if (main.includes('{{REVIEWS}}')) main = main.replace('{{REVIEWS}}', reviewsHtml());
   const left = main.match(/\{\{[A-Z]+\}\}/);
   if (left) throw new Error(rel + ': unfilled placeholder ' + left[0]);

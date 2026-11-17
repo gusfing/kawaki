@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website Launch QA Checklist | Kawaki Studios</title>
+    <meta name="description" content="The definitive 50-point website launch QA checklist: Verify technical SEO, Core Web Vitals, form webhooks, SSL certificates, and zero-downtime DNS cutover." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://kawaki.co.in/blog/website-launch-qa-checklist-before-going-live" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kawaki.co.in/blog/website-launch-qa-checklist-before-going-live" />
+    <meta property="og:title" content="Website Launch QA Checklist | Kawaki Studios" />
+    <meta property="og:description" content="The definitive 50-point website launch QA checklist: Verify technical SEO, Core Web Vitals, form webhooks, SSL certificates, and zero-downtime DNS cutover." />
+    <meta property="og:site_name" content="Kawaki Studios" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/website-launch-qa-checklist-before-going-live-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" content="Website Launch QA Checklist | Kawaki Studios" />
+    <meta name="twitter:description" content="The definitive 50-point website launch QA checklist: Verify technical SEO, Core Web Vitals, form webhooks, SSL certificates, and zero-downtime DNS cutover." />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/website-launch-qa-checklist-before-going-live-cover.jpg" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://kawaki.co.in/blog/website-launch-qa-checklist-before-going-live#article",
+          "headline": "Website Launch QA Checklist: What to Test Before Going Live (50-Point Engineering Audit)",
+          "description": "The definitive 50-point website launch QA checklist: Verify technical SEO, Core Web Vitals, form webhooks, SSL certificates, and zero-downtime DNS cutover.",
+          "image": "https://kawaki.co.in/assets/images/blog/website-launch-qa-checklist-before-going-live-cover.jpg",
+          "datePublished": "2026-11-16T20:13:45.000Z",
+          "dateModified": "2026-11-16T20:13:45.000Z",
+          "author": {
+            "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
+            "name": "Kunal Sharma",
+            "url": "https://kawaki.co.in/about"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "https://kawaki.co.in/#organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in",
+            "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://kawaki.co.in/blog/website-launch-qa-checklist-before-going-live"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://kawaki.co.in/blog/website-launch-qa-checklist-before-going-live#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://kawaki.co.in"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://kawaki.co.in/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Website Launch QA Checklist: What to Test Before Going Live (50-Point Engineering Audit)",
+              "item": "https://kawaki.co.in/blog/website-launch-qa-checklist-before-going-live"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/website-launch-qa-checklist-before-going-live#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "When should a website launch QA audit begin?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "QA is not an afterthought squeezed into the final hour before launch. Pre-launch checks should begin at least 7 to 10 days before the scheduled cutover date, allowing adequate runway for developers to resolve cross-device bugs, configure 301 redirect trees, and verify third-party webhook integrations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the best day of the week to launch a website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The best days to launch a business website are Tuesday or Wednesday morning. Avoid Friday afternoon or weekend launches; if an unexpected DNS propagation delay or checkout webhook error occurs, senior engineering and support teams should be fully available during regular business hours to diagnose and resolve it immediately."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if we discover a critical bug after going live?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Having lowered your DNS TTL prior to launch, you can execute a rapid zero-downtime rollback to your legacy platform within minutes if an unresolvable checkout or data corruption issue emerges, allowing developers to isolate and fix the bug on staging."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does launching a redesign temporarily drop Google rankings?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A brief organic fluctuation of 5% to 10% can occur over the first 7 to 14 days as search engine crawlers re-index updated page structures. However, if your 301 redirect tree is complete, canonical tags are accurate, and Core Web Vitals improve, organic search visibility will stabilize and typically outpace pre-launch baselines. ---"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <meta name="theme-color" content="#23003F" />
+    <link rel="preload" href="/assets/fonts/bricolage-display.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/bricolage-text.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/css/site.css?v=449b4f536c" />
+    <script>document.documentElement.classList.add('js');</script>
+    <script>(function(){try{var d=document.documentElement;if(/bot|crawl|spider|slurp|inspectiontool|headless/i.test(navigator.userAgent))return;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(sessionStorage.getItem('kw_pl'))return;sessionStorage.setItem('kw_pl','1');d.classList.add('pl-on');}catch(e){}})();</script>
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "yyqy7vt939");
+    </script>
+</head>
+<body class="inner">
+    <div class="pl" aria-hidden="true">
+        <div class="pl__mark"><span class="pl__badge"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span><span class="pl__word">Kawaki Studios</span></div>
+        <p class="pl__meta">Web engineering studio, New Delhi</p>
+    </div>
+    <script>(function(){var d=document.documentElement;if(!d.classList.contains('pl-on'))return;var t0=Date.now(),done=false;function end(){if(done)return;done=true;setTimeout(function(){d.classList.add('pl-out');try{document.dispatchEvent(new Event('kawaki:intro-done'));}catch(e){}setTimeout(function(){d.classList.remove('pl-on','pl-out');},750);},Math.max(0,900-(Date.now()-t0)));}if(document.readyState==='complete')end();else{addEventListener('load',end,{once:true});setTimeout(end,1200);}})();</script>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="pathbar" aria-hidden="true"><span></span></div>
+
+    <header class="nav-wrapper" id="globalNav">
+        <nav aria-label="Primary">
+            <a href="/" class="nav-left" aria-label="Kawaki Studios, home"><span class="logo" aria-hidden="true"></span></a>
+            <a class="nav-center draw" href="mailto:hello@kawaki.co.in">hello@kawaki.co.in</a>
+            <a class="nav-cta btn btn--sm" href="/contact">Start a project<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <button type="button" class="nav-right" id="menuToggleBtn" aria-expanded="false" aria-controls="fullscreenMenu" aria-label="Open menu">
+                <span id="menu-toggle-text">MENU</span>
+                <span id="menu-toggle-icon" aria-hidden="true"><span class="bar bar-top"></span><span class="bar bar-bottom"></span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu">kawaki</span>
+            <div class="menu-layout">
+                <nav class="menu-col menu-col-left" aria-label="Site">
+                    <div class="main-menu-links" id="mainMenuPrimary">
+                        <ul>
+                            <li data-img="/assets/images/kawaki-home-preview.jpg" data-tag="Home" data-desc="Studio overview and recent work">
+                                <a href="/"><span class="menu-text">Home</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/lms-ecosystem/hero.webp" data-tag="About" data-desc="Who builds your project, and how">
+                                <a href="/about"><span class="menu-text">About</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/bazzaro/hero.webp" data-tag="Services" data-desc="Websites, web apps, Shopify, automation, security">
+                                <a href="/services" id="menuServicesTrigger" class="menu-services-trigger" aria-haspopup="true" aria-expanded="false">
+                                    <span class="menu-text">Services</span>
+                                    <span class="menu-expand-badge" aria-hidden="true">+</span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/nursepass/hero.webp" data-tag="Work" data-desc="Case studies with the full write-up">
+                                <a href="/case-studies"><span class="menu-text">Work</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/urbanland/hero.webp" data-tag="Journal" data-desc="Notes on engineering, Shopify and AI">
+                                <a href="/blog" aria-current="page"><span class="menu-text">Journal</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/decor-lab/hero.webp" data-tag="Contact" data-desc="Book a 15 minute call">
+                                <a href="/contact"><span class="menu-text">Contact</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="main-menu-services" id="mainMenuServices" style="display: none; opacity: 0;">
+                        <div class="menu-services-topbar">
+                            <button type="button" class="menu-services-back-btn" id="menuServicesBackBtn">
+                                <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13 8H3.5M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>Back</span>
+                            </button>
+                            <span class="menu-services-header-title">Services</span>
+                            <a href="/services" class="menu-services-hub-link">All services</a>
+                        </div>
+                        <div class="menu-services-grid">
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Web and commerce</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/kala-design/hero.webp" data-tag="Custom web development" data-desc="Hand-built company and marketing sites"><a href="/services/custom-web-development">Custom web development</a></li>
+                                    <li data-img="/assets/images/case-studies/lms-ecosystem/hero.webp" data-tag="Web applications" data-desc="Portals, dashboards and internal tools"><a href="/services/web-application-development">Web application development</a></li>
+                                    <li data-img="/assets/images/case-studies/bazzaro/hero.webp" data-tag="Shopify" data-desc="Custom themes and headless storefronts"><a href="/services/shopify-development">Shopify development</a></li>
+                                    <li data-img="/assets/images/case-studies/decor-lab/hero.webp" data-tag="WordPress" data-desc="Lean custom themes"><a href="/services/wordpress-development">WordPress development</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">AI and search</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/pixza/hero.webp" data-tag="AI automation" data-desc="n8n and Make.com workflows"><a href="/services/ai-automation">AI automation</a></li>
+                                    <li data-img="/assets/images/case-studies/kova/hero.webp" data-tag="AI search" data-desc="Being read and cited by AI search tools"><a href="/services/ai-search-optimization">AI search optimization</a></li>
+                                    <li data-img="/assets/images/case-studies/urbanland/hero.webp" data-tag="Technical SEO" data-desc="Architecture, URLs and schema"><a href="/technical-seo">Technical SEO</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Security</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/spa-salon/hero.webp" data-tag="Malware removal" data-desc="Hacked WordPress cleanup"><a href="/services/wordpress-malware-removal">WordPress malware removal</a></li>
+                                    <li data-img="/assets/images/case-studies/nursepass/hero.webp" data-tag="Hardening" data-desc="Closing the way in"><a href="/services/website-security-hardening">Website security hardening</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Mobile</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/iptv/hero.webp" data-tag="Mobile apps" data-desc="Flutter, React Native, Swift, Kotlin"><a href="/services/mobile-app-development">Mobile app development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="menu-col menu-col-right">
+                    <div class="menu-preview-card" id="menuPreviewCard" aria-hidden="true">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/kawaki-home-preview.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">Home</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">Studio overview and recent work</span>
+                        </div>
+                    </div>
+                    <div class="menu-info-block">
+                        <a href="/contact" class="menu-cta-button btn">Start a project<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <a href="mailto:hello@kawaki.co.in" class="menu-email-link">hello@kawaki.co.in</a>
+                    </div>
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">X (Twitter)</a>
+                        <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main" tabindex="-1">
+        <article class="art" aria-labelledby="page-title">
+            <header class="art__head wrap">
+                <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/blog">Blog</a></li><li><span aria-current="page">Website Launch QA Checklist: What to Test Before Going Live (50-Point Engineering Audit)</span></li></ol>
+                <p class="art__meta"><span class="art__cat">Web Development</span><span>10 min read</span><time datetime="2026-11-16">16 Nov 2026</time></p>
+                <h1 class="art__title" id="page-title">Website Launch QA Checklist: What to Test Before Going Live (50-Point Engineering Audit)</h1>
+                <p class="art__lede">The definitive 50-point website launch QA checklist: Verify technical SEO, Core Web Vitals, form webhooks, SSL certificates, and zero-downtime DNS cutover.</p>
+                <p class="art__by">By Kunal Sharma</p>
+            </header>
+            <figure class="art__figure wrap">
+                <div class="art__frame"><img src="/assets/images/blog/website-launch-qa-checklist-before-going-live-cover.webp" srcset="/assets/images/blog/website-launch-qa-checklist-before-going-live-cover-720.webp 720w, /assets/images/blog/website-launch-qa-checklist-before-going-live-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="Website Launch QA Checklist: What to Test Before Going Live (50-Point Engineering Audit)" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+            </figure>
+            <div class="art__layout wrap grid">
+                <aside class="art__aside" aria-label="On this page">
+                    <p class="art__label">On this page</p>
+                    <ol class="art__toc"><li class="art__toc-l3"><a href="#h-the-engineering-golden-rule">The Engineering Golden Rule</a></li><li class="art__toc-l2"><a href="#h-1-category-i-technical-seo-amp-crawlability-points-1-to-10">1. Category I: Technical SEO &amp; Crawlability (Points 1 to 10)</a></li><li class="art__toc-l2"><a href="#h-2-category-ii-performance-amp-core-web-vitals-points-11-to-20">2. Category II: Performance &amp; Core Web Vitals (Points 11 to 20)</a></li><li class="art__toc-l2"><a href="#h-3-category-iii-forms-apis-and-workflow-automations-points-21-to-30">3. Category III: Forms, APIs, and Workflow Automations (Points 21 to 30)</a></li><li class="art__toc-l2"><a href="#h-4-category-iv-cross-browser-amp-device-responsiveness-points-31-to-40">4. Category IV: Cross-Browser &amp; Device Responsiveness (Points 31 to 40)</a></li><li class="art__toc-l2"><a href="#h-5-category-v-security-analytics-and-dns-cutover-points-41-to-50">5. Category V: Security, Analytics, and DNS Cutover (Points 41 to 50)</a></li><li class="art__toc-l2"><a href="#h-6-frequently-asked-questions-faq">6. Frequently Asked Questions (FAQ)</a></li><li class="art__toc-l3"><a href="#h-when-should-a-website-launch-qa-audit-begin">When should a website launch QA audit begin?</a></li><li class="art__toc-l3"><a href="#h-what-is-the-best-day-of-the-week-to-launch-a-website">What is the best day of the week to launch a website?</a></li><li class="art__toc-l3"><a href="#h-what-happens-if-we-discover-a-critical-bug-after-going-live">What happens if we discover a critical bug after going live?</a></li><li class="art__toc-l3"><a href="#h-does-launching-a-redesign-temporarily-drop-google-rankings">Does launching a redesign temporarily drop Google rankings?</a></li><li class="art__toc-l2"><a href="#h-conclusion-launch-with-uncompromising-confidence">Conclusion: Launch with Uncompromising Confidence</a></li></ol>
+                    <p class="art__label">Share</p>
+                    <p class="art__share"><a href="https://twitter.com/intent/tweet?text=Website%20Launch%20QA%20Checklist%3A%20What%20to%20Test%20Before%20Going%20Live%20(50-Point%20Engineering%20Audit)&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fwebsite-launch-qa-checklist-before-going-live" target="_blank" rel="noopener">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fwebsite-launch-qa-checklist-before-going-live" target="_blank" rel="noopener">Share on LinkedIn</a></p>
+                </aside>
+                <div class="art__body prose" id="articleContent">
+                    <p>Flipping the switch on a newly redesigned website or brand website is one of the most high-stakes moments in digital business. Months of creative design, architecture, and content production culminate in a single deployment event.</p>
+<p>Yet, without a rigorous, multi-disciplinary pre-launch quality assurance (QA) protocol, even the most visually stunning websites stumble out of the gate:</p>
+<ul>
+<li>Broken inquiry forms that fail to notify sales teams.</li>
+<li>Missing 301 redirect trees that destroy hard-won organic search rankings overnight.</li>
+<li>Sluggish mobile viewports that trigger high bounce rates.</li>
+<li>Misconfigured DNS records that take email servers offline during cutover.</li>
+</ul>
+<blockquote>
+<h3 id="h-the-engineering-golden-rule">The Engineering Golden Rule</h3>
+<p>Launching a website is an <strong>orchestrated systems cutover</strong>, not a simple button click. Top-tier engineering studios do not rely on subjective visual inspections. They execute a deterministic, item-by-item technical audit across performance, SEO, security, cross-device responsiveness, and analytics before production traffic touches the server.</p>
+</blockquote>
+<p>At <a href="/about">Kawaki Studios</a>, we engineer and launch critical brand websites and custom web platforms from our studio in New Delhi. In this comprehensive guide, we publish our field-tested <strong>50-Point Website Launch QA Checklist</strong> to ensure your next release is smooth, secure, and commercially successful.</p>
+<hr />
+<h2 id="h-1-category-i-technical-seo-amp-crawlability-points-1-to-10">1. Category I: Technical SEO &amp; Crawlability (Points 1 to 10)</h2>
+<p>Search engine optimization must be verified before launch, not diagnosed after traffic drops:</p>
+<ol>
+<li><strong>Self-Referencing Canonical Tags:</strong> Verify every single indexable page carries a fully qualified, absolute canonical URL matching your primary domain (<code>https://kawaki.co.in/page</code>).</li>
+<li><strong>Robots.txt Configuration:</strong> Confirm that the production <code>robots.txt</code> does not accidentally carry <code>Disallow: /</code> left over from staging environments.</li>
+<li><strong>XML Sitemap Accuracy:</strong> Ensure <code>sitemap.xml</code> includes all canonical, indexable URLs and excludes 301 redirects, 404 pages, staging URLs, or password-protected client portals.</li>
+<li><strong>Comprehensive 301 Redirect Tree:</strong> Run automated crawl comparisons between your legacy website and new URLs. Confirm every legacy URL maps directly to its corresponding replacement with a 301 permanent redirect.</li>
+<li><strong>Single H1 per Page:</strong> Confirm every page possesses exactly one semantic <code>&lt;h1&gt;</code> tag matching user search intent, supported by logical <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> heading hierarchies.</li>
+<li><strong>Title Tag &amp; Meta Description Uniqueness:</strong> Ensure zero duplicate title tags or generic placeholder descriptions (<code>"Home"</code>, <code>"About Us"</code>) exist across the site.</li>
+<li><strong>Semantic Schema.org JSON-LD Structured Data:</strong> Validate <code>Organization</code>, <code>WebSite</code>, <code>BreadcrumbList</code>, and <code>FAQPage</code> schemas using Google Rich Results validator.</li>
+<li><strong>Noindex Directives on Internal Search &amp; Admin:</strong> Confirm that internal administrative areas, staging parameters, and dynamic search filter query strings carry <code>noindex, follow</code>.</li>
+<li><strong>Image Alt Text Completeness:</strong> Ensure all informative images carry descriptive, human-readable alt attributes, while purely decorative backgrounds use empty alt attributes (<code>alt=""</code>).</li>
+<li><strong>Favicon and Web App Manifest:</strong> Verify complete favicon coverage (<code>favicon.ico</code>, <code>favicon.svg</code>, <code>apple-touch-icon.png</code>, <code>site.webmanifest</code>).</li>
+</ol>
+<p>Explore our technical optimization capabilities: <a href="/services/technical-seo">Technical SEO Services</a>.</p>
+<hr />
+<h2 id="h-2-category-ii-performance-amp-core-web-vitals-points-11-to-20">2. Category II: Performance &amp; Core Web Vitals (Points 11 to 20)</h2>
+<p>Google directly benchmarks mobile user experience and Core Web Vitals when determining search rankings:</p>
+<figure class="article-diagram-wrapper" style="margin:2.5rem 0">
+  <img src="/assets/images/blog/website-launch-testing-pipeline.svg" alt="50-point website launch pre-flight testing and quality gate pipeline" width="1200" height="675" loading="lazy" decoding="async" />
+  <figcaption style="margin-top:0.75rem;text-align:center;font-size:0.85rem;color:#a1a1aa;font-family:monospace">Figure 1: 50-point website launch pipeline: Technical SEO, Core Web Vitals, CRM funnel validation, cross-device testing, and zero-downtime DNS cutover.</figcaption>
+</figure><ol>
+<li><strong>Largest Contentful Paint (LCP) Under 2.0s:</strong> Ensure the main hero headline or visual asset renders in under 2.0 seconds on throttled 4G mobile connections.</li>
+<li><strong>Interaction to Next Paint (INP) Under 150ms:</strong> Test interactive elements (accordions, mobile navigation menus, filter tabs) to guarantee instantaneous UI response.</li>
+<li><strong>Cumulative Layout Shift (CLS) Under 0.05:</strong> Confirm explicit <code>width</code> and <code>height</code> dimensions on all images, video wrappers, and custom embeds to prevent jarring content jumps during asset load.</li>
+<li><strong>Critical Font Subsetting &amp; Display Swap:</strong> Verify font files are stripped of unused glyphs, preloaded in the document head, and configured with <code>font-display: swap</code> to prevent Flash of Invisible Text (FOIT).</li>
+<li><strong>Modern Image Formatting (WebP / AVIF):</strong> Confirm all raster photography is compressed and served in modern formats, eliminating heavy legacy PNG/JPEG payloads.</li>
+<li><strong>Responsive Image Sizing:</strong> Verify <code>srcset</code> and <code>sizes</code> attributes serve scaled images matched to mobile viewports rather than full-resolution desktop assets.</li>
+<li><strong>JavaScript Bundle Splitting:</strong> Verify client-side code is divided into modular chunks so users only download code required for the current viewport.</li>
+<li><strong>CSS Tree-Shaking:</strong> Ensure dead CSS from unused component templates is purged before production asset bundling.</li>
+<li><strong>Edge CDN Caching Policies:</strong> Verify static assets serve with aggressive <code>Cache-Control: public, max-age=31536000, immutable</code> headers.</li>
+<li><strong>Zero Render-Blocking Third-Party Scripts:</strong> Ensure analytics, live chat widgets, and marketing tags load asynchronously (<code>async</code> or <code>defer</code>) without stalling the primary DOM parser.</li>
+</ol>
+<p>Review our deep dive on frontend speed: <a href="/blog/nextjs-performance-architecture">Next.js Performance Architecture</a>.</p>
+<hr />
+<h2 id="h-3-category-iii-forms-apis-and-workflow-automations-points-21-to-30">3. Category III: Forms, APIs, and Workflow Automations (Points 21 to 30)</h2>
+<p>Forms and interactive funnels represent the commercial heartbeat of your platform:</p>
+<ol>
+<li><strong>End-to-End Form Submissions:</strong> Submit live test entries through every form on the site (contact forms, newsletter signups, quotation calculators, consultation schedulers).</li>
+<li><strong>Client-Side Input Validation:</strong> Test edge cases (invalid email syntax, missing phone digits, blank required fields) to ensure clear, accessible error messages render inline.</li>
+<li><strong>Server-Side Sanitization:</strong> Verify inputs are scrubbed and sanitized against SQL injection, cross-site scripting (XSS), and malicious payload attacks.</li>
+<li><strong>CRM &amp; Webhook Ingestion:</strong> Confirm lead submissions successfully transmit to your customer relationship management (CRM) software or notification endpoints.</li>
+<li><strong>Admin Notification Emails:</strong> Verify internal team notification alerts arrive instantly with complete lead details and accurate submission timestamps.</li>
+<li><strong>User Confirmation Emails:</strong> Check transactional auto-responder emails to ensure branding, links, and tone of voice reflect your studio standards.</li>
+<li><strong>Spam Defense (reCAPTCHA / Turnstile / Honeypot):</strong> Verify automated spam bots are blocked without frustrating legitimate users with difficult visual captchas.</li>
+<li><strong>Form Loading &amp; Success States:</strong> Ensure submit buttons display a clear loading spinner during network transit and transition to an unambiguous success confirmation message.</li>
+<li><strong>Error Boundary Handling:</strong> Simulate a network drop or server failure during form submission to confirm the interface displays a graceful fallback without crashing.</li>
+<li><strong>Webhook Idempotency:</strong> Confirm that double-clicking a submit button or rapid repeated submissions do not produce duplicate CRM leads or double charges.</li>
+</ol>
+<p>Explore our automation frameworks: <a href="/blog/ai-automation-architecture">AI Automation Architecture</a>.</p>
+<hr />
+<h2 id="h-4-category-iv-cross-browser-amp-device-responsiveness-points-31-to-40">4. Category IV: Cross-Browser &amp; Device Responsiveness (Points 31 to 40)</h2>
+<p>A website must provide a flawless user experience across all screen sizes and operating systems:</p>
+<p>```<br />┌────────────────────────────────────────────────────────────────────────┐<br />│                   CROSS-DEVICE VERIFICATION MATRIX                     │<br />├──────────────────────────┬─────────────────────────────────────────────┤<br />│ 1. Mobile iOS Safari     │ Notch adaptation, bottom address bar bounce │<br />│ 2. Mobile Android Chrome │ Dynamic viewport height (100dvh), touch hits│<br />│ 3. Tablet Portrait/Land  │ Navigation collapse, split column balance   │<br />│ 4. Desktop Windows/Mac   │ Font smoothing, scrollbar gutter stability  │<br />│ 5. Ultra-Wide Displays   │ Container max-width constraints, margins    │<br />└──────────────────────────┴─────────────────────────────────────────────┘<br />```</p>
+<ol>
+<li><strong>Physical Mobile Device Testing:</strong> Test on real iOS (Safari) and Android (Chrome) devices rather than relying solely on desktop browser developer emulators.</li>
+<li><strong>Dynamic Viewport Height (<code>100dvh</code>):</strong> Verify full-height hero sections adapt cleanly when mobile browser address bars expand and collapse during scroll.</li>
+<li><strong>Touch Target Sizing:</strong> Ensure all buttons, links, and navigation items maintain minimum touch targets of at least 44 × 44 pixels with adequate hit spacing.</li>
+<li><strong>Mobile Navigation Drawer Mechanics:</strong> Test mobile menu opening, closing, scroll-locking, and escape key / tap-outside dismissal.</li>
+<li><strong>Horizontal Scroll Overflow Prevention:</strong> Verify that zero unintended horizontal scrolling (<code>overflow-x</code>) occurs at standard mobile widths (320px, 375px, 414px).</li>
+<li><strong>Cross-Browser Parity:</strong> Inspect layout rendering across Apple Safari, Google Chrome, Mozilla Firefox, and Microsoft Edge.</li>
+<li><strong>High-DPI / Retina Asset Clarity:</strong> Confirm vector logos (SVG) and brand imagery render crisply on high-pixel-density displays without pixelation.</li>
+<li><strong>Table and Data Grid Responsiveness:</strong> Ensure wide data tables collapse into swipeable cards or horizontal scrolling containers on narrow mobile viewports.</li>
+<li><strong>Accessibility &amp; Keyboard Navigation:</strong> Verify logical Tab focus order, visible focus rings, and screen-reader accessibility across interactive components.</li>
+<li><strong>Color Contrast Compliance:</strong> Verify body copy and button labels pass contrast ratios against background colors to ensure readable text for all visitors.</li>
+</ol>
+<hr />
+<h2 id="h-5-category-v-security-analytics-and-dns-cutover-points-41-to-50">5. Category V: Security, Analytics, and DNS Cutover (Points 41 to 50)</h2>
+<p>The final ten checkpoints govern infrastructure safety and launch-day cutover protocols:</p>
+<ol>
+<li><strong>SSL / TLS Certificate Provisioning:</strong> Verify a valid, auto-renewing SSL certificate is active on the root domain and all subdomains (<code>https://kawaki.co.in/</code>).</li>
+<li><strong>HTTP to HTTPS Force Redirect:</strong> Confirm all insecure <code>http://</code> traffic automatically forces a 301 permanent redirect to <code>https://</code>.</li>
+<li><strong>Non-WWW vs WWW Domain Normalization:</strong> Ensure your secondary domain format automatically 301-redirects to your primary canonical domain to prevent duplicate content reporting.</li>
+<li><strong>Security Response Headers:</strong> Verify modern security headers are configured (Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, Content-Security-Policy).</li>
+<li><strong>Custom 404 Error Page:</strong> Verify a branded, helpful 404 page exists with clear links back to your homepage, services, and search functionality.</li>
+<li><strong>Analytics &amp; Tag Governance:</strong> Confirm tracking scripts record real-time pageviews and conversion events correctly in staging before flipping production DNS.</li>
+<li><strong>DNS TTL Lowering Pre-Launch:</strong> Lower your DNS Time-to-Live (TTL) to 300 seconds (5 minutes) at least 48 hours prior to launch to enable rapid rollback if unexpected issues emerge.</li>
+<li><strong>MX &amp; Email Record Preservation:</strong> When modifying root DNS A or CNAME records, verify your Google Workspace or Microsoft 365 MX records remain untouched so team email never drops.</li>
+<li><strong>Post-Launch Rapid Indexing Ping:</strong> Submit new canonical URLs to Google Indexing API and IndexNow immediately after cutover to accelerate bot discovery.</li>
+<li><strong>Google Search Console Ownership:</strong> Confirm your GSC domain property is verified, submit your new <code>sitemap.xml</code>, and monitor indexing coverage logs daily for the first two weeks.</li>
+</ol>
+<p>Learn how to structure your procurement timeline: <a href="/blog/what-to-prepare-before-hiring-web-development-agency">What to Prepare Before Hiring a Web Development Agency</a>.</p>
+<hr />
+<h2 id="h-6-frequently-asked-questions-faq">6. Frequently Asked Questions (FAQ)</h2>
+<h3 id="h-when-should-a-website-launch-qa-audit-begin">When should a website launch QA audit begin?</h3>
+<p>QA is not an afterthought squeezed into the final hour before launch. Pre-launch checks should begin at least 7 to 10 days before the scheduled cutover date, allowing adequate runway for developers to resolve cross-device bugs, configure 301 redirect trees, and verify third-party webhook integrations.</p>
+<h3 id="h-what-is-the-best-day-of-the-week-to-launch-a-website">What is the best day of the week to launch a website?</h3>
+<p>The best days to launch a business website are Tuesday or Wednesday morning. Avoid Friday afternoon or weekend launches; if an unexpected DNS propagation delay or checkout webhook error occurs, senior engineering and support teams should be fully available during regular business hours to diagnose and resolve it immediately.</p>
+<h3 id="h-what-happens-if-we-discover-a-critical-bug-after-going-live">What happens if we discover a critical bug after going live?</h3>
+<p>Having lowered your DNS TTL prior to launch, you can execute a rapid zero-downtime rollback to your legacy platform within minutes if an unresolvable checkout or data corruption issue emerges, allowing developers to isolate and fix the bug on staging.</p>
+<h3 id="h-does-launching-a-redesign-temporarily-drop-google-rankings">Does launching a redesign temporarily drop Google rankings?</h3>
+<p>A brief organic fluctuation of 5% to 10% can occur over the first 7 to 14 days as search engine crawlers re-index updated page structures. However, if your 301 redirect tree is complete, canonical tags are accurate, and Core Web Vitals improve, organic search visibility will stabilize and typically outpace pre-launch baselines.</p>
+<hr />
+<h2 id="h-conclusion-launch-with-uncompromising-confidence">Conclusion: Launch with Uncompromising Confidence</h2>
+<p>A website launch should be an occasion for celebration, not panic. By enforcing a deterministic, 50-point engineering checklist, you protect your hard-won search rankings, safeguard conversion funnels, and present an investable, high-performance digital presence to the world.</p>
+<p>If your team is planning an upcoming website launch or seeking a comprehensive pre-launch engineering audit, <a href="/contact">schedule an architectural consultation with Kawaki Studios</a> or explore our <a href="/services/custom-web-development">Custom Web Development Services</a>.</p>
+
+                    <ul class="art__tags" aria-label="Topics"><li>Web Development</li><li>QA</li><li>Technical SEO</li><li>Performance</li><li>Guides</li></ul>
+                    <div class="art__author"><p class="art__label">Written by</p><p><strong>Kunal Sharma</strong> founded Kawaki Studios in New Delhi and leads its engineering. He writes about the systems the studio designs and builds for clients.</p></div>
+                </div>
+            </div>
+        </article>
+
+        <section class="sec sec--line wrap related" aria-labelledby="next-title" style="margin-top: 0; padding-bottom: var(--space-sec);">
+            <div class="sec-head grid">
+                <h2 class="h2" id="next-title" data-reveal>Keep reading</h2>
+                <div class="sec-head__aside"><a class="draw" href="/blog">All articles<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            </div>
+            <ul class="bcards">
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/shopify-apps-vs-custom-integrations">
+                        <span class="bimg"><img src="/assets/images/blog/shopify-apps-vs-custom-integrations-cover.webp" srcset="/assets/images/blog/shopify-apps-vs-custom-integrations-cover-720.webp 720w, /assets/images/blog/shopify-apps-vs-custom-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>Shopify</span><span>14 min read</span></span>
+                        <h3 class="bcard__title">Shopify Apps vs Custom Integrations: How to Choose</h3>
+                    </a>
+                </li>
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/website-redesign-brief-goals-scope-integrations">
+                        <span class="bimg"><img src="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp" srcset="/assets/images/blog/website-redesign-brief-goals-scope-integrations-cover-720.webp 720w, /assets/images/blog/website-redesign-brief-goals-scope-integrations-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>Web Development</span><span>10 min read</span></span>
+                        <h3 class="bcard__title">Website Redesign Brief: Goals, Scope, Content and Integrations (2026 Template)</h3>
+                    </a>
+                </li>
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/what-to-prepare-before-hiring-web-development-agency">
+                        <span class="bimg"><img src="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp" srcset="/assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover-720.webp 720w, /assets/images/blog/what-to-prepare-before-hiring-web-development-agency-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>Web Development</span><span>16 min read</span></span>
+                        <h3 class="bcard__title">What to Prepare Before Hiring a Web Development Agency: The Complete Client Scoping & Evaluation Guide</h3>
+                    </a>
+                </li>
+            </ul>
+            <ul class="rows" style="margin-top: clamp(48px, 6vw, 80px);">
+                <li><a class="row svc" href="/services/custom-web-development"><h3 class="row__name">Custom Web Development</h3><span class="svc__desc">The service behind this article</span><svg class="row__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+        </section>
+
+        <section class="finale" id="contact" aria-labelledby="finale-title">
+            <div class="wrap">
+                <div class="grid">
+                    <h2 class="h2 finale__title" id="finale-title">Tell us what you&rsquo;re building.</h2>
+                </div>
+                <ul class="channels">
+                    <li><a class="channel" href="https://wa.me/917678123943?text=Hi%20Kunal%2C%20I%20would%20like%20to%20discuss%20a%20web%20project%20with%20Kawaki%20Studios" target="_blank" rel="noopener"><span class="channel__label">WhatsApp</span><span class="channel__value num">+91 76781 23943</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                    <li><a class="channel" href="mailto:hello@kawaki.co.in"><span class="channel__label">Email</span><span class="channel__value">hello@kawaki.co.in</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                    <li><a class="channel" href="/contact"><span class="channel__label">Call</span><span class="channel__value">Book 15 minutes</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                </ul>
+                <p class="finale__hours">Studio hours are Monday to Sunday, 10:00 to 19:00 IST. In New Delhi it is <time id="studioTime">now</time>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-foot wrap">
+        <div class="foot-grid grid">
+            <div class="foot-col">
+                <p class="foot-h">Studio</p>
+                <a href="/about">About</a>
+                <a href="/case-studies">Work</a>
+                <a href="/services">Services</a>
+                <a href="/blog">Journal</a>
+                <a href="/contact">Contact</a>
+                <a href="/directory">Directory</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Contact</p>
+                <a href="mailto:hello@kawaki.co.in">hello@kawaki.co.in</a>
+                <a href="https://wa.me/917678123943" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://maps.google.com/maps?cid=8378945977778123387" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://search.google.com/local/writereview?placeid=ChIJFV-Kjwsq6UMRezKnJfn-R3Q" target="_blank" rel="noopener">Review us on Google</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Follow</p>
+                <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">X (Twitter)</a>
+                <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Studio address</p>
+                <p>Kawaki Studios LLP<br />New Delhi, India</p>
+                <p>Monday to Sunday<br />10:00 to 19:00 IST</p>
+            </div>
+        </div>
+        <span class="foot-mark" aria-hidden="true"></span>
+        <div class="foot-bottom">
+            <p>&copy; 2026 Kawaki Studios LLP</p>
+            <ul class="foot-legal">
+                <li><a href="/privacy-policy">Privacy policy</a></li>
+                <li><a href="/terms-of-service">Terms of service</a></li>
+                <li><a href="/sitemap.xml">Sitemap</a></li>
+                <li><a href="/llms.txt">llms.txt</a></li>
+            </ul>
+            <button type="button" class="footer-back-to-top" id="backToTop">Back to top<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13V3.5M4 7.5l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+    </footer>
+
+    <script src="/assets/js/vendor/gsap-3.15.0.min.js" defer></script>
+    <script src="/assets/js/vendor/ScrollTrigger-3.15.0.min.js" defer></script>
+    <script src="/assets/js/vendor/lenis-1.3.25.min.js" defer></script>
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script src="/assets/js/chatbot.js?v=1d101f865c" data-css-v="caaf10d078" defer></script>
+    <script src="/assets/js/site.js?v=339e471bba" defer></script>
+    <script src="/assets/js/exit-popup.js?v=29074d7c01" defer></script>
+</body>
+</html>

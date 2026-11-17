@@ -134,6 +134,9 @@ function auditArticle(articleData) {
     const img = articleData.featuredImage || '';
     if (!img) issues.push('No featuredImage. Make one following AGENTS.md, Blog images.');
     else if (/^https?:/i.test(img)) issues.push(`featuredImage is a hotlink (${img}). Use a local image made to AGENTS.md, Blog images.`);
+    // Covers come from scripts/make-blog-cover.js (<slug>-cover.jpg). Older "-hero" images were AI renders.
+    // A genuine photograph (client work, a real screenshot) is allowed with imageType: "photo" in the frontmatter.
+    else if (!/-cover\.(jpe?g|png)$/i.test(img) && String(articleData.imageType || '').toLowerCase() !== 'photo') issues.push(`featuredImage ${img} is not a typographic cover. Run: node scripts/make-blog-cover.js --slug <slug> --title "<short title>" (AGENTS.md, Blog images).`);
     else {
       const base = path.resolve(__dirname, '..', '..', 'public') + img.replace(/\.(jpe?g|png)$/i, '');
       if (!fs.existsSync(base + '.webp') || !fs.existsSync(base + '-720.webp')) issues.push(`featuredImage needs ${img.replace(/\.(jpe?g|png)$/i, '')}.webp and -720.webp next to it (AGENTS.md, Blog images).`);

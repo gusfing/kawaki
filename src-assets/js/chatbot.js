@@ -70,7 +70,7 @@
     call: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 2.5h10v11H3z M3 6h10 M6 1.5v2M10 1.5v2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
   };
 
-  /* ---------- Studio hours: Monday to Friday, 10:00 to 19:00 IST ---------- */
+  /* ---------- Studio hours: Monday to Sunday, 10:00 to 19:00 IST ---------- */
   function studio() {
     var now = new Date(), wd = 'Mon', h = 12, m = 0;
     try {
@@ -79,15 +79,13 @@
     } catch (e) { /* Intl without time zones: assume open hours */ }
     var t = h * 60 + m;
     var day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(wd);
-    var weekday = day > -1 && day < 5;
+    var weekday = day > -1; // open every day
     var open = weekday && t >= 600 && t < 1140;
     var time = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
     var back;
     if (open) back = 'Replies until 19:00';
     else if (weekday && t < 600) back = 'Back today at 10:00';
-    else if (day > -1 && day < 4) back = 'Back tomorrow at 10:00';
-    else if (day === 6) back = 'Back tomorrow at 10:00';
-    else back = 'Back Monday at 10:00';
+    else back = 'Back tomorrow at 10:00';
     return { open: open, time: time, flag: open ? 'Open' : 'Closed', label: 'New Delhi ' + time + ' IST. ' + back };
   }
 
@@ -141,7 +139,7 @@
       answer: 'Kawaki Studios LLP is based in **New Delhi**. We work with clients across India and abroad remotely, through milestone sprints, a shared Git repository and staging links.',
       chips: ['Studio hours', 'Start a project'] },
     { id: 'hours', words: ['hours', 'open', 'available', 'availability', 'working hours', 'time zone', 'timezone', 'ist', 'weekend'],
-      answer: function () { return 'Studio hours are **Monday to Friday, 10:00 to 19:00 IST** (UTC+05:30). ' + (studio().open ? 'The studio is open right now.' : 'The studio is closed right now; messages are read on the next working day.'); },
+      answer: function () { return 'Studio hours are **Monday to Sunday, 10:00 to 19:00 IST** (UTC+05:30). ' + (studio().open ? 'The studio is open right now.' : 'The studio is closed right now; messages are read from 10:00 IST.'); },
       chips: ['Message on WhatsApp', 'Start a project'] },
     { id: 'about', words: ['who are you', 'about', 'founder', 'kunal', 'team', 'company', 'studio', 'llp', 'experience', 'aws'],
       answer: 'Kawaki Studios LLP is an engineering studio in New Delhi, founded by **Kunal Sharma**, an AWS Certified AI Practitioner. You work directly with the developers writing your code. More on the [about page](/about).',
@@ -252,7 +250,7 @@
     var contact = (text.match(/[\w.+-]+@[\w-]+\.[\w.-]+/) || text.match(/\+?\d[\d\s-]{7,}\d/) || [])[0];
     if (contact) {
       typing(500, function () {
-        addMessage('bot', format('Thanks. Shall I send **' + contact + '** to the team along with this conversation? They reply on working days, Monday to Friday, 10:00 to 19:00 IST.'));
+        addMessage('bot', format('Thanks. Shall I send **' + contact + '** to the team along with this conversation? They reply every day, Monday to Sunday, 10:00 to 19:00 IST.'));
         addForm(contact);
       });
       return;
@@ -343,7 +341,7 @@
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json().catch(function () { return {}; }); })
         .then(function () {
           f.remove();
-          addMessage('bot', format('Thanks, **' + name + '**. Your brief is with the studio. They reply on working days, Monday to Friday, 10:00 to 19:00 IST. If it is urgent, WhatsApp is quickest.'));
+          addMessage('bot', format('Thanks, **' + name + '**. Your brief is with the studio. They reply every day, Monday to Sunday, 10:00 to 19:00 IST. If it is urgent, WhatsApp is quickest.'));
           addChips(['See the work', 'How do you work?']);
           try { localStorage.setItem('kc_brief_sent', String(Date.now())); } catch (e2) { /* storage unavailable */ }
         })

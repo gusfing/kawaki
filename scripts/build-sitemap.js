@@ -197,7 +197,7 @@ writeSubSitemap('sitemap-services.xml', e => e.route.startsWith('/services/') ||
 writeSubSitemap('sitemap-case-studies.xml', e => e.route.startsWith('/case-studies/'));
 writeSubSitemap('sitemap-blog.xml', e => e.route.startsWith('/blog/'));
 writeSubSitemap('sitemap-locations.xml', e => {
-  const cities = ['delhi', 'bangalore', 'mumbai', 'gurgaon', 'noida', 'ahmedabad', 'pune', 'hyderabad', 'jaipur', 'chandigarh', 'kolkata', 'ludhiana', 'vadodara', 'dubai', 'london', 'canada'];
+  const cities = ['delhi', 'bangalore', 'mumbai', 'gurgaon', 'noida', 'ghaziabad', 'faridabad', 'ahmedabad', 'pune', 'hyderabad', 'chennai', 'lucknow', 'indore', 'jaipur', 'chandigarh', 'kolkata', 'ludhiana', 'vadodara', 'dubai', 'london', 'canada'];
   return cities.some(c => e.route === `/${c}` || e.route.startsWith(`/${c}/`));
 });
 

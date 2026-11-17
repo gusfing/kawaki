@@ -51,7 +51,7 @@
         '<div class="kc-pop__body" data-step="form">' +
           '<p class="kc-pop__eyebrow">Kawaki Studios, New Delhi</p>' +
           '<h2 class="kc-pop__title" id="kcPopTitle">Planning a website or web app?</h2>' +
-          '<p class="kc-pop__text" id="kcPopText">Send a two-line brief. It goes straight to the developers who would build it, and they reply on working days, Monday to Friday, 10:00 to 19:00 IST.</p>' +
+          '<p class="kc-pop__text" id="kcPopText">Send a two-line brief. It goes straight to the developers who would build it, and they reply every day, Monday to Sunday, 10:00 to 19:00 IST.</p>' +
           '<form class="kc-pop__form" novalidate>' +
             '<div class="kc-pop__row">' +
               '<div class="kc-field"><label for="kcPopName">Your name</label><input id="kcPopName" name="who" autocomplete="name" required></div>' +

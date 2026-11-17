@@ -2,7 +2,7 @@
 title: "What Should a Website Maintenance Agreement Include? The SLA, Security, and Scope Guide"
 slug: "what-should-website-maintenance-agreement-include"
 excerpt: "A transparent guide to website maintenance agreements. Discover what a professional maintenance contract must include: security patching, uptime monitoring, SLA response tiers, and backup protocols."
-featuredImage: "/assets/images/blog/website-maintenance-agreement-hero.jpg"
+featuredImage: "/assets/images/blog/what-should-website-maintenance-agreement-include-cover.jpg"
 tags: ["Web Development", "Maintenance", "Security", "Guides"]
 seoKeywords: "what should website maintenance include, website maintenance agreement checklist, web maintenance SLA, monthly website maintenance cost, website support retainer"
 seoDescription: "What should a website maintenance agreement include? Learn essential SLA tiers, security patch schedules, automated backup protocols, and pricing benchmarks."

@@ -422,7 +422,9 @@ function actFn(op, o) {
       for (const pass of [vis, laidOut]) {
         let cands = all0.filter(pass);
         if (role) cands = cands.filter(e => roleOf(e) === role);
-        for (const test of [n => n === want, n => n.startsWith(want), n => n.includes(want)]) {
+        // Partial matches must be close in length, so a dialog or section that merely contains the text never wins.
+        const close = n => n.length <= want.length * 3 + 40;
+        for (const test of [n => n === want, n => n.startsWith(want) && close(n), n => n.includes(want) && close(n)]) {
           const hits = innermost(cands.filter(e => test(nm(e))));
           if (hits.length) return hits[nth || 0] || null;
         }

@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const shell = require('./lib/shell');
 const { serviceCopy, display, lower, groupOf } = require('./lib/service-copy');
-const { cityServiceCopy, cityHubCopy } = require('./lib/city-copy');
+const { cityServiceCopy, cityHubCopy, NOUN } = require('./lib/city-copy');
+const { glance } = require('./lib/glance');
 const { solutionCopy } = require('./lib/solution-copy');
 
 const rootDir = path.resolve(__dirname, '..');
@@ -361,6 +362,14 @@ function renderPage(entry) {
     ogType = 'article';
   }
 
+  // "At a glance" facts block (AEO): service, city, solution, industry and technology pages.
+  const isCity = entry.pageType === 'location' || entry.pageType === 'location-service';
+  const at = (entry.pageType === 'core' || entry.pageType === 'legal') ? null : glance({
+    name: entry.pageType === 'location' ? 'websites and web apps' : entry.pageType === 'location-service' ? (NOUN[entry.service] || lower(entry.service)) : lower(entry.service),
+    slug: entry.pageType === 'location' ? 'custom-web-development' : entry.kawakiUrl.replace(/^\//, ''),
+    city: isCity ? entry.location : null
+  });
+
   // Schema Graph
   const schemaGraph = [
     {
@@ -376,7 +385,9 @@ function renderPage(entry) {
         "url": "https://kawaki.co.in",
         "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png"
       },
-      "serviceType": entry.service
+      "serviceType": entry.service,
+      ...(at ? { areaServed: at.ld.areaServed } : {}),
+      ...(at && at.ld.offers ? { offers: at.ld.offers } : {})
     },
     {
       "@type": "BreadcrumbList",
@@ -473,6 +484,8 @@ function renderPage(entry) {
             </div>
             ${S.strip([['kept', 'Custom code'], ['cut', 'Page builders'], ['kept', 'Semantic HTML'], ['kept', 'Typed APIs'], ['cut', 'Bought themes'], ['kept', 'Staging links'], ['cut', 'Plugin piles'], ['kept', 'Git handoff'], ['cut', 'Lock-in']], 'Built with custom code, semantic HTML, typed APIs, staging links and a Git handoff. Left out: page builders, bought themes, plugin piles and lock-in.')}
         </section>
+
+        ${at ? at.html : ''}
 
         <section class="sec wrap" id="overview" aria-labelledby="overview-title">
             <div class="sec-head grid">
