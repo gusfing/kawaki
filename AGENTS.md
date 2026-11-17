@@ -59,9 +59,23 @@ Write like a careful person from the studio talking to a founder: short, specifi
 
 ## 4. Blog posts
 
-1. Write the post as `content/<slug>.md` with frontmatter (`title`, `slug`, `excerpt`, `seoDescription`, `tags`, `featuredImage`, `status`). At least 1,500 words, three or more `##` sections, two or more internal links to real pages, an FAQ section.
+1. Pick the title from `data/blog-plan.json` (section 4b). Write the post as `content/<slug>.md` with frontmatter (`title`, `slug`, `primaryKeyword`, `excerpt`, `seoDescription`, `tags`, `featuredImage`, `status`). At least 1,500 words, three or more `##` sections, two or more internal links to real pages, an FAQ section.
 2. Check it: `node scripts/check-writing.js --file content/<slug>.md`.
 3. The daily bot (`.github/workflows/daily-blog-automation.yml`) only publishes drafts that already exist in `content/` and pass its quality gate. It never writes text itself.
+
+## 4b. Keywords: use the research, do not guess
+
+The keyword research (Semrush, India and US, Nov 2026) is saved in two committed files. Read them before you write or retitle anything:
+
+- `data/keyword-map.json`: the primary keyword for each page, its volume and difficulty, and the city and service patterns. One primary keyword per page.
+- `data/blog-plan.json`: the blog titles to write, in priority order, each with its keyword and the page it links to.
+
+Rules:
+- **Titles and headings:** a page's primary keyword goes in its title and H1, once, in plain words. Secondary keywords go in subheadings and FAQ questions only where they read naturally. Never stuff, never repeat a keyword to hit a count.
+- **Blog posts:** write the next title from `blog-plan.json` unless the owner names another. Put the primary keyword in the title, the first paragraph and one `##` heading; add `primaryKeyword:` to the frontmatter; link to the page in `linkTo`; answer real questions in the FAQ. Titles under 60 characters. When a post is published, move its entry to `done`.
+- **New pages:** only create a page if `keyword-map.json` or the owner says so, and add it to the map with a primary keyword no other page uses. City pages say the work runs remotely from New Delhi unless the city is in Delhi NCR.
+- **Do not invent targets or volumes.** If you need a number that is not in these files, say it is unmeasured. The owner re-runs the research each quarter.
+- **Still bound by section 3:** facts only from `data/kawaki-facts.json`, no banned phrases, no invented prices. A keyword never justifies a claim.
 
 ## 5. Blog images: never AI slop
 
