@@ -963,7 +963,16 @@ async function handleCommand(action, p = {}) {
       // Opens in the agent's own window, so your tabs are left alone. here:true opens a tab in your current window.
       const url = p.url || 'about:blank';
       let tab;
-      if (p.here) {
+      if (p.incognito) {
+        // A private window with no account, history or memory. Needs "Allow in Incognito" switched on for this extension in
+        // chrome://extensions (Details). Chrome refuses otherwise, and we say so instead of failing silently.
+        let w;
+        try { w = await chrome.windows.create({ url, incognito: true, focused: true, width: Number(p.width) || 1300, height: Number(p.height) || 900 }); }
+        catch (e) { throw new Error('Could not open a private window: ' + e.message + ' To allow it: chrome://extensions, Kawaki Agent Chrome Bridge, Details, turn on "Allow in Incognito".'); }
+        if (!w || !w.tabs || !w.tabs[0]) throw new Error('Chrome did not open a private window. Switch on "Allow in Incognito" for this extension: chrome://extensions, Kawaki Agent Chrome Bridge, Details, then turn on "Allow in Incognito".');
+        setAgentWindow(w.id);
+        tab = w.tabs[0];
+      } else if (p.here) {
         tab = await chrome.tabs.create({ url, active: !!p.active });
       } else {
         let win = null;

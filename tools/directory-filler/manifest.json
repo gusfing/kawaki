@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Kawaki Directory Filler",
+  "version": "1.0.0",
+  "description": "Fills directory forms with the Kawaki Studios profile, articles and projects, one page at a time. You solve the CAPTCHA and press submit.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Kawaki Directory Filler"
+  },
+  "commands": {
+    "fill-page": {
+      "suggested_key": {
+        "default": "Alt+Shift+F"
+      },
+      "description": "Fill the open form with the Kawaki profile"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "host_permissions": [
+    "https://kawaki.co.in/*"
+  ]
+}

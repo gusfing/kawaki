@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kawaki Directory Filler</title>
+<style>
+  :root { --indigo: #23003F; --deep: #18002C; --raised: #2E0B4F; --yellow: #FFFDB4; --lilac: #BCACCE; --red: #F94500; }
+  * { box-sizing: border-box; }
+  body { width: 400px; margin: 0; background: var(--indigo); color: var(--yellow); font: 13px/1.45 system-ui, 'Segoe UI', sans-serif; }
+  .mono { font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace; }
+  .label { font: 600 10.5px/1 ui-monospace, 'Cascadia Mono', Consolas, monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lilac); }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 10px; border-bottom: 1px solid rgba(188, 172, 206, 0.25); }
+  h1 { margin: 0; font-size: 15px; font-weight: 750; letter-spacing: -0.01em; }
+  nav { display: flex; gap: 4px; padding: 10px 16px 0; }
+  nav button { flex: 1; padding: 8px 6px; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--lilac); font: 600 12px system-ui, sans-serif; cursor: pointer; }
+  nav button[aria-selected="true"] { color: var(--yellow); border-color: var(--red); }
+  main { padding: 14px 16px 16px; max-height: 520px; overflow: auto; }
+  section[hidden] { display: none; }
+  button.btn { padding: 9px 12px; border-radius: 8px; border: 1.5px solid var(--lilac); background: transparent; color: var(--yellow); font: 600 12px system-ui, sans-serif; cursor: pointer; }
+  button.btn:hover { border-color: var(--yellow); }
+  button.primary { background: var(--red); border-color: var(--red); }
+  button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+  .row { display: flex; gap: 8px; margin: 0 0 10px; }
+  .row > * { flex: 1; }
+  .note { margin: 10px 0 0; color: var(--lilac); font-size: 12px; }
+  .result { margin: 12px 0 0; padding: 10px; background: var(--deep); border-radius: 8px; font-size: 12px; }
+  .result b { color: var(--yellow); }
+  .result ul { margin: 6px 0 0; padding-left: 16px; color: var(--lilac); }
+  .result li { margin: 2px 0; }
+  .ok { color: var(--yellow); }
+  .warn { color: var(--red); }
+  .copy { display: grid; grid-template-columns: 1fr auto; gap: 6px 8px; align-items: center; }
+  .copy .v { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--lilac); }
+  .copy button { padding: 4px 9px; font-size: 11px; }
+  .field { margin: 0 0 9px; }
+  .field label { display: block; margin: 0 0 3px; }
+  input[type=text], textarea { width: 100%; padding: 7px 9px; background: var(--deep); color: var(--yellow); border: 1px solid rgba(188, 172, 206, 0.3); border-radius: 6px; font: 12.5px system-ui, sans-serif; }
+  textarea { resize: vertical; min-height: 64px; }
+  .q-current { padding: 12px; background: var(--raised); border-radius: 8px; margin-bottom: 10px; }
+  .q-current h2 { margin: 4px 0 2px; font-size: 15px; letter-spacing: -0.01em; }
+  .q-current a { color: var(--lilac); word-break: break-all; font-size: 11.5px; }
+  ol.queue { list-style: none; margin: 10px 0 0; padding: 0; max-height: 170px; overflow: auto; background: var(--deep); border-radius: 8px; }
+  ol.queue li { display: grid; grid-template-columns: 22px 1fr auto; gap: 6px; padding: 5px 10px; border-bottom: 1px solid rgba(188, 172, 206, 0.12); font-size: 12px; }
+  ol.queue li:last-child { border-bottom: 0; }
+  ol.queue .st { font: 600 10px ui-monospace, Consolas, monospace; text-transform: uppercase; color: var(--lilac); letter-spacing: 0.06em; }
+  ol.queue li.done .nm { color: var(--lilac); text-decoration: line-through; text-decoration-color: var(--red); }
+  button[aria-pressed="true"] { border-color: var(--red); background: var(--raised); }
+  ol.queue li.pick { cursor: pointer; grid-template-columns: 1fr auto; }
+  ol.queue li.pick:hover, ol.queue li.pick.on { background: var(--raised); }
+  .chk { display: flex; gap: 7px; align-items: center; margin: 8px 0; color: var(--lilac); font-size: 12px; }
+  .count { color: var(--lilac); font: 600 11px ui-monospace, Consolas, monospace; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Kawaki Directory Filler</h1>
+    <span class="count" id="count"></span>
+  </header>
+  <nav role="tablist">
+    <button role="tab" aria-selected="true" data-tab="fill">Fill</button>
+    <button role="tab" aria-selected="false" data-tab="queue">Directories</button>
+    <button role="tab" aria-selected="false" data-tab="content">Articles</button>
+    <button role="tab" aria-selected="false" data-tab="profile">Profile</button>
+  </nav>
+  <main>
+    <section id="tab-fill">
+      <div class="row">
+        <button class="btn primary" id="fillBtn" type="button">Fill this page</button>
+        <button class="btn" id="fillOverBtn" type="button" title="Also replace fields that already have text">Replace existing</button>
+      </div>
+      <p class="note">Open the signup form first, then press this or <span class="mono">Alt+Shift+F</span>. Filled fields get a red outline. Check them, solve the CAPTCHA and press submit yourself.</p>
+      <div id="result"></div>
+      <p class="label" style="margin-top:16px">Copy a field instead</p>
+      <div class="copy" id="copyList"></div>
+    </section>
+
+    <section id="tab-queue" hidden>
+      <div id="current"></div>
+      <div class="row">
+        <button class="btn" id="doneBtn" type="button">Mark done</button>
+        <button class="btn" id="skipBtn" type="button">Skip</button>
+        <button class="btn" id="exportBtn" type="button">Export CSV</button>
+      </div>
+      <ol class="queue" id="queueList"></ol>
+      <p class="label" style="margin-top:14px">Paste your directory list</p>
+      <textarea id="importBox" placeholder="One per line:&#10;Justdial | https://www.justdial.com/&#10;https://www.sulekha.com/"></textarea>
+      <div class="row" style="margin-top:8px">
+        <button class="btn" id="importBtn" type="button">Add to the list</button>
+        <button class="btn" id="clearBtn" type="button">Clear the list</button>
+      </div>
+    </section>
+
+    <section id="tab-content" hidden>
+      <div class="row" style="margin-bottom:8px">
+        <button class="btn" id="kindProjects" type="button" aria-pressed="true">Projects</button>
+        <button class="btn" id="kindArticles" type="button" aria-pressed="false">Articles</button>
+      </div>
+      <input type="text" id="contentSearch" placeholder="Search" aria-label="Search">
+      <ol class="queue" id="contentList" style="max-height:140px;margin-top:8px"></ol>
+      <div id="contentPick"></div>
+    </section>
+
+    <section id="tab-profile" hidden>
+      <p class="note" style="margin-top:0">Saved in this browser only. Add the exact street address and PIN code before you start, and keep it identical on every directory.</p>
+      <div id="profileForm"></div>
+      <div class="row"><button class="btn" id="resetBtn" type="button">Reset to defaults</button></div>
+    </section>
+  </main>
+  <script src="defaults.js"></script>
+  <script src="filler.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
