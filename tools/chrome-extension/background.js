@@ -1037,7 +1037,9 @@ async function handleCommand(action, p = {}) {
 
     case 'focus_tab': {
       const tab = await chrome.tabs.update(Number(p.tabId), { active: true });
-      await chrome.windows.update(tab.windowId, { focused: true });
+      // A minimized window stays hidden when only focused, so restore it first.
+      try { const w = await chrome.windows.get(tab.windowId); if (w.state === 'minimized') await chrome.windows.update(tab.windowId, { state: 'normal' }); } catch (e) { /* window info unavailable */ }
+      await chrome.windows.update(tab.windowId, { focused: true, drawAttention: true });
       return { id: tab.id, active: true };
     }
 

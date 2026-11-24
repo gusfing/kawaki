@@ -50,7 +50,12 @@ async function render(page, { slug, title, topic, words }) {
 
 async function main() {
   const { chromium } = loadPlaywright();
-  const browser = await chromium.launch();
+  let browser;
+  try {
+    browser = await chromium.launch();
+  } catch (e) {
+    browser = await chromium.launch({ channel: 'chrome' });
+  }
   const page = await browser.newPage({ viewport: { width: 1376, height: 768 }, deviceScaleFactor: 1 });
 
   if (process.argv.includes('--all')) {
