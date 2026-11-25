@@ -184,9 +184,9 @@ Here is how typical project budgets break down at Kawaki Studios:
 
 | Project Tier | Investment Range | Typical Timeline | Core Deliverables |
 | :--- | :--- | :--- | :--- |
-| **Boutique Marketing Site** | ₹1,50,000 to ₹3,00,000 ($2,500 to $4,500 USD) | 4 to 6 weeks | Custom static architecture, responsive styling, contact forms, Schema markup |
-| **High Intent Business Platform** | ₹3,00,000 to ₹5,00,000 ($4,500 to $8,000 USD) | 6 to 8 weeks | Multi-page service funnels, automated sitemaps, rapid indexing hooks, analytics |
-| **Full Stack Web Application** | ₹5,00,000+ ($8,000 to $10,000+ USD) | 8 to 12 weeks | User authentication, SQLite or PostgreSQL backend, REST APIs, custom workflows |
+| **Boutique Marketing Site** | ₹1,50,000 to ₹3,00,000 ($2,500 to $4,500 USD) | 4 to 8 weeks | Custom static architecture, responsive styling, contact forms, Schema markup |
+| **High Intent Business Platform** | ₹3,00,000 to ₹5,00,000 ($4,500 to $8,000 USD) | 4 to 8 weeks | Multi-page service funnels, automated sitemaps, rapid indexing hooks, analytics |
+| **Full Stack Web Application** | ₹5,00,000+ ($8,000 to $10,000+ USD) | Milestone-based | User authentication, SQLite or PostgreSQL backend, REST APIs, custom workflows |
 
 You can explore our transparent pricing model in detail on our [Pricing Guide](/pricing).
 
@@ -295,7 +295,7 @@ function commitAndPushChanges(slug) {
   try {
     execSync('git config user.name "Kawaki Newsjack Worker"', { cwd: ROOT, stdio: 'pipe' });
     execSync('git config user.email "newsjack@kawaki.co.in"', { cwd: ROOT, stdio: 'pipe' });
-    execSync('git add content/ data/ public/', { cwd: ROOT, stdio: 'pipe' });
+    execSync('git add content/ data/ public/ data.db', { cwd: ROOT, stdio: 'pipe' });
 
     const status = execSync('git status --porcelain', { cwd: ROOT, encoding: 'utf8' });
     if (!status.trim()) {
@@ -303,7 +303,7 @@ function commitAndPushChanges(slug) {
       return false;
     }
 
-    execSync(`git commit -m "feat(newsjack): publish ${slug} and sync rapid indexing [skip ci]"`, {
+    execSync(`git commit -m "feat(newsjack): publish ${slug} and sync rapid indexing"`, {
       cwd: ROOT,
       stdio: 'pipe'
     });
