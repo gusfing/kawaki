@@ -5,7 +5,7 @@ primaryKeyword: "ai agent development services"
 excerpt: "A practical technical analysis on ai agent development services, exploring architectural requirements, production risks, and cost efficiency for growing teams."
 seoDescription: "Explore ai agent development services with clear technical guidance, architecture choices, real pricing, and production considerations from Kawaki Studios in New Delhi."
 tags: ["Web Development", "Engineering", "Architecture", "Guides"]
-featuredImage: "/assets/images/about_hero_bg.jpg"
+featuredImage: "/assets/images/blog/ai-agent-development-services-walmart-teams-up-with-met-cover.jpg"
 status: "published"
 ---
 

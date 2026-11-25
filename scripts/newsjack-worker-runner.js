@@ -442,6 +442,28 @@ async function runWorker(options = {}) {
     return { executed: false, error: 'writing_rules_violation' };
   }
 
+  // 3b. Generate Brand Cover Image
+  console.log('\n🎨 [Cover Art Generation] Rendering brand template cover...');
+  let featuredImagePath = `/assets/images/blog/${payload.slug}-cover.jpg`;
+  try {
+    const shortTitle = payload.primaryKeyword.split(' ').slice(0, 3).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    execSync(`node scripts/make-blog-cover.js --slug "${payload.slug}" --title "${shortTitle}" --topic "Engineering"`, {
+      cwd: ROOT,
+      env: { ...process.env, PLAYWRIGHT_DIR: process.env.PLAYWRIGHT_DIR || '/opt/fast-indexer' },
+      stdio: 'pipe'
+    });
+    console.log(`   ✓ Brand cover generated: ${featuredImagePath}`);
+    // Update markdown file frontmatter if cover was created
+    if (fs.existsSync(path.join(PUBLIC_DIR, 'assets', 'images', 'blog', `${payload.slug}-cover.jpg`))) {
+      let md = fs.readFileSync(mdFilePath, 'utf8');
+      md = md.replace('featuredImage: "/assets/images/about_hero_bg.jpg"', `featuredImage: "${featuredImagePath}"`);
+      fs.writeFileSync(mdFilePath, md, 'utf8');
+    }
+  } catch (covErr) {
+    featuredImagePath = '/assets/images/about_hero_bg.jpg';
+    console.warn(`   ⚠️ Cover generation fallback: ${covErr.message}`);
+  }
+
   // 4. Ingest into SQLite data.db
   console.log('\n💾 [Database Ingestion] Updating SQLite data.db...');
   updateDatabase({
@@ -452,7 +474,7 @@ async function runWorker(options = {}) {
     primaryKeyword: payload.primaryKeyword,
     seoDescription: `Explore ${payload.primaryKeyword} with clear technical guidance from Kawaki Studios.`,
     tags: ['Web Development', 'Engineering', 'Architecture'],
-    featuredImage: '/assets/images/about_hero_bg.jpg'
+    featuredImage: featuredImagePath
   });
 
   // 5. Build Blog Static Artifacts & Sitemap
