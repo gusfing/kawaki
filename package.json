@@ -25,6 +25,8 @@
     "index:google:all": "node scripts/speed-index.js --all",
     "newsjack:radar": "node scripts/newsjacking-radar.js",
     "newsjack:radar:fallback": "node scripts/newsjacking-radar.js --fallback",
+    "newsjack:worker": "node scripts/newsjack-worker-runner.js",
+    "newsjack:worker:force": "node scripts/newsjack-worker-runner.js --force",
     "test:radar": "node test/newsjacking-radar.test.js",
     "lint": "eslint",
     "blog:auto": "node scripts/blog-automation.js auto",
