@@ -194,7 +194,7 @@ async function publishMarkdownFile(filePath) {
 
   // IndexNow
   try {
-    const indexNowOut = execSync(`node scripts/submit-indexnow.js --wait ${canonicalUrl}`, { cwd: rootDir, encoding: 'utf8', timeout: 420000 });
+    const indexNowOut = execSync(`node scripts/submit-indexnow.js ${canonicalUrl}`, { cwd: rootDir, encoding: 'utf8', timeout: 30000 });
     const match = indexNowOut.match(/HTTP \d+ \w+/);
     console.log(`   ✓ [IndexNow / Bing] Response: ${match ? match[0] : 'Submitted'}`);
   } catch (e) {

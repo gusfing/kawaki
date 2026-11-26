@@ -57,6 +57,59 @@ function getPublishedArticles() {
     console.warn('[Build Blog] DB load note (using fallback):', err.message);
   }
 
+  // Scan content/*.md for published or pending markdown articles
+  const contentDir = path.resolve(rootDir, 'content');
+  if (fs.existsSync(contentDir)) {
+    const mdFiles = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'));
+    for (const f of mdFiles) {
+      try {
+        const filePath = path.join(contentDir, f);
+        const raw = fs.readFileSync(filePath, 'utf8');
+        const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+        if (!match) continue;
+        const meta = {};
+        match[1].split(/\r?\n/).forEach(line => {
+          const idx = line.indexOf(':');
+          if (idx === -1) return;
+          const k = line.slice(0, idx).trim();
+          let v = line.slice(idx + 1).trim();
+          if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
+            v = v.slice(1, -1);
+          }
+          meta[k] = v;
+        });
+
+        const slug = meta.slug || path.basename(f, '.md');
+        if (meta.status === 'published' && slug) {
+          const stats = fs.statSync(filePath);
+          const existing = articlesMap.get(slug);
+          let tags = ['Web Development'];
+          if (meta.tags) {
+            if (Array.isArray(meta.tags)) tags = meta.tags;
+            else tags = String(meta.tags).replace(/[\[\]"]/g, '').split(',').map(t => t.trim());
+          }
+          articlesMap.set(slug, {
+            id: meta.id || (existing ? existing.id : `art_${slug.replace(/[^a-z0-9]/gi, '_')}`),
+            title: meta.title || (existing ? existing.title : slug),
+            slug: slug,
+            content: match[2].trim(),
+            excerpt: meta.excerpt || (existing ? existing.excerpt : ''),
+            status: 'published',
+            author: meta.author || (existing ? existing.author : 'Kunal Sharma'),
+            featuredImage: meta.featuredImage || meta.featured_image || (existing ? existing.featuredImage : '/assets/images/about_hero_bg.jpg'),
+            tags: tags,
+            seoKeywords: meta.primaryKeyword || meta.seoKeywords || (existing ? existing.seoKeywords : ''),
+            seoDescription: meta.seoDescription || (existing ? existing.seoDescription : ''),
+            createdAt: meta.date || meta.createdAt || meta.scheduledDate || (existing ? existing.createdAt : stats.mtime.toISOString()),
+            updatedAt: stats.mtime.toISOString()
+          });
+        }
+      } catch (err) {
+        console.warn(`[Build Blog] Error reading markdown ${f}:`, err.message);
+      }
+    }
+  }
+
   // Deterministic sort: createdAt descending, tie-break by slug
   const articles = Array.from(articlesMap.values()).sort((a, b) => {
     const timeA = new Date(a.createdAt || 0).getTime();

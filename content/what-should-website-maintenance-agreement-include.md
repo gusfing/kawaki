@@ -6,7 +6,7 @@ featuredImage: "/assets/images/blog/what-should-website-maintenance-agreement-in
 tags: ["Web Development", "Maintenance", "Security", "Guides"]
 seoKeywords: "what should website maintenance include, website maintenance agreement checklist, web maintenance SLA, monthly website maintenance cost, website support retainer"
 seoDescription: "What should a website maintenance agreement include? Learn essential SLA tiers, security patch schedules, automated backup protocols, and pricing benchmarks."
-status: "pending"
+status: "published"
 author: "Kunal Sharma"
 scheduledDate: "2026-11-03"
 ---

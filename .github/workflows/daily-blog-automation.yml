@@ -37,11 +37,11 @@ jobs:
         run: |
           git config --global user.name "Kawaki Automation Bot"
           git config --global user.email "bot@kawaki.co.in"
-          git add content/ data/ public/
+          git add content/ data/ public/ data.db admin-dashboard/data.db
           if git diff --staged --quiet; then
             echo "No new changes to commit."
           else
-            git commit -m "chore(blog): daily automated blog publication & sitemap sync [skip ci]"
+            git commit -m "chore(blog): daily automated blog publication & sitemap sync"
             git push origin main
           fi
 

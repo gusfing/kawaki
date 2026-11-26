@@ -6,7 +6,7 @@ excerpt: "A practical guide to website maintenance services: what monthly plans 
 seoDescription: "Website maintenance services: what they include, what they omit, how much they cost, and how engineering checkups keep your business site secure."
 featuredImage: "/assets/images/blog/website-maintenance-services-what-they-include-and-cost-cover.jpg"
 tags: ["Engineering", "Maintenance", "Security"]
-status: "draft"
+status: "published"
 author: "Kunal Sharma"
 scheduledDate: "2026-11-25"
 ---

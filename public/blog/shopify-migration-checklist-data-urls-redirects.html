@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shopify Migration Checklist | Kawaki Studios</title>
+    <meta name="description" content="Step-by-step Shopify migration checklist: Learn how to transfer product catalogs, map 301 redirects, migrate customers, and preserve search rankings." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://kawaki.co.in/blog/shopify-migration-checklist-data-urls-redirects" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kawaki.co.in/blog/shopify-migration-checklist-data-urls-redirects" />
+    <meta property="og:title" content="Shopify Migration Checklist | Kawaki Studios" />
+    <meta property="og:description" content="Step-by-step Shopify migration checklist: Learn how to transfer product catalogs, map 301 redirects, migrate customers, and preserve search rankings." />
+    <meta property="og:site_name" content="Kawaki Studios" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/shopify-migration-checklist-data-urls-redirects-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" content="Shopify Migration Checklist | Kawaki Studios" />
+    <meta name="twitter:description" content="Step-by-step Shopify migration checklist: Learn how to transfer product catalogs, map 301 redirects, migrate customers, and preserve search rankings." />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/shopify-migration-checklist-data-urls-redirects-cover.jpg" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://kawaki.co.in/blog/shopify-migration-checklist-data-urls-redirects#article",
+          "headline": "Shopify Migration Checklist: Data, URLs, Redirects and Testing",
+          "description": "Step-by-step Shopify migration checklist: Learn how to transfer product catalogs, map 301 redirects, migrate customers, and preserve search rankings.",
+          "image": "https://kawaki.co.in/assets/images/blog/shopify-migration-checklist-data-urls-redirects-cover.jpg",
+          "datePublished": "2026-11-05",
+          "dateModified": "2026-11-26T11:08:23.401Z",
+          "author": {
+            "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
+            "name": "Kunal Sharma",
+            "url": "https://kawaki.co.in/about"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "https://kawaki.co.in/#organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in",
+            "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://kawaki.co.in/blog/shopify-migration-checklist-data-urls-redirects"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://kawaki.co.in/blog/shopify-migration-checklist-data-urls-redirects#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://kawaki.co.in"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://kawaki.co.in/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Shopify Migration Checklist: Data, URLs, Redirects and Testing",
+              "item": "https://kawaki.co.in/blog/shopify-migration-checklist-data-urls-redirects"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/shopify-migration-checklist-data-urls-redirects#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Will our store lose organic traffic after migrating to Shopify?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A temporary search visibility fluctuation lasting 1 to 3 weeks is normal while search engines re-index updated URLs. However, if your 301 redirect architecture is planned thoroughly and page speed scores improve, organic traffic typically matches or exceeds pre-migration baselines shortly after cutover."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can customer passwords be transferred directly to Shopify?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Security protocols prevent exporting raw password hashes. Customers must be invited to activate their accounts and establish new passwords via an automated email sequence."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does a complete Shopify migration take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A standard ecommerce migration covering catalog extraction, theme customization, redirect mapping, and QA testing typically spans 4 to 8 weeks depending on catalog volume and ERP complexity."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do we handle custom product attributes that Shopify does not have by default?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Custom product attributes are modeled using Shopify Metafields. Metafields support rich data types including integers, dimensions, color hex codes, file attachments, and relational references."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens to legacy customer order history?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Historical orders can be imported via Shopify's Orders API or specialized migration tools. They will be archived in the customer's account dashboard for order lookup and record-keeping without generating fresh payment charges. ---"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <meta name="theme-color" content="#23003F" />
+    <link rel="preload" href="/assets/fonts/bricolage-display.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/bricolage-text.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/css/site.css?v=449b4f536c" />
+    <script>document.documentElement.classList.add('js');</script>
+    <script>(function(){try{var d=document.documentElement;if(/bot|crawl|spider|slurp|inspectiontool|headless/i.test(navigator.userAgent))return;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(sessionStorage.getItem('kw_pl'))return;sessionStorage.setItem('kw_pl','1');d.classList.add('pl-on');}catch(e){}})();</script>
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "yyqy7vt939");
+    </script>
+</head>
+<body class="inner">
+    <div class="pl" aria-hidden="true">
+        <div class="pl__mark"><span class="pl__badge"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span><span class="pl__word">Kawaki Studios</span></div>
+        <p class="pl__meta">Web engineering studio, New Delhi</p>
+    </div>
+    <script>(function(){var d=document.documentElement;if(!d.classList.contains('pl-on'))return;var t0=Date.now(),done=false;function end(){if(done)return;done=true;setTimeout(function(){d.classList.add('pl-out');try{document.dispatchEvent(new Event('kawaki:intro-done'));}catch(e){}setTimeout(function(){d.classList.remove('pl-on','pl-out');},750);},Math.max(0,900-(Date.now()-t0)));}if(document.readyState==='complete')end();else{addEventListener('load',end,{once:true});setTimeout(end,1200);}})();</script>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="pathbar" aria-hidden="true"><span></span></div>
+
+    <header class="nav-wrapper" id="globalNav">
+        <nav aria-label="Primary">
+            <a href="/" class="nav-left" aria-label="Kawaki Studios, home"><span class="logo" aria-hidden="true"></span></a>
+            <a class="nav-center draw" href="mailto:hello@kawaki.co.in">hello@kawaki.co.in</a>
+            <a class="nav-cta btn btn--sm" href="/contact">Start a project<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <button type="button" class="nav-right" id="menuToggleBtn" aria-expanded="false" aria-controls="fullscreenMenu" aria-label="Open menu">
+                <span id="menu-toggle-text">MENU</span>
+                <span id="menu-toggle-icon" aria-hidden="true"><span class="bar bar-top"></span><span class="bar bar-bottom"></span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu">kawaki</span>
+            <div class="menu-layout">
+                <nav class="menu-col menu-col-left" aria-label="Site">
+                    <div class="main-menu-links" id="mainMenuPrimary">
+                        <ul>
+                            <li data-img="/assets/images/kawaki-home-preview.jpg" data-tag="Home" data-desc="Studio overview and recent work">
+                                <a href="/"><span class="menu-text">Home</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/lms-ecosystem/hero.webp" data-tag="About" data-desc="Who builds your project, and how">
+                                <a href="/about"><span class="menu-text">About</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/bazzaro/hero.webp" data-tag="Services" data-desc="Websites, web apps, Shopify, automation, security">
+                                <a href="/services" id="menuServicesTrigger" class="menu-services-trigger" aria-haspopup="true" aria-expanded="false">
+                                    <span class="menu-text">Services</span>
+                                    <span class="menu-expand-badge" aria-hidden="true">+</span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/nursepass/hero.webp" data-tag="Work" data-desc="Case studies with the full write-up">
+                                <a href="/case-studies"><span class="menu-text">Work</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/urbanland/hero.webp" data-tag="Journal" data-desc="Notes on engineering, Shopify and AI">
+                                <a href="/blog" aria-current="page"><span class="menu-text">Journal</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/decor-lab/hero.webp" data-tag="Contact" data-desc="Book a 15 minute call">
+                                <a href="/contact"><span class="menu-text">Contact</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="main-menu-services" id="mainMenuServices" style="display: none; opacity: 0;">
+                        <div class="menu-services-topbar">
+                            <button type="button" class="menu-services-back-btn" id="menuServicesBackBtn">
+                                <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13 8H3.5M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>Back</span>
+                            </button>
+                            <span class="menu-services-header-title">Services</span>
+                            <a href="/services" class="menu-services-hub-link">All services</a>
+                        </div>
+                        <div class="menu-services-grid">
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Web and commerce</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/kala-design/hero.webp" data-tag="Custom web development" data-desc="Hand-built company and marketing sites"><a href="/services/custom-web-development">Custom web development</a></li>
+                                    <li data-img="/assets/images/case-studies/lms-ecosystem/hero.webp" data-tag="Web applications" data-desc="Portals, dashboards and internal tools"><a href="/services/web-application-development">Web application development</a></li>
+                                    <li data-img="/assets/images/case-studies/bazzaro/hero.webp" data-tag="Shopify" data-desc="Custom themes and headless storefronts"><a href="/services/shopify-development">Shopify development</a></li>
+                                    <li data-img="/assets/images/case-studies/decor-lab/hero.webp" data-tag="WordPress" data-desc="Lean custom themes"><a href="/services/wordpress-development">WordPress development</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">AI and search</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/pixza/hero.webp" data-tag="AI automation" data-desc="n8n and Make.com workflows"><a href="/services/ai-automation">AI automation</a></li>
+                                    <li data-img="/assets/images/case-studies/kova/hero.webp" data-tag="AI search" data-desc="Being read and cited by AI search tools"><a href="/services/ai-search-optimization">AI search optimization</a></li>
+                                    <li data-img="/assets/images/case-studies/urbanland/hero.webp" data-tag="Technical SEO" data-desc="Architecture, URLs and schema"><a href="/technical-seo">Technical SEO</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Security</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/spa-salon/hero.webp" data-tag="Malware removal" data-desc="Hacked WordPress cleanup"><a href="/services/wordpress-malware-removal">WordPress malware removal</a></li>
+                                    <li data-img="/assets/images/case-studies/nursepass/hero.webp" data-tag="Hardening" data-desc="Closing the way in"><a href="/services/website-security-hardening">Website security hardening</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Mobile</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/iptv/hero.webp" data-tag="Mobile apps" data-desc="Flutter, React Native, Swift, Kotlin"><a href="/services/mobile-app-development">Mobile app development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="menu-col menu-col-right">
+                    <div class="menu-preview-card" id="menuPreviewCard" aria-hidden="true">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/kawaki-home-preview.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">Home</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">Studio overview and recent work</span>
+                        </div>
+                    </div>
+                    <div class="menu-info-block">
+                        <a href="/contact" class="menu-cta-button btn">Start a project<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <a href="mailto:hello@kawaki.co.in" class="menu-email-link">hello@kawaki.co.in</a>
+                    </div>
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">X (Twitter)</a>
+                        <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main" tabindex="-1">
+        <article class="art" aria-labelledby="page-title">
+            <header class="art__head wrap">
+                <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/blog">Blog</a></li><li><span aria-current="page">Shopify Migration Checklist: Data, URLs, Redirects and Testing</span></li></ol>
+                <p class="art__meta"><span class="art__cat">Shopify</span><span>10 min read</span><time datetime="2026-11-05">5 Nov 2026</time></p>
+                <h1 class="art__title" id="page-title">Shopify Migration Checklist: Data, URLs, Redirects and Testing</h1>
+                <p class="art__lede">Step-by-step Shopify migration checklist: Learn how to transfer product catalogs, map 301 redirects, migrate customers, and preserve search rankings.</p>
+                <p class="art__by">By Kunal Sharma</p>
+            </header>
+            <figure class="art__figure wrap">
+                <div class="art__frame"><img src="/assets/images/blog/shopify-migration-checklist-data-urls-redirects-cover.webp" srcset="/assets/images/blog/shopify-migration-checklist-data-urls-redirects-cover-720.webp 720w, /assets/images/blog/shopify-migration-checklist-data-urls-redirects-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="Shopify Migration Checklist: Data, URLs, Redirects and Testing" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+            </figure>
+            <div class="art__layout wrap grid">
+                <aside class="art__aside" aria-label="On this page">
+                    <p class="art__label">On this page</p>
+                    <ol class="art__toc"><li class="art__toc-l2"><a href="#h-1-pre-migration-discovery-and-data-architecture">1. Pre-Migration Discovery and Data Architecture</a></li><li class="art__toc-l3"><a href="#h-catalog-schema-normalization">Catalog Schema Normalization</a></li><li class="art__toc-l2"><a href="#h-2-customer-and-transaction-history-transfer">2. Customer and Transaction History Transfer</a></li><li class="art__toc-l3"><a href="#h-customer-account-passwords">Customer Account Passwords</a></li><li class="art__toc-l3"><a href="#h-order-history-import">Order History Import</a></li><li class="art__toc-l2"><a href="#h-3-the-301-redirect-architecture-preserving-seo-rankings">3. The 301 Redirect Architecture: Preserving SEO Rankings</a></li><li class="art__toc-l3"><a href="#h-shopify-url-structure-constraints">Shopify URL Structure Constraints</a></li><li class="art__toc-l3"><a href="#h-rules-for-clean-url-redirects">Rules for Clean URL Redirects</a></li><li class="art__toc-l2"><a href="#h-4-theme-engineering-and-core-web-vitals-optimization">4. Theme Engineering and Core Web Vitals Optimization</a></li><li class="art__toc-l3"><a href="#h-avoiding-app-bloat">Avoiding App Bloat</a></li><li class="art__toc-l3"><a href="#h-pricing-and-investment-expectations">Pricing and Investment Expectations</a></li><li class="art__toc-l2"><a href="#h-5-pre-launch-quality-assurance-checklist">5. Pre-Launch Quality Assurance Checklist</a></li><li class="art__toc-l3"><a href="#h-1-checkout-and-payment-testing">1. Checkout and Payment Testing</a></li><li class="art__toc-l3"><a href="#h-2-transactional-notifications-and-integrations">2. Transactional Notifications and Integrations</a></li><li class="art__toc-l3"><a href="#h-3-analytics-and-conversion-tracking">3. Analytics and Conversion Tracking</a></li><li class="art__toc-l2"><a href="#h-6-launch-day-execution-cutover-protocol">6. Launch Day Execution: Cutover Protocol</a></li><li class="art__toc-l2"><a href="#h-7-post-launch-monitoring-and-stabilization">7. Post-Launch Monitoring and Stabilization</a></li><li class="art__toc-l2"><a href="#h-8-frequently-asked-questions">8. Frequently Asked Questions</a></li><li class="art__toc-l3"><a href="#h-will-our-store-lose-organic-traffic-after-migrating-to-shopify">Will our store lose organic traffic after migrating to Shopify?</a></li><li class="art__toc-l3"><a href="#h-can-customer-passwords-be-transferred-directly-to-shopify">Can customer passwords be transferred directly to Shopify?</a></li><li class="art__toc-l3"><a href="#h-how-long-does-a-complete-shopify-migration-take">How long does a complete Shopify migration take?</a></li><li class="art__toc-l3"><a href="#h-how-do-we-handle-custom-product-attributes-that-shopify-does-not-have-by-default">How do we handle custom product attributes that Shopify does not have by default?</a></li><li class="art__toc-l3"><a href="#h-what-happens-to-legacy-customer-order-history">What happens to legacy customer order history?</a></li><li class="art__toc-l2"><a href="#h-conclusion">Conclusion</a></li></ol>
+                    <p class="art__label">Share</p>
+                    <p class="art__share"><a href="https://twitter.com/intent/tweet?text=Shopify%20Migration%20Checklist%3A%20Data%2C%20URLs%2C%20Redirects%20and%20Testing&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fshopify-migration-checklist-data-urls-redirects" target="_blank" rel="noopener">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fshopify-migration-checklist-data-urls-redirects" target="_blank" rel="noopener">Share on LinkedIn</a></p>
+                </aside>
+                <div class="art__body prose" id="articleContent">
+                    <p>Migrating an ecommerce business to Shopify is one of the most consequential engineering decisions an online retailer can make. When executed properly, moving from legacy platforms like WooCommerce, Magento, or custom monoliths provides dependable checkout infrastructure, streamlined inventory management, and fast global hosting. When handled carelessly, however, a store migration can erase years of accumulated organic search rankings, corrupt order histories, and frustrate high-value customers with broken account logins.</p>
+<p>At <a href="/about">Kawaki Studios</a>, we engineer and manage complex ecommerce transitions from our studio in New Delhi, India. In this technical guide, we walk through an exhaustive <strong>Shopify migration checklist</strong> designed to preserve your organic visibility, ensure data integrity, and guarantee uninterrupted revenue from the moment your DNS records switch over.</p>
+<hr />
+<h2 id="h-1-pre-migration-discovery-and-data-architecture">1. Pre-Migration Discovery and Data Architecture</h2>
+<p>Before writing code or exporting database tables, you must audit the incoming data structures. Legacy platforms structure product variants, category hierarchies, and custom attributes differently than Shopify's native data model. Taking time to map each field prevents data truncation and broken product pages down the line.</p>
+<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+│                   ECOMMERCE MIGRATION ARCHITECTURE                     │
+├──────────────────────────┬─────────────────────────────────────────────┤
+│ 1. Legacy Store Extract  │ Products, Variants, Customers, Order Data   │
+│ 2. Data Transformation   │ Handle Normalization, Metafield Mapping     │
+│ 3. Shopify Ingestion     │ REST Admin API, Bulk CSV Imports            │
+│ 4. Search Continuity     │ 1-to-1 URL Mapping, 301 Redirect Rules      │
+│ 5. Verification &amp; QA     │ Payment Gateways, Webhooks, Inventory Sync  │
+└──────────────────────────┴─────────────────────────────────────────────┘
+</code></pre>
+<h3 id="h-catalog-schema-normalization">Catalog Schema Normalization</h3>
+<p>Shopify organizes catalogs around Products, Variants, Collections, and Metafields. Common architectural issues during data extraction include:</p>
+<ul>
+<li><strong>Variant Limitations:</strong> Shopify natively supports up to 3 options and 100 variants per product (expandable up to 2,000 variants on modern platform plans). If your existing catalog uses dynamic configurations or unbounded option sets, you will need to restructure products or use combined listings.</li>
+<li><strong>Custom Attributes to Metafields:</strong> Attributes such as technical specifications, garment materials, dimensions, or care instructions must be defined as typed Metafields rather than crammed into raw product descriptions. This keeps frontend filtering accurate and structured.</li>
+<li><strong>Category to Collection Mapping:</strong> WooCommerce categories and Magento category trees must be mapped to automated or manual Shopify collections using product tags or vendor identifiers. Setting up smart collections early eliminates manual product tagging during future catalog updates.</li>
+</ul>
+<p>For complex catalog builds, review our specialized <a href="/services/shopify-development">Shopify Development Services</a>.</p>
+<hr />
+<h2 id="h-2-customer-and-transaction-history-transfer">2. Customer and Transaction History Transfer</h2>
+<p>Transferring customers and historical orders requires precision because sensitive credentials cannot be exported as plain text across different database environments.</p>
+<h3 id="h-customer-account-passwords">Customer Account Passwords</h3>
+<p>Because secure ecommerce platforms hash user passwords using one-way cryptographic algorithms, you cannot transfer active password hashes directly into Shopify. Instead, follow this structured onboarding protocol:</p>
+<ol>
+<li>Import customer records containing full names, email addresses, phone numbers, and physical shipping addresses.</li>
+<li>Tag imported customers with a legacy cohort tag (such as <code>migrated-customer</code>).</li>
+<li>Prepare a transactional email sequence inviting customers to activate their new accounts and set fresh passwords on your new storefront.</li>
+<li>Provide immediate assistance channels for wholesale or B2B buyers who need uninterrupted access to negotiated pricing tiers.</li>
+</ol>
+<h3 id="h-order-history-import">Order History Import</h3>
+<p>While historical orders do not generate active revenue, retaining customer purchase history is essential for customer service inquiries, warranty verification, accounting reconciliation, and loyalty rewards programs.</p>
+<ul>
+<li>Import historical orders using Shopify's Admin API, ensuring line items match historical stock keeping units (SKUs).</li>
+<li>Mark historical orders as fulfilled and paid during the import step to prevent accidental transaction re-triggering or automated notification emails sent to past customers.</li>
+<li>Preserve legacy order numbers within custom order notes or tags so customer support agents can reference old receipts instantly.</li>
+</ul>
+<hr />
+<h2 id="h-3-the-301-redirect-architecture-preserving-seo-rankings">3. The 301 Redirect Architecture: Preserving SEO Rankings</h2>
+<p>The single largest risk during any ecommerce replatforming is organic traffic collapse. Every legacy URL indexed by search engines must map to its precise equivalent on the new Shopify storefront.</p>
+<h3 id="h-shopify-url-structure-constraints">Shopify URL Structure Constraints</h3>
+<p>Shopify enforces strict URL hierarchies that cannot be modified at the web server level:</p>
+<ul>
+<li>Products live under <code>/products/:handle</code></li>
+<li>Collections live under <code>/collections/:handle</code></li>
+<li>Standard pages live under <code>/pages/:handle</code></li>
+<li>Blog articles live under <code>/blogs/:blog_handle/:article_handle</code></li>
+</ul>
+<p>If your legacy store served products at <code>/shop/apparel/:product-name</code> or <code>/product/:slug/</code>, every single one of those legacy paths must receive an HTTP 301 Permanent Redirect pointing directly to the new Shopify product handle.</p>
+<pre><code>Legacy Path                                  Target Shopify Canonical
+--------------------------------------------------------------------------------------
+/shop/footwear/classic-runner/      ──301──&gt; /products/classic-runner
+/category/footwear/                 ──301──&gt; /collections/footwear
+/about-our-company/                 ──301──&gt; /pages/about
+/journal/spring-style-guide/        ──301──&gt; /blogs/news/spring-style-guide
+</code></pre>
+<h3 id="h-rules-for-clean-url-redirects">Rules for Clean URL Redirects</h3>
+<ol>
+<li><strong>Never redirect all legacy URLs to the homepage.</strong> Pointing missing product URLs to the root domain signals soft 404 errors to search crawlers, stripping accumulated page authority.</li>
+<li><strong>Eliminate redirect chains.</strong> Ensure legacy URLs point directly to the final canonical URL without intermediate hops or protocol switches.</li>
+<li><strong>Upload via URL Redirects Manager:</strong> Upload your verified CSV mapping directly into Shopify's native URL Redirects table, or manage global edge redirects through your primary hosting routing rules.</li>
+<li><strong>Monitor 404 Errors Post-Launch:</strong> Review server access logs and Search Console crawl logs during the first 14 days after launch to catch any orphaned parameter URLs or outdated affiliate links.</li>
+</ol>
+<p>Review our technical approach to search preservation in our <a href="/technical-seo">Technical SEO Services</a>.</p>
+<hr />
+<h2 id="h-4-theme-engineering-and-core-web-vitals-optimization">4. Theme Engineering and Core Web Vitals Optimization</h2>
+<p>A successful migration is the ideal opportunity to eliminate bloated third-party theme code and establish fast page loading benchmarks across mobile and desktop devices.</p>
+<h3 id="h-avoiding-app-bloat">Avoiding App Bloat</h3>
+<p>The primary reason Shopify stores slow down over time is the unmonitored installation of third-party apps that inject heavy tracking scripts, redundant libraries, and render-blocking stylesheets.</p>
+<ul>
+<li>Audit every third-party app before installation. If a feature can be coded natively in Liquid or lightweight JavaScript, build it directly rather than adding another recurring app subscription.</li>
+<li>Build native features directly into your Liquid templates or headless components rather than relying on script apps for simple features like promo bars, accordion tabs, or size guides.</li>
+<li>Ensure all product imagery is served in modern WebP or AVIF formats with responsive srcset attributes, preventing massive hero banners from degrading mobile Core Web Vitals.</li>
+<li>Defer non-critical analytics tags, chat widgets, and marketing pixels so they do not block main-thread DOM rendering during initial page load.</li>
+</ul>
+<h3 id="h-pricing-and-investment-expectations">Pricing and Investment Expectations</h3>
+<p>At Kawaki Studios, our custom development builds typically range from ₹1,50,000 to ₹5,00,000 in India, or $2,500 to $10,000 for overseas clients. Full-scale web applications sit at the top of that range or above, billed by clear milestone deliverables. A typical custom build takes 4 to 8 weeks from architectural design to deployment.</p>
+<p>You can inspect our transparent pricing structure on our <a href="/pricing">Pricing Guide</a>.</p>
+<hr />
+<h2 id="h-5-pre-launch-quality-assurance-checklist">5. Pre-Launch Quality Assurance Checklist</h2>
+<p>Before updating DNS A and CNAME records, execute a structured testing sprint across staging environments.</p>
+<h3 id="h-1-checkout-and-payment-testing">1. Checkout and Payment Testing</h3>
+<ul>
+<li>Run test transactions using Shopify Payments test mode and live test gateway cards across desktop, iOS Safari, and Android Chrome.</li>
+<li>Test tax calculation rules across domestic and international shipping jurisdictions to verify sales tax, GST, or VAT applies correctly.</li>
+<li>Verify automatic discount rules, coupon codes, gift card redemptions, and currency conversion pickers.</li>
+</ul>
+<h3 id="h-2-transactional-notifications-and-integrations">2. Transactional Notifications and Integrations</h3>
+<ul>
+<li>Test order confirmation, shipping confirmation, customer account activation, and refund notification emails.</li>
+<li>Verify warehouse and ERP webhooks to confirm live inventory counts synchronize correctly between your physical warehouse and digital stock buffers.</li>
+<li>Confirm third-party fulfillment providers receive test order payloads with exact SKU identifiers and shipping methods.</li>
+</ul>
+<h3 id="h-3-analytics-and-conversion-tracking">3. Analytics and Conversion Tracking</h3>
+<ul>
+<li>Verify Google Tag Manager, Google Analytics 4, and Meta Conversions API events.</li>
+<li>Test custom purchase event triggers to ensure no tracking holes occur on the checkout completion page.</li>
+<li>Test affiliate tracking tags and marketing attribution parameters to confirm UTM tracking passes through checkout.</li>
+</ul>
+<hr />
+<h2 id="h-6-launch-day-execution-cutover-protocol">6. Launch Day Execution: Cutover Protocol</h2>
+<p>When moving live, follow a systematic sequence during your store's lowest traffic window to minimize customer disruption:</p>
+<ol>
+<li><strong>Freeze Legacy Store:</strong> Disable purchasing on your legacy store or display a temporary maintenance message to prevent orders from occurring during cutover.</li>
+<li><strong>Delta Sync:</strong> Run an incremental export of orders and customers placed between your initial data snapshot and launch time, ensuring no transactions are lost.</li>
+<li><strong>Update DNS Records:</strong> Point your domain's A record to Shopify's IP address (<code>23.227.38.65</code>) and CNAME record to <code>shops.myshopify.com</code>.</li>
+<li><strong>Provision SSL Certificate:</strong> Verify Shopify provisions your SSL certificate cleanly across all primary and secondary domain variants.</li>
+<li><strong>Verify 301 Redirects:</strong> Run an automated crawl using verification scripts to confirm every legacy URL answers with a valid 301 redirect.</li>
+<li><strong>Submit Updated Sitemaps:</strong> Submit your fresh <code>https://yourdomain.com/sitemap.xml</code> directly into Google Search Console and Bing Webmaster Tools.</li>
+</ol>
+<hr />
+<h2 id="h-7-post-launch-monitoring-and-stabilization">7. Post-Launch Monitoring and Stabilization</h2>
+<p>The work does not conclude when DNS records propagate. The first 30 days post-cutover determine whether your store sustains its commercial baseline.</p>
+<ul>
+<li><strong>Daily Crawl Audits:</strong> Inspect Google Search Console coverage reports daily to catch unexpected 404 errors or canonical conflicts early.</li>
+<li><strong>Payment Success Monitoring:</strong> Track payment gateway decline rates. If decline rates rise unexpectedly, investigate fraud prevention rules or address verification filters.</li>
+<li><strong>Conversion Rate Comparison:</strong> Compare device-by-device conversion rates against legacy averages. Any dip in mobile checkout completion points to UX friction or layout shifts in shipping selectors.</li>
+<li><strong>Customer Feedback Loop:</strong> Keep customer support lines open to address login questions or account activation inquiries quickly.</li>
+</ul>
+<hr />
+<h2 id="h-8-frequently-asked-questions">8. Frequently Asked Questions</h2>
+<h3 id="h-will-our-store-lose-organic-traffic-after-migrating-to-shopify">Will our store lose organic traffic after migrating to Shopify?</h3>
+<p>A temporary search visibility fluctuation lasting 1 to 3 weeks is normal while search engines re-index updated URLs. However, if your 301 redirect architecture is planned thoroughly and page speed scores improve, organic traffic typically matches or exceeds pre-migration baselines shortly after cutover.</p>
+<h3 id="h-can-customer-passwords-be-transferred-directly-to-shopify">Can customer passwords be transferred directly to Shopify?</h3>
+<p>No. Security protocols prevent exporting raw password hashes. Customers must be invited to activate their accounts and establish new passwords via an automated email sequence.</p>
+<h3 id="h-how-long-does-a-complete-shopify-migration-take">How long does a complete Shopify migration take?</h3>
+<p>A standard ecommerce migration covering catalog extraction, theme customization, redirect mapping, and QA testing typically spans 4 to 8 weeks depending on catalog volume and ERP complexity.</p>
+<h3 id="h-how-do-we-handle-custom-product-attributes-that-shopify-does-not-have-by-default">How do we handle custom product attributes that Shopify does not have by default?</h3>
+<p>Custom product attributes are modeled using Shopify Metafields. Metafields support rich data types including integers, dimensions, color hex codes, file attachments, and relational references.</p>
+<h3 id="h-what-happens-to-legacy-customer-order-history">What happens to legacy customer order history?</h3>
+<p>Historical orders can be imported via Shopify's Orders API or specialized migration tools. They will be archived in the customer's account dashboard for order lookup and record-keeping without generating fresh payment charges.</p>
+<hr />
+<h2 id="h-conclusion">Conclusion</h2>
+<p>A successful Shopify migration is an engineering discipline that balances data precision with organic search continuity. By auditing catalog attributes early, mapping 1-to-1 redirect rules, and auditing checkout webhooks before launch, your store can transition smoothly without sacrificing revenue.</p>
+<p>If you are planning an upcoming store replatforming, explore our <a href="/services/shopify-development">Shopify Development Services</a> or reach out directly through our <a href="/contact">Contact Page</a> to review your store architecture.</p>
+
+                    <ul class="art__tags" aria-label="Topics"><li>Shopify</li><li>Ecommerce</li><li>Web Development</li><li>Guides</li></ul>
+                    <div class="art__author"><p class="art__label">Written by</p><p><strong>Kunal Sharma</strong> founded Kawaki Studios in New Delhi and leads its engineering. He writes about the systems the studio designs and builds for clients.</p></div>
+                </div>
+            </div>
+        </article>
+
+        <section class="sec sec--line wrap related" aria-labelledby="next-title" style="margin-top: 0; padding-bottom: var(--space-sec);">
+            <div class="sec-head grid">
+                <h2 class="h2" id="next-title" data-reveal>Keep reading</h2>
+                <div class="sec-head__aside"><a class="draw" href="/blog">All articles<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            </div>
+            <ul class="bcards">
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/ai-agent-development-services-want-to-buy-your-kid-an-a">
+                        <span class="bimg"><img src="/assets/images/blog/ai-agent-development-services-want-to-buy-your-kid-an-a-cover.webp" srcset="/assets/images/blog/ai-agent-development-services-want-to-buy-your-kid-an-a-cover-720.webp 720w, /assets/images/blog/ai-agent-development-services-want-to-buy-your-kid-an-a-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
+                        <h3 class="bcard__title">AI agent development services: What It Means</h3>
+                    </a>
+                </li>
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/ai-agent-development-services-walmart-teams-up-with-met">
+                        <span class="bimg"><img src="/assets/images/blog/ai-agent-development-services-walmart-teams-up-with-met-cover.webp" srcset="/assets/images/blog/ai-agent-development-services-walmart-teams-up-with-met-cover-720.webp 720w, /assets/images/blog/ai-agent-development-services-walmart-teams-up-with-met-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
+                        <h3 class="bcard__title">AI agent development services: What It Means</h3>
+                    </a>
+                </li>
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/website-maintenance-services-what-they-include-and-cost">
+                        <span class="bimg"><img src="/assets/images/blog/website-maintenance-services-what-they-include-and-cost-cover.webp" srcset="/assets/images/blog/website-maintenance-services-what-they-include-and-cost-cover-720.webp 720w, /assets/images/blog/website-maintenance-services-what-they-include-and-cost-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>Engineering</span><span>10 min read</span></span>
+                        <h3 class="bcard__title">Website Maintenance Services: What They Include</h3>
+                    </a>
+                </li>
+            </ul>
+            <ul class="rows" style="margin-top: clamp(48px, 6vw, 80px);">
+                <li><a class="row svc" href="/services/shopify-development"><h3 class="row__name">Shopify Development</h3><span class="svc__desc">The service behind this article</span><svg class="row__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+        </section>
+
+        <section class="finale" id="contact" aria-labelledby="finale-title">
+            <div class="wrap">
+                <div class="grid">
+                    <h2 class="h2 finale__title" id="finale-title">Tell us what you&rsquo;re building.</h2>
+                </div>
+                <ul class="channels">
+                    <li><a class="channel" href="https://wa.me/917678123943?text=Hi%20Kunal%2C%20I%20would%20like%20to%20discuss%20a%20web%20project%20with%20Kawaki%20Studios" target="_blank" rel="noopener"><span class="channel__label">WhatsApp</span><span class="channel__value num">+91 76781 23943</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                    <li><a class="channel" href="mailto:hello@kawaki.co.in"><span class="channel__label">Email</span><span class="channel__value">hello@kawaki.co.in</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                    <li><a class="channel" href="/contact"><span class="channel__label">Call</span><span class="channel__value">Book 15 minutes</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                </ul>
+                <p class="finale__hours">Studio hours are Monday to Sunday, 10:00 to 19:00 IST. In New Delhi it is <time id="studioTime">now</time>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-foot wrap">
+        <div class="foot-grid grid">
+            <div class="foot-col">
+                <p class="foot-h">Studio</p>
+                <a href="/about">About</a>
+                <a href="/case-studies">Work</a>
+                <a href="/services">Services</a>
+                <a href="/blog">Journal</a>
+                <a href="/contact">Contact</a>
+                <a href="/directory">Directory</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Contact</p>
+                <a href="mailto:hello@kawaki.co.in">hello@kawaki.co.in</a>
+                <a href="tel:+917678123943">+91 76781 23943</a>
+                <a href="https://wa.me/917678123943" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://maps.google.com/maps?cid=8378945977778123387" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://search.google.com/local/writereview?placeid=ChIJFV-Kjwsq6UMRezKnJfn-R3Q" target="_blank" rel="noopener">Review us on Google</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Follow</p>
+                <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">X (Twitter)</a>
+                <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Studio address</p>
+                <p>Kawaki Studios LLP<br />New Delhi, India</p>
+                <p>Monday to Sunday<br />10:00 to 19:00 IST</p>
+            </div>
+        </div>
+        <span class="foot-mark" aria-hidden="true"></span>
+        <div class="foot-bottom">
+            <p>&copy; 2026 Kawaki Studios LLP</p>
+            <ul class="foot-legal">
+                <li><a href="/privacy-policy">Privacy policy</a></li>
+                <li><a href="/terms-of-service">Terms of service</a></li>
+                <li><a href="/sitemap.xml">Sitemap</a></li>
+                <li><a href="/llms.txt">llms.txt</a></li>
+            </ul>
+            <button type="button" class="footer-back-to-top" id="backToTop">Back to top<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13V3.5M4 7.5l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+    </footer>
+
+    <script src="/assets/js/vendor/gsap-3.15.0.min.js" defer></script>
+    <script src="/assets/js/vendor/ScrollTrigger-3.15.0.min.js" defer></script>
+    <script src="/assets/js/vendor/lenis-1.3.25.min.js" defer></script>
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script src="/assets/js/chatbot.js?v=1d101f865c" data-css-v="caaf10d078" defer></script>
+    <script src="/assets/js/site.js?v=339e471bba" defer></script>
+    <script src="/assets/js/exit-popup.js?v=29074d7c01" defer></script>
+</body>
+</html>
