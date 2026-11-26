@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Decoupled Commerce Architecture: A Plain Guide | Kawaki Studios</title>
+    <meta name="description" content="Compare native, middleware, and decoupled commerce architecture. Learn when to separate your storefront from the backend, trade-offs, and real costs." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://kawaki.co.in/blog/decoupled-commerce-architecture-native-middleware-headless" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kawaki.co.in/blog/decoupled-commerce-architecture-native-middleware-headless" />
+    <meta property="og:title" content="Decoupled Commerce Architecture: A Plain Guide | Kawaki Studios" />
+    <meta property="og:description" content="Compare native, middleware, and decoupled commerce architecture. Learn when to separate your storefront from the backend, trade-offs, and real costs." />
+    <meta property="og:site_name" content="Kawaki Studios" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://kawaki.co.in/assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kawakistudios" />
+    <meta name="twitter:title" content="Decoupled Commerce Architecture: A Plain Guide | Kawaki Studios" />
+    <meta name="twitter:description" content="Compare native, middleware, and decoupled commerce architecture. Learn when to separate your storefront from the backend, trade-offs, and real costs." />
+    <meta name="twitter:image" content="https://kawaki.co.in/assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover.jpg" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://kawaki.co.in/blog/decoupled-commerce-architecture-native-middleware-headless#article",
+          "headline": "Decoupled Commerce Architecture: A Plain Guide",
+          "description": "Compare native, middleware, and decoupled commerce architecture. Learn when to separate your storefront from the backend, trade-offs, and real costs.",
+          "image": "https://kawaki.co.in/assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover.jpg",
+          "datePublished": "2026-11-26T15:32:50.000Z",
+          "dateModified": "2026-11-26T15:32:28.980Z",
+          "author": {
+            "@type": "Person",
+            "@id": "https://kawaki.co.in/about#founder",
+            "name": "Kunal Sharma",
+            "url": "https://kawaki.co.in/about"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "https://kawaki.co.in/#organization",
+            "name": "Kawaki Studios",
+            "url": "https://kawaki.co.in",
+            "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://kawaki.co.in/blog/decoupled-commerce-architecture-native-middleware-headless"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://kawaki.co.in/blog/decoupled-commerce-architecture-native-middleware-headless#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://kawaki.co.in"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://kawaki.co.in/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Decoupled Commerce Architecture: A Plain Guide",
+              "item": "https://kawaki.co.in/blog/decoupled-commerce-architecture-native-middleware-headless"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/decoupled-commerce-architecture-native-middleware-headless#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does decoupled commerce hurt search engine rankings?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. When built properly, decoupled commerce architecture improves organic search visibility. Fast edge-rendered HTML documents deliver superior Core Web Vitals, which Google rewards. Furthermore, server-generated JSON-LD structured data ensures search crawlers extract product prices, availability, and reviews accurately."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can our team still use Shopify's admin dashboard to fulfill orders?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Decoupling affects only the public customer storefront. Your internal team continues to process orders, manage inventory, print shipping labels, and issue refunds inside the standard Shopify admin interface exactly as before."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does checkout work in a decoupled setup?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The customer browses products and manages their cart on the fast decoupled front end. When they click checkout, the application passes the cart ID to Shopify's secure checkout domain. Once payment completes, the customer redirects back to an order confirmation screen on your custom domain."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can non-technical marketing staff update banners and promotions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We integrate lightweight content models using Markdown or headless CMS tools. Marketing staff can edit homepage announcements, promotional copy, and banner imagery through an intuitive interface without touching codebase files."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if an API service experiences temporary downtime?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Because decoupled storefronts generate static HTML documents at the edge, public marketing and product pages remain online and readable even if backend APIs experience momentary latency. Product details and brand imagery continue loading directly from cache. ---"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <meta name="theme-color" content="#23003F" />
+    <link rel="preload" href="/assets/fonts/bricolage-display.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/bricolage-text.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/css/site.css?v=449b4f536c" />
+    <script>document.documentElement.classList.add('js');</script>
+    <script>(function(){try{var d=document.documentElement;if(/bot|crawl|spider|slurp|inspectiontool|headless/i.test(navigator.userAgent))return;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(sessionStorage.getItem('kw_pl'))return;sessionStorage.setItem('kw_pl','1');d.classList.add('pl-on');}catch(e){}})();</script>
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "yyqy7vt939");
+    </script>
+</head>
+<body class="inner">
+    <div class="pl" aria-hidden="true">
+        <div class="pl__mark"><span class="pl__badge"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span><span class="pl__word">Kawaki Studios</span></div>
+        <p class="pl__meta">Web engineering studio, New Delhi</p>
+    </div>
+    <script>(function(){var d=document.documentElement;if(!d.classList.contains('pl-on'))return;var t0=Date.now(),done=false;function end(){if(done)return;done=true;setTimeout(function(){d.classList.add('pl-out');try{document.dispatchEvent(new Event('kawaki:intro-done'));}catch(e){}setTimeout(function(){d.classList.remove('pl-on','pl-out');},750);},Math.max(0,900-(Date.now()-t0)));}if(document.readyState==='complete')end();else{addEventListener('load',end,{once:true});setTimeout(end,1200);}})();</script>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="pathbar" aria-hidden="true"><span></span></div>
+
+    <header class="nav-wrapper" id="globalNav">
+        <nav aria-label="Primary">
+            <a href="/" class="nav-left" aria-label="Kawaki Studios, home"><span class="logo" aria-hidden="true"></span></a>
+            <a class="nav-center draw" href="mailto:hello@kawaki.co.in">hello@kawaki.co.in</a>
+            <a class="nav-cta btn btn--sm" href="/contact">Start a project<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <button type="button" class="nav-right" id="menuToggleBtn" aria-expanded="false" aria-controls="fullscreenMenu" aria-label="Open menu">
+                <span id="menu-toggle-text">MENU</span>
+                <span id="menu-toggle-icon" aria-hidden="true"><span class="bar bar-top"></span><span class="bar bar-bottom"></span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="fullscreen-menu" id="fullscreenMenu" style="display: none; opacity: 0; pointer-events: none;">
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-overlay-layer"></div>
+        <div class="menu-content-wrapper">
+            <span class="span-menu">kawaki</span>
+            <div class="menu-layout">
+                <nav class="menu-col menu-col-left" aria-label="Site">
+                    <div class="main-menu-links" id="mainMenuPrimary">
+                        <ul>
+                            <li data-img="/assets/images/kawaki-home-preview.jpg" data-tag="Home" data-desc="Studio overview and recent work">
+                                <a href="/"><span class="menu-text">Home</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/lms-ecosystem/hero.webp" data-tag="About" data-desc="Who builds your project, and how">
+                                <a href="/about"><span class="menu-text">About</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/bazzaro/hero.webp" data-tag="Services" data-desc="Websites, web apps, Shopify, automation, security">
+                                <a href="/services" id="menuServicesTrigger" class="menu-services-trigger" aria-haspopup="true" aria-expanded="false">
+                                    <span class="menu-text">Services</span>
+                                    <span class="menu-expand-badge" aria-hidden="true">+</span>
+                                </a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/nursepass/hero.webp" data-tag="Work" data-desc="Case studies with the full write-up">
+                                <a href="/case-studies"><span class="menu-text">Work</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/urbanland/hero.webp" data-tag="Journal" data-desc="Notes on engineering, Shopify and AI">
+                                <a href="/blog" aria-current="page"><span class="menu-text">Journal</span></a>
+                            </li>
+                            <li data-img="/assets/images/case-studies/decor-lab/hero.webp" data-tag="Contact" data-desc="Book a 15 minute call">
+                                <a href="/contact"><span class="menu-text">Contact</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="main-menu-services" id="mainMenuServices" style="display: none; opacity: 0;">
+                        <div class="menu-services-topbar">
+                            <button type="button" class="menu-services-back-btn" id="menuServicesBackBtn">
+                                <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13 8H3.5M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>Back</span>
+                            </button>
+                            <span class="menu-services-header-title">Services</span>
+                            <a href="/services" class="menu-services-hub-link">All services</a>
+                        </div>
+                        <div class="menu-services-grid">
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Web and commerce</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/kala-design/hero.webp" data-tag="Custom web development" data-desc="Hand-built company and marketing sites"><a href="/services/custom-web-development">Custom web development</a></li>
+                                    <li data-img="/assets/images/case-studies/lms-ecosystem/hero.webp" data-tag="Web applications" data-desc="Portals, dashboards and internal tools"><a href="/services/web-application-development">Web application development</a></li>
+                                    <li data-img="/assets/images/case-studies/bazzaro/hero.webp" data-tag="Shopify" data-desc="Custom themes and headless storefronts"><a href="/services/shopify-development">Shopify development</a></li>
+                                    <li data-img="/assets/images/case-studies/decor-lab/hero.webp" data-tag="WordPress" data-desc="Lean custom themes"><a href="/services/wordpress-development">WordPress development</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">AI and search</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/pixza/hero.webp" data-tag="AI automation" data-desc="n8n and Make.com workflows"><a href="/services/ai-automation">AI automation</a></li>
+                                    <li data-img="/assets/images/case-studies/kova/hero.webp" data-tag="AI search" data-desc="Being read and cited by AI search tools"><a href="/services/ai-search-optimization">AI search optimization</a></li>
+                                    <li data-img="/assets/images/case-studies/urbanland/hero.webp" data-tag="Technical SEO" data-desc="Architecture, URLs and schema"><a href="/technical-seo">Technical SEO</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Security</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/spa-salon/hero.webp" data-tag="Malware removal" data-desc="Hacked WordPress cleanup"><a href="/services/wordpress-malware-removal">WordPress malware removal</a></li>
+                                    <li data-img="/assets/images/case-studies/nursepass/hero.webp" data-tag="Hardening" data-desc="Closing the way in"><a href="/services/website-security-hardening">Website security hardening</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-services-group">
+                                <p class="menu-services-cat-title">Mobile</p>
+                                <ul class="menu-services-list">
+                                    <li data-img="/assets/images/case-studies/iptv/hero.webp" data-tag="Mobile apps" data-desc="Flutter, React Native, Swift, Kotlin"><a href="/services/mobile-app-development">Mobile app development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="menu-col menu-col-right">
+                    <div class="menu-preview-card" id="menuPreviewCard" aria-hidden="true">
+                        <div class="menu-preview-img-box">
+                            <img id="menuPreviewImg" src="/assets/images/kawaki-home-preview.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="menu-preview-meta">
+                            <span class="menu-preview-badge" id="menuPreviewTag">Home</span>
+                            <span class="menu-preview-desc" id="menuPreviewDesc">Studio overview and recent work</span>
+                        </div>
+                    </div>
+                    <div class="menu-info-block">
+                        <a href="/contact" class="menu-cta-button btn">Start a project<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <a href="mailto:hello@kawaki.co.in" class="menu-email-link">hello@kawaki.co.in</a>
+                    </div>
+                    <div class="menu-socials-strip">
+                        <span class="socials-title">Follow</span>
+                        <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">X (Twitter)</a>
+                        <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main" tabindex="-1">
+        <article class="art" aria-labelledby="page-title">
+            <header class="art__head wrap">
+                <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/blog">Blog</a></li><li><span aria-current="page">Decoupled Commerce Architecture: A Plain Guide</span></li></ol>
+                <p class="art__meta"><span class="art__cat">Ecommerce</span><span>11 min read</span><time datetime="2026-11-26">26 Nov 2026</time></p>
+                <h1 class="art__title" id="page-title">Decoupled Commerce Architecture: A Plain Guide</h1>
+                <p class="art__lede">Compare native, middleware, and decoupled commerce architecture. Learn when to separate your storefront from the backend, trade-offs, and real costs.</p>
+                <p class="art__by">By Kunal Sharma</p>
+            </header>
+            <figure class="art__figure wrap">
+                <div class="art__frame"><img src="/assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover.webp" srcset="/assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover-720.webp 720w, /assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover.webp 1376w" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 92vw, 1376px" alt="Decoupled Commerce Architecture: A Plain Guide" width="1376" height="768" fetchpriority="high" decoding="async" /></div>
+            </figure>
+            <div class="art__layout wrap grid">
+                <aside class="art__aside" aria-label="On this page">
+                    <p class="art__label">On this page</p>
+                    <ol class="art__toc"><li class="art__toc-l2"><a href="#h-1-what-is-decoupled-commerce-architecture">1. What Is Decoupled Commerce Architecture?</a></li><li class="art__toc-l2"><a href="#h-2-comparing-the-three-models-native-vs-middleware-vs-decoupled">2. Comparing the Three Models: Native vs Middleware vs Decoupled</a></li><li class="art__toc-l3"><a href="#h-model-1-native-commerce-architecture">Model 1: Native Commerce Architecture</a></li><li class="art__toc-l3"><a href="#h-model-2-middleware-commerce-architecture">Model 2: Middleware Commerce Architecture</a></li><li class="art__toc-l3"><a href="#h-model-3-decoupled-commerce-architecture">Model 3: Decoupled Commerce Architecture</a></li><li class="art__toc-l3"><a href="#h-architectural-comparison-summary">Architectural Comparison Summary</a></li><li class="art__toc-l2"><a href="#h-3-when-does-decoupling-make-business-sense">3. When Does Decoupling Make Business Sense?</a></li><li class="art__toc-l3"><a href="#h-1-the-brand-demands-content-led-storytelling">1. The Brand Demands Content-Led Storytelling</a></li><li class="art__toc-l3"><a href="#h-2-mobile-page-speeds-degrade-under-app-script-accumulation">2. Mobile Page Speeds Degrade Under App Script Accumulation</a></li><li class="art__toc-l3"><a href="#h-3-multi-channel-or-multi-regional-distribution">3. Multi-Channel or Multi-Regional Distribution</a></li><li class="art__toc-l2"><a href="#h-4-technical-trade-offs-and-common-pitfalls">4. Technical Trade-Offs and Common Pitfalls</a></li><li class="art__toc-l3"><a href="#h-the-app-store-ecosystem-trade-off">The App Store Ecosystem Trade-Off</a></li><li class="art__toc-l3"><a href="#h-cart-and-checkout-continuity">Cart and Checkout Continuity</a></li><li class="art__toc-l3"><a href="#h-analytics-and-event-tracking-complexity">Analytics and Event Tracking Complexity</a></li><li class="art__toc-l2"><a href="#h-5-implementation-sequence-building-a-clean-decoupled-store">5. Implementation Sequence: Building a Clean Decoupled Store</a></li><li class="art__toc-l3"><a href="#h-step-1-catalogue-and-integration-audit">Step 1: Catalogue and Integration Audit</a></li><li class="art__toc-l3"><a href="#h-step-2-front-end-design-system-and-data-schema">Step 2: Front End Design System and Data Schema</a></li><li class="art__toc-l3"><a href="#h-step-3-api-integration-and-edge-static-rendering">Step 3: API Integration and Edge Static Rendering</a></li><li class="art__toc-l3"><a href="#h-step-4-staging-review-seo-migration-and-rollout">Step 4: Staging Review, SEO Migration, and Rollout</a></li><li class="art__toc-l2"><a href="#h-6-real-costs-and-timelines">6. Real Costs and Timelines</a></li><li class="art__toc-l2"><a href="#h-7-frequently-asked-questions">7. Frequently Asked Questions</a></li><li class="art__toc-l3"><a href="#h-does-decoupled-commerce-hurt-search-engine-rankings">Does decoupled commerce hurt search engine rankings?</a></li><li class="art__toc-l3"><a href="#h-can-our-team-still-use-shopify-s-admin-dashboard-to-fulfill-orders">Can our team still use Shopify's admin dashboard to fulfill orders?</a></li><li class="art__toc-l3"><a href="#h-how-does-checkout-work-in-a-decoupled-setup">How does checkout work in a decoupled setup?</a></li><li class="art__toc-l3"><a href="#h-can-non-technical-marketing-staff-update-banners-and-promotions">Can non-technical marketing staff update banners and promotions?</a></li><li class="art__toc-l3"><a href="#h-what-happens-if-an-api-service-experiences-temporary-downtime">What happens if an API service experiences temporary downtime?</a></li><li class="art__toc-l2"><a href="#h-conclusion">Conclusion</a></li></ol>
+                    <p class="art__label">Share</p>
+                    <p class="art__share"><a href="https://twitter.com/intent/tweet?text=Decoupled%20Commerce%20Architecture%3A%20A%20Plain%20Guide&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fdecoupled-commerce-architecture-native-middleware-headless" target="_blank" rel="noopener">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fdecoupled-commerce-architecture-native-middleware-headless" target="_blank" rel="noopener">Share on LinkedIn</a></p>
+                </aside>
+                <div class="art__body prose" id="articleContent">
+                    <p>Online merchants often face a difficult architectural crossroads as their product catalogues grow. The single, unified store setup that launched the brand begins to feel rigid. Marketing teams want to experiment with custom editorial landing pages, while engineering teams struggle against platform theme limitations, slow mobile page loads, and third party app conflicts.</p>
+<p>When evaluating how to scale online operations, engineering leaders frequently compare three distinct structural models: native commerce, middleware commerce, and decoupled commerce architecture. Understanding the operational differences between these models prevents expensive platform migrations that fail to deliver meaningful business returns.</p>
+<p>At <a href="/about">Kawaki Studios</a>, our development team in New Delhi works directly with founders and technical leaders. We build custom web applications, performant storefronts, and clean APIs using lightweight static HTML, TypeScript, Next.js, and modern CSS variables. In this technical guide, we break down what decoupled commerce architecture actually entails, compare it against native and middleware setups, and outline how growing brands can build maintainable storefronts without excessive agency overhead.</p>
+<p>Review our storefront build options and technical capabilities on our <a href="/services/shopify-development">Shopify Development Agency</a> page.</p>
+<hr />
+<h2 id="h-1-what-is-decoupled-commerce-architecture">1. What Is Decoupled Commerce Architecture?</h2>
+<p>In traditional ecommerce software, the presentation layer (the storefront templates, HTML, CSS, and layout scripts) and the commerce engine (the product database, cart management, checkout pipeline, customer accounts, and order processing) exist as a single monolithic application. </p>
+<p>In a <strong>decoupled commerce architecture</strong>, these two responsibilities are separated into independent systems connected through application programming interfaces (APIs):</p>
+<ol>
+<li><strong>The Presentation Front End:</strong> A dedicated front end application built with modern frameworks such as Next.js or statically generated HTML. This layer handles everything the visitor sees: responsive navigation, product filtering, high-resolution media galleries, and editorial content.</li>
+<li><strong>The Commerce Backend:</strong> A specialized commerce engine, such as Shopify or a custom database, that manages checkout, inventory quantities, tax calculation, customer records, and order fulfillment.</li>
+<li><strong>The API Contract:</strong> A secure communication channel (such as the Shopify Storefront API or REST webhooks) that passes catalog data to the front end and forwards customer shopping carts to the secure checkout engine.</li>
+</ol>
+<p>By separating the user interface from backend transaction logic, engineering teams gain complete freedom over design layouts and performance optimization without disturbing payment gateways or merchant back-office workflows.</p>
+<hr />
+<h2 id="h-2-comparing-the-three-models-native-vs-middleware-vs-decoupled">2. Comparing the Three Models: Native vs Middleware vs Decoupled</h2>
+<p>When evaluating modern ecommerce systems, technical teams encounter three primary architectural patterns. Each pattern represents a distinct balance between implementation speed, operational complexity, and long-term flexibility.</p>
+<h3 id="h-model-1-native-commerce-architecture">Model 1: Native Commerce Architecture</h3>
+<p>Native commerce represents the conventional all-in-one platform model. In this setup, merchants use the built-in templating engine provided by the platform (such as Shopify Liquid themes or WooCommerce PHP templates).</p>
+<ul>
+<li><strong>How It Works:</strong> All page rendering, database queries, and cart operations occur on the platform server. Themes follow the platform's specific template structure.</li>
+<li><strong>Core Advantages:</strong> Fast initial launch, low upfront development investment, unified administration, and native support for platform apps and extensions.</li>
+<li><strong>Key Limitations:</strong> Limited control over core rendering pipelines, potential JavaScript bloat from accumulated app scripts, and strict constraints when attempting complex multi-brand or localized catalog layouts.</li>
+</ul>
+<h3 id="h-model-2-middleware-commerce-architecture">Model 2: Middleware Commerce Architecture</h3>
+<p>Middleware commerce introduces an intermediary integration layer between the front end interface and one or more backend systems.</p>
+<ul>
+<li><strong>How It Works:</strong> Rather than connecting directly to a commerce API, the front end communicates with a middleware server (often an orchestration API, structured gateway, or custom Node.js service). The middleware aggregates data from multiple enterprise sources: an Enterprise Resource Planning (ERP) database, a Product Information Management (PIM) system, a third-party search engine, and the core commerce checkout.</li>
+<li><strong>Core Advantages:</strong> High operational power for complex enterprises with legacy inventory databases, multiple fulfillment warehouses, and specialized B2B pricing tiers.</li>
+<li><strong>Key Limitations:</strong> Substantial ongoing infrastructure overhead, complex caching invalidation rules, increased points of failure, and higher engineering maintenance costs.</li>
+</ul>
+<h3 id="h-model-3-decoupled-commerce-architecture">Model 3: Decoupled Commerce Architecture</h3>
+<p>Decoupled commerce focuses on a lean, static front end communicating directly with platform APIs or static content caches, bypassing heavy intermediary server stacks.</p>
+<ul>
+<li><strong>How It Works:</strong> Content and product details are pre-rendered into static HTML during continuous integration builds or fetched on demand via edge functions. Transactions hand off to the platform's hosted, PCI-compliant checkout.</li>
+<li><strong>Core Advantages:</strong> Sub-100ms page delivery directly from global edge caches, total freedom from theme constraints, superior Core Web Vitals, and resilience against server crashes during flash sales.</li>
+<li><strong>Key Limitations:</strong> Requires custom front end development, eliminates automatic point-and-click plugin installation, and demands structured staging workflows for marketing updates.</li>
+</ul>
+<h3 id="h-architectural-comparison-summary">Architectural Comparison Summary</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Metric</th>
+<th align="left">Native Commerce (Liquid / Themes)</th>
+<th align="left">Middleware Architecture</th>
+<th align="left">Decoupled Commerce Architecture</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Typical Page Weight</strong></td>
+<td align="left">1.5 MB to 4.5 MB</td>
+<td align="left">500 KB to 1.5 MB</td>
+<td align="left">Under 300 KB compressed</td>
+</tr>
+<tr>
+<td align="left"><strong>Initial TTFB</strong></td>
+<td align="left">300ms to 800ms</td>
+<td align="left">200ms to 600ms</td>
+<td align="left">Under 100ms (Edge CDN)</td>
+</tr>
+<tr>
+<td align="left"><strong>Hosting Complexity</strong></td>
+<td align="left">Managed entirely by vendor</td>
+<td align="left">Multiple servers and cache tiers</td>
+<td align="left">Static edge CDN with serverless APIs</td>
+</tr>
+<tr>
+<td align="left"><strong>Build Timeline</strong></td>
+<td align="left">4 to 8 weeks</td>
+<td align="left">12 to 24 weeks</td>
+<td align="left">4 to 8 weeks</td>
+</tr>
+<tr>
+<td align="left"><strong>Typical Investment</strong></td>
+<td align="left">₹1,50,000 to ₹3,00,000 ($2,500 to $4,500)</td>
+<td align="left">₹8,00,000+ ($12,000+)</td>
+<td align="left">₹3,00,000 to ₹5,00,000 ($4,500 to $8,000)</td>
+</tr>
+<tr>
+<td align="left"><strong>Developer Autonomy</strong></td>
+<td align="left">Constrained by theme engine</td>
+<td align="left">Complete, but heavy coordination</td>
+<td align="left">Complete autonomy over presentation</td>
+</tr>
+</tbody></table>
+<hr />
+<h2 id="h-3-when-does-decoupling-make-business-sense">3. When Does Decoupling Make Business Sense?</h2>
+<p>Decoupling is not an automatic requirement for every retail brand. Many successful businesses run entirely on well-crafted native Shopify themes. Moving to a decoupled commerce architecture delivers measurable return on investment under specific operational conditions:</p>
+<h3 id="h-1-the-brand-demands-content-led-storytelling">1. The Brand Demands Content-Led Storytelling</h3>
+<p>When commerce revolves around editorial lookbooks, artist collaborations, or extensive design narratives, standard ecommerce themes often feel limiting. For instance, in our work with <a href="/case-studies/bazzaro">BAZZARO</a>, an everyday accessories and craft brand, the digital storefront needed to feel like a high-fashion lookbook while maintaining steady sales. Decoupling allowed custom typography, interactive product views, and fluid transitions that generic templates cannot sustain.</p>
+<h3 id="h-2-mobile-page-speeds-degrade-under-app-script-accumulation">2. Mobile Page Speeds Degrade Under App Script Accumulation</h3>
+<p>As stores grow, marketing teams routinely install specialized apps for reviews, pop-ups, upsells, currency conversion, and search filtering. In native themes, each app injects uncoordinated JavaScript bundles into the critical rendering path. Over time, Google Lighthouse scores drop below 50, and mobile conversion rates decline. Decoupled front ends allow developers to replace bloated third-party client scripts with clean serverless API calls, restoring 95+ performance scores.</p>
+<h3 id="h-3-multi-channel-or-multi-regional-distribution">3. Multi-Channel or Multi-Regional Distribution</h3>
+<p>Brands distributing through multiple touchpoints (mobile applications, interactive retail displays, and regional web domains) benefit immensely from unified commerce logic. A single product catalog managed in Shopify can power a Next.js web application and a native mobile application simultaneously without duplicating inventory databases.</p>
+<hr />
+<h2 id="h-4-technical-trade-offs-and-common-pitfalls">4. Technical Trade-Offs and Common Pitfalls</h2>
+<p>While decoupled commerce architecture offers remarkable speed and creative flexibility, engineering teams must recognize the technical tradeoffs before committing to a rebuild.</p>
+<h3 id="h-the-app-store-ecosystem-trade-off">The App Store Ecosystem Trade-Off</h3>
+<p>In a native platform, marketing teams can install a review widget or countdown timer with a single click in an administrative app store. In a decoupled setup, third-party apps cannot inject scripts directly into your templates. Every new feature must be integrated through an API endpoint or custom front end component. While this discipline protects site speed, it requires developer involvement for features that non-technical teams previously configured alone.</p>
+<h3 id="h-cart-and-checkout-continuity">Cart and Checkout Continuity</h3>
+<p>A common beginner mistake in headless builds is attempting to rewrite the checkout funnel from scratch. Building custom checkout interfaces introduces severe PCI-DSS compliance requirements, fraud liabilities, and payment gateway maintenance. The established standard is maintaining a decoupled front end while passing cart tokens to Shopify's native, hosted checkout. This preserves complete security compliance while providing a fluid user experience.</p>
+<h3 id="h-analytics-and-event-tracking-complexity">Analytics and Event Tracking Complexity</h3>
+<p>In native stores, analytics pixels and Google Tag Manager containers load automatically across all templates. In a decoupled single-page application or static site, page transitions do not trigger traditional browser reloads. Developers must implement explicit client-side route change listeners to fire page view events and conversion webhooks reliably.</p>
+<hr />
+<h2 id="h-5-implementation-sequence-building-a-clean-decoupled-store">5. Implementation Sequence: Building a Clean Decoupled Store</h2>
+<p>At Kawaki Studios, our team follows a phased implementation approach to ensure that ecommerce migrations launch on schedule without lost rankings or broken customer carts:</p>
+<pre><code>[Phase 1: Catalog Audit] -&gt; [Phase 2: Data Schema] -&gt; [Phase 3: Front End Build] -&gt; [Phase 4: Launch &amp; Verification]
+</code></pre>
+<h3 id="h-step-1-catalogue-and-integration-audit">Step 1: Catalogue and Integration Audit</h3>
+<p>Review existing product variants, collections, metafields, and customer accounts. Identify every third party app currently installed, categorize which tools are truly essential, and determine whether their data can be accessed via REST endpoints or Storefront APIs.</p>
+<h3 id="h-step-2-front-end-design-system-and-data-schema">Step 2: Front End Design System and Data Schema</h3>
+<p>Design responsive layouts using native CSS variables and modular components. Set up type-safe interfaces in TypeScript to model products, variant selections, pricing formats, and image dimensions.</p>
+<h3 id="h-step-3-api-integration-and-edge-static-rendering">Step 3: API Integration and Edge Static Rendering</h3>
+<p>Connect the front end application to the commerce Storefront API. Configure incremental static regeneration or automated build webhooks: whenever a product price or inventory count updates in the admin dashboard, the edge cache invalidates and rebuilds the relevant product page in seconds.</p>
+<h3 id="h-step-4-staging-review-seo-migration-and-rollout">Step 4: Staging Review, SEO Migration, and Rollout</h3>
+<p>Verify 301 redirects for every legacy URL, audit Schema.org product structured data, test checkout handoffs across multiple currencies, and verify Core Web Vitals before domain DNS switches to production.</p>
+<p>Review how we manage complete redesigns on our <a href="/services/website-redesign">Website Redesign Services</a> page.</p>
+<hr />
+<h2 id="h-6-real-costs-and-timelines">6. Real Costs and Timelines</h2>
+<p>Budgeting for a decoupled commerce architecture requires clarity. Because decoupled development involves custom engineering rather than assembling pre-made theme packs, investments reflect direct developer time.</p>
+<p>At Kawaki Studios, our projects operate on transparent, milestone-based pricing:</p>
+<ul>
+<li><strong>Custom Native Shopify Theme:</strong> ₹1,50,000 to ₹3,00,000 ($2,500 to $4,500 USD). Ideal for brands needing distinct visual identity, fast page loads, and simple administration. Typical timeline: 4 to 8 weeks.</li>
+<li><strong>Custom Decoupled Storefront:</strong> ₹3,00,000 to ₹5,00,000 ($4,500 to $8,000 USD). Ideal for brands demanding sub-100ms edge speeds, custom lookbooks, or multi-platform integration. Typical timeline: 4 to 8 weeks.</li>
+<li><strong>Complex Multi-Platform Web Applications:</strong> Starting at ₹5,00,000 ($8,00,000 to $10,000+ USD) for custom B2B ordering portals or custom database integrations.</li>
+</ul>
+<p>Review our complete fee schedule on our <a href="/pricing">Pricing Guide</a>.</p>
+<hr />
+<h2 id="h-7-frequently-asked-questions">7. Frequently Asked Questions</h2>
+<h3 id="h-does-decoupled-commerce-hurt-search-engine-rankings">Does decoupled commerce hurt search engine rankings?</h3>
+<p>No. When built properly, decoupled commerce architecture improves organic search visibility. Fast edge-rendered HTML documents deliver superior Core Web Vitals, which Google rewards. Furthermore, server-generated JSON-LD structured data ensures search crawlers extract product prices, availability, and reviews accurately.</p>
+<h3 id="h-can-our-team-still-use-shopify-s-admin-dashboard-to-fulfill-orders">Can our team still use Shopify's admin dashboard to fulfill orders?</h3>
+<p>Yes. Decoupling affects only the public customer storefront. Your internal team continues to process orders, manage inventory, print shipping labels, and issue refunds inside the standard Shopify admin interface exactly as before.</p>
+<h3 id="h-how-does-checkout-work-in-a-decoupled-setup">How does checkout work in a decoupled setup?</h3>
+<p>The customer browses products and manages their cart on the fast decoupled front end. When they click checkout, the application passes the cart ID to Shopify's secure checkout domain. Once payment completes, the customer redirects back to an order confirmation screen on your custom domain.</p>
+<h3 id="h-can-non-technical-marketing-staff-update-banners-and-promotions">Can non-technical marketing staff update banners and promotions?</h3>
+<p>Yes. We integrate lightweight content models using Markdown or headless CMS tools. Marketing staff can edit homepage announcements, promotional copy, and banner imagery through an intuitive interface without touching codebase files.</p>
+<h3 id="h-what-happens-if-an-api-service-experiences-temporary-downtime">What happens if an API service experiences temporary downtime?</h3>
+<p>Because decoupled storefronts generate static HTML documents at the edge, public marketing and product pages remain online and readable even if backend APIs experience momentary latency. Product details and brand imagery continue loading directly from cache.</p>
+<hr />
+<h2 id="h-conclusion">Conclusion</h2>
+<p>Choosing between native themes, middleware layers, and a decoupled commerce architecture depends on your brand's growth phase and technical priorities. For stores struggling with theme constraints, sluggish mobile speeds, and app script bloat, decoupling provides a durable path toward speed, design freedom, and complete codebase ownership.</p>
+<p>If your team is evaluating a storefront redesign or considering decoupled architecture, contact our engineering team through our <a href="/contact">Contact Page</a> or explore our past work across our <a href="/case-studies">Case Studies</a>.</p>
+
+                    <ul class="art__tags" aria-label="Topics"><li>Ecommerce</li><li>Headless Shopify</li><li>Web Architecture</li><li>Engineering</li></ul>
+                    <div class="art__author"><p class="art__label">Written by</p><p><strong>Kunal Sharma</strong> founded Kawaki Studios in New Delhi and leads its engineering. He writes about the systems the studio designs and builds for clients.</p></div>
+                </div>
+            </div>
+        </article>
+
+        <section class="sec sec--line wrap related" aria-labelledby="next-title" style="margin-top: 0; padding-bottom: var(--space-sec);">
+            <div class="sec-head grid">
+                <h2 class="h2" id="next-title" data-reveal>Keep reading</h2>
+                <div class="sec-head__aside"><a class="draw" href="/blog">All articles<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            </div>
+            <ul class="bcards">
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/how-ai-search-engines-cite-sources">
+                        <span class="bimg"><img src="/assets/images/blog/how-ai-search-engines-cite-sources-cover.webp" srcset="/assets/images/blog/how-ai-search-engines-cite-sources-cover-720.webp 720w, /assets/images/blog/how-ai-search-engines-cite-sources-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>AI Search</span><span>21 min read</span></span>
+                        <h3 class="bcard__title">How AI Search Engines Decide Which Sources to Cite</h3>
+                    </a>
+                </li>
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/generative-engine-optimization-guide-for-business-websites">
+                        <span class="bimg"><img src="/assets/images/blog/generative-engine-optimization-guide-for-business-websites-cover.webp" srcset="/assets/images/blog/generative-engine-optimization-guide-for-business-websites-cover-720.webp 720w, /assets/images/blog/generative-engine-optimization-guide-for-business-websites-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>GEO</span><span>10 min read</span></span>
+                        <h3 class="bcard__title">Generative Engine Optimization: A Plain Guide</h3>
+                    </a>
+                </li>
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/ai-agent-development-services-walmart-teams-up-with-met">
+                        <span class="bimg"><img src="/assets/images/blog/ai-agent-development-services-walmart-teams-up-with-met-cover.webp" srcset="/assets/images/blog/ai-agent-development-services-walmart-teams-up-with-met-cover-720.webp 720w, /assets/images/blog/ai-agent-development-services-walmart-teams-up-with-met-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>Web Development</span><span>9 min read</span></span>
+                        <h3 class="bcard__title">AI agent development services: Walmart and Meta</h3>
+                    </a>
+                </li>
+            </ul>
+            <ul class="rows" style="margin-top: clamp(48px, 6vw, 80px);">
+                <li><a class="row svc" href="/services/shopify-development"><h3 class="row__name">Shopify Development</h3><span class="svc__desc">The service behind this article</span><svg class="row__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+        </section>
+
+        <section class="finale" id="contact" aria-labelledby="finale-title">
+            <div class="wrap">
+                <div class="grid">
+                    <h2 class="h2 finale__title" id="finale-title">Tell us what you&rsquo;re building.</h2>
+                </div>
+                <ul class="channels">
+                    <li><a class="channel" href="https://wa.me/917678123943?text=Hi%20Kunal%2C%20I%20would%20like%20to%20discuss%20a%20web%20project%20with%20Kawaki%20Studios" target="_blank" rel="noopener"><span class="channel__label">WhatsApp</span><span class="channel__value num">+91 76781 23943</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                    <li><a class="channel" href="mailto:hello@kawaki.co.in"><span class="channel__label">Email</span><span class="channel__value">hello@kawaki.co.in</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                    <li><a class="channel" href="/contact"><span class="channel__label">Call</span><span class="channel__value">Book 15 minutes</span><svg class="channel__go" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                </ul>
+                <p class="finale__hours">Studio hours are Monday to Sunday, 10:00 to 19:00 IST. In New Delhi it is <time id="studioTime">now</time>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-foot wrap">
+        <div class="foot-grid grid">
+            <div class="foot-col">
+                <p class="foot-h">Studio</p>
+                <a href="/about">About</a>
+                <a href="/case-studies">Work</a>
+                <a href="/services">Services</a>
+                <a href="/blog">Journal</a>
+                <a href="/contact">Contact</a>
+                <a href="/directory">Directory</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Contact</p>
+                <a href="mailto:hello@kawaki.co.in">hello@kawaki.co.in</a>
+                <a href="tel:+917678123943">+91 76781 23943</a>
+                <a href="https://wa.me/917678123943" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://maps.google.com/maps?cid=8378945977778123387" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://search.google.com/local/writereview?placeid=ChIJFV-Kjwsq6UMRezKnJfn-R3Q" target="_blank" rel="noopener">Review us on Google</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Follow</p>
+                <a href="https://instagram.com/kawaki.agency" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://linkedin.com/company/kawaki-studios" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://twitter.com/kawakistudios" target="_blank" rel="noopener">X (Twitter)</a>
+                <a href="https://github.com/gusfing/kawaki" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="foot-col">
+                <p class="foot-h">Studio address</p>
+                <p>Kawaki Studios LLP<br />New Delhi, India</p>
+                <p>Monday to Sunday<br />10:00 to 19:00 IST</p>
+            </div>
+        </div>
+        <span class="foot-mark" aria-hidden="true"></span>
+        <div class="foot-bottom">
+            <p>&copy; 2026 Kawaki Studios LLP</p>
+            <ul class="foot-legal">
+                <li><a href="/privacy-policy">Privacy policy</a></li>
+                <li><a href="/terms-of-service">Terms of service</a></li>
+                <li><a href="/sitemap.xml">Sitemap</a></li>
+                <li><a href="/llms.txt">llms.txt</a></li>
+            </ul>
+            <button type="button" class="footer-back-to-top" id="backToTop">Back to top<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13V3.5M4 7.5l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+    </footer>
+
+    <script src="/assets/js/vendor/gsap-3.15.0.min.js" defer></script>
+    <script src="/assets/js/vendor/ScrollTrigger-3.15.0.min.js" defer></script>
+    <script src="/assets/js/vendor/lenis-1.3.25.min.js" defer></script>
+    <script src="/assets/js/main.js?v=20260902_luxury_v6" defer></script>
+    <script src="/assets/js/chatbot.js?v=1d101f865c" data-css-v="caaf10d078" defer></script>
+    <script src="/assets/js/site.js?v=339e471bba" defer></script>
+    <script src="/assets/js/exit-popup.js?v=29074d7c01" defer></script>
+</body>
+</html>
