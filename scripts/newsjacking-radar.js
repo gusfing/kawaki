@@ -595,37 +595,73 @@ function formatEditorialTitle(str) {
   return formatted.charAt(0).toUpperCase() + formatted.slice(1);
 }
 
+function extractNewsContext(newsTitle) {
+  if (!newsTitle) return '';
+  const clean = newsTitle
+    .replace(/\|\s*TechCrunch/gi, '')
+    .replace(/-\s*The Verge/gi, '')
+    .replace(/^Ask HN:\s*/gi, '')
+    .replace(/^Show HN:\s*/gi, '')
+    .replace(/\[.*?\]/g, '')
+    .replace(/[—–]/g, ':')
+    .replace(/\?/g, ' : ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  // Try extracting meaningful sub-clause
+  const clauses = clean.split(/[:;]/).map(c => c.trim()).filter(Boolean);
+  for (const clause of clauses.reverse()) {
+    if (clause.length >= 4 && clause.length <= 25 && !auditTextAgainstWritingRules(clause).length) {
+      return clause;
+    }
+  }
+
+  // Filter common stop words and grab the top 2-3 significant words
+  const stopWords = new Set(['want', 'to', 'buy', 'your', 'kid', 'an', 'a', 'the', 'this', 'that', 'in', 'on', 'at', 'for', 'and', 'or', 'of', 'with', 'by', 'from', 'about', 'how', 'why', 'what', 'is', 'are']);
+  const words = clean.split(/\s+/).filter(w => !stopWords.has(w.toLowerCase().replace(/[^a-z0-9]/g, '')));
+  if (words.length > 0) {
+    const candidate = words.slice(0, 3).join(' ');
+    if (candidate.length <= 25 && candidate.length >= 4 && !auditTextAgainstWritingRules(candidate).length) {
+      return candidate;
+    }
+  }
+
+  return clean.slice(0, 24).trim();
+}
+
 function buildNewsjackHeadline(primaryKeyword, newsTitle) {
   // Title must stay <= 60 chars and include the primary keyword
   // Sentence case / clean words, zero banned phrases, zero dashes
-  const cleanTitle = newsTitle.replace(/[—–]/g, ':').replace(/\s+/g, ' ').trim();
   const pk = formatEditorialTitle(primaryKeyword);
+  const context = extractNewsContext(newsTitle);
 
-  // Try candidate: "<Keyword>: What It Means"
-  let candidate = `${pk}: What It Means`;
-  if (candidate.length <= 60) {
-    // See if we can add more specific context from breaking news
-    const shortNewsContext = cleanTitle.split(':')[0].split('–')[0].replace(/\[.*?\]/g, '').trim();
-    if (shortNewsContext && shortNewsContext.length > 3 && shortNewsContext.length < 25) {
-      const specificCandidate = `${pk}: The ${shortNewsContext} Shift`;
-      if (specificCandidate.length <= 60 && !auditTextAgainstWritingRules(specificCandidate).length) {
-        return specificCandidate;
+  if (context && context.length >= 3) {
+    const candidates = [
+      `${pk}: ${context}`,
+      `${pk}: ${context} Impact`,
+      `${pk}: The ${context} Shift`
+    ];
+    for (const c of candidates) {
+      if (c.length <= 58 && !auditTextAgainstWritingRules(c).length) {
+        return c;
       }
     }
-    return candidate;
   }
 
-  // Fallback to direct title under 60 chars
-  const trimmed = pk.length > 55 ? pk.slice(0, 55) : pk;
-  return trimmed;
+  // Fallback candidate under 58 chars
+  const fallback = `${pk}: Technical Guide`;
+  if (fallback.length <= 58) return fallback;
+  return pk.slice(0, 58);
 }
 
 function buildHookAngle(newsItem, taxonomy) {
   const serviceName = taxonomy.name;
   const sourceName = newsItem.source;
+  const sourceTitle = newsItem.title;
+  const sourceSnippet = newsItem.snippet ? ` Reporting indicates: "${newsItem.snippet.slice(0, 180)}..."` : '';
 
-  // 2-3 concise sentences in plain, direct studio tone
-  const angle = `Recent coverage on ${sourceName} highlights shifting technical requirements in ${serviceName}. Engineering teams cannot rely on generic templates or untested dependencies. Kawaki Studios builds verified web architectures designed for production stability, clean performance, and real business search visibility.`;
+  // Concise paragraph linking breaking news directly to service implications
+  const angle = `Recent reporting on ${sourceName} regarding "${sourceTitle}" highlights shifting technical and compliance requirements in ${serviceName}.${sourceSnippet} Engineering teams cannot rely on generic templates or unverified third party dependencies. Kawaki Studios builds verified web architectures designed for production stability, clean performance, and real business search visibility.`;
 
   return sanitizeText(angle);
 }

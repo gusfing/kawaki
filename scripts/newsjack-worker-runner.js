@@ -74,6 +74,36 @@ function generateArticleBody(payload) {
   const { title, primaryKeyword, hookAngle, targetServiceUrl, rawContext } = payload;
   const sourceName = rawContext && rawContext.source ? rawContext.source : 'industry';
   const sourceTitle = rawContext && rawContext.sourceTitle ? rawContext.sourceTitle : title;
+  const sourceUrl = rawContext && rawContext.sourceUrl ? rawContext.sourceUrl : null;
+  const sourceSnippet = rawContext && rawContext.snippet ? rawContext.snippet : '';
+  const isNewsEvent = Boolean(sourceUrl && rawContext.source !== 'blog-plan-fallback');
+
+  const newsSourceIntro = isNewsEvent
+    ? `Evaluating modern web infrastructure requires looking past vendor promises and inspecting actual engineering tradeoffs. Following recent reporting on [${sourceName}](${sourceUrl}) detailing [${sourceTitle}](${sourceUrl}), technical teams face pressing questions regarding architecture viability, operational risks, and long term maintenance overhead.
+
+> **Source Reporting:** [${sourceTitle}](${sourceUrl}) reported on ${sourceName}: "${sourceSnippet || 'Recent developments highlight shifting technical and regulatory demands across the industry.'}"`
+    : `Evaluating modern web infrastructure requires looking past vendor promises and inspecting actual engineering tradeoffs. When news broke regarding ${sourceTitle} across ${sourceName} channels, technical teams immediately faced questions about implementation viability, long term maintenance costs, and system durability.`;
+
+  const sectionOne = isNewsEvent
+    ? `## 1. Industry Context: Breaking Down ${sourceTitle}
+
+The shift highlighted by ${sourceName} in their coverage of [${sourceTitle}](${sourceUrl}) reflects broader changes across the web and software landscape. Teams attempting to rush consumer-facing features or unverified third party integrations quickly run into real-world constraints:
+
+1. **Governance and Sandboxing:** Rushing autonomous features without strict input filtering and safety guardrails exposes applications to data leakage, unpredictable outputs, and regulatory penalties.
+2. **Dependency Resilience:** Relying on opaque third party wrappers or unmaintained external libraries creates silent points of failure when APIs deprecate or encounter latency spikes.
+3. **Total Cost of Ownership:** What looks like a low friction prototype often compounds into unbudgeted monthly subscription fees and emergency codebase refactors.
+
+When analyzing ${primaryKeyword}, engineering leaders must separate temporary industry buzz from durable engineering assets. Building on solid fundamentals prevents the costly rewrites that inevitably follow rushed deployments.`
+    : `## 1. Why Technical Teams Are Rethinking ${primaryKeyword}
+
+Building web software in 2026 demands discipline. Off the shelf platforms and visual site builders bundle thousands of lines of unused JavaScript, heavy tracker libraries, and unmaintained third party plugins into every page visit. When business requirements evolve or site traffic spikes, teams frequently find themselves trapped in technical debt.
+
+To assess whether your team should invest in ${primaryKeyword}, consider these foundational technical criteria:
+
+1. **Rendering Performance:** Statically generated pages deliver sub-100 millisecond time-to-first-byte (TTFB) directly from edge cache locations, outperforming server-heavy frameworks.
+2. **Maintenance Simplicity:** Maintaining plain code with minimal runtime dependencies prevents unexpected breaks caused by automatic plugin updates.
+3. **Search Engine Discovery:** Modern search crawlers prioritize fast, semantic HTML documents with valid Schema.org structured markup over bloated client side bundles.
+4. **Capital Efficiency:** Custom software designed specifically for your business workflow eliminates ongoing monthly SaaS plugin fees and recurring seat licensing costs.`;
 
   return `---
 title: "${title}"
@@ -88,7 +118,7 @@ status: "published"
 
 # ${title}
 
-Evaluating modern web infrastructure requires looking past vendor promises and inspecting actual engineering tradeoffs. When news broke regarding ${sourceTitle} across ${sourceName} channels, technical teams immediately faced questions about implementation viability, long term maintenance costs, and system durability.
+${newsSourceIntro}
 
 ${hookAngle}
 
@@ -96,16 +126,7 @@ At [Kawaki Studios](/about), our development team in New Delhi works directly wi
 
 ---
 
-## 1. Why Technical Teams Are Rethinking ${primaryKeyword}
-
-Building web software in 2026 demands discipline. Off the shelf platforms and visual site builders bundle thousands of lines of unused JavaScript, heavy tracker libraries, and unmaintained third party plugins into every page visit. When business requirements evolve or site traffic spikes, teams frequently find themselves trapped in technical debt.
-
-To assess whether your team should invest in ${primaryKeyword}, consider these foundational technical criteria:
-
-1. **Rendering Performance:** Statically generated pages deliver sub-100 millisecond time-to-first-byte (TTFB) directly from edge cache locations, outperforming server-heavy frameworks.
-2. **Maintenance Simplicity:** Maintaining plain code with minimal runtime dependencies prevents unexpected breaks caused by automatic plugin updates.
-3. **Search Engine Discovery:** Modern search crawlers prioritize fast, semantic HTML documents with valid Schema.org structured markup over bloated client side bundles.
-4. **Capital Efficiency:** Custom software designed specifically for your business workflow eliminates ongoing monthly SaaS plugin fees and recurring seat licensing costs.
+${sectionOne}
 
 When evaluating team velocity, organizations often mistake rapid prototyping for production readiness. A framework or third party platform that allows launching a landing page in three days often exacts a heavy toll six months later when custom API integrations, localized routing, or compliance audits become necessary. By establishing clean contracts and minimizing reliance on opaque third party scripts, engineering teams retain total control over page weight and execution lifecycles.
 
