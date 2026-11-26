@@ -386,18 +386,6 @@ For enterprise e-commerce requirements, we decouple frontend presentation using 
 - **Canonical**: https://kawaki.co.in/blog/how-much-does-a-custom-website-cost
 - **Topic**: Web Development
 
-#### [State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications](https://kawaki.co.in/blog/nextjs-state-management-api-boundaries)
-> An architectural decision framework for modern Next.js applications: categorizing state ownership, eliminating unnecessary API layers, and designing secure mutation boundaries.
-
-- **Canonical**: https://kawaki.co.in/blog/nextjs-state-management-api-boundaries
-- **Topic**: Next.js
-
-#### [Next.js Server vs Client Components: How to Design the Boundary](https://kawaki.co.in/blog/nextjs-server-vs-client-components)
-> An architectural decision framework for Next.js App Router: determining data ownership, hydration boundaries, composition patterns, and security without default-to-client anti-patterns.
-
-- **Canonical**: https://kawaki.co.in/blog/nextjs-server-vs-client-components
-- **Topic**: Next.js
-
 #### [Custom Web Development vs No-Code: Architectural Trade-Offs, Decision Matrix, and Scaling Limits](https://kawaki.co.in/blog/custom-web-development-vs-no-code)
 > An engineering guide to choosing between custom web development and no-code platforms: 9-dimension decision matrix, architectural scaling limits, when to use Next.js, and migration strategy.
 
@@ -410,7 +398,19 @@ For enterprise e-commerce requirements, we decouple frontend presentation using 
 - **Canonical**: https://kawaki.co.in/blog/nextjs-performance-architecture
 - **Topic**: Next.js
 
-#### [Webflow vs Custom Development: When Ambitious Brands Need to Graduate to Code in 2026](https://kawaki.co.in/blog/webflow-vs-custom-development)
+#### [State Management & API Boundaries in Next.js: Designing Data Flow for Modern Web Applications](https://kawaki.co.in/blog/nextjs-state-management-api-boundaries)
+> An architectural decision framework for modern Next.js applications: categorizing state ownership, eliminating unnecessary API layers, and designing secure mutation boundaries.
+
+- **Canonical**: https://kawaki.co.in/blog/nextjs-state-management-api-boundaries
+- **Topic**: Next.js
+
+#### [Next.js Server vs Client Components: How to Design the Boundary](https://kawaki.co.in/blog/nextjs-server-vs-client-components)
+> An architectural decision framework for Next.js App Router: determining data ownership, hydration boundaries, composition patterns, and security without default-to-client anti-patterns.
+
+- **Canonical**: https://kawaki.co.in/blog/nextjs-server-vs-client-components
+- **Topic**: Next.js
+
+#### [Webflow vs Custom Development: When Each Makes Sense (2026 Guide)](https://kawaki.co.in/blog/webflow-vs-custom-development)
 > An objective, architecture-first comparison between Webflow and custom development in 2026. Explore performance limits, CMS scaling, 2-year TCO, and when ambitious brands need to graduate to code.
 
 - **Canonical**: https://kawaki.co.in/blog/webflow-vs-custom-development
@@ -430,11 +430,11 @@ For enterprise e-commerce requirements, we decouple frontend presentation using 
 - **Canonical**: https://kawaki.co.in/blog/ai-agent-development-services-google-will-make-ai-agent
 - **Topic**: Web Development
 
-#### [AI agent development services: Not in New York](https://kawaki.co.in/blog/ai-agent-development-services-want-to-buy-your-kid-an-a)
-> A practical technical analysis on ai agent development services, exploring architectural requirements, production risks, and cost efficiency for growing teams.
+#### [How AI Search Engines Decide Which Sources to Cite](https://kawaki.co.in/blog/how-ai-search-engines-cite-sources)
+> How do AI engines decide which sources to cite? An architectural guide to RAG retrieval pipelines, query fan-out, empirical findings from the Princeton GEO study, and citable content design.
 
-- **Canonical**: https://kawaki.co.in/blog/ai-agent-development-services-want-to-buy-your-kid-an-a
-- **Topic**: Web Development
+- **Canonical**: https://kawaki.co.in/blog/how-ai-search-engines-cite-sources
+- **Topic**: AI Search
 
 #### [AI agent development services: Walmart and Meta](https://kawaki.co.in/blog/ai-agent-development-services-walmart-teams-up-with-met)
 > A practical technical analysis on ai agent development services, exploring architectural requirements, production risks, and cost efficiency for growing teams.
@@ -442,17 +442,17 @@ For enterprise e-commerce requirements, we decouple frontend presentation using 
 - **Canonical**: https://kawaki.co.in/blog/ai-agent-development-services-walmart-teams-up-with-met
 - **Topic**: Web Development
 
+#### [AI agent development services: Not in New York](https://kawaki.co.in/blog/ai-agent-development-services-want-to-buy-your-kid-an-a)
+> A practical technical analysis on ai agent development services, exploring architectural requirements, production risks, and cost efficiency for growing teams.
+
+- **Canonical**: https://kawaki.co.in/blog/ai-agent-development-services-want-to-buy-your-kid-an-a
+- **Topic**: Web Development
+
 #### [What Is AI Automation? Examples for Small Businesses](https://kawaki.co.in/blog/what-is-ai-automation-examples-for-small-businesses)
 > A plain explanation of AI automation for small businesses, showing real workflow examples, pricing, integration methods, and what to automate first.
 
 - **Canonical**: https://kawaki.co.in/blog/what-is-ai-automation-examples-for-small-businesses
 - **Topic**: AI Automation
-
-#### [How AI Search Engines Decide Which Sources to Cite](https://kawaki.co.in/blog/how-ai-search-engines-cite-sources)
-> How do AI engines decide which sources to cite? An architectural guide to RAG retrieval pipelines, query fan-out, empirical findings from the Princeton GEO study, and citable content design.
-
-- **Canonical**: https://kawaki.co.in/blog/how-ai-search-engines-cite-sources
-- **Topic**: AI Search
 
 #### [AI Automation vs AI Agents: Architecture, Reliability, and When to Use Each](https://kawaki.co.in/blog/ai-automation-vs-ai-agents)
 > An engineering decision framework for choosing between AI automation and autonomous AI agents: 18-dimension decision matrix, autonomy spectrum, reliability mitigations, and reference architectures.
@@ -480,12 +480,6 @@ For enterprise e-commerce requirements, we decouple frontend presentation using 
 - **Canonical**: https://kawaki.co.in/blog/shopify-migration-checklist-data-urls-redirects
 - **Topic**: Shopify
 
-#### [Shopify Apps vs Custom Integrations: How to Choose](https://kawaki.co.in/blog/shopify-apps-vs-custom-integrations)
-> When to install an app from the Shopify App Store and when to write a direct API integration for your inventory, ERP, or marketing stack.
-
-- **Canonical**: https://kawaki.co.in/blog/shopify-apps-vs-custom-integrations
-- **Topic**: Shopify
-
 #### [Shopify Liquid vs Headless Shopify: A Practical Decision Framework for Growing Stores](https://kawaki.co.in/blog/shopify-liquid-vs-headless)
 > An engineering decision framework for choosing between Shopify Liquid themes and Headless Shopify: 12-dimension matrix, true causes of store latency, 5-stage Liquid optimization sequence, and migration guide.
 
@@ -497,6 +491,12 @@ For enterprise e-commerce requirements, we decouple frontend presentation using 
 
 - **Canonical**: https://kawaki.co.in/blog/headless-shopify-development-guide
 - **Topic**: Commerce
+
+#### [Shopify Apps vs Custom Integrations: How to Choose](https://kawaki.co.in/blog/shopify-apps-vs-custom-integrations)
+> When to install an app from the Shopify App Store and when to write a direct API integration for your inventory, ERP, or marketing stack.
+
+- **Canonical**: https://kawaki.co.in/blog/shopify-apps-vs-custom-integrations
+- **Topic**: Shopify
 
 ### WordPress Security & Recovery Resources
 

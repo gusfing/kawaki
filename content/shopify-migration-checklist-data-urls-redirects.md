@@ -42,7 +42,7 @@ Shopify organizes catalogs around Products, Variants, Collections, and Metafield
 - **Custom Attributes to Metafields:** Attributes such as technical specifications, garment materials, dimensions, or care instructions must be defined as typed Metafields rather than crammed into raw product descriptions. This keeps frontend filtering accurate and structured.
 - **Category to Collection Mapping:** WooCommerce categories and Magento category trees must be mapped to automated or manual Shopify collections using product tags or vendor identifiers. Setting up smart collections early eliminates manual product tagging during future catalog updates.
 
-For complex catalog builds, review our specialized [Shopify Development Services](/services/shopify-development).
+For complex catalog builds, review our specialized [Shopify Development Services](/services/shopify-development). If you are deciding whether to build on native themes or decoupled front ends, consult our [Decoupled Commerce Architecture Guide](/blog/decoupled-commerce-architecture-native-middleware-headless) and our comparison of [Shopify Liquid vs Headless Shopify](/blog/shopify-liquid-vs-headless).
 
 ---
 
@@ -96,16 +96,16 @@ Legacy Path                                  Target Shopify Canonical
 3. **Upload via URL Redirects Manager:** Upload your verified CSV mapping directly into Shopify's native URL Redirects table, or manage global edge redirects through your primary hosting routing rules.
 4. **Monitor 404 Errors Post-Launch:** Review server access logs and Search Console crawl logs during the first 14 days after launch to catch any orphaned parameter URLs or outdated affiliate links.
 
-Review our technical approach to search preservation in our [Technical SEO Services](/technical-seo).
+Review our technical approach to search preservation in our [Technical SEO Services](/technical-seo) and see how we managed catalogue transitions in our [BAZZARO case study](/case-studies/bazzaro).
 
 ---
 
 ## 4. Theme Engineering and Core Web Vitals Optimization
 
-A successful migration is the ideal opportunity to eliminate bloated third-party theme code and establish fast page loading benchmarks across mobile and desktop devices.
+A successful migration is the ideal opportunity to eliminate bloated third-party theme code and establish fast page loading benchmarks across mobile and desktop devices. For structured speed remediation across key metrics, review our [Website Performance Optimization](/services/website-performance-optimization) playbook.
 
 ### Avoiding App Bloat
-The primary reason Shopify stores slow down over time is the unmonitored installation of third-party apps that inject heavy tracking scripts, redundant libraries, and render-blocking stylesheets.
+The primary reason Shopify stores slow down over time is the unmonitored installation of third-party apps that inject heavy tracking scripts, redundant libraries, and render-blocking stylesheets. For a deep comparison of build approaches, read our breakdown of [Shopify Apps vs Custom Integrations](/blog/shopify-apps-vs-custom-integrations).
 
 - Audit every third-party app before installation. If a feature can be coded natively in Liquid or lightweight JavaScript, build it directly rather than adding another recurring app subscription.
 - Build native features directly into your Liquid templates or headless components rather than relying on script apps for simple features like promo bars, accordion tabs, or size guides.

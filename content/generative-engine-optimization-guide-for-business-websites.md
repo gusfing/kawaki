@@ -121,7 +121,7 @@ Add concise definition blocks directly under major section headings. For example
 Embed valid Schema.org markup across all public templates. Connect your organization entity to verified business profiles, author credentials, service pricing schedules, and accurate location data. Validate your markup using Google's Rich Results testing tool to ensure zero syntax errors.
 
 ### Step 4: Validate Crawlability and Static Edge Delivery
-Audit your robots.txt configuration to confirm that major AI search crawlers (such as Googlebot, PerplexityBot, and GPTBot) have unobstructed access to your canonical content. Eliminate client-side rendering bottlenecks by deploying statically built HTML to a distributed edge network.
+Audit your robots.txt configuration to confirm that major AI search crawlers (such as Googlebot, PerplexityBot, and GPTBot) have unobstructed access to your canonical content. Eliminate client-side rendering bottlenecks by deploying statically built HTML to a distributed edge network. When designing structured corporate platforms or editorial portfolios, such as our work for [Kala Design Co.](/case-studies/kala-design), we implement [Custom Web Development](/services/custom-web-development) alongside [AI Search Optimization Services](/services/ai-search-optimization). For teams evaluating automated systems, read our architecture analysis of [AI Automation vs AI Agents](/blog/ai-automation-vs-ai-agents).
 
 ---
 

@@ -37,7 +37,7 @@ By separating the user interface from backend transaction logic, engineering tea
 
 ## 2. Comparing the Three Models: Native vs Middleware vs Decoupled
 
-When evaluating modern ecommerce systems, technical teams encounter three primary architectural patterns. Each pattern represents a distinct balance between implementation speed, operational complexity, and long-term flexibility.
+When evaluating modern ecommerce systems, technical teams encounter three primary architectural patterns. Each pattern represents a distinct balance between implementation speed, operational complexity, and long-term flexibility. For founders weighing theme constraints against custom front ends, our [Shopify Liquid vs Headless Shopify](/blog/shopify-liquid-vs-headless) guide breaks down the financial trade-offs, while our [Headless Shopify Development Guide](/blog/headless-shopify-development-guide) covers API rate limits.
 
 ### Model 1: Native Commerce Architecture
 
@@ -106,7 +106,7 @@ In a native platform, marketing teams can install a review widget or countdown t
 A common beginner mistake in headless builds is attempting to rewrite the checkout funnel from scratch. Building custom checkout interfaces introduces severe PCI-DSS compliance requirements, fraud liabilities, and payment gateway maintenance. The established standard is maintaining a decoupled front end while passing cart tokens to Shopify's native, hosted checkout. This preserves complete security compliance while providing a fluid user experience.
 
 ### Analytics and Event Tracking Complexity
-In native stores, analytics pixels and Google Tag Manager containers load automatically across all templates. In a decoupled single-page application or static site, page transitions do not trigger traditional browser reloads. Developers must implement explicit client-side route change listeners to fire page view events and conversion webhooks reliably.
+In native stores, analytics pixels and Google Tag Manager containers load automatically across all templates. In a decoupled single-page application or static site, page transitions do not trigger traditional browser reloads. Developers must implement explicit client-side route change listeners to fire page view events and conversion webhooks reliably. Delivering fast catalog transitions also requires disciplined edge rendering, using [Website Performance Optimization](/services/website-performance-optimization) techniques covered in our [Next.js Performance Architecture Guide](/blog/nextjs-performance-architecture).
 
 ---
 
@@ -119,7 +119,7 @@ At Kawaki Studios, our team follows a phased implementation approach to ensure t
 ```
 
 ### Step 1: Catalogue and Integration Audit
-Review existing product variants, collections, metafields, and customer accounts. Identify every third party app currently installed, categorize which tools are truly essential, and determine whether their data can be accessed via REST endpoints or Storefront APIs.
+Review existing product variants, collections, metafields, and customer accounts. Identify every third party app currently installed, categorize which tools are truly essential, and determine whether their data can be accessed via REST endpoints or Storefront APIs. For teams reviewing app overload, our guide on [Shopify Apps vs Custom Integrations](/blog/shopify-apps-vs-custom-integrations) breaks down which scripts to keep or remove.
 
 ### Step 2: Front End Design System and Data Schema
 Design responsive layouts using native CSS variables and modular components. Set up type-safe interfaces in TypeScript to model products, variant selections, pricing formats, and image dimensions.
@@ -128,7 +128,7 @@ Design responsive layouts using native CSS variables and modular components. Set
 Connect the front end application to the commerce Storefront API. Configure incremental static regeneration or automated build webhooks: whenever a product price or inventory count updates in the admin dashboard, the edge cache invalidates and rebuilds the relevant product page in seconds.
 
 ### Step 4: Staging Review, SEO Migration, and Rollout
-Verify 301 redirects for every legacy URL, audit Schema.org product structured data, test checkout handoffs across multiple currencies, and verify Core Web Vitals before domain DNS switches to production.
+Verify 301 redirects for every legacy URL, audit Schema.org product structured data, test checkout handoffs across multiple currencies, and verify Core Web Vitals before domain DNS switches to production. Follow our [Shopify Migration Checklist](/blog/shopify-migration-checklist-data-urls-redirects) for step-by-step validation.
 
 Review how we manage complete redesigns on our [Website Redesign Services](/services/website-redesign) page.
 

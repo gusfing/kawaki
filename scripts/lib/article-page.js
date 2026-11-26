@@ -23,7 +23,17 @@ const SEO_TITLES = {
   'how-to-evaluate-a-web-development-proposal-beyond-price': 'How to Evaluate a Web Development Proposal',
   'how-much-does-a-custom-website-cost': 'Custom Website Cost in India and Abroad',
   'shopify-apps-vs-custom-integrations': 'Shopify Apps vs Custom Integrations',
-  'website-redesign-brief-goals-scope-integrations': 'How to Write a Website Redesign Brief'
+  'website-redesign-brief-goals-scope-integrations': 'How to Write a Website Redesign Brief',
+  'decoupled-commerce-architecture-native-middleware-headless': 'Decoupled Commerce Architecture Guide',
+  'generative-engine-optimization-guide-for-business-websites': 'Generative Engine Optimization (GEO) Guide',
+  'shopify-migration-checklist-data-urls-redirects': 'Shopify Migration Checklist and Redirects',
+  'website-launch-qa-checklist-before-going-live': 'Website Launch QA Checklist Before Going Live',
+  'website-maintenance-services-what-they-include-and-cost': 'Website Maintenance Services and Costs',
+  'what-should-website-maintenance-agreement-include': 'Website Maintenance Agreement SLA Guide',
+  'what-is-ai-automation-examples-for-small-businesses': 'What Is AI Automation? Small Business Guide',
+  'white-label-web-development-agency-partnerships': 'White-Label Web Development for Agencies',
+  'ai-agent-development-services-walmart-teams-up-with-met': 'AI Agent Development: Walmart and Meta',
+  'ai-agent-development-services-want-to-buy-your-kid-an-a': 'AI Agent Development and Automation Trends'
 };
 
 const readTime = a => Math.max(4, Math.ceil(String(a.content || '').split(/\s+/).filter(Boolean).length / 200));
@@ -109,13 +119,41 @@ function articlePage(article, allArticles, h) {
 
   const graph = [
     {
-      '@type': 'BlogPosting', '@id': url + '#article', headline: title, description: seoDesc, image: absImage,
-      datePublished: published, dateModified: modified,
+      '@type': 'BlogPosting',
+      '@id': url + '#article',
+      headline: title,
+      description: seoDesc,
+      image: absImage,
+      inLanguage: 'en-US',
+      datePublished: published,
+      dateModified: modified,
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['#page-title', '.art__lede', '#articleContent > p:first-of-type']
+      },
       // The founder's Person node lives on /about (#founder); linking it ties every post to one known author.
       author: author === 'Kunal Sharma'
-        ? { '@type': 'Person', '@id': S.SITE + '/about#founder', name: author, url: S.SITE + '/about' }
+        ? {
+            '@type': 'Person',
+            '@id': S.SITE + '/about#founder',
+            name: author,
+            url: S.SITE + '/about',
+            jobTitle: 'Founder & Lead Engineer',
+            worksFor: { '@type': 'Organization', '@id': S.SITE + '/#organization', name: 'Kawaki Studios' }
+          }
         : { '@type': 'Person', name: author, worksFor: { '@type': 'Organization', '@id': S.SITE + '/#organization', name: 'Kawaki Studios' } },
-      publisher: { '@type': 'Organization', '@id': S.SITE + '/#organization', name: 'Kawaki Studios', url: S.SITE, logo: S.SITE + '/assets/images/kawaki-logo.png' },
+      publisher: {
+        '@type': 'Organization',
+        '@id': S.SITE + '/#organization',
+        name: 'Kawaki Studios',
+        url: S.SITE,
+        logo: {
+          '@type': 'ImageObject',
+          url: S.SITE + '/assets/images/kawaki-logo.png',
+          width: 192,
+          height: 192
+        }
+      },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url }
     },
     S.breadcrumbLd(pagePath, [['Blog', '/blog'], [crumbName, pagePath]])

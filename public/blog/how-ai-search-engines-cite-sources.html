@@ -35,20 +35,40 @@
           "headline": "How AI Search Engines Decide Which Sources to Cite",
           "description": "How do AI engines decide which sources to cite? An architectural breakdown of RAG retrieval, query fan-out, citation authority, and GEO ranking signals.",
           "image": "https://kawaki.co.in/assets/images/blog/how-ai-search-engines-cite-sources-cover.jpg",
-          "datePublished": 1790935200,
-          "dateModified": "2026-11-26T19:17:46.809Z",
+          "inLanguage": "en-US",
+          "datePublished": "2026-11-26T15:33:22.000Z",
+          "dateModified": "2026-11-26T20:46:28.183Z",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [
+              "#page-title",
+              ".art__lede",
+              "#articleContent > p:first-of-type"
+            ]
+          },
           "author": {
             "@type": "Person",
             "@id": "https://kawaki.co.in/about#founder",
             "name": "Kunal Sharma",
-            "url": "https://kawaki.co.in/about"
+            "url": "https://kawaki.co.in/about",
+            "jobTitle": "Founder & Lead Engineer",
+            "worksFor": {
+              "@type": "Organization",
+              "@id": "https://kawaki.co.in/#organization",
+              "name": "Kawaki Studios"
+            }
           },
           "publisher": {
             "@type": "Organization",
             "@id": "https://kawaki.co.in/#organization",
             "name": "Kawaki Studios",
             "url": "https://kawaki.co.in",
-            "logo": "https://kawaki.co.in/assets/images/kawaki-logo.png"
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://kawaki.co.in/assets/images/kawaki-logo.png",
+              "width": 192,
+              "height": 192
+            }
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
@@ -76,6 +96,44 @@
               "position": 3,
               "name": "How AI Search Engines Cite Sources",
               "item": "https://kawaki.co.in/blog/how-ai-search-engines-cite-sources"
+            }
+          ]
+        },
+        {
+          "@id": "https://kawaki.co.in/blog/how-ai-search-engines-cite-sources#faq",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do AI search engines decide which sources to cite?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AI search engines rely on Retrieval-Augmented Generation (RAG). After expanding a user prompt into parallel sub-queries, the search pipeline fetches candidate pages, cleans layout boilerplate, and scores passages using dense embeddings and cross-encoders. Natural language inference models then verify that generated statements are strictly entailed by the text before attaching a clickable citation link."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What structured data helps AI search engines cite my pages?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Schema.org markup in JSON-LD format, specifically FAQPage, TechArticle, Service, Organization, and BreadcrumbList. Structured data provides explicit entity definitions that retrieval algorithms cross-reference against visible copy, verifying facts and eliminating ambiguity."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does citation authority matter in generative engine optimization?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When AI answers resolve user questions directly in the search interface, traditional organic click-through rates decline. Being cited as the attributed primary source establishes brand authority, captures high-intent referral traffic from users seeking verification, and trains future foundation model weights on your technical specifications."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does AI cite extracted data back to source documents?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Generative engines map synthetic statements back to retrieved context chunks using token overlap, semantic cosine similarity, and factual entailment checks. When an assertion matches a specific passage without contradiction, the engine appends a linked footnote or source card pointing to the document URL. ---"
+              }
             }
           ]
         }
@@ -223,7 +281,7 @@
         <article class="art" aria-labelledby="page-title">
             <header class="art__head wrap">
                 <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/blog">Blog</a></li><li><span aria-current="page">How AI Search Engines Cite Sources</span></li></ol>
-                <p class="art__meta"><span class="art__cat">AI Search</span><span>21 min read</span><time datetime="1790935200">21 Jan 1970</time></p>
+                <p class="art__meta"><span class="art__cat">AI Search</span><span>22 min read</span><time datetime="2026-11-26">26 Nov 2026</time></p>
                 <h1 class="art__title" id="page-title">How AI Search Engines Decide Which Sources to Cite</h1>
                 <p class="art__lede">How do AI engines decide which sources to cite? An architectural breakdown of RAG retrieval, query fan-out, citation authority, and GEO ranking signals.</p>
                 <p class="art__by">By Kunal Sharma</p>
@@ -234,7 +292,7 @@
             <div class="art__layout wrap grid">
                 <aside class="art__aside" aria-label="On this page">
                     <p class="art__label">On this page</p>
-                    <ol class="art__toc"><li class="art__toc-l3"><a href="#h-how-do-ai-engines-decide-which-sources-to-cite">How Do AI Engines Decide Which Sources to Cite?</a></li><li class="art__toc-l3"><a href="#h-the-core-architectural-principle-eligibility-vs-extraction">The Core Architectural Principle: Eligibility vs. Extraction</a></li><li class="art__toc-l2"><a href="#h-1-the-fundamental-shift-from-document-ranking-to-extracted-attribution">1. The Fundamental Shift: From Document Ranking to Extracted Attribution</a></li><li class="art__toc-l2"><a href="#h-2-anatomy-of-an-ai-search-pipeline-how-engines-read-and-attribute-the-web">2. Anatomy of an AI Search Pipeline: How Engines Read and Attribute the Web</a></li><li class="art__toc-l3"><a href="#h-phase-1-query-decomposition-amp-query-fan-out">Phase 1: Query Decomposition &amp; Query Fan-Out</a></li><li class="art__toc-l3"><a href="#h-phase-2-candidate-retrieval-amp-document-fetching">Phase 2: Candidate Retrieval &amp; Document Fetching</a></li><li class="art__toc-l3"><a href="#h-phase-3-semantic-filtering-amp-context-selection">Phase 3: Semantic Filtering &amp; Context Selection</a></li><li class="art__toc-l3"><a href="#h-phase-4-synthesis-amp-attribution">Phase 4: Synthesis &amp; Attribution</a></li><li class="art__toc-l2"><a href="#h-3-google-ai-overviews-vs-perplexity-vs-chatgpt-search-publicly-documented-behaviors">3. Google AI Overviews vs. Perplexity vs. ChatGPT Search: Publicly Documented Behaviors</a></li><li class="art__toc-l3"><a href="#h-google-ai-overviews-aio-amp-ai-mode">Google AI Overviews (AIO) &amp; AI Mode</a></li><li class="art__toc-l3"><a href="#h-perplexity-ai">Perplexity AI</a></li><li class="art__toc-l3"><a href="#h-chatgpt-search">ChatGPT Search</a></li><li class="art__toc-l3"><a href="#h-the-low-cross-engine-citation-overlap">The Low Cross-Engine Citation Overlap</a></li><li class="art__toc-l2"><a href="#h-4-what-the-scientific-research-actually-found-deconstructing-the-princeton-geo-study">4. What the Scientific Research Actually Found: Deconstructing the Princeton GEO Study</a></li><li class="art__toc-l3"><a href="#h-the-experimental-framework-and-metric">The Experimental Framework and Metric</a></li><li class="art__toc-l3"><a href="#h-the-equalizer-effect">The "Equalizer Effect"</a></li><li class="art__toc-l3"><a href="#h-the-negative-impact-of-keyword-stuffing">The Negative Impact of Keyword Stuffing</a></li><li class="art__toc-l3"><a href="#h-the-44-2-first-30-observational-finding">The 44.2% First-30% Observational Finding</a></li><li class="art__toc-l2"><a href="#h-5-what-makes-a-page-more-groundable-and-extractable">5. What Makes a Page More Groundable and Extractable?</a></li><li class="art__toc-l3"><a href="#h-1-direct-answers">1. Direct Answers</a></li><li class="art__toc-l3"><a href="#h-2-factual-density-over-commodity-prose">2. Factual Density Over Commodity Prose</a></li><li class="art__toc-l3"><a href="#h-3-clear-entity-disambiguation">3. Clear Entity Disambiguation</a></li><li class="art__toc-l3"><a href="#h-4-self-contained-passages">4. Self-Contained Passages</a></li><li class="art__toc-l2"><a href="#h-6-what-about-llms-txt-schema-and-ai-specific-markup">6. What About llms.txt, Schema, and AI-Specific Markup?</a></li><li class="art__toc-l3"><a href="#h-myth-1-you-must-have-an-llms-txt-file-to-rank-in-google-ai-overviews">Myth 1: "You Must Have an llms.txt File to Rank in Google AI Overviews"</a></li><li class="art__toc-l3"><a href="#h-myth-2-there-is-a-special-ai-schema-markup-required-for-citations">Myth 2: "There is a Special AI Schema Markup Required for Citations"</a></li><li class="art__toc-l3"><a href="#h-myth-3-content-chunking-requires-re-writing-your-site-into-micro-pages">Myth 3: "Content Chunking Requires Re-Writing Your Site into Micro-Pages"</a></li><li class="art__toc-l2"><a href="#h-7-a-practical-geo-content-architecture-the-8-point-engineering-framework">7. A Practical GEO Content Architecture: The 8-Point Engineering Framework</a></li><li class="art__toc-l2"><a href="#h-8-how-technical-leaders-should-think-about-ai-search-visibility">8. How Technical Leaders Should Think About AI Search Visibility</a></li><li class="art__toc-l2"><a href="#h-9-conclusion-engineering-the-future-of-search">9. Conclusion: Engineering the Future of Search</a></li><li class="art__toc-l3"><a href="#h-primary-sources-amp-references">Primary Sources &amp; References</a></li></ol>
+                    <ol class="art__toc"><li class="art__toc-l3"><a href="#h-how-do-ai-engines-decide-which-sources-to-cite">How Do AI Engines Decide Which Sources to Cite?</a></li><li class="art__toc-l3"><a href="#h-the-core-architectural-principle-eligibility-vs-extraction">The Core Architectural Principle: Eligibility vs. Extraction</a></li><li class="art__toc-l2"><a href="#h-1-the-fundamental-shift-from-document-ranking-to-extracted-attribution">1. The Fundamental Shift: From Document Ranking to Extracted Attribution</a></li><li class="art__toc-l2"><a href="#h-2-anatomy-of-an-ai-search-pipeline-how-engines-read-and-attribute-the-web">2. Anatomy of an AI Search Pipeline: How Engines Read and Attribute the Web</a></li><li class="art__toc-l3"><a href="#h-phase-1-query-decomposition-amp-query-fan-out">Phase 1: Query Decomposition &amp; Query Fan-Out</a></li><li class="art__toc-l3"><a href="#h-phase-2-candidate-retrieval-amp-document-fetching">Phase 2: Candidate Retrieval &amp; Document Fetching</a></li><li class="art__toc-l3"><a href="#h-phase-3-semantic-filtering-amp-context-selection">Phase 3: Semantic Filtering &amp; Context Selection</a></li><li class="art__toc-l3"><a href="#h-phase-4-synthesis-amp-attribution">Phase 4: Synthesis &amp; Attribution</a></li><li class="art__toc-l2"><a href="#h-3-google-ai-overviews-vs-perplexity-vs-chatgpt-search-publicly-documented-behaviors">3. Google AI Overviews vs. Perplexity vs. ChatGPT Search: Publicly Documented Behaviors</a></li><li class="art__toc-l3"><a href="#h-google-ai-overviews-aio-amp-ai-mode">Google AI Overviews (AIO) &amp; AI Mode</a></li><li class="art__toc-l3"><a href="#h-perplexity-ai">Perplexity AI</a></li><li class="art__toc-l3"><a href="#h-chatgpt-search">ChatGPT Search</a></li><li class="art__toc-l3"><a href="#h-the-low-cross-engine-citation-overlap">The Low Cross-Engine Citation Overlap</a></li><li class="art__toc-l2"><a href="#h-4-what-the-scientific-research-actually-found-deconstructing-the-princeton-geo-study">4. What the Scientific Research Actually Found: Deconstructing the Princeton GEO Study</a></li><li class="art__toc-l3"><a href="#h-the-experimental-framework-and-metric">The Experimental Framework and Metric</a></li><li class="art__toc-l3"><a href="#h-the-equalizer-effect">The "Equalizer Effect"</a></li><li class="art__toc-l3"><a href="#h-the-negative-impact-of-keyword-stuffing">The Negative Impact of Keyword Stuffing</a></li><li class="art__toc-l3"><a href="#h-the-44-2-first-30-observational-finding">The 44.2% First-30% Observational Finding</a></li><li class="art__toc-l2"><a href="#h-5-what-makes-a-page-more-groundable-and-extractable">5. What Makes a Page More Groundable and Extractable?</a></li><li class="art__toc-l3"><a href="#h-1-direct-answers">1. Direct Answers</a></li><li class="art__toc-l3"><a href="#h-2-factual-density-over-commodity-prose">2. Factual Density Over Commodity Prose</a></li><li class="art__toc-l3"><a href="#h-3-clear-entity-disambiguation">3. Clear Entity Disambiguation</a></li><li class="art__toc-l3"><a href="#h-4-self-contained-passages">4. Self-Contained Passages</a></li><li class="art__toc-l2"><a href="#h-6-what-about-llms-txt-schema-and-ai-specific-markup">6. What About llms.txt, Schema, and AI-Specific Markup?</a></li><li class="art__toc-l3"><a href="#h-myth-1-you-must-have-an-llms-txt-file-to-rank-in-google-ai-overviews">Myth 1: "You Must Have an llms.txt File to Rank in Google AI Overviews"</a></li><li class="art__toc-l3"><a href="#h-myth-2-there-is-a-special-ai-schema-markup-required-for-citations">Myth 2: "There is a Special AI Schema Markup Required for Citations"</a></li><li class="art__toc-l3"><a href="#h-myth-3-content-chunking-requires-re-writing-your-site-into-micro-pages">Myth 3: "Content Chunking Requires Re-Writing Your Site into Micro-Pages"</a></li><li class="art__toc-l2"><a href="#h-7-a-practical-geo-content-architecture-the-8-point-engineering-framework">7. A Practical GEO Content Architecture: The 8-Point Engineering Framework</a></li><li class="art__toc-l2"><a href="#h-8-how-technical-leaders-should-think-about-ai-search-visibility">8. How Technical Leaders Should Think About AI Search Visibility</a></li><li class="art__toc-l2"><a href="#h-frequently-asked-questions">Frequently Asked Questions</a></li><li class="art__toc-l3"><a href="#h-how-do-ai-search-engines-decide-which-sources-to-cite">How do AI search engines decide which sources to cite?</a></li><li class="art__toc-l3"><a href="#h-what-structured-data-helps-ai-search-engines-cite-my-pages">What structured data helps AI search engines cite my pages?</a></li><li class="art__toc-l3"><a href="#h-why-does-citation-authority-matter-in-generative-engine-optimization">Why does citation authority matter in generative engine optimization?</a></li><li class="art__toc-l3"><a href="#h-how-does-ai-cite-extracted-data-back-to-source-documents">How does AI cite extracted data back to source documents?</a></li><li class="art__toc-l2"><a href="#h-9-conclusion-engineering-the-future-of-search">9. Conclusion: Engineering the Future of Search</a></li><li class="art__toc-l3"><a href="#h-primary-sources-amp-references">Primary Sources &amp; References</a></li></ol>
                     <p class="art__label">Share</p>
                     <p class="art__share"><a href="https://twitter.com/intent/tweet?text=How%20AI%20Search%20Engines%20Decide%20Which%20Sources%20to%20Cite&url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fhow-ai-search-engines-cite-sources" target="_blank" rel="noopener">Share on X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkawaki.co.in%2Fblog%2Fhow-ai-search-engines-cite-sources" target="_blank" rel="noopener">Share on LinkedIn</a></p>
                 </aside>
@@ -497,6 +555,17 @@
 <li><strong>Stage 3: Groundability &amp; Citation Attribution (GEO).</strong> Your passages must contain the verifiable facts, statistics, and clean entity relationships required by the model's constrained decoding heads to substantiate an answer.</li>
 </ol>
 <p>There are no algorithmic shortcuts or secret backdoors. Generative engines are statistical prediction engines trained to minimize hallucination by seeking high-confidence grounding data. When your website becomes the clearest, most verifiable source of empirical truth on a specific technical subject, the model cites you not out of favoritism, but out of mathematical necessity.</p>
+<p>When building technical websites at Kawaki Studios, such as the product catalogue architecture for <a href="/case-studies/urbanland">Urbanland Products</a> or structured e-commerce platforms, we pair foundational <a href="/technical-seo">Technical SEO</a> with our <a href="/services/ai-search-optimization">AI Search Optimization Services</a>. For teams exploring structured content models, read our <a href="/blog/generative-engine-optimization-guide-for-business-websites">Generative Engine Optimization Guide</a> and our architecture breakdown of <a href="/blog/decoupled-commerce-architecture-native-middleware-headless">Decoupled Commerce Architecture</a>.</p>
+<hr />
+<h2 id="h-frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="h-how-do-ai-search-engines-decide-which-sources-to-cite">How do AI search engines decide which sources to cite?</h3>
+<p>AI search engines rely on Retrieval-Augmented Generation (RAG). After expanding a user prompt into parallel sub-queries, the search pipeline fetches candidate pages, cleans layout boilerplate, and scores passages using dense embeddings and cross-encoders. Natural language inference models then verify that generated statements are strictly entailed by the text before attaching a clickable citation link.</p>
+<h3 id="h-what-structured-data-helps-ai-search-engines-cite-my-pages">What structured data helps AI search engines cite my pages?</h3>
+<p>Schema.org markup in JSON-LD format, specifically FAQPage, TechArticle, Service, Organization, and BreadcrumbList. Structured data provides explicit entity definitions that retrieval algorithms cross-reference against visible copy, verifying facts and eliminating ambiguity.</p>
+<h3 id="h-why-does-citation-authority-matter-in-generative-engine-optimization">Why does citation authority matter in generative engine optimization?</h3>
+<p>When AI answers resolve user questions directly in the search interface, traditional organic click-through rates decline. Being cited as the attributed primary source establishes brand authority, captures high-intent referral traffic from users seeking verification, and trains future foundation model weights on your technical specifications.</p>
+<h3 id="h-how-does-ai-cite-extracted-data-back-to-source-documents">How does AI cite extracted data back to source documents?</h3>
+<p>Generative engines map synthetic statements back to retrieved context chunks using token overlap, semantic cosine similarity, and factual entailment checks. When an assertion matches a specific passage without contradiction, the engine appends a linked footnote or source card pointing to the document URL.</p>
 <hr />
 <h2 id="h-9-conclusion-engineering-the-future-of-search">9. Conclusion: Engineering the Future of Search</h2>
 <p>The transition from traditional document ranking to generative answer synthesis does not represent the death of SEO, it represents its maturation into <strong>technical information architecture</strong>. The manipulative tactics that plagued early web marketing, keyword stuffing, doorway pages, and fabricated claims, are rendered ineffective by embedding models and RAG grounding systems.</p>
@@ -532,17 +601,17 @@
                     </a>
                 </li>
                 <li class="bcard">
-                    <a class="bcard__link" href="/blog/decoupled-commerce-architecture-native-middleware-headless">
-                        <span class="bimg"><img src="/assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover.webp" srcset="/assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover-720.webp 720w, /assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
-                        <span class="bcard__meta"><span>Ecommerce</span><span>11 min read</span></span>
-                        <h3 class="bcard__title">Decoupled Commerce Architecture: A Plain Guide</h3>
-                    </a>
-                </li>
-                <li class="bcard">
                     <a class="bcard__link" href="/blog/generative-engine-optimization-guide-for-business-websites">
                         <span class="bimg"><img src="/assets/images/blog/generative-engine-optimization-guide-for-business-websites-cover.webp" srcset="/assets/images/blog/generative-engine-optimization-guide-for-business-websites-cover-720.webp 720w, /assets/images/blog/generative-engine-optimization-guide-for-business-websites-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
                         <span class="bcard__meta"><span>GEO</span><span>10 min read</span></span>
                         <h3 class="bcard__title">Generative Engine Optimization: A Plain Guide</h3>
+                    </a>
+                </li>
+                <li class="bcard">
+                    <a class="bcard__link" href="/blog/decoupled-commerce-architecture-native-middleware-headless">
+                        <span class="bimg"><img src="/assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover.webp" srcset="/assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover-720.webp 720w, /assets/images/blog/decoupled-commerce-architecture-native-middleware-headless-cover.webp 1376w" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" alt="" width="1376" height="768" loading="lazy" decoding="async" /></span>
+                        <span class="bcard__meta"><span>Ecommerce</span><span>11 min read</span></span>
+                        <h3 class="bcard__title">Decoupled Commerce Architecture: A Plain Guide</h3>
                     </a>
                 </li>
             </ul>
