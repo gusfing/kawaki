@@ -63,6 +63,10 @@ A production AI web search pipeline typically progresses through six distinct ar
 | **05** | Constrained Synthesis | LLM generates response constrained to ground truth context. | Clear entity definitions and declarative statements prevent hallucination. |
 | **06** | Source Attribution Mapping | Generated assertions mapped to URLs via citation mechanisms. | Direct, unambiguous factual matches receive linked footnote references. |
 
+![Technical flow of an AI search retrieval and citation pipeline from query fan-out to attribution check](/assets/images/blog/rag-citation-pipeline-diagram.webp)
+
+*Figure 1: The four operational phases of generative retrieval: query fan-out, candidate extraction, dense re-ranking, and extractive attribution verification.*
+
 ### Phase 1: Query Decomposition & Query Fan-Out
 When a user enters a complex prompt, such as *"What are the performance trade-offs of headless Shopify vs Liquid for an e-commerce store with 50,000 SKUs?"*, the AI engine does not submit that single sentence to its search index. Instead, it employs **query decomposition** (referred to in Google documentation as **query fan-out**).
 

@@ -66,6 +66,10 @@ Academic research into generative engine optimization, notably the Princeton GEO
 
 Our engineering team applies these four core architectural signals to client websites:
 
+![Generative engine optimization technical hierarchy pyramid across crawlability, semantic schema, and answer density](/assets/images/blog/geo-optimization-hierarchy-diagram.webp)
+
+*Figure 1: The Generative Engine Optimization technical hierarchy, from foundation crawlability to entity schema and direct answer density.*
+
 ### 1. Factual Density and Modular Groundability
 Large language models are trained to avoid hallucination by grounding generated text in retrieved context. Passages that contain concrete numbers, clear dates, precise specifications, and verified outcomes receive higher extraction scores than generic paragraphs. Structuring key insights into clean bulleted lists or concise definition summaries makes text modular and easily parseable.
 

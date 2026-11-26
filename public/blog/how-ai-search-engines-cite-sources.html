@@ -36,7 +36,7 @@
           "description": "How do AI engines decide which sources to cite? An architectural breakdown of RAG retrieval, query fan-out, citation authority, and GEO ranking signals.",
           "image": "https://kawaki.co.in/assets/images/blog/how-ai-search-engines-cite-sources-cover.jpg",
           "datePublished": "2026-11-26T15:33:22.000Z",
-          "dateModified": "2026-11-26T15:34:25.939Z",
+          "dateModified": "2026-11-26T19:14:50.567Z",
           "author": {
             "@type": "Person",
             "@id": "https://kawaki.co.in/about#founder",
@@ -319,6 +319,8 @@
 <td align="left">Direct, unambiguous factual matches receive linked footnote references.</td>
 </tr>
 </tbody></table>
+<p><img src="/assets/images/blog/rag-citation-pipeline-diagram.webp" alt="Technical flow of an AI search retrieval and citation pipeline from query fan-out to attribution check" /></p>
+<p><em>Figure 1: The four operational phases of generative retrieval: query fan-out, candidate extraction, dense re-ranking, and extractive attribution verification.</em></p>
 <h3 id="h-phase-1-query-decomposition-amp-query-fan-out">Phase 1: Query Decomposition &amp; Query Fan-Out</h3>
 <p>When a user enters a complex prompt, such as <em>"What are the performance trade-offs of headless Shopify vs Liquid for an e-commerce store with 50,000 SKUs?"</em>, the AI engine does not submit that single sentence to its search index. Instead, it employs <strong>query decomposition</strong> (referred to in Google documentation as <strong>query fan-out</strong>).</p>
 <p>The orchestrator breaks the complex query into several discrete searches executed in parallel:</p>

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" style="background:#23003F;font-family:'Bricolage Grotesque',sans-serif;">
+  <defs>
+    <style>
+      .title { font-size: 28px; font-weight: 700; fill: #FFFDB4; letter-spacing: -0.02em; }
+      .subtitle { font-size: 14px; font-family: 'Geist Mono', monospace; fill: #BCACCE; letter-spacing: 0.08em; text-transform: uppercase; }
+      .stage-num { font-family: 'Geist Mono', monospace; font-size: 11px; fill: #F94500; font-weight: 700; }
+      .stage-title { font-size: 17px; font-weight: 700; fill: #FFFDB4; }
+      .stage-desc { font-size: 12.5px; fill: #BCACCE; line-height: 1.45; }
+      .mono-tag { font-family: 'Geist Mono', monospace; font-size: 10px; fill: #BCACCE; letter-spacing: 0.04em; }
+      .step-card { fill: #2E0B4F; stroke: #3E1268; stroke-width: 1.5; rx: 6px; }
+      .step-highlight { fill: #2A0949; stroke: #F94500; stroke-width: 2; rx: 6px; }
+      .connector { stroke: #BCACCE; stroke-width: 2; stroke-dasharray: 4 4; fill: none; }
+      .connector-solid { stroke: #F94500; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#BCACCE" />
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#F94500" />
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="60" y="55" class="subtitle">Retrieval Architecture</text>
+  <text x="60" y="92" class="title">How AI Search Engines Retrieve, Re-Rank, and Cite Web Pages</text>
+
+  <!-- Divider Line -->
+  <line x1="60" y1="120" x2="1140" y2="120" stroke="#3E1268" stroke-width="1.5" />
+
+  <!-- 4 Horizontal Pipeline Stages -->
+
+  <!-- STAGE 1: User Prompt & Decomposition -->
+  <g transform="translate(60, 155)">
+    <rect x="0" y="0" width="245" height="450" class="step-card" />
+    <rect x="20" y="20" width="85" height="22" rx="4" fill="#18002C" />
+    <text x="30" y="35" class="stage-num">PHASE 01</text>
+    <text x="20" y="72" class="stage-title">Query Fan-Out</text>
+    <text x="20" y="100" class="stage-desc">The user's prompt is broken into multiple sub-queries to gather distinct factual angles.</text>
+
+    <!-- Sub-elements -->
+    <rect x="18" y="160" width="209" height="65" rx="4" fill="#18002C" stroke="#3E1268" />
+    <text x="30" y="185" class="box-title" fill="#FFFDB4" font-size="13">User Query Input</text>
+    <text x="30" y="208" class="mono-tag">Complex natural prompt</text>
+
+    <rect x="18" y="240" width="209" height="75" rx="4" fill="#18002C" stroke="#3E1268" />
+    <text x="30" y="265" class="box-title" fill="#FFFDB4" font-size="13">Sub-Query Generation</text>
+    <text x="30" y="287" class="mono-tag">3 to 6 parallel search terms</text>
+    <text x="30" y="303" class="mono-tag">Entity disambiguation</text>
+
+    <rect x="18" y="330" width="209" height="85" rx="4" fill="#18002C" stroke="#3E1268" />
+    <text x="30" y="355" class="box-title" fill="#FFFDB4" font-size="13">Search Dispatch</text>
+    <text x="30" y="377" class="mono-tag">Web index fetch</text>
+    <text x="30" y="393" class="mono-tag">Real-time web retrieval</text>
+  </g>
+
+  <!-- Connection 1 -> 2 -->
+  <path d="M 305 380 L 350 380" class="connector" marker-end="url(#arrow)" />
+
+  <!-- STAGE 2: Multi-Source Retrieval -->
+  <g transform="translate(355, 155)">
+    <rect x="0" y="0" width="245" height="450" class="step-card" />
+    <rect x="20" y="20" width="85" height="22" rx="4" fill="#18002C" />
+    <text x="30" y="35" class="stage-num">PHASE 02</text>
+    <text x="20" y="72" class="stage-title">Candidate Fetch</text>
+    <text x="20" y="100" class="stage-desc">Top 30 to 50 URLs fetched, parsed into text chunks, and stripped of layout boilerplate.</text>
+
+    <!-- Sub-elements -->
+    <rect x="18" y="160" width="209" height="75" rx="4" fill="#18002C" stroke="#3E1268" />
+    <text x="30" y="185" class="box-title" fill="#FFFDB4" font-size="13">Raw HTML Cleaning</text>
+    <text x="30" y="207" class="mono-tag">Stripping nav, footer, ads</text>
+    <text x="30" y="223" class="mono-tag">Semantic article extraction</text>
+
+    <rect x="18" y="250" width="209" height="75" rx="4" fill="#18002C" stroke="#3E1268" />
+    <text x="30" y="275" class="box-title" fill="#FFFDB4" font-size="13">Chunk Partitioning</text>
+    <text x="30" y="297" class="mono-tag">200-400 token passages</text>
+    <text x="30" y="313" class="mono-tag">Heading boundary awareness</text>
+
+    <rect x="18" y="340" width="209" height="75" rx="4" fill="#18002C" stroke="#3E1268" />
+    <text x="30" y="365" class="box-title" fill="#FFFDB4" font-size="13">Sparse + Dense Match</text>
+    <text x="30" y="387" class="mono-tag">BM25 lexical overlap</text>
+    <text x="30" y="403" class="mono-tag">Embedding similarity score</text>
+  </g>
+
+  <!-- Connection 2 -> 3 -->
+  <path d="M 600 380 L 645 380" class="connector" marker-end="url(#arrow)" />
+
+  <!-- STAGE 3: Cross-Encoder Reranking -->
+  <g transform="translate(650, 155)">
+    <rect x="0" y="0" width="245" height="450" class="step-card" />
+    <rect x="20" y="20" width="85" height="22" rx="4" fill="#18002C" />
+    <text x="30" y="35" class="stage-num">PHASE 03</text>
+    <text x="20" y="72" class="stage-title">Dense Re-Ranking</text>
+    <text x="20" y="100" class="stage-desc">Cross-encoders score candidate passages against query intent to isolate the top 5 to 10 facts.</text>
+
+    <!-- Sub-elements -->
+    <rect x="18" y="160" width="209" height="75" rx="4" fill="#18002C" stroke="#3E1268" />
+    <text x="30" y="185" class="box-title" fill="#FFFDB4" font-size="13">Relevance Scoring</text>
+    <text x="30" y="207" class="mono-tag">Joint query-passage attention</text>
+    <text x="30" y="223" class="mono-tag">Information density check</text>
+
+    <rect x="18" y="250" width="209" height="75" rx="4" fill="#18002C" stroke="#3E1268" />
+    <text x="30" y="275" class="box-title" fill="#FFFDB4" font-size="13">Passage Truncation</text>
+    <text x="30" y="297" class="mono-tag">Discard low-signal fluff</text>
+    <text x="30" y="313" class="mono-tag">Top 5-8 context windows</text>
+
+    <rect x="18" y="340" width="209" height="75" rx="4" fill="#18002C" stroke="#3E1268" />
+    <text x="30" y="365" class="box-title" fill="#FFFDB4" font-size="13">Context Assembly</text>
+    <text x="30" y="387" class="mono-tag">Prompt context injection</text>
+    <text x="30" y="403" class="mono-tag">Origin metadata binding</text>
+  </g>
+
+  <!-- Connection 3 -> 4 -->
+  <path d="M 895 380 L 940 380" class="connector-solid" marker-end="url(#arrow-red)" />
+
+  <!-- STAGE 4: Synthesis & Attribution (HIGHLIGHTED) -->
+  <g transform="translate(945, 155)">
+    <rect x="0" y="0" width="195" height="450" class="step-highlight" />
+    <rect x="20" y="20" width="85" height="22" rx="4" fill="#F94500" />
+    <text x="30" y="35" class="stage-num" fill="#FFFDB4">PHASE 04</text>
+    <text x="20" y="72" class="stage-title">Attribution</text>
+    <text x="20" y="100" class="stage-desc">LLM writes the synthesis and attaches clickable source citations to corroborated claims.</text>
+
+    <!-- Sub-elements -->
+    <rect x="14" y="160" width="167" height="80" rx="4" fill="#18002C" stroke="#F94500" />
+    <text x="24" y="185" class="box-title" fill="#FFFDB4" font-size="13">Direct Synthesis</text>
+    <text x="24" y="207" class="mono-tag">Concise prose output</text>
+    <text x="24" y="223" class="mono-tag">Factual extraction</text>
+
+    <rect x="14" y="255" width="167" height="85" rx="4" fill="#18002C" stroke="#F94500" />
+    <text x="24" y="280" class="box-title" fill="#FFFDB4" font-size="13">Attribution Check</text>
+    <text x="24" y="302" class="mono-tag">NLI entailment test</text>
+    <text x="24" y="318" class="mono-tag">Corroboration match</text>
+
+    <rect x="14" y="355" width="167" height="65" rx="4" fill="#F94500" />
+    <text x="24" y="380" class="box-title" fill="#FFFDB4" font-size="13">Cited Source [1]</text>
+    <text x="24" y="402" class="mono-tag" fill="#FFFDB4">Direct URL link displayed</text>
+  </g>
+</svg>

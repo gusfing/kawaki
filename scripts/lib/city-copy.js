@@ -62,6 +62,21 @@ function cityServiceCopy(entry) {
   const n = `${noun} for ${city} businesses`;
   const c = SC.COPY[g](N, n, '');
   const faqs = c.faqs.slice(0, 3).concat([{ q: `Do you have an office in ${city}?`, a: office(city, noun) }]);
+  if (city === 'Gurgaon' && entry.service === 'Web Development Company') {
+    faqs.push({
+      q: 'How does Kawaki Studios compare to traditional IT companies in Gurgaon?',
+      a: 'Many IT companies in Gurgaon and Udyog Vihar operate as staffing agencies or rely on bought templates. Kawaki Studios is an independent web engineering studio. You work directly with the developers writing your code, with no account managers, no page builders, and complete Git repository ownership at launch.'
+    });
+    faqs.push({
+      q: 'Can you build custom Shopify and WordPress platforms for Gurgaon companies?',
+      a: 'Yes. We engineer custom Shopify stores and headless commerce frontends, as well as lightweight WordPress platforms with custom blocks rather than sluggish page builders.'
+    });
+  } else if (city === 'Gurgaon' && entry.service === 'Mobile App Development Company') {
+    faqs.push({
+      q: 'Do you build Android and iOS apps for companies in Cyber City and Udyog Vihar?',
+      a: 'Yes. We engineer cross-platform mobile apps using Flutter and React Native, as well as native Swift and Kotlin applications, deployed directly under your company developer accounts.'
+    });
+  }
   return {
     section1Title: `${cap(noun)} in ${city}`,
     overviewParagraph: c.overview,

@@ -63,6 +63,10 @@ Decoupled commerce focuses on a lean, static front end communicating directly wi
 * **Core Advantages:** Sub-100ms page delivery directly from global edge caches, total freedom from theme constraints, superior Core Web Vitals, and resilience against server crashes during flash sales.
 * **Key Limitations:** Requires custom front end development, eliminates automatic point-and-click plugin installation, and demands structured staging workflows for marketing updates.
 
+![Architecture comparison between native monolithic Liquid and decoupled storefront](/assets/images/blog/decoupled-commerce-architecture-diagram.webp)
+
+*Figure 1: Comparison of native monolithic Liquid execution versus a decoupled storefront consuming structured data over APIs.*
+
 ### Architectural Comparison Summary
 
 | Metric | Native Commerce (Liquid / Themes) | Middleware Architecture | Decoupled Commerce Architecture |
