@@ -802,8 +802,14 @@ async function runRadar(options = {}) {
   }
   generatedTitle = sanitizeText(generatedTitle);
 
-  // Slug generation
-  const slug = slugify(`${primaryKeyword}-${newsItem.title.slice(0, 25)}`);
+  // Slug generation from news topic (4 to 7 words, clean word boundaries, no keyword prepending)
+  const cleanWords = sanitizeText(newsItem.title)
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '')
+    .split(/\s+/)
+    .filter(w => !['the', 'a', 'an', 'and', 'or', 'to', 'for', 'in', 'on', 'with', 'of', 'this', 'that'].includes(w))
+    .slice(0, 6);
+  const slug = cleanWords.length >= 3 ? cleanWords.join('-') : slugify(newsItem.title.slice(0, 45));
 
   // Hook angle
   const hookAngle = buildHookAngle(newsItem, tax);

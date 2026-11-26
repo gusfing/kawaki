@@ -32,8 +32,9 @@ const SEO_TITLES = {
   'what-should-website-maintenance-agreement-include': 'Website Maintenance Agreement SLA Guide',
   'what-is-ai-automation-examples-for-small-businesses': 'What Is AI Automation? Small Business Guide',
   'white-label-web-development-agency-partnerships': 'White-Label Web Development for Agencies',
-  'ai-agent-development-services-walmart-teams-up-with-met': 'AI Agent Development: Walmart and Meta',
-  'ai-agent-development-services-want-to-buy-your-kid-an-a': 'AI Agent Development and Automation Trends'
+  'enterprise-ai-agents-walmart-meta': 'Enterprise AI Agents: Walmart and Meta Case Study',
+  'google-project-mariner-autonomous-agents': 'Google Project Mariner & Autonomous Agents Analysis',
+  'hardware-ai-agents-safety-and-architecture': 'Hardware AI Agents: Safety & Architectural Isolation'
 };
 
 const readTime = a => Math.max(4, Math.ceil(String(a.content || '').split(/\s+/).filter(Boolean).length / 200));

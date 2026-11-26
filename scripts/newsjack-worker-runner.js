@@ -113,7 +113,7 @@ excerpt: "A practical technical analysis on ${primaryKeyword}, exploring archite
 seoDescription: "Explore ${primaryKeyword} with clear technical guidance, architecture choices, real pricing, and production considerations from Kawaki Studios in New Delhi."
 tags: ["Web Development", "Engineering", "Architecture", "Guides"]
 featuredImage: "/assets/images/about_hero_bg.jpg"
-status: "published"
+status: "draft"
 ---
 
 # ${title}
