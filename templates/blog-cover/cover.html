@@ -8,70 +8,482 @@
   @font-face { font-family: 'Bricolage'; src: url('../../public/assets/fonts/bricolage-display.woff2') format('woff2'); font-weight: 640 800; font-stretch: 75% 92%; }
   @font-face { font-family: 'Bricolage'; src: url('../../public/assets/fonts/bricolage-text.woff2') format('woff2'); font-weight: 400 639; font-stretch: 88% 100%; }
   @font-face { font-family: 'Geist Mono'; src: url('../../public/assets/fonts/geist-mono-400_600-normal.woff2') format('woff2'); font-weight: 400 600; }
-  :root { --indigo: #23003F; --red: #F94500; --yellow: #FFFDB4; --lilac: #BCACCE; --raised: #2E0B4F; }
-  html, body { margin: 0; }
-  body { width: 1376px; height: 768px; overflow: hidden; position: relative; background: var(--indigo); color: var(--yellow); font-family: 'Bricolage', system-ui, sans-serif; }
-  .meta { position: absolute; left: 64px; top: 56px; display: flex; gap: 18px; font: 500 17px/1 'Geist Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lilac); }
-  .meta b { color: var(--red); font-weight: 500; }
-  .title { position: absolute; left: 60px; bottom: 112px; width: 780px; margin: 0; font-weight: 790; font-stretch: 82%; line-height: 0.95; letter-spacing: -0.032em; text-wrap: balance; }
-  .strip { position: absolute; left: 64px; right: 64px; bottom: 44px; display: flex; align-items: center; gap: 18px; padding-top: 20px; border-top: 1.5px solid rgba(188, 172, 206, 0.35); font: 500 16px/1 'Geist Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; overflow: hidden; }
+  :root {
+    --indigo: #23003F;
+    --red: #F94500;
+    --yellow: #FFFDB4;
+    --lilac: #BCACCE;
+    --raised: #2E0B4F;
+    --deep: #18002C;
+    --line: rgba(188, 172, 206, 0.2);
+  }
+  html, body { margin: 0; padding: 0; width: 1376px; height: 768px; }
+  body {
+    width: 1376px;
+    height: 768px;
+    overflow: hidden;
+    position: relative;
+    background: var(--indigo);
+    color: var(--yellow);
+    font-family: 'Bricolage', system-ui, sans-serif;
+    box-sizing: border-box;
+  }
+
+  /* Architectural Grid Background */
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: 
+      linear-gradient(to right, rgba(188, 172, 206, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(188, 172, 206, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .grid-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 82% 32%, rgba(249, 69, 0, 0.08), transparent 62%);
+  }
+
+  /* Header Metadata */
+  .meta {
+    position: absolute;
+    left: 64px;
+    top: 56px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font: 500 15px/1 'Geist Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lilac);
+  }
+  .meta b { color: var(--red); font-weight: 600; }
+  .meta .sep { color: var(--line); }
+
+  /* Studio Coordinates Top Right */
+  .coord {
+    position: absolute;
+    right: 64px;
+    top: 56px;
+    font: 500 13px/1 'Geist Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lilac);
+    opacity: 0.85;
+  }
+  .coord span { color: var(--red); margin-right: 6px; }
+
+  /* Title Layout */
+  .title {
+    position: absolute;
+    left: 60px;
+    bottom: 112px;
+    width: 730px;
+    margin: 0;
+    font-weight: 790;
+    font-stretch: 82%;
+    line-height: 0.95;
+    letter-spacing: -0.032em;
+    text-wrap: balance;
+    color: var(--yellow);
+    z-index: 10;
+  }
+
+  /* Footer Ticker Strip */
+  .strip {
+    position: absolute;
+    left: 64px;
+    right: 64px;
+    bottom: 44px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 18px;
+    border-top: 1.5px solid var(--line);
+    font: 500 15px/1 'Geist Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 10;
+  }
   .strip .cut { color: var(--lilac); text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
   .strip .sep { color: var(--red); }
-  .strip .arrow { display: inline-block; width: 54px; height: 1.5px; background: var(--lilac); position: relative; }
+  .strip .arrow { display: inline-block; width: 44px; height: 1.5px; background: var(--lilac); position: relative; }
   .strip .arrow::after { content: ""; position: absolute; right: 0; top: -4px; width: 8px; height: 8px; border-top: 1.5px solid var(--lilac); border-right: 1.5px solid var(--lilac); transform: rotate(45deg); }
-  .art { position: absolute; right: 0; top: 0; width: 560px; height: 660px; }
-  .shape { position: absolute; }
-  .badge { border-radius: 50%; display: grid; place-items: center; }
-  .badge svg { width: 56%; height: 56%; }
-  .panel { background: var(--lilac); }
-  .ring { border-radius: 50%; border: 2px solid var(--lilac); }
-  .squiggle { color: var(--lilac); }
+
+  /* Visual Artifacts Container on the Right */
+  .art {
+    position: absolute;
+    right: 56px;
+    top: 100px;
+    width: 530px;
+    height: 540px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+
+  /* Card Container */
+  .v-card {
+    position: relative;
+    width: 490px;
+    background: var(--deep);
+    border: 1.5px solid rgba(188, 172, 206, 0.25);
+    border-radius: 8px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 253, 180, 0.05);
+    overflow: hidden;
+  }
+
+  /* Window Titlebar */
+  .v-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: #140024;
+    border-bottom: 1.5px solid rgba(188, 172, 206, 0.15);
+  }
+  .v-dots { display: flex; gap: 7px; }
+  .v-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .v-dot.red { background: var(--red); }
+  .v-dot.yellow { background: var(--yellow); opacity: 0.8; }
+  .v-dot.lilac { background: var(--lilac); opacity: 0.6; }
+  .v-filename {
+    font: 600 12px/1 'Geist Mono', monospace;
+    letter-spacing: 0.05em;
+    color: var(--lilac);
+  }
+  .v-status {
+    font: 500 10px/1 'Geist Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    background: rgba(249, 69, 0, 0.25);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(249, 69, 0, 0.4);
+  }
+
+  /* Terminal / Code Body */
+  .v-code {
+    padding: 20px 22px;
+    font: 500 13px/1.65 'Geist Mono', monospace;
+    color: #e2d9eb;
+    margin: 0;
+    tab-size: 2;
+  }
+  .v-code .kw { color: var(--red); font-weight: 600; }
+  .v-code .fn { color: var(--yellow); font-weight: 600; }
+  .v-code .str { color: #85d893; }
+  .v-code .cmt { color: rgba(188, 172, 206, 0.5); font-style: italic; }
+  .v-code .val { color: var(--yellow); }
+  .v-code .key { color: var(--lilac); }
+
+  /* Architecture Flow Diagram Layout */
+  .v-arch {
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .v-node {
+    background: #23003F;
+    border: 1.5px solid rgba(188, 172, 206, 0.25);
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .v-node.accent {
+    border-color: var(--red);
+    background: #280242;
+  }
+  .v-node-title {
+    font: 700 14px/1 'Bricolage', sans-serif;
+    color: var(--yellow);
+    letter-spacing: -0.01em;
+  }
+  .v-node-meta {
+    font: 500 11px/1 'Geist Mono', monospace;
+    color: var(--lilac);
+    margin-top: 4px;
+  }
+  .v-node-badge {
+    font: 600 10px/1 'Geist Mono', monospace;
+    padding: 3px 7px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  .v-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12px;
+    position: relative;
+  }
+  .v-connector::before {
+    content: "";
+    width: 2px;
+    height: 100%;
+    border-left: 1.5px dashed var(--lilac);
+  }
+
+  /* Telemetry / Metric Grid */
+  .v-telemetry {
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .v-metric {
+    background: #23003F;
+    border: 1px solid rgba(188, 172, 206, 0.2);
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .v-metric-label {
+    font: 500 11px/1 'Geist Mono', monospace;
+    color: var(--lilac);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .v-metric-val {
+    font: 780 28px/1.1 'Bricolage', sans-serif;
+    color: var(--yellow);
+    margin-top: 8px;
+  }
+  .v-metric-val.red { color: var(--red); }
+  .v-metric-status {
+    font: 500 10px/1 'Geist Mono', monospace;
+    color: #85d893;
+    margin-top: 4px;
+  }
+
+  /* Floating Badges Overlapping Cards */
+  .badge-overlap {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    z-index: 15;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  }
+  .badge-overlap.red { background: var(--red); color: var(--indigo); }
+  .badge-overlap.yellow { background: var(--yellow); color: var(--indigo); }
+  .badge-overlap svg { width: 56%; height: 56%; }
+
 </style>
 </head>
 <body>
-  <p class="meta"><b>Kawaki Studios</b><span>Blog</span><span id="topic"></span></p>
+  <div class="grid-bg"></div>
+  <p class="meta"><b>Kawaki Studios</b><span class="sep">/</span><span>Engineering Insight</span><span class="sep">/</span><span id="topic"></span></p>
+  <div class="coord"><span>●</span>ENGINEERING SPEC // 2026</div>
   <h1 class="title" id="title"></h1>
   <div class="art" id="art"></div>
   <div class="strip" id="strip"></div>
+
 <script>
   const q = new URLSearchParams(location.search);
   const title = q.get('t') || 'Untitled';
   const topic = q.get('k') || 'Engineering';
-  let seed = 0; for (const ch of (q.get('s') || title)) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
-  const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  const slug = (q.get('s') || '').toLowerCase();
+  
   document.getElementById('topic').textContent = topic;
   const h = document.getElementById('title');
   h.textContent = title;
-  // Fit the title: as large as possible inside 780 x 470.
-  let size = 132;
+  
+  // Title sizing
+  let size = 120;
   h.style.fontSize = size + 'px';
-  while ((h.scrollHeight > 470 || h.scrollWidth > 790) && size > 52) { size -= 4; h.style.fontSize = size + 'px'; }
+  while ((h.scrollHeight > 450 || h.scrollWidth > 740) && size > 46) {
+    size -= 4;
+    h.style.fontSize = size + 'px';
+  }
 
   const ASTERISK = '<svg viewBox="0 0 40 40"><path d="M20 6v28M8 13l24 14M8 27l24-14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>';
   const SPARK = '<svg viewBox="0 0 40 40"><path d="M20 4c1.6 9.4 6.6 14.4 16 16-9.4 1.6-14.4 6.6-16 16-1.6-9.4-6.6-14.4-16-16 9.4-1.6 14.4-6.6 16-16z" fill="currentColor"/></svg>';
-  const SQUIGGLE = '<svg viewBox="0 0 96 40"><path d="M4 30c8 0 9-24 18-24s9 24 18 24 9-12 16-12h34M80 9l11 9-11 9" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
   const art = document.getElementById('art');
-  const add = (cls, css, html) => { const d = document.createElement('div'); d.className = 'shape ' + cls; Object.assign(d.style, css); if (html) d.innerHTML = html; art.appendChild(d); };
-  const v = Math.floor(rnd() * 3);
-  const j = n => Math.round((rnd() - 0.5) * n);
-  if (v === 0) {
-    add('panel', { left: 150 + j(40) + 'px', top: 70 + j(30) + 'px', width: '330px', height: '420px' });
-    add('badge', { left: 70 + j(30) + 'px', top: 300 + j(50) + 'px', width: '220px', height: '220px', background: 'var(--red)', color: 'var(--indigo)' }, ASTERISK);
-    add('badge', { left: 380 + j(20) + 'px', top: 40 + j(30) + 'px', width: '110px', height: '110px', background: 'var(--indigo)', color: 'var(--yellow)' }, SPARK);
-  } else if (v === 1) {
-    add('ring', { left: 90 + j(40) + 'px', top: 60 + j(40) + 'px', width: '400px', height: '400px' });
-    add('badge', { left: 230 + j(40) + 'px', top: 190 + j(40) + 'px', width: '250px', height: '250px', background: 'var(--red)', color: 'var(--indigo)' }, SPARK);
-    add('squiggle', { left: 40 + j(20) + 'px', top: 470 + j(30) + 'px', width: '230px', height: '96px' }, SQUIGGLE);
-  } else {
-    add('panel', { left: 60 + j(30) + 'px', top: 130 + j(40) + 'px', width: '440px', height: '260px' });
-    add('badge', { left: 330 + j(30) + 'px', top: 40 + j(30) + 'px', width: '180px', height: '180px', background: 'var(--red)', color: 'var(--indigo)' }, ASTERISK);
-    add('badge', { left: 120 + j(30) + 'px', top: 340 + j(30) + 'px', width: '130px', height: '130px', background: 'var(--yellow)', color: 'var(--indigo)' }, SPARK);
+
+  // Intelligent Component Generator Based on Subject Matter
+  function renderVisual() {
+    const isAi = slug.includes('ai') || slug.includes('rag') || slug.includes('cite') || slug.includes('geo') || slug.includes('search') || slug.includes('agent');
+    const isShopify = slug.includes('shopify') || slug.includes('commerce') || slug.includes('decoupled') || slug.includes('liquid') || slug.includes('migration') || slug.includes('apps-vs');
+    const isSecurity = slug.includes('malware') || slug.includes('redirect') || slug.includes('hack') || slug.includes('backdoor') || slug.includes('japanese');
+    const isNext = slug.includes('nextjs') || slug.includes('server-vs-client') || slug.includes('state-management');
+
+    if (isAi) {
+      // Archetype 1: AI, RAG & Search Retrieval Pipeline
+      art.innerHTML = `
+        <div class="v-card">
+          <div class="v-titlebar">
+            <div class="v-dots"><div class="v-dot red"></div><div class="v-dot yellow"></div><div class="v-dot lilac"></div></div>
+            <span class="v-filename">rag-attribution-pipeline.ts</span>
+            <span class="v-status">RAG 04 // ACTIVE</span>
+          </div>
+          <pre class="v-code">
+<span class="kw">async function</span> <span class="fn">resolveCitations</span>(query: <span class="str">Prompt</span>) {
+  <span class="cmt">// 1. Multi-query fan-out &amp; dense fetch</span>
+  <span class="kw">const</span> chunks = <span class="kw">await</span> <span class="fn">retrieveContext</span>(query);
+  
+  <span class="cmt">// 2. Cross-encoder re-ranking &amp; pruning</span>
+  <span class="kw">const</span> ranked = <span class="fn">crossEncoder</span>(chunks, { <span class="key">topK</span>: <span class="val">5</span> });
+  
+  <span class="cmt">// 3. Extractive NLI attribution check</span>
+  <span class="kw">const</span> verified = <span class="fn">verifyEntailment</span>(claim, ranked);
+  <span class="kw">return</span> { <span class="key">sourceUrl</span>: verified.url, <span class="key">score</span>: <span class="val">0.984</span> };
+}</pre>
+        </div>
+        <div class="badge-overlap red" style="bottom: 40px; right: 20px;">
+          ${ASTERISK}
+        </div>
+      `;
+    } else if (isShopify) {
+      // Archetype 2: Decoupled Headless Commerce Architecture
+      art.innerHTML = `
+        <div class="v-card">
+          <div class="v-titlebar">
+            <div class="v-dots"><div class="v-dot red"></div><div class="v-dot yellow"></div><div class="v-dot lilac"></div></div>
+            <span class="v-filename">storefront-topology.yml</span>
+            <span class="v-status">HEADLESS // EDGE</span>
+          </div>
+          <div class="v-arch">
+            <div class="v-node accent">
+              <div>
+                <div class="v-node-title">Edge-Deployed Front End (Next.js)</div>
+                <div class="v-node-meta">Sub-100ms global cache · Zero Liquid bloat</div>
+              </div>
+              <span class="v-node-badge" style="background:#F94500;color:#FFFDB4">EDGE</span>
+            </div>
+            <div class="v-connector"></div>
+            <div class="v-node">
+              <div>
+                <div class="v-node-title">GraphQL Storefront API Gateway</div>
+                <div class="v-node-meta">Token-authenticated catalog queries · Cart mutations</div>
+              </div>
+              <span class="v-node-badge" style="background:#2E0B4F;color:#BCACCE">REST/GQL</span>
+            </div>
+            <div class="v-connector"></div>
+            <div class="v-node">
+              <div>
+                <div class="v-node-title">Shopify Commerce Core &amp; Checkout</div>
+                <div class="v-node-meta">PCI-DSS Level 1 compliant payments · Order fulfillment</div>
+              </div>
+              <span class="v-node-badge" style="background:#18002C;color:#85d893">SECURE</span>
+            </div>
+          </div>
+        </div>
+        <div class="badge-overlap yellow" style="top: 30px; right: 15px;">
+          ${SPARK}
+        </div>
+      `;
+    } else if (isSecurity) {
+      // Archetype 3: Security & Forensic Audit Terminal
+      art.innerHTML = `
+        <div class="v-card">
+          <div class="v-titlebar">
+            <div class="v-dots"><div class="v-dot red"></div><div class="v-dot yellow"></div><div class="v-dot lilac"></div></div>
+            <span class="v-filename">security-audit.sh</span>
+            <span class="v-status" style="background:rgba(255,253,180,0.15);color:var(--yellow);border-color:var(--yellow)">ISOLATION PASS</span>
+          </div>
+          <pre class="v-code">
+<span class="cmt"># Checking database and core file checksums...</span>
+<span class="kw">$</span> kawaki-audit --scan-backdoors
+<span class="str">&gt; Scanned 14,821 files against official core hashes</span>
+<span class="str">&gt; [CLEANED] Removed eval(base64_decode) in header.php</span>
+<span class="str">&gt; [PURGED] Neutralized rogue admin: db_sys_worker</span>
+
+<span class="kw">$</span> test-cloaking --user-agent="Googlebot-Mobile"
+<span class="val">&gt; STATUS: 200 OK (Malicious conditional redirect resolved)</span>
+<span class="val">&gt; Server permissions hardened: chmod 440 wp-config.php</span></pre>
+        </div>
+        <div class="badge-overlap red" style="bottom: 30px; left: 10px;">
+          ${ASTERISK}
+        </div>
+      `;
+    } else if (isNext) {
+      // Archetype 4: Next.js Server Components & Boundary Architecture
+      art.innerHTML = `
+        <div class="v-card">
+          <div class="v-titlebar">
+            <div class="v-dots"><div class="v-dot red"></div><div class="v-dot yellow"></div><div class="v-dot lilac"></div></div>
+            <span class="v-filename">app/catalog/page.tsx</span>
+            <span class="v-status">SERVER COMPONENT</span>
+          </div>
+          <pre class="v-code">
+<span class="cmt">// Edge server runtime with zero client JS weight</span>
+<span class="kw">export default async function</span> <span class="fn">CatalogPage</span>() {
+  <span class="kw">const</span> data = <span class="kw">await</span> <span class="fn">fetchStorefront</span>({
+    <span class="key">revalidate</span>: <span class="val">3600</span>, <span class="key">tags</span>: [<span class="str">'products'</span>]
+  });
+
+  <span class="kw">return</span> (
+    <span class="str">&lt;Shell&gt;</span>
+      <span class="str">&lt;ServerHero</span> <span class="key">title</span>=<span class="val">{data.hero}</span> <span class="str">/&gt;</span>
+      <span class="cmt">{/* Interactive island boundary */}</span>
+      <span class="str">&lt;ClientFilter</span> <span class="key">facets</span>=<span class="val">{data.facets}</span> <span class="str">/&gt;</span>
+    <span class="str">&lt;/Shell&gt;</span>
+  );
+}</pre>
+        </div>
+        <div class="badge-overlap yellow" style="bottom: 35px; right: 25px;">
+          ${SPARK}
+        </div>
+      `;
+    } else {
+      // Archetype 5: Telemetry & Core Web Vitals Performance Dashboard
+      art.innerHTML = `
+        <div class="v-card">
+          <div class="v-titlebar">
+            <div class="v-dots"><div class="v-dot red"></div><div class="v-dot yellow"></div><div class="v-dot lilac"></div></div>
+            <span class="v-filename">production-telemetry.json</span>
+            <span class="v-status">AUDIT 100/100</span>
+          </div>
+          <div class="v-telemetry">
+            <div class="v-metric">
+              <div class="v-metric-label">Largest Paint (LCP)</div>
+              <div class="v-metric-val">0.68s</div>
+              <div class="v-metric-status">✓ Target: &lt; 2.5s</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">Interaction (INP)</div>
+              <div class="v-metric-val">28ms</div>
+              <div class="v-metric-status">✓ Target: &lt; 200ms</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">Cumulative Shift</div>
+              <div class="v-metric-val">0.00</div>
+              <div class="v-metric-status">✓ Zero layout shift</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">Server TTFB</div>
+              <div class="v-metric-val red">42ms</div>
+              <div class="v-metric-status">✓ Edge cache hit</div>
+            </div>
+          </div>
+        </div>
+        <div class="badge-overlap red" style="bottom: 35px; right: 25px;">
+          ${ASTERISK}
+        </div>
+      `;
+    }
   }
-  // Strip of kept and struck words, the homepage motif.
+
+  renderVisual();
+
+  // Strip of kept and struck words
   const words = (q.get('w') || 'Plain words|cut:Filler|Real work|cut:Templates').split('|');
   document.getElementById('strip').innerHTML = words.map(w => w.startsWith('cut:')
     ? `<span class="cut">${w.slice(4)}</span><span class="arrow"></span>`
     : `<span>${w}</span><span class="sep">&#10035;</span>`).join('');
+
   document.body.dataset.ready = '1';
 </script>
 </body>
