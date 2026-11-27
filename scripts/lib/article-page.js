@@ -34,7 +34,8 @@ const SEO_TITLES = {
   'white-label-web-development-agency-partnerships': 'White-Label Web Development for Agencies',
   'enterprise-ai-agents-walmart-meta': 'Enterprise AI Agents: Walmart and Meta Case Study',
   'google-project-mariner-autonomous-agents': 'Google Project Mariner & Autonomous Agents Analysis',
-  'hardware-ai-agents-safety-and-architecture': 'Hardware AI Agents: Safety & Architectural Isolation'
+  'hardware-ai-agents-safety-and-architecture': 'Hardware AI Agents: Safety & Architectural Isolation',
+  'how-to-outsource-web-development-to-india': 'How to Outsource Web Development to India'
 };
 
 const readTime = a => Math.max(4, Math.ceil(String(a.content || '').split(/\s+/).filter(Boolean).length / 200));

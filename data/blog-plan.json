@@ -3,18 +3,6 @@
   "frontmatterNote": "Add primaryKeyword to each post's frontmatter. Use a short title (under 60 characters) that starts with, or clearly contains, the keyword.",
   "next": [
     {
-      "slug": "how-to-outsource-web-development-to-india",
-      "title": "How to Outsource Web Development to India",
-      "primaryKeyword": "outsource web development",
-      "volume": "1,000 (US)",
-      "kd": 20,
-      "linkTo": "/outsource-web-development",
-      "also": [
-        "offshore web development",
-        "hire web developers in india"
-      ]
-    },
-    {
       "slug": "technical-seo-checklist-for-a-business-website",
       "title": "Technical SEO Checklist for a Business Website",
       "primaryKeyword": "technical seo services",
@@ -152,6 +140,19 @@
   ],
   "alreadyQueuedNote": "The queued titles above have no measured search demand. Keep the first group; publish the low-priority group only after the 'next' list.",
   "done": [
+    {
+      "slug": "how-to-outsource-web-development-to-india",
+      "title": "How to Outsource Web Development to India",
+      "primaryKeyword": "outsource web development",
+      "volume": "1,000 (US)",
+      "kd": 20,
+      "linkTo": "/outsource-web-development",
+      "also": [
+        "offshore web development",
+        "hire web developers in india"
+      ],
+      "publishedAt": "2026-11-27T17:15:00.000Z"
+    },
     {
       "slug": "generative-engine-optimization-guide-for-business-websites",
       "title": "Generative Engine Optimization: A Plain Guide",
