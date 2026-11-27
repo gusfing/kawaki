@@ -122,10 +122,10 @@ function slugify(text) {
 
 const SERVICE_TAXONOMY = [
   {
-    category: 'generative-engine-optimization',
-    name: 'Generative Engine Optimization',
-    targetUrl: '/generative-engine-optimization',
-    primaryKeyword: 'generative engine optimization',
+    category: 'ai-search-optimization',
+    name: 'AI Search Optimization',
+    targetUrl: '/services/ai-search-optimization',
+    primaryKeyword: 'ai search optimization',
     also: ['geo for ai search', 'how ai search engines cite sources', 'ai search optimization services'],
     triggers: [
       'perplexity', 'chatgpt search', 'searchgpt', 'google ai overview', 'ai overview',

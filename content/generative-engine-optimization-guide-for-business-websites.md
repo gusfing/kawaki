@@ -19,7 +19,7 @@ This shift has created **generative engine optimization** (GEO), the technical d
 
 At [Kawaki Studios](/about), our development team in New Delhi works directly with business owners and engineering leaders. We engineer clean web platforms using lightweight static HTML, TypeScript, Next.js, and modern CSS variables. In this guide, we break down how generative engine optimization works under the hood, explore the architectural principles that influence AI citations, and outline the technical steps required to make your company visible across AI search engines.
 
-Explore our dedicated consulting framework on our [Generative Engine Optimization Agency](/generative-engine-optimization) page.
+Explore our dedicated consulting framework on our [AI Search Optimization Services](/services/ai-search-optimization) page.
 
 ---
 
